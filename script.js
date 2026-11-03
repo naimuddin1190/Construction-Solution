@@ -433,6 +433,140 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             'rp.inputs': 'Measurements',
             'rp.results': 'Results',
             'rp.3d': '3D preview',
+            "page.plan": "Floor Plan",
+            "plan.title": "Floor Plan — 2D & 3D",
+            "plan.sub": "Draw walls, rooms, doors and windows like CAD software — see it in 3D and get the material estimate automatically.",
+            "desc.plan": "Draw your house plan in 2D, walk around it in 3D and get bricks, cement, sand and tiles automatically.",
+            "nav.design": "Design",
+            "badge.new": "New",
+            "rp.plan2d": "Floor plan (2D)",
+            "fp.tools": "Drawing tools",
+            "fp.select": "Select",
+            "fp.pan": "Pan",
+            "fp.wall": "Wall",
+            "fp.room": "Room",
+            "fp.door": "Door",
+            "fp.window": "Window",
+            "fp.text": "Text",
+            "fp.dim": "Dimension",
+            "fp.furn": "Furniture",
+            "fp.erase": "Erase",
+            "fp.t.select": "Select & move (V)",
+            "fp.t.pan": "Pan the drawing (H or hold Space)",
+            "fp.t.wall": "Draw walls, click by click (W)",
+            "fp.t.room": "Rectangular room with 4 walls (R)",
+            "fp.t.door": "Put a door on a wall (D)",
+            "fp.t.window": "Put a window on a wall (N)",
+            "fp.t.text": "Add a text label (T)",
+            "fp.t.dim": "Dimension line (M)",
+            "fp.t.furn": "Place furniture (F)",
+            "fp.t.erase": "Click anything to erase it (E)",
+            "fp.h.select": "Tap an item to edit it · drag empty space to pan · wheel / pinch to zoom",
+            "fp.h.pan": "Drag to move the drawing · wheel / pinch to zoom",
+            "fp.h.wall": "Mortar ratio cement : sand (usually 1 : 4 or 1 : 6).",
+            "fp.h.room": "Click two opposite corners · or click once and type L x W",
+            "fp.h.door": "Click on a wall to put a door",
+            "fp.h.window": "Click on a wall to put a window",
+            "fp.h.text": "Click where the text should go",
+            "fp.h.dim": "Click the start, the end, then where the line should sit",
+            "fp.h.furn": "Choose an item, then click to place it",
+            "fp.h.erase": "Click an item to delete it",
+            "fp.undo": "Undo",
+            "fp.redo": "Redo",
+            "fp.fit": "Fit to screen",
+            "fp.view": "View",
+            "fp.file": "File",
+            "fp.sample": "Sample house",
+            "fp.new": "New plan",
+            "fp.open": "Open file (.json)",
+            "fp.save": "Save as file (.json)",
+            "fp.png": "Download image (PNG)",
+            "fp.canvas": "Floor plan drawing area",
+            "fp.estTitle": "Automatic estimate",
+            "fp.estHint": "Worked out from your drawing — it updates by itself. Change the ratios or prices if you like.",
+            "fp.estResult": "Estimate from the plan",
+            "fp.g.wall": "Brick walls",
+            "fp.g.plaster": "Wall plaster",
+            "fp.g.slab": "Roof slab (casting)",
+            "fp.g.tiles": "Floor tiles",
+            "fp.h.ratio": "Ratio cement : sand : khoa (usually 1 : 2 : 4).",
+            "fp.o.pThk": "(default 0.5\")",
+            "fp.o.sThk": "(default 5\")",
+            "fp.sides": "Plaster on",
+            "fp.both": "Both sides",
+            "fp.one": "One side",
+            "fp.none": "None",
+            "fp.include": "Include the slab?",
+            "fp.yes": "Yes",
+            "fp.no": "No",
+            "fp.noTiles": "No tiles",
+            "fp.tilePrice": "Tile price (per {area})",
+            "fp.f1": "Wall volume = (length × height − doors & windows) × thickness (in) ÷ 12",
+            "fp.f2": "Bricks = wall volume (cft) × {bricksPerCft}",
+            "fp.f3": "Wall mortar (dry) = wall volume × {wallDry}, split by the cement : sand ratio",
+            "fp.f4": "Plaster (dry) = net wall area × sides × thickness (in) ÷ 12 × {dry}",
+            "fp.f5": "Slab volume = total room area × slab thickness (in) ÷ 12; dry mix = volume × {dry}",
+            "fp.f6": "Cement bags = cement (cft) × {cementBag}",
+            "fp.f7": "Tiles = room area ÷ one tile area, plus wastage %",
+            "fp.roomN": "Room {n}",
+            "fp.empty": "Draw some walls or rooms to see the estimate.",
+            "fp.r.summary": "Plan summary",
+            "fp.r.rooms": "Rooms",
+            "fp.r.wallLen": "Total wall length",
+            "fp.r.doors": "Doors",
+            "fp.r.windows": "Windows",
+            "fp.r.doorWin": "Doors / windows",
+            "fp.r.netWall": "Net wall area (without openings)",
+            "fp.r.wallT": "{t} walls ({l})",
+            "fp.planSet": "Plan settings",
+            "fp.newWallT": "New walls",
+            "fp.wallT": "Wall thickness",
+            "fp.wallH": "Wall height",
+            "fp.snap": "Snap step",
+            "fp.snapOff": "Off",
+            "fp.ortho": "Straight angles (0° / 45° / 90°)",
+            "fp.showDims": "Show wall lengths",
+            "fp.typeHint": "While drawing a wall, just type a length (like 12'6 or 12 6) and press Enter.",
+            "fp.delete": "Delete",
+            "fp.cancel": "Cancel",
+            "fp.clear": "Clear the whole plan",
+            "fp.clearConfirm": "Clear the whole plan? This cannot be undone after you leave the page.",
+            "fp.sampleConfirm": "Replace your drawing with the sample house?",
+            "fp.addDoor": "Add door",
+            "fp.addWin": "Add window",
+            "fp.roomName": "Room name",
+            "fp.perim": "Perimeter",
+            "fp.delRoom": "Delete room",
+            "fp.delRoomHint": "Only the room (floor and name) is deleted — its walls stay.",
+            "fp.type": "Type",
+            "fp.opH": "Height",
+            "fp.sill": "Sill height (from floor)",
+            "fp.flipSide": "Flip side",
+            "fp.flipHinge": "Flip hinge",
+            "fp.textPrompt": "Text",
+            "fp.textSize": "Text size",
+            "fp.dimOff": "Distance from the object",
+            "fp.depth": "Depth",
+            "fp.rotate": "Rotate",
+            "fp.lenPrompt": "Wall length",
+            "fp.rectPrompt": "Length x Width",
+            "fp.needWall": "Click on a wall — doors and windows sit inside walls.",
+            "fp.badFile": "This file could not be opened as a floor plan.",
+            "fp.opened": "Plan opened",
+            "fp.f.bed": "Double bed",
+            "fp.f.sbed": "Single bed",
+            "fp.f.sofa": "Sofa",
+            "fp.f.dining": "Dining table",
+            "fp.f.chair": "Chair",
+            "fp.f.desk": "Desk",
+            "fp.f.wardrobe": "Wardrobe",
+            "fp.f.counter": "Kitchen counter",
+            "fp.f.fridge": "Fridge",
+            "fp.f.wc": "Toilet (WC)",
+            "fp.f.basin": "Wash basin",
+            "fp.f.shower": "Shower",
+            "fp.f.tub": "Bathtub",
+            "fp.f.stairs": "Stairs",
             'rp.made': 'Made with {site}',
             'lu.imperial': 'Imperial',
             'lu.metric': 'Metric (SI)',
@@ -976,6 +1110,140 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             'rp.inputs': 'মাপ',
             'rp.results': 'ফলাফল',
             'rp.3d': '৩ডি প্রিভিউ',
+            "page.plan": "ফ্লোর প্ল্যান",
+            "plan.title": "ফ্লোর প্ল্যান — ২ডি ও ৩ডি",
+            "plan.sub": "ক্যাড সফটওয়্যারের মতো দেয়াল, রুম, দরজা, জানালা আঁকুন — ৩ডি-তে দেখুন আর মালামালের হিসাব পান অটোমেটিক।",
+            "desc.plan": "বাড়ির নকশা ২ডি-তে আঁকুন, ৩ডি-তে ঘুরিয়ে দেখুন — ইট, সিমেন্ট, বালু, টাইলসের হিসাব অটোমেটিক।",
+            "nav.design": "ডিজাইন",
+            "badge.new": "নতুন",
+            "rp.plan2d": "ফ্লোর প্ল্যান (২ডি)",
+            "fp.tools": "আঁকার টুল",
+            "fp.select": "সিলেক্ট",
+            "fp.pan": "সরান",
+            "fp.wall": "দেয়াল",
+            "fp.room": "রুম",
+            "fp.door": "দরজা",
+            "fp.window": "জানালা",
+            "fp.text": "লেখা",
+            "fp.dim": "মাপের লাইন",
+            "fp.furn": "আসবাব",
+            "fp.erase": "মুছুন",
+            "fp.t.select": "সিলেক্ট ও সরানো (V)",
+            "fp.t.pan": "নকশা সরান (H বা Space চেপে ধরে)",
+            "fp.t.wall": "ক্লিক করে করে দেয়াল আঁকুন (W)",
+            "fp.t.room": "৪ দেয়ালসহ চারকোনা রুম (R)",
+            "fp.t.door": "দেয়ালে দরজা বসান (D)",
+            "fp.t.window": "দেয়ালে জানালা বসান (N)",
+            "fp.t.text": "লেখা যোগ করুন (T)",
+            "fp.t.dim": "মাপের লাইন (M)",
+            "fp.t.furn": "আসবাব বসান (F)",
+            "fp.t.erase": "যেটাতে ক্লিক করবেন মুছে যাবে (E)",
+            "fp.h.select": "এডিট করতে কোনো কিছুতে ট্যাপ করুন · ফাঁকা জায়গা টেনে সরান · হুইল / দুই আঙুলে জুম",
+            "fp.h.pan": "টেনে নকশা সরান · হুইল / দুই আঙুলে জুম",
+            "fp.h.wall": "মসলার অনুপাত সিমেন্ট : বালু (সাধারণত ১ : ৪ বা ১ : ৬)।",
+            "fp.h.room": "দুই বিপরীত কোণে ক্লিক করুন · বা একবার ক্লিক করে দৈর্ঘ্য x প্রস্থ টাইপ করুন",
+            "fp.h.door": "দরজা বসাতে দেয়ালে ক্লিক করুন",
+            "fp.h.window": "জানালা বসাতে দেয়ালে ক্লিক করুন",
+            "fp.h.text": "যেখানে লেখা বসবে সেখানে ক্লিক করুন",
+            "fp.h.dim": "শুরু, শেষ, তারপর লাইন কোথায় বসবে — ক্লিক করুন",
+            "fp.h.furn": "আসবাব বেছে নিয়ে ক্লিক করে বসান",
+            "fp.h.erase": "মুছতে কোনো কিছুতে ক্লিক করুন",
+            "fp.undo": "আগের অবস্থা",
+            "fp.redo": "আবার করুন",
+            "fp.fit": "স্ক্রিনে ফিট",
+            "fp.view": "ভিউ",
+            "fp.file": "ফাইল",
+            "fp.sample": "নমুনা বাড়ি",
+            "fp.new": "নতুন প্ল্যান",
+            "fp.open": "ফাইল খুলুন (.json)",
+            "fp.save": "ফাইল হিসেবে সেভ (.json)",
+            "fp.png": "ছবি ডাউনলোড (PNG)",
+            "fp.canvas": "ফ্লোর প্ল্যান আঁকার জায়গা",
+            "fp.estTitle": "অটোমেটিক হিসাব",
+            "fp.estHint": "আপনার নকশা থেকে হিসাব হচ্ছে — নিজে নিজেই আপডেট হয়। চাইলে অনুপাত বা দাম বদলান।",
+            "fp.estResult": "প্ল্যান থেকে হিসাব",
+            "fp.g.wall": "ইটের দেয়াল",
+            "fp.g.plaster": "দেয়ালের প্লাস্টার",
+            "fp.g.slab": "ছাদ ঢালাই",
+            "fp.g.tiles": "মেঝের টাইলস",
+            "fp.h.ratio": "অনুপাত সিমেন্ট : বালু : খোয়া (সাধারণত ১ : ২ : ৪)।",
+            "fp.o.pThk": "(না দিলে ০.৫\")",
+            "fp.o.sThk": "(না দিলে ৫\")",
+            "fp.sides": "প্লাস্টার হবে",
+            "fp.both": "দুই পাশে",
+            "fp.one": "এক পাশে",
+            "fp.none": "হবে না",
+            "fp.include": "ছাদ ঢালাই ধরবেন?",
+            "fp.yes": "হ্যাঁ",
+            "fp.no": "না",
+            "fp.noTiles": "টাইলস নয়",
+            "fp.tilePrice": "টাইলসের দাম (প্রতি {area})",
+            "fp.f1": "দেয়ালের আয়তন = (দৈর্ঘ্য × উচ্চতা − দরজা-জানালা) × পুরুত্ব (ইঞ্চি) ÷ ১২",
+            "fp.f2": "ইট = দেয়ালের আয়তন (ঘনফুট) × {bricksPerCft}",
+            "fp.f3": "দেয়ালের শুকনো মসলা = দেয়ালের আয়তন × {wallDry}, সিমেন্ট : বালু অনুপাতে ভাগ",
+            "fp.f4": "প্লাস্টারের শুকনো মসলা = দেয়ালের নিট ক্ষেত্রফল × পাশ × পুরুত্ব (ইঞ্চি) ÷ ১২ × {dry}",
+            "fp.f5": "ছাদের আয়তন = মোট রুমের ক্ষেত্রফল × পুরুত্ব (ইঞ্চি) ÷ ১২; শুকনো মসলা = আয়তন × {dry}",
+            "fp.f6": "সিমেন্টের ব্যাগ = সিমেন্ট (ঘনফুট) × {cementBag}",
+            "fp.f7": "টাইলস = রুমের ক্ষেত্রফল ÷ একটি টাইলসের ক্ষেত্রফল + অপচয় %",
+            "fp.roomN": "রুম {n}",
+            "fp.empty": "হিসাব দেখতে কিছু দেয়াল বা রুম আঁকুন।",
+            "fp.r.summary": "প্ল্যানের সারাংশ",
+            "fp.r.rooms": "রুম",
+            "fp.r.wallLen": "মোট দেয়ালের দৈর্ঘ্য",
+            "fp.r.doors": "দরজা",
+            "fp.r.windows": "জানালা",
+            "fp.r.doorWin": "দরজা / জানালা",
+            "fp.r.netWall": "দেয়ালের নিট ক্ষেত্রফল (দরজা-জানালা বাদে)",
+            "fp.r.wallT": "{t} দেয়াল ({l})",
+            "fp.planSet": "প্ল্যান সেটিংস",
+            "fp.newWallT": "নতুন দেয়াল",
+            "fp.wallT": "দেয়ালের পুরুত্ব",
+            "fp.wallH": "দেয়ালের উচ্চতা",
+            "fp.snap": "স্ন্যাপ ধাপ",
+            "fp.snapOff": "বন্ধ",
+            "fp.ortho": "সোজা কোণ (০° / ৪৫° / ৯০°)",
+            "fp.showDims": "দেয়ালের মাপ দেখাবে",
+            "fp.typeHint": "দেয়াল আঁকার সময় শুধু মাপ টাইপ করুন (যেমন 12'6 বা 12 6) তারপর Enter চাপুন।",
+            "fp.delete": "মুছুন",
+            "fp.cancel": "বাতিল",
+            "fp.clear": "পুরো প্ল্যান মুছুন",
+            "fp.clearConfirm": "পুরো প্ল্যান মুছে ফেলবেন? পেজ ছেড়ে গেলে আর ফেরানো যাবে না।",
+            "fp.sampleConfirm": "আপনার নকশার জায়গায় নমুনা বাড়ি বসবে?",
+            "fp.addDoor": "দরজা যোগ",
+            "fp.addWin": "জানালা যোগ",
+            "fp.roomName": "রুমের নাম",
+            "fp.perim": "পরিধি",
+            "fp.delRoom": "রুম মুছুন",
+            "fp.delRoomHint": "শুধু রুম (মেঝে ও নাম) মুছবে — দেয়াল থাকবে।",
+            "fp.type": "ধরন",
+            "fp.opH": "উচ্চতা",
+            "fp.sill": "মেঝে থেকে উচ্চতা (সিল)",
+            "fp.flipSide": "পাশ উল্টান",
+            "fp.flipHinge": "কব্জা উল্টান",
+            "fp.textPrompt": "লেখা",
+            "fp.textSize": "লেখার সাইজ",
+            "fp.dimOff": "বস্তু থেকে দূরত্ব",
+            "fp.depth": "গভীরতা",
+            "fp.rotate": "ঘোরান",
+            "fp.lenPrompt": "দেয়ালের দৈর্ঘ্য",
+            "fp.rectPrompt": "দৈর্ঘ্য x প্রস্থ",
+            "fp.needWall": "দেয়ালের উপর ক্লিক করুন — দরজা-জানালা দেয়ালেই বসে।",
+            "fp.badFile": "ফাইলটি ফ্লোর প্ল্যান হিসেবে খোলা যায়নি।",
+            "fp.opened": "প্ল্যান খোলা হয়েছে",
+            "fp.f.bed": "ডাবল খাট",
+            "fp.f.sbed": "সিঙ্গেল খাট",
+            "fp.f.sofa": "সোফা",
+            "fp.f.dining": "ডাইনিং টেবিল",
+            "fp.f.chair": "চেয়ার",
+            "fp.f.desk": "টেবিল (ডেস্ক)",
+            "fp.f.wardrobe": "আলমারি",
+            "fp.f.counter": "রান্নাঘরের কাউন্টার",
+            "fp.f.fridge": "ফ্রিজ",
+            "fp.f.wc": "কমোড",
+            "fp.f.basin": "বেসিন",
+            "fp.f.shower": "শাওয়ার",
+            "fp.f.tub": "বাথটাব",
+            "fp.f.stairs": "সিঁড়ি",
             'rp.made': '{site} দিয়ে তৈরি',
             'lu.imperial': 'ইম্পেরিয়াল (Imperial)',
             'lu.metric': 'মেট্রিক (Metric / SI)',
@@ -1266,6 +1534,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         { id: 'plaster', icon: 'fa-paint-roller',      keys: 'plaster প্লাস্টার' },
         { id: 'steel',   icon: 'fa-grip-lines',        keys: 'rod steel rebar roof রড স্টিল' },
         { id: 'tiles',   icon: 'fa-table-cells-large', keys: 'tiles floor টাইলস' },
+        { id: 'plan',    icon: 'fa-compass-drafting',  keys: 'floor plan cad autocad design drawing house map নকশা ফ্লোর প্ল্যান বাড়ির' },
         { id: 'about',   icon: 'fa-circle-info',       keys: 'about developer আমাদের' },
         { id: 'review',  icon: 'fa-star',              keys: 'review rating feedback contact রিভিউ রেটিং মতামত যোগাযোগ' },
         { id: 'admin',   icon: 'fa-gauge-high' },
@@ -1354,6 +1623,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
 
         TILES.renumber();
         COLS.relabel();
+        PLAN.relabel();
         updateTopbar();
         $$('[data-search]').forEach((w) => { if ($('input', w).value.trim()) w._run(); });
     }
@@ -1545,7 +1815,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
     /* =========================================================
        Site-wide settings from the admin (visibility, banner, prices…)
        ========================================================= */
-    const CALC_IDS = ['roof', 'column', 'wall', 'plaster', 'steel', 'tiles'];
+    const CALC_IDS = ['roof', 'column', 'wall', 'plaster', 'steel', 'tiles', 'plan'];
     const calcOn = (id) => SITE.calculators[id] !== false;
 
     function applySiteUi() {
@@ -2231,6 +2501,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         $$('[data-search]').forEach((w) => w._hide());
         window.scrollTo(0, 0);
         VIZ.show(id);
+        if (id === 'plan') PLAN.show();
         if (id === 'admin') ADMIN.fill();
     }
     window.addEventListener('hashchange', route);
@@ -2501,6 +2772,22 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 if (r.value != null) write(inp, toInches(inp, r.value));
             });
         }
+        // plan lengths (feet) in the chosen unit: 12'-6", 3.81 m …
+        function fmtInches(inches) {
+            const combo = COMBOS[unit];
+            if (combo) {
+                const neg = inches < 0 ? '−' : '';
+                const { a, b } = split(Math.abs(inches), combo);
+                const bb = +b.toFixed(1);
+                if (!a) return `${neg}${numPlain(bb)}"`;
+                return `${neg}${numPlain(a)}'-${numPlain(bb)}"`;
+            }
+            return `${numPlain(+(inches / IN_PER[unit]).toFixed(Math.min(PREC[unit], 2)))} ${t(UNIT_KEY[unit])}`;
+        }
+        const fmt = (ft) => fmtInches(ft * 12);
+        const fmtIn = (inch) => (unit === 'm' ? `${numPlain(+(inch * 2.54).toFixed(1))} ${t('u.cm')}` : fmtInches(inch));
+        // put a value (in the field's base unit) into a length box
+        const set = (inp, val) => write(inp, Number.isFinite(+val) ? toInches(inp, +val) : null);
         const sync = () => refresh();
         const current = () => unit;
         const system = () => SYSTEM_OF[unit] || 'imp';
@@ -2516,7 +2803,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             applyI18n();                                   // units in labels + results follow the new system
         });
 
-        return { enhance, read, value, display, refresh, state, restore, restoreForm, sync, current, setUnit, system };
+        return { enhance, read, value, display, refresh, state, restore, restoreForm, sync, current, setUnit, system, fmt, fmtIn, set };
     })();
     LEN.enhance(document);
 
@@ -2981,6 +3268,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         const cards = {};
         const viewers = {};
         let active = null;
+        let planSrc = null;        // floor plan data comes from the PLAN editor
 
         const glOK = (() => {
             try {
@@ -3055,6 +3343,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             const form = $(`form[data-calc="${id}"]`);
             if (id === 'tiles') return readTiles(form);
             if (id === 'column') return readColumn(form);
+            if (id === 'plan') { const d = planSrc ? planSrc() : null; return { v: { plan: d }, live: !!(d && (d.walls.length || d.furn.length)) }; }
             const v = { _disp: {} };
             let live = false;
             Object.keys(DEF[id]).forEach((k) => {
@@ -3145,6 +3434,17 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 ];
                 if (v.parts.length > 1) chips.unshift([t('tl.areas'), v.parts.map((p) => `${p.dL || fv(p.L, 'u.ft')} × ${p.dW || fv(p.W, 'u.ft')}`).join(' + ')]);
                 return chips;
+            },
+            plan(v) {
+                const d = v.plan;
+                if (!d || !(d.walls.length || d.furn.length)) return [[t('fp.r.rooms'), num(0, 0)]];
+                const floor = d.rooms.reduce((a, r) => a + PLAN.polyArea(r.pts), 0);
+                const doors = d.openings.filter((o) => o.type === 'door').length;
+                return [
+                    [t('fp.r.rooms'), num(d.rooms.length, 0)],
+                    [t('r.floorArea'), qs(qArea(floor))],
+                    [t('fp.r.doorWin'), `${num(doors, 0)} / ${num(d.openings.length - doors, 0)}`],
+                ];
             },
             steel(v) {
                 const s = steelSteps(v);
@@ -3527,6 +3827,103 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 }
                 bbox = { w: X, h: y0 + slabT, d: Z, cy: y0 };
             }
+            else if (id === 'plan') {
+                const d = v.plan || { walls: [], rooms: [], openings: [], furn: [] };
+                const pts = [];
+                d.walls.forEach((w) => pts.push(w.a, w.b));
+                d.rooms.forEach((r) => pts.push(...r.pts));
+                d.furn.forEach((f) => pts.push({ x: f.x - f.w / 2, y: f.y - f.d / 2 }, { x: f.x + f.w / 2, y: f.y + f.d / 2 }));
+                if (!pts.length) pts.push({ x: 0, y: 0 }, { x: 30, y: 20 });
+                const xs = pts.map((p) => p.x), ys = pts.map((p) => p.y);
+                const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
+                const span = Math.max(maxX - minX, maxY - minY, 4);
+                const k = 6 / span, cx = (minX + maxX) / 2, cy = (minY + maxY) / 2;
+                const S3 = (p, y = 0) => V((p.x - cx) * k, y, (p.y - cy) * k);       // plan y (down) → scene +z (towards the camera)
+                const wallMat = new THREE.MeshStandardMaterial({ color: C.dark ? 0xd6d3cd : 0xf3efe8, roughness: .9 });
+                const capMat = new THREE.MeshStandardMaterial({ color: C.dark ? 0x9aa3ad : 0x8b95a1, roughness: .9 });
+                const glass = new THREE.MeshStandardMaterial({ color: 0x8ec5e8, transparent: true, opacity: .45, roughness: .1, metalness: .1, depthWrite: false });
+                const wood = new THREE.MeshStandardMaterial({ color: 0xa47148, roughness: .7 });
+                let topY = 0;
+                // a box placed along a direction (angle in plan) — w along, h up, t across
+                function seg(w, h, tt, mat, centre, y0, ang) {
+                    if (w <= 1e-4 || h <= 1e-4) return;
+                    const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, tt), Array.isArray(mat) ? mat : [mat, mat, capMat, mat, mat, mat]);
+                    m.position.copy(S3(centre, y0 + h / 2));
+                    m.rotation.y = -ang;
+                    g.add(m);
+                    const e = new THREE.LineSegments(new THREE.EdgesGeometry(m.geometry), edgeMat);
+                    e.position.copy(m.position); e.rotation.copy(m.rotation);
+                    g.add(e);
+                }
+                // floors
+                const floorTx = tileTex().clone();
+                floorTx.userData = {}; floorTx.needsUpdate = true; floorTx.repeat.set(k * 2.5, k * 2.5);
+                const floorMat = new THREE.MeshStandardMaterial({ map: floorTx, roughness: .6, side: THREE.DoubleSide });
+                d.rooms.forEach((r) => {
+                    const shape = new THREE.Shape(r.pts.map((p) => new THREE.Vector2((p.x - cx) * k, (p.y - cy) * k)));
+                    const geo = new THREE.ShapeGeometry(shape);
+                    geo.rotateX(Math.PI / 2);
+                    const m = new THREE.Mesh(geo, floorMat);
+                    m.position.y = .012;
+                    g.add(m);
+                });
+                // walls, cut around doors and windows
+                d.walls.forEach((w) => {
+                    const dx = w.b.x - w.a.x, dy = w.b.y - w.a.y, L = Math.hypot(dx, dy);
+                    if (L < 1e-3) return;
+                    const ang = Math.atan2(dy, dx), u = { x: dx / L, y: dy / L };
+                    const at = (s) => ({ x: w.a.x + u.x * s, y: w.a.y + u.y * s });
+                    const tt = Math.max(w.t / 12 * k, .02), H = w.h * k;
+                    topY = Math.max(topY, H);
+                    const ops = d.openings.filter((o) => o.wall === w.id).map((o) => ({ o, s: Math.max(o.at - o.w / 2, 0), e: Math.min(o.at + o.w / 2, L) })).sort((p, q) => p.s - q.s);
+                    let cur = 0;
+                    ops.forEach(({ o, s, e }) => {
+                        if (s > cur) seg((s - cur) * k, H, tt, wallMat, at((cur + s) / 2), 0, ang);
+                        const sill = Math.min(o.sill || 0, w.h), top = Math.min(sill + o.h, w.h);
+                        const wd = (e - Math.max(s, cur)) * k, mid = at((Math.max(s, cur) + e) / 2);
+                        if (wd > 0) {
+                            if (sill > 0) seg(wd, sill * k, tt, wallMat, mid, 0, ang);
+                            if (top < w.h) seg(wd, (w.h - top) * k, tt, wallMat, mid, top * k, ang);
+                            if (o.type === 'window') seg(wd, (top - sill) * k, Math.max(tt * .18, .006), glass, mid, sill * k, ang);
+                            else seg(wd, (top - sill) * k, Math.max(tt * .35, .01), wood, mid, 0, ang);
+                        }
+                        cur = Math.max(cur, e);
+                    });
+                    if (cur < L) seg((L - cur) * k, H, tt, wallMat, at((cur + L) / 2), 0, ang);
+                });
+                // furniture
+                const LIBF = PLAN.LIB;
+                d.furn.forEach((f) => {
+                    const L = LIBF[f.kind];
+                    if (!L) return;
+                    const mat = new THREE.MeshStandardMaterial({ color: L.c, roughness: .8 });
+                    const ang = (f.rot || 0) * Math.PI / 180;
+                    if (f.kind === 'stairs') {
+                        const n = Math.max(2, Math.round(f.d / .85)), step = f.d / n;
+                        for (let i = 0; i < n; i++) {
+                            const off = -f.d / 2 + step * (i + .5);
+                            const c = { x: f.x - Math.sin(ang) * off, y: f.y + Math.cos(ang) * off };
+                            seg(f.w * k, (L.h / n) * (n - i) * k, step * k, mat, c, 0, ang);
+                        }
+                        return;
+                    }
+                    const h = L.h * k;
+                    seg(f.w * k, h, f.d * k, [mat, mat, mat, mat, mat, mat], f, 0, ang);
+                    topY = Math.max(topY, h);
+                });
+                // room names
+                d.rooms.forEach((r) => {
+                    if (!r.name) return;
+                    const c = PLAN.centroid(r.pts);
+                    const lab = makeLabel(r.name, C);
+                    lab.scale.multiplyScalar(.8);
+                    lab.position.copy(S3(c, .25));
+                    g.add(lab);
+                });
+                ground((maxX - minX) * k, (maxY - minY) * k);
+                topY = Math.max(topY, .3);
+                bbox = { w: (maxX - minX) * k, h: topY, d: (maxY - minY) * k, cy: topY / 3 };
+            }
             return { group: g, bbox };
         }
 
@@ -3640,6 +4037,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 this.content.add(group);
                 this.target.set(0, bbox.cy, 0);
                 this.fitR = clamp(Math.hypot(bbox.w, bbox.h, bbox.d) * 1.7 + 1.4, 4, 24);
+                if (this.id === 'plan') this.fitR = clamp(this.fitR / Math.min(1, Math.max(this.camera.aspect, .4) * 1.15), 4, 26);
                 if (!this.userZoom) this.view.radius = this.fitR;
                 this.dirty = true;
             }
@@ -3813,8 +4211,10 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             if (id === 'home') { startDemo(); return; }
             if (!cards[id]) return;
             if (glOK && !viewers[id]) {
-                try { viewers[id] = new Viewer(id, cards[id]); }
-                catch (e) { console.warn('3D preview unavailable:', e); }
+                try {
+                    viewers[id] = new Viewer(id, cards[id]);
+                    if (id === 'plan') { viewers[id].setAuto(false); viewers[id].home.phi = .9; viewers[id].view.phi = .9; }
+                } catch (e) { console.warn('3D preview unavailable:', e); }
             }
             const v = updateInfo(id);
             if (viewers[id]) { viewers[id].rebuild(v); viewers[id].start(); }
@@ -3844,7 +4244,19 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             try { vw.rebuild(readValues(id).v); return vw.snapshot(); } catch (e) { console.warn('3D snapshot failed:', e); return ''; }
         }
 
-        return { createCards, update, show, refreshAll, snapshot };
+        // the floor plan page has its own 3D panel (not a generated card)
+        function attach(id, el, src) {
+            cards[id] = el;
+            planSrc = src;
+            if (!glOK) {
+                $('.viz-stage', el).insertAdjacentHTML('beforeend', '<div class="viz-empty"><div><i class="fa-solid fa-cube"></i><span data-i18n="viz.nogl"></span></div></div>');
+                $('.plan-3d-tools > span', el).hidden = true;
+            }
+            $('[data-viz-rotate]', el).addEventListener('click', () => { const vw = viewers[id]; if (vw) vw.setAuto(!vw.auto); });
+            $('[data-viz-reset]', el).addEventListener('click', () => { if (viewers[id]) viewers[id].resetView(); });
+        }
+
+        return { createCards, update, show, refreshAll, snapshot, attach };
     })();
 
     /* ---------- Column & lintel form: any number of columns and lintels ---------- */
@@ -4012,6 +4424,1097 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         return { renumber, syncCustom };
     })();
 
+    /* =========================================================
+       Floor plan — a small 2D CAD editor with a live 3D model
+       Plan units are feet (x → right, y → down). Wall thickness is in inches.
+       ========================================================= */
+    const PLAN = (() => {
+        const STORE = 'cc.plan', STORE_VIEW = 'cc.planView';
+        const svg = $('#plan-svg'), wrap = $('#plan-2d'), main = $('#plan-main'), insp = $('#fp-inspector');
+        const form = $('form[data-calc="plan"]');
+        const uid = () => Math.random().toString(36).slice(2, 9);
+        const KINDS = ['walls', 'rooms', 'openings', 'texts', 'dims', 'furn'];
+        const blank = () => ({ v: 1, walls: [], rooms: [], openings: [], texts: [], dims: [], furn: [],
+            opt: { wallT: 5, wallH: 10, showDims: true, ortho: true, snap: 0.5 } });
+        const fin = (n, d = 0) => (Number.isFinite(+n) ? +n : d);
+        const pt = (p) => ({ x: fin(p && p.x), y: fin(p && p.y) });
+        function sanitize(o) {
+            const b = blank();
+            if (!o || typeof o !== 'object') return b;
+            b.walls = (Array.isArray(o.walls) ? o.walls : []).filter(Boolean).map((w) => ({ id: String(w.id || uid()), a: pt(w.a), b: pt(w.b), t: Math.max(fin(w.t, 5), .5), h: Math.max(fin(w.h, 10), .5) }));
+            b.rooms = (Array.isArray(o.rooms) ? o.rooms : []).filter((r) => r && Array.isArray(r.pts) && r.pts.length >= 3).map((r) => ({ id: String(r.id || uid()), name: String(r.name || '').slice(0, 40), pts: r.pts.map(pt) }));
+            const wallIds = new Set(b.walls.map((w) => w.id));
+            b.openings = (Array.isArray(o.openings) ? o.openings : []).filter((x) => x && wallIds.has(String(x.wall))).map((x) => ({ id: String(x.id || uid()), wall: String(x.wall), type: x.type === 'window' ? 'window' : 'door', at: fin(x.at), w: Math.max(fin(x.w, 3), .5), h: Math.max(fin(x.h, 7), .5), sill: Math.max(fin(x.sill), 0), flip: fin(x.flip) & 3 }));
+            b.texts = (Array.isArray(o.texts) ? o.texts : []).filter(Boolean).map((x) => ({ id: String(x.id || uid()), x: fin(x.x), y: fin(x.y), text: String(x.text || '').slice(0, 80), size: Math.max(fin(x.size, 1), .2) }));
+            b.dims = (Array.isArray(o.dims) ? o.dims : []).filter(Boolean).map((x) => ({ id: String(x.id || uid()), a: pt(x.a), b: pt(x.b), off: fin(x.off, -2) }));
+            b.furn = (Array.isArray(o.furn) ? o.furn : []).filter((x) => x && LIB[x.kind]).map((x) => ({ id: String(x.id || uid()), kind: x.kind, x: fin(x.x), y: fin(x.y), rot: fin(x.rot) % 360, w: Math.max(fin(x.w, LIB[x.kind].w), .3), d: Math.max(fin(x.d, LIB[x.kind].d), .3) }));
+            b.opt = Object.assign(b.opt, o.opt && typeof o.opt === 'object' ? o.opt : {});
+            return b;
+        }
+
+        /* ---------- furniture library (sizes in ft, height for 3D) ---------- */
+        const R = (x, y, w, h, rx = 0) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx}"/>`;
+        const Ln = (x1, y1, x2, y2) => `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"/>`;
+        const Ci = (cx, cy, r) => `<circle cx="${cx}" cy="${cy}" r="${r}"/>`;
+        const El = (cx, cy, rx, ry) => `<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}"/>`;
+        const LIB = {
+            bed:      { w: 5, d: 6.5, h: 2, c: 0xe7dccb, draw: (w, d) => R(-w / 2, -d / 2, w, d, .15) + (w >= 4 ? R(-w / 2 + .3, -d / 2 + .3, w / 2 - .45, .9, .2) + R(.15, -d / 2 + .3, w / 2 - .45, .9, .2) : R(-w / 2 + .3, -d / 2 + .3, w - .6, .9, .2)) + Ln(-w / 2, -d / 2 + 1.7, w / 2, -d / 2 + 1.7) },
+            sbed:     { w: 3.5, d: 6.5, h: 2, c: 0xe7dccb, draw: (w, d) => LIB.bed.draw(w, d) },
+            sofa:     { w: 7, d: 3, h: 2.8, c: 0x8fa8bf, draw: (w, d) => R(-w / 2, -d / 2, w, d, .25) + R(-w / 2, -d / 2, w, .7, .2) + R(-w / 2, -d / 2, .6, d, .2) + R(w / 2 - .6, -d / 2, .6, d, .2) + Ln(-w / 6, -d / 2 + .7, -w / 6, d / 2) + Ln(w / 6, -d / 2 + .7, w / 6, d / 2) },
+            dining:   { w: 5, d: 3, h: 2.5, c: 0xa47148, draw: (w, d) => R(-w / 2, -d / 2, w, d, .1) + [-1, 0, 1].map((i) => R(i * w / 3 - .6, -d / 2 - 1.1, 1.2, .9, .15) + R(i * w / 3 - .6, d / 2 + .2, 1.2, .9, .15)).join('') + R(-w / 2 - 1.1, -.6, .9, 1.2, .15) + R(w / 2 + .2, -.6, .9, 1.2, .15) },
+            chair:    { w: 1.6, d: 1.6, h: 3, c: 0xa47148, draw: (w, d) => R(-w / 2, -d / 2, w, d, .15) + R(-w / 2, -d / 2, w, .35, .1) },
+            desk:     { w: 4, d: 2, h: 2.5, c: 0xb08860, draw: (w, d) => R(-w / 2, -d / 2, w, d, .08) + Ci(0, d / 2 + .7, .55) },
+            wardrobe: { w: 4, d: 2, h: 7, c: 0xc2a27c, draw: (w, d) => R(-w / 2, -d / 2, w, d) + Ln(-w / 2, -d / 2, w / 2, d / 2) + Ln(-w / 2, d / 2, w / 2, -d / 2) + Ln(0, -d / 2, 0, d / 2) },
+            counter:  { w: 6, d: 2, h: 2.8, c: 0xd5d8dc, draw: (w, d) => R(-w / 2, -d / 2, w, d) + R(-w / 2 + .4, -d / 2 + .35, 1.8, d - .7, .2) + Ci(w / 2 - 1.3, -.2, .3) + Ci(w / 2 - .6, .25, .3) },
+            fridge:   { w: 2.5, d: 2.5, h: 6, c: 0xe5e7eb, draw: (w, d) => R(-w / 2, -d / 2, w, d, .1) + Ln(-w / 2, -d / 2 + .45, w / 2, -d / 2 + .45) },
+            wc:       { w: 1.5, d: 2.3, h: 1.4, c: 0xf8fafc, draw: (w, d) => R(-w / 2, -d / 2, w, .6, .1) + El(0, .25, w * .38, d * .34) },
+            basin:    { w: 1.8, d: 1.4, h: 2.8, c: 0xf8fafc, draw: (w, d) => R(-w / 2, -d / 2, w, d, .2) + El(0, .05, w * .32, d * .3) },
+            shower:   { w: 3, d: 3, h: .3, c: 0xdbeafe, draw: (w, d) => R(-w / 2, -d / 2, w, d) + Ln(-w / 2, -d / 2, w / 2, d / 2) + Ln(-w / 2, d / 2, w / 2, -d / 2) + Ci(0, 0, .18) },
+            tub:      { w: 2.5, d: 5.5, h: 1.8, c: 0xf8fafc, draw: (w, d) => R(-w / 2, -d / 2, w, d, .35) + R(-w / 2 + .25, -d / 2 + .25, w - .5, d - .5, .6) },
+            stairs:   { w: 3.5, d: 10, h: 10, c: 0xcbd5e1, draw: (w, d) => { let s = R(-w / 2, -d / 2, w, d); for (let y = -d / 2 + .85; y < d / 2 - .1; y += .85) s += Ln(-w / 2, y, w / 2, y); return s + Ln(0, d / 2 - .4, 0, -d / 2 + .6) + Ln(-.4, -d / 2 + 1.1, 0, -d / 2 + .6) + Ln(.4, -d / 2 + 1.1, 0, -d / 2 + .6); } },
+        };
+
+        let P = sanitize(storage.get(STORE, null));
+        const view = { s: 18, x: 40, y: 40, fitted: false };
+        let tool = 'select', sel = null, furnKind = 'bed';
+        let chain = null, rectStart = null, dimPts = null, hover = null, snapKind = '';
+        let drag = null, pan = null, pinch = null, down = null, spaceDown = false;
+        const pointers = new Map();
+        let hist = [JSON.stringify(P)], hi = 0;
+
+        /* ---------- geometry ---------- */
+        const sub = (a, b) => ({ x: a.x - b.x, y: a.y - b.y });
+        const add = (a, b) => ({ x: a.x + b.x, y: a.y + b.y });
+        const mul = (a, k) => ({ x: a.x * k, y: a.y * k });
+        const len = (a) => Math.hypot(a.x, a.y);
+        const dist = (a, b) => len(sub(a, b));
+        const unitv = (a) => { const l = len(a) || 1; return { x: a.x / l, y: a.y / l }; };
+        const perp = (a) => ({ x: -a.y, y: a.x });
+        const lerp = (a, b, t) => ({ x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t });
+        const clean = (p) => ({ x: +p.x.toFixed(4), y: +p.y.toFixed(4) });
+        const projT = (p, a, b) => { const ab = sub(b, a), l2 = ab.x * ab.x + ab.y * ab.y || 1; return ((p.x - a.x) * ab.x + (p.y - a.y) * ab.y) / l2; };
+        const distSeg = (p, a, b) => dist(p, lerp(a, b, Math.max(0, Math.min(1, projT(p, a, b)))));
+        const distLine = (p, a, b) => { const ab = sub(b, a), l = len(ab) || 1; return Math.abs((p.x - a.x) * ab.y - (p.y - a.y) * ab.x) / l; };
+        const polyArea = (pts) => Math.abs(pts.reduce((s, p, i) => { const q = pts[(i + 1) % pts.length]; return s + p.x * q.y - q.x * p.y; }, 0)) / 2;
+        function centroid(pts) {
+            let a = 0, cx = 0, cy = 0;
+            pts.forEach((p, i) => { const q = pts[(i + 1) % pts.length], f = p.x * q.y - q.x * p.y; a += f; cx += (p.x + q.x) * f; cy += (p.y + q.y) * f; });
+            if (Math.abs(a) < 1e-9) return { x: pts.reduce((s, p) => s + p.x, 0) / pts.length, y: pts.reduce((s, p) => s + p.y, 0) / pts.length };
+            return { x: cx / (3 * a), y: cy / (3 * a) };
+        }
+        const wallLen = (w) => dist(w.a, w.b);
+        const byId = (arr, id) => arr.find((x) => x.id === id);
+        const LIST = { wall: 'walls', room: 'rooms', op: 'openings', text: 'texts', dim: 'dims', furn: 'furn' };
+        const getSel = () => (sel ? byId(P[LIST[sel.k]], sel.id) : null);
+
+        function endpoints(exclude) {
+            const out = [];
+            P.walls.forEach((w) => { out.push(w.a, w.b); });
+            if (chain) out.push(...chain.pts);
+            return exclude ? out.filter((q) => dist(q, exclude) > 1e-3) : out;
+        }
+        function degreeMap() {
+            const m = new Map();
+            const key = (p) => `${Math.round(p.x * 100)}:${Math.round(p.y * 100)}`;
+            P.walls.forEach((w) => { [w.a, w.b].forEach((p) => m.set(key(p), (m.get(key(p)) || 0) + 1)); });
+            return (p) => m.get(key(p)) || 0;
+        }
+
+        /* ---------- snapping ---------- */
+        const isMetric = () => LEN.system() === 'met';
+        const snapStep = () => fin(P.opt.snap);
+        function snapPoint(p, from, exclude) {
+            const tol = 10 / view.s;
+            let best = null, bd = tol;
+            endpoints(exclude).forEach((q) => { const d = dist(p, q); if (d < bd) { bd = d; best = q; } });
+            if (best) { snapKind = 'end'; return { x: best.x, y: best.y }; }
+            const st = snapStep();
+            if (from && P.opt.ortho) {
+                const d = sub(p, from), step = Math.PI / 4;
+                const ang = Math.round(Math.atan2(d.y, d.x) / step) * step;
+                let L = len(d);
+                if (st) L = Math.round(L / st) * st;
+                snapKind = 'ortho';
+                return clean(add(from, { x: Math.cos(ang) * L, y: Math.sin(ang) * L }));
+            }
+            let q = st ? { x: Math.round(p.x / st) * st, y: Math.round(p.y / st) * st } : { x: p.x, y: p.y };
+            // line up with existing corners (CAD tracking)
+            endpoints(exclude).forEach((e) => { if (Math.abs(q.x - e.x) < tol) q.x = e.x; if (Math.abs(q.y - e.y) < tol) q.y = e.y; });
+            snapKind = 'grid';
+            return clean(q);
+        }
+
+        /* ---------- model edits ---------- */
+        function addWall(a, b, t = P.opt.wallT, h = P.opt.wallH) {
+            const L = dist(a, b);
+            if (L < .05) return [];
+            let iv = [[0, 1]];
+            P.walls.forEach((w) => {
+                if (distLine(w.a, a, b) > .01 || distLine(w.b, a, b) > .01) return;        // not on the same line
+                let t1 = projT(w.a, a, b), t2 = projT(w.b, a, b);
+                if (t1 > t2) [t1, t2] = [t2, t1];
+                const out = [];
+                iv.forEach(([s, e]) => {
+                    if (t2 <= s || t1 >= e) { out.push([s, e]); return; }
+                    if (t1 > s) out.push([s, t1]);
+                    if (t2 < e) out.push([t2, e]);
+                });
+                iv = out;
+            });
+            const ids = [];
+            iv.forEach(([s, e]) => {
+                if ((e - s) * L < .05) return;
+                const w = { id: uid(), a: clean(lerp(a, b, s)), b: clean(lerp(a, b, e)), t, h };
+                P.walls.push(w);
+                ids.push(w.id);
+            });
+            return ids;
+        }
+        function addRoom(pts, name) {
+            if (pts.length < 3 || polyArea(pts) < 1) return null;
+            const r = { id: uid(), name: name || t('fp.roomN', { n: P.rooms.length + 1 }), pts: pts.map(clean) };
+            P.rooms.push(r);
+            return r;
+        }
+        function addRect(a, b, name, wallT) {
+            const pts = [a, { x: b.x, y: a.y }, b, { x: a.x, y: b.y }];
+            pts.forEach((p, i) => addWall(p, pts[(i + 1) % 4], wallT));
+            return addRoom(pts, name);
+        }
+        function nearestWall(p, tolPx = 12) {
+            let best = null, bd = Infinity;
+            P.walls.forEach((w) => {
+                const d = distSeg(p, w.a, w.b) - w.t / 24;
+                if (d < bd) { bd = d; best = w; }
+            });
+            return best && bd <= tolPx / view.s ? best : null;
+        }
+        function addOpening(type, w, p, extra = {}) {
+            const L = wallLen(w);
+            const o = Object.assign({ id: uid(), wall: w.id, type, w: type === 'door' ? 3 : 4, h: type === 'door' ? 7 : 4, sill: type === 'door' ? 0 : 3, flip: 0 }, extra);
+            o.w = Math.min(o.w, Math.max(L - .2, .5));
+            o.at = Math.max(o.w / 2, Math.min(L - o.w / 2, projT(p, w.a, w.b) * L));
+            P.openings.push(o);
+            return o;
+        }
+        function moveEndpoint(old, nw) {
+            const same = (q) => dist(q, old) < 1e-3;
+            P.walls.forEach((w) => { if (same(w.a)) w.a = clean(nw); if (same(w.b)) w.b = clean(nw); });
+            P.rooms.forEach((r) => { r.pts = r.pts.map((q) => (same(q) ? clean(nw) : q)); });
+            clampOpenings();
+        }
+        function clampOpenings() {
+            P.openings = P.openings.filter((o) => {
+                const w = byId(P.walls, o.wall);
+                if (!w) return false;
+                const L = wallLen(w);
+                if (L < .6) return false;
+                o.w = Math.min(o.w, L - .2);
+                o.at = Math.max(o.w / 2, Math.min(L - o.w / 2, o.at));
+                return true;
+            });
+        }
+        function remove(k, id) {
+            const list = LIST[k];
+            P[list] = P[list].filter((x) => x.id !== id);
+            if (k === 'wall') P.openings = P.openings.filter((o) => o.wall !== id);
+            if (sel && sel.id === id) sel = null;
+        }
+
+        /* ---------- history + saving ---------- */
+        function commit() {
+            hist = hist.slice(0, hi + 1);
+            hist.push(JSON.stringify(P));
+            if (hist.length > 120) hist.shift();
+            hi = hist.length - 1;
+            storage.set(STORE, P);
+            changed();
+        }
+        function restoreFrom(json) {
+            P = sanitize(JSON.parse(json));
+            if (sel && !getSel()) sel = null;
+            storage.set(STORE, P);
+            changed();
+        }
+        const undo = () => { if (hi > 0) { hi -= 1; restoreFrom(hist[hi]); } };
+        const redo = () => { if (hi < hist.length - 1) { hi += 1; restoreFrom(hist[hi]); } };
+        let estT = 0;
+        function changed() {
+            draw();
+            inspector();
+            VIZ.update('plan');
+            clearTimeout(estT);
+            estT = setTimeout(refreshEstimate, 120);
+        }
+        function refreshEstimate() {
+            const v = readForm(form);
+            if (!v) return;
+            lastValues.plan = v;
+            renderResult('plan', v);
+        }
+
+        /* ---------- drawing (SVG) ---------- */
+        function palette(forExport) {
+            const cs = getComputedStyle(root);
+            const dark = !forExport && root.getAttribute('data-theme') === 'dark';
+            const brand = cs.getPropertyValue('--brand').trim() || '#0d9488';
+            return {
+                bg: dark ? '#172133' : '#ffffff', grid: dark ? 'rgba(148,163,184,.12)' : 'rgba(30,41,59,.07)', grid2: dark ? 'rgba(148,163,184,.24)' : 'rgba(30,41,59,.15)',
+                wall: dark ? '#cbd5e1' : '#334155', ink: dark ? '#e2e8f0' : '#1e293b', muted: dark ? '#94a3b8' : '#64748b',
+                room: dark ? 'rgba(148,163,184,.07)' : 'rgba(13,148,136,.05)', furn: dark ? 'rgba(148,163,184,.10)' : 'rgba(255,255,255,.9)', brand,
+            };
+        }
+        const esc = escapeHtml;
+        const fmtL = (ft) => LEN.fmt(ft);
+
+        // everything in plan (ft) coordinates; s = pixels per foot (for text and line sizes)
+        function worldMarkup(pal, s, live) {
+            const px = (n) => n / s;               // n screen pixels in ft
+            const deg = degreeMap();
+            let out = '';
+            // rooms
+            P.rooms.forEach((r) => {
+                const isSel = live && sel && sel.k === 'room' && sel.id === r.id;
+                out += `<polygon data-id="${r.id}" data-k="room" points="${r.pts.map((p) => `${p.x},${p.y}`).join(' ')}" fill="${isSel ? 'rgba(13,148,136,.14)' : pal.room}" ${isSel ? `stroke="${pal.brand}" stroke-width="${px(2)}" stroke-dasharray="${px(6)} ${px(4)}"` : ''}/>`;
+            });
+            // walls
+            P.walls.forEach((w) => {
+                const u = unitv(sub(w.b, w.a)), n = perp(u), ht = w.t / 24;
+                const a = deg(w.a) > 1 ? sub(w.a, mul(u, ht)) : w.a, b = deg(w.b) > 1 ? add(w.b, mul(u, ht)) : w.b;
+                const q = [add(a, mul(n, ht)), add(b, mul(n, ht)), sub(b, mul(n, ht)), sub(a, mul(n, ht))];
+                const isSel = live && sel && sel.k === 'wall' && sel.id === w.id;
+                out += `<polygon data-id="${w.id}" data-k="wall" points="${q.map((p) => `${p.x},${p.y}`).join(' ')}" fill="${isSel ? pal.brand : pal.wall}"/>`;
+            });
+            // openings
+            P.openings.forEach((o) => {
+                const w = byId(P.walls, o.wall);
+                if (!w) return;
+                const u = unitv(sub(w.b, w.a)), n = perp(u), ht = w.t / 24 + px(1);
+                const c = add(w.a, mul(u, o.at)), hw = o.w / 2;
+                const j1 = sub(c, mul(u, hw)), j2 = add(c, mul(u, hw));
+                const isSel = live && sel && sel.k === 'op' && sel.id === o.id;
+                const st = `stroke="${isSel ? pal.brand : pal.ink}" stroke-width="${px(isSel ? 2.2 : 1.3)}" fill="none"`;
+                const gap = [add(j1, mul(n, ht)), add(j2, mul(n, ht)), sub(j2, mul(n, ht)), sub(j1, mul(n, ht))];
+                let g = `<polygon points="${gap.map((p) => `${p.x},${p.y}`).join(' ')}" fill="${pal.bg}"/>`;
+                g += `<line x1="${gap[0].x}" y1="${gap[0].y}" x2="${gap[3].x}" y2="${gap[3].y}" ${st}/><line x1="${gap[1].x}" y1="${gap[1].y}" x2="${gap[2].x}" y2="${gap[2].y}" ${st}/>`;
+                if (o.type === 'door') {
+                    const side = o.flip & 1 ? -1 : 1, hingeEnd = o.flip & 2 ? 1 : -1;
+                    const hinge = add(c, mul(u, hingeEnd * hw)), other = sub(c, mul(u, hingeEnd * hw));
+                    const tip = add(hinge, mul(n, side * o.w));
+                    const cr = (tip.x - hinge.x) * (other.y - hinge.y) - (tip.y - hinge.y) * (other.x - hinge.x);
+                    g += `<line x1="${hinge.x}" y1="${hinge.y}" x2="${tip.x}" y2="${tip.y}" ${st}/>`;
+                    g += `<path d="M ${tip.x} ${tip.y} A ${o.w} ${o.w} 0 0 ${cr > 0 ? 1 : 0} ${other.x} ${other.y}" ${st} stroke-dasharray="${px(4)} ${px(3)}"/>`;
+                } else {
+                    const hs = w.t / 24;
+                    [hs, 0, -hs].forEach((k, i) => {
+                        const p1 = add(j1, mul(n, k)), p2 = add(j2, mul(n, k));
+                        g += `<line x1="${p1.x}" y1="${p1.y}" x2="${p2.x}" y2="${p2.y}" stroke="${i === 1 ? pal.brand : (isSel ? pal.brand : pal.ink)}" stroke-width="${px(i === 1 ? 2 : 1.2)}"/>`;
+                    });
+                }
+                out += `<g data-id="${o.id}" data-k="op">${g}</g>`;
+            });
+            // furniture
+            P.furn.forEach((f) => {
+                const L = LIB[f.kind];
+                const isSel = live && sel && sel.k === 'furn' && sel.id === f.id;
+                out += `<g data-id="${f.id}" data-k="furn" transform="translate(${f.x} ${f.y}) rotate(${f.rot})" stroke="${isSel ? pal.brand : pal.ink}" stroke-width="${px(isSel ? 2 : 1.1)}" fill="${pal.furn}">${L.draw(f.w, f.d)}</g>`;
+            });
+            // dimension lines
+            P.dims.forEach((d) => {
+                const isSel = live && sel && sel.k === 'dim' && sel.id === d.id;
+                out += dimMarkup(d, pal, s, isSel);
+            });
+            // wall lengths
+            if (P.opt.showDims) {
+                P.walls.forEach((w) => {
+                    const L = wallLen(w);
+                    if (L * s < 40) return;
+                    const u = unitv(sub(w.b, w.a)), n = perp(u), m = lerp(w.a, w.b, .5);
+                    const pos = add(m, mul(n, w.t / 24 + px(9)));
+                    let ang = Math.atan2(u.y, u.x) * 180 / Math.PI;
+                    if (ang > 90 || ang < -90) ang += 180;
+                    out += `<text x="${pos.x}" y="${pos.y}" font-size="${px(10.5)}" fill="${pal.muted}" text-anchor="middle" dominant-baseline="middle" transform="rotate(${ang} ${pos.x} ${pos.y})" pointer-events="none">${esc(fmtL(L))}</text>`;
+                });
+            }
+            // room names + areas
+            P.rooms.forEach((r) => {
+                const c = centroid(r.pts);
+                const fs = Math.max(px(12), Math.min(1.2, px(16)));
+                out += `<text x="${c.x}" y="${c.y}" text-anchor="middle" fill="${pal.ink}" pointer-events="none"><tspan x="${c.x}" font-size="${fs}" font-weight="600">${esc(r.name)}</tspan><tspan x="${c.x}" dy="${fs * 1.25}" font-size="${fs * .8}" fill="${pal.muted}">${esc(qs(qArea(polyArea(r.pts))))}</tspan></text>`;
+            });
+            // texts
+            P.texts.forEach((x) => {
+                const isSel = live && sel && sel.k === 'text' && sel.id === x.id;
+                out += `<text data-id="${x.id}" data-k="text" x="${x.x}" y="${x.y}" font-size="${x.size}" fill="${isSel ? pal.brand : pal.ink}" ${isSel ? 'text-decoration="underline"' : ''}>${esc(x.text)}</text>`;
+            });
+            return out;
+        }
+        function dimMarkup(d, pal, s, isSel, preview) {
+            const px = (n) => n / s;
+            const L = dist(d.a, d.b);
+            if (L < 1e-3) return '';
+            const u = unitv(sub(d.b, d.a)), n = perp(u);
+            const a2 = add(d.a, mul(n, d.off)), b2 = add(d.b, mul(n, d.off));
+            const ext = mul(n, Math.sign(d.off || 1) * px(6));
+            const col = isSel || preview ? pal.brand : pal.ink;
+            const st = `stroke="${col}" stroke-width="${px(1.1)}"`;
+            const tk = mul(add(u, n), px(5));
+            let g = `<line x1="${d.a.x}" y1="${d.a.y}" x2="${a2.x + ext.x}" y2="${a2.y + ext.y}" ${st} opacity=".6"/>`;
+            g += `<line x1="${d.b.x}" y1="${d.b.y}" x2="${b2.x + ext.x}" y2="${b2.y + ext.y}" ${st} opacity=".6"/>`;
+            g += `<line x1="${a2.x}" y1="${a2.y}" x2="${b2.x}" y2="${b2.y}" ${st}/>`;
+            [a2, b2].forEach((p) => { g += `<line x1="${p.x - tk.x}" y1="${p.y - tk.y}" x2="${p.x + tk.x}" y2="${p.y + tk.y}" stroke="${col}" stroke-width="${px(1.6)}"/>`; });
+            const m = lerp(a2, b2, .5), tp = add(m, mul(n, -px(8) * Math.sign(d.off || 1)));
+            let ang = Math.atan2(u.y, u.x) * 180 / Math.PI;
+            if (ang > 90 || ang < -90) ang += 180;
+            g += `<text x="${tp.x}" y="${tp.y}" font-size="${px(11.5)}" font-weight="600" fill="${col}" text-anchor="middle" dominant-baseline="middle" transform="rotate(${ang} ${tp.x} ${tp.y})">${esc(fmtL(L))}</text>`;
+            return preview ? g : `<g data-id="${d.id}" data-k="dim">${g}</g>`;
+        }
+        function gridMarkup(pal, s, W, H) {
+            const met = isMetric();
+            const minor = met ? 3.280839895 : 1, major = met ? 16.404199475 : 5;
+            const x0 = -view.x / s, y0 = -view.y / s, x1 = x0 + W / s, y1 = y0 + H / s;
+            let g = '';
+            const linesFor = (step, col, wpx) => {
+                if (step * s < 7) return '';
+                let o = '';
+                for (let x = Math.floor(x0 / step) * step; x <= x1; x += step) o += `M${x} ${y0}V${y1}`;
+                for (let y = Math.floor(y0 / step) * step; y <= y1; y += step) o += `M${x0} ${y}H${x1}`;
+                return `<path d="${o}" stroke="${col}" stroke-width="${wpx / s}" fill="none"/>`;
+            };
+            g += linesFor(minor, pal.grid, 1) + linesFor(major, pal.grid2, 1);
+            g += `<path d="M${-px0(s)} 0H${px0(s)}M0 ${-px0(s)}V${px0(s)}" stroke="${pal.brand}" stroke-width="${1.5 / s}" opacity=".5"/>`;
+            return g;
+        }
+        const px0 = (s) => 14 / s;
+
+        let rafId = 0;
+        function draw() {
+            if (rafId) return;
+            rafId = requestAnimationFrame(() => { rafId = 0; drawNow(); });
+        }
+        function drawNow() {
+            const W = wrap.clientWidth, H = wrap.clientHeight;
+            if (!W || !H) return;
+            if (!view.fitted) { view.fitted = true; fit(true); }
+            const pal = palette(), s = view.s;
+            svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+            let over = '';
+            const px = (n) => n / s;
+            // previews
+            if (chain && hover) {
+                const last = chain.pts[chain.pts.length - 1];
+                const pts = chain.pts.map((p) => `${p.x},${p.y}`).join(' ') + ` ${hover.x},${hover.y}`;
+                over += `<polyline points="${pts}" fill="none" stroke="${pal.brand}" stroke-width="${px(Math.max(2, P.opt.wallT / 12 * s))}" stroke-opacity=".35" stroke-linejoin="round"/>`;
+                over += `<line x1="${last.x}" y1="${last.y}" x2="${hover.x}" y2="${hover.y}" stroke="${pal.brand}" stroke-width="${px(1.5)}" stroke-dasharray="${px(6)} ${px(4)}"/>`;
+                over += dimMarkup({ a: last, b: hover, off: -1.2 }, pal, s, false, true);
+            }
+            if (rectStart && hover) {
+                const x = Math.min(rectStart.x, hover.x), y = Math.min(rectStart.y, hover.y), w = Math.abs(hover.x - rectStart.x), h = Math.abs(hover.y - rectStart.y);
+                over += `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="rgba(13,148,136,.08)" stroke="${pal.brand}" stroke-width="${px(1.6)}" stroke-dasharray="${px(6)} ${px(4)}"/>`;
+                over += dimMarkup({ a: { x, y }, b: { x: x + w, y }, off: -1.4 }, pal, s, false, true);
+                over += dimMarkup({ a: { x, y }, b: { x, y: y + h }, off: 1.4 }, pal, s, false, true);
+            }
+            if (dimPts && hover) {
+                if (dimPts.length === 1) over += `<line x1="${dimPts[0].x}" y1="${dimPts[0].y}" x2="${hover.x}" y2="${hover.y}" stroke="${pal.brand}" stroke-width="${px(1.2)}" stroke-dasharray="${px(5)} ${px(4)}"/>`;
+                else if (dimPts.length === 2) over += dimMarkup({ a: dimPts[0], b: dimPts[1], off: signedOff(hover) }, pal, s, false, true);
+            }
+            // selection handles
+            const so = getSel();
+            if (so && sel.k === 'wall') [so.a, so.b].forEach((p, i) => { over += `<rect class="handle" data-handle="${i ? 'b' : 'a'}" x="${p.x - px(6)}" y="${p.y - px(6)}" width="${px(12)}" height="${px(12)}" stroke-width="${px(2)}"/>`; });
+            if (so && sel.k === 'dim') [so.a, so.b].forEach((p, i) => { over += `<rect class="handle" data-handle="${i ? 'b' : 'a'}" x="${p.x - px(5)}" y="${p.y - px(5)}" width="${px(10)}" height="${px(10)}" stroke-width="${px(2)}"/>`; });
+            if (so && sel.k === 'room') so.pts.forEach((p) => { over += `<circle cx="${p.x}" cy="${p.y}" r="${px(4)}" fill="${pal.brand}"/>`; });
+            // snap marker
+            if (hover && tool !== 'select' && tool !== 'pan' && tool !== 'erase') {
+                const r = px(5);
+                over += snapKind === 'end'
+                    ? `<rect x="${hover.x - r}" y="${hover.y - r}" width="${2 * r}" height="${2 * r}" fill="none" stroke="${pal.brand}" stroke-width="${px(2)}"/>`
+                    : `<path d="M${hover.x - r} ${hover.y}H${hover.x + r}M${hover.x} ${hover.y - r}V${hover.y + r}" stroke="${pal.brand}" stroke-width="${px(1.5)}"/>`;
+            }
+            svg.innerHTML = `<rect width="${W}" height="${H}" fill="${pal.bg}"/>`
+                + `<g transform="translate(${view.x} ${view.y}) scale(${s})">${gridMarkup(pal, s, W, H)}${worldMarkup(pal, s, true)}<g pointer-events="none">${over}</g></g>`;
+            status();
+        }
+
+        /* ---------- status bar + hints ---------- */
+        function status() {
+            const parts = [`<span class="hint-chip">${esc(t('fp.h.' + tool))}</span>`];
+            if (hover) parts.push(`<span>${esc(fmtL(hover.x))}, ${esc(fmtL(hover.y))}</span>`);
+            if (chain && hover) {
+                const last = chain.pts[chain.pts.length - 1], d = sub(hover, last);
+                parts.push(`<span>${esc(fmtL(len(d)))} · ${numPlain(Math.round(-Math.atan2(d.y, d.x) * 180 / Math.PI))}°</span>`);
+            }
+            $('#fp-status').innerHTML = parts.join('');
+        }
+
+        /* ---------- view: pan / zoom / fit ---------- */
+        function toWorld(cx, cy) {
+            const r = svg.getBoundingClientRect();
+            return { x: (cx - r.left - view.x) / view.s, y: (cy - r.top - view.y) / view.s };
+        }
+        function zoomAt(cx, cy, k) {
+            const r = svg.getBoundingClientRect();
+            const sx = cx - r.left, sy = cy - r.top;
+            const ns = Math.max(2, Math.min(400, view.s * k));
+            view.x = sx - (sx - view.x) * ns / view.s;
+            view.y = sy - (sy - view.y) * ns / view.s;
+            view.s = ns;
+            draw();
+        }
+        function bounds() {
+            const xs = [], ys = [];
+            const push = (p, m = 0) => { xs.push(p.x - m, p.x + m); ys.push(p.y - m, p.y + m); };
+            P.walls.forEach((w) => { push(w.a, w.t / 24); push(w.b, w.t / 24); });
+            P.rooms.forEach((r) => r.pts.forEach((p) => push(p)));
+            P.furn.forEach((f) => push(f, Math.max(f.w, f.d) / 2));
+            P.texts.forEach((x) => push(x, x.size));
+            P.dims.forEach((d) => { push(add(d.a, mul(perp(unitv(sub(d.b, d.a))), d.off))); push(add(d.b, mul(perp(unitv(sub(d.b, d.a))), d.off))); });
+            if (!xs.length) return { x0: 0, y0: 0, x1: 30, y1: 20, empty: true };
+            return { x0: Math.min(...xs), y0: Math.min(...ys), x1: Math.max(...xs), y1: Math.max(...ys) };
+        }
+        function fit(quiet) {
+            const W = wrap.clientWidth, H = wrap.clientHeight;
+            if (!W || !H) return;
+            const b = bounds(), pad = 3;
+            const bw = b.x1 - b.x0 + pad * 2, bh = b.y1 - b.y0 + pad * 2;
+            view.s = Math.max(2, Math.min(120, Math.min(W / bw, (H - 30) / bh)));
+            view.x = (W - (b.x1 - b.x0) * view.s) / 2 - b.x0 * view.s;
+            view.y = (H - 30 - (b.y1 - b.y0) * view.s) / 2 - b.y0 * view.s;
+            if (!quiet) draw();
+        }
+
+        /* ---------- tools ---------- */
+        function setTool(tl) {
+            tool = tl;
+            chain = null; rectStart = null; dimPts = null;
+            hidePrompt();
+            $$('.plan-tools [data-tool]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.tool === tl)));
+            wrap.dataset.tool = tl;
+            $('#fp-furn-kind').hidden = tl !== 'furn';
+            draw();
+        }
+        function finishChain() { chain = null; draw(); }
+        function signedOff(p) {
+            const [a, b] = dimPts, u = unitv(sub(b, a)), n = perp(u);
+            return +(((p.x - a.x) * n.x + (p.y - a.y) * n.y)).toFixed(3);
+        }
+
+        function clickAt(raw) {
+            if (tool === 'wall') {
+                const last = chain ? chain.pts[chain.pts.length - 1] : null;
+                const p = snapPoint(raw, last);
+                if (!chain) { chain = { pts: [p] }; draw(); return; }
+                if (dist(p, last) < .05) return;
+                const first = chain.pts[0];
+                if (chain.pts.length >= 2 && dist(p, first) < 1e-3) {
+                    addWall(last, first);
+                    addRoom(chain.pts);
+                    chain = null;
+                    commit();
+                    return;
+                }
+                addWall(last, p);
+                chain.pts.push(p);
+                commit();
+            } else if (tool === 'room') {
+                const p = snapPoint(raw, null);
+                if (!rectStart) { rectStart = p; draw(); return; }
+                if (Math.abs(p.x - rectStart.x) > .3 && Math.abs(p.y - rectStart.y) > .3) {
+                    const a = { x: Math.min(p.x, rectStart.x), y: Math.min(p.y, rectStart.y) };
+                    const b = { x: Math.max(p.x, rectStart.x), y: Math.max(p.y, rectStart.y) };
+                    const r = addRect(a, b);
+                    rectStart = null;
+                    if (r) sel = { k: 'room', id: r.id };
+                    commit();
+                }
+            } else if (tool === 'door' || tool === 'window') {
+                const w = nearestWall(raw, 16);
+                if (!w) { toast(t('fp.needWall')); return; }
+                const o = addOpening(tool, w, raw);
+                sel = { k: 'op', id: o.id };
+                commit();
+            } else if (tool === 'text') {
+                const p = snapPoint(raw, null);
+                showPrompt('text', t('fp.textPrompt'), (val) => {
+                    if (!val.trim()) return;
+                    const x = { id: uid(), x: p.x, y: p.y, text: val.trim().slice(0, 80), size: 1 };
+                    P.texts.push(x);
+                    sel = { k: 'text', id: x.id };
+                    commit();
+                }, raw);
+            } else if (tool === 'dim') {
+                const p = snapPoint(raw, dimPts && dimPts.length === 1 ? dimPts[0] : null);
+                if (!dimPts) { dimPts = [p]; draw(); return; }
+                if (dimPts.length === 1) { if (dist(p, dimPts[0]) > .05) dimPts.push(p); draw(); return; }
+                const d = { id: uid(), a: dimPts[0], b: dimPts[1], off: signedOff(raw) || -2 };
+                P.dims.push(d);
+                dimPts = null;
+                commit();
+            } else if (tool === 'furn') {
+                const p = snapPoint(raw, null);
+                const L = LIB[furnKind];
+                const f = { id: uid(), kind: furnKind, x: p.x, y: p.y, rot: 0, w: L.w, d: L.d };
+                P.furn.push(f);
+                sel = { k: 'furn', id: f.id };
+                commit();
+            }
+        }
+
+        /* ---------- typed lengths (CAD style) ---------- */
+        const prompt = $('#fp-prompt'), promptIn = $('#fp-prompt-input');
+        let promptCb = null;
+        function showPrompt(kind, label, cb, at, initial = '') {
+            promptCb = cb;
+            $('#fp-prompt-label').textContent = label;
+            promptIn.value = initial;
+            prompt.hidden = false;
+            prompt.dataset.kind = kind;
+            const r = svg.getBoundingClientRect();
+            const sx = at ? at.x * view.s + view.x : 20, sy = at ? at.y * view.s + view.y : 20;
+            prompt.style.left = Math.max(8, Math.min(r.width - 230, sx + 14)) + 'px';
+            prompt.style.top = Math.max(8, Math.min(r.height - 60, sy + 14)) + 'px';
+            promptIn.focus();
+            promptIn.setSelectionRange(promptIn.value.length, promptIn.value.length);
+        }
+        function hidePrompt() { prompt.hidden = true; promptCb = null; }
+        promptIn.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') { e.preventDefault(); const cb = promptCb, v = promptIn.value; hidePrompt(); if (cb) cb(v); svg.focus && svg.focus(); }
+            else if (e.key === 'Escape') { e.preventDefault(); hidePrompt(); }
+            e.stopPropagation();
+        });
+        promptIn.addEventListener('blur', () => setTimeout(() => { if (document.activeElement !== promptIn) hidePrompt(); }, 150));
+
+        // "12'6", "12 6", "3.5" (in the chosen unit) → feet
+        function parseLen(str) {
+            const s = toEn(String(str || '')).trim();
+            if (!s) return NaN;
+            const u = LEN.current();
+            const two = s.match(/^(\d+(?:\.\d+)?)\s+(\d+(?:\.\d+)?)$/);
+            if (u === 'ftin' && two) return Number(two[1]) + Number(two[2]) / 12;
+            const n = parseNum(s);
+            if (!Number.isFinite(n)) return NaN;
+            if (/['’′]/.test(s) || u === 'ftin' || u === 'ft') return n;
+            return n * IN_PER[u] / 12;
+        }
+        function typedLength(first) {
+            if (tool === 'wall' && chain) {
+                showPrompt('len', t('fp.lenPrompt'), (val) => {
+                    const L = parseLen(val);
+                    if (!(L > 0)) { toast(t('err.number')); return; }
+                    const last = chain.pts[chain.pts.length - 1];
+                    let dir = hover && dist(hover, last) > 1e-3 ? unitv(sub(hover, last)) : { x: 1, y: 0 };
+                    if (P.opt.ortho) { const a = Math.round(Math.atan2(dir.y, dir.x) / (Math.PI / 4)) * (Math.PI / 4); dir = { x: Math.cos(a), y: Math.sin(a) }; }
+                    const p = clean(add(last, mul(dir, L)));
+                    addWall(last, p);
+                    chain.pts.push(p);
+                    commit();
+                }, hover, first);
+            } else if (tool === 'room' && rectStart) {
+                showPrompt('rect', t('fp.rectPrompt'), (val) => {
+                    const [a, b] = String(val).split(/\s*[x×*,]\s*/i);
+                    const L = parseLen(a), W = parseLen(b);
+                    if (!(L > 0) || !(W > 0)) { toast(t('err.number')); return; }
+                    const sx = hover && hover.x < rectStart.x ? -1 : 1, sy = hover && hover.y < rectStart.y ? -1 : 1;
+                    const q = { x: rectStart.x + sx * L, y: rectStart.y + sy * W };
+                    const r = addRect({ x: Math.min(q.x, rectStart.x), y: Math.min(q.y, rectStart.y) }, { x: Math.max(q.x, rectStart.x), y: Math.max(q.y, rectStart.y) });
+                    rectStart = null;
+                    if (r) sel = { k: 'room', id: r.id };
+                    commit();
+                }, hover, first);
+            }
+        }
+
+        /* ---------- pointer input ---------- */
+        svg.addEventListener('contextmenu', (e) => e.preventDefault());
+        svg.addEventListener('pointerdown', (e) => {
+            svg.setPointerCapture(e.pointerId);
+            pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+            if (pointers.size === 2) {
+                const [a, b] = [...pointers.values()];
+                pinch = { d: Math.hypot(a.x - b.x, a.y - b.y), cx: (a.x + b.x) / 2, cy: (a.y + b.y) / 2 };
+                down = null; drag = null; pan = null;
+                return;
+            }
+            const wp = toWorld(e.clientX, e.clientY);
+            if (e.button === 2 && tool === 'wall' && chain) { finishChain(); return; }
+            if (e.button === 1 || e.button === 2 || tool === 'pan' || spaceDown) {
+                pan = { x: e.clientX, y: e.clientY, vx: view.x, vy: view.y };
+                wrap.classList.add('panning');
+                return;
+            }
+            if (tool === 'select') {
+                const h = e.target.closest('[data-handle]');
+                const hit = e.target.closest('[data-id]');
+                const so = getSel();
+                if (h && so) {
+                    const key = h.dataset.handle;
+                    drag = { kind: 'handle', key, orig: { ...so[key] }, moved: false };
+                    return;
+                }
+                if (hit) {
+                    sel = { k: hit.dataset.k, id: hit.dataset.id };
+                    const o = getSel();
+                    if (sel.k === 'furn' || sel.k === 'text') drag = { kind: 'move', off: sub(wp, o), moved: false };
+                    else if (sel.k === 'op') drag = { kind: 'op', moved: false };
+                    else drag = null;
+                    inspector();
+                    draw();
+                    return;
+                }
+                if (sel) { sel = null; inspector(); draw(); }
+                pan = { x: e.clientX, y: e.clientY, vx: view.x, vy: view.y };
+                return;
+            }
+            if (tool === 'erase') {
+                const hit = e.target.closest('[data-id]');
+                if (hit) { remove(hit.dataset.k, hit.dataset.id); commit(); }
+                return;
+            }
+            down = { x: e.clientX, y: e.clientY, vx: view.x, vy: view.y, wp };
+        });
+        svg.addEventListener('pointermove', (e) => {
+            if (pointers.has(e.pointerId)) pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+            if (pinch && pointers.size === 2) {
+                const [a, b] = [...pointers.values()];
+                const d = Math.hypot(a.x - b.x, a.y - b.y), cx = (a.x + b.x) / 2, cy = (a.y + b.y) / 2;
+                view.x += cx - pinch.cx; view.y += cy - pinch.cy;
+                zoomAt(cx, cy, d / (pinch.d || d));
+                pinch = { d, cx, cy };
+                return;
+            }
+            const wp = toWorld(e.clientX, e.clientY);
+            if (pan) { view.x = pan.vx + e.clientX - pan.x; view.y = pan.vy + e.clientY - pan.y; draw(); return; }
+            if (down && Math.hypot(e.clientX - down.x, e.clientY - down.y) > 6) {
+                pan = { x: down.x, y: down.y, vx: down.vx, vy: down.vy };
+                down = null;
+                wrap.classList.add('panning');
+                return;
+            }
+            if (drag) {
+                const o = getSel();
+                if (!o) { drag = null; return; }
+                drag.moved = true;
+                if (drag.kind === 'handle') {
+                    if (sel.k === 'wall') {
+                        const cur = o[drag.key];
+                        const other = o[drag.key === 'a' ? 'b' : 'a'];
+                        const p = snapPoint(wp, other, drag.orig);
+                        moveEndpoint(cur, p);
+                    } else {
+                        o[drag.key] = snapPoint(wp, null);
+                    }
+                } else if (drag.kind === 'move') {
+                    const p = snapPoint(sub(wp, drag.off), null);
+                    o.x = p.x; o.y = p.y;
+                } else if (drag.kind === 'op') {
+                    const w = byId(P.walls, o.wall), L = wallLen(w);
+                    const st = snapStep() || .01;
+                    o.at = Math.max(o.w / 2, Math.min(L - o.w / 2, Math.round(projT(wp, w.a, w.b) * L / st) * st));
+                }
+                draw();
+                return;
+            }
+            const last = chain ? chain.pts[chain.pts.length - 1] : (dimPts && dimPts.length === 1 ? dimPts[0] : null);
+            hover = (tool === 'select' || tool === 'pan' || tool === 'erase') ? wp : (dimPts && dimPts.length === 2 ? wp : snapPoint(wp, last));
+            draw();
+        });
+        const endPointer = (e) => {
+            pointers.delete(e.pointerId);
+            if (pinch) { if (pointers.size < 2) pinch = null; return; }
+            if (pan) { pan = null; wrap.classList.remove('panning'); return; }
+            if (drag) { const moved = drag.moved; drag = null; if (moved) commit(); return; }
+            if (down) { const wp = down.wp; down = null; clickAt(wp); }
+        };
+        svg.addEventListener('pointerup', endPointer);
+        svg.addEventListener('pointercancel', (e) => { pointers.delete(e.pointerId); pinch = null; pan = null; down = null; drag = null; wrap.classList.remove('panning'); });
+        svg.addEventListener('pointerleave', () => { if (!pointers.size) { hover = null; draw(); } });
+        svg.addEventListener('dblclick', () => { if (tool === 'wall' && chain) finishChain(); });
+        svg.addEventListener('wheel', (e) => { e.preventDefault(); zoomAt(e.clientX, e.clientY, Math.pow(1.0015, -e.deltaY)); }, { passive: false });
+
+        /* ---------- keyboard ---------- */
+        const KEYS = { v: 'select', h: 'pan', w: 'wall', r: 'room', d: 'door', n: 'window', t: 'text', m: 'dim', f: 'furn', e: 'erase' };
+        document.addEventListener('keydown', (e) => {
+            if (currentPage !== 'plan') return;
+            const tg = e.target;
+            if (tg && (tg.closest('input, textarea, select, [contenteditable]') || tg.closest('.modal, .drawer'))) return;
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z') { e.preventDefault(); e.shiftKey ? redo() : undo(); return; }
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'y') { e.preventDefault(); redo(); return; }
+            if (e.ctrlKey || e.metaKey || e.altKey) return;
+            if (e.key === ' ') { spaceDown = true; e.preventDefault(); return; }
+            if (e.key === 'Escape') {
+                if (chain || rectStart || dimPts) { chain = null; rectStart = null; dimPts = null; draw(); }
+                else if (sel) { sel = null; inspector(); draw(); }
+                else setTool('select');
+                return;
+            }
+            if (e.key === 'Enter' && tool === 'wall' && chain) { finishChain(); return; }
+            if ((e.key === 'Delete' || e.key === 'Backspace') && sel) { e.preventDefault(); remove(sel.k, sel.id); commit(); return; }
+            if (/^[0-9.'০-৯]$/.test(e.key) && ((tool === 'wall' && chain) || (tool === 'room' && rectStart))) { e.preventDefault(); typedLength(e.key); return; }
+            const tl = KEYS[e.key.toLowerCase()];
+            if (tl) { setTool(tl); return; }
+            if (e.key.toLowerCase() === 'o') { P.opt.ortho = !P.opt.ortho; commit(); }
+        });
+        document.addEventListener('keyup', (e) => { if (e.key === ' ') spaceDown = false; });
+
+        /* ---------- inspector (properties of the selected item) ---------- */
+        const lenBox = (id, base) => `<div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="${id}" data-len="${base}" data-ph="0"></div>`;
+        const field = (label, inner) => `<div class="field"><label>${esc(label)}</label>${inner}</div>`;
+        function setLen(id, val) { const el = $('#' + id, insp); if (el) LEN.set(el, val); }
+        function readLen(id) { const el = $('#' + id, insp); const r = el ? LEN.read(el) : {}; return r.value; }
+
+        function inspector() {
+            const o = getSel();
+            let h = '';
+            if (!o) {
+                const floor = P.rooms.reduce((s, r) => s + polyArea(r.pts), 0);
+                const wl = P.walls.reduce((s, w) => s + wallLen(w), 0);
+                const steps = isMetric() ? [[0, 'fp.snapOff'], [0.164042, '5 cm'], [0.328084, '10 cm'], [1.64042, '50 cm']] : [[0, 'fp.snapOff'], [1 / 12, '1"'], [0.25, '3"'], [0.5, '6"'], [1, "1'"]];
+                h = `<h3><i class="fa-solid fa-sliders"></i>${esc(t('fp.planSet'))}</h3>
+                    <div class="fp-stats">
+                        <div><small>${esc(t('fp.r.rooms'))}</small><b>${num(P.rooms.length, 0)}</b></div>
+                        <div><small>${esc(t('r.floorArea'))}</small><b>${esc(qs(qArea(floor)))}</b></div>
+                        <div><small>${esc(t('fp.r.wallLen'))}</small><b>${esc(fmtL(wl))}</b></div>
+                        <div><small>${esc(t('fp.r.doorWin'))}</small><b>${num(P.openings.filter((x) => x.type === 'door').length, 0)} / ${num(P.openings.filter((x) => x.type === 'window').length, 0)}</b></div>
+                    </div>
+                    ${field(t('fp.newWallT'), `<div class="segmented"><label><input type="radio" name="fpT" value="5"${P.opt.wallT === 5 ? ' checked' : ''}><span>5"</span></label><label><input type="radio" name="fpT" value="10"${P.opt.wallT === 10 ? ' checked' : ''}><span>10"</span></label><label><input type="radio" name="fpT" value="c"${P.opt.wallT !== 5 && P.opt.wallT !== 10 ? ' checked' : ''}><span>${esc(t('tl.custom'))}</span></label></div>`)}
+                    ${field(t('fp.wallT'), lenBox('fp-i-wt', 'in'))}
+                    ${field(t('fp.wallH'), lenBox('fp-i-wh', 'ft'))}
+                    ${field(t('fp.snap'), `<select class="control" id="fp-i-snap">${steps.map(([v, l]) => `<option value="${v}"${Math.abs(v - snapStep()) < 1e-6 ? ' selected' : ''}>${esc(l.startsWith('fp.') ? t(l) : digits(l))}</option>`).join('')}</select>`)}
+                    <label class="set-row"><span><strong>${esc(t('fp.ortho'))}</strong></span><input type="checkbox" class="switch" id="fp-i-ortho"${P.opt.ortho ? ' checked' : ''}></label>
+                    <label class="set-row"><span><strong>${esc(t('fp.showDims'))}</strong></span><input type="checkbox" class="switch" id="fp-i-dims"${P.opt.showDims ? ' checked' : ''}></label>
+                    <ul class="fp-keys">
+                        <li><kbd>W</kbd>${esc(t('fp.wall'))} <kbd>R</kbd>${esc(t('fp.room'))} <kbd>D</kbd>${esc(t('fp.door'))} <kbd>N</kbd>${esc(t('fp.window'))}</li>
+                        <li><kbd>T</kbd>${esc(t('fp.text'))} <kbd>M</kbd>${esc(t('fp.dim'))} <kbd>F</kbd>${esc(t('fp.furn'))} <kbd>E</kbd>${esc(t('fp.erase'))}</li>
+                        <li><kbd>Ctrl Z</kbd>${esc(t('fp.undo'))} <kbd>Del</kbd>${esc(t('fp.delete'))} <kbd>Esc</kbd>${esc(t('fp.cancel'))}</li>
+                        <li>${esc(t('fp.typeHint'))}</li>
+                    </ul>
+                    <button type="button" class="btn btn-danger btn-sm" data-act="clear"><i class="fa-solid fa-trash-can"></i> ${esc(t('fp.clear'))}</button>`;
+            } else if (sel.k === 'wall') {
+                h = `<h3><i class="fa-solid fa-grip-lines-vertical"></i>${esc(t('fp.wall'))}</h3>
+                    ${field(t('grp.length'), lenBox('fp-i-len', 'ft'))}
+                    ${field(t('fp.wallT'), lenBox('fp-i-t', 'in'))}
+                    ${field(t('fp.wallH'), lenBox('fp-i-h', 'ft'))}
+                    <button type="button" class="btn btn-soft btn-sm" data-act="addDoor"><i class="fa-solid fa-door-open"></i> ${esc(t('fp.addDoor'))}</button>
+                    <button type="button" class="btn btn-soft btn-sm" data-act="addWin"><i class="fa-solid fa-table-columns"></i> ${esc(t('fp.addWin'))}</button>
+                    <button type="button" class="btn btn-danger btn-sm" data-act="del"><i class="fa-solid fa-trash-can"></i> ${esc(t('fp.delete'))}</button>`;
+            } else if (sel.k === 'room') {
+                h = `<h3><i class="fa-regular fa-square"></i>${esc(t('fp.room'))}</h3>
+                    ${field(t('fp.roomName'), `<input class="control" id="fp-i-name" maxlength="40" value="${esc(o.name)}">`)}
+                    <div class="fp-stats"><div><small>${esc(t('r.area'))}</small><b>${esc(qs(qArea(polyArea(o.pts))))}</b></div><div><small>${esc(t('fp.perim'))}</small><b>${esc(fmtL(o.pts.reduce((s, p, i) => s + dist(p, o.pts[(i + 1) % o.pts.length]), 0)))}</b></div></div>
+                    <button type="button" class="btn btn-danger btn-sm" data-act="del"><i class="fa-solid fa-trash-can"></i> ${esc(t('fp.delRoom'))}</button>
+                    <small class="set-help">${esc(t('fp.delRoomHint'))}</small>`;
+            } else if (sel.k === 'op') {
+                h = `<h3><i class="fa-solid ${o.type === 'door' ? 'fa-door-open' : 'fa-table-columns'}"></i>${esc(t(o.type === 'door' ? 'fp.door' : 'fp.window'))}</h3>
+                    ${field(t('fp.type'), `<div class="segmented"><label><input type="radio" name="fpOpT" value="door"${o.type === 'door' ? ' checked' : ''}><span>${esc(t('fp.door'))}</span></label><label><input type="radio" name="fpOpT" value="window"${o.type === 'window' ? ' checked' : ''}><span>${esc(t('fp.window'))}</span></label></div>`)}
+                    ${field(t('cl.width'), lenBox('fp-i-ow', 'ft'))}
+                    ${field(t('fp.opH'), lenBox('fp-i-oh', 'ft'))}
+                    ${o.type === 'window' ? field(t('fp.sill'), lenBox('fp-i-os', 'ft')) : ''}
+                    ${o.type === 'door' ? `<button type="button" class="btn btn-soft btn-sm" data-act="flipSide"><i class="fa-solid fa-arrows-up-down"></i> ${esc(t('fp.flipSide'))}</button><button type="button" class="btn btn-soft btn-sm" data-act="flipHinge"><i class="fa-solid fa-arrows-left-right"></i> ${esc(t('fp.flipHinge'))}</button>` : ''}
+                    <button type="button" class="btn btn-danger btn-sm" data-act="del"><i class="fa-solid fa-trash-can"></i> ${esc(t('fp.delete'))}</button>`;
+            } else if (sel.k === 'text') {
+                h = `<h3><i class="fa-solid fa-font"></i>${esc(t('fp.text'))}</h3>
+                    ${field(t('fp.textPrompt'), `<input class="control" id="fp-i-text" maxlength="80" value="${esc(o.text)}">`)}
+                    ${field(t('fp.textSize'), lenBox('fp-i-ts', 'ft'))}
+                    <button type="button" class="btn btn-danger btn-sm" data-act="del"><i class="fa-solid fa-trash-can"></i> ${esc(t('fp.delete'))}</button>`;
+            } else if (sel.k === 'dim') {
+                h = `<h3><i class="fa-solid fa-ruler-horizontal"></i>${esc(t('fp.dim'))}</h3>
+                    <div class="fp-stats"><div><small>${esc(t('grp.length'))}</small><b>${esc(fmtL(dist(o.a, o.b)))}</b></div></div>
+                    ${field(t('fp.dimOff'), lenBox('fp-i-do', 'ft'))}
+                    <button type="button" class="btn btn-soft btn-sm" data-act="flipDim"><i class="fa-solid fa-arrows-up-down"></i> ${esc(t('fp.flipSide'))}</button>
+                    <button type="button" class="btn btn-danger btn-sm" data-act="del"><i class="fa-solid fa-trash-can"></i> ${esc(t('fp.delete'))}</button>`;
+            } else if (sel.k === 'furn') {
+                h = `<h3><i class="fa-solid fa-couch"></i>${esc(t('fp.f.' + o.kind))}</h3>
+                    ${field(t('cl.width'), lenBox('fp-i-fw', 'ft'))}
+                    ${field(t('fp.depth'), lenBox('fp-i-fd', 'ft'))}
+                    <button type="button" class="btn btn-soft btn-sm" data-act="rotL"><i class="fa-solid fa-rotate-left"></i> ${esc(t('fp.rotate'))} −90°</button>
+                    <button type="button" class="btn btn-soft btn-sm" data-act="rotR"><i class="fa-solid fa-rotate-right"></i> ${esc(t('fp.rotate'))} +90°</button>
+                    <button type="button" class="btn btn-danger btn-sm" data-act="del"><i class="fa-solid fa-trash-can"></i> ${esc(t('fp.delete'))}</button>`;
+            }
+            insp.innerHTML = h;
+            LEN.enhance(insp);
+            LEN.refresh(insp);
+            if (!o) { setLen('fp-i-wt', P.opt.wallT); setLen('fp-i-wh', P.opt.wallH); }
+            else if (sel.k === 'wall') { setLen('fp-i-len', wallLen(o)); setLen('fp-i-t', o.t); setLen('fp-i-h', o.h); }
+            else if (sel.k === 'op') { setLen('fp-i-ow', o.w); setLen('fp-i-oh', o.h); setLen('fp-i-os', o.sill); }
+            else if (sel.k === 'text') setLen('fp-i-ts', o.size);
+            else if (sel.k === 'dim') setLen('fp-i-do', Math.abs(o.off));
+            else if (sel.k === 'furn') { setLen('fp-i-fw', o.w); setLen('fp-i-fd', o.d); }
+        }
+
+        insp.addEventListener('change', (e) => {
+            const tg = e.target, o = getSel();
+            const box = tg.closest('.len-box');
+            const id = box ? $('input[data-len]', box).id : tg.id;
+            const v = box ? readLen(id) : null;
+            const ok = (x) => Number.isFinite(x) && x > 0;
+            if (!o) {
+                if (tg.name === 'fpT' && tg.value !== 'c') P.opt.wallT = Number(tg.value);
+                else if (id === 'fp-i-wt' && ok(v)) P.opt.wallT = +v.toFixed(3);
+                else if (id === 'fp-i-wh' && ok(v)) P.opt.wallH = +v.toFixed(3);
+                else if (id === 'fp-i-snap') P.opt.snap = Number(tg.value);
+                else if (id === 'fp-i-ortho') P.opt.ortho = tg.checked;
+                else if (id === 'fp-i-dims') P.opt.showDims = tg.checked;
+                else return;
+                commit();
+                return;
+            }
+            if (sel.k === 'wall') {
+                if (id === 'fp-i-len' && ok(v)) {
+                    const u = unitv(sub(o.b, o.a));
+                    moveEndpoint(o.b, add(o.a, mul(u, v)));
+                } else if (id === 'fp-i-t' && ok(v)) o.t = v;
+                else if (id === 'fp-i-h' && ok(v)) o.h = v;
+                else return;
+            } else if (sel.k === 'room') {
+                if (id === 'fp-i-name') o.name = tg.value.slice(0, 40); else return;
+            } else if (sel.k === 'op') {
+                if (tg.name === 'fpOpT') { o.type = tg.value; if (o.type === 'window' && !o.sill) { o.sill = 3; o.h = Math.min(o.h, 4); } if (o.type === 'door') o.sill = 0; }
+                else if (id === 'fp-i-ow' && ok(v)) o.w = v;
+                else if (id === 'fp-i-oh' && ok(v)) o.h = v;
+                else if (id === 'fp-i-os' && Number.isFinite(v) && v >= 0) o.sill = v;
+                else return;
+                clampOpenings();
+            } else if (sel.k === 'text') {
+                if (id === 'fp-i-text') o.text = tg.value.slice(0, 80);
+                else if (id === 'fp-i-ts' && ok(v)) o.size = v;
+                else return;
+            } else if (sel.k === 'dim') {
+                if (id === 'fp-i-do' && ok(v)) o.off = Math.sign(o.off || -1) * v; else return;
+            } else if (sel.k === 'furn') {
+                if (id === 'fp-i-fw' && ok(v)) o.w = v;
+                else if (id === 'fp-i-fd' && ok(v)) o.d = v;
+                else return;
+            }
+            commit();
+        });
+        insp.addEventListener('click', (e) => {
+            const b = e.target.closest('[data-act]');
+            if (!b) return;
+            const o = getSel(), act = b.dataset.act;
+            if (act === 'clear') {
+                if (!window.confirm(t('fp.clearConfirm'))) return;
+                const opt = P.opt;
+                P = blank(); P.opt = opt; sel = null;
+                commit();
+                return;
+            }
+            if (!o) return;
+            if (act === 'del') remove(sel.k, sel.id);
+            else if (act === 'addDoor' || act === 'addWin') { const n = addOpening(act === 'addDoor' ? 'door' : 'window', o, lerp(o.a, o.b, .5)); sel = { k: 'op', id: n.id }; }
+            else if (act === 'flipSide') { if (sel.k === 'dim') o.off = -o.off; else o.flip ^= 1; }
+            else if (act === 'flipHinge') o.flip ^= 2;
+            else if (act === 'flipDim') o.off = -o.off;
+            else if (act === 'rotL' || act === 'rotR') o.rot = ((o.rot + (act === 'rotR' ? 90 : -90)) % 360 + 360) % 360;
+            commit();
+        });
+
+        /* ---------- toolbar, view, file menu ---------- */
+        $$('.plan-tools [data-tool]').forEach((b) => b.addEventListener('click', () => setTool(b.dataset.tool)));
+        const kindSel = $('#fp-furn-kind');
+        function fillKinds() { kindSel.innerHTML = Object.keys(LIB).map((k) => `<option value="${k}"${k === furnKind ? ' selected' : ''}>${esc(t('fp.f.' + k))}</option>`).join(''); }
+        kindSel.addEventListener('change', () => { furnKind = kindSel.value; });
+        $('#fp-undo').addEventListener('click', undo);
+        $('#fp-redo').addEventListener('click', redo);
+        $('#fp-fit').addEventListener('click', () => fit());
+        function setView(v) {
+            main.dataset.view = v;
+            $$('input[name="fpView"]').forEach((r) => { r.checked = r.value === v; });
+            storage.set(STORE_VIEW, v);
+            setTimeout(() => { draw(); VIZ.update('plan'); }, 30);
+        }
+        $$('input[name="fpView"]').forEach((r) => r.addEventListener('change', () => setView(r.value)));
+        const menuBtn2 = $('#fp-menu-btn'), menu = $('#fp-menu');
+        menuBtn2.addEventListener('click', (e) => { e.stopPropagation(); menu.hidden = !menu.hidden; menuBtn2.setAttribute('aria-expanded', String(!menu.hidden)); });
+        document.addEventListener('click', (e) => { if (!menu.hidden && !e.target.closest('.fp-menu')) { menu.hidden = true; menuBtn2.setAttribute('aria-expanded', 'false'); } });
+        menu.addEventListener('click', async (e) => {
+            const b = e.target.closest('[data-fp]');
+            if (!b) return;
+            menu.hidden = true;
+            const a = b.dataset.fp;
+            if (a === 'new') {
+                if ((P.walls.length || P.furn.length) && !window.confirm(t('fp.clearConfirm'))) return;
+                const opt = P.opt; P = blank(); P.opt = opt; sel = null; commit(); fit();
+            } else if (a === 'sample') {
+                if ((P.walls.length || P.furn.length) && !window.confirm(t('fp.sampleConfirm'))) return;
+                sample(); commit(); fit();
+            } else if (a === 'open') $('#fp-file').click();
+            else if (a === 'save') downloadBlob(new Blob([JSON.stringify(P, null, 1)], { type: 'application/json' }), fileBase() + '.json');
+            else if (a === 'png') {
+                const url = await toPng();
+                const res = await fetch(url);
+                downloadBlob(await res.blob(), fileBase() + '.png');
+            }
+        });
+        $('#fp-file').addEventListener('change', (e) => {
+            const file = e.target.files && e.target.files[0];
+            e.target.value = '';
+            if (!file) return;
+            if (file.size > 3 * 1024 * 1024) { toast(t('fp.badFile')); return; }
+            const rd = new FileReader();
+            rd.onload = () => {
+                try { P = sanitize(JSON.parse(rd.result)); sel = null; commit(); fit(); toast(t('fp.opened')); }
+                catch (err) { toast(t('fp.badFile')); }
+            };
+            rd.readAsText(file);
+        });
+        function downloadBlob(blob, name) {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url; a.download = name;
+            document.body.appendChild(a); a.click(); a.remove();
+            setTimeout(() => URL.revokeObjectURL(url), 4000);
+        }
+        function fileBase() {
+            const d = new Date();
+            return `Floor-Plan_${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+        }
+
+        /* ---------- PNG export (also used in the PDF) ---------- */
+        function toPng(maxW = 1800) {
+            const b = bounds(), pad = 3;
+            const bw = b.x1 - b.x0 + pad * 2, bh = b.y1 - b.y0 + pad * 2;
+            const s = Math.min(maxW / bw, 1400 / bh, 60);
+            const W = Math.round(bw * s), H = Math.round(bh * s);
+            const pal = palette(true);
+            const savedSel = sel; sel = null;
+            const body = worldMarkup(pal, s / 1.7, false);       // a little bigger text and lines for print
+            sel = savedSel;
+            const markup = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="Noto Sans Bengali, Nirmala UI, Vrinda, Poppins, Arial, sans-serif"><rect width="${W}" height="${H}" fill="#ffffff"/><g transform="translate(${(pad - b.x0) * s} ${(pad - b.y0) * s}) scale(${s})">${body}</g></svg>`;
+            return new Promise((res, rej) => {
+                const img = new Image();
+                img.onload = () => {
+                    const c = document.createElement('canvas');
+                    c.width = W; c.height = H;
+                    const g = c.getContext('2d');
+                    g.fillStyle = '#fff'; g.fillRect(0, 0, W, H);
+                    g.drawImage(img, 0, 0);
+                    res(c.toDataURL('image/png'));
+                };
+                img.onerror = rej;
+                img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(markup);
+            });
+        }
+
+        /* ---------- sample house ---------- */
+        function sample() {
+            const opt = P.opt;
+            P = blank(); P.opt = opt;
+            const bn = S.lang === 'bn';
+            addRect({ x: 0, y: 0 }, { x: 36, y: 24 }, null, 10);
+            P.rooms = [];
+            addRect({ x: 0, y: 0 }, { x: 14, y: 12 }, bn ? 'শোবার ঘর ১' : 'Bedroom 1', 5);
+            addRect({ x: 0, y: 12 }, { x: 14, y: 24 }, bn ? 'শোবার ঘর ২' : 'Bedroom 2', 5);
+            addRect({ x: 14, y: 0 }, { x: 36, y: 14 }, bn ? 'বসার ঘর' : 'Living room', 5);
+            addRect({ x: 14, y: 14 }, { x: 25, y: 24 }, bn ? 'রান্নাঘর' : 'Kitchen', 5);
+            addRect({ x: 25, y: 14 }, { x: 36, y: 24 }, bn ? 'বাথরুম' : 'Bathroom', 5);
+            const at = (type, x, y, extra) => { const w = nearestWall({ x, y }, 4); if (w) addOpening(type, w, { x, y }, extra); };
+            const v0 = view.s; view.s = 18;
+            at('door', 25, 0, { w: 3.5, flip: 0 });
+            at('door', 14, 8, { flip: 0 });
+            at('door', 14, 16, { flip: 0 });
+            at('door', 21.5, 14, { flip: 1 });
+            at('door', 28, 14, { w: 2.5, flip: 1 });
+            at('window', 0, 6); at('window', 0, 18); at('window', 7, 0); at('window', 32, 0, { w: 5 });
+            at('window', 19, 24); at('window', 33, 24, { w: 2.5, h: 2, sill: 5 }); at('window', 36, 7, { w: 5 });
+            view.s = v0;
+            const f = (kind, x, y, rot = 0) => P.furn.push({ id: uid(), kind, x, y, rot, w: LIB[kind].w, d: LIB[kind].d });
+            f('bed', 6, 5.5); f('wardrobe', 2.5, 10.6); f('bed', 6, 19, 180); f('wardrobe', 3.5, 13.4, 180);
+            f('sofa', 23, 10.8, 180); f('dining', 31.5, 5); f('counter', 19.5, 22.6); f('fridge', 15.7, 15.7);
+            f('wc', 34.6, 22.5); f('basin', 27, 22.8); f('shower', 33.9, 16.1);
+            P.dims.push({ id: uid(), a: { x: 0, y: 0 }, b: { x: 36, y: 0 }, off: -3 });
+            P.dims.push({ id: uid(), a: { x: 0, y: 0 }, b: { x: 0, y: 24 }, off: 3 });
+        }
+
+        /* ---------- estimate from the drawing ---------- */
+        CALC.plan = {
+            ratios: [],
+            run(v) {
+                const k = K();
+                const walls = P.walls;
+                if (!walls.length && !P.rooms.length) return [row(t('fp.empty'), '')];
+                const floor = P.rooms.reduce((s, r) => s + polyArea(r.pts), 0);
+                const groups = {};
+                let wl = 0, netTotal = 0;
+                walls.forEach((w) => {
+                    const L = wallLen(w);
+                    const op = P.openings.filter((o) => o.wall === w.id).reduce((s, o) => s + o.w * Math.min(o.h, Math.max(w.h - o.sill, 0)), 0);
+                    const net = Math.max(L * w.h - op, 0);
+                    const g = groups[w.t] || (groups[w.t] = { len: 0, vol: 0 });
+                    g.len += L; g.vol += net * w.t / 12;
+                    wl += L; netTotal += net;
+                });
+                const doors = P.openings.filter((o) => o.type === 'door').length, wins = P.openings.length - doors;
+                const items = [
+                    heading(t('fp.r.summary')),
+                    row(t('fp.r.rooms'), num(P.rooms.length, 0), t('u.pcs')),
+                    rq(t('r.floorArea'), qArea(floor)),
+                    rq(t('fp.r.wallLen'), qRun(wl)),
+                    row(t('fp.r.doors'), num(doors, 0), t('u.pcs')),
+                    row(t('fp.r.windows'), num(wins, 0), t('u.pcs')),
+                ];
+                let bricks = 0, bags = 0, sand = 0, khoa = 0, tileCost = 0;
+                const mix = (dry, parts, idx) => dry / parts.reduce((a, b) => a + b, 0) * parts[idx];
+                if (walls.length) {
+                    let vol = 0;
+                    items.push(heading(t('fp.g.wall')));
+                    Object.keys(groups).map(Number).sort((a, b) => b - a).forEach((tk) => {
+                        vol += groups[tk].vol;
+                        items.push(rq(t('fp.r.wallT', { t: LEN.fmtIn(tk), l: fmtL(groups[tk].len) }), qVol(groups[tk].vol)));
+                    });
+                    bricks = Math.ceil(vol * k.bricksPerCft - 1e-9);
+                    const dry = vol * k.wallDry, rt = [v.wRatio1, v.wRatio2];
+                    const c = mix(dry, rt, 0), s = mix(dry, rt, 1);
+                    bags += c * k.cementBag; sand += s;
+                    items.push(
+                        rq(t('fp.r.netWall'), qArea(netTotal)),
+                        row(t('r.bricks'), num(bricks, 0), t('u.pcs'), true),
+                        rq(t('r.dryMix'), qVol(dry)),
+                        row(t('r.cementBags'), num(c * k.cementBag), t('u.bags'), true),
+                        rq(t('mat.sand'), qVol(s), true),
+                    );
+                }
+                const sides = Number(v.pSides ?? 2);
+                if (walls.length && sides > 0 && v.pThk > 0) {
+                    const area = netTotal * sides, dry = area * v.pThk / 12 * k.dry, rt = [v.pRatio1, v.pRatio2];
+                    const c = mix(dry, rt, 0), s = mix(dry, rt, 1);
+                    bags += c * k.cementBag; sand += s;
+                    items.push(heading(t('fp.g.plaster')), rq(t('r.workArea'), qArea(area)), row(t('r.cementBags'), num(c * k.cementBag), t('u.bags'), true), rq(t('mat.sand'), qVol(s), true));
+                }
+                if (v.slab !== '0' && floor > 0 && v.sThk > 0) {
+                    const vol = floor * v.sThk / 12, dry = vol * k.dry, rt = [v.sRatio1, v.sRatio2, v.sRatio3];
+                    const c = mix(dry, rt, 0), s = mix(dry, rt, 1), kh = mix(dry, rt, 2);
+                    bags += c * k.cementBag; sand += s; khoa += kh;
+                    items.push(heading(t('fp.g.slab')), rq(t('r.totalVolume'), qVol(vol)), row(t('r.cementBags'), num(c * k.cementBag), t('u.bags'), true), rq(t('mat.sand'), qVol(s), true), rq(t('mat.khoa'), qVol(kh), true));
+                }
+                if (v.fTile && v.fTile !== '0' && floor > 0) {
+                    const [a, b] = v.fTile.split('x').map(Number), one = a * b / 144;
+                    const n = Math.ceil(floor / one - 1e-9), nw = Math.ceil(n * (1 + (v.fWaste || 0) / 100) - 1e-9);
+                    tileCost = nw * one * (v.tilePrice || 0);
+                    items.push(heading(t('fp.g.tiles')), row(t('r.tileSize'), `${numPlain(a)} × ${numPlain(b)} ${t('u.inch')}`), row(t('r.tilesTotal'), num(nw, 0), t('u.pcs'), true), rq(t('r.buySft'), qArea(nw * one)));
+                }
+                items.push(...costItems([['r.brickCost', bricks, v.brickPrice], ['r.cementCost', bags, v.cementPrice], ['r.sandCost', sand, v.sandPrice], ['r.khoaCost', khoa, v.khoaPrice], ['r.tileCost', 1, tileCost]]));
+                return items;
+            },
+        };
+        form.addEventListener('input', () => { clearTimeout(estT); estT = setTimeout(refreshEstimate, 250); });
+        form.addEventListener('change', () => { clearTimeout(estT); estT = setTimeout(refreshEstimate, 120); });
+
+        /* ---------- init ---------- */
+        new ResizeObserver(() => draw()).observe(wrap);
+        VIZ.attach('plan', $('#plan-3d'), () => P);
+        const savedView = storage.get(STORE_VIEW, null);
+        if (savedView && ['2d', 'split', '3d'].includes(savedView)) { main.dataset.view = savedView; $$('input[name="fpView"]').forEach((r) => { r.checked = r.value === savedView; }); }
+        setTool('select');
+
+        return {
+            data: () => P,
+            polyArea, centroid, LIB,
+            toPng,
+            relabel() { fillKinds(); inspector(); draw(); if (currentPage === 'plan') refreshEstimate(); },
+            show() { view.fitted = view.fitted && wrap.clientWidth > 0; draw(); inspector(); setTimeout(refreshEstimate, 0); },
+            refreshEstimate,
+        };
+    })();
+
     /* ---------- Wire up calculator forms ---------- */
     $$('form[data-calc]').forEach((form) => {
         const id = form.dataset.calc;
@@ -4071,7 +5574,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
     const SHARE = (() => {
         const modal = $('#share-modal'), scrim = $('#share-scrim');
         const chk = $('#share-3d');
-        const st = { id: null, img: '', pdf: {} };
+        const st = { id: null, img: '', planImg: '', pdf: {} };
         const LIBS = [
             'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js',
             'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js',
@@ -4115,6 +5618,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                         <div><div class="rp-brand">${escapeHtml(t('brand.name'))}</div><div class="rp-title">${escapeHtml(t('page.' + id))}</div></div>
                         <div class="rp-date">${escapeHtml(stamp())}</div>
                     </div>
+                    ${id === 'plan' && st.planImg ? `<div class="rp-3d"><h3>${escapeHtml(t('rp.plan2d'))}</h3><img src="${st.planImg}" alt=""></div>` : ''}
                     <h3>${escapeHtml(t('rp.inputs'))}</h3>
                     <table class="rp-table rp-inputs">${inputs}</table>
                     <h3>${escapeHtml(t('rp.results'))}</h3>
@@ -4190,10 +5694,12 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             $('#share-no3d').hidden = want3d();
         }
 
-        function open(id) {
+        async function open(id) {
             if (!lastValues[id]) return;
             st.id = id;
             st.pdf = {};
+            st.planImg = '';
+            if (id === 'plan') { try { st.planImg = await PLAN.toPng(1600); } catch (e) { console.warn('2D export failed:', e); } }
             st.img = VIZ.snapshot(id);
             chk.disabled = !st.img;
             if (!st.img) chk.checked = false;

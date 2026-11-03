@@ -1016,6 +1016,88 @@
         .item-add { display: flex; gap: .5rem; flex-wrap: wrap; }
         .formula-note { margin: 0; padding: 0 1rem 1rem; font-size: .78rem; color: var(--muted); }
 
+        /* ===================== Floor plan (2D / 3D) ===================== */
+        .plan-card { overflow: hidden; }
+        .plan-bar { display: flex; align-items: center; justify-content: space-between; gap: .5rem; padding: .5rem; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+        .plan-tools { display: flex; align-items: center; gap: .25rem; overflow-x: auto; scrollbar-width: none; min-width: 0; flex: 1 1 auto; }
+        .plan-tools::-webkit-scrollbar { display: none; }
+        .pt { flex: none; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: .15rem; min-width: 3.6rem; height: 3.25rem; padding: .25rem .4rem; border: 1px solid transparent; border-radius: .75rem; background: transparent; color: var(--ink-2); cursor: pointer; font-size: .7rem; font-weight: 500; transition: background .15s, color .15s, border-color .15s; }
+        .pt i { font-size: 1rem; }
+        .pt:hover { background: var(--field); border-color: var(--line); }
+        .pt[aria-pressed="true"] { background: var(--brand-grad); color: var(--on-brand); box-shadow: var(--brand-shadow); }
+        .pt-sep { flex: none; width: 1px; height: 2rem; background: var(--line-2); margin: 0 .25rem; }
+        .pt-select { flex: none; height: 2.4rem; border-radius: .625rem; border: 1px solid var(--line-2); background: var(--field); color: var(--ink); padding: 0 .5rem; font-size: .8rem; max-width: 9.5rem; }
+        .plan-actions { display: flex; align-items: center; gap: .375rem; flex-wrap: wrap; }
+        .fp-view { min-height: 2.25rem !important; }
+        .fp-view label > span { padding: .25rem .6rem !important; font-size: .78rem !important; white-space: nowrap; }
+        .fp-menu { position: relative; }
+        .fp-menu-list { position: absolute; right: 0; top: calc(100% + .375rem); z-index: 30; min-width: 13rem; padding: .375rem; border-radius: .875rem; background: var(--glass-strong); -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); box-shadow: var(--shadow-lg); display: grid; }
+        .fp-menu-list button { display: flex; align-items: center; gap: .625rem; padding: .55rem .7rem; border: 0; border-radius: .5rem; background: none; color: var(--ink); font-size: .875rem; cursor: pointer; text-align: left; }
+        .fp-menu-list button:hover { background: var(--brand-50); }
+        .fp-menu-list i { width: 1.1rem; color: var(--brand-ink); }
+
+        .plan-main { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr) 17rem; grid-template-areas: "d2 d3 side"; min-height: 34rem; }
+        .plan-main[data-view="2d"] { grid-template-columns: minmax(0, 1fr) 17rem; grid-template-areas: "d2 side"; }
+        .plan-main[data-view="3d"] { grid-template-columns: minmax(0, 1fr) 17rem; grid-template-areas: "d3 side"; }
+        .plan-main[data-view="2d"] .plan-3d, .plan-main[data-view="3d"] .plan-2d { display: none; }
+        .plan-2d { grid-area: d2; position: relative; min-height: 34rem; border-right: 1px solid var(--line); overflow: hidden; touch-action: none; }
+        .plan-2d svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; cursor: crosshair; user-select: none; -webkit-user-select: none; }
+        .plan-2d[data-tool="select"] svg { cursor: default; }
+        .plan-2d[data-tool="pan"] svg, .plan-2d.panning svg { cursor: grab; }
+        .plan-2d[data-tool="erase"] svg { cursor: not-allowed; }
+        .plan-status { position: absolute; left: .625rem; bottom: .625rem; right: .625rem; z-index: 2; pointer-events: none; font-size: .75rem; color: var(--ink-2); display: flex; gap: .5rem; flex-wrap: wrap; }
+        .plan-status span { padding: .2rem .55rem; border-radius: 999px; background: var(--glass-strong); border: 1px solid var(--line); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+        .plan-status .hint-chip { color: var(--brand-ink); border-color: var(--brand-100); }
+        .plan-prompt { position: absolute; z-index: 5; display: flex; align-items: center; gap: .375rem; padding: .375rem .5rem; border-radius: .75rem; background: var(--glass-strong); border: 1px solid var(--brand); box-shadow: var(--shadow-lg); font-size: .78rem; color: var(--muted); }
+        .plan-prompt input { width: 9rem; height: 2rem; border: 1px solid var(--line-2); border-radius: .5rem; padding: 0 .5rem; background: var(--field-focus); font-size: .9rem; }
+        .plan-3d { grid-area: d3; display: flex; flex-direction: column; border-right: 1px solid var(--line); min-width: 0; }
+        .plan-3d .viz-stage { flex: 1 1 0; height: auto; min-height: 20rem; position: relative; }
+        .plan-3d .viz-stage canvas { position: absolute; inset: 0; }
+        .plan-3d-tools { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
+        .plan-3d-tools > span { display: inline-flex; gap: .375rem; }
+        .plan-side { grid-area: side; padding: 1rem; overflow-y: auto; max-height: 40rem; background: var(--glass); }
+        .plan-side h3 { margin: 0 0 .75rem; font-size: .95rem; display: flex; align-items: center; gap: .5rem; }
+        .plan-side h3 i { color: var(--brand-ink); }
+        .plan-side .field + .field, .plan-side .set-block + .field, .plan-side .field + .set-block { margin-top: .75rem; }
+        .plan-side .field > label { font-size: .8rem; }
+        .plan-side .input-wrap.len-box, .plan-side .input-wrap input, .plan-side .control { height: 2.5rem; min-height: 2.5rem; font-size: .9rem; }
+        .plan-side .segmented { min-height: 2.5rem; }
+        .plan-side .btn { width: 100%; margin-top: .625rem; }
+        .plan-side .set-row { padding: .5rem 0; }
+        .plan-side .set-row strong { font-size: .85rem; }
+        .fp-stats { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; margin: .75rem 0; }
+        .fp-stats div { padding: .5rem .625rem; border-radius: .625rem; background: var(--field); border: 1px solid var(--line); }
+        .fp-stats small { display: block; color: var(--muted); font-size: .7rem; }
+        .fp-stats b { font-size: .9rem; }
+        .fp-keys { margin: .75rem 0 0; padding: 0; list-style: none; font-size: .75rem; color: var(--muted); display: grid; gap: .25rem; }
+        .fp-keys kbd { display: inline-block; min-width: 1.4rem; text-align: center; padding: 0 .3rem; border-radius: .3rem; border: 1px solid var(--line-2); background: var(--field); font: 600 .7rem/1.4 var(--font); color: var(--ink-2); margin-right: .3rem; }
+        .plan-est { margin-top: var(--gap); }
+        .tool-card-hl { border-color: var(--brand-100); background: linear-gradient(135deg, rgba(var(--brand-rgb), .14), rgba(var(--brand-rgb), .03)), var(--glass); }
+
+        @media (max-width: 1240px) {
+            .plan-main, .plan-main[data-view="2d"], .plan-main[data-view="3d"] { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "d2 d3" "side side"; }
+            .plan-main[data-view="2d"] { grid-template-areas: "d2 d2" "side side"; }
+            .plan-main[data-view="3d"] { grid-template-areas: "d3 d3" "side side"; }
+            .plan-side { max-height: none; border-top: 1px solid var(--line); }
+        }
+        @media (max-width: 860px) {
+            .plan-main, .plan-main[data-view] { grid-template-columns: minmax(0, 1fr); grid-template-areas: "d2" "d3" "side"; }
+            .plan-main[data-view="2d"] { grid-template-areas: "d2" "side"; }
+            .plan-main[data-view="3d"] { grid-template-areas: "d3" "side"; }
+            .plan-2d { min-height: 26rem; height: 62vh; border-right: 0; border-bottom: 1px solid var(--line); }
+            .plan-3d { border-right: 0; }
+            .plan-3d .viz-stage { min-height: 18rem; height: 45vh; }
+            .pt { min-width: 3.1rem; height: 3rem; }
+            .plan-actions { width: 100%; justify-content: space-between; }
+        }
+        /* svg drawing */
+        #plan-svg .w-sel { fill: var(--brand) !important; }
+        #plan-svg .sel-line { stroke: var(--brand); }
+        #plan-svg text { font-family: 'Noto Sans Bengali', Poppins, system-ui, sans-serif; }
+        #plan-svg .handle { fill: var(--surface); stroke: var(--brand); stroke-width: 2px; cursor: move; }
+        #plan-svg [data-id] { cursor: pointer; }
+        .plan-2d[data-tool="wall"] #plan-svg [data-id], .plan-2d[data-tool="room"] #plan-svg [data-id], .plan-2d[data-tool="dim"] #plan-svg [data-id], .plan-2d[data-tool="text"] #plan-svg [data-id], .plan-2d[data-tool="furn"] #plan-svg [data-id] { cursor: crosshair; }
+
         /* Browsers without backdrop-filter: make glass more opaque */
         @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
             :root, [data-theme="light"] { --glass: rgba(255, 255, 255, .92); --glass-strong: rgba(255, 255, 255, .97); }
@@ -1097,6 +1179,10 @@
             <a class="side-link" href="#plaster" data-link="plaster"><i class="fa-solid fa-paint-roller"></i><span class="side-label" data-i18n="page.plaster"></span></a>
             <a class="side-link" href="#steel" data-link="steel"><i class="fa-solid fa-grip-lines"></i><span class="side-label" data-i18n="page.steel"></span></a>
             <a class="side-link" href="#tiles" data-link="tiles"><i class="fa-solid fa-table-cells-large"></i><span class="side-label" data-i18n="page.tiles"></span></a>
+        </div>
+        <div class="side-group">
+            <p class="side-group-label" data-i18n="nav.design"></p>
+            <a class="side-link" href="#plan" data-link="plan"><i class="fa-solid fa-compass-drafting"></i><span class="side-label" data-i18n="page.plan"></span><span class="side-badge" data-i18n="badge.new"></span></a>
         </div>
         <div class="side-group">
             <p class="side-group-label" data-i18n="nav.more"></p>
@@ -1240,6 +1326,12 @@
                         <h3 data-i18n="page.steel"></h3>
                         <p data-i18n="desc.steel"></p>
                         <a href="#steel" class="btn btn-soft btn-sm tool-btn"><span data-i18n="common.start"></span> <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <div class="tool-card tool-card-hl" data-feature="plan">
+                        <span class="menu-icon"><i class="fa-solid fa-compass-drafting"></i></span>
+                        <h3><span data-i18n="page.plan"></span> <span class="badge" data-i18n="badge.new"></span></h3>
+                        <p data-i18n="desc.plan"></p>
+                        <a href="#plan" class="btn btn-soft btn-sm tool-btn"><span data-i18n="common.start"></span> <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                     <div class="tool-card" data-feature="tiles">
                         <span class="menu-icon"><i class="fa-solid fa-table-cells-large"></i></span>
@@ -2106,6 +2198,212 @@
         </div>
     </section>
 
+    <!-- ================= FLOOR PLAN (2D / 3D) ================= -->
+    <section class="page" id="page-plan">
+        <div class="page-hero">
+            <div class="container">
+                <div class="ph-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+                <div><h1 data-i18n="plan.title"></h1>
+                <p data-i18n="plan.sub"></p></div>
+            </div>
+        </div>
+        <div class="container page-body">
+            <div class="card plan-card" id="plan-card">
+                <!-- toolbar -->
+                <div class="plan-bar">
+                    <div class="plan-tools" role="toolbar" data-i18n-aria="fp.tools">
+                        <button type="button" class="pt" data-tool="select" data-i18n-title="fp.t.select"><i class="fa-solid fa-arrow-pointer"></i><span data-i18n="fp.select"></span></button>
+                        <button type="button" class="pt" data-tool="pan" data-i18n-title="fp.t.pan"><i class="fa-solid fa-hand"></i><span data-i18n="fp.pan"></span></button>
+                        <span class="pt-sep"></span>
+                        <button type="button" class="pt" data-tool="wall" data-i18n-title="fp.t.wall"><i class="fa-solid fa-draw-polygon"></i><span data-i18n="fp.wall"></span></button>
+                        <button type="button" class="pt" data-tool="room" data-i18n-title="fp.t.room"><i class="fa-regular fa-square"></i><span data-i18n="fp.room"></span></button>
+                        <button type="button" class="pt" data-tool="door" data-i18n-title="fp.t.door"><i class="fa-solid fa-door-open"></i><span data-i18n="fp.door"></span></button>
+                        <button type="button" class="pt" data-tool="window" data-i18n-title="fp.t.window"><i class="fa-solid fa-table-columns"></i><span data-i18n="fp.window"></span></button>
+                        <button type="button" class="pt" data-tool="text" data-i18n-title="fp.t.text"><i class="fa-solid fa-font"></i><span data-i18n="fp.text"></span></button>
+                        <button type="button" class="pt" data-tool="dim" data-i18n-title="fp.t.dim"><i class="fa-solid fa-ruler-horizontal"></i><span data-i18n="fp.dim"></span></button>
+                        <button type="button" class="pt" data-tool="furn" data-i18n-title="fp.t.furn"><i class="fa-solid fa-couch"></i><span data-i18n="fp.furn"></span></button>
+                        <select class="pt-select" id="fp-furn-kind" data-i18n-aria="fp.furn"></select>
+                        <button type="button" class="pt" data-tool="erase" data-i18n-title="fp.t.erase"><i class="fa-solid fa-eraser"></i><span data-i18n="fp.erase"></span></button>
+                    </div>
+                    <div class="plan-actions">
+                        <button type="button" class="icon-btn icon-btn-sm" id="fp-undo" data-i18n-title="fp.undo" data-i18n-aria="fp.undo"><i class="fa-solid fa-rotate-left"></i></button>
+                        <button type="button" class="icon-btn icon-btn-sm" id="fp-redo" data-i18n-title="fp.redo" data-i18n-aria="fp.redo"><i class="fa-solid fa-rotate-right"></i></button>
+                        <button type="button" class="icon-btn icon-btn-sm" id="fp-fit" data-i18n-title="fp.fit" data-i18n-aria="fp.fit"><i class="fa-solid fa-expand"></i></button>
+                        <div class="segmented fp-view" role="radiogroup" data-i18n-aria="fp.view">
+                            <label><input type="radio" name="fpView" value="2d"><span>2D</span></label>
+                            <label><input type="radio" name="fpView" value="split" checked><span>2D + 3D</span></label>
+                            <label><input type="radio" name="fpView" value="3d"><span>3D</span></label>
+                        </div>
+                        <div class="fp-menu">
+                            <button type="button" class="icon-btn icon-btn-sm" id="fp-menu-btn" aria-haspopup="true" aria-expanded="false" data-i18n-title="fp.file" data-i18n-aria="fp.file"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                            <div class="fp-menu-list" id="fp-menu" hidden>
+                                <button type="button" data-fp="sample"><i class="fa-solid fa-house-chimney"></i><span data-i18n="fp.sample"></span></button>
+                                <button type="button" data-fp="new"><i class="fa-regular fa-file"></i><span data-i18n="fp.new"></span></button>
+                                <button type="button" data-fp="open"><i class="fa-regular fa-folder-open"></i><span data-i18n="fp.open"></span></button>
+                                <button type="button" data-fp="save"><i class="fa-solid fa-floppy-disk"></i><span data-i18n="fp.save"></span></button>
+                                <button type="button" data-fp="png"><i class="fa-regular fa-image"></i><span data-i18n="fp.png"></span></button>
+                            </div>
+                            <input type="file" id="fp-file" accept=".json,application/json" hidden>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="plan-main" id="plan-main" data-view="split">
+                    <div class="plan-2d" id="plan-2d">
+                        <svg id="plan-svg" xmlns="http://www.w3.org/2000/svg" role="img" data-i18n-aria="fp.canvas"></svg>
+                        <div class="plan-status" id="fp-status"></div>
+                        <div class="plan-prompt" id="fp-prompt" hidden>
+                            <label for="fp-prompt-input" id="fp-prompt-label"></label>
+                            <input type="text" id="fp-prompt-input" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="plan-3d" id="plan-3d">
+                        <div class="viz-stage"><span class="viz-badge"></span></div>
+                        <div class="viz-foot">
+                            <div class="viz-chips"></div>
+                            <div class="plan-3d-tools">
+                                <small class="viz-hint"><i class="fa-solid fa-hand-pointer"></i><span></span></small>
+                                <span>
+                                    <button type="button" class="icon-btn icon-btn-sm" data-viz-rotate aria-pressed="false" data-i18n-title="viz.rotate" data-i18n-aria="viz.rotate"><i class="fa-solid fa-rotate"></i></button>
+                                    <button type="button" class="icon-btn icon-btn-sm" data-viz-reset data-i18n-title="viz.reset" data-i18n-aria="viz.reset"><i class="fa-solid fa-expand"></i></button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <aside class="plan-side" id="fp-inspector" aria-live="polite"></aside>
+                </div>
+            </div>
+
+            <!-- automatic estimate from the drawing -->
+            <div class="calc-grid plan-est">
+                <form class="card form-card" data-calc="plan" novalidate>
+                    <div class="card-head"><h2><i class="fa-solid fa-calculator"></i> <span data-i18n="fp.estTitle"></span></h2>
+                        <label class="unit-pick"><i class="fa-solid fa-ruler"></i><span data-i18n="mu.label"></span>
+                            <select class="unit-select" autocomplete="off">
+                                <optgroup data-i18n-label="lu.imperial">
+                                    <option value="ftin" data-i18n="lu.ftin"></option>
+                                    <option value="ft" data-i18n="lu.ft"></option>
+                                    <option value="in" data-i18n="lu.in"></option>
+                                    <option value="yd" data-i18n="lu.yd"></option>
+                                </optgroup>
+                                <optgroup data-i18n-label="lu.metric">
+                                    <option value="m" data-i18n="lu.m"></option>
+                                    <option value="cm" data-i18n="lu.cm"></option>
+                                    <option value="mm" data-i18n="lu.mm"></option>
+                                </optgroup>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="card-body">
+                        <p class="hint" style="margin:0 0 1.25rem"><i class="fa-solid fa-wand-magic-sparkles"></i><span data-i18n="fp.estHint"></span></p>
+
+                        <div class="fieldset">
+                            <p class="group-title" data-i18n="fp.g.wall"></p>
+                            <div class="fields ratio">
+                                <div class="field"><label for="plan-wRatio1"><span data-i18n="mat.cement"></span></label><div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="plan-wRatio1" name="wRatio1" data-num data-optional data-default="1" data-ph="0"></div><span class="field-error"></span></div>
+                                <div class="field"><label for="plan-wRatio2"><span data-i18n="mat.sand"></span></label><div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="plan-wRatio2" name="wRatio2" data-num data-optional data-default="4" data-ph="0"></div><span class="field-error"></span></div>
+                            </div>
+                            <small class="set-help" data-i18n="fp.h.wall"></small>
+                        </div>
+
+                        <div class="fieldset">
+                            <p class="group-title" data-i18n="fp.g.plaster"></p>
+                            <div class="fields auto">
+                                <div class="field"><label for="plan-pThk"><span data-i18n="f.plasterThickness"></span> <small class="opt" data-i18n="fp.o.pThk"></small></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plan-pThk" data-len="in" name="pThk" data-num data-optional data-default="0.5" data-ph="0"></div><span class="field-error"></span></div>
+                                <div class="field"><span class="field-label" data-i18n="fp.sides"></span>
+                                    <div class="segmented" role="radiogroup">
+                                        <label><input type="radio" name="pSides" value="2" checked><span data-i18n="fp.both"></span></label>
+                                        <label><input type="radio" name="pSides" value="1"><span data-i18n="fp.one"></span></label>
+                                        <label><input type="radio" name="pSides" value="0"><span data-i18n="fp.none"></span></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="fields ratio" style="margin-top:1rem">
+                                <div class="field"><label for="plan-pRatio1"><span data-i18n="mat.cement"></span></label><div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="plan-pRatio1" name="pRatio1" data-num data-optional data-default="1" data-ph="0"></div><span class="field-error"></span></div>
+                                <div class="field"><label for="plan-pRatio2"><span data-i18n="mat.sand"></span></label><div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="plan-pRatio2" name="pRatio2" data-num data-optional data-default="4" data-ph="0"></div><span class="field-error"></span></div>
+                            </div>
+                        </div>
+
+                        <div class="fieldset">
+                            <p class="group-title" data-i18n="fp.g.slab"></p>
+                            <div class="fields auto">
+                                <div class="field"><label for="plan-sThk"><span data-i18n="grp.thickness"></span> <small class="opt" data-i18n="fp.o.sThk"></small></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plan-sThk" data-len="in" name="sThk" data-num data-optional data-default="5" data-ph="0"></div><span class="field-error"></span></div>
+                                <div class="field"><span class="field-label" data-i18n="fp.include"></span>
+                                    <div class="segmented" role="radiogroup">
+                                        <label><input type="radio" name="slab" value="1" checked><span data-i18n="fp.yes"></span></label>
+                                        <label><input type="radio" name="slab" value="0"><span data-i18n="fp.no"></span></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="fields ratio" style="margin-top:1rem">
+                                <div class="field"><label for="plan-sRatio1"><span data-i18n="mat.cement"></span></label><div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="plan-sRatio1" name="sRatio1" data-num data-optional data-default="1" data-ph="0"></div><span class="field-error"></span></div>
+                                <div class="field"><label for="plan-sRatio2"><span data-i18n="mat.sand"></span></label><div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="plan-sRatio2" name="sRatio2" data-num data-optional data-default="2" data-ph="0"></div><span class="field-error"></span></div>
+                                <div class="field"><label for="plan-sRatio3"><span data-i18n="mat.khoa"></span></label><div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="plan-sRatio3" name="sRatio3" data-num data-optional data-default="4" data-ph="0"></div><span class="field-error"></span></div>
+                            </div>
+                            <small class="set-help" data-i18n="fp.h.ratio"></small>
+                        </div>
+
+                        <div class="fieldset">
+                            <p class="group-title" data-i18n="fp.g.tiles"></p>
+                            <div class="tile-presets" role="radiogroup">
+                                <label><input type="radio" name="fTile" value="12x12"><span><i class="tp" style="--a:12;--b:12"></i><b data-dg="12×12"></b></span></label>
+                                <label><input type="radio" name="fTile" value="16x16"><span><i class="tp" style="--a:16;--b:16"></i><b data-dg="16×16"></b></span></label>
+                                <label><input type="radio" name="fTile" value="24x24" checked><span><i class="tp" style="--a:24;--b:24"></i><b data-dg="24×24"></b></span></label>
+                                <label><input type="radio" name="fTile" value="12x24"><span><i class="tp" style="--a:24;--b:12"></i><b data-dg="12×24"></b></span></label>
+                                <label><input type="radio" name="fTile" value="0"><span><i class="fa-solid fa-ban"></i><b data-i18n="fp.noTiles"></b></span></label>
+                            </div>
+                            <div class="fields auto" style="margin-top:1rem">
+                                <div class="field"><label for="plan-fWaste"><span data-i18n="f.wastage"></span> <small class="opt" data-i18n="tl.wasteOpt"></small></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plan-fWaste" name="fWaste" data-num data-optional data-default="10" data-ph="0"><span class="unit">%</span></div><span class="field-error"></span></div>
+                            </div>
+                        </div>
+
+                        <div class="fieldset">
+                            <p class="group-title"><span data-i18n="grp.price"></span> <small class="opt" data-i18n="tl.optional"></small></p>
+                            <div class="fields auto">
+                                <div class="field"><label for="plan-brickPrice"><span data-i18n="f.brickPrice"></span></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plan-brickPrice" name="brickPrice" data-num data-optional data-default="0" data-ph="0"><span class="unit">৳</span></div><span class="field-error"></span></div>
+                                <div class="field"><label for="plan-cementPrice"><span data-i18n="f.cementPrice"></span></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plan-cementPrice" name="cementPrice" data-num data-optional data-default="0" data-ph="0"><span class="unit">৳</span></div><span class="field-error"></span></div>
+                                <div class="field"><label for="plan-sandPrice"><span data-i18n-k="f.sandPrice"></span></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plan-sandPrice" name="sandPrice" data-num data-optional data-default="0" data-ph="0" data-price="vol"><span class="unit">৳</span></div><span class="field-error"></span></div>
+                                <div class="field"><label for="plan-khoaPrice"><span data-i18n-k="f.khoaPrice"></span></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plan-khoaPrice" name="khoaPrice" data-num data-optional data-default="0" data-ph="0" data-price="vol"><span class="unit">৳</span></div><span class="field-error"></span></div>
+                                <div class="field"><label for="plan-tilePrice"><span data-i18n-k="fp.tilePrice"></span></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plan-tilePrice" name="tilePrice" data-num data-optional data-default="0" data-ph="0" data-price="area"><span class="unit">৳</span></div><span class="field-error"></span></div>
+                            </div>
+                            <small class="set-help" data-i18n="pr.hint"></small>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="reset" class="btn btn-ghost"><i class="fa-solid fa-rotate-left"></i> <span data-i18n="calc.reset"></span></button>
+                            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-calculator"></i> <span data-i18n="calc.calculate"></span></button>
+                        </div>
+                        <details class="formula">
+                            <summary><i class="fa-solid fa-square-root-variable"></i> <span data-i18n="calc.formula"></span></summary>
+                            <ol>
+                                <li data-i18n-k="fp.f1"></li>
+                                <li data-i18n-k="fp.f2"></li>
+                                <li data-i18n-k="fp.f3"></li>
+                                <li data-i18n-k="fp.f4"></li>
+                                <li data-i18n-k="fp.f5"></li>
+                                <li data-i18n-k="fp.f6"></li>
+                                <li data-i18n-k="fp.f7"></li>
+                            </ol>
+                            <p class="formula-note" data-i18n-k="calc.fnote"></p>
+                        </details>
+                    </div>
+                </form>
+
+                <aside class="card result-card" id="result-plan" aria-live="polite">
+                    <div class="card-head"><h2><i class="fa-solid fa-clipboard-check"></i> <span data-i18n="fp.estResult"></span></h2></div>
+                    <div class="card-body">
+                        <div class="print-only print-head"></div>
+                        <div class="print-only print-inputs"></div>
+                        <div class="result-output"></div>
+                        <div class="result-actions no-print">
+                            <button type="button" class="btn btn-soft btn-block" data-print disabled><i class="fa-solid fa-share-nodes"></i> <span data-i18n="sh.open"></span></button>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
     <!-- ================= ABOUT ================= -->
     <section class="page" id="page-about">
         <div class="page-hero">
@@ -2460,6 +2758,7 @@
                             <label class="set-row"><span><strong data-i18n="page.plaster"></strong></span><input type="checkbox" class="switch" role="switch" name="en_plaster"></label>
                             <label class="set-row"><span><strong data-i18n="page.steel"></strong></span><input type="checkbox" class="switch" role="switch" name="en_steel"></label>
                             <label class="set-row"><span><strong data-i18n="page.tiles"></strong></span><input type="checkbox" class="switch" role="switch" name="en_tiles"></label>
+                            <label class="set-row"><span><strong data-i18n="page.plan"></strong></span><input type="checkbox" class="switch" role="switch" name="en_plan"></label>
                         </div>
                     </div>
                     <div class="fieldset">
