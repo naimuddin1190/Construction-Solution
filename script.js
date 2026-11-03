@@ -1,5 +1,5 @@
 /* =========================================================
-   Construction Calculator — script.js
+   Construction Solution — script.js
    Single-page app: routing, sidebar, settings (theme, accent,
    text size, language, digits, decimals, remember inputs,
    compact sidebar, reduce motion), Bangla/English i18n,
@@ -17,7 +17,7 @@
        ========================================================= */
     const I18N = {
         en: {
-            'brand.name': 'Construction Calculator',
+            'brand.name': 'Construction Solution',
             'brand.tag': 'Easy construction estimates',
 
             'nav.main': 'Main',
@@ -46,7 +46,7 @@
             'a11y.lang': 'বাংলায় দেখুন',
 
             'home.eyebrow': 'Easy Solutions for Construction Calculations',
-            'home.title': 'Welcome to <span>Construction Calculator</span>',
+            'home.title': 'Welcome to <span>Construction Solution</span>',
             'home.lead': 'Roof casting, columns, brick walls, plaster and steel — cement, sand, khoa and cost estimates in one place, instantly.',
             'home.cta.roof': 'Calculate roof casting',
             'home.cta.column': 'Calculate columns',
@@ -171,6 +171,19 @@
             'r.kgPerFt': 'Weight per ft ({mm} mm)',
             'r.rodTotal': 'Total rod needed',
 
+            'viz.title': '3D Preview',
+            'viz.hint': 'Drag to rotate · scroll to zoom · double-click to reset',
+            'viz.hintTouch': 'Swipe sideways to rotate · pinch to zoom',
+            'viz.sample': 'Sample size',
+            'viz.live': 'Live — your measurements',
+            'viz.reset': 'Reset view',
+            'viz.rotate': 'Auto-rotate',
+            'viz.nogl': '3D preview is not supported in this browser.',
+            'viz.plaster': 'Plaster',
+            'viz.bars': 'Bars',
+            'viz.bricks': 'Bricks',
+            'viz.simplified': 'Fewer bars drawn for clarity',
+
             'err.required': 'Please fill in this field',
             'err.number': 'Enter a valid number',
             'err.negative': 'Negative values are not allowed',
@@ -178,7 +191,7 @@
             'err.ratio': 'Ratios must add up to more than 0',
 
             'about.title': 'About Us',
-            'about.intro': 'Welcome to the Construction Calculator! This tool is designed to assist you with various construction calculations, ensuring your projects run smoothly and efficiently.',
+            'about.intro': 'Welcome to Construction Solution! This tool is designed to assist you with various construction calculations, ensuring your projects run smoothly and efficiently.',
             'about.dev': 'Developer Information',
             'dev.role': 'Student of CSE Department at Premier University, Chittagong.',
             'dev.services': 'If you need any kind of development services, feel free to contact me:',
@@ -238,7 +251,7 @@
         },
 
         bn: {
-            'brand.name': 'কনস্ট্রাকশন ক্যালকুলেটর',
+            'brand.name': 'কনস্ট্রাকশন সলিউশন',
             'brand.tag': 'নির্মাণ কাজের সহজ হিসাব',
 
             'nav.main': 'প্রধান',
@@ -267,7 +280,7 @@
             'a11y.lang': 'View in English',
 
             'home.eyebrow': 'নির্মাণ কাজের হিসাবের সহজ সমাধান',
-            'home.title': '<span>কনস্ট্রাকশন ক্যালকুলেটরে</span> স্বাগতম',
+            'home.title': '<span>কনস্ট্রাকশন সলিউশনে</span> স্বাগতম',
             'home.lead': 'ছাদ ঢালাই, কলাম, দেওয়াল গাঁথুনি, প্লাস্টার ও রডের হিসাব — সিমেন্ট, বালু, খোয়া ও খরচ এক জায়গায়, মুহূর্তেই।',
             'home.cta.roof': 'চলুন ছাদ ঢালাই এর হিসাব করি',
             'home.cta.column': 'চলুন কলামের হিসাব করি',
@@ -392,6 +405,19 @@
             'r.kgPerFt': 'প্রতি ফুটের ওজন ({mm} মিমি)',
             'r.rodTotal': 'মোট রড লাগবেঃ',
 
+            'viz.title': '৩ডি প্রিভিউ',
+            'viz.hint': 'ঘোরাতে টানুন · জুম করতে স্ক্রল · রিসেট করতে ডাবল-ক্লিক',
+            'viz.hintTouch': 'ঘোরাতে পাশে সোয়াইপ করুন · জুম করতে পিঞ্চ',
+            'viz.sample': 'নমুনা মাপ',
+            'viz.live': 'লাইভ — আপনার মাপ',
+            'viz.reset': 'ভিউ রিসেট',
+            'viz.rotate': 'অটো ঘোরানো',
+            'viz.nogl': 'এই ব্রাউজারে ৩ডি প্রিভিউ চলে না।',
+            'viz.plaster': 'প্লাস্টার',
+            'viz.bars': 'রড',
+            'viz.bricks': 'ইট',
+            'viz.simplified': 'স্পষ্টতার জন্য কম রড আঁকা হয়েছে',
+
             'err.required': 'এই ঘরটি পূরণ করুন',
             'err.number': 'সঠিক সংখ্যা দিন',
             'err.negative': 'ঋণাত্মক মান গ্রহণযোগ্য নয়',
@@ -399,7 +425,7 @@
             'err.ratio': 'রেশিওর যোগফল ০ এর বেশি হতে হবে',
 
             'about.title': 'আমাদের সম্পর্কে',
-            'about.intro': 'কনস্ট্রাকশন ক্যালকুলেটরে স্বাগতম! নির্মাণ কাজের নানা হিসাব সহজ করতে এই টুলটি তৈরি, যাতে আপনার প্রজেক্ট সুন্দর ও দক্ষভাবে এগিয়ে যায়।',
+            'about.intro': 'কনস্ট্রাকশন সলিউশনে স্বাগতম! নির্মাণ কাজের নানা হিসাব সহজ করতে এই টুলটি তৈরি, যাতে আপনার প্রজেক্ট সুন্দর ও দক্ষভাবে এগিয়ে যায়।',
             'about.dev': 'ডেভেলপারের তথ্য',
             'dev.role': 'সিএসই বিভাগের শিক্ষার্থী, প্রিমিয়ার ইউনিভার্সিটি, চট্টগ্রাম।',
             'dev.services': 'যেকোনো ধরনের ডেভেলপমেন্ট সার্ভিস প্রয়োজন হলে নির্দ্বিধায় যোগাযোগ করুন:',
@@ -603,6 +629,7 @@
         applyTheme();
         applyI18n();
         syncSettingsForm();
+        VIZ.refreshAll();
     }
 
     function saveSettings() {
@@ -760,6 +787,7 @@
         closeSidebar();
         $$('[data-search]').forEach((w) => w._hide());
         window.scrollTo(0, 0);
+        VIZ.show(id);
     }
     window.addEventListener('hashchange', route);
 
@@ -850,6 +878,9 @@
         $$('input[type="radio"]:checked', form).forEach((r) => { v[r.name] = r.value; });
         return ok ? v : null;
     }
+
+    // bars across a span = span / spacing + 1 (rounded up); computed in inches to avoid float error
+    const barCount = (spanFt, gapIn) => Math.ceil(+((spanFt * 12) / gapIn).toFixed(6)) + 1;
 
     const ratioSum = (v, names) => names.reduce((s, n) => s + v[n], 0);
     const ratioText = (...r) => r.map(numPlain).join(' : ');
@@ -981,10 +1012,8 @@
         steel: {
             ratios: [],
             run(v) {
-                // bars across a span = span / spacing + 1 (rounded up); computed in inches to avoid float error
-                const barCount = (spanFt) => Math.ceil(+((spanFt * 12) / v.gap).toFixed(6)) + 1;
-                const barsA = barCount(v.length);   // each runs across the width
-                const barsB = barCount(v.width);    // each runs across the length
+                const barsA = barCount(v.length, v.gap);   // each runs across the width
+                const barsB = barCount(v.width, v.gap);    // each runs across the length
                 const totalLength = barsA * v.width + barsB * v.length;
                 const waste = totalLength * (v.wastage / 100);
                 const subTotal = totalLength + waste;
@@ -1082,6 +1111,569 @@
         $$('input[type="radio"]', form).forEach((r) => { if (data[r.name] != null) r.checked = data[r.name] === r.value; });
     }
 
+    /* =========================================================
+       3D preview (three.js) — redraws live as measurements are typed
+       ========================================================= */
+    const VIZ = (() => {
+        // sample sizes shown until the user types their own
+        const DEF = {
+            roof:    { firstLength: 20, secondLength: 20, firstWidth: 12, secondWidth: 12, height: 5 },
+            column:  { colLength: 10, colWidth: 12, colThickness: 12 },
+            wall:    { wallLength: 12, wallHeight: 10, brickThickness: 5 },
+            plaster: { wallLength: 12, wallHeight: 10, plasterThickness: 0.75 },
+            steel:   { length: 16, width: 10, gap: 6, mm: 10 },
+        };
+        const SIZE = 4;          // longest side, in scene units
+        const MAX_BARS = 90;     // per direction, for clarity / performance
+        const cards = {};
+        const viewers = {};
+        let active = null;
+
+        const glOK = (() => {
+            try {
+                if (typeof THREE === 'undefined' || !window.WebGLRenderingContext) return false;
+                const c = document.createElement('canvas');
+                return !!(c.getContext('webgl') || c.getContext('experimental-webgl'));
+            } catch (e) { return false; }
+        })();
+
+        const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
+        const fv = (n, unitKey) => `${numPlain(n)} ${t(unitKey)}`;
+        const isTouch = () => window.matchMedia('(pointer: coarse)').matches;
+
+        function readValues(id) {
+            const form = $(`form[data-calc="${id}"]`);
+            const v = {};
+            let live = false;
+            Object.keys(DEF[id]).forEach((k) => {
+                // query by name: form.elements['length'] would return the element count
+                const n = parseNum($(`input[name="${k}"]`, form).value);
+                if (Number.isFinite(n) && n > 0) { v[k] = n; live = true; } else v[k] = DEF[id][k];
+            });
+            const unit = $('input[name="heightUnit"]:checked', form);
+            v.heightUnit = unit ? unit.value : 'inches';
+            return { v, live };
+        }
+
+        const steelSteps = (v) => {
+            const a = barCount(v.length, v.gap), b = barCount(v.width, v.gap);
+            return { a, b, simplified: a > MAX_BARS || b > MAX_BARS };
+        };
+
+        /* ---------- info chips (work without WebGL too) ---------- */
+        const CHIPS = {
+            roof(v) {
+                const L = (v.firstLength + v.secondLength) / 2, W = (v.firstWidth + v.secondWidth) / 2;
+                return [
+                    [t('grp.length'), fv(L, 'u.ft')],
+                    [t('grp.width'), fv(W, 'u.ft')],
+                    [t('grp.thickness'), fv(v.height, v.heightUnit === 'feet' ? 'u.ft' : 'u.inch')],
+                    [t('r.area'), `${num(L * W)} ${t('u.sqft')}`],
+                ];
+            },
+            column(v) {
+                return [
+                    [t('f.colLength'), fv(v.colLength, 'u.ft')],
+                    [t('f.colWidth'), fv(v.colWidth, 'u.inch')],
+                    [t('f.colThickness'), fv(v.colThickness, 'u.inch')],
+                    [t('r.workVolume'), `${num(v.colLength * v.colWidth * v.colThickness / 144)} ${t('u.cft')}`],
+                ];
+            },
+            wall(v) {
+                const vol = v.wallLength * v.wallHeight * (v.brickThickness / 12);
+                return [
+                    [t('f.wallLength'), fv(v.wallLength, 'u.ft')],
+                    [t('f.wallHeight'), fv(v.wallHeight, 'u.ft')],
+                    [t('f.brickThickness'), fv(v.brickThickness, 'u.inch')],
+                    [t('viz.bricks'), `≈ ${num(Math.ceil(vol * 12 - 1e-9), 0)} ${t('u.pcs')}`],
+                ];
+            },
+            plaster(v) {
+                return [
+                    [t('f.wallLength'), fv(v.wallLength, 'u.ft')],
+                    [t('f.wallHeight'), fv(v.wallHeight, 'u.ft')],
+                    [t('f.plasterThickness'), fv(v.plasterThickness, 'u.inch')],
+                    [t('r.workArea'), `${num(v.wallLength * v.wallHeight)} ${t('u.sqft')}`],
+                ];
+            },
+            steel(v) {
+                const s = steelSteps(v);
+                return [
+                    [t('grp.length'), fv(v.length, 'u.ft')],
+                    [t('grp.width'), fv(v.width, 'u.ft')],
+                    [t('f.gap'), fv(v.gap, 'u.inch')],
+                    [t('f.mm'), fv(v.mm, 'u.mm')],
+                    [t('viz.bars'), `${num(s.a, 0)} + ${num(s.b, 0)} ${t('u.pcs')}`],
+                ];
+            },
+        };
+
+        /* ---------- shared textures ---------- */
+        const texCache = {};
+        function canvasTex(key, w, h, draw, srgb = true) {
+            if (texCache[key]) return texCache[key];
+            const c = document.createElement('canvas');
+            c.width = w; c.height = h;
+            draw(c.getContext('2d'), w, h);
+            const tx = new THREE.CanvasTexture(c);
+            if (srgb) tx.encoding = THREE.sRGBEncoding;
+            tx.wrapS = tx.wrapT = THREE.RepeatWrapping;
+            tx.userData = { cached: true };
+            texCache[key] = tx;
+            return tx;
+        }
+        const concreteTex = () => canvasTex('concrete', 128, 128, (g, w, h) => {
+            g.fillStyle = '#ffffff'; g.fillRect(0, 0, w, h);
+            for (let i = 0; i < 1500; i++) {
+                const s = 226 + (Math.random() * 29 | 0);
+                g.fillStyle = `rgb(${s},${s},${s})`;
+                g.fillRect(Math.random() * w, Math.random() * h, 1 + Math.random() * 2, 1 + Math.random() * 2);
+            }
+        });
+        const brickTex = () => canvasTex('brick', 256, 128, (g, w, h) => {
+            g.fillStyle = '#d9d0c3'; g.fillRect(0, 0, w, h);          // mortar
+            const rows = 4, rh = h / rows, bw = w / 2;
+            for (let r = 0; r < rows; r++) {
+                const off = (r % 2) * bw / 2;
+                for (let c = -1; c < 3; c++) {
+                    g.fillStyle = `hsl(${10 + Math.random() * 8}, 50%, ${40 + Math.random() * 8}%)`;
+                    g.fillRect(c * bw + off + 3, r * rh + 3, bw - 6, rh - 6);
+                }
+            }
+        });
+        const shadowTex = () => canvasTex('shadow', 128, 128, (g, w, h) => {
+            const gr = g.createRadialGradient(w / 2, h / 2, 0, w / 2, h / 2, w / 2);
+            gr.addColorStop(0, 'rgba(15,23,42,.32)');
+            gr.addColorStop(1, 'rgba(15,23,42,0)');
+            g.fillStyle = gr; g.fillRect(0, 0, w, h);
+        }, false);
+
+        function colors() {
+            const cs = getComputedStyle(root);
+            const dark = root.getAttribute('data-theme') === 'dark';
+            return {
+                dark,
+                brand: cs.getPropertyValue('--brand').trim() || '#0d9488',
+                onBrand: cs.getPropertyValue('--on-brand').trim() || '#ffffff',
+                edge: dark ? 0xcbd5e1 : 0x334155,
+                grid: dark ? 0x64748b : 0x94a3b8,
+                concrete: dark ? 0xa7b0ba : 0xc3c9d0,
+            };
+        }
+
+        function makeLabel(text, C) {
+            const family = `"Noto Sans Bengali", Poppins, system-ui, sans-serif`;
+            const font = `600 40px ${family}`;
+            const c = document.createElement('canvas');
+            let ctx = c.getContext('2d');
+            ctx.font = font;
+            const h = 64, w = Math.ceil(ctx.measureText(text).width) + 36;
+            c.width = w; c.height = h;
+            ctx = c.getContext('2d');
+            ctx.fillStyle = C.brand;
+            ctx.beginPath();
+            const r = h / 2;
+            ctx.moveTo(r, 0); ctx.lineTo(w - r, 0); ctx.arc(w - r, r, r, -Math.PI / 2, Math.PI / 2);
+            ctx.lineTo(r, h); ctx.arc(r, r, r, Math.PI / 2, Math.PI * 1.5); ctx.closePath(); ctx.fill();
+            ctx.font = font; ctx.fillStyle = C.onBrand; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+            ctx.fillText(text, w / 2, h / 2 + 2);
+            const tx = new THREE.CanvasTexture(c);
+            tx.encoding = THREE.sRGBEncoding;
+            tx.anisotropy = 4;
+            const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: tx, depthTest: false, transparent: true }));
+            const sh = 0.3;
+            sp.scale.set(sh * w / h, sh, 1);
+            sp.renderOrder = 10;
+            return sp;
+        }
+
+        /* ---------- scene builders (everything normalised to SIZE units) ---------- */
+        function buildScene(id, v, C) {
+            const g = new THREE.Group();
+            const V = (x, y, z) => new THREE.Vector3(x, y, z);
+            const edgeMat = new THREE.LineBasicMaterial({ color: C.edge, transparent: true, opacity: C.dark ? .35 : .4 });
+            const concrete = () => new THREE.MeshStandardMaterial({ color: C.concrete, roughness: .92, metalness: 0, map: concreteTex() });
+
+            function box(w, h, d, mat, x, y, z) {
+                const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
+                m.position.set(x, y, z);
+                g.add(m);
+                const e = new THREE.LineSegments(new THREE.EdgesGeometry(m.geometry), edgeMat);
+                e.position.copy(m.position);
+                g.add(e);
+                return m;
+            }
+            function ground(w, d) {
+                const s = new THREE.Mesh(
+                    new THREE.PlaneGeometry(w * 1.7 + .6, d * 1.7 + .6),
+                    new THREE.MeshBasicMaterial({ map: shadowTex(), transparent: true, depthWrite: false })
+                );
+                s.rotation.x = -Math.PI / 2; s.position.y = .002;
+                g.add(s);
+                const grid = new THREE.GridHelper(10, 20, C.grid, C.grid);
+                grid.material.transparent = true; grid.material.opacity = C.dark ? .18 : .25;
+                g.add(grid);
+            }
+            function dim(a, b, off, text) {
+                const a2 = a.clone().add(off), b2 = b.clone().add(off);
+                const line = new THREE.LineSegments(
+                    new THREE.BufferGeometry().setFromPoints([a, a2, b, b2, a2, b2]),
+                    new THREE.LineBasicMaterial({ color: C.brand, transparent: true, opacity: .9, depthTest: false })
+                );
+                line.renderOrder = 9;
+                g.add(line);
+                const lab = makeLabel(text, C);
+                lab.position.copy(a2).lerp(b2, .5).add(off.clone().setLength(.2));
+                g.add(lab);
+            }
+            function brickMaterials(lenFt, hFt, tFt) {
+                const face = (rx, ry) => {
+                    const tx = brickTex().clone();
+                    tx.userData = {};
+                    tx.needsUpdate = true;
+                    tx.repeat.set(Math.max(rx, .05), Math.max(ry, .05));
+                    return new THREE.MeshStandardMaterial({ map: tx, roughness: .95 });
+                };
+                // texture tile = 20in × 12in (2 bricks × 4 courses)
+                const front = face(lenFt * .6, hFt), side = face(tFt * .6, hFt), top = face(lenFt * .6, tFt);
+                return [side, side, top, top, front, front];
+            }
+
+            let bbox;
+            if (id === 'roof') {
+                const L = (v.firstLength + v.secondLength) / 2, W = (v.firstWidth + v.secondWidth) / 2;
+                const T = v.heightUnit === 'feet' ? v.height : v.height / 12;
+                const k = SIZE / Math.max(L, W, T);
+                const x = L * k, z = W * k, y = Math.max(T * k, .05), lift = .9;
+                box(x, y, z, concrete(), 0, lift + y / 2, 0);
+                // light support columns for context (not to scale)
+                const ghost = new THREE.MeshStandardMaterial({ color: C.concrete, transparent: true, opacity: .35, roughness: 1 });
+                const cs = Math.min(.14, Math.min(x, z) * .08);
+                [[-1, -1], [1, -1], [-1, 1], [1, 1]].forEach(([sx, sz]) => {
+                    const m = new THREE.Mesh(new THREE.BoxGeometry(cs, lift, cs), ghost);
+                    m.position.set(sx * (x / 2 - cs), lift / 2, sz * (z / 2 - cs));
+                    g.add(m);
+                });
+                ground(x, z);
+                dim(V(-x / 2, lift, z / 2), V(x / 2, lift, z / 2), V(0, 0, .35), fv(L, 'u.ft'));
+                dim(V(x / 2, lift, -z / 2), V(x / 2, lift, z / 2), V(.35, 0, 0), fv(W, 'u.ft'));
+                dim(V(-x / 2, lift, z / 2), V(-x / 2, lift + y, z / 2), V(-.3, 0, .2), fv(v.height, v.heightUnit === 'feet' ? 'u.ft' : 'u.inch'));
+                bbox = { w: x, h: lift + y, d: z, cy: (lift + y) / 2 };
+            }
+
+            else if (id === 'column') {
+                const H = v.colLength, w = v.colWidth / 12, d = v.colThickness / 12;
+                const k = SIZE / Math.max(H, w, d);
+                const X = Math.max(w * k, .05), Y = H * k, Z = Math.max(d * k, .05);
+                box(X, Y, Z, concrete(), 0, Y / 2, 0);
+                ground(Math.max(X, .8), Math.max(Z, .8));
+                dim(V(-X / 2, 0, Z / 2), V(-X / 2, Y, Z / 2), V(-.35, 0, 0), fv(v.colLength, 'u.ft'));
+                dim(V(-X / 2, 0, Z / 2), V(X / 2, 0, Z / 2), V(0, 0, .35), fv(v.colWidth, 'u.inch'));
+                dim(V(X / 2, 0, -Z / 2), V(X / 2, 0, Z / 2), V(.35, 0, 0), fv(v.colThickness, 'u.inch'));
+                bbox = { w: X, h: Y, d: Z, cy: Y / 2 };
+            }
+
+            else if (id === 'wall') {
+                const L = v.wallLength, H = v.wallHeight, T = v.brickThickness / 12;
+                const k = SIZE / Math.max(L, H, T);
+                const X = L * k, Y = H * k, Z = Math.max(T * k, .04);
+                box(X, Y, Z, brickMaterials(L, H, T), 0, Y / 2, 0);
+                ground(X, Math.max(Z, .8));
+                dim(V(-X / 2, 0, Z / 2), V(X / 2, 0, Z / 2), V(0, 0, .35), fv(L, 'u.ft'));
+                dim(V(-X / 2, 0, Z / 2), V(-X / 2, Y, Z / 2), V(-.35, 0, 0), fv(H, 'u.ft'));
+                dim(V(X / 2, Y, -Z / 2), V(X / 2, Y, Z / 2), V(.3, .15, 0), fv(v.brickThickness, 'u.inch'));
+                bbox = { w: X, h: Y, d: Z, cy: Y / 2 };
+            }
+
+            else if (id === 'plaster') {
+                const L = v.wallLength, H = v.wallHeight;
+                const k = SIZE / Math.max(L, H);
+                const X = L * k, Y = H * k;
+                const tw = Math.max((5 / 12) * k, .05);                       // 5" brick wall behind
+                const p = Math.max((v.plasterThickness / 12) * k, .025);     // plaster layer
+                box(X, Y, tw, brickMaterials(L, H, 5 / 12), 0, Y / 2, 0);
+                const cover = X * .72;                                       // partly applied, so bricks stay visible
+                const plaster = new THREE.MeshStandardMaterial({ color: C.dark ? 0xd9d2c3 : 0xf1ebdd, roughness: 1, map: concreteTex() });
+                box(cover, Y, p, plaster, -X / 2 + cover / 2, Y / 2, tw / 2 + p / 2);
+                ground(X, .9);
+                dim(V(-X / 2, 0, tw / 2 + p), V(X / 2, 0, tw / 2 + p), V(0, 0, .35), fv(L, 'u.ft'));
+                dim(V(-X / 2, 0, tw / 2 + p), V(-X / 2, Y, tw / 2 + p), V(-.35, 0, 0), fv(H, 'u.ft'));
+                dim(V(-X / 2 + cover, Y * .62, tw / 2), V(-X / 2 + cover, Y * .62, tw / 2 + p), V(.4, 0, .25),
+                    `${t('viz.plaster')} ${fv(v.plasterThickness, 'u.inch')}`);
+                bbox = { w: X, h: Y, d: tw + p, cy: Y / 2 };
+            }
+
+            else if (id === 'steel') {
+                const L = v.length, W = v.width;
+                const k = SIZE / Math.max(L, W);
+                const X = L * k, Z = W * k, slabT = .16, y0 = .25;
+                const slabMat = new THREE.MeshStandardMaterial({ color: C.concrete, transparent: true, opacity: .16, depthWrite: false });
+                box(X, slabT, Z, slabMat, 0, y0, 0);
+                const r = Math.max((v.mm / 304.8) / 2 * k, .009);
+                const rodMat = new THREE.MeshStandardMaterial({ color: 0x9a6248, roughness: .45, metalness: .55 });
+                const cyl = new THREE.CylinderGeometry(r, r, 1, 8);
+                const gapK = (v.gap / 12) * k;
+
+                // positions of bars across a span, thinned out above MAX_BARS
+                const positions = (span, count) => {
+                    const step = Math.ceil(count / MAX_BARS);
+                    const out = [];
+                    for (let i = 0; i < count; i += step) out.push(Math.min(-span / 2 + i * gapK, span / 2));
+                    if (out[out.length - 1] !== span / 2) out.push(span / 2);
+                    return out;
+                };
+                const s = steelSteps(v);
+                const m4 = new THREE.Matrix4();
+                const qA = new THREE.Quaternion().setFromAxisAngle(V(1, 0, 0), Math.PI / 2);  // along z
+                const qB = new THREE.Quaternion().setFromAxisAngle(V(0, 0, 1), Math.PI / 2);  // along x
+                const xs = positions(X, s.a), zs = positions(Z, s.b);
+                const barsA = new THREE.InstancedMesh(cyl, rodMat, xs.length);
+                xs.forEach((px, i) => barsA.setMatrixAt(i, m4.compose(V(px, y0 - r, 0), qA, V(1, Z, 1))));
+                const barsB = new THREE.InstancedMesh(cyl, rodMat, zs.length);
+                zs.forEach((pz, i) => barsB.setMatrixAt(i, m4.compose(V(0, y0 + r, pz), qB, V(1, X, 1))));
+                barsA.instanceMatrix.needsUpdate = barsB.instanceMatrix.needsUpdate = true;
+                g.add(barsA, barsB);
+
+                ground(X, Z);
+                dim(V(-X / 2, y0 - slabT / 2, Z / 2), V(X / 2, y0 - slabT / 2, Z / 2), V(0, 0, .35), fv(L, 'u.ft'));
+                dim(V(X / 2, y0 - slabT / 2, -Z / 2), V(X / 2, y0 - slabT / 2, Z / 2), V(.35, 0, 0), fv(W, 'u.ft'));
+                if (!s.simplified && xs.length > 1) {
+                    dim(V(xs[0], y0 + slabT / 2, Z / 2), V(xs[1], y0 + slabT / 2, Z / 2), V(0, .3, 0), fv(v.gap, 'u.inch'));
+                }
+                bbox = { w: X, h: y0 + slabT, d: Z, cy: y0 };
+            }
+            return { group: g, bbox };
+        }
+
+        /* ---------- viewer ---------- */
+        class Viewer {
+            constructor(id, card) {
+                this.id = id;
+                this.card = card;
+                this.stage = $('.viz-stage', card);
+                this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+                this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+                this.renderer.outputEncoding = THREE.sRGBEncoding;
+                this.renderer.domElement.setAttribute('aria-hidden', 'true');
+                this.stage.appendChild(this.renderer.domElement);
+
+                this.scene = new THREE.Scene();
+                this.camera = new THREE.PerspectiveCamera(32, 1, .05, 200);
+                this.scene.add(new THREE.HemisphereLight(0xffffff, 0x9aa7b5, .85));
+                const key = new THREE.DirectionalLight(0xffffff, .75); key.position.set(4, 7, 5); this.scene.add(key);
+                const fill = new THREE.DirectionalLight(0xffffff, .25); fill.position.set(-5, 3, -4); this.scene.add(fill);
+                this.content = new THREE.Group();
+                this.scene.add(this.content);
+
+                this.home = { theta: -.75, phi: 1.1 };
+                this.view = { theta: this.home.theta, phi: this.home.phi, radius: 10 };
+                this.target = new THREE.Vector3(0, 1, 0);
+                this.fitR = 10;
+                this.userZoom = false;
+                this.auto = !S.motion;
+                this.dirty = true;
+                this.running = false;
+
+                this.bindControls();
+                this.ro = new ResizeObserver(() => this.resize());
+                this.ro.observe(this.stage);
+                this.resize();
+            }
+            resize() {
+                const w = this.stage.clientWidth, h = this.stage.clientHeight;
+                if (!w || !h) return;
+                this.renderer.setSize(w, h, false);
+                this.camera.aspect = w / h;
+                this.camera.updateProjectionMatrix();
+                this.dirty = true;
+            }
+            bindControls() {
+                const el = this.renderer.domElement;
+                const pts = new Map();
+                let pinch0 = 0, r0 = 0;
+                el.addEventListener('pointerdown', (e) => {
+                    el.setPointerCapture(e.pointerId);
+                    pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
+                    this.setAuto(false);
+                    if (pts.size === 2) {
+                        const [a, b] = [...pts.values()];
+                        pinch0 = Math.hypot(a.x - b.x, a.y - b.y); r0 = this.view.radius;
+                    }
+                });
+                el.addEventListener('pointermove', (e) => {
+                    const p = pts.get(e.pointerId);
+                    if (!p) return;
+                    const dx = e.clientX - p.x, dy = e.clientY - p.y;
+                    p.x = e.clientX; p.y = e.clientY;
+                    if (pts.size === 1) {
+                        this.view.theta -= dx * .009;
+                        this.view.phi = clamp(this.view.phi - dy * .009, .2, 1.52);
+                    } else if (pts.size === 2 && pinch0) {
+                        const [a, b] = [...pts.values()];
+                        this.view.radius = clamp(r0 * pinch0 / Math.max(Math.hypot(a.x - b.x, a.y - b.y), 1), 3, 26);
+                        this.userZoom = true;
+                    }
+                    this.dirty = true;
+                });
+                const up = (e) => { pts.delete(e.pointerId); if (pts.size < 2) pinch0 = 0; };
+                el.addEventListener('pointerup', up);
+                el.addEventListener('pointercancel', up);
+                el.addEventListener('wheel', (e) => {
+                    e.preventDefault();
+                    this.view.radius = clamp(this.view.radius * (1 + Math.sign(e.deltaY) * .08), 3, 26);
+                    this.userZoom = true;
+                    this.dirty = true;
+                }, { passive: false });
+                el.addEventListener('dblclick', () => this.resetView());
+            }
+            setAuto(on) {
+                this.auto = on;
+                const btn = $('[data-viz-rotate]', this.card);
+                if (btn) btn.setAttribute('aria-pressed', String(on));
+            }
+            resetView() {
+                this.view.theta = this.home.theta;
+                this.view.phi = this.home.phi;
+                this.view.radius = this.fitR;
+                this.userZoom = false;
+                this.dirty = true;
+            }
+            clear() {
+                this.content.traverse((o) => {
+                    if (o.geometry) o.geometry.dispose();
+                    const mats = o.material ? (Array.isArray(o.material) ? o.material : [o.material]) : [];
+                    mats.forEach((m) => {
+                        if (m.map && !(m.map.userData && m.map.userData.cached)) m.map.dispose();
+                        m.dispose();
+                    });
+                });
+                this.content.clear();
+            }
+            rebuild(v) {
+                this.clear();
+                const { group, bbox } = buildScene(this.id, v, colors());
+                this.content.add(group);
+                this.target.set(0, bbox.cy, 0);
+                this.fitR = clamp(Math.hypot(bbox.w, bbox.h, bbox.d) * 1.7 + 1.4, 4, 24);
+                if (!this.userZoom) this.view.radius = this.fitR;
+                this.dirty = true;
+            }
+            render() {
+                const { theta, phi, radius } = this.view, tg = this.target;
+                this.camera.position.set(
+                    tg.x + radius * Math.sin(phi) * Math.sin(theta),
+                    tg.y + radius * Math.cos(phi),
+                    tg.z + radius * Math.sin(phi) * Math.cos(theta)
+                );
+                this.camera.lookAt(tg);
+                this.renderer.render(this.scene, this.camera);
+            }
+            start() {
+                if (this.running) return;
+                this.running = true;
+                const tick = () => {
+                    if (!this.running) return;
+                    if (this.auto) { this.view.theta += .0035; this.dirty = true; }
+                    if (this.dirty) { this.render(); this.dirty = false; }
+                    this.raf = requestAnimationFrame(tick);
+                };
+                this.raf = requestAnimationFrame(tick);
+            }
+            stop() {
+                this.running = false;
+                cancelAnimationFrame(this.raf);
+            }
+        }
+
+        /* ---------- cards ---------- */
+        function createCards() {
+            $$('form[data-calc]').forEach((form) => {
+                const id = form.dataset.calc;
+                if (!DEF[id]) return;
+                const card = document.createElement('section');
+                card.className = 'card viz-card';
+                card.dataset.viz = id;
+                card.innerHTML = `
+                    <div class="card-head">
+                        <h2><i class="fa-solid fa-cube"></i> <span data-i18n="viz.title"></span></h2>
+                        <div class="viz-tools">
+                            <button type="button" class="icon-btn icon-btn-sm" data-viz-rotate aria-pressed="${!S.motion}" data-i18n-title="viz.rotate" data-i18n-aria="viz.rotate"><i class="fa-solid fa-rotate"></i></button>
+                            <button type="button" class="icon-btn icon-btn-sm" data-viz-reset data-i18n-title="viz.reset" data-i18n-aria="viz.reset"><i class="fa-solid fa-expand"></i></button>
+                        </div>
+                    </div>
+                    <div class="viz-stage"><span class="viz-badge"></span></div>
+                    <div class="viz-foot">
+                        <div class="viz-chips"></div>
+                        <small class="viz-hint"><i class="fa-solid fa-hand-pointer"></i><span></span></small>
+                    </div>`;
+                form.after(card);
+                cards[id] = card;
+
+                if (!glOK) {
+                    $('.viz-stage', card).insertAdjacentHTML('beforeend', '<div class="viz-empty"><div><i class="fa-solid fa-cube"></i><span data-i18n="viz.nogl"></span></div></div>');
+                    $('.viz-tools', card).hidden = true;
+                }
+                $('[data-viz-rotate]', card).addEventListener('click', () => {
+                    const vw = viewers[id];
+                    if (vw) vw.setAuto(!vw.auto);
+                });
+                $('[data-viz-reset]', card).addEventListener('click', () => { if (viewers[id]) viewers[id].resetView(); });
+            });
+        }
+
+        function updateInfo(id) {
+            const card = cards[id];
+            const { v, live } = readValues(id);
+            const chips = CHIPS[id](v).map(([label, value]) =>
+                `<span class="viz-chip">${escapeHtml(label)}<b>${escapeHtml(value)}</b></span>`);
+            if (id === 'steel' && steelSteps(v).simplified) chips.push(`<span class="viz-chip warn">${escapeHtml(t('viz.simplified'))}</span>`);
+            $('.viz-chips', card).innerHTML = chips.join('');
+            const badge = $('.viz-badge', card);
+            badge.classList.toggle('live', live);
+            badge.innerHTML = live ? `<i class="dot"></i>${escapeHtml(t('viz.live'))}` : escapeHtml(t('viz.sample'));
+            $('.viz-hint span', card).textContent = t(isTouch() ? 'viz.hintTouch' : 'viz.hint');
+            return v;
+        }
+
+        const pending = {};
+        function update(id) {
+            if (!cards[id] || pending[id]) return;
+            pending[id] = requestAnimationFrame(() => {
+                pending[id] = 0;
+                const v = updateInfo(id);
+                if (viewers[id]) viewers[id].rebuild(v);
+            });
+        }
+
+        function show(id) {
+            Object.values(viewers).forEach((vw) => vw.stop());
+            active = id;
+            if (!cards[id]) return;
+            if (glOK && !viewers[id]) {
+                try { viewers[id] = new Viewer(id, cards[id]); }
+                catch (e) { console.warn('3D preview unavailable:', e); }
+            }
+            const v = updateInfo(id);
+            if (viewers[id]) { viewers[id].rebuild(v); viewers[id].start(); }
+        }
+
+        function refreshAll() {
+            Object.keys(cards).forEach((id) => {
+                const v = updateInfo(id);
+                const vw = viewers[id];
+                if (vw) {
+                    if (S.motion && vw.auto) vw.setAuto(false);
+                    vw.rebuild(v);
+                }
+            });
+        }
+
+        // labels are drawn on canvas — redraw once the Bangla font has loaded
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => refreshAll());
+
+        return { createCards, update, show, refreshAll };
+    })();
+
     /* ---------- Wire up calculator forms ---------- */
     $$('form[data-calc]').forEach((form) => {
         const id = form.dataset.calc;
@@ -1120,6 +1712,7 @@
                 delete lastValues[id];
                 resetResult(id);
                 saveInputs(form);
+                VIZ.update(id);
             });
         });
 
@@ -1127,8 +1720,9 @@
             const field = e.target.closest('.field.invalid');
             if (field) field.classList.remove('invalid');
             saveInputs(form);
+            VIZ.update(id);
         });
-        form.addEventListener('change', () => saveInputs(form));
+        form.addEventListener('change', () => { saveInputs(form); VIZ.update(id); });
     });
 
     // Print only the active result card (layout handled by @media print CSS)
@@ -1159,6 +1753,7 @@
     });
 
     /* ---------- Init ---------- */
+    VIZ.createCards();
     route();
     applyAll();
 })();

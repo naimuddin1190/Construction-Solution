@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Construction Calculator — ছাদ ঢালাই, কলাম, দেওয়াল গাঁথুনি, প্লাস্টার ও রডের হিসাব। Roof casting, column, brick wall, plaster and steel estimates.">
+    <meta name="description" content="Construction Solution — ছাদ ঢালাই, কলাম, দেওয়াল গাঁথুনি, প্লাস্টার ও রডের হিসাব। Roof casting, column, brick wall, plaster and steel estimates.">
     <meta name="theme-color" content="#eef2f5">
-    <title>Construction Calculator</title>
+    <title>Construction Solution</title>
     <link rel="icon" href="LOGO%201.png">
 
     <!-- Apply saved settings before first paint (prevents a light/dark flash) -->
@@ -26,7 +26,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
@@ -40,8 +40,8 @@
             --gap: .875rem;
             --radius: 1.25rem;
             --radius-sm: .75rem;
-            --font: 'Poppins', 'Hind Siliguri', system-ui, -apple-system, 'Segoe UI', sans-serif;
-            --font-bn: 'Hind Siliguri', 'Poppins', system-ui, sans-serif;
+            --font: 'Poppins', 'Noto Sans Bengali', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            --font-bn: 'Noto Sans Bengali', 'Poppins', system-ui, sans-serif;
             --err: #e5484d;
             --blur: blur(18px) saturate(160%);
         }
@@ -136,7 +136,7 @@
                 radial-gradient(42rem 32rem at 100% 100%, var(--blob-3), transparent 62%),
                 radial-gradient(38rem 30rem at 0% 100%, var(--blob-4), transparent 62%);
         }
-        html[lang="bn"] body { font-family: var(--font-bn); }
+        html[lang="bn"] body { font-family: var(--font-bn); line-height: 1.7; }
         img { max-width: 100%; display: block; }
         a { color: inherit; text-decoration: none; }
         button, input, select, textarea { font: inherit; color: inherit; }
@@ -443,8 +443,46 @@
         .card-head h2 i { width: 2rem; height: 2rem; border-radius: .625rem; display: grid; place-items: center; background: var(--brand-50); color: var(--brand-ink); font-size: .875rem; }
         .card-body { padding: 1.5rem; }
 
-        .calc-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: var(--gap); align-items: start; }
-        .result-card { position: sticky; top: calc(var(--top-h) + var(--gap) * 2); scroll-margin-top: calc(var(--top-h) + var(--gap) * 2); }
+        .calc-grid {
+            display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+            grid-template-areas: "form viz" "form res"; grid-template-rows: auto 1fr;
+            gap: var(--gap); align-items: start;
+        }
+        .form-card { grid-area: form; }
+        .viz-card { grid-area: viz; }
+        .result-card { grid-area: res; scroll-margin-top: calc(var(--top-h) + var(--gap) * 2); }
+
+        /* 3D preview */
+        .viz-card { overflow: hidden; }
+        .viz-tools { display: flex; gap: .375rem; }
+        .icon-btn-sm { width: 2.125rem; height: 2.125rem; font-size: .85rem; border-radius: .625rem; }
+        .icon-btn[aria-pressed="true"] { background: var(--brand-50); color: var(--brand-ink); border-color: var(--brand-100); }
+        .viz-stage {
+            position: relative; height: 18rem; cursor: grab;
+            background:
+                radial-gradient(ellipse 70% 60% at 50% 40%, rgba(var(--brand-rgb), .10), transparent 70%),
+                linear-gradient(180deg, transparent, rgba(var(--brand-rgb), .05));
+        }
+        .viz-stage:active { cursor: grabbing; }
+        .viz-stage canvas { display: block; width: 100% !important; height: 100% !important; touch-action: pan-y; outline: none; }
+        .viz-badge {
+            position: absolute; left: .75rem; top: .75rem; z-index: 2; pointer-events: none;
+            display: inline-flex; align-items: center; gap: .4rem;
+            font-size: .75rem; font-weight: 600; padding: .25rem .7rem; border-radius: 999px;
+            background: var(--glass-strong); border: 1px solid var(--line); color: var(--muted);
+            -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+        }
+        .viz-badge.live { color: var(--brand-ink); border-color: var(--brand-100); }
+        .viz-badge .dot { width: .45rem; height: .45rem; border-radius: 50%; background: var(--brand); box-shadow: 0 0 0 0 rgba(var(--brand-rgb), .6); animation: livePulse 1.8s infinite; }
+        @keyframes livePulse { 0% { box-shadow: 0 0 0 0 rgba(var(--brand-rgb), .55); } 70% { box-shadow: 0 0 0 7px rgba(var(--brand-rgb), 0); } 100% { box-shadow: 0 0 0 0 rgba(var(--brand-rgb), 0); } }
+        .viz-empty { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 1.5rem; color: var(--muted); font-size: .9rem; }
+        .viz-empty i { display: block; font-size: 2rem; margin-bottom: .5rem; color: var(--brand-ink); opacity: .6; }
+        .viz-foot { padding: .75rem 1.25rem 1rem; border-top: 1px solid var(--line); display: grid; gap: .5rem; }
+        .viz-chips { display: flex; flex-wrap: wrap; gap: .375rem; }
+        .viz-chip { font-size: .78rem; padding: .25rem .65rem; border-radius: 999px; background: var(--field); border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+        .viz-chip b { color: var(--ink); font-weight: 600; margin-left: .25rem; }
+        .viz-chip.warn { color: var(--brand-ink); background: var(--brand-50); border-color: var(--brand-100); white-space: normal; }
+        .viz-hint { color: var(--muted); font-size: .75rem; display: flex; align-items: center; gap: .4rem; }
 
         .group-title { font-size: .75rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin: 0 0 .75rem; display: flex; align-items: center; gap: .625rem; }
         html[lang="bn"] .group-title { text-transform: none; letter-spacing: 0; font-size: .875rem; }
@@ -504,8 +542,8 @@
         .result-actions { margin-top: 1.25rem; }
 
         @media (max-width: 1100px) {
-            .calc-grid { grid-template-columns: 1fr; }
-            .result-card { position: static; }
+            .calc-grid { grid-template-columns: 1fr; grid-template-areas: "viz" "form" "res"; grid-template-rows: auto; }
+            .viz-stage { height: 16rem; }
         }
         @media (max-width: 560px) {
             .container { padding: 0; }
@@ -651,7 +689,7 @@
             :root { --glass: #fff; --glass-strong: #fff; --field: #f6f7f8; --ink: #111; --ink-2: #222; --muted: #555; --line: #ddd; --line-2: #ccc; --brand-ink: var(--brand-700); }
             body { background: #fff; color: #111; }
             body::before { display: none; }
-            .sidebar, .side-scrim, .topbar, .site-footer, .page-hero, .form-card, .no-print, .toast, .drawer, .scrim { display: none !important; }
+            .sidebar, .side-scrim, .topbar, .site-footer, .page-hero, .form-card, .viz-card, .no-print, .toast, .drawer, .scrim { display: none !important; }
             .main { margin: 0 !important; padding: 0 !important; }
             .page.active { animation: none; }
             .container { max-width: none; padding: 0; }
@@ -1561,6 +1599,8 @@
 
 <noscript><p style="text-align:center;padding:1rem">এই সাইটটি চালাতে JavaScript চালু করুন। / Please enable JavaScript.</p></noscript>
 
+<!-- three.js for the 3D preview -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
