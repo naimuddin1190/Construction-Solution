@@ -229,7 +229,8 @@
             [data-sidebar="compact"] .side-label,
             [data-sidebar="compact"] .side-badge { display: none; }
             [data-sidebar="compact"] .side-head { justify-content: center; padding: 1rem .5rem .75rem; }
-            [data-sidebar="compact"] .side-group-label { font-size: 0; height: 1px; margin: .625rem .5rem; background: var(--line-2); }
+            [data-sidebar="compact"] .side-group-label,
+            html[lang="bn"][data-sidebar="compact"] .side-group-label { font-size: 0 !important; line-height: 0; height: 1px; padding: 0; margin: .625rem .5rem; background: var(--line-2); overflow: hidden; color: transparent; }
             [data-sidebar="compact"] .side-nav { overflow: visible; }
             [data-sidebar="compact"] .sidebar { overflow: visible; }
             [data-sidebar="compact"] .side-link { justify-content: center; padding: .75rem; }
@@ -833,6 +834,175 @@
         .msg-actions .btn { min-height: 2rem; padding: .3rem .7rem; font-size: .78rem; border-radius: .625rem; }
         .msg-empty { color: var(--muted); text-align: center; padding: 1.5rem .5rem; font-size: .9rem; }
 
+        /* About: single card */
+        .about-wrap { max-width: 40rem; margin: 0 auto; }
+        .about-wrap.two { max-width: none; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: var(--gap); align-items: start; }
+        @media (max-width: 1100px) { .about-wrap.two { grid-template-columns: 1fr; } }
+        .avatar { overflow: hidden; }
+        .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .info-list .v { font-weight: 500; }
+        .msg-cols { grid-template-columns: 1fr 1fr; }
+        @media (max-width: 1100px) { .msg-cols { grid-template-columns: 1fr; } }
+
+        /* Admin → Developer */
+        .dev-photo { width: 4.5rem; height: 4.5rem; flex: none; border-radius: 1.25rem; overflow: hidden; display: grid; place-items: center; background: var(--brand-grad); color: var(--on-brand); font-weight: 700; font-size: 1.4rem; box-shadow: var(--brand-shadow); }
+        .dev-photo img { width: 100%; height: 100%; object-fit: cover; }
+        .extra-list { display: grid; gap: .625rem; margin-bottom: .75rem; }
+        .extra-row { display: grid; grid-template-columns: 8.5rem repeat(2, minmax(0, 1fr)) minmax(0, 1.2fr) minmax(0, 1.2fr) auto; gap: .5rem; align-items: center; padding: .625rem; border-radius: var(--radius-sm); background: var(--field); border: 1px solid var(--line); }
+        .extra-row .control { min-height: 2.5rem; padding: .5rem .7rem; font-size: .875rem; }
+        .extra-row select.control { padding-right: .4rem; }
+        .icon-btn.danger { color: var(--err); }
+        .icon-btn.danger:hover { background: var(--err-bg); border-color: rgba(229, 72, 77, .35); color: var(--err); }
+        @media (max-width: 900px) { .extra-row { grid-template-columns: 1fr 1fr; } .extra-row .icon-btn { justify-self: end; } }
+        .dev-actions { flex-wrap: wrap; }
+        .dev-actions .btn-primary { flex: 1 1 14rem; }
+
+        /* Floating contact dock (WhatsApp + Gmail) */
+        .contact-dock { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 45; display: flex; flex-direction: column; align-items: flex-end; gap: .75rem; }
+        .dock-btn {
+            position: relative; width: 3.5rem; height: 3.5rem; border-radius: 50%;
+            display: grid; place-items: center; color: #fff; font-size: 1.65rem;
+            transition: transform .2s, box-shadow .2s;
+        }
+        .dock-btn.wa { background: linear-gradient(135deg, var(--wa), var(--wa-600)); box-shadow: 0 12px 28px rgba(37, 211, 102, .4); }
+        .dock-btn.wa::after { content: ""; position: absolute; inset: 0; border-radius: 50%; animation: waPulse 2.4s infinite; }
+        .dock-btn.gm { width: 3rem; height: 3rem; font-size: 1.2rem; color: var(--gm); background: var(--glass-strong); -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); box-shadow: var(--shadow-lg); margin-right: .25rem; }
+        .dock-btn:hover { transform: translateY(-3px) scale(1.05); }
+        .dock-tip {
+            position: absolute; right: calc(100% + .75rem); top: 50%; transform: translate(6px, -50%);
+            white-space: nowrap; font-size: .8125rem; font-weight: 500; padding: .4rem .75rem; border-radius: .625rem;
+            background: var(--glass-strong); color: var(--ink); border: 1px solid var(--glass-border); box-shadow: var(--shadow);
+            -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
+            opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s;
+        }
+        .dock-btn:hover .dock-tip, .dock-btn:focus-visible .dock-tip { opacity: 1; transform: translate(0, -50%); }
+        @media (hover: none) { .dock-tip { display: none; } }
+        @media (max-width: 560px) {
+            .contact-dock { right: 1rem; bottom: 1rem; gap: .625rem; }
+            .dock-btn { width: 3.25rem; height: 3.25rem; font-size: 1.5rem; }
+            .dock-btn.gm { width: 2.75rem; height: 2.75rem; font-size: 1.1rem; }
+        }
+        body[data-page="admin"] .contact-dock { display: none !important; }
+        @media print { .contact-dock { display: none !important; } }
+
+        /* ===== Tiles calculator ===== */
+        .area-list { display: grid; gap: .75rem; margin-bottom: .75rem; }
+        .area-row { display: grid; grid-template-columns: auto minmax(0, 1fr) minmax(0, 1fr) auto; gap: .75rem; align-items: start; padding: .75rem; border-radius: var(--radius-sm); background: var(--field); border: 1px solid var(--line); }
+        .area-no { min-width: 4.5rem; height: 3rem; margin-top: 1.7rem; display: grid; place-items: center; padding: 0 .5rem; border-radius: .75rem; background: var(--brand-50); color: var(--brand-ink); font-weight: 600; font-size: .85rem; white-space: nowrap; }
+        .area-row .icon-btn { margin-top: 1.95rem; }
+        @media (max-width: 1240px) {
+            .area-row { grid-template-columns: minmax(0, 1fr) auto; }
+            .area-no { grid-row: 1; grid-column: 1; height: auto; margin-top: 0; padding: .25rem .6rem; justify-self: start; min-width: 0; }
+            .area-row .icon-btn { grid-row: 1; grid-column: 2; margin-top: 0; justify-self: end; }
+            .area-row .field { grid-column: 1 / -1; }
+        }
+        .opt { color: var(--muted); font-weight: 400; font-size: .78rem; }
+        .tile-presets { display: grid; grid-template-columns: repeat(auto-fill, minmax(6.25rem, 1fr)); gap: .5rem; }
+        .tile-presets label { position: relative; }
+        .tile-presets input { position: absolute; opacity: 0; pointer-events: none; }
+        .tile-presets label > span { display: flex; flex-direction: column; align-items: center; gap: .4rem; padding: .75rem .5rem; border-radius: .875rem; border: 1px solid var(--line-2); background: var(--field); cursor: pointer; font-size: .85rem; transition: border-color .15s, background .15s, box-shadow .15s; }
+        .tile-presets label > span:hover { border-color: var(--brand-100); }
+        .tile-presets b { font-weight: 600; }
+        .tile-presets .tp { display: block; height: 1.6rem; width: calc(1.6rem * var(--a) / var(--b)); max-width: 3rem; border-radius: 3px; background: linear-gradient(135deg, var(--brand-50), var(--brand-100)); border: 1.5px solid var(--brand); }
+        .tile-presets .fa-pen-ruler { font-size: 1.25rem; height: 1.6rem; display: grid; place-items: center; color: var(--brand-ink); }
+        .tile-presets input:checked + span { border-color: var(--brand); background: var(--brand-50); box-shadow: 0 0 0 3px rgba(var(--brand-rgb), .15); color: var(--brand-ink); }
+        .tile-presets input:focus-visible + span { outline: 3px solid rgba(var(--brand-rgb), .55); }
+        .tile-custom { margin-top: 1rem; }
+        .formula { margin-top: .875rem; border-radius: var(--radius-sm); border: 1px solid var(--line); background: var(--field); }
+        .formula summary { cursor: pointer; padding: .75rem .875rem; font-weight: 600; font-size: .9rem; color: var(--brand-ink); list-style: none; display: flex; align-items: center; gap: .5rem; }
+        .formula summary::-webkit-details-marker { display: none; }
+        .formula summary::after { content: "+"; margin-left: auto; font-size: 1.1rem; }
+        .formula[open] summary::after { content: "−"; }
+        .formula ol { margin: 0; padding: 0 1rem 1rem 2.25rem; display: grid; gap: .5rem; font-size: .875rem; color: var(--ink-2); }
+        .formula li::marker { color: var(--brand-ink); font-weight: 600; }
+        .result-note { margin: .75rem 0 0; font-size: .8rem; color: var(--muted); }
+
+        /* ===== Length box: feet | inch in one box + unit menu ===== */
+        .fields.auto { grid-template-columns: repeat(auto-fit, minmax(13.5rem, 1fr)); }
+        .input-wrap.len-box {
+            display: flex; align-items: center; height: 3rem;
+            border: 1px solid var(--line-2); border-radius: var(--radius-sm); background: var(--field);
+            transition: border-color .15s, box-shadow .15s, background .15s;
+        }
+        .input-wrap.len-box:hover { border-color: var(--brand-100); }
+        .input-wrap.len-box:focus-within { border-color: var(--brand); background: var(--field-focus); box-shadow: 0 0 0 4px rgba(var(--brand-rgb), .15); }
+        .input-wrap.len-box input, .input-wrap.len-box input:focus, .input-wrap.len-box input:hover {
+            flex: 1 1 0; min-width: 2rem; height: 100%; padding: 0 .3rem 0 .8rem;
+            border: 0; background: transparent; box-shadow: none; outline: none; font-size: 1rem;
+        }
+        .len-tag { flex: none; font-size: .75rem; color: var(--muted); padding-right: .55rem; white-space: nowrap; pointer-events: none; }
+        .len-div { flex: none; width: 1px; align-self: stretch; margin: .65rem 0; background: var(--ink); opacity: .14; }
+        .len-box:not([data-combo]) .len-div,
+        .len-box:not([data-combo]) .len-sub,
+        .len-box:not([data-combo]) .len-tag:not(.solo) { display: none; }
+        .len-box[data-combo] .len-tag.solo { display: none !important; }
+        .len-unit {
+            flex: none; height: 100%; max-width: 6.5rem;
+            border: 0; border-left: 1px solid var(--line); border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%2394a3b8' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right .5rem center;
+            color: var(--brand-ink); font-size: .78rem; font-weight: 600;
+            padding: 0 1.45rem 0 .6rem; cursor: pointer;
+            -webkit-appearance: none; appearance: none;
+        }
+        .len-unit:focus-visible { outline: 2px solid rgba(var(--brand-rgb), .55); outline-offset: -2px; }
+        .len-unit option { color: var(--ink); background: var(--surface); }
+        .field.invalid .input-wrap.len-box { border-color: var(--err); background: var(--err-bg); }
+        .area-row .input-wrap.len-box { background: var(--field-focus); }
+
+        /* ===== Share dialog ===== */
+        #share-scrim { z-index: 85; }
+        .share-preview { border-radius: var(--radius-sm); border: 1px solid var(--line); background: var(--field); min-height: 9rem; display: grid; place-items: center; overflow: hidden; }
+        .share-preview img { width: 100%; max-height: 12rem; object-fit: contain; display: block; }
+        .share-preview span { color: var(--muted); font-size: .85rem; padding: 1rem; text-align: center; }
+        .share-toggle { padding: .25rem 0; }
+        .share-note { text-align: center; }
+        .btn.loading { pointer-events: none; opacity: .75; }
+        .btn.loading i { animation: spin 1s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ===== Printable report (print + PDF) ===== */
+        #print-root, #pdf-root { display: none; }
+        #pdf-root.render { display: block; position: fixed; left: -12000px; top: 0; width: 794px; z-index: -1; }
+        .rp, .rp * { letter-spacing: 0 !important; }
+        .rp { width: 100%; box-sizing: border-box; background: #fff; color: #1e293b; padding: 44px 46px 36px; font-family: var(--font-bn); font-size: 14px; line-height: 1.55; }
+        .rp-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; border-bottom: 3px solid var(--brand); padding-bottom: 14px; margin-bottom: 18px; }
+        .rp-brand { font-size: 22px; font-weight: 700; color: var(--brand-700); line-height: 1.2; }
+        .rp-title { font-size: 16px; color: #334155; margin-top: 4px; }
+        .rp-date { font-size: 12px; color: #64748b; text-align: right; white-space: nowrap; }
+        .rp h3 { font-size: 13px; letter-spacing: .04em; text-transform: uppercase; color: var(--brand-700); margin: 20px 0 8px; }
+        .rp-table { width: 100%; border-collapse: collapse; }
+        .rp-table td { padding: 7px 10px; border-bottom: 1px solid #e5e7eb; vertical-align: top; }
+        .rp-table td:last-child { text-align: right; font-weight: 600; white-space: nowrap; }
+        .rp-table td small { color: #64748b; font-weight: 500; margin-left: 4px; }
+        .rp-table tr.key td { background: rgba(var(--brand-rgb), .10); font-weight: 700; }
+        .rp-table tr.sub td { text-align: left !important; background: #f1f5f9; font-weight: 700; color: #475569; font-size: 12px; letter-spacing: .03em; }
+        .rp-inputs td:last-child { font-weight: 500; }
+        .rp-total { margin-top: 10px; display: flex; justify-content: space-between; align-items: center; padding: 12px 14px; border-radius: 8px; background: var(--brand); color: var(--on-brand); font-size: 16px; font-weight: 700; }
+        .rp-3d { margin-top: 20px; text-align: center; }
+        .rp-3d img { display: block; margin: 0 auto; width: 100%; max-width: 640px; max-height: 380px; border: 1px solid #e5e7eb; border-radius: 10px; background: linear-gradient(180deg, #f8fafc, #eef2f5); }
+        .rp-foot { margin-top: 26px; padding-top: 10px; border-top: 1px solid #e5e7eb; font-size: 11px; color: #94a3b8; text-align: center; }
+        @media print {
+            html.printing-report body > *:not(#print-root) { display: none !important; }
+            html.printing-report body::before { display: none; }
+            html.printing-report #print-root { display: block !important; }
+            html.printing-report .rp { padding: 0; }
+            html.printing-report .rp * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+
+        /* one unit menu per calculator */
+        .unit-pick { display: inline-flex; align-items: center; gap: .5rem; font-size: .8125rem; font-weight: 500; color: var(--muted); white-space: nowrap; }
+        .unit-pick > i { color: var(--brand-ink); }
+        .unit-select {
+            height: 2.375rem; min-width: 8.5rem; padding: 0 2rem 0 .8rem; border-radius: .75rem;
+            border: 1px solid var(--brand-100); background: var(--brand-50) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%2394a3b8' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right .7rem center;
+            color: var(--brand-ink); font-weight: 600; font-size: .875rem; cursor: pointer;
+            -webkit-appearance: none; appearance: none;
+        }
+        .unit-select:focus-visible { outline: 3px solid rgba(var(--brand-rgb), .45); }
+        .unit-select option, .unit-select optgroup { color: var(--ink); background: var(--surface); }
+        @media (max-width: 480px) { .unit-pick > span { display: none; } .card-head { flex-wrap: wrap; } }
+        .len-tag.solo { display: inline !important; }
+
         /* Browsers without backdrop-filter: make glass more opaque */
         @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
             :root, [data-theme="light"] { --glass: rgba(255, 255, 255, .92); --glass-strong: rgba(255, 255, 255, .97); }
@@ -913,12 +1083,12 @@
             <a class="side-link" href="#wall" data-link="wall"><i class="fa-solid fa-trowel-bricks"></i><span class="side-label" data-i18n="page.wall"></span></a>
             <a class="side-link" href="#plaster" data-link="plaster"><i class="fa-solid fa-paint-roller"></i><span class="side-label" data-i18n="page.plaster"></span></a>
             <a class="side-link" href="#steel" data-link="steel"><i class="fa-solid fa-grip-lines"></i><span class="side-label" data-i18n="page.steel"></span></a>
-            <a class="side-link" href="#tiles" data-link="tiles"><i class="fa-solid fa-table-cells-large"></i><span class="side-label" data-i18n="page.tiles"></span><span class="side-badge" data-i18n="badge.soon"></span></a>
+            <a class="side-link" href="#tiles" data-link="tiles"><i class="fa-solid fa-table-cells-large"></i><span class="side-label" data-i18n="page.tiles"></span></a>
         </div>
         <div class="side-group">
             <p class="side-group-label" data-i18n="nav.more"></p>
             <a class="side-link" href="#about" data-link="about"><i class="fa-solid fa-circle-info"></i><span class="side-label" data-i18n="page.about"></span></a>
-            <a class="side-link" href="#contact" data-link="contact"><i class="fa-solid fa-envelope"></i><span class="side-label" data-i18n="page.contact"></span></a>
+            <a class="side-link" href="#review" data-link="review"><i class="fa-solid fa-star"></i><span class="side-label" data-i18n="page.review"></span></a>
         </div>
     </nav>
 
@@ -1013,6 +1183,7 @@
                             <button type="button" role="tab" data-demo="wall"><i class="fa-solid fa-trowel-bricks"></i><span data-i18n="page.wall"></span></button>
                             <button type="button" role="tab" data-demo="plaster"><i class="fa-solid fa-paint-roller"></i><span data-i18n="page.plaster"></span></button>
                             <button type="button" role="tab" data-demo="steel"><i class="fa-solid fa-grip-lines"></i><span data-i18n="page.steel"></span></button>
+                            <button type="button" role="tab" data-demo="tiles"><i class="fa-solid fa-table-cells-large"></i><span data-i18n="page.tiles"></span></button>
                         </div>
                     </div>
                 </div>
@@ -1057,11 +1228,11 @@
                         <p data-i18n="desc.steel"></p>
                         <a href="#steel" class="btn btn-soft btn-sm tool-btn"><span data-i18n="common.start"></span> <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
-                    <div class="tool-card soon" data-feature="tiles">
+                    <div class="tool-card" data-feature="tiles">
                         <span class="menu-icon"><i class="fa-solid fa-table-cells-large"></i></span>
-                        <h3><span data-i18n="page.tiles"></span> <span class="badge" data-i18n="badge.soon"></span></h3>
+                        <h3 data-i18n="page.tiles"></h3>
                         <p data-i18n="desc.tiles"></p>
-                        <a href="#tiles" class="btn btn-soft btn-sm tool-btn"><span data-i18n="common.view"></span> <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="#tiles" class="btn btn-soft btn-sm tool-btn"><span data-i18n="common.start"></span> <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -1107,8 +1278,8 @@
                         <p data-i18n="about.intro"></p>
                     </div>
                     <div class="cta-actions">
-                        <a href="#about" class="btn btn-ghost" data-i18n="cta.learn"></a>
-                        <a href="#contact" class="btn btn-primary"><span data-i18n="cta.contact"></span> <i class="fa-solid fa-arrow-right"></i></a>
+                        <a class="btn btn-wa" data-contact="whatsapp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="wa.chat"></span></a>
+                        <a href="#review" class="btn btn-ghost"><i class="fa-solid fa-star"></i> <span data-i18n="page.review"></span></a>
                     </div>
                 </div>
             </div>
@@ -1127,7 +1298,28 @@
         <div class="container page-body">
             <div class="calc-grid">
                 <form class="card form-card" data-calc="roof" novalidate>
-                    <div class="card-head"><h2><i class="fa-solid fa-sliders"></i> <span data-i18n="calc.inputs"></span></h2></div>
+                    <div class="card-head"><h2><i class="fa-solid fa-sliders"></i> <span data-i18n="calc.inputs"></span></h2>
+                        <label class="unit-pick"><i class="fa-solid fa-ruler"></i><span data-i18n="mu.label"></span>
+                            <select class="unit-select" autocomplete="off">
+                                <optgroup data-i18n-label="lu.combo">
+                                    <option value="ftin" data-i18n="lu.ftin"></option>
+                                    <option value="mcm" data-i18n="lu.mcm"></option>
+                                    <option value="cmmm" data-i18n="lu.cmmm"></option>
+                                    <option value="ydft" data-i18n="lu.ydft"></option>
+                                    <option value="haatin" data-i18n="lu.haatin"></option>
+                                </optgroup>
+                                <optgroup data-i18n-label="lu.single">
+                                    <option value="ft" data-i18n="lu.ft"></option>
+                                    <option value="in" data-i18n="lu.in"></option>
+                                    <option value="m" data-i18n="lu.m"></option>
+                                    <option value="cm" data-i18n="lu.cm"></option>
+                                    <option value="mm" data-i18n="lu.mm"></option>
+                                    <option value="yd" data-i18n="lu.yd"></option>
+                                    <option value="haat" data-i18n="lu.haat"></option>
+                                </optgroup>
+                            </select>
+                        </label>
+                    </div>
                     <div class="card-body">
                         <div class="fieldset">
                             <p class="group-title" data-i18n="grp.ratio"></p>
@@ -1155,12 +1347,12 @@
                             <div class="fields">
                                 <div class="field">
                                     <label for="roof-firstLength" data-i18n="f.firstLength"></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="roof-firstLength" name="firstLength" data-num data-positive data-ph="0"><span class="unit" data-i18n="u.ft"></span></div>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="roof-firstLength" data-len="ft" name="firstLength" data-num data-positive data-ph="0"><span class="unit" data-i18n="u.ft"></span></div>
                                     <span class="field-error"></span>
                                 </div>
                                 <div class="field">
                                     <label for="roof-secondLength" data-i18n="f.secondLength"></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="roof-secondLength" name="secondLength" data-num data-positive data-ph="0"><span class="unit" data-i18n="u.ft"></span></div>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="roof-secondLength" data-len="ft" name="secondLength" data-num data-positive data-ph="0"><span class="unit" data-i18n="u.ft"></span></div>
                                     <span class="field-error"></span>
                                 </div>
                             </div>
@@ -1171,12 +1363,12 @@
                             <div class="fields">
                                 <div class="field">
                                     <label for="roof-firstWidth" data-i18n="f.firstWidth"></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="roof-firstWidth" name="firstWidth" data-num data-positive data-ph="0"><span class="unit" data-i18n="u.ft"></span></div>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="roof-firstWidth" data-len="ft" name="firstWidth" data-num data-positive data-ph="0"><span class="unit" data-i18n="u.ft"></span></div>
                                     <span class="field-error"></span>
                                 </div>
                                 <div class="field">
                                     <label for="roof-secondWidth" data-i18n="f.secondWidth"></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="roof-secondWidth" name="secondWidth" data-num data-positive data-ph="0"><span class="unit" data-i18n="u.ft"></span></div>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="roof-secondWidth" data-len="ft" name="secondWidth" data-num data-positive data-ph="0"><span class="unit" data-i18n="u.ft"></span></div>
                                     <span class="field-error"></span>
                                 </div>
                             </div>
@@ -1187,15 +1379,8 @@
                             <div class="fields">
                                 <div class="field">
                                     <label for="roof-height" data-i18n="f.height"></label>
-                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="roof-height" name="height" data-num data-positive data-ph="5"></div>
+                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="roof-height" data-len="in" name="height" data-num data-positive data-ph="5"></div>
                                     <span class="field-error"></span>
-                                </div>
-                                <div class="field">
-                                    <span class="field-label" id="roof-unit-label" data-i18n="f.unit"></span>
-                                    <div class="segmented" role="radiogroup" aria-labelledby="roof-unit-label">
-                                        <label><input type="radio" name="heightUnit" value="inches" checked><span data-i18n="unit.inches"></span></label>
-                                        <label><input type="radio" name="heightUnit" value="feet"><span data-i18n="unit.feet"></span></label>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1215,7 +1400,7 @@
                         <div class="print-only print-inputs"></div>
                         <div class="result-output"></div>
                         <div class="result-actions no-print">
-                            <button type="button" class="btn btn-soft btn-block" data-print disabled><i class="fa-solid fa-print"></i> <span data-i18n="calc.print"></span></button>
+                            <button type="button" class="btn btn-soft btn-block" data-print disabled><i class="fa-solid fa-share-nodes"></i> <span data-i18n="sh.open"></span></button>
                         </div>
                     </div>
                 </aside>
@@ -1235,24 +1420,45 @@
         <div class="container page-body">
             <div class="calc-grid">
                 <form class="card form-card" data-calc="column" novalidate>
-                    <div class="card-head"><h2><i class="fa-solid fa-sliders"></i> <span data-i18n="calc.inputs"></span></h2></div>
+                    <div class="card-head"><h2><i class="fa-solid fa-sliders"></i> <span data-i18n="calc.inputs"></span></h2>
+                        <label class="unit-pick"><i class="fa-solid fa-ruler"></i><span data-i18n="mu.label"></span>
+                            <select class="unit-select" autocomplete="off">
+                                <optgroup data-i18n-label="lu.combo">
+                                    <option value="ftin" data-i18n="lu.ftin"></option>
+                                    <option value="mcm" data-i18n="lu.mcm"></option>
+                                    <option value="cmmm" data-i18n="lu.cmmm"></option>
+                                    <option value="ydft" data-i18n="lu.ydft"></option>
+                                    <option value="haatin" data-i18n="lu.haatin"></option>
+                                </optgroup>
+                                <optgroup data-i18n-label="lu.single">
+                                    <option value="ft" data-i18n="lu.ft"></option>
+                                    <option value="in" data-i18n="lu.in"></option>
+                                    <option value="m" data-i18n="lu.m"></option>
+                                    <option value="cm" data-i18n="lu.cm"></option>
+                                    <option value="mm" data-i18n="lu.mm"></option>
+                                    <option value="yd" data-i18n="lu.yd"></option>
+                                    <option value="haat" data-i18n="lu.haat"></option>
+                                </optgroup>
+                            </select>
+                        </label>
+                    </div>
                     <div class="card-body">
                         <div class="fieldset">
                             <p class="group-title" data-i18n="grp.colsize"></p>
                             <div class="fields auto">
                                 <div class="field">
                                     <label for="column-colLength" data-i18n="f.colLength"></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-colLength" name="colLength" data-num data-positive data-ph="10"><span class="unit" data-i18n="u.ft"></span></div>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-colLength" data-len="ft" name="colLength" data-num data-positive data-ph="10"><span class="unit" data-i18n="u.ft"></span></div>
                                     <span class="field-error"></span>
                                 </div>
                                 <div class="field">
                                     <label for="column-colWidth" data-i18n="f.colWidth"></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-colWidth" name="colWidth" data-num data-positive data-ph="12"><span class="unit" data-i18n="u.inch"></span></div>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-colWidth" data-len="in" name="colWidth" data-num data-positive data-ph="12"><span class="unit" data-i18n="u.inch"></span></div>
                                     <span class="field-error"></span>
                                 </div>
                                 <div class="field">
                                     <label for="column-colThickness" data-i18n="f.colThickness"></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-colThickness" name="colThickness" data-num data-positive data-ph="12"><span class="unit" data-i18n="u.inch"></span></div>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-colThickness" data-len="in" name="colThickness" data-num data-positive data-ph="12"><span class="unit" data-i18n="u.inch"></span></div>
                                     <span class="field-error"></span>
                                 </div>
                             </div>
@@ -1315,7 +1521,7 @@
                         <div class="print-only print-inputs"></div>
                         <div class="result-output"></div>
                         <div class="result-actions no-print">
-                            <button type="button" class="btn btn-soft btn-block" data-print disabled><i class="fa-solid fa-print"></i> <span data-i18n="calc.print"></span></button>
+                            <button type="button" class="btn btn-soft btn-block" data-print disabled><i class="fa-solid fa-share-nodes"></i> <span data-i18n="sh.open"></span></button>
                         </div>
                     </div>
                 </aside>
@@ -1335,24 +1541,45 @@
         <div class="container page-body">
             <div class="calc-grid">
                 <form class="card form-card" data-calc="wall" novalidate>
-                    <div class="card-head"><h2><i class="fa-solid fa-sliders"></i> <span data-i18n="calc.inputs"></span></h2></div>
+                    <div class="card-head"><h2><i class="fa-solid fa-sliders"></i> <span data-i18n="calc.inputs"></span></h2>
+                        <label class="unit-pick"><i class="fa-solid fa-ruler"></i><span data-i18n="mu.label"></span>
+                            <select class="unit-select" autocomplete="off">
+                                <optgroup data-i18n-label="lu.combo">
+                                    <option value="ftin" data-i18n="lu.ftin"></option>
+                                    <option value="mcm" data-i18n="lu.mcm"></option>
+                                    <option value="cmmm" data-i18n="lu.cmmm"></option>
+                                    <option value="ydft" data-i18n="lu.ydft"></option>
+                                    <option value="haatin" data-i18n="lu.haatin"></option>
+                                </optgroup>
+                                <optgroup data-i18n-label="lu.single">
+                                    <option value="ft" data-i18n="lu.ft"></option>
+                                    <option value="in" data-i18n="lu.in"></option>
+                                    <option value="m" data-i18n="lu.m"></option>
+                                    <option value="cm" data-i18n="lu.cm"></option>
+                                    <option value="mm" data-i18n="lu.mm"></option>
+                                    <option value="yd" data-i18n="lu.yd"></option>
+                                    <option value="haat" data-i18n="lu.haat"></option>
+                                </optgroup>
+                            </select>
+                        </label>
+                    </div>
                     <div class="card-body">
                         <div class="fieldset">
                             <p class="group-title" data-i18n="grp.wallsize"></p>
                             <div class="fields auto">
                                 <div class="field">
                                     <label for="wall-wallLength" data-i18n="f.wallLength"></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="wall-wallLength" name="wallLength" data-num data-positive data-ph="0"><span class="unit" data-i18n="u.ft"></span></div>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="wall-wallLength" data-len="ft" name="wallLength" data-num data-positive data-ph="0"><span class="unit" data-i18n="u.ft"></span></div>
                                     <span class="field-error"></span>
                                 </div>
                                 <div class="field">
                                     <label for="wall-wallHeight" data-i18n="f.wallHeight"></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="wall-wallHeight" name="wallHeight" data-num data-positive data-ph="0"><span class="unit" data-i18n="u.ft"></span></div>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="wall-wallHeight" data-len="ft" name="wallHeight" data-num data-positive data-ph="0"><span class="unit" data-i18n="u.ft"></span></div>
                                     <span class="field-error"></span>
                                 </div>
                                 <div class="field">
                                     <label for="wall-brickThickness" data-i18n="f.brickThickness"></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="wall-brickThickness" name="brickThickness" data-num data-positive data-ph="5"><span class="unit" data-i18n="u.inch"></span></div>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="wall-brickThickness" data-len="in" name="brickThickness" data-num data-positive data-ph="5"><span class="unit" data-i18n="u.inch"></span></div>
                                     <span class="field-error"></span>
                                 </div>
                             </div>
@@ -1389,7 +1616,7 @@
                         <div class="print-only print-inputs"></div>
                         <div class="result-output"></div>
                         <div class="result-actions no-print">
-                            <button type="button" class="btn btn-soft btn-block" data-print disabled><i class="fa-solid fa-print"></i> <span data-i18n="calc.print"></span></button>
+                            <button type="button" class="btn btn-soft btn-block" data-print disabled><i class="fa-solid fa-share-nodes"></i> <span data-i18n="sh.open"></span></button>
                         </div>
                     </div>
                 </aside>
@@ -1409,24 +1636,45 @@
         <div class="container page-body">
             <div class="calc-grid">
                 <form class="card form-card" data-calc="plaster" novalidate>
-                    <div class="card-head"><h2><i class="fa-solid fa-sliders"></i> <span data-i18n="calc.inputs"></span></h2></div>
+                    <div class="card-head"><h2><i class="fa-solid fa-sliders"></i> <span data-i18n="calc.inputs"></span></h2>
+                        <label class="unit-pick"><i class="fa-solid fa-ruler"></i><span data-i18n="mu.label"></span>
+                            <select class="unit-select" autocomplete="off">
+                                <optgroup data-i18n-label="lu.combo">
+                                    <option value="ftin" data-i18n="lu.ftin"></option>
+                                    <option value="mcm" data-i18n="lu.mcm"></option>
+                                    <option value="cmmm" data-i18n="lu.cmmm"></option>
+                                    <option value="ydft" data-i18n="lu.ydft"></option>
+                                    <option value="haatin" data-i18n="lu.haatin"></option>
+                                </optgroup>
+                                <optgroup data-i18n-label="lu.single">
+                                    <option value="ft" data-i18n="lu.ft"></option>
+                                    <option value="in" data-i18n="lu.in"></option>
+                                    <option value="m" data-i18n="lu.m"></option>
+                                    <option value="cm" data-i18n="lu.cm"></option>
+                                    <option value="mm" data-i18n="lu.mm"></option>
+                                    <option value="yd" data-i18n="lu.yd"></option>
+                                    <option value="haat" data-i18n="lu.haat"></option>
+                                </optgroup>
+                            </select>
+                        </label>
+                    </div>
                     <div class="card-body">
                         <div class="fieldset">
                             <p class="group-title" data-i18n="grp.plaster"></p>
                             <div class="fields auto">
                                 <div class="field">
                                     <label for="plaster-wallLength" data-i18n="f.wallLength"></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plaster-wallLength" name="wallLength" data-num data-positive data-ph="0"><span class="unit" data-i18n="u.ft"></span></div>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plaster-wallLength" data-len="ft" name="wallLength" data-num data-positive data-ph="0"><span class="unit" data-i18n="u.ft"></span></div>
                                     <span class="field-error"></span>
                                 </div>
                                 <div class="field">
                                     <label for="plaster-wallHeight" data-i18n="f.wallHeight"></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plaster-wallHeight" name="wallHeight" data-num data-positive data-ph="0"><span class="unit" data-i18n="u.ft"></span></div>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plaster-wallHeight" data-len="ft" name="wallHeight" data-num data-positive data-ph="0"><span class="unit" data-i18n="u.ft"></span></div>
                                     <span class="field-error"></span>
                                 </div>
                                 <div class="field">
                                     <label for="plaster-plasterThickness" data-i18n="f.plasterThickness"></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plaster-plasterThickness" name="plasterThickness" data-num data-positive data-ph="0.5"><span class="unit" data-i18n="u.inch"></span></div>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plaster-plasterThickness" data-len="in" name="plasterThickness" data-num data-positive data-ph="0.5"><span class="unit" data-i18n="u.inch"></span></div>
                                     <span class="field-error"></span>
                                 </div>
                             </div>
@@ -1463,7 +1711,7 @@
                         <div class="print-only print-inputs"></div>
                         <div class="result-output"></div>
                         <div class="result-actions no-print">
-                            <button type="button" class="btn btn-soft btn-block" data-print disabled><i class="fa-solid fa-print"></i> <span data-i18n="calc.print"></span></button>
+                            <button type="button" class="btn btn-soft btn-block" data-print disabled><i class="fa-solid fa-share-nodes"></i> <span data-i18n="sh.open"></span></button>
                         </div>
                     </div>
                 </aside>
@@ -1483,19 +1731,40 @@
         <div class="container page-body">
             <div class="calc-grid">
                 <form class="card form-card" data-calc="steel" novalidate>
-                    <div class="card-head"><h2><i class="fa-solid fa-sliders"></i> <span data-i18n="calc.inputs"></span></h2></div>
+                    <div class="card-head"><h2><i class="fa-solid fa-sliders"></i> <span data-i18n="calc.inputs"></span></h2>
+                        <label class="unit-pick"><i class="fa-solid fa-ruler"></i><span data-i18n="mu.label"></span>
+                            <select class="unit-select" autocomplete="off">
+                                <optgroup data-i18n-label="lu.combo">
+                                    <option value="ftin" data-i18n="lu.ftin"></option>
+                                    <option value="mcm" data-i18n="lu.mcm"></option>
+                                    <option value="cmmm" data-i18n="lu.cmmm"></option>
+                                    <option value="ydft" data-i18n="lu.ydft"></option>
+                                    <option value="haatin" data-i18n="lu.haatin"></option>
+                                </optgroup>
+                                <optgroup data-i18n-label="lu.single">
+                                    <option value="ft" data-i18n="lu.ft"></option>
+                                    <option value="in" data-i18n="lu.in"></option>
+                                    <option value="m" data-i18n="lu.m"></option>
+                                    <option value="cm" data-i18n="lu.cm"></option>
+                                    <option value="mm" data-i18n="lu.mm"></option>
+                                    <option value="yd" data-i18n="lu.yd"></option>
+                                    <option value="haat" data-i18n="lu.haat"></option>
+                                </optgroup>
+                            </select>
+                        </label>
+                    </div>
                     <div class="card-body">
                         <div class="fieldset">
                             <p class="group-title" data-i18n="grp.roofsize"></p>
                             <div class="fields">
                                 <div class="field">
                                     <label for="steel-length" data-i18n="f.length"></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="steel-length" name="length" data-num data-positive data-ph="0"><span class="unit" data-i18n="u.ft"></span></div>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="steel-length" data-len="ft" name="length" data-num data-positive data-ph="0"><span class="unit" data-i18n="u.ft"></span></div>
                                     <span class="field-error"></span>
                                 </div>
                                 <div class="field">
                                     <label for="steel-width" data-i18n="f.width"></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="steel-width" name="width" data-num data-positive data-ph="0"><span class="unit" data-i18n="u.ft"></span></div>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="steel-width" data-len="ft" name="width" data-num data-positive data-ph="0"><span class="unit" data-i18n="u.ft"></span></div>
                                     <span class="field-error"></span>
                                 </div>
                             </div>
@@ -1506,7 +1775,7 @@
                             <div class="fields auto">
                                 <div class="field">
                                     <label for="steel-gap" data-i18n="f.gap"></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="steel-gap" name="gap" data-num data-positive data-ph="6"><span class="unit" data-i18n="u.inch"></span></div>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="steel-gap" data-len="in" name="gap" data-num data-positive data-ph="6"><span class="unit" data-i18n="u.inch"></span></div>
                                     <span class="field-error"></span>
                                 </div>
                                 <div class="field">
@@ -1537,7 +1806,7 @@
                         <div class="print-only print-inputs"></div>
                         <div class="result-output"></div>
                         <div class="result-actions no-print">
-                            <button type="button" class="btn btn-soft btn-block" data-print disabled><i class="fa-solid fa-print"></i> <span data-i18n="calc.print"></span></button>
+                            <button type="button" class="btn btn-soft btn-block" data-print disabled><i class="fa-solid fa-share-nodes"></i> <span data-i18n="sh.open"></span></button>
                         </div>
                     </div>
                 </aside>
@@ -1555,11 +1824,157 @@
             </div>
         </div>
         <div class="container page-body">
-            <div class="card soon-card">
-                <div class="empty-icon"><i class="fa-solid fa-person-digging"></i></div>
-                <h2 data-i18n="tiles.h"></h2>
-                <p data-i18n="tiles.p"></p>
-                <a href="#home" class="btn btn-primary"><i class="fa-solid fa-arrow-left"></i> <span data-i18n="tiles.back"></span></a>
+            <div class="calc-grid">
+                <form class="card form-card" data-calc="tiles" novalidate>
+                    <div class="card-head"><h2><i class="fa-solid fa-sliders"></i> <span data-i18n="calc.inputs"></span></h2>
+                        <label class="unit-pick"><i class="fa-solid fa-ruler"></i><span data-i18n="mu.label"></span>
+                            <select class="unit-select" autocomplete="off">
+                                <optgroup data-i18n-label="lu.combo">
+                                    <option value="ftin" data-i18n="lu.ftin"></option>
+                                    <option value="mcm" data-i18n="lu.mcm"></option>
+                                    <option value="cmmm" data-i18n="lu.cmmm"></option>
+                                    <option value="ydft" data-i18n="lu.ydft"></option>
+                                    <option value="haatin" data-i18n="lu.haatin"></option>
+                                </optgroup>
+                                <optgroup data-i18n-label="lu.single">
+                                    <option value="ft" data-i18n="lu.ft"></option>
+                                    <option value="in" data-i18n="lu.in"></option>
+                                    <option value="m" data-i18n="lu.m"></option>
+                                    <option value="cm" data-i18n="lu.cm"></option>
+                                    <option value="mm" data-i18n="lu.mm"></option>
+                                    <option value="yd" data-i18n="lu.yd"></option>
+                                    <option value="haat" data-i18n="lu.haat"></option>
+                                </optgroup>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="card-body">
+                        <div class="fieldset">
+                            <p class="group-title" data-i18n="tl.areas"></p>
+                            <div class="area-list" id="tile-areas"></div>
+                            <button type="button" class="btn btn-soft btn-sm" id="tile-add-area"><i class="fa-solid fa-plus"></i> <span data-i18n="tl.addPart"></span></button>
+                            <div class="fields" style="margin-top:1rem">
+                                <div class="field">
+                                    <label for="tiles-deduct"><span data-i18n="tl.deduct"></span> <small class="opt" data-i18n="tl.optional"></small></label>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-deduct" name="deduct" data-num data-optional data-default="0" data-ph="0"><span class="unit" data-i18n="u.sqft"></span></div>
+                                    <span class="field-error"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="fieldset">
+                            <p class="group-title" data-i18n="tl.size"></p>
+                            <div class="tile-presets" role="radiogroup">
+                                <label><input type="radio" name="tileSize" value="12x12"><span><i class="tp" style="--a:12;--b:12"></i><b data-dg="12×12"></b></span></label>
+                                <label><input type="radio" name="tileSize" value="16x16"><span><i class="tp" style="--a:16;--b:16"></i><b data-dg="16×16"></b></span></label>
+                                <label><input type="radio" name="tileSize" value="24x24" checked><span><i class="tp" style="--a:24;--b:24"></i><b data-dg="24×24"></b></span></label>
+                                <label><input type="radio" name="tileSize" value="12x24"><span><i class="tp" style="--a:24;--b:12"></i><b data-dg="12×24"></b></span></label>
+                                <label><input type="radio" name="tileSize" value="24x48"><span><i class="tp" style="--a:24;--b:12"></i><b data-dg="24×48"></b></span></label>
+                                <label><input type="radio" name="tileSize" value="custom"><span><i class="fa-solid fa-pen-ruler"></i><b data-i18n="tl.custom"></b></span></label>
+                            </div>
+                            <small class="set-help" data-i18n="tl.sizeHint"></small>
+                            <div class="fields auto tile-custom" id="tile-custom" hidden>
+                                <div class="field">
+                                    <label for="tiles-tileA" data-i18n="tl.sideA"></label>
+                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-tileA" data-len="in" name="tileA" data-num data-positive data-ph="24"></div>
+                                    <span class="field-error"></span>
+                                </div>
+                                <div class="field">
+                                    <label for="tiles-tileB" data-i18n="tl.sideB"></label>
+                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-tileB" data-len="in" name="tileB" data-num data-positive data-ph="24"></div>
+                                    <span class="field-error"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="fieldset">
+                            <p class="group-title" data-i18n="tl.buy"></p>
+                            <div class="fields auto">
+                                <div class="field">
+                                    <label for="tiles-wastage" data-i18n="f.wastage"></label>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-wastage" name="wastage" data-num data-optional data-default="10" data-ph="10"><span class="unit">%</span></div>
+                                    <span class="field-error"></span>
+                                </div>
+                                <div class="field">
+                                    <label for="tiles-perBox"><span data-i18n="tl.perBox"></span> <small class="opt" data-i18n="tl.optional"></small></label>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-perBox" name="perBox" data-num data-optional data-default="0" data-ph="4"><span class="unit" data-i18n="u.pcs"></span></div>
+                                    <span class="field-error"></span>
+                                </div>
+                                <div class="field">
+                                    <label for="tiles-price"><span data-i18n="tl.price"></span> <small class="opt" data-i18n="tl.optional"></small></label>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-price" name="price" data-num data-optional data-default="0" data-ph="0"><span class="unit">৳</span></div>
+                                    <span class="field-error"></span>
+                                </div>
+                                <div class="field">
+                                    <span class="field-label" id="tiles-pu-label" data-i18n="tl.priceUnit"></span>
+                                    <div class="segmented" role="radiogroup" aria-labelledby="tiles-pu-label">
+                                        <label><input type="radio" name="priceUnit" value="sft" checked><span data-i18n="tl.perSft"></span></label>
+                                        <label><input type="radio" name="priceUnit" value="box"><span data-i18n="tl.perBoxPrice"></span></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="fieldset">
+                            <p class="group-title"><span data-i18n="tl.mortar"></span></p>
+                            <div class="fields auto">
+                                <div class="field">
+                                    <label for="tiles-bed"><span data-i18n="tl.bed"></span> <small class="opt" data-i18n="tl.optional"></small></label>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-bed" data-len="in" name="bed" data-num data-optional data-default="0" data-ph="1"><span class="unit" data-i18n="u.inch"></span></div>
+                                    <span class="field-error"></span>
+                                </div>
+                                <div class="field">
+                                    <label for="tiles-skirt"><span data-i18n="tl.skirt"></span> <small class="opt" data-i18n="tl.optional"></small></label>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-skirt" data-len="in" name="skirt" data-num data-optional data-default="0" data-ph="4"><span class="unit" data-i18n="u.inch"></span></div>
+                                    <span class="field-error"></span>
+                                </div>
+                            </div>
+                            <div class="fields ratio" style="margin-top:1rem">
+                                <div class="field">
+                                    <label for="tiles-ratio1"><span data-i18n="grp.ratio"></span> · <span data-i18n="mat.cement"></span></label>
+                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-ratio1" name="ratio1" data-num data-optional data-default="1" data-ph="1"></div>
+                                    <span class="field-error"></span>
+                                </div>
+                                <div class="field">
+                                    <label for="tiles-ratio2"><span data-i18n="grp.ratio"></span> · <span data-i18n="mat.sand"></span></label>
+                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-ratio2" name="ratio2" data-num data-optional data-default="4" data-ph="4"></div>
+                                    <span class="field-error"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="reset" class="btn btn-ghost"><i class="fa-solid fa-rotate-left"></i> <span data-i18n="calc.reset"></span></button>
+                            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-calculator"></i> <span data-i18n="calc.calculate"></span></button>
+                        </div>
+                        <p class="hint"><i class="fa-solid fa-ruler-combined"></i><span data-i18n="tl.hint"></span></p>
+                        <details class="formula">
+                            <summary><i class="fa-solid fa-square-root-variable"></i> <span data-i18n="tl.formula"></span></summary>
+                            <ol>
+                                <li data-i18n="tl.f1"></li>
+                                <li data-i18n="tl.f2"></li>
+                                <li data-i18n="tl.f3"></li>
+                                <li data-i18n="tl.f4"></li>
+                                <li data-i18n="tl.f5"></li>
+                                <li data-i18n="tl.f6"></li>
+                                <li data-i18n="tl.f7"></li>
+                                <li data-i18n="tl.f8"></li>
+                            </ol>
+                        </details>
+                    </div>
+                </form>
+
+                <aside class="card result-card" id="result-tiles" aria-live="polite">
+                    <div class="card-head"><h2><i class="fa-solid fa-clipboard-check"></i> <span data-i18n="calc.results"></span></h2></div>
+                    <div class="card-body">
+                        <div class="print-only print-head"></div>
+                        <div class="print-only print-inputs"></div>
+                        <div class="result-output"></div>
+                        <div class="result-actions no-print">
+                            <button type="button" class="btn btn-soft btn-block" data-print disabled><i class="fa-solid fa-share-nodes"></i> <span data-i18n="sh.open"></span></button>
+                        </div>
+                    </div>
+                </aside>
             </div>
         </div>
     </section>
@@ -1574,20 +1989,15 @@
             </div>
         </div>
         <div class="container page-body">
-            <div class="two-col">
-                <div class="card">
+            <div class="about-wrap" id="about-wrap">
+                <div class="card" id="dev-card">
                     <div class="card-head"><h2><i class="fa-solid fa-code"></i> <span data-i18n="about.dev"></span></h2></div>
                     <div class="card-body profile">
-                        <div class="avatar" aria-hidden="true">NM</div>
-                        <h3>MD NAIM UDDIN MOZUMDAR</h3>
-                        <p class="role" data-i18n="dev.role"></p>
-                        <p class="about-text" data-i18n="dev.services"></p>
-                        <ul class="info-list">
-                            <li><span class="menu-icon wa"><i class="fa-brands fa-whatsapp"></i></span><span><small data-i18n="lbl.whatsapp"></small><a data-contact="whatsapp" target="_blank" rel="noopener"><span data-contact-text="whatsapp"></span></a></span></li>
-                            <li><span class="menu-icon gm"><i class="fa-solid fa-envelope"></i></span><span><small data-i18n="lbl.gmail"></small><a data-contact="gmail" target="_blank" rel="noopener"><span data-contact-text="email"></span></a></span></li>
-                            <li><span class="menu-icon"><i class="fa-solid fa-phone"></i></span><span><small data-i18n="lbl.mobile"></small><a data-contact="tel"><span data-contact-text="phone"></span></a></span></li>
-                            <li><span class="menu-icon"><i class="fa-solid fa-graduation-cap"></i></span><span><small data-i18n="lbl.education"></small><span class="v" data-i18n="edu.value"></span></span></li>
-                        </ul>
+                        <div class="avatar" id="dev-avatar" aria-hidden="true"></div>
+                        <h3 id="dev-name"></h3>
+                        <p class="role" id="dev-role"></p>
+                        <p class="about-text" id="dev-about"></p>
+                        <ul class="info-list" id="dev-info"></ul>
                     </div>
                 </div>
 
@@ -1597,24 +2007,24 @@
                         <div class="form-grid">
                             <div class="field">
                                 <label for="inq-name" data-i18n="f.name"></label>
-                                <input class="control" type="text" id="inq-name" name="name" autocomplete="name" required>
+                                <input class="control" type="text" id="inq-name" name="name" autocomplete="name" required maxlength="100">
                             </div>
                             <div class="field">
                                 <label for="inq-phone" data-i18n="f.phone"></label>
-                                <input class="control" type="tel" id="inq-phone" name="phone" autocomplete="tel" required>
+                                <input class="control" type="tel" id="inq-phone" name="phone" autocomplete="tel" required maxlength="30">
                             </div>
                             <div class="field full">
                                 <label for="inq-email" data-i18n="lbl.email"></label>
-                                <input class="control" type="email" id="inq-email" name="email" autocomplete="email" required>
+                                <input class="control" type="email" id="inq-email" name="email" autocomplete="email" required maxlength="120">
                             </div>
                             <div class="field full">
                                 <label for="inq-message" data-i18n="f.req"></label>
-                                <textarea class="control" id="inq-message" name="message" rows="4" required></textarea>
+                                <textarea class="control" id="inq-message" name="message" rows="4" required maxlength="2000"></textarea>
                             </div>
                         </div>
                         <div class="form-actions send-actions">
-                            <button type="submit" value="whatsapp" class="btn btn-wa"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="inq.viaWa"></span></button>
-                            <button type="submit" value="gmail" class="btn btn-ghost"><i class="fa-solid fa-envelope"></i> <span data-i18n="inq.viaGm"></span></button>
+                            <button type="submit" value="whatsapp" id="inq-wa" class="btn btn-wa"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="inq.viaWa"></span></button>
+                            <button type="submit" value="gmail" id="inq-gm" class="btn btn-ghost"><i class="fa-solid fa-envelope"></i> <span data-i18n="inq.viaGm"></span></button>
                         </div>
                         <p class="hint"><i class="fa-solid fa-circle-info"></i><span data-i18n="inq.note"></span></p>
                     </div>
@@ -1623,35 +2033,16 @@
         </div>
     </section>
 
-    <!-- ================= CONTACT ================= -->
-    <section class="page" id="page-contact">
+    <!-- ================= REVIEW ================= -->
+    <section class="page" id="page-review">
         <div class="page-hero">
             <div class="container">
-                <div class="ph-icon"><i class="fa-solid fa-envelope"></i></div>
-                <div><h1 data-i18n="contact.title"></h1>
-                <p data-i18n="contact.sub"></p></div>
+                <div class="ph-icon"><i class="fa-solid fa-star"></i></div>
+                <div><h1 data-i18n="review.title"></h1>
+                <p data-i18n="review.sub"></p></div>
             </div>
         </div>
         <div class="container page-body">
-            <div class="contact-cards">
-                <a class="card contact-card wa" data-contact="whatsapp" target="_blank" rel="noopener">
-                    <span class="menu-icon"><i class="fa-brands fa-whatsapp"></i></span>
-                    <span><small data-i18n="lbl.whatsapp"></small><strong data-i18n="wa.chat"></strong><em data-contact-text="whatsapp"></em></span>
-                </a>
-                <a class="card contact-card gm" data-contact="gmail" target="_blank" rel="noopener">
-                    <span class="menu-icon"><i class="fa-solid fa-envelope"></i></span>
-                    <span><small data-i18n="lbl.gmail"></small><strong data-i18n="gm.write"></strong><em data-contact-text="email"></em></span>
-                </a>
-                <a class="card contact-card" data-contact="tel">
-                    <span class="menu-icon"><i class="fa-solid fa-phone"></i></span>
-                    <span><small data-i18n="lbl.mobile"></small><strong data-i18n="call.now"></strong><em data-contact-text="phone"></em></span>
-                </a>
-                <a class="card contact-card" data-social="facebook" target="_blank" rel="noopener">
-                    <span class="menu-icon"><i class="fa-brands fa-facebook-f"></i></span>
-                    <span><small data-i18n="lbl.facebook"></small><strong data-i18n="fb.msg"></strong></span>
-                </a>
-            </div>
-
             <div class="review-wrap">
                 <form class="card" id="review-form">
                     <div class="card-head"><h2><i class="fa-solid fa-star"></i> <span data-i18n="rev.title"></span></h2></div>
@@ -1706,6 +2097,7 @@
                 <div class="admin-tabs" role="tablist">
                     <button type="button" role="tab" data-tab="overview" aria-selected="true"><i class="fa-solid fa-chart-pie"></i><span data-i18n="tab.overview"></span></button>
                     <button type="button" role="tab" data-tab="site"><i class="fa-solid fa-palette"></i><span data-i18n="tab.site"></span></button>
+                    <button type="button" role="tab" data-tab="dev"><i class="fa-solid fa-user-tie"></i><span data-i18n="tab.dev"></span></button>
                     <button type="button" role="tab" data-tab="contact"><i class="fa-solid fa-address-book"></i><span data-i18n="tab.contact"></span></button>
                     <button type="button" role="tab" data-tab="calc"><i class="fa-solid fa-calculator"></i><span data-i18n="tab.calc"></span></button>
                     <button type="button" role="tab" data-tab="messages"><i class="fa-solid fa-inbox"></i><span data-i18n="tab.messages"></span><b class="tab-count" id="msg-count" hidden></b></button>
@@ -1839,6 +2231,67 @@
                 </div>
             </form>
 
+            <!-- Developer -->
+            <form class="admin-panel card" data-panel="dev" id="af-dev" hidden novalidate>
+                <div class="card-head"><h2><i class="fa-solid fa-user-tie"></i> <span data-i18n="tab.dev"></span></h2></div>
+                <div class="card-body">
+                    <label class="set-row"><span><strong data-i18n="ad.show"></strong></span><input type="checkbox" class="switch" role="switch" name="devEnabled"></label>
+                    <label class="set-row"><span><strong data-i18n="ad.showInq"></strong></span><input type="checkbox" class="switch" role="switch" name="devInquiry"></label>
+
+                    <div class="fieldset">
+                        <p class="group-title" data-i18n="ad.photo"></p>
+                        <div class="icon-setting">
+                            <div class="dev-photo" id="dev-photo-preview"></div>
+                            <div class="icon-meta">
+                                <small data-i18n="ad.photo.d"></small>
+                                <div class="icon-actions">
+                                    <label class="btn btn-soft btn-sm" for="dev-photo-file"><i class="fa-solid fa-upload"></i> <span data-i18n="icon.upload"></span></label>
+                                    <input type="file" id="dev-photo-file" accept="image/png,image/jpeg,image/webp,image/gif" hidden>
+                                    <button type="button" class="btn btn-danger btn-sm" id="dev-photo-remove"><i class="fa-solid fa-trash-can"></i> <span data-i18n="ad.photoRemove"></span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fieldset">
+                        <p class="group-title" data-i18n="about.dev"></p>
+                        <div class="form-grid">
+                            <div class="field"><label for="d-name" data-i18n="ad.name"></label><input class="control" id="d-name" name="name" maxlength="80"></div>
+                            <div class="field"><label for="d-initials" data-i18n="ad.initials"></label><input class="control" id="d-initials" name="initials" maxlength="4"></div>
+                            <div class="field"><label for="d-roleBn" data-i18n="ad.roleBn"></label><input class="control" id="d-roleBn" name="roleBn" maxlength="160"></div>
+                            <div class="field"><label for="d-roleEn" data-i18n="ad.roleEn"></label><input class="control" id="d-roleEn" name="roleEn" maxlength="160"></div>
+                            <div class="field"><label for="d-aboutBn" data-i18n="ad.aboutBn"></label><textarea class="control" id="d-aboutBn" name="aboutBn" rows="3" maxlength="600"></textarea></div>
+                            <div class="field"><label for="d-aboutEn" data-i18n="ad.aboutEn"></label><textarea class="control" id="d-aboutEn" name="aboutEn" rows="3" maxlength="600"></textarea></div>
+                            <div class="field"><label for="d-eduBn" data-i18n="ad.eduBn"></label><input class="control" id="d-eduBn" name="eduBn" maxlength="160"></div>
+                            <div class="field"><label for="d-eduEn" data-i18n="ad.eduEn"></label><input class="control" id="d-eduEn" name="eduEn" maxlength="160"></div>
+                        </div>
+                    </div>
+
+                    <div class="fieldset">
+                        <p class="group-title" data-i18n="ad.contact"></p>
+                        <div class="form-grid">
+                            <div class="field"><label for="d-wa" data-i18n="ac.wa"></label><input class="control" id="d-wa" name="whatsapp" inputmode="tel" data-i18n-ph="ac.waHint" maxlength="20"></div>
+                            <div class="field"><label for="d-phone" data-i18n="ac.phone"></label><input class="control" id="d-phone" name="phone" inputmode="tel" maxlength="20"></div>
+                            <div class="field full"><label for="d-email" data-i18n="ac.email"></label><input class="control" id="d-email" name="email" type="email" maxlength="120"></div>
+                        </div>
+                        <small class="set-help" data-i18n="ad.contact.d"></small>
+                    </div>
+
+                    <div class="fieldset">
+                        <p class="group-title" data-i18n="ad.extra"></p>
+                        <small class="set-help" style="margin:0 0 .75rem" data-i18n="ad.extra.d"></small>
+                        <div class="extra-list" id="dev-extras"></div>
+                        <button type="button" class="btn btn-soft btn-sm" id="dev-add-row"><i class="fa-solid fa-plus"></i> <span data-i18n="ad.addRow"></span></button>
+                    </div>
+
+                    <div class="form-actions dev-actions">
+                        <button type="button" class="btn btn-danger" id="dev-clear"><i class="fa-solid fa-trash-can"></i> <span data-i18n="ad.clearAll"></span></button>
+                        <button type="button" class="btn btn-ghost" id="dev-restore"><i class="fa-solid fa-rotate-left"></i> <span data-i18n="ad.restore"></span></button>
+                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> <span data-i18n="admin.save"></span></button>
+                    </div>
+                </div>
+            </form>
+
             <!-- Contact -->
             <form class="admin-panel card" data-panel="contact" id="af-contact" hidden novalidate>
                 <div class="card-head"><h2><i class="fa-solid fa-address-book"></i> <span data-i18n="tab.contact"></span></h2></div>
@@ -1902,6 +2355,7 @@
                             <div class="field"><label for="a-k5" data-i18n="k.bricksPerCft"></label><div class="input-wrap plain"><input id="a-k5" name="k_bricksPerCft" data-anum data-pos inputmode="decimal"></div></div>
                             <div class="field"><label for="a-k6" data-i18n="k.khoaBricks"></label><div class="input-wrap plain"><input id="a-k6" name="k_khoaBricks" data-anum data-pos inputmode="decimal"></div></div>
                             <div class="field"><label for="a-k7" data-i18n="k.steelDiv"></label><div class="input-wrap plain"><input id="a-k7" name="k_steelDiv" data-anum data-pos inputmode="decimal"></div></div>
+                            <div class="field"><label for="a-k8" data-i18n="k.tileDry"></label><div class="input-wrap plain"><input id="a-k8" name="k_tileDry" data-anum data-pos inputmode="decimal"></div></div>
                         </div>
                         <button type="button" class="btn btn-ghost btn-sm" id="restore-constants" style="margin-top:1rem"><i class="fa-solid fa-rotate-left"></i> <span data-i18n="cc.restore"></span></button>
                     </div>
@@ -1913,7 +2367,7 @@
 
             <!-- Messages -->
             <div class="admin-panel" data-panel="messages" hidden>
-                <div class="two-col">
+                <div class="two-col msg-cols">
                     <div class="card">
                         <div class="card-head"><h2><i class="fa-solid fa-briefcase"></i> <span data-i18n="msg.inquiries"></span></h2></div>
                         <div class="card-body"><div class="msg-list" id="inq-list"></div></div>
@@ -2077,8 +2531,41 @@
     </form>
 </section>
 
-<!-- Floating WhatsApp -->
-<a class="wa-float" id="wa-float" data-contact="whatsapp" target="_blank" rel="noopener" data-i18n-aria="wa.chat" data-i18n-title="wa.chat" hidden><i class="fa-brands fa-whatsapp"></i></a>
+<!-- ================= Print / PDF / WhatsApp ================= -->
+<div class="scrim" id="share-scrim"></div>
+<section class="modal" id="share-modal" role="dialog" aria-modal="true" aria-labelledby="share-title">
+    <div class="modal-head">
+        <span class="modal-icon"><i class="fa-solid fa-share-nodes"></i></span>
+        <div>
+            <h2 id="share-title" data-i18n="sh.title"></h2>
+            <p data-i18n="sh.sub"></p>
+        </div>
+        <button class="icon-btn" type="button" id="share-close" data-i18n-aria="set.close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-body">
+        <div class="share-preview" id="share-preview">
+            <img id="share-img" alt="">
+            <span id="share-no3d" data-i18n="sh.no3d"></span>
+        </div>
+        <label class="set-row share-toggle"><span><strong data-i18n="sh.with3d"></strong><small data-i18n="sh.with3d.d"></small></span><input type="checkbox" class="switch" role="switch" id="share-3d" checked></label>
+        <button type="button" class="btn btn-soft btn-block" id="share-print"><i class="fa-solid fa-print"></i> <span data-i18n="sh.print"></span></button>
+        <button type="button" class="btn btn-ghost btn-block" id="share-pdf"><i class="fa-solid fa-file-pdf"></i> <span data-i18n="sh.pdf"></span></button>
+        <button type="button" class="btn btn-wa btn-block" id="share-wa"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="sh.wa"></span></button>
+        <small class="set-help share-note" data-i18n="sh.note"></small>
+    </div>
+</section>
+<div id="print-root" aria-hidden="true"></div>
+<div id="pdf-root" aria-hidden="true"></div>
+
+<!-- Floating contact: WhatsApp + Gmail -->
+<div class="contact-dock" id="wa-float" hidden>
+    <a class="dock-btn gm" data-contact="gmail" target="_blank" rel="noopener" data-i18n-aria="gm.write">
+        <i class="fa-solid fa-envelope"></i><span class="dock-tip" data-i18n="gm.write"></span>
+    </a>
+    <a class="dock-btn wa" data-contact="whatsapp" target="_blank" rel="noopener" data-i18n-aria="wa.chat">
+        <i class="fa-brands fa-whatsapp"></i><span class="dock-tip" data-i18n="wa.chat"></span>
+    </a>
+</div>
 
 <div class="toast" id="toast" role="status" aria-live="polite"><i class="fa-solid fa-circle-check"></i><span id="toast-text"></span></div>
 

@@ -22,6 +22,10 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
     measurementId: 'G-CF4V9BE8CW',
 };
 
+// Accounts with these emails are admins (create them in Firebase → Authentication → Users).
+// You can also make someone admin by adding a document admins/{their UID} in Firestore.
+const ADMIN_EMAILS = ['oletommy10@gmail.com'];
+
 (() => {
     'use strict';
 
@@ -51,6 +55,9 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             'page.tiles': 'Tiles',
             'page.about': 'About',
             'page.contact': 'Contact',
+            'page.review': 'Leave a Review',
+            'review.title': 'Leave a Review',
+            'review.sub': 'Tell us how the calculators worked for you. For anything else, use the WhatsApp or Gmail buttons in the corner.',
             'badge.soon': 'Soon',
 
             'search.ph': 'Search calculators…',
@@ -80,7 +87,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             'desc.wall': 'Bricks, cement and sand needed for brick walls.',
             'desc.plaster': 'Cement and sand by plaster thickness and mixing ratio.',
             'desc.steel': 'Total kg of rod from spacing, rod size and wastage.',
-            'desc.tiles': 'The tiles calculator is coming soon.',
+            'desc.tiles': 'Tiles, boxes, mortar and cost for any room — even L-shaped ones.',
             'common.start': 'Start',
             'common.view': 'View',
             'feat.kicker': 'Why us',
@@ -157,10 +164,10 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             'roof.hint': 'For an uneven roof enter both sides — the average is used. Roof casting commonly uses a 1 : 2 : 4 ratio.',
             'column.title': 'Column Works',
             'column.sub': 'Enter the column size, mixing ratio and market prices to get materials and the total cost.',
-            'column.hint': 'Enter column length in feet, and width and thickness in inches.',
+            'column.hint': 'Pick the unit at the top (feet + inch, meter …) — every box follows it.',
             'wall.title': 'Wall B-C-S (Brick, Cement, Sand)',
             'wall.sub': 'Enter the wall length, height, brick thickness and mixing ratio.',
-            'wall.hint': 'Enter brick thickness in inches — e.g. 5 for a 5" wall or 10 for a 10" wall.',
+            'wall.hint': 'Brick thickness: 5 inch for a 5" wall, 10 inch for a 10" wall.',
             'plaster.title': 'Plaster Calculator',
             'plaster.sub': 'Enter the wall size, plaster thickness and mixing ratio.',
             'plaster.hint': 'Plaster is usually ½ to ¾ inch thick.',
@@ -168,7 +175,55 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             'steel.sub': 'Enter the roof size, rod spacing, wastage and rod size (mm) to get the total kg of rod.',
             'steel.hint': 'Rod weight (kg/ft) = d² ÷ 532.2 (d = rod diameter in mm). Bars in both directions are counted.',
             'tiles.title': 'Tiles',
-            'tiles.sub': 'This calculator is being built.',
+            'tiles.sub': 'Enter the room size and tile size — get the number of tiles, boxes, mortar and cost.',
+            'tl.areas': 'Room size',
+            'tl.part': 'Part {n}',
+            'tl.addPart': 'Add another part',
+            'tl.removePart': 'Remove this part',
+            'tl.deduct': 'Area to leave out',
+            'tl.optional': '(optional)',
+            'tl.size': 'Tile size (inches)',
+            'tl.sizeHint': 'Tap a common size, or choose Custom to type the size printed on the box (mm or inches).',
+            'tl.custom': 'Custom',
+            'tl.sideA': 'Tile length',
+            'tl.sideB': 'Tile width',
+            'tl.buy': 'Wastage & buying',
+            'tl.perBox': 'Tiles per box',
+            'tl.price': 'Price',
+            'tl.priceUnit': 'Price is',
+            'tl.perSft': 'Per sq ft',
+            'tl.perBoxPrice': 'Per box',
+            'tl.mortar': 'Mortar & skirting (optional)',
+            'tl.bed': 'Mortar thickness',
+            'tl.skirt': 'Skirting height',
+            'tl.hint': 'Measure wall to wall along the floor. For 12 ft 6 in, type 12\'6 or 12.5. For an L-shaped room, split it into rectangles and add each as a part.',
+            'tl.formula': 'Show the formulas',
+            'tl.f1': 'Floor area = length × width (add up every part) − area left out',
+            'tl.f2': 'Skirting area = 2 × (length + width) × skirting height (in) ÷ 12',
+            'tl.f3': 'One tile = tile length (in) × tile width (in) ÷ 144 sq ft  (mm: ÷ 25.4 first)',
+            'tl.f4': 'Tiles = (floor area + skirting area) ÷ one tile, rounded up',
+            'tl.f5': 'With wastage = tiles × (1 + wastage % ÷ 100), rounded up',
+            'tl.f6': 'Boxes = tiles with wastage ÷ tiles per box, rounded up',
+            'tl.f7': 'Mortar dry volume = floor area × thickness (in) ÷ 12 × dry factor (1.33)',
+            'tl.f8': 'Cement = dry volume × cement ÷ (cement + sand) → bags × 0.8;  Sand = dry volume × sand ÷ (cement + sand)',
+            'tl.needBox': 'Enter tiles per box to price by the box',
+            'r.floorArea': 'Floor area',
+            'r.deduct': 'Left out',
+            'r.skirtArea': 'Skirting area',
+            'r.tileArea': 'Total area to tile',
+            'r.tileSize': 'Tile size',
+            'r.oneTile': 'One tile covers',
+            'r.tilesNet': 'Tiles (without wastage)',
+            'r.tilesTotal': 'Total tiles needed',
+            'r.boxes': 'Total boxes needed',
+            'r.buySft': 'You will buy',
+            'r.tileCost': 'Tile cost',
+            'r.sand': 'Sand',
+            'grp.tiles': 'Tiles',
+            'grp.mortar': 'Mortar (bedding)',
+            'u.box': 'Boxes',
+            'unit.mm': 'mm',
+            'k.tileDry': 'Tile mortar dry factor',
             'tiles.h': 'Under Construction',
             'tiles.p': 'This page is currently under construction. We apologize for any inconvenience caused.',
             'tiles.back': 'Back To Home',
@@ -270,6 +325,37 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             'tab.contact': 'Contact',
             'tab.calc': 'Calculators',
             'tab.messages': 'Messages',
+            'tab.dev': 'Developer',
+            'ad.show': 'Show developer info',
+            'ad.showInq': 'Show client inquiry form',
+            'ad.photo': 'Photo',
+            'ad.photo.d': 'A square photo looks best. Without a photo the initials are shown.',
+            'ad.photoRemove': 'Remove photo',
+            'ad.name': 'Name',
+            'ad.initials': 'Initials',
+            'ad.roleBn': 'Title / role (Bangla)',
+            'ad.roleEn': 'Title / role (English)',
+            'ad.aboutBn': 'Short intro (Bangla)',
+            'ad.aboutEn': 'Short intro (English)',
+            'ad.eduBn': 'Education (Bangla)',
+            'ad.eduEn': 'Education (English)',
+            'ad.contact': 'Developer contact',
+            'ad.contact.d': 'The inquiry form sends to this WhatsApp / Gmail. Leave a field empty to hide it.',
+            'ad.extra': 'Extra info rows',
+            'ad.extra.d': 'Add anything else — website, address, GitHub… Leave the link empty for plain text.',
+            'ad.addRow': 'Add row',
+            'ad.labelBn': 'Label (Bangla)',
+            'ad.labelEn': 'Label (English)',
+            'ad.value': 'Text',
+            'ad.url': 'Link (optional)',
+            'ad.icon': 'Icon',
+            'ad.removeRow': 'Remove row',
+            'ad.clearAll': 'Delete all developer info',
+            'ad.clearConfirm': 'Delete all developer info? It is removed from the site when you press Save.',
+            'ad.restore': 'Restore original',
+            'ad.badEmail': 'Please enter a valid email address',
+            'ic.globe': 'Website', 'ic.location': 'Location', 'ic.work': 'Work', 'ic.link': 'Link', 'ic.award': 'Award',
+            'ic.code': 'Code', 'ic.github': 'GitHub', 'ic.linkedin': 'LinkedIn', 'ic.facebook': 'Facebook', 'ic.info': 'Info',
             'ov.inquiries': 'Inquiries',
             'ov.reviews': 'Reviews',
             'ov.rating': 'Average rating',
@@ -295,7 +381,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             'ac.phone': 'Mobile number',
             'ac.social': 'Social links',
             'ac.socialHint': 'Leave a link empty to hide that icon.',
-            'ac.waFloat': 'Floating WhatsApp button',
+            'ac.waFloat': 'Floating WhatsApp & Gmail buttons',
             'ac.waFloat.d': 'Shown at the bottom corner of every page',
             'ac.waMsgBn': 'WhatsApp greeting (Bangla)',
             'ac.waMsgEn': 'WhatsApp greeting (English)',
@@ -326,6 +412,30 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             'msg.replyText': 'Hello {name}, thank you for contacting {site}.',
             'accent.teal': 'Teal', 'accent.rose': 'Rose',
 
+            'lu.ftin': 'Feet + Inch', 'lu.ft': 'Feet', 'lu.in': 'Inch', 'lu.m': 'Meter', 'lu.cm': 'Centimeter',
+            'lu.others': 'Others', 'lu.mm': 'Millimeter', 'lu.yd': 'Yard', 'lu.haat': 'Haat (18 inch)',
+            'lu.ydft': 'Yard + Feet', 'lu.haatin': 'Haat + Inch', 'lu.mcm': 'Meter + Centimeter', 'lu.cmmm': 'Centimeter + Millimeter',
+            'lu.combo': 'Two units together', 'lu.single': 'One unit',
+            'mu.label': 'Measure in',
+            'u.m': 'm', 'u.cm': 'cm', 'u.yd': 'yd', 'u.haat': 'haat',
+            'sh.open': 'Print / PDF / WhatsApp',
+            'sh.title': 'Print or share',
+            'sh.sub': 'Print the result, save it as a PDF, or send it on WhatsApp.',
+            'sh.with3d': 'Include the 3D picture',
+            'sh.with3d.d': 'Adds the 3D preview under the results',
+            'sh.no3d': 'Without the 3D picture — only measurements and results.',
+            'sh.print': 'Print',
+            'sh.pdf': 'Download PDF',
+            'sh.wa': 'Send PDF on WhatsApp',
+            'sh.note': 'On a phone the PDF is attached in WhatsApp directly. On a computer it downloads and WhatsApp opens — attach the file there.',
+            'sh.pdfReady': 'PDF downloaded',
+            'sh.waDesk': 'PDF downloaded — attach it in the WhatsApp chat that just opened',
+            'sh.tapAgain': 'PDF is ready — tap the WhatsApp button again',
+            'sh.err': 'Could not make the PDF. Check your internet connection and try again.',
+            'rp.inputs': 'Measurements',
+            'rp.results': 'Results',
+            'rp.3d': '3D preview',
+            'rp.made': 'Made with {site}',
             'err.required': 'Please fill in this field',
             'err.number': 'Enter a valid number',
             'err.negative': 'Negative values are not allowed',
@@ -410,6 +520,9 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             'page.tiles': 'টাইলস',
             'page.about': 'আমাদের সম্পর্কে',
             'page.contact': 'যোগাযোগ',
+            'page.review': 'রিভিউ দিন',
+            'review.title': 'রিভিউ দিন',
+            'review.sub': 'ক্যালকুলেটরগুলো কেমন লাগলো জানান। অন্য কোনো দরকারে কোণের হোয়াটসঅ্যাপ বা জিমেইল বাটনে চাপ দিন।',
             'badge.soon': 'শীঘ্রই',
 
             'search.ph': 'ক্যালকুলেটর খুঁজুন…',
@@ -439,7 +552,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             'desc.wall': 'দেওয়ালের কাজে ইট, সিমেন্ট ও বালির পরিমাণ।',
             'desc.plaster': 'প্লাস্টারের পুরুত্ব ও রেশিও অনুযায়ী সিমেন্ট-বালির হিসাব।',
             'desc.steel': 'রডের গ্যাপ, সাইজ ও অপচয় ধরে মোট কত কেজি রড লাগবে।',
-            'desc.tiles': 'টাইলসের হিসাব শীঘ্রই আসছে।',
+            'desc.tiles': 'যেকোনো রুমের টাইলস, বক্স, মসলা ও খরচ — L-আকৃতির রুমেরও।',
             'common.start': 'শুরু করুন',
             'common.view': 'দেখুন',
             'feat.kicker': 'কেন আমরা',
@@ -516,10 +629,10 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             'roof.hint': 'অসমান ছাদের জন্য দুই দিকের মাপ দিন, গড় মাপ ধরে হিসাব হবে। সাধারণত ছাদ ঢালাইয়ে ১ : ২ : ৪ রেশিও ব্যবহার করা হয়।',
             'column.title': 'কলামের হিসাব',
             'column.sub': 'কলামের মাপ, মিক্সিং রেশিও ও বাজার দর দিন — ম্যাটেরিয়াল ও সর্বমোট খরচ পেয়ে যাবেন।',
-            'column.hint': 'কলামের দৈর্ঘ্য ফুটে এবং প্রস্থ ও পুরুত্ব ইঞ্চিতে দিন।',
+            'column.hint': 'উপরের ড্রপডাউন থেকে একক বেছে নিন (ফুট + ইঞ্চি, মিটার …) — সব ঘর সেই এককে থাকবে।',
             'wall.title': 'দেওয়ালের কাজে ইট, সিমেন্ট ও বালির হিসাব',
             'wall.sub': 'দেওয়ালের দৈর্ঘ্য, উচ্চতা, ইটের পুরুত্ব ও রেশিও দিন।',
-            'wall.hint': '৫ ইঞ্চি বা ১০ ইঞ্চি দেওয়ালের জন্য ইটের পুরুত্ব ইঞ্চিতে দিন।',
+            'wall.hint': 'ইটের পুরুত্ব: ৫ ইঞ্চি দেওয়ালে ৫ ইঞ্চি, ১০ ইঞ্চি দেওয়ালে ১০ ইঞ্চি।',
             'plaster.title': 'প্লাস্টার এর হিসাব',
             'plaster.sub': 'দেওয়ালের মাপ, প্লাস্টারের পুরুত্ব ও রেশিও দিন।',
             'plaster.hint': 'সাধারণত প্লাস্টারের পুরুত্ব ½ থেকে ¾ ইঞ্চি হয়।',
@@ -527,7 +640,55 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             'steel.sub': 'ছাদের মাপ, রডের গ্যাপ, অপচয় ও রডের সাইজ (মিমি) দিন — মোট কত কেজি রড লাগবে তা পাবেন।',
             'steel.hint': 'রডের ওজন (কেজি/ফুট) = d² ÷ ৫৩২.২ (d = রডের ব্যাস, মিমি)। দুই দিকের রড (লম্বা ও আড়া) ধরে হিসাব হবে।',
             'tiles.title': 'টাইলসের হিসাব',
-            'tiles.sub': 'এই ক্যালকুলেটরটি তৈরির কাজ চলছে।',
+            'tiles.sub': 'রুমের মাপ আর টাইলসের সাইজ দিন — কয়টি টাইলস, কয় বক্স, মসলা ও খরচ সব পেয়ে যাবেন।',
+            'tl.areas': 'রুমের মাপ',
+            'tl.part': 'অংশ {n}',
+            'tl.addPart': 'আরেকটি অংশ যোগ করুন',
+            'tl.removePart': 'এই অংশটি মুছুন',
+            'tl.deduct': 'যে জায়গা বাদ যাবে',
+            'tl.optional': '(ঐচ্ছিক)',
+            'tl.size': 'টাইলসের সাইজ (ইঞ্চি)',
+            'tl.sizeHint': 'প্রচলিত সাইজে চাপ দিন, অথবা "কাস্টম" বেছে বক্সে লেখা সাইজ দিন (মিমি বা ইঞ্চি)।',
+            'tl.custom': 'কাস্টম',
+            'tl.sideA': 'টাইলসের দৈর্ঘ্য',
+            'tl.sideB': 'টাইলসের প্রস্থ',
+            'tl.buy': 'অপচয় ও কেনাকাটা',
+            'tl.perBox': 'প্রতি বক্সে টাইলস',
+            'tl.price': 'দাম',
+            'tl.priceUnit': 'দাম ধরা হবে',
+            'tl.perSft': 'প্রতি বর্গফুট',
+            'tl.perBoxPrice': 'প্রতি বক্স',
+            'tl.mortar': 'মসলা ও স্কার্টিং (ঐচ্ছিক)',
+            'tl.bed': 'মসলার পুরুত্ব',
+            'tl.skirt': 'স্কার্টিংয়ের উচ্চতা',
+            'tl.hint': 'মেঝে বরাবর দেয়াল থেকে দেয়াল মাপ নিন। ১২ ফুট ৬ ইঞ্চি হলে লিখুন 12\'6 অথবা 12.5। L-আকৃতির রুম হলে আয়তক্ষেত্রে ভাগ করে প্রতিটি আলাদা অংশ হিসেবে দিন।',
+            'tl.formula': 'সূত্র দেখুন',
+            'tl.f1': 'মেঝের ক্ষেত্রফল = দৈর্ঘ্য × প্রস্থ (সব অংশ যোগ করে) − বাদ যাওয়া জায়গা',
+            'tl.f2': 'স্কার্টিং = ২ × (দৈর্ঘ্য + প্রস্থ) × স্কার্টিংয়ের উচ্চতা (ইঞ্চি) ÷ ১২',
+            'tl.f3': 'একটি টাইলস = টাইলসের দৈর্ঘ্য (ইঞ্চি) × প্রস্থ (ইঞ্চি) ÷ ১৪৪ বর্গফুট  (মিমি হলে আগে ÷ ২৫.৪)',
+            'tl.f4': 'টাইলস সংখ্যা = (মেঝে + স্কার্টিং) ÷ একটি টাইলসের ক্ষেত্রফল, উপরের পূর্ণসংখ্যা',
+            'tl.f5': 'অপচয়সহ = টাইলস × (১ + অপচয় % ÷ ১০০), উপরের পূর্ণসংখ্যা',
+            'tl.f6': 'বক্স = অপচয়সহ টাইলস ÷ প্রতি বক্সে টাইলস, উপরের পূর্ণসংখ্যা',
+            'tl.f7': 'মসলার শুকনো আয়তন = মেঝের ক্ষেত্রফল × পুরুত্ব (ইঞ্চি) ÷ ১২ × শুকনো গুণক (১.৩৩)',
+            'tl.f8': 'সিমেন্ট = শুকনো আয়তন × সিমেন্ট ÷ (সিমেন্ট + বালু) → ব্যাগ = × ০.৮;  বালু = শুকনো আয়তন × বালু ÷ (সিমেন্ট + বালু)',
+            'tl.needBox': 'বক্স হিসেবে দাম জানতে প্রতি বক্সে টাইলস সংখ্যা দিন',
+            'r.floorArea': 'মেঝের ক্ষেত্রফল',
+            'r.deduct': 'বাদ গেছে',
+            'r.skirtArea': 'স্কার্টিংয়ের ক্ষেত্রফল',
+            'r.tileArea': 'মোট টাইলস লাগানোর জায়গা',
+            'r.tileSize': 'টাইলসের সাইজ',
+            'r.oneTile': 'একটি টাইলসে জায়গা',
+            'r.tilesNet': 'টাইলস (অপচয় ছাড়া)',
+            'r.tilesTotal': 'মোট টাইলস লাগবেঃ',
+            'r.boxes': 'মোট বক্স লাগবেঃ',
+            'r.buySft': 'কিনতে হবে',
+            'r.tileCost': 'টাইলসের দাম',
+            'r.sand': 'বালু',
+            'grp.tiles': 'টাইলস',
+            'grp.mortar': 'মসলা (বেডিং)',
+            'u.box': 'বক্স',
+            'unit.mm': 'মিমি',
+            'k.tileDry': 'টাইলসের মসলার শুকনো গুণক',
             'tiles.h': 'কাজ চলছে',
             'tiles.p': 'এই পেজটির কাজ চলছে। অসুবিধার জন্য আমরা দুঃখিত। টাইলস ক্যালকুলেটর শীঘ্রই আসছে।',
             'tiles.back': 'হোমে ফিরে যান',
@@ -629,6 +790,37 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             'tab.contact': 'যোগাযোগ',
             'tab.calc': 'ক্যালকুলেটর',
             'tab.messages': 'মেসেজ',
+            'tab.dev': 'ডেভেলপার',
+            'ad.show': 'ডেভেলপারের তথ্য দেখান',
+            'ad.showInq': 'ক্লায়েন্ট ইনকোয়ারি ফর্ম দেখান',
+            'ad.photo': 'ছবি',
+            'ad.photo.d': 'বর্গাকার ছবি সবচেয়ে ভালো দেখায়। ছবি না থাকলে নামের আদ্যক্ষর দেখাবে।',
+            'ad.photoRemove': 'ছবি সরান',
+            'ad.name': 'নাম',
+            'ad.initials': 'আদ্যক্ষর',
+            'ad.roleBn': 'পদবি / পরিচয় (বাংলা)',
+            'ad.roleEn': 'পদবি / পরিচয় (ইংরেজি)',
+            'ad.aboutBn': 'সংক্ষিপ্ত পরিচিতি (বাংলা)',
+            'ad.aboutEn': 'সংক্ষিপ্ত পরিচিতি (ইংরেজি)',
+            'ad.eduBn': 'শিক্ষা (বাংলা)',
+            'ad.eduEn': 'শিক্ষা (ইংরেজি)',
+            'ad.contact': 'ডেভেলপারের যোগাযোগ',
+            'ad.contact.d': 'ইনকোয়ারি ফর্ম এই হোয়াটসঅ্যাপ / জিমেইলে যাবে। কোনো ঘর খালি রাখলে সেটি লুকানো থাকবে।',
+            'ad.extra': 'অতিরিক্ত তথ্য',
+            'ad.extra.d': 'আরও কিছু যোগ করুন — ওয়েবসাইট, ঠিকানা, GitHub… লিংক খালি রাখলে শুধু লেখা দেখাবে।',
+            'ad.addRow': 'নতুন সারি যোগ করুন',
+            'ad.labelBn': 'শিরোনাম (বাংলা)',
+            'ad.labelEn': 'শিরোনাম (ইংরেজি)',
+            'ad.value': 'লেখা',
+            'ad.url': 'লিংক (ঐচ্ছিক)',
+            'ad.icon': 'আইকন',
+            'ad.removeRow': 'সারি মুছুন',
+            'ad.clearAll': 'ডেভেলপারের সব তথ্য মুছুন',
+            'ad.clearConfirm': 'ডেভেলপারের সব তথ্য মুছবেন? সেভ চাপলে সাইট থেকে মুছে যাবে।',
+            'ad.restore': 'আগের তথ্য ফিরিয়ে আনুন',
+            'ad.badEmail': 'সঠিক ইমেইল ঠিকানা দিন',
+            'ic.globe': 'ওয়েবসাইট', 'ic.location': 'ঠিকানা', 'ic.work': 'কাজ', 'ic.link': 'লিংক', 'ic.award': 'পুরস্কার',
+            'ic.code': 'কোড', 'ic.github': 'GitHub', 'ic.linkedin': 'LinkedIn', 'ic.facebook': 'ফেসবুক', 'ic.info': 'তথ্য',
             'ov.inquiries': 'ইনকোয়ারি',
             'ov.reviews': 'রিভিউ',
             'ov.rating': 'গড় রেটিং',
@@ -654,7 +846,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             'ac.phone': 'মোবাইল নম্বর',
             'ac.social': 'সোশ্যাল লিংক',
             'ac.socialHint': 'কোনো লিংক খালি রাখলে সেই আইকন লুকানো থাকবে।',
-            'ac.waFloat': 'ভাসমান হোয়াটসঅ্যাপ বাটন',
+            'ac.waFloat': 'ভাসমান হোয়াটসঅ্যাপ ও জিমেইল বাটন',
             'ac.waFloat.d': 'প্রতিটি পেজের নিচের কোণে দেখাবে',
             'ac.waMsgBn': 'হোয়াটসঅ্যাপ শুভেচ্ছা (বাংলা)',
             'ac.waMsgEn': 'হোয়াটসঅ্যাপ শুভেচ্ছা (ইংরেজি)',
@@ -685,6 +877,30 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             'msg.replyText': 'আসসালামু আলাইকুম {name}, {site}-এ যোগাযোগ করার জন্য ধন্যবাদ।',
             'accent.teal': 'টিল', 'accent.rose': 'গোলাপি',
 
+            'lu.ftin': 'ফুট + ইঞ্চি', 'lu.ft': 'ফুট', 'lu.in': 'ইঞ্চি', 'lu.m': 'মিটার', 'lu.cm': 'সেন্টিমিটার',
+            'lu.others': 'অন্যান্য', 'lu.mm': 'মিলিমিটার', 'lu.yd': 'গজ', 'lu.haat': 'হাত (১৮ ইঞ্চি)',
+            'lu.ydft': 'গজ + ফুট', 'lu.haatin': 'হাত + ইঞ্চি', 'lu.mcm': 'মিটার + সেন্টিমিটার', 'lu.cmmm': 'সেন্টিমিটার + মিলিমিটার',
+            'lu.combo': 'দুই একক একসাথে', 'lu.single': 'এক একক',
+            'mu.label': 'মাপের একক',
+            'u.m': 'মিটার', 'u.cm': 'সেমি', 'u.yd': 'গজ', 'u.haat': 'হাত',
+            'sh.open': 'প্রিন্ট / PDF / হোয়াটসঅ্যাপ',
+            'sh.title': 'প্রিন্ট বা শেয়ার',
+            'sh.sub': 'ফলাফল প্রিন্ট করুন, PDF সেভ করুন, অথবা হোয়াটসঅ্যাপে পাঠান।',
+            'sh.with3d': '৩ডি ছবিসহ',
+            'sh.with3d.d': 'ফলাফলের নিচে ৩ডি প্রিভিউ যোগ হবে',
+            'sh.no3d': '৩ডি ছবি ছাড়া — শুধু মাপ ও ফলাফল।',
+            'sh.print': 'প্রিন্ট করুন',
+            'sh.pdf': 'PDF ডাউনলোড',
+            'sh.wa': 'হোয়াটসঅ্যাপে PDF পাঠান',
+            'sh.note': 'মোবাইলে PDF সরাসরি হোয়াটসঅ্যাপে যুক্ত হবে। কম্পিউটারে PDF ডাউনলোড হবে আর হোয়াটসঅ্যাপ খুলবে — সেখানে ফাইলটি যুক্ত করুন।',
+            'sh.pdfReady': 'PDF ডাউনলোড হয়েছে',
+            'sh.waDesk': 'PDF ডাউনলোড হয়েছে — খোলা হোয়াটসঅ্যাপ চ্যাটে ফাইলটি যুক্ত করুন',
+            'sh.tapAgain': 'PDF তৈরি — আবার হোয়াটসঅ্যাপ বাটনে চাপ দিন',
+            'sh.err': 'PDF তৈরি করা যায়নি। ইন্টারনেট সংযোগ দেখে আবার চেষ্টা করুন।',
+            'rp.inputs': 'মাপ',
+            'rp.results': 'ফলাফল',
+            'rp.3d': '৩ডি প্রিভিউ',
+            'rp.made': '{site} দিয়ে তৈরি',
             'err.required': 'এই ঘরটি পূরণ করুন',
             'err.number': 'সঠিক সংখ্যা দিন',
             'err.negative': 'ঋণাত্মক মান গ্রহণযোগ্য নয়',
@@ -799,9 +1015,24 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             },
         },
         calculators: { roof: true, column: true, wall: true, plaster: true, steel: true, tiles: true },
+        // About page — everything editable from Admin → Developer
+        developer: {
+            enabled: true,
+            inquiry: true,
+            name: 'MD NAIM UDDIN MOZUMDAR',
+            initials: 'NM',
+            photo: '',
+            role: { bn: 'সিএসই বিভাগের শিক্ষার্থী, প্রিমিয়ার ইউনিভার্সিটি, চট্টগ্রাম।', en: 'Student of CSE Department at Premier University, Chittagong.' },
+            about: { bn: 'যেকোনো ধরনের ডেভেলপমেন্ট সার্ভিস প্রয়োজন হলে নির্দ্বিধায় যোগাযোগ করুন:', en: 'If you need any kind of development services, feel free to contact me:' },
+            education: { bn: 'সিএসই, প্রিমিয়ার ইউনিভার্সিটি, চট্টগ্রাম', en: 'CSE, Premier University, Chittagong' },
+            whatsapp: '8801833515057',
+            email: 'uddinmdnaim10@gmail.com',
+            phone: '01833515057',
+            extras: [],
+        },
         prices: { cement: 0, sand: 0, khoa: 0 },
         // calculation constants — the original formula values
-        constants: { dry: 1.5, cementBag: 0.8, cftPerBag: 1.2, wallDry: 0.35, bricksPerCft: 12, khoaBricks: 9, steelDiv: 532.2 },
+        constants: { dry: 1.5, cementBag: 0.8, cftPerBag: 1.2, wallDry: 0.35, bricksPerCft: 12, khoaBricks: 9, steelDiv: 532.2, tileDry: 1.33 },
     };
     const isObj = (o) => !!o && typeof o === 'object' && !Array.isArray(o) && !(o.toDate);
     function deepMerge(base, over) {
@@ -881,7 +1112,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         { id: 'steel',   icon: 'fa-grip-lines',        keys: 'rod steel rebar roof রড স্টিল' },
         { id: 'tiles',   icon: 'fa-table-cells-large', keys: 'tiles floor টাইলস' },
         { id: 'about',   icon: 'fa-circle-info',       keys: 'about developer আমাদের' },
-        { id: 'contact', icon: 'fa-envelope',          keys: 'contact review email phone whatsapp gmail যোগাযোগ রিভিউ হোয়াটসঅ্যাপ' },
+        { id: 'review',  icon: 'fa-star',              keys: 'review rating feedback contact রিভিউ রেটিং মতামত যোগাযোগ' },
         { id: 'admin',   icon: 'fa-gauge-high' },
     ];
     let currentPage = 'home';
@@ -924,8 +1155,10 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         $$('[data-i18n-html]').forEach((el) => { el.innerHTML = t(el.dataset.i18nHtml); });
         $$('[data-i18n-ph]').forEach((el) => { el.placeholder = t(el.dataset.i18nPh); });
         $$('[data-i18n-title]').forEach((el) => { el.title = t(el.dataset.i18nTitle); });
+        $$('[data-i18n-label]').forEach((el) => { el.label = t(el.dataset.i18nLabel); });
         $$('[data-i18n-aria]').forEach((el) => { el.setAttribute('aria-label', t(el.dataset.i18nAria)); });
         $$('[data-ph]').forEach((el) => { el.placeholder = digits(el.dataset.ph); });
+        LEN.refresh(document);
         $$('[data-dg]').forEach((el) => { el.textContent = digits(el.dataset.dg); });
         $$('.field-error[data-err]').forEach((el) => { el.textContent = t(el.dataset.err); });
 
@@ -953,6 +1186,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             else resetResult(id);
         });
 
+        TILES.renumber();
         updateTopbar();
         $$('[data-search]').forEach((w) => { if ($('input', w).value.trim()) w._run(); });
     }
@@ -963,6 +1197,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         applyI18n();
         syncSettingsForm();
         applyContacts();
+        renderDeveloper();
         applyAnnouncement();
         applyFavicon();
         VIZ.refreshAll();
@@ -1073,6 +1308,53 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         if (body) url += `&body=${encodeURIComponent(body)}`;
         return url;
     }
+    /* ---------- About page: developer card (from Admin → Developer) ---------- */
+    const DEV_ICONS = {
+        globe: 'fa-solid fa-globe', location: 'fa-solid fa-location-dot', work: 'fa-solid fa-briefcase',
+        link: 'fa-solid fa-link', award: 'fa-solid fa-award', code: 'fa-solid fa-code', info: 'fa-solid fa-circle-info',
+        github: 'fa-brands fa-github', linkedin: 'fa-brands fa-linkedin-in', facebook: 'fa-brands fa-facebook-f',
+    };
+    const trn = (o) => (o && (o[S.lang] || o.bn || o.en)) || '';
+    const initialsOf = (name) => String(name || '').trim().split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
+    const isPhoto = (u) => /^data:image\/(png|jpe?g|webp|gif);base64,/i.test(String(u || ''));
+
+    function renderDeveloper() {
+        const d = SITE.developer || {};
+        const card = $('#dev-card'), form = $('#inquiry-form');
+        const wa = waNumber(d.whatsapp), mail = String(d.email || '').trim();
+        card.hidden = d.enabled === false;
+        form.hidden = d.inquiry === false || (!wa && !mail);
+        $('#about-wrap').classList.toggle('two', !card.hidden && !form.hidden);
+
+        const av = $('#dev-avatar');
+        const initials = (d.initials || initialsOf(d.name)).slice(0, 4);
+        av.innerHTML = isPhoto(d.photo) ? `<img src="${escapeHtml(d.photo)}" alt="">` : escapeHtml(initials);
+        av.hidden = !isPhoto(d.photo) && !initials;
+        const setText = (id, text) => { const n = $(id); n.textContent = text; n.hidden = !text; };
+        setText('#dev-name', d.name || '');
+        setText('#dev-role', trn(d.role));
+        setText('#dev-about', trn(d.about));
+
+        const row = (icon, cls, label, value, href) => `
+            <li><span class="menu-icon ${cls}"><i class="${icon}"></i></span><span><small>${escapeHtml(label)}</small>${href
+                ? `<a href="${escapeHtml(href)}"${/^https?:/.test(href) ? ' target="_blank" rel="noopener"' : ''}>${escapeHtml(value)}</a>`
+                : `<span class="v">${escapeHtml(value)}</span>`}</span></li>`;
+        const rows = [];
+        if (wa) rows.push(row('fa-brands fa-whatsapp', 'wa', t('lbl.whatsapp'), '+' + wa, waLink(trn(SITE.contact.waMessage), wa)));
+        if (mail) rows.push(row('fa-solid fa-envelope', 'gm', t('lbl.gmail'), mail, gmailLink(t('brand.name'), '', mail)));
+        if (d.phone) rows.push(row('fa-solid fa-phone', '', t('lbl.mobile'), d.phone, 'tel:' + toEn(d.phone).replace(/[^\d+]/g, '')));
+        if (trn(d.education)) rows.push(row('fa-solid fa-graduation-cap', '', t('lbl.education'), trn(d.education), ''));
+        (Array.isArray(d.extras) ? d.extras : []).forEach((x) => {
+            if (!x || !(x.value || trn(x.label))) return;
+            rows.push(row(DEV_ICONS[x.icon] || DEV_ICONS.info, '', trn(x.label), x.value || safeUrl(x.url), safeUrl(x.url)));
+        });
+        $('#dev-info').innerHTML = rows.join('');
+        $('#dev-info').hidden = !rows.length;
+
+        $('#inq-wa').hidden = !wa;
+        $('#inq-gm').hidden = !mail;
+    }
+
     function applyContacts() {
         const c = SITE.contact;
         const greet = (c.waMessage || {})[S.lang] || '';
@@ -1090,7 +1372,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             const k = el.dataset.contactText;
             el.textContent = k === 'whatsapp' ? (waNumber(c.whatsapp) ? '+' + waNumber(c.whatsapp) : '') : (c[k] || '');
         });
-        if (!c.waFloat) $('#wa-float').hidden = true;
+        $('#wa-float').hidden = !c.waFloat || (!waLink('') && !gmailLink('', ''));
     }
 
     /* =========================================================
@@ -1180,7 +1462,10 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             FB.user = user;
             let admin = false;
             if (user) {
-                try { admin = (await FB.db.doc('admins/' + user.uid).get()).exists; } catch (e) { admin = false; }
+                admin = ADMIN_EMAILS.map((e) => e.toLowerCase()).includes(String(user.email || '').toLowerCase());
+                if (!admin) {
+                    try { admin = (await FB.db.doc('admins/' + user.uid).get()).exists; } catch (e) { admin = false; }
+                }
                 if (!admin) {
                     if (loginPending) showLoginError(t('admin.notAdmin'));
                     loginPending = false;
@@ -1291,7 +1576,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
        Admin dashboard
        ========================================================= */
     const ADMIN = (() => {
-        const forms = { site: $('#af-site'), contact: $('#af-contact'), calc: $('#af-calc') };
+        const forms = { site: $('#af-site'), dev: $('#af-dev'), contact: $('#af-contact'), calc: $('#af-calc') };
         const el = (form, name) => $(`[name="${name}"]`, form);
         const setRadio = (form, name, val) => $$(`input[name="${name}"]`, form).forEach((r) => { r.checked = String(val) === r.value; });
         const getRadio = (form, name) => { const r = $(`input[name="${name}"]:checked`, form); return r ? r.value : null; };
@@ -1321,8 +1606,129 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             $('#admin-email').textContent = FB.user ? FB.user.email : '';
             renderMessages();
         }
+        /* ---------- Developer tab ---------- */
+        const extrasBox = $('#dev-extras');
+        let devPhoto = '';
+        function showDevPhoto() {
+            const name = el(forms.dev, 'name').value, ini = el(forms.dev, 'initials').value;
+            $('#dev-photo-preview').innerHTML = isPhoto(devPhoto) ? `<img src="${escapeHtml(devPhoto)}" alt="">` : escapeHtml((ini || initialsOf(name) || '?').slice(0, 4));
+            $('#dev-photo-remove').disabled = !devPhoto;
+        }
+        function extraRow(x = {}) {
+            const div = document.createElement('div');
+            div.className = 'extra-row';
+            const opts = Object.keys(DEV_ICONS).map((k) => `<option value="${k}"${(x.icon || 'globe') === k ? ' selected' : ''}>${escapeHtml(t('ic.' + k))}</option>`).join('');
+            const lab = x.label || {};
+            div.innerHTML = `
+                <select class="control" data-x="icon" aria-label="${escapeHtml(t('ad.icon'))}">${opts}</select>
+                <input class="control" data-x="labelBn" maxlength="60" placeholder="${escapeHtml(t('ad.labelBn'))}" value="${escapeHtml(lab.bn || '')}">
+                <input class="control" data-x="labelEn" maxlength="60" placeholder="${escapeHtml(t('ad.labelEn'))}" value="${escapeHtml(lab.en || '')}">
+                <input class="control" data-x="value" maxlength="160" placeholder="${escapeHtml(t('ad.value'))}" value="${escapeHtml(x.value || '')}">
+                <input class="control" data-x="url" type="url" maxlength="300" placeholder="${escapeHtml(t('ad.url'))} — https://…" value="${escapeHtml(x.url || '')}">
+                <button type="button" class="icon-btn icon-btn-sm danger" data-remove-row title="${escapeHtml(t('ad.removeRow'))}" aria-label="${escapeHtml(t('ad.removeRow'))}"><i class="fa-solid fa-trash-can"></i></button>`;
+            return div;
+        }
+        function fillDev(d) {
+            const f = forms.dev;
+            el(f, 'devEnabled').checked = d.enabled !== false;
+            el(f, 'devInquiry').checked = d.inquiry !== false;
+            el(f, 'name').value = d.name || '';
+            el(f, 'initials').value = d.initials || '';
+            el(f, 'roleBn').value = (d.role || {}).bn || '';
+            el(f, 'roleEn').value = (d.role || {}).en || '';
+            el(f, 'aboutBn').value = (d.about || {}).bn || '';
+            el(f, 'aboutEn').value = (d.about || {}).en || '';
+            el(f, 'eduBn').value = (d.education || {}).bn || '';
+            el(f, 'eduEn').value = (d.education || {}).en || '';
+            el(f, 'whatsapp').value = d.whatsapp || '';
+            el(f, 'phone').value = d.phone || '';
+            el(f, 'email').value = d.email || '';
+            devPhoto = isPhoto(d.photo) ? d.photo : '';
+            extrasBox.innerHTML = '';
+            (Array.isArray(d.extras) ? d.extras : []).forEach((x) => extrasBox.appendChild(extraRow(x)));
+            showDevPhoto();
+        }
+        const markDev = () => { forms.dev.dataset.dirty = '1'; };
+        $('#dev-add-row').addEventListener('click', () => {
+            const r = extraRow();
+            extrasBox.appendChild(r);
+            $('input', r).focus();
+            markDev();
+        });
+        extrasBox.addEventListener('click', (e) => {
+            const b = e.target.closest('[data-remove-row]');
+            if (b) { b.closest('.extra-row').remove(); markDev(); }
+        });
+        ['name', 'initials'].forEach((n) => el(forms.dev, n).addEventListener('input', showDevPhoto));
+        $('#dev-photo-file').addEventListener('change', (e) => {
+            const file = e.target.files && e.target.files[0];
+            e.target.value = '';
+            if (!file) return;
+            if (!/^image\/(png|jpe?g|webp|gif)$/.test(file.type) || file.size > 8 * 1024 * 1024) { toast(t('icon.bad')); return; }
+            const reader = new FileReader();
+            reader.onload = () => {
+                const img = new Image();
+                img.onload = () => {
+                    // square crop, 256 px JPEG (~20 KB) so it fits in the config document
+                    const size = 256, c = document.createElement('canvas');
+                    c.width = c.height = size;
+                    const ctx = c.getContext('2d');
+                    const side = Math.min(img.naturalWidth, img.naturalHeight);
+                    ctx.fillStyle = '#ffffff';
+                    ctx.fillRect(0, 0, size, size);
+                    ctx.imageSmoothingQuality = 'high';
+                    ctx.drawImage(img, (img.naturalWidth - side) / 2, (img.naturalHeight - side) / 2, side, side, 0, 0, size, size);
+                    devPhoto = c.toDataURL('image/jpeg', .85);
+                    showDevPhoto();
+                    markDev();
+                };
+                img.onerror = () => toast(t('icon.bad'));
+                img.src = reader.result;
+            };
+            reader.readAsDataURL(file);
+        });
+        $('#dev-photo-remove').addEventListener('click', () => { devPhoto = ''; showDevPhoto(); markDev(); });
+        $('#dev-clear').addEventListener('click', () => {
+            if (!window.confirm(t('ad.clearConfirm'))) return;
+            fillDev({ enabled: false, inquiry: false, name: '', initials: '', photo: '', role: {}, about: {}, education: {}, whatsapp: '', email: '', phone: '', extras: [] });
+            markDev();
+        });
+        $('#dev-restore').addEventListener('click', () => { fillDev(SITE_DEFAULT.developer); markDev(); });
+
+        forms.dev.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const f = forms.dev, v = (n) => el(f, n).value.trim();
+            const email = v('email');
+            if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { toast(t('ad.badEmail')); el(f, 'email').focus(); return; }
+            const extras = [];
+            for (const r of $$('.extra-row', extrasBox)) {
+                const g = (k) => $(`[data-x="${k}"]`, r).value.trim();
+                const url = g('url');
+                if (url && !safeUrl(url)) { toast(t('admin.badUrl')); $('[data-x="url"]', r).focus(); return; }
+                if (!g('value') && !g('labelBn') && !g('labelEn') && !url) continue;     // skip empty rows
+                extras.push({ icon: DEV_ICONS[g('icon')] ? g('icon') : 'info', label: { bn: g('labelBn'), en: g('labelEn') }, value: g('value'), url });
+            }
+            save({
+                developer: {
+                    enabled: el(f, 'devEnabled').checked,
+                    inquiry: el(f, 'devInquiry').checked,
+                    name: v('name'),
+                    initials: v('initials'),
+                    photo: devPhoto,
+                    role: { bn: v('roleBn'), en: v('roleEn') },
+                    about: { bn: v('aboutBn'), en: v('aboutEn') },
+                    education: { bn: v('eduBn'), en: v('eduEn') },
+                    whatsapp: onlyDigits(v('whatsapp')),
+                    phone: v('phone'),
+                    email,
+                    extras,
+                },
+            }, f);
+        });
+
         function fillForms() {
             const fs = forms.site, d = SITE.defaults;
+            if (!isDirty(forms.dev)) fillDev(SITE.developer);
             if (!isDirty(fs)) {
             el(fs, 'nameBn').value = SITE.brand.bn || '';
             el(fs, 'nameEn').value = SITE.brand.en || '';
@@ -1612,7 +2018,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
     window.addEventListener('resize', () => { if (!isMobile()) closeSidebar(); syncMenuBtn(); });
 
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') { closeLogin(); closeSettings(); closeSidebar(); $$('[data-search]').forEach((w) => w._hide()); }
+        if (e.key === 'Escape') { if (typeof SHARE !== 'undefined') SHARE.close(); closeLogin(); closeSettings(); closeSidebar(); $$('[data-search]').forEach((w) => w._hide()); }
     });
 
     /* =========================================================
@@ -1630,6 +2036,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
 
     function route() {
         let id = decodeURIComponent(location.hash.replace(/^#/, '')) || 'home';
+        if (id === 'contact') { id = 'review'; history.replaceState(null, '', '#review'); }   // old links
         if (!PAGES.some((p) => p.id === id)) id = 'home';
         if (id === 'admin' && !IS_ADMIN) {
             if (FB.ready && !FB.authResolved) pendingAdmin = true;   // wait for the session to load
@@ -1723,27 +2130,233 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         else { delete err.dataset.err; err.textContent = ''; }
     }
 
-    // Accepts English or Bangla digits, and thousands commas
+    // Accepts English or Bangla digits, thousands commas, and feet'inches (12'6 = 12.5 ft)
     function parseNum(raw) {
-        const s = toEn(String(raw)).replace(/[,\s]/g, '').replace('٫', '.');
+        const s = toEn(String(raw)).replace(/[,\s]/g, '').replace('٫', '.').replace(/[’′]/g, "'").replace(/[”″]/g, '"');
+        const fi = s.match(/^(\d+(?:\.\d+)?)'(?:(\d+(?:\.\d+)?)"?)?$/);
+        if (fi) return Number(fi[1]) + (fi[2] ? Number(fi[2]) / 12 : 0);
         if (s === '' || !/^[-+]?(\d+\.?\d*|\.\d+)$/.test(s)) return NaN;
         return Number(s);
     }
 
+    /* =========================================================
+       Length boxes: feet | inch in one box + unit menu (ft+in, ft, in, m, cm, mm)
+       Every length input carries data-len="ft" or data-len="in" — the unit the
+       formulas expect. Whatever the visitor types is converted to that unit.
+       ========================================================= */
+    // single units (inches per unit) and two-part combinations [big, small]
+    const IN_PER = { ft: 12, in: 1, yd: 36, haat: 18, m: 39.37007874015748, cm: 0.3937007874015748, mm: 0.03937007874015748 };
+    const UNIT_KEY = { ft: 'u.ft', in: 'u.inch', yd: 'u.yd', haat: 'u.haat', m: 'u.m', cm: 'u.cm', mm: 'u.mm' };
+    const COMBOS = { ftin: ['ft', 'in'], ydft: ['yd', 'ft'], haatin: ['haat', 'in'], mcm: ['m', 'cm'], cmmm: ['cm', 'mm'] };
+    const LEN_UNITS = [...Object.keys(COMBOS), ...Object.keys(IN_PER)];
+    const STORE_UNIT = 'cc.unit';
+    const PREC = { ft: 4, in: 3, yd: 4, haat: 4, m: 4, cm: 2, mm: 1 };      // decimals shown after converting
+    const r3 = (n) => +(+n).toFixed(3);
+
+    /* =========================================================
+       Lengths: pick ONE unit at the top of a calculator and every box follows it.
+       Two-part units (Feet + Inch, Meter + Centimetre, Centimetre + Millimetre,
+       Yard + Feet, Haat + Inch) show both parts in one box with a faint divider.
+       Inputs carry data-len="ft"|"in" — the unit the formulas expect.
+       ========================================================= */
+    const LEN = (() => {
+        let unit = storage.get(STORE_UNIT, 'ftin');
+        if (!LEN_UNITS.includes(unit)) unit = 'ftin';
+        const boxOf = (inp) => inp.closest('.len-box');
+        const toInches = (inp, v) => (inp.dataset.len === 'ft' ? v * 12 : v);
+        // inches → whole big units + remainder in small units
+        const split = (inches, [A, B]) => {
+            let a = Math.floor((inches + 1e-9) / IN_PER[A]);
+            let b = +((inches - a * IN_PER[A]) / IN_PER[B]).toFixed(PREC[B]);
+            const per = IN_PER[A] / IN_PER[B];
+            if (b >= per - 1e-9) { a += 1; b = +(b - per).toFixed(PREC[B]); }
+            return { a, b };
+        };
+        function setLook(w) {
+            const mode = w.dataset.mode, combo = COMBOS[mode];
+            if (combo) w.dataset.combo = '1'; else delete w.dataset.combo;
+            const tags = $$('.len-tag:not(.solo)', w);
+            tags[0].textContent = combo ? t(UNIT_KEY[combo[0]]) : '';
+            tags[1].textContent = combo ? t(UNIT_KEY[combo[1]]) : '';
+            $('.len-sub', w).setAttribute('aria-label', combo ? t(UNIT_KEY[combo[1]]) : '');
+            $('.len-tag.solo', w).textContent = combo ? '' : t(UNIT_KEY[mode]);
+        }
+
+        function enhance(scope = document) {
+            $$('input[data-len]', scope).forEach((inp) => {
+                if (boxOf(inp)) return;
+                const wrap = inp.parentElement;
+                $$('.unit', wrap).forEach((u) => u.remove());
+                wrap.className = 'input-wrap len-box';
+                inp.insertAdjacentHTML('afterend', `
+                    <span class="len-tag"></span>
+                    <span class="len-div" aria-hidden="true"></span>
+                    <input type="text" inputmode="decimal" autocomplete="off" class="len-sub">
+                    <span class="len-tag"></span>
+                    <span class="len-tag solo"></span>`);
+                wrap.dataset.mode = unit;
+                setLook(wrap);
+            });
+        }
+
+        // → { empty } | { bad } | { neg } | { value } (value in the field's base unit)
+        function read(inp, mode = (boxOf(inp) || {}).dataset?.mode || unit) {
+            const w = boxOf(inp);
+            const main = inp.value.trim();
+            const sub = w ? $('.len-sub', w).value.trim() : '';
+            // untouched since we converted it → use the exact value (no rounding drift)
+            if (inp.dataset.exact && inp.dataset.shown === main + '|' + sub) {
+                const ex = Number(inp.dataset.exact);
+                return { value: inp.dataset.len === 'ft' ? ex / 12 : ex };
+            }
+            const combo = COMBOS[mode];
+            if (main === '' && (!combo || sub === '')) return { empty: true };
+            let inches;
+            if (combo) {
+                const quoted = mode === 'ftin' && /['’′]/.test(main);   // 12'6 typed in the feet part
+                const x = main === '' ? 0 : (quoted ? parseNum(main) : parseNum(main));
+                const y = (sub === '' || quoted) ? 0 : parseNum(sub);
+                if (!Number.isFinite(x) || !Number.isFinite(y)) return { bad: true };
+                if (x < 0 || y < 0) return { neg: true };
+                inches = x * IN_PER[combo[0]] + y * IN_PER[combo[1]];
+            } else {
+                const n = parseNum(main);
+                if (!Number.isFinite(n)) return { bad: true };
+                if (n < 0) return { neg: true };
+                inches = n * IN_PER[mode];
+            }
+            return { value: inp.dataset.len === 'ft' ? inches / 12 : inches };
+        }
+        const value = (inp) => { const r = read(inp); return r.value ?? NaN; };
+
+        function write(inp, inches) {
+            const w = boxOf(inp), sub = $('.len-sub', w), mode = w.dataset.mode, combo = COMBOS[mode];
+            if (inches == null || !Number.isFinite(inches)) { inp.value = ''; sub.value = ''; delete inp.dataset.exact; return; }
+            if (combo) {
+                const { a, b } = split(inches, combo);
+                inp.value = String(a);
+                sub.value = b ? String(b) : '';
+            } else {
+                inp.value = String(+(inches / IN_PER[mode]).toFixed(PREC[mode]));
+                sub.value = '';
+            }
+            inp.dataset.exact = String(inches);
+            inp.dataset.shown = inp.value.trim() + '|' + sub.value.trim();
+        }
+        function refresh(scope = document) {
+            $$('.unit-select').forEach((sel) => { sel.value = unit; });
+            $$('.len-box', scope).forEach((w) => {
+                const inp = $('input[data-len]', w), sub = $('.len-sub', w);
+                const ph = Number(toEn(inp.dataset.ph || '0'));
+                const inches = Number.isFinite(ph) ? toInches(inp, ph) : 0;
+                const combo = COMBOS[w.dataset.mode];
+                setLook(w);
+                if (combo) {
+                    const { a, b } = split(inches, combo);
+                    inp.placeholder = digits(String(a));
+                    sub.placeholder = digits(String(b));
+                } else {
+                    inp.placeholder = digits(String(+(inches / IN_PER[w.dataset.mode]).toFixed(PREC[w.dataset.mode])));
+                    sub.placeholder = '';
+                }
+            });
+        }
+        // change the unit everywhere and convert what was already typed
+        function setUnit(to) {
+            if (!LEN_UNITS.includes(to) || to === unit) { refresh(); return; }
+            $$('.len-box').forEach((w) => {
+                const inp = $('input[data-len]', w);
+                const r = read(inp, w.dataset.mode);
+                w.dataset.mode = to;
+                if (r.value != null) write(inp, toInches(inp, r.value));
+            });
+            unit = to;
+            storage.set(STORE_UNIT, unit);
+            refresh();
+        }
+        // "12 ft 6 inch", "3 m 81 cm", "3.81 m" …
+        function display(inp, v) {
+            const w = boxOf(inp);
+            const mode = w ? w.dataset.mode : unit;
+            const inches = toInches(inp, v);
+            const combo = COMBOS[mode];
+            if (combo) {
+                const { a, b } = split(inches, combo);
+                const parts = [];
+                if (a) parts.push(`${numPlain(a)} ${t(UNIT_KEY[combo[0]])}`);
+                if (b || !a) parts.push(`${numPlain(b)} ${t(UNIT_KEY[combo[1]])}`);
+                return parts.join(' ');
+            }
+            return `${numPlain(+(inches / IN_PER[mode]).toFixed(PREC[mode]))} ${t(UNIT_KEY[mode])}`;
+        }
+        const state = (inp) => { const w = boxOf(inp); return w ? { sub: $('.len-sub', w).value } : null; };
+        function restore(inp, st) {
+            const w = boxOf(inp);
+            if (!st || !w) return;
+            if (st.sub != null) $('.len-sub', w).value = st.sub;
+        }
+        // values saved in another unit are converted to the current one
+        function restoreForm(form, savedUnit) {
+            if (!savedUnit || savedUnit === unit || !LEN_UNITS.includes(savedUnit)) return;
+            $$('.len-box', form).forEach((w) => {
+                const inp = $('input[data-len]', w);
+                const r = read(inp, savedUnit);
+                if (r.value != null) write(inp, toInches(inp, r.value));
+            });
+        }
+        const sync = () => refresh();
+        const current = () => unit;
+
+        document.addEventListener('change', (e) => {
+            if (!e.target.classList || !e.target.classList.contains('unit-select')) return;
+            setUnit(e.target.value);
+            $$('form[data-calc]').forEach((f) => { saveInputs(f); VIZ.update(f.dataset.calc); });
+            const form = e.target.closest('form');
+            if (form && lastValues[form.dataset.calc]) form.requestSubmit ? form.requestSubmit() : form.dispatchEvent(new Event('submit', { cancelable: true }));
+        });
+
+        return { enhance, read, value, display, refresh, state, restore, restoreForm, sync, current, setUnit };
+    })();
+    LEN.enhance(document);
+
+    // two lengths with the same unit → "600 × 600 mm"
+    function pairLabel(a, b) {
+        const pa = String(a).split(' '), pb = String(b).split(' ');
+        if (pa.length === 2 && pb.length === 2 && pa[1] === pb[1]) return `${pa[0]} × ${pb[0]} ${pa[1]}`;
+        return `${a} × ${b}`;
+    }
+
     function readForm(form) {
         let ok = true;
-        const v = {};
+        const v = { _disp: {} };
         $$('input[data-num]', form).forEach((inp) => {
-            const raw = inp.value.trim();
-            const n = parseNum(raw);
-            let err = '';
-            if (raw === '') err = 'err.required';
-            else if (!Number.isFinite(n)) err = 'err.number';
-            else if (n < 0) err = 'err.negative';
-            else if (inp.hasAttribute('data-positive') && n <= 0) err = 'err.positive';
+            if (inp.closest('[hidden]')) { setError(inp, ''); return; }           // e.g. custom tile size not chosen
+            const optional = inp.hasAttribute('data-optional');
+            let n, err = '';
+            if (inp.hasAttribute('data-len')) {
+                const r = LEN.read(inp);
+                if (r.empty) {
+                    if (optional) { setError(inp, ''); v[inp.name] = Number(inp.dataset.default || 0); return; }
+                    err = 'err.required';
+                } else if (r.bad) err = 'err.number';
+                else if (r.neg) err = 'err.negative';
+                else n = r.value;
+            } else {
+                const raw = inp.value.trim();
+                if (raw === '') {
+                    if (optional) { setError(inp, ''); v[inp.name] = Number(inp.dataset.default || 0); return; }
+                    err = 'err.required';
+                } else {
+                    n = parseNum(raw);
+                    if (!Number.isFinite(n)) err = 'err.number';
+                    else if (n < 0) err = 'err.negative';
+                }
+            }
+            if (!err && inp.hasAttribute('data-positive') && !(n > 0)) err = 'err.positive';
             setError(inp, err);
-            if (err) ok = false;
+            if (err) { ok = false; return; }
             v[inp.name] = n;
+            if (inp.hasAttribute('data-len')) v._disp[inp.name] = LEN.display(inp, n);
         });
         $$('input[type="radio"]:checked', form).forEach((r) => { v[r.name] = r.value; });
         return ok ? v : null;
@@ -1770,7 +2383,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 const sum = ratioSum(v, this.ratios);
                 const length = (v.firstLength + v.secondLength) / 2;
                 const width = (v.firstWidth + v.secondWidth) / 2;
-                const height = v.heightUnit === 'inches' ? v.height / 12 : v.height;
+                const height = v.height / 12;                 // thickness is read in inches
                 const area = length * width;
                 const volume = area * height;
                 const dry = volume * K().dry;
@@ -1898,7 +2511,90 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 ];
             },
         },
+
+        tiles: {
+            ratios: ['ratio1', 'ratio2'],
+            run(v) {
+                const parts = tileParts(v);
+                const floor = parts.reduce((a, p) => a + p.L * p.W, 0);
+                const net = Math.max(floor - (v.deduct || 0), 0);
+                const perimeter = parts.reduce((a, p) => a + 2 * (p.L + p.W), 0);
+                const skirt = v.skirt > 0 ? perimeter * v.skirt / 12 : 0;
+                const area = net + skirt;
+                const tile = tileDims(v);
+                const oneTile = tile.a * tile.b / 144;
+                const base = Math.ceil(area / oneTile - 1e-9);
+                const wastage = v.wastage || 0;
+                const withWaste = Math.ceil(base * (1 + wastage / 100) - 1e-9);
+                const perBox = Math.floor(v.perBox || 0);
+                const boxes = perBox > 0 ? Math.ceil(withWaste / perBox) : 0;
+                const buyTiles = boxes ? boxes * perBox : withWaste;
+                const buySft = buyTiles * oneTile;
+
+                const items = [
+                    row(t('r.floorArea'), num(floor), t('u.sqft')),
+                ];
+                if (v.deduct > 0) items.push(row(t('r.deduct'), '− ' + num(v.deduct), t('u.sqft')));
+                if (skirt > 0) items.push(row(t('r.skirtArea'), num(skirt), t('u.sqft')));
+                items.push(
+                    row(t('r.tileArea'), num(area), t('u.sqft')),
+                    heading(t('grp.tiles')),
+                    row(t('r.tileSize'), tile.label),
+                    row(t('r.oneTile'), num(oneTile, 3), t('u.sqft')),
+                    row(t('r.tilesNet'), num(base, 0), t('u.pcs')),
+                    row(t('r.wastage', { p: numPlain(wastage) }), '+ ' + num(withWaste - base, 0), t('u.pcs')),
+                    row(t('r.tilesTotal'), num(withWaste, 0), t('u.pcs'), true),
+                );
+                if (boxes) items.push(row(t('r.boxes'), `${num(boxes, 0)}`, `${t('u.box')} (${num(buyTiles, 0)} ${t('u.pcs')})`, true));
+                items.push(row(t('r.buySft'), num(buySft), t('u.sqft'), true));
+
+                if (v.bed > 0) {
+                    const sum = v.ratio1 + v.ratio2;
+                    const dry = net * (v.bed / 12) * K().tileDry;
+                    const cement = dry / sum * v.ratio1;
+                    const sand = dry / sum * v.ratio2;
+                    items.push(
+                        heading(t('grp.mortar')),
+                        row(t('r.dryVolume'), num(dry), t('u.cft')),
+                        row(t('r.ratio'), ratioText(v.ratio1, v.ratio2)),
+                        row(t('mat.cement'), num(cement), t('u.cft')),
+                        row(t('r.cementBags'), num(cement * K().cementBag), t('u.bags'), true),
+                        row(t('r.sandBags'), num(sand), t('u.cft'), true),
+                    );
+                }
+                if (v.price > 0) {
+                    if (v.priceUnit === 'box' && !boxes) {
+                        items.push(heading(t('grp.priceCalc')), row(t('tl.needBox'), ''));
+                    } else {
+                        const cost = v.priceUnit === 'box' ? boxes * v.price : buySft * v.price;
+                        items.push(heading(t('grp.priceCalc')), total(t('r.tileCost'), num(cost), t('u.taka')));
+                    }
+                }
+                return items;
+            },
+        },
     };
+
+    /* ---------- Tiles helpers ---------- */
+    // room parts come in as len_0/wid_0, len_1/wid_1 …
+    function tileParts(v) {
+        return Object.keys(v)
+            .filter((k) => /^len_\d+$/.test(k))
+            .map((k) => k.slice(4))
+            .sort((a, b) => a - b)
+            .map((i) => ({ L: v['len_' + i], W: v['wid_' + i] }))
+            .filter((p) => p.L > 0 && p.W > 0);
+    }
+    function tileDims(v) {
+        if (v.tileSize && v.tileSize !== 'custom') {
+            const [a, b] = v.tileSize.split('x').map(Number);
+            return { a, b, label: `${numPlain(a)} × ${numPlain(b)} ${t('u.inch')}` };
+        }
+        // custom size: tileA / tileB already in inches (the box converts mm, cm …)
+        const d = v._disp || {};
+        const label = d.tileA && d.tileB ? pairLabel(d.tileA, d.tileB) : `${numPlain(r3(v.tileA))} × ${numPlain(r3(v.tileB))} ${t('u.inch')}`;
+        return { a: v.tileA, b: v.tileB, label };
+    }
 
     /* ---------- Rendering ---------- */
     const lastValues = {};
@@ -1927,16 +2623,32 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         return html;
     }
 
-    function inputsSummary(form, v) {
-        return $$('input[data-num]', form).map((inp) => {
+    // [label, value] pairs for the print/PDF report
+    function inputsList(form, v) {
+        const out = [];
+        $$('input[data-num]', form).forEach((inp) => {
+            if (inp.closest('[hidden]')) return;
+            const isLen = inp.hasAttribute('data-len');
+            const empty = isLen ? LEN.read(inp).empty : !inp.value.trim();
+            if (inp.hasAttribute('data-optional') && empty) return;
             const field = inp.closest('.field');
-            let label = $('label', field).textContent;
-            if (field.closest('.fields.ratio')) label = `${t('grp.ratio')} · ${label}`;
-            const unitEl = $('.unit', field);
-            let unit = unitEl ? unitEl.textContent : '';
-            if (inp.name === 'height') unit = t(v.heightUnit === 'feet' ? 'unit.feet' : 'unit.inches');
-            return `<div>${escapeHtml(label)}: <strong>${escapeHtml(numPlain(v[inp.name]))} ${escapeHtml(unit)}</strong></div>`;
-        }).join('');
+            let label = $('label', field).textContent.replace(/\s*\(.*?\)\s*$/, '').trim();
+            if (field.closest('.fields.ratio') && !/·/.test(label)) label = `${t('grp.ratio')} · ${label}`;
+            const part = inp.closest('[data-area]');
+            if (part) label = `${$('.area-no', part).textContent} · ${label}`;
+            let value;
+            if (isLen) value = (v._disp && v._disp[inp.name]) || numPlain(v[inp.name]);
+            else {
+                const unitEl = $('.unit', field);
+                value = `${numPlain(v[inp.name])} ${unitEl ? unitEl.textContent : ''}`.trim();
+            }
+            out.push([label, value]);
+        });
+        if (form.dataset.calc === 'tiles') out.splice(0, 0);
+        return out;
+    }
+    function inputsSummary(form, v) {
+        return inputsList(form, v).map(([l, val]) => `<div>${escapeHtml(l)}: <strong>${escapeHtml(val)}</strong></div>`).join('');
     }
 
     function renderResult(id, v) {
@@ -1966,8 +2678,13 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         if (!S.remember) return;
         const all = storage.get(STORE_INPUTS, {});
         const data = {};
-        $$('input[data-num]', form).forEach((inp) => { data[inp.name] = inp.value; });
+        $$('input[data-num]', form).forEach((inp) => {
+            data[inp.name] = inp.value;
+            const st = LEN.state(inp);
+            if (st) data[inp.name + '__in'] = st.sub;
+        });
         $$('input[type="radio"]:checked', form).forEach((r) => { data[r.name] = r.value; });
+        data.__unit = LEN.current();
         all[form.dataset.calc] = data;
         storage.set(STORE_INPUTS, all);
     }
@@ -1975,7 +2692,11 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         if (!S.remember) return;
         const data = storage.get(STORE_INPUTS, {})[form.dataset.calc];
         if (!data) return;
-        $$('input[data-num]', form).forEach((inp) => { if (data[inp.name] != null) inp.value = data[inp.name]; });
+        $$('input[data-num]', form).forEach((inp) => {
+            LEN.restore(inp, { sub: data[inp.name + '__in'] });
+            if (data[inp.name] != null) inp.value = data[inp.name];
+        });
+        LEN.restoreForm(form, data.__unit || 'ftin');
         $$('input[type="radio"]', form).forEach((r) => { if (data[r.name] != null) r.checked = data[r.name] === r.value; });
     }
 
@@ -1990,6 +2711,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             wall:    { wallLength: 12, wallHeight: 10, brickThickness: 5 },
             plaster: { wallLength: 12, wallHeight: 10, plasterThickness: 0.75 },
             steel:   { length: 16, width: 10, gap: 6, mm: 10 },
+            tiles:   { len_0: 12, wid_0: 10 },
         };
         const SIZE = 4;          // longest side, in scene units
         const MAX_BARS = 90;     // per direction, for clarity / performance
@@ -2007,19 +2729,57 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
 
         const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
         const fv = (n, unitKey) => `${numPlain(n)} ${t(unitKey)}`;
+        // the length exactly as the visitor typed it (their unit), else the base unit
+        const D = (v, name, unitKey) => (v._disp && v._disp[name]) || fv(v[name], unitKey);
+        function lenOf(inp) {
+            if (!inp) return { n: NaN };
+            if (inp.hasAttribute('data-len')) {
+                const r = LEN.read(inp);
+                return r.value != null ? { n: r.value, d: LEN.display(inp, r.value) } : { n: NaN };
+            }
+            return { n: parseNum(inp.value) };
+        }
         const isTouch = () => window.matchMedia('(pointer: coarse)').matches;
+
+        // tiles: every room part + tile size (falls back to a 12 × 10 ft room with 24 × 24 in tiles)
+        function readTiles(form) {
+            const parts = [];
+            let live = false;
+            $$('[data-area]', form).forEach((r) => {
+                const L = lenOf($('input[name^="len_"]', r)), W = lenOf($('input[name^="wid_"]', r));
+                if (L.n > 0 && W.n > 0) { parts.push({ L: L.n, W: W.n, dL: L.d, dW: W.d }); live = true; }
+            });
+            if (!parts.length) parts.push({ L: 12, W: 10 });
+            const get = (n) => lenOf($(`input[name="${n}"]`, form)).n;
+            const tA = lenOf($('input[name="tileA"]', form)), tB = lenOf($('input[name="tileB"]', form));
+            const tv = {
+                tileSize: ($('input[name="tileSize"]:checked', form) || {}).value || '24x24',
+                tileA: tA.n, tileB: tB.n, _disp: { tileA: tA.d, tileB: tB.d },
+            };
+            if (tv.tileSize === 'custom' && !(tv.tileA > 0 && tv.tileB > 0)) tv.tileSize = '24x24';
+            const td = tileDims(tv);
+            const w = get('wastage');
+            return {
+                v: {
+                    parts, tileA: td.a, tileB: td.b, tileLabel: td.label,
+                    skirt: get('skirt') > 0 ? get('skirt') : 0,
+                    deduct: get('deduct') > 0 ? get('deduct') : 0,
+                    wastage: w >= 0 ? w : 10,
+                },
+                live,
+            };
+        }
 
         function readValues(id) {
             const form = $(`form[data-calc="${id}"]`);
-            const v = {};
+            if (id === 'tiles') return readTiles(form);
+            const v = { _disp: {} };
             let live = false;
             Object.keys(DEF[id]).forEach((k) => {
                 // query by name: form.elements['length'] would return the element count
-                const n = parseNum($(`input[name="${k}"]`, form).value);
-                if (Number.isFinite(n) && n > 0) { v[k] = n; live = true; } else v[k] = DEF[id][k];
+                const r = lenOf($(`input[name="${k}"]`, form));
+                if (Number.isFinite(r.n) && r.n > 0) { v[k] = r.n; live = true; if (r.d) v._disp[k] = r.d; } else v[k] = DEF[id][k];
             });
-            const unit = $('input[name="heightUnit"]:checked', form);
-            v.heightUnit = unit ? unit.value : 'inches';
             return { v, live };
         }
 
@@ -2053,11 +2813,11 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 const L = (v.firstLength + v.secondLength) / 2, W = (v.firstWidth + v.secondWidth) / 2;
                 const q = roofQuad(v.firstLength, v.secondLength, v.firstWidth, v.secondWidth);
                 const chips = [
-                    [t('f.firstLength'), fv(v.firstLength, 'u.ft')],
-                    [t('f.secondLength'), fv(v.secondLength, 'u.ft')],
-                    [t('f.firstWidth'), fv(v.firstWidth, 'u.ft')],
-                    [t('f.secondWidth'), fv(v.secondWidth, 'u.ft')],
-                    [t('grp.thickness'), fv(v.height, v.heightUnit === 'feet' ? 'u.ft' : 'u.inch')],
+                    [t('f.firstLength'), D(v, 'firstLength', 'u.ft')],
+                    [t('f.secondLength'), D(v, 'secondLength', 'u.ft')],
+                    [t('f.firstWidth'), D(v, 'firstWidth', 'u.ft')],
+                    [t('f.secondWidth'), D(v, 'secondWidth', 'u.ft')],
+                    [t('grp.thickness'), D(v, 'height', 'u.inch')],
                     [t('viz.areaCalc'), `${num(L * W)} ${t('u.sqft')}`],
                 ];
                 if (q) chips.push([t('viz.areaShape'), `${num(polyArea(q))} ${t('u.sqft')}`]);
@@ -2065,35 +2825,49 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             },
             column(v) {
                 return [
-                    [t('f.colLength'), fv(v.colLength, 'u.ft')],
-                    [t('f.colWidth'), fv(v.colWidth, 'u.inch')],
-                    [t('f.colThickness'), fv(v.colThickness, 'u.inch')],
+                    [t('f.colLength'), D(v, 'colLength', 'u.ft')],
+                    [t('f.colWidth'), D(v, 'colWidth', 'u.inch')],
+                    [t('f.colThickness'), D(v, 'colThickness', 'u.inch')],
                     [t('r.workVolume'), `${num(v.colLength * v.colWidth * v.colThickness / 144)} ${t('u.cft')}`],
                 ];
             },
             wall(v) {
                 const vol = v.wallLength * v.wallHeight * (v.brickThickness / 12);
                 return [
-                    [t('f.wallLength'), fv(v.wallLength, 'u.ft')],
-                    [t('f.wallHeight'), fv(v.wallHeight, 'u.ft')],
-                    [t('f.brickThickness'), fv(v.brickThickness, 'u.inch')],
+                    [t('f.wallLength'), D(v, 'wallLength', 'u.ft')],
+                    [t('f.wallHeight'), D(v, 'wallHeight', 'u.ft')],
+                    [t('f.brickThickness'), D(v, 'brickThickness', 'u.inch')],
                     [t('viz.bricks'), `≈ ${num(Math.ceil(vol * K().bricksPerCft - 1e-9), 0)} ${t('u.pcs')}`],
                 ];
             },
             plaster(v) {
                 return [
-                    [t('f.wallLength'), fv(v.wallLength, 'u.ft')],
-                    [t('f.wallHeight'), fv(v.wallHeight, 'u.ft')],
-                    [t('f.plasterThickness'), fv(v.plasterThickness, 'u.inch')],
+                    [t('f.wallLength'), D(v, 'wallLength', 'u.ft')],
+                    [t('f.wallHeight'), D(v, 'wallHeight', 'u.ft')],
+                    [t('f.plasterThickness'), D(v, 'plasterThickness', 'u.inch')],
                     [t('r.workArea'), `${num(v.wallLength * v.wallHeight)} ${t('u.sqft')}`],
                 ];
+            },
+            tiles(v) {
+                const floor = v.parts.reduce((a, p) => a + p.L * p.W, 0);
+                const per = v.parts.reduce((a, p) => a + 2 * (p.L + p.W), 0);
+                const area = Math.max(floor - v.deduct, 0) + (v.skirt > 0 ? per * v.skirt / 12 : 0);
+                const base = Math.ceil(area / (v.tileA * v.tileB / 144) - 1e-9);
+                const total = Math.ceil(base * (1 + v.wastage / 100) - 1e-9);
+                const chips = [
+                    [t('r.floorArea'), `${num(floor)} ${t('u.sqft')}`],
+                    [t('r.tileSize'), v.tileLabel],
+                    [t('grp.tiles'), `≈ ${num(total, 0)} ${t('u.pcs')}`],
+                ];
+                if (v.parts.length > 1) chips.unshift([t('tl.areas'), v.parts.map((p) => `${p.dL || fv(p.L, 'u.ft')} × ${p.dW || fv(p.W, 'u.ft')}`).join(' + ')]);
+                return chips;
             },
             steel(v) {
                 const s = steelSteps(v);
                 return [
-                    [t('grp.length'), fv(v.length, 'u.ft')],
-                    [t('grp.width'), fv(v.width, 'u.ft')],
-                    [t('f.gap'), fv(v.gap, 'u.inch')],
+                    [t('grp.length'), D(v, 'length', 'u.ft')],
+                    [t('grp.width'), D(v, 'width', 'u.ft')],
+                    [t('f.gap'), D(v, 'gap', 'u.inch')],
                     [t('f.mm'), fv(v.mm, 'u.mm')],
                     [t('viz.bars'), `${num(s.a, 0)} + ${num(s.b, 0)} ${t('u.pcs')}`],
                 ];
@@ -2120,6 +2894,22 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 const s = 226 + (Math.random() * 29 | 0);
                 g.fillStyle = `rgb(${s},${s},${s})`;
                 g.fillRect(Math.random() * w, Math.random() * h, 1 + Math.random() * 2, 1 + Math.random() * 2);
+            }
+        });
+        const tileTex = () => canvasTex('tile', 256, 256, (g, w, h) => {
+            g.fillStyle = '#b8b1a6'; g.fillRect(0, 0, w, h);                // grout
+            const tw = w / 2, th = h / 2;
+            for (let r = 0; r < 2; r++) {
+                for (let c = 0; c < 2; c++) {
+                    const x = c * tw, y = r * th;
+                    g.fillStyle = `hsl(36, 20%, ${88 + Math.random() * 5}%)`;
+                    g.fillRect(x + 3, y + 3, tw - 6, th - 6);
+                    g.strokeStyle = 'rgba(140,128,112,.16)'; g.lineWidth = 2;     // soft marble vein
+                    g.beginPath();
+                    g.moveTo(x + 8, y + 20 + Math.random() * 60);
+                    g.bezierCurveTo(x + 45, y + Math.random() * 120, x + 85, y + Math.random() * 120, x + tw - 8, y + 30 + Math.random() * 80);
+                    g.stroke();
+                }
             }
         });
         const brickTex = () => canvasTex('brick', 256, 128, (g, w, h) => {
@@ -2233,8 +3023,8 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
 
             let bbox;
             if (id === 'roof') {
-                const T = v.heightUnit === 'feet' ? v.height : v.height / 12;
-                const unitKey = v.heightUnit === 'feet' ? 'u.ft' : 'u.inch';
+                const T = v.height / 12;                       // thickness is in inches
+                const unitKey = 'u.inch';
                 let q = roofQuad(v.firstLength, v.secondLength, v.firstWidth, v.secondWidth);
                 const exact = !!q;
                 const Lavg = (v.firstLength + v.secondLength) / 2, Wavg = (v.firstWidth + v.secondWidth) / 2;
@@ -2283,11 +3073,11 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                     const n = V(dir.z, 0, -dir.x).normalize();
                     const mid = pa.clone().lerp(pb, .5);
                     if (n.dot(V(mid.x, 0, mid.z)) < 0) n.negate();          // point away from the centre
-                    dim(pa, pb, n.multiplyScalar(.35), key ? `${t(key)} ${fv(val, 'u.ft')}` : fv(val, 'u.ft'));
+                    dim(pa, pb, n.multiplyScalar(.35), key ? `${t(key)} ${D(v, key.slice(2), 'u.ft')}` : fv(val, 'u.ft'));
                 });
                 // thickness at the front-left corner
                 const out = V(P[0].x, 0, P[0].z).normalize().multiplyScalar(.3);
-                dim(P[0].clone().setY(lift), P[0].clone().setY(lift + y), out, fv(v.height, unitKey));
+                dim(P[0].clone().setY(lift), P[0].clone().setY(lift + y), out, D(v, 'height', unitKey));
 
                 // right-angle mark on the assumed 90° corner
                 if (exact) {
@@ -2311,9 +3101,9 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 const X = Math.max(w * k, .05), Y = H * k, Z = Math.max(d * k, .05);
                 box(X, Y, Z, concrete(), 0, Y / 2, 0);
                 ground(Math.max(X, .8), Math.max(Z, .8));
-                dim(V(-X / 2, 0, Z / 2), V(-X / 2, Y, Z / 2), V(-.35, 0, 0), fv(v.colLength, 'u.ft'));
-                dim(V(-X / 2, 0, Z / 2), V(X / 2, 0, Z / 2), V(0, 0, .35), fv(v.colWidth, 'u.inch'));
-                dim(V(X / 2, 0, -Z / 2), V(X / 2, 0, Z / 2), V(.35, 0, 0), fv(v.colThickness, 'u.inch'));
+                dim(V(-X / 2, 0, Z / 2), V(-X / 2, Y, Z / 2), V(-.35, 0, 0), D(v, 'colLength', 'u.ft'));
+                dim(V(-X / 2, 0, Z / 2), V(X / 2, 0, Z / 2), V(0, 0, .35), D(v, 'colWidth', 'u.inch'));
+                dim(V(X / 2, 0, -Z / 2), V(X / 2, 0, Z / 2), V(.35, 0, 0), D(v, 'colThickness', 'u.inch'));
                 bbox = { w: X, h: Y, d: Z, cy: Y / 2 };
             }
 
@@ -2323,9 +3113,9 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 const X = L * k, Y = H * k, Z = Math.max(T * k, .04);
                 box(X, Y, Z, brickMaterials(L, H, T), 0, Y / 2, 0);
                 ground(X, Math.max(Z, .8));
-                dim(V(-X / 2, 0, Z / 2), V(X / 2, 0, Z / 2), V(0, 0, .35), fv(L, 'u.ft'));
-                dim(V(-X / 2, 0, Z / 2), V(-X / 2, Y, Z / 2), V(-.35, 0, 0), fv(H, 'u.ft'));
-                dim(V(X / 2, Y, -Z / 2), V(X / 2, Y, Z / 2), V(.3, .15, 0), fv(v.brickThickness, 'u.inch'));
+                dim(V(-X / 2, 0, Z / 2), V(X / 2, 0, Z / 2), V(0, 0, .35), D(v, 'wallLength', 'u.ft'));
+                dim(V(-X / 2, 0, Z / 2), V(-X / 2, Y, Z / 2), V(-.35, 0, 0), D(v, 'wallHeight', 'u.ft'));
+                dim(V(X / 2, Y, -Z / 2), V(X / 2, Y, Z / 2), V(.3, .15, 0), D(v, 'brickThickness', 'u.inch'));
                 bbox = { w: X, h: Y, d: Z, cy: Y / 2 };
             }
 
@@ -2340,11 +3130,46 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 const plaster = new THREE.MeshStandardMaterial({ color: C.dark ? 0xd9d2c3 : 0xf1ebdd, roughness: 1, map: concreteTex() });
                 box(cover, Y, p, plaster, -X / 2 + cover / 2, Y / 2, tw / 2 + p / 2);
                 ground(X, .9);
-                dim(V(-X / 2, 0, tw / 2 + p), V(X / 2, 0, tw / 2 + p), V(0, 0, .35), fv(L, 'u.ft'));
-                dim(V(-X / 2, 0, tw / 2 + p), V(-X / 2, Y, tw / 2 + p), V(-.35, 0, 0), fv(H, 'u.ft'));
+                dim(V(-X / 2, 0, tw / 2 + p), V(X / 2, 0, tw / 2 + p), V(0, 0, .35), D(v, 'wallLength', 'u.ft'));
+                dim(V(-X / 2, 0, tw / 2 + p), V(-X / 2, Y, tw / 2 + p), V(-.35, 0, 0), D(v, 'wallHeight', 'u.ft'));
                 dim(V(-X / 2 + cover, Y * .62, tw / 2), V(-X / 2 + cover, Y * .62, tw / 2 + p), V(.4, 0, .25),
-                    `${t('viz.plaster')} ${fv(v.plasterThickness, 'u.inch')}`);
+                    `${t('viz.plaster')} ${D(v, 'plasterThickness', 'u.inch')}`);
                 bbox = { w: X, h: Y, d: tw + p, cy: Y / 2 };
+            }
+
+            else if (id === 'tiles') {
+                const parts = v.parts;
+                const totalL = parts.reduce((a, p) => a + p.L, 0);
+                const maxW = Math.max(...parts.map((p) => p.W));
+                const k = SIZE / Math.max(totalL, maxW);
+                const T = .06, back = -maxW * k / 2, ft = 'u.ft';
+                const plain = new THREE.MeshStandardMaterial({ color: C.dark ? 0xb9b4ab : 0xd9d4ca, roughness: .6 });
+                let x0 = -totalL * k / 2;
+                parts.forEach((p, i) => {
+                    const X = p.L * k, Z = p.W * k;
+                    const top = tileTex().clone();
+                    top.userData = {};
+                    top.needsUpdate = true;
+                    // texture = 2 × 2 tiles
+                    top.repeat.set(Math.max(p.L * 12 / v.tileA / 2, .05), Math.max(p.W * 12 / v.tileB / 2, .05));
+                    const topMat = new THREE.MeshStandardMaterial({ map: top, roughness: .35, metalness: .05 });
+                    box(X, T, Z, [plain, plain, topMat, plain, plain, plain], x0 + X / 2, T / 2, back + Z / 2);
+                    const front = back + Z;
+                    dim(V(x0, T, front), V(x0 + X, T, front), V(0, 0, .35), p.dL || fv(p.L, ft));
+                    if (i === 0) dim(V(x0, T, back), V(x0, T, front), V(-.35, 0, 0), p.dW || fv(p.W, ft));
+                    else dim(V(x0 + X, T, back), V(x0 + X, T, front), V(.35, 0, 0), p.dW || fv(p.W, ft));
+                    if (v.skirt > 0) {                                   // skirting along the back (and the left wall)
+                        const hS = Math.max(v.skirt / 12 * k, .03), d = .025;
+                        box(X, hS, d, plain, x0 + X / 2, T + hS / 2, back + d / 2);
+                        if (i === 0) box(d, hS, Z, plain, x0 + d / 2, T + hS / 2, back + Z / 2);
+                    }
+                    x0 += X;
+                });
+                const lab = makeLabel(v.tileLabel, C);                   // tile size badge on the floor
+                lab.position.set(-totalL * k / 2 + .55, .32, back + parts[0].W * k - .35);
+                g.add(lab);
+                ground(totalL * k, maxW * k);
+                bbox = { w: totalL * k, h: .35, d: maxW * k, cy: .06 };
             }
 
             else if (id === 'steel') {
@@ -2379,10 +3204,10 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 g.add(barsA, barsB);
 
                 ground(X, Z);
-                dim(V(-X / 2, y0 - slabT / 2, Z / 2), V(X / 2, y0 - slabT / 2, Z / 2), V(0, 0, .35), fv(L, 'u.ft'));
-                dim(V(X / 2, y0 - slabT / 2, -Z / 2), V(X / 2, y0 - slabT / 2, Z / 2), V(.35, 0, 0), fv(W, 'u.ft'));
+                dim(V(-X / 2, y0 - slabT / 2, Z / 2), V(X / 2, y0 - slabT / 2, Z / 2), V(0, 0, .35), D(v, 'length', 'u.ft'));
+                dim(V(X / 2, y0 - slabT / 2, -Z / 2), V(X / 2, y0 - slabT / 2, Z / 2), V(.35, 0, 0), D(v, 'width', 'u.ft'));
                 if (!s.simplified && xs.length > 1) {
-                    dim(V(xs[0], y0 + slabT / 2, Z / 2), V(xs[1], y0 + slabT / 2, Z / 2), V(0, .3, 0), fv(v.gap, 'u.inch'));
+                    dim(V(xs[0], y0 + slabT / 2, Z / 2), V(xs[1], y0 + slabT / 2, Z / 2), V(0, .3, 0), D(v, 'gap', 'u.inch'));
                 }
                 bbox = { w: X, h: y0 + slabT, d: Z, cy: y0 };
             }
@@ -2512,6 +3337,20 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 this.camera.lookAt(tg);
                 this.renderer.render(this.scene, this.camera);
             }
+            // still picture of the current view (for print / PDF)
+            snapshot(w = 960, h = 600) {
+                const r = this.renderer, pr = r.getPixelRatio();
+                r.setPixelRatio(1.5);
+                r.setSize(w, h, false);
+                this.camera.aspect = w / h;
+                this.camera.updateProjectionMatrix();
+                this.render();
+                const url = r.domElement.toDataURL('image/png');
+                r.setPixelRatio(pr);
+                this.resize();
+                this.render();
+                return url;
+            }
             start() {
                 if (this.running) return;
                 this.running = true;
@@ -2596,10 +3435,15 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         }
 
         /* ---------- home page demo: cycles through the shapes ---------- */
-        const ORDER = ['roof', 'column', 'wall', 'plaster', 'steel'];
+        const ORDER = ['roof', 'column', 'wall', 'plaster', 'steel', 'tiles'];
         const demo = { el: null, viewer: null, shape: 'roof', timer: 0, touched: false, bound: false };
-        const demoValues = (id) => Object.assign({ heightUnit: 'inches' },
-            id === 'roof' ? { firstLength: 30, secondLength: 24, firstWidth: 18, secondWidth: 20, height: 5 } : DEF[id]);
+        const demoValues = (id) => {
+            if (id === 'tiles') {
+                return { parts: [{ L: 14, W: 12 }, { L: 7, W: 7 }], tileA: 24, tileB: 24, tileLabel: `24 × 24 ${t('u.inch')}`, skirt: 4, deduct: 0, wastage: 10 };
+            }
+            return Object.assign({ heightUnit: 'inches' },
+                id === 'roof' ? { firstLength: 30, secondLength: 24, firstWidth: 18, secondWidth: 20, height: 5 } : DEF[id]);
+        };
 
         function setDemo(id) {
             demo.shape = id;
@@ -2672,13 +3516,95 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         // labels are drawn on canvas — redraw once the Bangla font has loaded
         if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => refreshAll());
 
-        return { createCards, update, show, refreshAll };
+        function snapshot(id) {
+            const vw = viewers[id];
+            if (!vw) return '';
+            try { vw.rebuild(readValues(id).v); return vw.snapshot(); } catch (e) { console.warn('3D snapshot failed:', e); return ''; }
+        }
+
+        return { createCards, update, show, refreshAll, snapshot };
+    })();
+
+    /* ---------- Tiles form: room parts + custom size ---------- */
+    const TILES = (() => {
+        const form = $('form[data-calc="tiles"]');
+        const list = $('#tile-areas');
+        let nextId = 0;
+        const translate = (root) => {
+            $$('[data-i18n]', root).forEach((el) => { el.textContent = t(el.dataset.i18n); });
+            $$('[data-i18n-title]', root).forEach((el) => { el.title = t(el.dataset.i18nTitle); });
+            $$('[data-i18n-aria]', root).forEach((el) => { el.setAttribute('aria-label', t(el.dataset.i18nAria)); });
+            $$('[data-ph]', root).forEach((el) => { el.placeholder = digits(el.dataset.ph); });
+        };
+        const field = (i, name, key, ph) => `
+            <div class="field">
+                <label for="tiles-${name}_${i}" data-i18n="${key}"></label>
+                <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-${name}_${i}" name="${name}_${i}" data-num data-positive data-len="ft" data-ph="${ph}"></div>
+                <span class="field-error"></span>
+            </div>`;
+        function renumber() {
+            const rows = $$('[data-area]', list);
+            rows.forEach((r, n) => {
+                $('.area-no', r).textContent = t('tl.part', { n: n + 1 });
+                $('[data-remove-part]', r).hidden = rows.length === 1;
+            });
+        }
+        function addRow(focus) {
+            const i = nextId++;
+            const row = document.createElement('div');
+            row.className = 'area-row';
+            row.dataset.area = String(i);
+            row.innerHTML = `<span class="area-no"></span>${field(i, 'len', 'f.length', i ? '6' : '12')}${field(i, 'wid', 'f.width', i ? '5' : '10')}
+                <button type="button" class="icon-btn icon-btn-sm danger" data-remove-part data-i18n-title="tl.removePart" data-i18n-aria="tl.removePart"><i class="fa-solid fa-trash-can"></i></button>`;
+            list.appendChild(row);
+            LEN.enhance(row);
+            translate(row);
+            LEN.refresh(row);
+            renumber();
+            if (focus) $('input', row).focus();
+            return row;
+        }
+        function setRows(n) {
+            list.innerHTML = '';
+            nextId = 0;
+            for (let i = 0; i < Math.max(1, n); i++) addRow(false);
+        }
+        function syncCustom() {
+            const custom = $('input[name="tileSize"]:checked', form)?.value === 'custom';
+            $('#tile-custom').hidden = !custom;
+        }
+
+        $('#tile-add-area').addEventListener('click', () => { addRow(true); VIZ.update('tiles'); });
+        list.addEventListener('click', (e) => {
+            const b = e.target.closest('[data-remove-part]');
+            if (!b) return;
+            b.closest('[data-area]').remove();
+            renumber();
+            saveInputs(form);
+            VIZ.update('tiles');
+        });
+        form.addEventListener('change', (e) => { if (e.target.name === 'tileSize') { syncCustom(); if (e.target.value === 'custom') $('#tiles-tileA').focus(); } });
+        form.addEventListener('reset', () => setTimeout(() => { setRows(1); syncCustom(); }));
+
+        // rebuild as many rows as were saved last time
+        const saved = (S.remember && storage.get(STORE_INPUTS, {}).tiles) || {};
+        const savedIdx = Object.keys(saved).filter((k) => /^len_\d+$/.test(k)).map((k) => Number(k.slice(4))).sort((a, b) => a - b);
+        list.innerHTML = '';
+        if (savedIdx.length) {
+            savedIdx.forEach((i) => { nextId = i; addRow(false); });
+            nextId = savedIdx[savedIdx.length - 1] + 1;
+        } else {
+            addRow(false);
+        }
+
+        return { renumber, syncCustom };
     })();
 
     /* ---------- Wire up calculator forms ---------- */
     $$('form[data-calc]').forEach((form) => {
         const id = form.dataset.calc;
         restoreInputs(form);
+        if (id === 'tiles') TILES.syncCustom();
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -2710,6 +3636,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             setTimeout(() => {
                 $$('.field.invalid', form).forEach((f) => f.classList.remove('invalid'));
                 $$('.field-error', form).forEach((e) => { delete e.dataset.err; e.textContent = ''; });
+                LEN.sync();
                 delete lastValues[id];
                 resetResult(id);
                 saveInputs(form);
@@ -2726,17 +3653,239 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         form.addEventListener('change', () => { saveInputs(form); VIZ.update(id); });
     });
 
-    // Print only the active result card (layout handled by @media print CSS)
-    $$('[data-print]').forEach((btn) => btn.addEventListener('click', () => window.print()));
+    /* =========================================================
+       Print / PDF / WhatsApp — with or without the 3D picture
+       ========================================================= */
+    const SHARE = (() => {
+        const modal = $('#share-modal'), scrim = $('#share-scrim');
+        const chk = $('#share-3d');
+        const st = { id: null, img: '', pdf: {} };
+        const LIBS = [
+            'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js',
+        ];
+        let libsP = null;
+        const loadScript = (src) => new Promise((res, rej) => {
+            const s = document.createElement('script');
+            s.src = src;
+            s.onload = res;
+            s.onerror = () => rej(new Error('Could not load ' + src));
+            document.head.appendChild(s);
+        });
+        function loadLibs() {
+            if (window.html2canvas && window.jspdf) return Promise.resolve();
+            if (!libsP) libsP = Promise.all(LIBS.map(loadScript)).catch((e) => { libsP = null; throw e; });
+            return libsP;
+        }
+
+        const stamp = () => digits(new Date().toLocaleString(S.lang === 'bn' ? 'bn-BD' : 'en-GB', { dateStyle: 'medium', timeStyle: 'short' }));
+        // always plain English letters: WhatsApp and some phones garble Bangla file names
+        const fileName = () => {
+            const d = new Date();
+            const day = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+            const ascii = (x) => String(x || '').normalize('NFKD').replace(/[^A-Za-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+            const brand = ascii(SITE.brand && SITE.brand.en) || ascii(I18N.en['brand.name']) || 'Construction-Solution';
+            return `${brand}_${ascii(I18N.en['page.' + st.id]) || st.id}_${day}.pdf`;
+        };
+
+        function reportHtml(img) {
+            const id = st.id, v = lastValues[id];
+            const form = $(`form[data-calc="${id}"]`);
+            const inputs = inputsList(form, v).map(([l, val]) => `<tr><td>${escapeHtml(l)}</td><td>${escapeHtml(val)}</td></tr>`).join('');
+            const res = CALC[id].run(v).map((it) => {
+                if (it.type === 'title') return `<tr class="sub"><td colspan="2">${escapeHtml(it.text)}</td></tr>`;
+                const unit = it.unit ? `<small>${escapeHtml(it.unit)}</small>` : '';
+                return `<tr class="${it.key || it.type === 'total' ? 'key' : ''}"><td>${escapeHtml(it.label)}</td><td>${escapeHtml(it.value)}${unit}</td></tr>`;
+            }).join('');
+            return `
+                <div class="rp" lang="${S.lang}">
+                    <div class="rp-head">
+                        <div><div class="rp-brand">${escapeHtml(t('brand.name'))}</div><div class="rp-title">${escapeHtml(t('page.' + id))}</div></div>
+                        <div class="rp-date">${escapeHtml(stamp())}</div>
+                    </div>
+                    <h3>${escapeHtml(t('rp.inputs'))}</h3>
+                    <table class="rp-table rp-inputs">${inputs}</table>
+                    <h3>${escapeHtml(t('rp.results'))}</h3>
+                    <table class="rp-table">${res}</table>
+                    ${img ? `<div class="rp-3d"><h3>${escapeHtml(t('rp.3d'))}</h3><img src="${img}" alt=""></div>` : ''}
+                    <div class="rp-foot">${escapeHtml(t('rp.made', { site: t('brand.name') }))}</div>
+                </div>`;
+        }
+        const imagesReady = (root) => Promise.all($$('img', root).map((im) => (im.decode ? im.decode().catch(() => {}) : Promise.resolve())));
+
+        function buildPdf(with3d) {
+            const key = with3d ? '3d' : 'plain';
+            if (st.pdf[key]) return st.pdf[key];
+            st.pdf[key] = (async () => {
+                await loadLibs();
+                const root = $('#pdf-root');
+                root.innerHTML = reportHtml(with3d ? st.img : '');
+                root.classList.add('render');
+                try {
+                    await imagesReady(root);
+                    if (document.fonts && document.fonts.ready) await document.fonts.ready;
+                    avoidPageCuts(root.firstElementChild);
+                    const canvas = await window.html2canvas(root.firstElementChild, { scale: 2, backgroundColor: '#ffffff', logging: false });
+                    const { jsPDF } = window.jspdf;
+                    const pdf = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
+                    const pw = 210, ph = 297;
+                    const pagePx = Math.floor(canvas.width * ph / pw);
+                    for (let y = 0, page = 0; y < canvas.height; y += pagePx, page++) {
+                        const c = document.createElement('canvas');
+                        c.width = canvas.width;
+                        c.height = Math.min(pagePx, canvas.height - y);
+                        const ctx = c.getContext('2d');
+                        ctx.fillStyle = '#ffffff';
+                        ctx.fillRect(0, 0, c.width, c.height);
+                        ctx.drawImage(canvas, 0, -y);
+                        if (page) pdf.addPage();
+                        pdf.addImage(c.toDataURL('image/jpeg', .92), 'JPEG', 0, 0, pw, c.height * pw / canvas.width);
+                    }
+                    return pdf.output('blob');
+                } finally {
+                    root.classList.remove('render');
+                    root.innerHTML = '';
+                }
+            })();
+            st.pdf[key].catch(() => { delete st.pdf[key]; });
+            return st.pdf[key];
+        }
+        // push rows / the 3D picture to the next A4 page instead of cutting them in half
+        function avoidPageCuts(rp) {
+            const pageH = rp.offsetWidth * 297 / 210;
+            const top = (el) => { let y = 0; for (let n = el; n && n !== rp; n = n.offsetParent) y += n.offsetTop; return y; };
+            $$('.rp-table tr, .rp-3d, .rp h3, .rp-foot', rp).forEach((el) => {
+                const y = top(el), h = el.offsetHeight;
+                const page = Math.floor(y / pageH), end = (page + 1) * pageH;
+                if (h < pageH && y + h > end - 24) {
+                    const gap = end - y + 32;                      // land a little below the next page's top
+                    if (el.tagName === 'TR') {
+                        const sp = document.createElement('tr');
+                        sp.innerHTML = `<td colspan="2" style="height:${gap}px;padding:0;border:0"></td>`;
+                        el.parentNode.insertBefore(sp, el);
+                    } else {
+                        el.style.marginTop = (parseFloat(getComputedStyle(el).marginTop) + gap) + 'px';
+                    }
+                }
+            });
+        }
+        const want3d = () => chk.checked && !!st.img;
+
+        function updatePreview() {
+            const img = $('#share-img');
+            img.hidden = !want3d();
+            if (want3d()) img.src = st.img;
+            $('#share-no3d').hidden = want3d();
+        }
+
+        function open(id) {
+            if (!lastValues[id]) return;
+            st.id = id;
+            st.pdf = {};
+            st.img = VIZ.snapshot(id);
+            chk.disabled = !st.img;
+            if (!st.img) chk.checked = false;
+            updatePreview();
+            modal.classList.add('open');
+            scrim.classList.add('show');
+            document.body.classList.add('lock');
+            setTimeout(() => $('#share-print').focus(), 60);
+            buildPdf(want3d()).catch(() => {});          // get the PDF ready in the background
+        }
+        function close() {
+            if (!modal.classList.contains('open')) return;
+            modal.classList.remove('open');
+            scrim.classList.remove('show');
+            document.body.classList.remove('lock');
+        }
+
+        async function busy(btn, fn) {
+            btn.classList.add('loading');
+            const icon = $('i', btn), cls = icon.className;
+            icon.className = 'fa-solid fa-spinner';
+            try { await fn(); } finally { btn.classList.remove('loading'); icon.className = cls; }
+        }
+        function download(blob, name) {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = name;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            setTimeout(() => URL.revokeObjectURL(url), 4000);
+        }
+        function summaryText() {
+            const lines = [`${t('brand.name')} — ${t('page.' + st.id)}`, ''];
+            CALC[st.id].run(lastValues[st.id]).forEach((it) => {
+                if ((it.key || it.type === 'total') && it.value) lines.push(`• ${it.label.replace(/[:ঃ]\s*$/, '')}: ${it.value} ${it.unit || ''}`.trim());
+            });
+            return lines.join('\n');
+        }
+
+        async function doPrint() {
+            const pr = $('#print-root');
+            pr.innerHTML = reportHtml(want3d() ? st.img : '');
+            await imagesReady(pr);
+            root.classList.add('printing-report');
+            window.print();
+        }
+        async function doPdf() {
+            try {
+                download(await buildPdf(want3d()), fileName());
+                toast(t('sh.pdfReady'));
+            } catch (e) { console.warn(e); toast(t('sh.err')); }
+        }
+        async function doWhatsApp() {
+            const name = fileName();
+            let canFiles = false;
+            try {
+                canFiles = !!(navigator.share && navigator.canShare &&
+                    navigator.canShare({ files: [new File([new Blob(['x'], { type: 'application/pdf' })], 'x.pdf', { type: 'application/pdf' })] }));
+            } catch (e) { canFiles = false; }
+            const win = canFiles ? null : window.open('', '_blank');     // open now so the popup isn't blocked
+            try {
+                const blob = await buildPdf(want3d());
+                if (canFiles) {
+                    await navigator.share({ files: [new File([blob], name, { type: 'application/pdf' })], title: name, text: summaryText() });
+                } else {
+                    download(blob, name);
+                    const url = 'https://wa.me/?text=' + encodeURIComponent(summaryText());
+                    if (win) win.location.href = url; else window.open(url, '_blank', 'noopener');
+                    toast(t('sh.waDesk'));
+                }
+            } catch (e) {
+                if (win) win.close();
+                if (e && e.name === 'AbortError') return;
+                if (e && e.name === 'NotAllowedError') { toast(t('sh.tapAgain')); return; }
+                console.warn(e);
+                toast(t('sh.err'));
+            }
+        }
+
+        chk.addEventListener('change', () => { updatePreview(); buildPdf(want3d()).catch(() => {}); });
+        $('#share-close').addEventListener('click', close);
+        scrim.addEventListener('click', close);
+        $('#share-print').addEventListener('click', (e) => busy(e.currentTarget, doPrint));
+        $('#share-pdf').addEventListener('click', (e) => busy(e.currentTarget, doPdf));
+        $('#share-wa').addEventListener('click', (e) => busy(e.currentTarget, doWhatsApp));
+        window.addEventListener('beforeprint', () => { if ($('#print-root').innerHTML.trim()) root.classList.add('printing-report'); });
+        window.addEventListener('afterprint', () => { root.classList.remove('printing-report'); $('#print-root').innerHTML = ''; });
+        $$('[data-print]').forEach((btn) => btn.addEventListener('click', () => open(btn.closest('.result-card').id.replace('result-', ''))));
+
+        return { open, close };
+    })();
+
 
     /* =========================================================
-       About: client inquiry  |  Contact: review
+       Review page
        ========================================================= */
-    // inquiry → opens WhatsApp or Gmail with the message already written (and saves it for the admin)
+    // inquiry → opens the developer's WhatsApp or Gmail with the message written, and saves it for the admin
     $('#inquiry-form').addEventListener('submit', (e) => {
         e.preventDefault();
         const form = e.target;
-        const via = (e.submitter && e.submitter.value) || 'whatsapp';
+        const dev = SITE.developer || {};
+        const via = (e.submitter && e.submitter.value) || (waNumber(dev.whatsapp) ? 'whatsapp' : 'gmail');
         const d = Object.fromEntries(new FormData(form));
         const body = [
             t('inq.msgTitle', { site: t('brand.name') }),
@@ -2748,7 +3897,9 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             `${t('f.req')}:`,
             d.message,
         ].join('\n');
-        const url = via === 'gmail' ? gmailLink(t('inq.subject', { name: d.name }), body) : waLink(body);
+        const url = via === 'gmail'
+            ? gmailLink(t('inq.subject', { name: d.name }), body, dev.email)
+            : waLink(body, dev.whatsapp);
         if (url) window.open(url, '_blank', 'noopener');
         if (FB.ready) {
             FB.db.collection('inquiries').add({
