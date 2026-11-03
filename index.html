@@ -6,21 +6,26 @@
     <meta name="description" content="Construction Solution — ছাদ ঢালাই, কলাম, দেওয়াল গাঁথুনি, প্লাস্টার ও রডের হিসাব। Roof casting, column, brick wall, plaster and steel estimates.">
     <meta name="theme-color" content="#eef2f5">
     <title>Construction Solution</title>
-    <link rel="icon" href="LOGO%201.png">
+    <link rel="icon" id="favicon" href="data:,">
 
-    <!-- Apply saved settings before first paint (prevents a light/dark flash) -->
+    <!-- Apply settings before first paint (admin site defaults + visitor choices) -->
     <script>
         (function () {
-            var d = document.documentElement, s = {};
-            try { s = JSON.parse(localStorage.getItem('cc.settings') || '{}') || {}; } catch (e) {}
-            var theme = s.theme || 'system';
+            var d = document.documentElement, user = {}, site = {};
+            try { user = JSON.parse(localStorage.getItem('cc.settings') || '{}') || {}; } catch (e) {}
+            try { site = JSON.parse(localStorage.getItem('cc.site') || '{}') || {}; } catch (e) {}
+            var def = site.defaults || {};
+            if (site.allowUserSettings === false) user = {};
+            function get(k, f) { return user[k] != null ? user[k] : (def[k] != null ? def[k] : f); }
+            var theme = get('theme', 'system');
             if (theme === 'system') theme = (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
             d.setAttribute('data-theme', theme);
-            d.setAttribute('data-accent', s.accent || 'teal');
-            d.setAttribute('data-fs', s.fontSize || 'm');
-            d.setAttribute('lang', s.lang || 'bn');
-            if (s.compact) d.setAttribute('data-sidebar', 'compact');
-            if (s.motion) d.setAttribute('data-motion', 'reduce');
+            d.setAttribute('data-accent', get('accent', 'teal'));
+            d.setAttribute('data-fs', get('fontSize', 'm'));
+            d.setAttribute('lang', get('lang', 'bn'));
+            if (get('compact', false)) d.setAttribute('data-sidebar', 'compact');
+            if (get('motion', false)) d.setAttribute('data-motion', 'reduce');
+            if (site.favicon) document.getElementById('favicon').href = site.favicon;
         })();
     </script>
 
@@ -144,6 +149,8 @@
         :focus-visible { outline: 3px solid rgba(var(--brand-rgb), .55); outline-offset: 2px; }
         .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
         body.lock { overflow: hidden; }
+        [hidden] { display: none !important; }
+        body[data-page="admin"] .wa-float { display: none !important; }
         ::selection { background: rgba(var(--brand-rgb), .25); }
 
         /* Glass surface */
@@ -668,6 +675,164 @@
         .toast.show { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
         .toast i { color: var(--brand); }
 
+        /* Tool cards: real Start button, whole card clickable */
+        .tool-card { position: relative; }
+        .tool-btn { width: 100%; margin-top: .25rem; justify-content: space-between; }
+        .tool-btn::after { content: ""; position: absolute; inset: 0; border-radius: var(--radius); }
+        .tool-btn i { transition: transform .2s; }
+        .tool-card:hover .tool-btn { background: var(--brand-grad); color: var(--on-brand); border-color: transparent; box-shadow: var(--brand-shadow); }
+        .tool-card:hover .tool-btn i { transform: translateX(4px); }
+        .tool-card.soon .tool-btn { background: var(--field); border-color: var(--line-2); color: var(--muted); }
+
+        /* Home: 3D showcase */
+        .showcase {
+            display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: 1.5rem; align-items: center;
+            padding: 1.75rem; border-radius: 1.75rem;
+            background: linear-gradient(135deg, rgba(var(--brand-rgb), .14), rgba(var(--brand-rgb), .03)), var(--glass);
+            -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
+            border: 1px solid var(--glass-border); box-shadow: var(--shadow-lg);
+        }
+        .showcase-text { padding: .5rem 1rem; }
+        .showcase-text h2 { font-size: clamp(1.5rem, 2.8vw, 2.1rem); margin: .75rem 0 .5rem; line-height: 1.25; letter-spacing: -.01em; }
+        .showcase-text > p { color: var(--ink-2); margin: 0 0 1rem; }
+        .sc-list { list-style: none; padding: 0; margin: 0 0 1.5rem; display: grid; gap: .625rem; }
+        .sc-list li { display: flex; gap: .75rem; align-items: center; font-size: .9375rem; }
+        .sc-list i { width: 2rem; height: 2rem; flex: none; border-radius: .625rem; display: grid; place-items: center; background: var(--brand-50); color: var(--brand-ink); font-size: .85rem; }
+        .showcase-demo { border-radius: 1.375rem; overflow: hidden; background: var(--glass-strong); border: 1px solid var(--glass-border); box-shadow: var(--shadow); }
+        .showcase-demo .viz-stage { height: 21rem; }
+        .demo-tabs { display: flex; gap: .375rem; padding: .625rem; border-top: 1px solid var(--line); overflow-x: auto; scrollbar-width: none; }
+        .demo-tabs::-webkit-scrollbar { display: none; }
+        .demo-tabs button { flex: 1 0 auto; display: inline-flex; align-items: center; justify-content: center; gap: .4rem; padding: .5rem .75rem; border-radius: .625rem; border: 1px solid transparent; background: transparent; color: var(--muted); font-size: .8125rem; font-weight: 500; cursor: pointer; white-space: nowrap; transition: background .15s, color .15s; }
+        .demo-tabs button:hover { color: var(--ink); background: var(--field); }
+        .demo-tabs button[aria-selected="true"] { background: var(--brand-grad); color: var(--on-brand); box-shadow: var(--brand-shadow); }
+        @media (max-width: 960px) {
+            .showcase { grid-template-columns: 1fr; padding: 1rem; }
+            .showcase-text { padding: .5rem; }
+            .showcase-demo .viz-stage { height: 17rem; }
+        }
+
+        /* features: 4 tiles, 3D one highlighted */
+        .features { grid-template-columns: repeat(auto-fit, minmax(13.5rem, 1fr)); }
+        .feature-hl { position: relative; background: linear-gradient(135deg, rgba(var(--brand-rgb), .2), rgba(var(--brand-rgb), .06)), var(--glass); border-color: var(--brand-100); transition: transform .25s, box-shadow .25s; }
+        .feature-hl:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .feature-hl .menu-icon { background: var(--brand-grad); color: var(--on-brand); box-shadow: var(--brand-shadow); }
+        .feature-hl .badge { position: absolute; top: 1rem; right: 1rem; }
+
+        /* Settings: site icon */
+        .icon-setting { display: flex; gap: 1rem; align-items: center; padding: .875rem; border-radius: var(--radius-sm); background: var(--field); border: 1px solid var(--line); }
+        .icon-preview { width: 3.75rem; height: 3.75rem; flex: none; border-radius: .875rem; display: grid; place-items: center; background: repeating-conic-gradient(var(--line) 0 25%, transparent 0 50%) 50% / 12px 12px; border: 1px solid var(--line-2); }
+        .icon-preview img { width: 2.25rem; height: 2.25rem; object-fit: contain; }
+        .icon-meta { min-width: 0; }
+        .icon-meta strong { display: block; font-size: .9375rem; font-weight: 600; }
+        .icon-meta small { display: block; color: var(--muted); font-size: .8rem; }
+        .icon-actions { display: flex; gap: .5rem; margin-top: .625rem; flex-wrap: wrap; }
+        .icon-actions .btn { min-height: 2.25rem; padding: .375rem .75rem; font-size: .8125rem; }
+
+        /* ===== WhatsApp / Gmail contact ===== */
+        :root { --wa: #25d366; --wa-600: #1ebe5b; --gm: #ea4335; }
+        .btn-wa { background: linear-gradient(135deg, var(--wa), var(--wa-600)); color: #fff; box-shadow: 0 10px 24px rgba(37, 211, 102, .3); }
+        .btn-wa:hover { filter: brightness(1.05); transform: translateY(-1px); }
+        .send-actions { flex-wrap: wrap; }
+        .send-actions .btn { flex: 1 1 12rem; }
+        .menu-icon.wa, .contact-card.wa .menu-icon { background: rgba(37, 211, 102, .14); color: #16a34a; }
+        .menu-icon.gm, .contact-card.gm .menu-icon { background: rgba(234, 67, 53, .12); color: var(--gm); }
+        [data-theme="dark"] .menu-icon.wa, [data-theme="dark"] .contact-card.wa .menu-icon { color: #4ade80; }
+        .contact-cards { grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
+        .contact-card em { display: block; font-style: normal; font-size: .8rem; color: var(--muted); word-break: break-word; }
+        .contact-card.wa:hover { border-color: rgba(37, 211, 102, .45); }
+        .contact-card.gm:hover { border-color: rgba(234, 67, 53, .35); }
+        .wa-float {
+            position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 45;
+            width: 3.5rem; height: 3.5rem; border-radius: 50%;
+            display: grid; place-items: center; color: #fff; font-size: 1.75rem;
+            background: linear-gradient(135deg, var(--wa), var(--wa-600));
+            box-shadow: 0 12px 28px rgba(37, 211, 102, .4);
+            transition: transform .2s, box-shadow .2s;
+        }
+        .wa-float:hover { transform: translateY(-3px) scale(1.04); box-shadow: 0 16px 34px rgba(37, 211, 102, .5); }
+        .wa-float::after { content: ""; position: absolute; inset: 0; border-radius: 50%; box-shadow: 0 0 0 0 rgba(37, 211, 102, .5); animation: waPulse 2.4s infinite; }
+        @keyframes waPulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, .45); } 70% { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+        @media (max-width: 560px) { .wa-float { right: 1rem; bottom: 1rem; width: 3.25rem; height: 3.25rem; font-size: 1.6rem; } }
+        .socials a[hidden], [data-feature][hidden], .contact-card[hidden] { display: none !important; }
+
+        /* ===== Announcement bar ===== */
+        .announce {
+            display: flex; align-items: center; gap: .75rem; margin-top: var(--gap);
+            padding: .625rem .75rem .625rem 1.125rem; border-radius: var(--radius);
+            background: linear-gradient(135deg, rgba(var(--brand-rgb), .18), rgba(var(--brand-rgb), .06)), var(--glass-strong);
+            -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
+            border: 1px solid var(--brand-100); color: var(--ink); font-size: .9rem; font-weight: 500;
+        }
+        .announce[hidden] { display: none; }
+        .announce > i { color: var(--brand-ink); }
+        .announce > span { flex: 1; }
+
+        /* ===== Login modal ===== */
+        .modal {
+            position: fixed; left: 50%; top: 50%; z-index: 90;
+            width: min(25rem, calc(100% - 2rem)); max-height: calc(100vh - 2rem); overflow-y: auto;
+            transform: translate(-50%, -46%) scale(.98); opacity: 0; visibility: hidden;
+            border-radius: 1.5rem; background: var(--glass-strong);
+            -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
+            border: 1px solid var(--glass-border); box-shadow: var(--shadow-lg);
+            transition: transform .25s, opacity .25s, visibility .25s;
+        }
+        .modal.open { transform: translate(-50%, -50%); opacity: 1; visibility: visible; }
+        .modal-head { display: flex; align-items: flex-start; gap: .875rem; padding: 1.5rem 1.5rem 0; }
+        .modal-head > div { flex: 1; }
+        .modal-head h2 { margin: 0; font-size: 1.25rem; }
+        .modal-head p { margin: .25rem 0 0; color: var(--muted); font-size: .875rem; }
+        .modal-icon { width: 2.75rem; height: 2.75rem; flex: none; border-radius: .875rem; display: grid; place-items: center; background: var(--brand-grad); color: var(--on-brand); box-shadow: var(--brand-shadow); }
+        .modal-body { padding: 1.25rem 1.5rem 1.5rem; display: grid; gap: 1rem; }
+        .modal-body .hint { margin: 0; }
+        .pass-wrap { position: relative; }
+        .pass-wrap .control { padding-right: 3rem; }
+        .pass-toggle { position: absolute; right: .375rem; top: 50%; transform: translateY(-50%); width: 2.25rem; height: 2.25rem; border: 0; border-radius: .5rem; background: transparent; color: var(--muted); cursor: pointer; }
+        .pass-toggle:hover { color: var(--brand-ink); background: var(--brand-50); }
+        .form-error { margin: 0; min-height: 1.2em; color: var(--err); font-size: .85rem; }
+        .form-error:empty { display: none; }
+        .link-btn { background: none; border: 0; padding: .25rem; color: var(--brand-ink); font-weight: 500; font-size: .875rem; cursor: pointer; justify-self: center; }
+        .link-btn:hover { text-decoration: underline; }
+        #login-scrim { z-index: 85; }
+
+        /* ===== Admin dashboard ===== */
+        .muted { color: var(--muted); }
+        .admin-bar { display: flex; align-items: center; justify-content: space-between; gap: .75rem; padding: .5rem; margin-bottom: var(--gap); flex-wrap: wrap; }
+        .admin-tabs { display: flex; gap: .25rem; overflow-x: auto; scrollbar-width: none; min-width: 0; flex: 1 1 auto; }
+        .admin-tabs::-webkit-scrollbar { display: none; }
+        .admin-tabs button { display: inline-flex; align-items: center; gap: .5rem; padding: .625rem .9rem; border: 0; border-radius: .75rem; background: transparent; color: var(--muted); font-size: .875rem; font-weight: 500; cursor: pointer; white-space: nowrap; transition: background .15s, color .15s; }
+        .admin-tabs button:hover { background: var(--field); color: var(--ink); }
+        .admin-tabs button[aria-selected="true"] { background: var(--brand-grad); color: var(--on-brand); box-shadow: var(--brand-shadow); }
+        .tab-count { min-width: 1.25rem; height: 1.25rem; padding: 0 .35rem; border-radius: 999px; background: var(--err); color: #fff; font-size: .7rem; display: inline-grid; place-items: center; }
+        .admin-user { display: flex; align-items: center; gap: .625rem; padding-right: .25rem; }
+        .admin-who { display: inline-flex; align-items: center; gap: .4rem; color: var(--muted); font-size: .8125rem; max-width: 16rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .admin-who i { color: var(--brand-ink); }
+        .admin-panel[hidden] { display: none; }
+        .admin-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); margin-bottom: var(--gap); }
+        .admin-stats strong { font-size: 1.5rem !important; }
+        @media (max-width: 1100px) { .admin-stats { grid-template-columns: 1fr 1fr; } }
+        .admin-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1rem 1.5rem; }
+        .admin-grid .set-block + .set-block { margin-top: 0; }
+        .admin-switches, .toggle-grid { margin-top: 1rem; }
+        .toggle-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); column-gap: 1.5rem; }
+        .toggle-grid .set-row + .set-row { border-top: 0; }
+        .toggle-grid .set-row { border-bottom: 1px solid var(--line); }
+        .admin-panel .set-help { margin-top: .5rem; }
+        .card-head small { font-size: .78rem; }
+
+        .msg-list { display: grid; gap: .625rem; }
+        .msg { padding: .875rem 1rem; border-radius: var(--radius-sm); background: var(--field); border: 1px solid var(--line); }
+        .msg-top { display: flex; justify-content: space-between; gap: .75rem; align-items: baseline; flex-wrap: wrap; }
+        .msg-top strong { font-size: .95rem; }
+        .msg-top time { color: var(--muted); font-size: .75rem; }
+        .msg-meta { color: var(--muted); font-size: .8rem; margin-top: .125rem; word-break: break-word; }
+        .msg-body { margin: .5rem 0 0; font-size: .9rem; white-space: pre-wrap; word-break: break-word; }
+        .msg-stars { color: #f5b301; font-size: .8rem; letter-spacing: .1em; }
+        .msg-kind { font-size: .7rem; font-weight: 600; padding: .1rem .5rem; border-radius: 999px; background: var(--brand-50); color: var(--brand-ink); margin-left: .375rem; }
+        .msg-actions { display: flex; gap: .375rem; margin-top: .625rem; flex-wrap: wrap; }
+        .msg-actions .btn { min-height: 2rem; padding: .3rem .7rem; font-size: .78rem; border-radius: .625rem; }
+        .msg-empty { color: var(--muted); text-align: center; padding: 1.5rem .5rem; font-size: .9rem; }
+
         /* Browsers without backdrop-filter: make glass more opaque */
         @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
             :root, [data-theme="light"] { --glass: rgba(255, 255, 255, .92); --glass-strong: rgba(255, 255, 255, .97); }
@@ -689,7 +854,7 @@
             :root { --glass: #fff; --glass-strong: #fff; --field: #f6f7f8; --ink: #111; --ink-2: #222; --muted: #555; --line: #ddd; --line-2: #ccc; --brand-ink: var(--brand-700); }
             body { background: #fff; color: #111; }
             body::before { display: none; }
-            .sidebar, .side-scrim, .topbar, .site-footer, .page-hero, .form-card, .viz-card, .no-print, .toast, .drawer, .scrim { display: none !important; }
+            .sidebar, .side-scrim, .topbar, .site-footer, .page-hero, .form-card, .viz-card, .wa-float, .announce, .modal, .no-print, .toast, .drawer, .scrim { display: none !important; }
             .main { margin: 0 !important; padding: 0 !important; }
             .page.active { animation: none; }
             .container { max-width: none; padding: 0; }
@@ -758,6 +923,8 @@
     </nav>
 
     <div class="side-foot">
+        <a class="side-link" href="#admin" data-link="admin" id="admin-link" hidden><i class="fa-solid fa-gauge-high"></i><span class="side-label" data-i18n="page.admin"></span></a>
+        <button class="side-link" type="button" id="admin-login-btn"><i class="fa-solid fa-user-shield"></i><span class="side-label" data-i18n="admin.login"></span></button>
         <button class="side-link" type="button" data-open-settings><i class="fa-solid fa-gear"></i><span class="side-label" data-i18n="set.title"></span></button>
     </div>
 </aside>
@@ -777,6 +944,12 @@
             <button class="icon-btn" type="button" data-open-settings data-i18n-title="set.title" data-i18n-aria="set.title"><i class="fa-solid fa-gear"></i></button>
         </div>
     </header>
+
+    <div class="announce" id="announce" hidden>
+        <i class="fa-solid fa-bullhorn"></i>
+        <span id="announce-text"></span>
+        <button type="button" class="icon-btn icon-btn-sm" id="announce-close" data-i18n-aria="ann.close" data-i18n-title="ann.close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
 
     <main id="main">
 
@@ -799,10 +972,10 @@
                 </div>
 
                 <div class="hero-actions">
-                    <a href="#roof" class="chip-link"><i class="fa-solid fa-layer-group"></i> <span data-i18n="home.cta.roof"></span></a>
-                    <a href="#column" class="chip-link"><i class="fa-solid fa-building-columns"></i> <span data-i18n="home.cta.column"></span></a>
-                    <a href="#wall" class="chip-link"><i class="fa-solid fa-trowel-bricks"></i> <span data-i18n="home.cta.wall"></span></a>
-                    <a href="#plaster" class="chip-link"><i class="fa-solid fa-paint-roller"></i> <span data-i18n="home.cta.plaster"></span></a>
+                    <a href="#roof" class="chip-link" data-feature="roof"><i class="fa-solid fa-layer-group"></i> <span data-i18n="home.cta.roof"></span></a>
+                    <a href="#column" class="chip-link" data-feature="column"><i class="fa-solid fa-building-columns"></i> <span data-i18n="home.cta.column"></span></a>
+                    <a href="#wall" class="chip-link" data-feature="wall"><i class="fa-solid fa-trowel-bricks"></i> <span data-i18n="home.cta.wall"></span></a>
+                    <a href="#plaster" class="chip-link" data-feature="plaster"><i class="fa-solid fa-paint-roller"></i> <span data-i18n="home.cta.plaster"></span></a>
                 </div>
             </div>
             </div>
@@ -819,48 +992,77 @@
 
         <section class="section">
             <div class="container">
+                <div class="showcase">
+                    <div class="showcase-text">
+                        <span class="kicker"><i class="fa-solid fa-cube"></i> <span data-i18n="sc.kicker"></span></span>
+                        <h2 data-i18n="sc.title"></h2>
+                        <p data-i18n="sc.sub"></p>
+                        <ul class="sc-list">
+                            <li><i class="fa-solid fa-bolt"></i><span data-i18n="sc.p1"></span></li>
+                            <li><i class="fa-solid fa-ruler-combined"></i><span data-i18n="sc.p2"></span></li>
+                            <li><i class="fa-solid fa-draw-polygon"></i><span data-i18n="sc.p3"></span></li>
+                            <li><i class="fa-solid fa-hand-pointer"></i><span data-i18n="sc.p4"></span></li>
+                        </ul>
+                        <a href="#roof" class="btn btn-primary"><i class="fa-solid fa-cube"></i> <span data-i18n="sc.cta"></span></a>
+                    </div>
+                    <div class="showcase-demo" id="viz-demo">
+                        <div class="viz-stage"><span class="viz-badge live"><i class="dot"></i><span id="demo-label"></span></span></div>
+                        <div class="demo-tabs" role="tablist">
+                            <button type="button" role="tab" data-demo="roof"><i class="fa-solid fa-layer-group"></i><span data-i18n="page.roof"></span></button>
+                            <button type="button" role="tab" data-demo="column"><i class="fa-solid fa-building-columns"></i><span data-i18n="page.column"></span></button>
+                            <button type="button" role="tab" data-demo="wall"><i class="fa-solid fa-trowel-bricks"></i><span data-i18n="page.wall"></span></button>
+                            <button type="button" role="tab" data-demo="plaster"><i class="fa-solid fa-paint-roller"></i><span data-i18n="page.plaster"></span></button>
+                            <button type="button" role="tab" data-demo="steel"><i class="fa-solid fa-grip-lines"></i><span data-i18n="page.steel"></span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
                 <div class="section-head">
                     <span class="kicker" data-i18n="nav.calculators"></span>
                     <h2 data-i18n="tools.title"></h2>
                     <p data-i18n="tools.sub"></p>
                 </div>
                 <div class="card-grid">
-                    <a href="#roof" class="tool-card">
+                    <div class="tool-card" data-feature="roof">
                         <span class="menu-icon"><i class="fa-solid fa-layer-group"></i></span>
                         <h3 data-i18n="page.roof"></h3>
                         <p data-i18n="desc.roof"></p>
-                        <span class="go"><span data-i18n="common.start"></span> <i class="fa-solid fa-arrow-right"></i></span>
-                    </a>
-                    <a href="#column" class="tool-card">
+                        <a href="#roof" class="btn btn-soft btn-sm tool-btn"><span data-i18n="common.start"></span> <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <div class="tool-card" data-feature="column">
                         <span class="menu-icon"><i class="fa-solid fa-building-columns"></i></span>
                         <h3 data-i18n="page.column"></h3>
                         <p data-i18n="desc.column"></p>
-                        <span class="go"><span data-i18n="common.start"></span> <i class="fa-solid fa-arrow-right"></i></span>
-                    </a>
-                    <a href="#wall" class="tool-card">
+                        <a href="#column" class="btn btn-soft btn-sm tool-btn"><span data-i18n="common.start"></span> <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <div class="tool-card" data-feature="wall">
                         <span class="menu-icon"><i class="fa-solid fa-trowel-bricks"></i></span>
                         <h3 data-i18n="page.wall"></h3>
                         <p data-i18n="desc.wall"></p>
-                        <span class="go"><span data-i18n="common.start"></span> <i class="fa-solid fa-arrow-right"></i></span>
-                    </a>
-                    <a href="#plaster" class="tool-card">
+                        <a href="#wall" class="btn btn-soft btn-sm tool-btn"><span data-i18n="common.start"></span> <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <div class="tool-card" data-feature="plaster">
                         <span class="menu-icon"><i class="fa-solid fa-paint-roller"></i></span>
                         <h3 data-i18n="page.plaster"></h3>
                         <p data-i18n="desc.plaster"></p>
-                        <span class="go"><span data-i18n="common.start"></span> <i class="fa-solid fa-arrow-right"></i></span>
-                    </a>
-                    <a href="#steel" class="tool-card">
+                        <a href="#plaster" class="btn btn-soft btn-sm tool-btn"><span data-i18n="common.start"></span> <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <div class="tool-card" data-feature="steel">
                         <span class="menu-icon"><i class="fa-solid fa-grip-lines"></i></span>
                         <h3 data-i18n="page.steel"></h3>
                         <p data-i18n="desc.steel"></p>
-                        <span class="go"><span data-i18n="common.start"></span> <i class="fa-solid fa-arrow-right"></i></span>
-                    </a>
-                    <a href="#tiles" class="tool-card soon">
+                        <a href="#steel" class="btn btn-soft btn-sm tool-btn"><span data-i18n="common.start"></span> <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <div class="tool-card soon" data-feature="tiles">
                         <span class="menu-icon"><i class="fa-solid fa-table-cells-large"></i></span>
                         <h3><span data-i18n="page.tiles"></span> <span class="badge" data-i18n="badge.soon"></span></h3>
                         <p data-i18n="desc.tiles"></p>
-                        <span class="go"><span data-i18n="common.view"></span> <i class="fa-solid fa-arrow-right"></i></span>
-                    </a>
+                        <a href="#tiles" class="btn btn-soft btn-sm tool-btn"><span data-i18n="common.view"></span> <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -887,6 +1089,12 @@
                         <h3 data-i18n="feat3.t"></h3>
                         <p data-i18n="feat3.d"></p>
                     </div>
+                    <a href="#roof" class="feature feature-hl">
+                        <span class="badge" data-i18n="sc.kicker"></span>
+                        <span class="menu-icon"><i class="fa-solid fa-cube"></i></span>
+                        <h3 data-i18n="feat4.t"></h3>
+                        <p data-i18n="feat4.d"></p>
+                    </a>
                 </div>
             </div>
         </section>
@@ -1375,8 +1583,9 @@
                         <p class="role" data-i18n="dev.role"></p>
                         <p class="about-text" data-i18n="dev.services"></p>
                         <ul class="info-list">
-                            <li><span class="menu-icon"><i class="fa-solid fa-envelope"></i></span><span><small data-i18n="lbl.email"></small><a href="mailto:uddinmdnaim10@gmail.com">uddinmdnaim10@gmail.com</a></span></li>
-                            <li><span class="menu-icon"><i class="fa-solid fa-phone"></i></span><span><small data-i18n="lbl.mobile"></small><a href="tel:+8801833515057">01833515057</a></span></li>
+                            <li><span class="menu-icon wa"><i class="fa-brands fa-whatsapp"></i></span><span><small data-i18n="lbl.whatsapp"></small><a data-contact="whatsapp" target="_blank" rel="noopener"><span data-contact-text="whatsapp"></span></a></span></li>
+                            <li><span class="menu-icon gm"><i class="fa-solid fa-envelope"></i></span><span><small data-i18n="lbl.gmail"></small><a data-contact="gmail" target="_blank" rel="noopener"><span data-contact-text="email"></span></a></span></li>
+                            <li><span class="menu-icon"><i class="fa-solid fa-phone"></i></span><span><small data-i18n="lbl.mobile"></small><a data-contact="tel"><span data-contact-text="phone"></span></a></span></li>
                             <li><span class="menu-icon"><i class="fa-solid fa-graduation-cap"></i></span><span><small data-i18n="lbl.education"></small><span class="v" data-i18n="edu.value"></span></span></li>
                         </ul>
                     </div>
@@ -1403,9 +1612,11 @@
                                 <textarea class="control" id="inq-message" name="message" rows="4" required></textarea>
                             </div>
                         </div>
-                        <div class="form-actions">
-                            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> <span data-i18n="inq.submit"></span></button>
+                        <div class="form-actions send-actions">
+                            <button type="submit" value="whatsapp" class="btn btn-wa"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="inq.viaWa"></span></button>
+                            <button type="submit" value="gmail" class="btn btn-ghost"><i class="fa-solid fa-envelope"></i> <span data-i18n="inq.viaGm"></span></button>
                         </div>
+                        <p class="hint"><i class="fa-solid fa-circle-info"></i><span data-i18n="inq.note"></span></p>
                     </div>
                 </form>
             </div>
@@ -1423,15 +1634,19 @@
         </div>
         <div class="container page-body">
             <div class="contact-cards">
-                <a class="card contact-card" href="mailto:uddinmdnaim10@gmail.com">
+                <a class="card contact-card wa" data-contact="whatsapp" target="_blank" rel="noopener">
+                    <span class="menu-icon"><i class="fa-brands fa-whatsapp"></i></span>
+                    <span><small data-i18n="lbl.whatsapp"></small><strong data-i18n="wa.chat"></strong><em data-contact-text="whatsapp"></em></span>
+                </a>
+                <a class="card contact-card gm" data-contact="gmail" target="_blank" rel="noopener">
                     <span class="menu-icon"><i class="fa-solid fa-envelope"></i></span>
-                    <span><small data-i18n="lbl.email"></small><strong>uddinmdnaim10@gmail.com</strong></span>
+                    <span><small data-i18n="lbl.gmail"></small><strong data-i18n="gm.write"></strong><em data-contact-text="email"></em></span>
                 </a>
-                <a class="card contact-card" href="tel:+8801833515057">
+                <a class="card contact-card" data-contact="tel">
                     <span class="menu-icon"><i class="fa-solid fa-phone"></i></span>
-                    <span><small data-i18n="lbl.mobile"></small><strong>01833515057</strong></span>
+                    <span><small data-i18n="lbl.mobile"></small><strong data-i18n="call.now"></strong><em data-contact-text="phone"></em></span>
                 </a>
-                <a class="card contact-card" href="https://www.facebook.com/profile.php?id=100082555653933" target="_blank" rel="noopener">
+                <a class="card contact-card" data-social="facebook" target="_blank" rel="noopener">
                     <span class="menu-icon"><i class="fa-brands fa-facebook-f"></i></span>
                     <span><small data-i18n="lbl.facebook"></small><strong data-i18n="fb.msg"></strong></span>
                 </a>
@@ -1477,16 +1692,253 @@
         </div>
     </section>
 
+    <!-- ================= ADMIN DASHBOARD ================= -->
+    <section class="page" id="page-admin">
+        <div class="page-hero">
+            <div class="container">
+                <div class="ph-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                <div><h1 data-i18n="page.admin"></h1>
+                <p><span data-i18n="admin.sub"></span></p></div>
+            </div>
+        </div>
+        <div class="container page-body">
+            <div class="admin-bar card">
+                <div class="admin-tabs" role="tablist">
+                    <button type="button" role="tab" data-tab="overview" aria-selected="true"><i class="fa-solid fa-chart-pie"></i><span data-i18n="tab.overview"></span></button>
+                    <button type="button" role="tab" data-tab="site"><i class="fa-solid fa-palette"></i><span data-i18n="tab.site"></span></button>
+                    <button type="button" role="tab" data-tab="contact"><i class="fa-solid fa-address-book"></i><span data-i18n="tab.contact"></span></button>
+                    <button type="button" role="tab" data-tab="calc"><i class="fa-solid fa-calculator"></i><span data-i18n="tab.calc"></span></button>
+                    <button type="button" role="tab" data-tab="messages"><i class="fa-solid fa-inbox"></i><span data-i18n="tab.messages"></span><b class="tab-count" id="msg-count" hidden></b></button>
+                </div>
+                <div class="admin-user">
+                    <span class="admin-who"><i class="fa-solid fa-user-shield"></i><span id="admin-email"></span></span>
+                    <button type="button" class="btn btn-ghost btn-sm" id="admin-logout"><i class="fa-solid fa-right-from-bracket"></i> <span data-i18n="admin.logout"></span></button>
+                </div>
+            </div>
+
+            <!-- Overview -->
+            <div class="admin-panel" data-panel="overview">
+                <div class="admin-stats">
+                    <div class="stat"><span class="menu-icon"><i class="fa-solid fa-briefcase"></i></span><span><strong id="st-inq">–</strong><small data-i18n="ov.inquiries"></small></span></div>
+                    <div class="stat"><span class="menu-icon"><i class="fa-solid fa-star"></i></span><span><strong id="st-rev">–</strong><small data-i18n="ov.reviews"></small></span></div>
+                    <div class="stat"><span class="menu-icon"><i class="fa-solid fa-star-half-stroke"></i></span><span><strong id="st-rating">–</strong><small data-i18n="ov.rating"></small></span></div>
+                    <div class="stat"><span class="menu-icon"><i class="fa-solid fa-calculator"></i></span><span><strong id="st-calc">–</strong><small data-i18n="ov.calcs"></small></span></div>
+                </div>
+                <div class="card">
+                    <div class="card-head"><h2><i class="fa-solid fa-clock-rotate-left"></i> <span data-i18n="ov.recent"></span></h2><small class="muted" id="last-saved"></small></div>
+                    <div class="card-body"><div class="msg-list" id="recent-list"></div></div>
+                </div>
+            </div>
+
+            <!-- Site & appearance -->
+            <form class="admin-panel card" data-panel="site" id="af-site" hidden novalidate>
+                <div class="card-head"><h2><i class="fa-solid fa-palette"></i> <span data-i18n="tab.site"></span></h2></div>
+                <div class="card-body">
+                    <div class="fieldset">
+                        <p class="group-title" data-i18n="as.brand"></p>
+                        <div class="form-grid">
+                            <div class="field"><label for="a-nameBn" data-i18n="as.nameBn"></label><input class="control" id="a-nameBn" name="nameBn" maxlength="60"></div>
+                            <div class="field"><label for="a-nameEn" data-i18n="as.nameEn"></label><input class="control" id="a-nameEn" name="nameEn" maxlength="60"></div>
+                            <div class="field"><label for="a-tagBn" data-i18n="as.tagBn"></label><input class="control" id="a-tagBn" name="tagBn" maxlength="80"></div>
+                            <div class="field"><label for="a-tagEn" data-i18n="as.tagEn"></label><input class="control" id="a-tagEn" name="tagEn" maxlength="80"></div>
+                        </div>
+                        <small class="set-help" data-i18n="as.blankHint"></small>
+                    </div>
+
+                    <div class="fieldset">
+                        <p class="group-title" data-i18n="set.icon"></p>
+                        <div class="icon-setting">
+                            <div class="icon-preview"><img id="icon-preview" alt=""></div>
+                            <div class="icon-meta">
+                                <strong id="icon-state"></strong>
+                                <small data-i18n="set.icon.d"></small>
+                                <div class="icon-actions">
+                                    <label class="btn btn-soft btn-sm" for="icon-file"><i class="fa-solid fa-upload"></i> <span data-i18n="icon.upload"></span></label>
+                                    <input type="file" id="icon-file" accept="image/png,image/jpeg,image/svg+xml,image/x-icon,image/vnd.microsoft.icon,image/webp,image/gif" hidden>
+                                    <button type="button" class="btn btn-danger btn-sm" id="icon-delete"><i class="fa-solid fa-trash-can"></i> <span data-i18n="icon.delete"></span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fieldset">
+                        <p class="group-title" data-i18n="as.defaults"></p>
+                        <div class="admin-grid">
+                            <div class="set-block">
+                                <span class="field-label" data-i18n="set.theme"></span>
+                                <div class="segmented">
+                                    <label><input type="radio" name="def_theme" value="light"><span data-i18n="theme.light"></span></label>
+                                    <label><input type="radio" name="def_theme" value="dark"><span data-i18n="theme.dark"></span></label>
+                                    <label><input type="radio" name="def_theme" value="system"><span data-i18n="theme.system"></span></label>
+                                </div>
+                            </div>
+                            <div class="set-block">
+                                <span class="field-label" data-i18n="set.lang"></span>
+                                <div class="segmented">
+                                    <label><input type="radio" name="def_lang" value="bn"><span>বাংলা</span></label>
+                                    <label><input type="radio" name="def_lang" value="en"><span>English</span></label>
+                                </div>
+                            </div>
+                            <div class="set-block">
+                                <span class="field-label" data-i18n="set.accent"></span>
+                                <div class="swatches">
+                                    <label class="swatch" data-i18n-title="accent.teal"><input type="radio" name="def_accent" value="teal"><span style="background:linear-gradient(135deg,#0d9488,#0d9488cc);--sw:#0d9488"><i class="fa-solid fa-check"></i></span></label>
+                                    <label class="swatch" data-i18n-title="accent.gold"><input type="radio" name="def_accent" value="gold"><span style="background:linear-gradient(135deg,#d4a03a,#d4a03acc);--sw:#d4a03a"><i class="fa-solid fa-check"></i></span></label>
+                                    <label class="swatch" data-i18n-title="accent.blue"><input type="radio" name="def_accent" value="blue"><span style="background:linear-gradient(135deg,#3b82f6,#3b82f6cc);--sw:#3b82f6"><i class="fa-solid fa-check"></i></span></label>
+                                    <label class="swatch" data-i18n-title="accent.purple"><input type="radio" name="def_accent" value="purple"><span style="background:linear-gradient(135deg,#8b5cf6,#8b5cf6cc);--sw:#8b5cf6"><i class="fa-solid fa-check"></i></span></label>
+                                    <label class="swatch" data-i18n-title="accent.orange"><input type="radio" name="def_accent" value="orange"><span style="background:linear-gradient(135deg,#f97316,#f97316cc);--sw:#f97316"><i class="fa-solid fa-check"></i></span></label>
+                                    <label class="swatch" data-i18n-title="accent.rose"><input type="radio" name="def_accent" value="rose"><span style="background:linear-gradient(135deg,#f43f5e,#f43f5ecc);--sw:#f43f5e"><i class="fa-solid fa-check"></i></span></label>
+                                </div>
+                            </div>
+                            <div class="set-block">
+                                <span class="field-label" data-i18n="set.fontSize"></span>
+                                <div class="segmented">
+                                    <label><input type="radio" name="def_fontSize" value="s"><span data-i18n="fs.s"></span></label>
+                                    <label><input type="radio" name="def_fontSize" value="m"><span data-i18n="fs.m"></span></label>
+                                    <label><input type="radio" name="def_fontSize" value="l"><span data-i18n="fs.l"></span></label>
+                                </div>
+                            </div>
+                            <div class="set-block">
+                                <span class="field-label" data-i18n="set.digits"></span>
+                                <div class="segmented">
+                                    <label><input type="radio" name="def_digits" value="auto"><span data-i18n="digits.auto"></span></label>
+                                    <label><input type="radio" name="def_digits" value="en"><span>123</span></label>
+                                    <label><input type="radio" name="def_digits" value="bn"><span>১২৩</span></label>
+                                </div>
+                            </div>
+                            <div class="set-block">
+                                <span class="field-label" data-i18n="set.decimals"></span>
+                                <div class="segmented">
+                                    <label><input type="radio" name="def_decimals" value="0"><span data-dg="0"></span></label>
+                                    <label><input type="radio" name="def_decimals" value="1"><span data-dg="0.0"></span></label>
+                                    <label><input type="radio" name="def_decimals" value="2"><span data-dg="0.00"></span></label>
+                                    <label><input type="radio" name="def_decimals" value="3"><span data-dg="0.000"></span></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="admin-switches">
+                            <label class="set-row"><span><strong data-i18n="as.allowUser"></strong><small data-i18n="as.allowUser.d"></small></span><input type="checkbox" class="switch" role="switch" name="allowUserSettings"></label>
+                            <label class="set-row"><span><strong data-i18n="set.remember"></strong><small data-i18n="set.remember.d"></small></span><input type="checkbox" class="switch" role="switch" name="def_remember"></label>
+                            <label class="set-row"><span><strong data-i18n="set.compact"></strong><small data-i18n="set.compact.d"></small></span><input type="checkbox" class="switch" role="switch" name="def_compact"></label>
+                            <label class="set-row"><span><strong data-i18n="set.motion"></strong><small data-i18n="set.motion.d"></small></span><input type="checkbox" class="switch" role="switch" name="def_motion"></label>
+                        </div>
+                    </div>
+
+                    <div class="fieldset">
+                        <p class="group-title" data-i18n="as.announce"></p>
+                        <label class="set-row"><span><strong data-i18n="as.annOn"></strong></span><input type="checkbox" class="switch" role="switch" name="annEnabled"></label>
+                        <div class="form-grid">
+                            <div class="field"><label for="a-annBn" data-i18n="as.annBn"></label><textarea class="control" id="a-annBn" name="annBn" rows="2" maxlength="200"></textarea></div>
+                            <div class="field"><label for="a-annEn" data-i18n="as.annEn"></label><textarea class="control" id="a-annEn" name="annEn" rows="2" maxlength="200"></textarea></div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> <span data-i18n="admin.save"></span></button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Contact -->
+            <form class="admin-panel card" data-panel="contact" id="af-contact" hidden novalidate>
+                <div class="card-head"><h2><i class="fa-solid fa-address-book"></i> <span data-i18n="tab.contact"></span></h2></div>
+                <div class="card-body">
+                    <div class="form-grid">
+                        <div class="field"><label for="a-wa" data-i18n="ac.wa"></label><input class="control" id="a-wa" name="whatsapp" inputmode="tel" data-i18n-ph="ac.waHint" maxlength="20"></div>
+                        <div class="field"><label for="a-phone" data-i18n="ac.phone"></label><input class="control" id="a-phone" name="phone" inputmode="tel" maxlength="20"></div>
+                        <div class="field full"><label for="a-email" data-i18n="ac.email"></label><input class="control" id="a-email" name="email" type="email" maxlength="120"></div>
+                        <div class="field"><label for="a-waMsgBn" data-i18n="ac.waMsgBn"></label><textarea class="control" id="a-waMsgBn" name="waMsgBn" rows="2" maxlength="200"></textarea></div>
+                        <div class="field"><label for="a-waMsgEn" data-i18n="ac.waMsgEn"></label><textarea class="control" id="a-waMsgEn" name="waMsgEn" rows="2" maxlength="200"></textarea></div>
+                    </div>
+                    <label class="set-row"><span><strong data-i18n="ac.waFloat"></strong><small data-i18n="ac.waFloat.d"></small></span><input type="checkbox" class="switch" role="switch" name="waFloat"></label>
+                    <div class="fieldset">
+                        <p class="group-title" data-i18n="ac.social"></p>
+                        <div class="form-grid">
+                            <div class="field"><label for="a-fb">Facebook</label><input class="control" id="a-fb" name="facebook" type="url" placeholder="https://facebook.com/…"></div>
+                            <div class="field"><label for="a-ig">Instagram</label><input class="control" id="a-ig" name="instagram" type="url" placeholder="https://instagram.com/…"></div>
+                            <div class="field"><label for="a-x">X / Twitter</label><input class="control" id="a-x" name="twitter" type="url" placeholder="https://x.com/…"></div>
+                            <div class="field"><label for="a-li">LinkedIn</label><input class="control" id="a-li" name="linkedin" type="url" placeholder="https://linkedin.com/in/…"></div>
+                        </div>
+                        <small class="set-help" data-i18n="ac.socialHint"></small>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> <span data-i18n="admin.save"></span></button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Calculators -->
+            <form class="admin-panel card" data-panel="calc" id="af-calc" hidden novalidate>
+                <div class="card-head"><h2><i class="fa-solid fa-calculator"></i> <span data-i18n="tab.calc"></span></h2></div>
+                <div class="card-body">
+                    <div class="fieldset">
+                        <p class="group-title" data-i18n="cc.visible"></p>
+                        <div class="toggle-grid">
+                            <label class="set-row"><span><strong data-i18n="page.roof"></strong></span><input type="checkbox" class="switch" role="switch" name="en_roof"></label>
+                            <label class="set-row"><span><strong data-i18n="page.column"></strong></span><input type="checkbox" class="switch" role="switch" name="en_column"></label>
+                            <label class="set-row"><span><strong data-i18n="page.wall"></strong></span><input type="checkbox" class="switch" role="switch" name="en_wall"></label>
+                            <label class="set-row"><span><strong data-i18n="page.plaster"></strong></span><input type="checkbox" class="switch" role="switch" name="en_plaster"></label>
+                            <label class="set-row"><span><strong data-i18n="page.steel"></strong></span><input type="checkbox" class="switch" role="switch" name="en_steel"></label>
+                            <label class="set-row"><span><strong data-i18n="page.tiles"></strong></span><input type="checkbox" class="switch" role="switch" name="en_tiles"></label>
+                        </div>
+                    </div>
+                    <div class="fieldset">
+                        <p class="group-title" data-i18n="cc.prices"></p>
+                        <div class="fields auto">
+                            <div class="field"><label for="a-pc" data-i18n="f.cementPrice"></label><div class="input-wrap"><input id="a-pc" name="p_cement" data-anum inputmode="decimal"><span class="unit">৳</span></div></div>
+                            <div class="field"><label for="a-ps" data-i18n="f.sandPrice"></label><div class="input-wrap"><input id="a-ps" name="p_sand" data-anum inputmode="decimal"><span class="unit">৳</span></div></div>
+                            <div class="field"><label for="a-pk" data-i18n="f.khoaPrice"></label><div class="input-wrap"><input id="a-pk" name="p_khoa" data-anum inputmode="decimal"><span class="unit">৳</span></div></div>
+                        </div>
+                        <small class="set-help" data-i18n="cc.prices.d"></small>
+                    </div>
+                    <div class="fieldset">
+                        <p class="group-title" data-i18n="cc.constants"></p>
+                        <p class="hint" style="margin:0 0 1rem"><i class="fa-solid fa-triangle-exclamation"></i><span data-i18n="cc.constants.d"></span></p>
+                        <div class="fields auto">
+                            <div class="field"><label for="a-k1" data-i18n="k.dry"></label><div class="input-wrap plain"><input id="a-k1" name="k_dry" data-anum data-pos inputmode="decimal"></div></div>
+                            <div class="field"><label for="a-k2" data-i18n="k.cementBag"></label><div class="input-wrap plain"><input id="a-k2" name="k_cementBag" data-anum data-pos inputmode="decimal"></div></div>
+                            <div class="field"><label for="a-k3" data-i18n="k.cftPerBag"></label><div class="input-wrap plain"><input id="a-k3" name="k_cftPerBag" data-anum data-pos inputmode="decimal"></div></div>
+                            <div class="field"><label for="a-k4" data-i18n="k.wallDry"></label><div class="input-wrap plain"><input id="a-k4" name="k_wallDry" data-anum data-pos inputmode="decimal"></div></div>
+                            <div class="field"><label for="a-k5" data-i18n="k.bricksPerCft"></label><div class="input-wrap plain"><input id="a-k5" name="k_bricksPerCft" data-anum data-pos inputmode="decimal"></div></div>
+                            <div class="field"><label for="a-k6" data-i18n="k.khoaBricks"></label><div class="input-wrap plain"><input id="a-k6" name="k_khoaBricks" data-anum data-pos inputmode="decimal"></div></div>
+                            <div class="field"><label for="a-k7" data-i18n="k.steelDiv"></label><div class="input-wrap plain"><input id="a-k7" name="k_steelDiv" data-anum data-pos inputmode="decimal"></div></div>
+                        </div>
+                        <button type="button" class="btn btn-ghost btn-sm" id="restore-constants" style="margin-top:1rem"><i class="fa-solid fa-rotate-left"></i> <span data-i18n="cc.restore"></span></button>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> <span data-i18n="admin.save"></span></button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Messages -->
+            <div class="admin-panel" data-panel="messages" hidden>
+                <div class="two-col">
+                    <div class="card">
+                        <div class="card-head"><h2><i class="fa-solid fa-briefcase"></i> <span data-i18n="msg.inquiries"></span></h2></div>
+                        <div class="card-body"><div class="msg-list" id="inq-list"></div></div>
+                    </div>
+                    <div class="card">
+                        <div class="card-head"><h2><i class="fa-solid fa-star"></i> <span data-i18n="msg.reviews"></span></h2></div>
+                        <div class="card-body"><div class="msg-list" id="rev-list"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     </main>
 
     <footer class="site-footer">
         <div class="container footer-inner">
             <span>&copy; <span id="year"></span> <span data-i18n="brand.name"></span>. <span data-i18n="foot.rights"></span></span>
             <div class="socials">
-                <a href="https://www.facebook.com/profile.php?id=100082555653933" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://www.twitter.com" target="_blank" rel="noopener" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="https://www.instagram.com/mozumder_naim/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a data-contact="whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a data-contact="gmail" target="_blank" rel="noopener" aria-label="Gmail"><i class="fa-solid fa-envelope"></i></a>
+                <a data-social="facebook" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a data-social="instagram" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a data-social="twitter" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                <a data-social="linkedin" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
             </div>
             <span data-i18n="foot.dev"></span>
         </div>
@@ -1595,12 +2047,49 @@
     </div>
 </section>
 
+<!-- ================= Admin login ================= -->
+<div class="scrim" id="login-scrim"></div>
+<section class="modal" id="login-modal" role="dialog" aria-modal="true" aria-labelledby="login-title">
+    <div class="modal-head">
+        <span class="modal-icon"><i class="fa-solid fa-user-shield"></i></span>
+        <div>
+            <h2 id="login-title" data-i18n="admin.loginTitle"></h2>
+            <p data-i18n="admin.loginSub"></p>
+        </div>
+        <button class="icon-btn" type="button" id="login-close" data-i18n-aria="set.close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <form class="modal-body" id="login-form" novalidate>
+        <p class="hint" id="fb-missing" hidden><i class="fa-solid fa-plug-circle-exclamation"></i><span data-i18n="admin.noFirebase"></span></p>
+        <div class="field">
+            <label for="login-email" data-i18n="admin.email"></label>
+            <input class="control" type="email" id="login-email" name="email" autocomplete="username" required>
+        </div>
+        <div class="field">
+            <label for="login-pass" data-i18n="admin.password"></label>
+            <div class="pass-wrap">
+                <input class="control" type="password" id="login-pass" name="password" autocomplete="current-password" required>
+                <button type="button" class="pass-toggle" id="pass-toggle" aria-label="Show password"><i class="fa-solid fa-eye"></i></button>
+            </div>
+        </div>
+        <p class="form-error" id="login-error" role="alert"></p>
+        <button type="submit" class="btn btn-primary btn-block" id="login-submit"><i class="fa-solid fa-right-to-bracket"></i> <span data-i18n="admin.signIn"></span></button>
+        <button type="button" class="link-btn" id="forgot-btn" data-i18n="admin.forgot"></button>
+    </form>
+</section>
+
+<!-- Floating WhatsApp -->
+<a class="wa-float" id="wa-float" data-contact="whatsapp" target="_blank" rel="noopener" data-i18n-aria="wa.chat" data-i18n-title="wa.chat" hidden><i class="fa-brands fa-whatsapp"></i></a>
+
 <div class="toast" id="toast" role="status" aria-live="polite"><i class="fa-solid fa-circle-check"></i><span id="toast-text"></span></div>
 
 <noscript><p style="text-align:center;padding:1rem">এই সাইটটি চালাতে JavaScript চালু করুন। / Please enable JavaScript.</p></noscript>
 
 <!-- three.js for the 3D preview -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="script.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<!-- Firebase (admin login + site settings + messages) -->
+<script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script defer src="script.js"></script>
 </body>
 </html>

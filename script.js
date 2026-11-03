@@ -5,6 +5,23 @@
    compact sidebar, reduce motion), Bangla/English i18n,
    calculators (Roof, Column, Wall, Plaster, Steel) and forms.
    ========================================================= */
+/* =========================================================
+   🔧 FIREBASE SETUP — paste your project's web config here.
+   Firebase console → ⚙ Project settings → General → "Your apps"
+   → Web app (</>) → SDK setup and configuration → Config.
+   Leave it empty and the site still works; only the admin
+   login, admin settings and saved messages need Firebase.
+   ========================================================= */
+const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
+    apiKey: 'AIzaSyDFOTeqHRxQonG13fd6qVSLQt14gm7rxDE',
+    authDomain: 'construction-solution90.firebaseapp.com',
+    projectId: 'construction-solution90',
+    storageBucket: 'construction-solution90.firebasestorage.app',
+    messagingSenderId: '770800582518',
+    appId: '1:770800582518:web:4c6aa44771cf7e8427c457',
+    measurementId: 'G-CF4V9BE8CW',
+};
+
 (() => {
     'use strict';
 
@@ -71,6 +88,15 @@
             'feat1.t': 'Easy Calculation', 'feat1.d': 'Quickly calculate materials and costs for your projects.',
             'feat2.t': 'Customizable Inputs', 'feat2.d': 'Adjust mixing ratios, dimensions, and units to fit your needs.',
             'feat3.t': 'Printable Results', 'feat3.d': 'Generate printable reports with detailed calculations.',
+            'feat4.t': 'Live 3D Visualization', 'feat4.d': 'See the real shape of your roof, column, wall, plaster or rods in 3D while you type.',
+            'sc.kicker': 'New',
+            'sc.title': 'See your measurements in 3D',
+            'sc.sub': 'As soon as you type a measurement, the real shape of your roof, column, wall, plaster or steel appears in 3D — rotate and zoom to check it.',
+            'sc.p1': 'Updates instantly as you type',
+            'sc.p2': 'Every measurement labelled around the shape',
+            'sc.p3': 'Uneven roofs drawn in their real shape',
+            'sc.p4': 'Rotate & zoom — on mobile too',
+            'sc.cta': 'Try it in 3D',
             'cta.title': 'Have questions or feedback?',
             'cta.learn': 'Learn More',
             'cta.contact': 'Contact Now',
@@ -183,6 +209,122 @@
             'viz.bars': 'Bars',
             'viz.bricks': 'Bricks',
             'viz.simplified': 'Fewer bars drawn for clarity',
+
+            'viz.areaCalc': 'Area (used in calculation)',
+            'viz.areaShape': 'Area of actual shape',
+            'viz.rightAngle': 'Corner between first length and first width is taken as 90°',
+            'viz.noShape': 'These four sides can’t close into a shape — showing the average size',
+            'set.icon': 'Site icon',
+            'set.icon.d': 'Shown next to the URL in the browser tab.',
+            'icon.upload': 'Upload',
+            'icon.delete': 'Delete',
+            'icon.default': 'Default icon',
+            'icon.custom': 'Your icon',
+            'icon.saved': 'Site icon updated',
+            'icon.removed': 'Default icon restored',
+            'icon.bad': 'Please choose an image file (max 5 MB)',
+
+            'page.admin': 'Admin Dashboard',
+            'lbl.whatsapp': 'WhatsApp',
+            'lbl.gmail': 'Gmail',
+            'wa.chat': 'Chat on WhatsApp',
+            'gm.write': 'Write in Gmail',
+            'call.now': 'Call now',
+            'inq.viaWa': 'Send on WhatsApp',
+            'inq.viaGm': 'Send via Gmail',
+            'inq.note': 'Your message opens in WhatsApp or Gmail, already written — just press send.',
+            'inq.subject': 'Development inquiry — {name}',
+            'inq.msgTitle': 'New inquiry from {site}',
+            'inq.opened': 'Your message is ready — just press send.',
+            'ann.close': 'Dismiss',
+
+            'admin.login': 'Admin login',
+            'admin.loginTitle': 'Admin login',
+            'admin.loginSub': 'Only for the site administrator.',
+            'admin.email': 'Email',
+            'admin.password': 'Password',
+            'admin.signIn': 'Sign in',
+            'admin.signingIn': 'Signing in…',
+            'admin.forgot': 'Forgot password?',
+            'admin.resetSent': 'Password reset email sent to {email}',
+            'admin.needEmail': 'Enter your email first',
+            'admin.noFirebase': 'Firebase is not set up yet. Put your Firebase config in FIREBASE_CONFIG at the top of script.js.',
+            'admin.notAdmin': 'This account is not an admin.',
+            'admin.err.cred': 'Wrong email or password.',
+            'admin.err.many': 'Too many attempts. Please try again later.',
+            'admin.err.net': 'No internet connection.',
+            'admin.err.generic': 'Something went wrong: {code}',
+            'admin.welcome': 'Welcome, admin',
+            'admin.logout': 'Log out',
+            'admin.loggedOut': 'Logged out',
+            'admin.sub': 'Control the whole site from here. Saved changes go live for every visitor.',
+            'admin.save': 'Save changes',
+            'admin.saving': 'Saving…',
+            'admin.saved': 'Saved — live for everyone',
+            'admin.saveErr': 'Could not save: {code}',
+            'admin.badNumber': 'Please enter valid numbers (constants must be above 0).',
+            'admin.badUrl': 'Links must start with https://',
+            'admin.calcOff': 'This calculator is turned off right now.',
+            'tab.overview': 'Overview',
+            'tab.site': 'Site & appearance',
+            'tab.contact': 'Contact',
+            'tab.calc': 'Calculators',
+            'tab.messages': 'Messages',
+            'ov.inquiries': 'Inquiries',
+            'ov.reviews': 'Reviews',
+            'ov.rating': 'Average rating',
+            'ov.calcs': 'Calculators on',
+            'ov.recent': 'Recent messages',
+            'ov.lastSaved': 'Last saved {time} · {who}',
+            'as.brand': 'Brand',
+            'as.nameEn': 'Site name (English)',
+            'as.nameBn': 'Site name (Bangla)',
+            'as.tagEn': 'Tagline (English)',
+            'as.tagBn': 'Tagline (Bangla)',
+            'as.blankHint': 'Leave blank to keep the default.',
+            'as.defaults': 'Default settings for every visitor',
+            'as.allowUser': 'Let visitors change their own settings',
+            'as.allowUser.d': 'Off = everyone sees exactly these settings; Settings, theme and language buttons are hidden.',
+            'as.announce': 'Announcement bar',
+            'as.annOn': 'Show announcement on every page',
+            'as.annBn': 'Text (Bangla)',
+            'as.annEn': 'Text (English)',
+            'ac.wa': 'WhatsApp number (with country code)',
+            'ac.waHint': 'e.g. 8801XXXXXXXXX',
+            'ac.email': 'Email (opens in Gmail)',
+            'ac.phone': 'Mobile number',
+            'ac.social': 'Social links',
+            'ac.socialHint': 'Leave a link empty to hide that icon.',
+            'ac.waFloat': 'Floating WhatsApp button',
+            'ac.waFloat.d': 'Shown at the bottom corner of every page',
+            'ac.waMsgBn': 'WhatsApp greeting (Bangla)',
+            'ac.waMsgEn': 'WhatsApp greeting (English)',
+            'cc.visible': 'Show calculators',
+            'cc.prices': 'Default market prices (Column Works)',
+            'cc.prices.d': 'Filled in for visitors who haven’t typed a price. 0 = leave empty.',
+            'cc.constants': 'Calculation constants',
+            'cc.constants.d': 'Change only if you know the formula. The defaults are the original values.',
+            'cc.restore': 'Restore original values',
+            'k.dry': 'Dry volume factor',
+            'k.cementBag': 'Cement cft → bags',
+            'k.cftPerBag': 'Sand / khoa cft per bag',
+            'k.wallDry': 'Wall dry mortar (per cft)',
+            'k.bricksPerCft': 'Bricks per cft of wall',
+            'k.khoaBricks': 'Bricks per cft of khoa',
+            'k.steelDiv': 'Rod weight divisor (d² ÷ x)',
+            'msg.inquiries': 'Client inquiries',
+            'msg.reviews': 'Reviews',
+            'msg.empty': 'Nothing here yet.',
+            'msg.reply': 'Reply',
+            'msg.delete': 'Delete',
+            'msg.confirm': 'Delete this message?',
+            'msg.deleted': 'Deleted',
+            'msg.loading': 'Loading…',
+            'msg.noaccess': 'Could not load: {code}',
+            'msg.inquiry': 'Inquiry',
+            'msg.review': 'Review',
+            'msg.replyText': 'Hello {name}, thank you for contacting {site}.',
+            'accent.teal': 'Teal', 'accent.rose': 'Rose',
 
             'err.required': 'Please fill in this field',
             'err.number': 'Enter a valid number',
@@ -305,6 +447,15 @@
             'feat1.t': 'সহজ হিসাব', 'feat1.d': 'আপনার প্রজেক্টের ম্যাটেরিয়াল ও খরচ দ্রুত হিসাব করুন।',
             'feat2.t': 'নিজের মতো ইনপুট', 'feat2.d': 'মিক্সিং রেশিও, মাপ ও একক নিজের প্রয়োজনমতো দিন।',
             'feat3.t': 'প্রিন্টযোগ্য ফলাফল', 'feat3.d': 'বিস্তারিত হিসাবসহ প্রিন্টযোগ্য রিপোর্ট তৈরি করুন।',
+            'feat4.t': 'লাইভ ৩ডি ভিজ্যুয়ালাইজেশন', 'feat4.d': 'মাপ লেখার সাথে সাথে ছাদ, কলাম, দেওয়াল, প্লাস্টার ও রডের আসল আকৃতি ৩ডি-তে দেখুন।',
+            'sc.kicker': 'নতুন',
+            'sc.title': 'আপনার মাপ দেখুন ৩ডি-তে',
+            'sc.sub': 'মাপ লেখার সাথে সাথেই ছাদ, কলাম, দেওয়াল, প্লাস্টার বা রডের আসল আকৃতি ৩ডি-তে ভেসে উঠবে — ঘুরিয়ে, জুম করে মিলিয়ে নিন।',
+            'sc.p1': 'টাইপ করার সাথে সাথে আপডেট',
+            'sc.p2': 'আকৃতির চারপাশে প্রতিটি মাপ লেখা',
+            'sc.p3': 'বাঁকা ছাদও আসল আকৃতিতে',
+            'sc.p4': 'ঘোরান ও জুম করুন — মোবাইলেও',
+            'sc.cta': '৩ডি-তে দেখুন',
             'cta.title': 'কোনো প্রশ্ন বা মতামত আছে?',
             'cta.learn': 'আরও জানুন',
             'cta.contact': 'যোগাযোগ করুন',
@@ -418,6 +569,122 @@
             'viz.bricks': 'ইট',
             'viz.simplified': 'স্পষ্টতার জন্য কম রড আঁকা হয়েছে',
 
+            'viz.areaCalc': 'ক্ষেত্রফল (হিসাবে ধরা)',
+            'viz.areaShape': 'আসল আকৃতির ক্ষেত্রফল',
+            'viz.rightAngle': 'প্রথম দৈর্ঘ্য ও প্রথম প্রস্থের কোণ ৯০° ধরা হয়েছে',
+            'viz.noShape': 'এই চার মাপে আকৃতি মেলে না — গড় মাপে দেখানো হচ্ছে',
+            'set.icon': 'সাইট আইকন',
+            'set.icon.d': 'ব্রাউজার ট্যাবে URL-এর পাশে দেখাবে।',
+            'icon.upload': 'আপলোড',
+            'icon.delete': 'মুছুন',
+            'icon.default': 'ডিফল্ট আইকন',
+            'icon.custom': 'আপনার আইকন',
+            'icon.saved': 'সাইট আইকন বদলানো হয়েছে',
+            'icon.removed': 'ডিফল্ট আইকন ফিরে এসেছে',
+            'icon.bad': 'একটি ছবি ফাইল বেছে নিন (সর্বোচ্চ ৫ MB)',
+
+            'page.admin': 'এডমিন ড্যাশবোর্ড',
+            'lbl.whatsapp': 'হোয়াটসঅ্যাপ',
+            'lbl.gmail': 'জিমেইল',
+            'wa.chat': 'হোয়াটসঅ্যাপে মেসেজ দিন',
+            'gm.write': 'জিমেইলে লিখুন',
+            'call.now': 'এখনই কল করুন',
+            'inq.viaWa': 'হোয়াটসঅ্যাপে পাঠান',
+            'inq.viaGm': 'জিমেইলে পাঠান',
+            'inq.note': 'আপনার মেসেজটি হোয়াটসঅ্যাপ বা জিমেইলে লেখা অবস্থায় খুলবে — শুধু পাঠান চাপুন।',
+            'inq.subject': 'ডেভেলপমেন্ট ইনকোয়ারি — {name}',
+            'inq.msgTitle': '{site} থেকে নতুন ইনকোয়ারি',
+            'inq.opened': 'মেসেজ তৈরি — শুধু পাঠান চাপুন।',
+            'ann.close': 'বন্ধ করুন',
+
+            'admin.login': 'এডমিন লগইন',
+            'admin.loginTitle': 'এডমিন লগইন',
+            'admin.loginSub': 'শুধু সাইটের এডমিনের জন্য।',
+            'admin.email': 'ইমেইল',
+            'admin.password': 'পাসওয়ার্ড',
+            'admin.signIn': 'লগইন করুন',
+            'admin.signingIn': 'লগইন হচ্ছে…',
+            'admin.forgot': 'পাসওয়ার্ড ভুলে গেছেন?',
+            'admin.resetSent': '{email} ঠিকানায় পাসওয়ার্ড রিসেট ইমেইল পাঠানো হয়েছে',
+            'admin.needEmail': 'আগে ইমেইল লিখুন',
+            'admin.noFirebase': 'Firebase এখনো সেটআপ করা হয়নি। script.js ফাইলের শুরুতে FIREBASE_CONFIG-এ আপনার Firebase কনফিগ বসান।',
+            'admin.notAdmin': 'এই অ্যাকাউন্টটি এডমিন নয়।',
+            'admin.err.cred': 'ইমেইল বা পাসওয়ার্ড ভুল।',
+            'admin.err.many': 'অনেকবার চেষ্টা হয়েছে, কিছুক্ষণ পর আবার চেষ্টা করুন।',
+            'admin.err.net': 'ইন্টারনেট সংযোগ নেই।',
+            'admin.err.generic': 'কিছু একটা সমস্যা হয়েছে: {code}',
+            'admin.welcome': 'স্বাগতম, এডমিন',
+            'admin.logout': 'লগআউট',
+            'admin.loggedOut': 'লগআউট হয়েছে',
+            'admin.sub': 'এখান থেকে পুরো সাইট নিয়ন্ত্রণ করুন। সেভ করলেই সব ভিজিটরের জন্য চালু হবে।',
+            'admin.save': 'পরিবর্তন সেভ করুন',
+            'admin.saving': 'সেভ হচ্ছে…',
+            'admin.saved': 'সেভ হয়েছে — সবার জন্য চালু',
+            'admin.saveErr': 'সেভ করা যায়নি: {code}',
+            'admin.badNumber': 'সঠিক সংখ্যা দিন (ধ্রুবকগুলো ০-এর বেশি হতে হবে)।',
+            'admin.badUrl': 'লিংক অবশ্যই https:// দিয়ে শুরু হতে হবে',
+            'admin.calcOff': 'এই ক্যালকুলেটরটি এখন বন্ধ আছে।',
+            'tab.overview': 'ওভারভিউ',
+            'tab.site': 'সাইট ও ডিজাইন',
+            'tab.contact': 'যোগাযোগ',
+            'tab.calc': 'ক্যালকুলেটর',
+            'tab.messages': 'মেসেজ',
+            'ov.inquiries': 'ইনকোয়ারি',
+            'ov.reviews': 'রিভিউ',
+            'ov.rating': 'গড় রেটিং',
+            'ov.calcs': 'চালু ক্যালকুলেটর',
+            'ov.recent': 'সাম্প্রতিক মেসেজ',
+            'ov.lastSaved': 'সর্বশেষ সেভ {time} · {who}',
+            'as.brand': 'ব্র্যান্ড',
+            'as.nameEn': 'সাইটের নাম (ইংরেজি)',
+            'as.nameBn': 'সাইটের নাম (বাংলা)',
+            'as.tagEn': 'ট্যাগলাইন (ইংরেজি)',
+            'as.tagBn': 'ট্যাগলাইন (বাংলা)',
+            'as.blankHint': 'খালি রাখলে ডিফল্ট থাকবে।',
+            'as.defaults': 'সব ভিজিটরের জন্য ডিফল্ট সেটিং',
+            'as.allowUser': 'ভিজিটরদের নিজের সেটিং বদলাতে দিন',
+            'as.allowUser.d': 'বন্ধ করলে সবাই ঠিক এই সেটিং দেখবে; সেটিংস, থিম ও ভাষার বাটন লুকানো থাকবে।',
+            'as.announce': 'ঘোষণা বার',
+            'as.annOn': 'প্রতিটি পেজে ঘোষণা দেখান',
+            'as.annBn': 'লেখা (বাংলা)',
+            'as.annEn': 'লেখা (ইংরেজি)',
+            'ac.wa': 'হোয়াটসঅ্যাপ নম্বর (কান্ট্রি কোডসহ)',
+            'ac.waHint': 'যেমন 8801XXXXXXXXX',
+            'ac.email': 'ইমেইল (জিমেইলে খুলবে)',
+            'ac.phone': 'মোবাইল নম্বর',
+            'ac.social': 'সোশ্যাল লিংক',
+            'ac.socialHint': 'কোনো লিংক খালি রাখলে সেই আইকন লুকানো থাকবে।',
+            'ac.waFloat': 'ভাসমান হোয়াটসঅ্যাপ বাটন',
+            'ac.waFloat.d': 'প্রতিটি পেজের নিচের কোণে দেখাবে',
+            'ac.waMsgBn': 'হোয়াটসঅ্যাপ শুভেচ্ছা (বাংলা)',
+            'ac.waMsgEn': 'হোয়াটসঅ্যাপ শুভেচ্ছা (ইংরেজি)',
+            'cc.visible': 'ক্যালকুলেটর দেখান',
+            'cc.prices': 'ডিফল্ট বাজার দর (কলামের কাজ)',
+            'cc.prices.d': 'যারা দাম লেখেননি তাদের জন্য আগে থেকে বসানো থাকবে। ০ = খালি থাকবে।',
+            'cc.constants': 'হিসাবের ধ্রুবক',
+            'cc.constants.d': 'সূত্র জানলে তবেই বদলান। ডিফল্ট মানগুলো আসল সূত্রের।',
+            'cc.restore': 'আসল মান ফিরিয়ে আনুন',
+            'k.dry': 'শুকনো আয়তনের গুণক',
+            'k.cementBag': 'সিমেন্ট ঘনফুট → ব্যাগ',
+            'k.cftPerBag': 'প্রতি ব্যাগে বালু/খোয়া (ঘনফুট)',
+            'k.wallDry': 'দেওয়ালের শুকনো মসলা (প্রতি ঘনফুট)',
+            'k.bricksPerCft': 'প্রতি ঘনফুট দেওয়ালে ইট',
+            'k.khoaBricks': 'প্রতি ঘনফুট খোয়ায় ইট',
+            'k.steelDiv': 'রডের ওজনের ভাজক (d² ÷ x)',
+            'msg.inquiries': 'ক্লায়েন্ট ইনকোয়ারি',
+            'msg.reviews': 'রিভিউ',
+            'msg.empty': 'এখানে এখনো কিছু নেই।',
+            'msg.reply': 'উত্তর দিন',
+            'msg.delete': 'মুছুন',
+            'msg.confirm': 'এই মেসেজটি মুছবেন?',
+            'msg.deleted': 'মুছে ফেলা হয়েছে',
+            'msg.loading': 'লোড হচ্ছে…',
+            'msg.noaccess': 'লোড করা যায়নি: {code}',
+            'msg.inquiry': 'ইনকোয়ারি',
+            'msg.review': 'রিভিউ',
+            'msg.replyText': 'আসসালামু আলাইকুম {name}, {site}-এ যোগাযোগ করার জন্য ধন্যবাদ।',
+            'accent.teal': 'টিল', 'accent.rose': 'গোলাপি',
+
             'err.required': 'এই ঘরটি পূরণ করুন',
             'err.number': 'সঠিক সংখ্যা দিন',
             'err.negative': 'ঋণাত্মক মান গ্রহণযোগ্য নয়',
@@ -508,12 +775,64 @@
         },
     };
 
-    const S = Object.assign({}, DEFAULTS, storage.get(STORE_SETTINGS, {}));
-    S.decimals = Number(S.decimals);
-    if (!(S.decimals >= 0 && S.decimals <= 3)) S.decimals = 2;
-    if (!I18N[S.lang]) S.lang = 'bn';
+    /* ---------- Site config (set by the admin, shared by every visitor) ---------- */
+    const STORE_SITE = 'cc.site';
+    const SITE_DEFAULT = {
+        brand: { bn: '', en: '' },
+        tagline: { bn: '', en: '' },
+        defaults: Object.assign({}, DEFAULTS),
+        allowUserSettings: true,
+        favicon: '',
+        announcement: { enabled: false, bn: '', en: '' },
+        contact: {
+            whatsapp: '8801833515057',
+            phone: '01833515057',
+            email: 'uddinmdnaim10@gmail.com',
+            facebook: 'https://www.facebook.com/profile.php?id=100082555653933',
+            instagram: 'https://www.instagram.com/mozumder_naim/',
+            twitter: '',
+            linkedin: '',
+            waFloat: true,
+            waMessage: {
+                bn: 'আসসালামু আলাইকুম! কনস্ট্রাকশন সলিউশন থেকে যোগাযোগ করছি।',
+                en: 'Hello! I am contacting you from Construction Solution.',
+            },
+        },
+        calculators: { roof: true, column: true, wall: true, plaster: true, steel: true, tiles: true },
+        prices: { cement: 0, sand: 0, khoa: 0 },
+        // calculation constants — the original formula values
+        constants: { dry: 1.5, cementBag: 0.8, cftPerBag: 1.2, wallDry: 0.35, bricksPerCft: 12, khoaBricks: 9, steelDiv: 532.2 },
+    };
+    const isObj = (o) => !!o && typeof o === 'object' && !Array.isArray(o) && !(o.toDate);
+    function deepMerge(base, over) {
+        const out = Object.assign({}, base);
+        if (!isObj(over)) return out;
+        Object.keys(over).forEach((k) => {
+            out[k] = isObj(base[k]) && isObj(over[k]) ? deepMerge(base[k], over[k]) : over[k];
+        });
+        return out;
+    }
+    let SITE = deepMerge(SITE_DEFAULT, storage.get(STORE_SITE, {}));
+    let LOCAL = storage.get(STORE_SETTINGS, {}) || {};
+    let IS_ADMIN = false;
+    const K = () => SITE.constants;
+
     const ACCENTS = ['teal', 'gold', 'blue', 'purple', 'orange', 'rose'];
-    if (!ACCENTS.includes(S.accent)) S.accent = DEFAULTS.accent;
+    const S = {};
+    // visitor's own choices sit on top of the admin's defaults (unless the admin locked them)
+    function computeSettings() {
+        const mine = (SITE.allowUserSettings !== false || IS_ADMIN) ? LOCAL : {};
+        Object.keys(S).forEach((k) => delete S[k]);
+        Object.assign(S, DEFAULTS, SITE.defaults, mine);
+        S.decimals = Number(S.decimals);
+        if (!(S.decimals >= 0 && S.decimals <= 3)) S.decimals = 2;
+        if (!I18N[S.lang]) S.lang = 'bn';
+        if (!ACCENTS.includes(S.accent)) S.accent = DEFAULTS.accent;
+        if (!['light', 'dark', 'system'].includes(S.theme)) S.theme = 'system';
+        if (!['s', 'm', 'l'].includes(S.fontSize)) S.fontSize = 'm';
+        if (!['auto', 'en', 'bn'].includes(S.digits)) S.digits = 'auto';
+    }
+    computeSettings();
 
     /* ---------- i18n helpers ---------- */
     const BN_DIGITS = '০১২৩৪৫৬৭৮৯';
@@ -522,8 +841,20 @@
     const toEn = (s) => String(s).replace(/[০-৯]/g, (d) => BN_DIGITS.indexOf(d));
     const digits = (s) => (useBnDigits() ? toBn(s) : toEn(s));
 
+    // the admin can rename the site from the dashboard
+    function siteOverride(key) {
+        const L = S.lang, name = SITE.brand && SITE.brand[L], tag = SITE.tagline && SITE.tagline[L];
+        if (key === 'brand.name' && name) return name;
+        if (key === 'brand.tag' && tag) return tag;
+        if (key === 'home.title' && name) {
+            const n = escapeHtml(name);
+            return L === 'bn' ? `<span>${n}</span>-এ স্বাগতম` : `Welcome to <span>${n}</span>`;
+        }
+        return null;
+    }
+
     function t(key, vars) {
-        let s = (I18N[S.lang] && I18N[S.lang][key]) ?? I18N.en[key] ?? key;
+        let s = siteOverride(key) ?? (I18N[S.lang] && I18N[S.lang][key]) ?? I18N.en[key] ?? key;
         if (vars) s = s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] ?? m));
         return digits(s);
     }
@@ -550,7 +881,8 @@
         { id: 'steel',   icon: 'fa-grip-lines',        keys: 'rod steel rebar roof রড স্টিল' },
         { id: 'tiles',   icon: 'fa-table-cells-large', keys: 'tiles floor টাইলস' },
         { id: 'about',   icon: 'fa-circle-info',       keys: 'about developer আমাদের' },
-        { id: 'contact', icon: 'fa-envelope',          keys: 'contact review email phone যোগাযোগ রিভিউ' },
+        { id: 'contact', icon: 'fa-envelope',          keys: 'contact review email phone whatsapp gmail যোগাযোগ রিভিউ হোয়াটসঅ্যাপ' },
+        { id: 'admin',   icon: 'fa-gauge-high' },
     ];
     let currentPage = 'home';
 
@@ -627,18 +959,23 @@
 
     function applyAll() {
         applyTheme();
+        applySiteUi();
         applyI18n();
         syncSettingsForm();
+        applyContacts();
+        applyAnnouncement();
+        applyFavicon();
         VIZ.refreshAll();
     }
 
     function saveSettings() {
-        storage.set(STORE_SETTINGS, S);
+        storage.set(STORE_SETTINGS, LOCAL);
     }
 
     function setSetting(key, value) {
-        S[key] = value;
+        LOCAL[key] = value;
         saveSettings();
+        computeSettings();
         if (key === 'remember' && !value) storage.remove(STORE_INPUTS);
         if (key === 'remember' && value) $$('form[data-calc]').forEach(saveInputs);
         applyAll();
@@ -697,9 +1034,528 @@
         else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     });
 
+    /* =========================================================
+       Site icon (favicon) — managed from the admin dashboard
+       ========================================================= */
+    // default icon: a house in the current accent colour
+    function defaultIcon() {
+        const cs = getComputedStyle(root);
+        const c1 = cs.getPropertyValue('--brand').trim() || '#0d9488';
+        const c2 = cs.getPropertyValue('--brand-600').trim() || '#0f766e';
+        const fg = cs.getPropertyValue('--on-brand').trim() || '#ffffff';
+        const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="url(#g)"/><path d="M32 12 11 30h6v21h11V39h8v12h11V30h6z" fill="${fg}"/></svg>`;
+        return 'data:image/svg+xml,' + encodeURIComponent(svg);
+    }
+    function applyFavicon() {
+        const custom = SITE.favicon || '';
+        const href = custom || defaultIcon();
+        $('#favicon').href = href;
+        $('#icon-preview').src = href;
+        $('#icon-state').textContent = t(custom ? 'icon.custom' : 'icon.default');
+        $('#icon-delete').disabled = !custom;
+    }
+
+    /* =========================================================
+       Contact links (WhatsApp, Gmail, phone, social) — from site config
+       ========================================================= */
+    const safeUrl = (u) => (/^https:\/\/[^\s"'<>]+$/i.test(String(u || '').trim()) ? String(u).trim() : '');
+    const onlyDigits = (s) => toEn(String(s || '')).replace(/\D/g, '');
+    // local BD numbers (01XXXXXXXXX) → 8801XXXXXXXXX for wa.me
+    const waNumber = (s) => { const d = onlyDigits(s); return /^01\d{9}$/.test(d) ? '88' + d : d; };
+    function waLink(text, number = SITE.contact.whatsapp) {
+        const n = waNumber(number);
+        return n ? `https://wa.me/${n}${text ? '?text=' + encodeURIComponent(text) : ''}` : '';
+    }
+    function gmailLink(subject, body, to = SITE.contact.email) {
+        if (!to) return '';
+        let url = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(to)}`;
+        if (subject) url += `&su=${encodeURIComponent(subject)}`;
+        if (body) url += `&body=${encodeURIComponent(body)}`;
+        return url;
+    }
+    function applyContacts() {
+        const c = SITE.contact;
+        const greet = (c.waMessage || {})[S.lang] || '';
+        const setLink = (a, href) => {
+            a.hidden = !href;
+            if (href) a.href = href; else a.removeAttribute('href');
+            const li = a.closest('.info-list li');
+            if (li) li.hidden = !href;
+        };
+        $$('[data-contact="whatsapp"]').forEach((a) => setLink(a, waLink(greet)));
+        $$('[data-contact="gmail"]').forEach((a) => setLink(a, gmailLink(t('brand.name'), '')));
+        $$('[data-contact="tel"]').forEach((a) => setLink(a, c.phone ? 'tel:' + toEn(c.phone).replace(/[^\d+]/g, '') : ''));
+        $$('[data-social]').forEach((a) => setLink(a, safeUrl(c[a.dataset.social])));
+        $$('[data-contact-text]').forEach((el) => {
+            const k = el.dataset.contactText;
+            el.textContent = k === 'whatsapp' ? (waNumber(c.whatsapp) ? '+' + waNumber(c.whatsapp) : '') : (c[k] || '');
+        });
+        if (!c.waFloat) $('#wa-float').hidden = true;
+    }
+
+    /* =========================================================
+       Site-wide settings from the admin (visibility, banner, prices…)
+       ========================================================= */
+    const CALC_IDS = ['roof', 'column', 'wall', 'plaster', 'steel', 'tiles'];
+    const calcOn = (id) => SITE.calculators[id] !== false;
+
+    function applySiteUi() {
+        // calculators on/off
+        $$('[data-feature]').forEach((el) => { el.hidden = !calcOn(el.dataset.feature); });
+        $$('.side-link[data-link]').forEach((a) => { if (CALC_IDS.includes(a.dataset.link)) a.hidden = !calcOn(a.dataset.link); });
+        $$('[data-demo]').forEach((b) => { b.hidden = !calcOn(b.dataset.demo); });
+
+        // can visitors change their own settings?
+        const locked = SITE.allowUserSettings === false && !IS_ADMIN;
+        $$('[data-open-settings]').forEach((b) => { b.hidden = locked; });
+        $('#theme-btn').hidden = locked;
+        $('#lang-btn').hidden = locked;
+        if (locked) closeSettings();
+
+        // admin entry points
+        $('#admin-link').hidden = !IS_ADMIN;
+        $('#admin-login-btn').hidden = IS_ADMIN;
+
+        // default market prices for Column Works
+        const colForm = $('form[data-calc="column"]');
+        [['cementPrice', 'cement'], ['sandPrice', 'sand'], ['khoaPrice', 'khoa']].forEach(([name, key]) => {
+            const inp = $(`input[name="${name}"]`, colForm);
+            const price = Number(SITE.prices[key]) || 0;
+            inp.dataset.ph = price > 0 ? String(price) : '0';
+            if (price > 0 && !inp.value.trim()) inp.value = String(price);
+        });
+    }
+
+    let annDismissed = '';
+    try { annDismissed = sessionStorage.getItem('cc.annDismissed') || ''; } catch (e) { /* ignore */ }
+    function applyAnnouncement() {
+        const a = SITE.announcement || {};
+        const text = a.enabled ? (a[S.lang] || a.bn || a.en || '').trim() : '';
+        $('#announce-text').textContent = text;
+        $('#announce').hidden = !text || annDismissed === text;
+    }
+    $('#announce-close').addEventListener('click', () => {
+        annDismissed = $('#announce-text').textContent;
+        try { sessionStorage.setItem('cc.annDismissed', annDismissed); } catch (e) { /* ignore */ }
+        $('#announce').hidden = true;
+    });
+
+    // called whenever the site config document changes (realtime from Firestore)
+    function setSiteConfig(data) {
+        SITE = deepMerge(SITE_DEFAULT, data || {});
+        storage.set(STORE_SITE, data || {});
+        computeSettings();
+        applyAll();
+        if (CALC_IDS.includes(currentPage) && !calcOn(currentPage)) { toast(t('admin.calcOff')); location.hash = 'home'; }
+        if (currentPage === 'admin') ADMIN.fill();
+    }
+
+    /* =========================================================
+       Firebase: auth (admin only) + Firestore
+       ========================================================= */
+    const FB = { ready: false, auth: null, db: null, user: null, authResolved: false };
+    let pendingAdmin = false;   // page opened at #admin before auth finished loading
+    let loginPending = false;   // the login form is waiting for the admin check
+
+    function serverTime() { return firebase.firestore.FieldValue.serverTimestamp(); }
+
+    function fbInit() {
+        try {
+            if (typeof firebase === 'undefined' || !FIREBASE_CONFIG || !FIREBASE_CONFIG.apiKey || !FIREBASE_CONFIG.projectId) return;
+            if (!firebase.apps.length) firebase.initializeApp(FIREBASE_CONFIG);
+            FB.auth = firebase.auth();
+            FB.db = firebase.firestore();
+            FB.ready = true;
+        } catch (e) {
+            console.warn('Firebase could not start:', e);
+            return;
+        }
+        // site settings: public, realtime
+        FB.db.doc('site/config').onSnapshot(
+            (snap) => setSiteConfig(snap.exists ? snap.data() : {}),
+            (err) => console.warn('Site config not loaded:', err.code || err)
+        );
+        // admin session
+        FB.auth.onAuthStateChanged(async (user) => {
+            FB.user = user;
+            let admin = false;
+            if (user) {
+                try { admin = (await FB.db.doc('admins/' + user.uid).get()).exists; } catch (e) { admin = false; }
+                if (!admin) {
+                    if (loginPending) showLoginError(t('admin.notAdmin'));
+                    loginPending = false;
+                    await FB.auth.signOut();
+                    return;
+                }
+            }
+            FB.authResolved = true;
+            setAdmin(admin);
+        });
+    }
+
+    function setAdmin(admin) {
+        const was = IS_ADMIN;
+        IS_ADMIN = admin;
+        computeSettings();
+        applyAll();
+        if (admin) {
+            ADMIN.start();
+            if (loginPending || pendingAdmin) {
+                loginPending = pendingAdmin = false;
+                closeLogin();
+                toast(t('admin.welcome'));
+                location.hash = 'admin';
+            }
+        } else {
+            ADMIN.stop();
+            pendingAdmin = false;
+            if (was) toast(t('admin.loggedOut'));
+            if (currentPage === 'admin') location.hash = 'home';
+        }
+    }
+
+    /* ---------- Login modal ---------- */
+    const loginModal = $('#login-modal');
+    const loginScrim = $('#login-scrim');
+    const loginForm = $('#login-form');
+    const loginError = $('#login-error');
+    const showLoginError = (msg) => { loginError.textContent = msg; };
+
+    function openLogin() {
+        closeSidebar();
+        closeSettings();
+        $('#fb-missing').hidden = FB.ready;
+        loginError.textContent = '';
+        loginModal.classList.add('open');
+        loginScrim.classList.add('show');
+        document.body.classList.add('lock');
+        setTimeout(() => $('#login-email').focus(), 60);
+    }
+    function closeLogin() {
+        if (!loginModal.classList.contains('open')) return;
+        loginModal.classList.remove('open');
+        loginScrim.classList.remove('show');
+        document.body.classList.remove('lock');
+    }
+    function authError(err) {
+        const c = (err && err.code) || '';
+        if (/invalid-credential|wrong-password|user-not-found|invalid-email|invalid-login/.test(c)) return t('admin.err.cred');
+        if (/too-many-requests/.test(c)) return t('admin.err.many');
+        if (/network/.test(c)) return t('admin.err.net');
+        return t('admin.err.generic', { code: c || String((err && err.message) || err) });
+    }
+
+    $('#admin-login-btn').addEventListener('click', openLogin);
+    $('#login-close').addEventListener('click', closeLogin);
+    loginScrim.addEventListener('click', closeLogin);
+    $('#pass-toggle').addEventListener('click', () => {
+        const inp = $('#login-pass');
+        const show = inp.type === 'password';
+        inp.type = show ? 'text' : 'password';
+        $('#pass-toggle i').className = show ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye';
+    });
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (!FB.ready) { showLoginError(t('admin.noFirebase')); return; }
+        const email = $('#login-email').value.trim();
+        const pass = $('#login-pass').value;
+        if (!email || !pass) { showLoginError(t('err.required')); return; }
+        const btn = $('#login-submit');
+        const label = $('span', btn);
+        btn.disabled = true;
+        label.textContent = t('admin.signingIn');
+        loginError.textContent = '';
+        loginPending = true;
+        try {
+            await FB.auth.signInWithEmailAndPassword(email, pass);
+        } catch (err) {
+            loginPending = false;
+            showLoginError(authError(err));
+        } finally {
+            btn.disabled = false;
+            label.textContent = t('admin.signIn');
+        }
+    });
+    $('#forgot-btn').addEventListener('click', async () => {
+        if (!FB.ready) { showLoginError(t('admin.noFirebase')); return; }
+        const email = $('#login-email').value.trim();
+        if (!email) { showLoginError(t('admin.needEmail')); $('#login-email').focus(); return; }
+        try {
+            await FB.auth.sendPasswordResetEmail(email);
+            showLoginError('');
+            toast(t('admin.resetSent', { email }));
+        } catch (err) { showLoginError(authError(err)); }
+    });
+
+    /* =========================================================
+       Admin dashboard
+       ========================================================= */
+    const ADMIN = (() => {
+        const forms = { site: $('#af-site'), contact: $('#af-contact'), calc: $('#af-calc') };
+        const el = (form, name) => $(`[name="${name}"]`, form);
+        const setRadio = (form, name, val) => $$(`input[name="${name}"]`, form).forEach((r) => { r.checked = String(val) === r.value; });
+        const getRadio = (form, name) => { const r = $(`input[name="${name}"]:checked`, form); return r ? r.value : null; };
+        let unsubs = [];
+        let inquiries = [];
+        let reviews = [];
+        let refs = {};
+
+        function setTab(tab) {
+            $$('.admin-tabs [data-tab]').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.tab === tab)));
+            $$('.admin-panel').forEach((p) => { p.hidden = p.dataset.panel !== tab; });
+        }
+        $$('.admin-tabs [data-tab]').forEach((b) => b.addEventListener('click', () => setTab(b.dataset.tab)));
+
+        // forms the admin is editing are not overwritten by realtime updates
+        Object.values(forms).forEach((f) => {
+            const mark = () => { f.dataset.dirty = '1'; };
+            f.addEventListener('input', mark);
+            f.addEventListener('change', (e) => { if (e.target.id !== 'icon-file') mark(); });
+        });
+        const isDirty = (f) => f.dataset.dirty === '1';
+
+        function fill() {
+            fillForms();
+            const ts = SITE.updatedAt;
+            $('#last-saved').textContent = ts ? t('ov.lastSaved', { time: fmtTime(ts), who: SITE.updatedBy || '' }) : '';
+            $('#admin-email').textContent = FB.user ? FB.user.email : '';
+            renderMessages();
+        }
+        function fillForms() {
+            const fs = forms.site, d = SITE.defaults;
+            if (!isDirty(fs)) {
+            el(fs, 'nameBn').value = SITE.brand.bn || '';
+            el(fs, 'nameEn').value = SITE.brand.en || '';
+            el(fs, 'tagBn').value = SITE.tagline.bn || '';
+            el(fs, 'tagEn').value = SITE.tagline.en || '';
+            ['theme', 'lang', 'accent', 'fontSize', 'digits', 'decimals'].forEach((k) => setRadio(fs, 'def_' + k, d[k]));
+            el(fs, 'allowUserSettings').checked = SITE.allowUserSettings !== false;
+            el(fs, 'def_remember').checked = !!d.remember;
+            el(fs, 'def_compact').checked = !!d.compact;
+            el(fs, 'def_motion').checked = !!d.motion;
+            el(fs, 'annEnabled').checked = !!SITE.announcement.enabled;
+            el(fs, 'annBn').value = SITE.announcement.bn || '';
+            el(fs, 'annEn').value = SITE.announcement.en || '';
+            }
+
+            const fc = forms.contact, c = SITE.contact;
+            if (!isDirty(fc)) {
+            ['whatsapp', 'phone', 'email', 'facebook', 'instagram', 'twitter', 'linkedin'].forEach((k) => { el(fc, k).value = c[k] || ''; });
+            el(fc, 'waMsgBn').value = (c.waMessage || {}).bn || '';
+            el(fc, 'waMsgEn').value = (c.waMessage || {}).en || '';
+            el(fc, 'waFloat').checked = !!c.waFloat;
+            }
+
+            const fk = forms.calc;
+            if (!isDirty(fk)) {
+                CALC_IDS.forEach((id) => { el(fk, 'en_' + id).checked = calcOn(id); });
+                ['cement', 'sand', 'khoa'].forEach((k) => { el(fk, 'p_' + k).value = SITE.prices[k] || 0; });
+                fillConstants(SITE.constants);
+            }
+        }
+        function fillConstants(k) {
+            Object.keys(SITE_DEFAULT.constants).forEach((key) => { el(forms.calc, 'k_' + key).value = k[key]; });
+        }
+
+        async function save(partial, form, keepDirty = false) {
+            if (!FB.ready || !IS_ADMIN) return;
+            const btn = $('button[type="submit"]', form);
+            const label = $('span', btn);
+            btn.disabled = true;
+            label.textContent = t('admin.saving');
+            try {
+                partial.updatedAt = serverTime();
+                partial.updatedBy = FB.user ? FB.user.email : '';
+                await FB.db.doc('site/config').set(partial, { merge: true });
+                if (!keepDirty) { delete form.dataset.dirty; fillForms(); }
+                toast(t('admin.saved'));
+            } catch (err) {
+                toast(t('admin.saveErr', { code: err.code || err.message }));
+            } finally {
+                btn.disabled = false;
+                label.textContent = t('admin.save');
+            }
+        }
+
+        forms.site.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const f = forms.site, v = (n) => el(f, n).value.trim();
+            save({
+                brand: { bn: v('nameBn'), en: v('nameEn') },
+                tagline: { bn: v('tagBn'), en: v('tagEn') },
+                defaults: {
+                    theme: getRadio(f, 'def_theme') || 'system',
+                    lang: getRadio(f, 'def_lang') || 'bn',
+                    accent: getRadio(f, 'def_accent') || 'teal',
+                    fontSize: getRadio(f, 'def_fontSize') || 'm',
+                    digits: getRadio(f, 'def_digits') || 'auto',
+                    decimals: Number(getRadio(f, 'def_decimals') ?? 2),
+                    remember: el(f, 'def_remember').checked,
+                    compact: el(f, 'def_compact').checked,
+                    motion: el(f, 'def_motion').checked,
+                },
+                allowUserSettings: el(f, 'allowUserSettings').checked,
+                announcement: { enabled: el(f, 'annEnabled').checked, bn: v('annBn'), en: v('annEn') },
+            }, f);
+        });
+
+        forms.contact.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const f = forms.contact, v = (n) => el(f, n).value.trim();
+            const social = {};
+            for (const k of ['facebook', 'instagram', 'twitter', 'linkedin']) {
+                const u = v(k);
+                if (u && !safeUrl(u)) { toast(t('admin.badUrl')); el(f, k).focus(); return; }
+                social[k] = u;
+            }
+            save({
+                contact: Object.assign(social, {
+                    whatsapp: onlyDigits(v('whatsapp')),
+                    phone: v('phone'),
+                    email: v('email'),
+                    waFloat: el(f, 'waFloat').checked,
+                    waMessage: { bn: v('waMsgBn'), en: v('waMsgEn') },
+                }),
+            }, f);
+        });
+
+        forms.calc.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const f = forms.calc;
+            const calculators = {};
+            CALC_IDS.forEach((id) => { calculators[id] = el(f, 'en_' + id).checked; });
+            const prices = {}, constants = {};
+            for (const k of ['cement', 'sand', 'khoa']) {
+                const n = parseNum(el(f, 'p_' + k).value || '0');
+                if (!Number.isFinite(n) || n < 0) { toast(t('admin.badNumber')); el(f, 'p_' + k).focus(); return; }
+                prices[k] = n;
+            }
+            for (const k of Object.keys(SITE_DEFAULT.constants)) {
+                const n = parseNum(el(f, 'k_' + k).value);
+                if (!Number.isFinite(n) || n <= 0) { toast(t('admin.badNumber')); el(f, 'k_' + k).focus(); return; }
+                constants[k] = n;
+            }
+            save({ calculators, prices, constants }, f);
+        });
+        $('#restore-constants').addEventListener('click', () => fillConstants(SITE_DEFAULT.constants));
+
+        // site icon: upload / delete (saved to the site config for everyone)
+        $('#icon-file').addEventListener('change', (e) => {
+            const file = e.target.files && e.target.files[0];
+            e.target.value = '';
+            if (!file) return;
+            if (!/^image\//.test(file.type) || file.size > 5 * 1024 * 1024) { toast(t('icon.bad')); return; }
+            const reader = new FileReader();
+            reader.onload = () => {
+                const img = new Image();
+                img.onload = () => {
+                    const size = 64;                          // small PNG keeps the config document light
+                    const c = document.createElement('canvas');
+                    c.width = c.height = size;
+                    const ctx = c.getContext('2d');
+                    const w = img.naturalWidth || size, h = img.naturalHeight || size;
+                    const k = Math.min(size / w, size / h);
+                    ctx.imageSmoothingQuality = 'high';
+                    ctx.drawImage(img, (size - w * k) / 2, (size - h * k) / 2, w * k, h * k);
+                    let url;
+                    try { url = c.toDataURL('image/png'); } catch (err) { toast(t('icon.bad')); return; }
+                    save({ favicon: url }, forms.site, true);
+                };
+                img.onerror = () => toast(t('icon.bad'));
+                img.src = reader.result;
+            };
+            reader.readAsDataURL(file);
+        });
+        $('#icon-delete').addEventListener('click', () => save({ favicon: '' }, forms.site, true));
+
+        $('#admin-logout').addEventListener('click', () => { if (FB.ready) FB.auth.signOut(); });
+
+        /* ---------- messages ---------- */
+        function fmtTime(ts) {
+            const d = ts && ts.toDate ? ts.toDate() : (ts && ts.seconds ? new Date(ts.seconds * 1000) : null);
+            return d ? digits(d.toLocaleString(S.lang === 'bn' ? 'bn-BD' : 'en-GB', { dateStyle: 'medium', timeStyle: 'short' })) : '';
+        }
+        const stamp = (m) => (m.createdAt && m.createdAt.seconds) || 0;
+
+        function msgHtml(m, kind) {
+            refs[m.id] = m.ref;
+            const name = m.name || '—';
+            const reply = t('msg.replyText', { name, site: t('brand.name') });
+            const wa = m.phone ? waLink(reply, m.phone) : '';
+            const gm = m.email ? gmailLink(`Re: ${t('brand.name')}`, reply, m.email) : '';
+            const stars = kind === 'review' ? `<span class="msg-stars">${'★'.repeat(Math.max(0, Math.min(5, Number(m.rating) || 0)))}</span>` : '';
+            return `
+                <article class="msg">
+                    <div class="msg-top">
+                        <strong>${escapeHtml(name)}<span class="msg-kind">${escapeHtml(t(kind === 'review' ? 'msg.review' : 'msg.inquiry'))}</span></strong>
+                        <time>${escapeHtml(fmtTime(m.createdAt))}</time>
+                    </div>
+                    <div class="msg-meta">${[m.phone, m.email].filter(Boolean).map(escapeHtml).join(' · ')} ${stars}</div>
+                    <p class="msg-body">${escapeHtml(m.message || m.comments || '')}</p>
+                    <div class="msg-actions">
+                        ${wa ? `<a class="btn btn-wa" href="${escapeHtml(wa)}" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> ${escapeHtml(t('msg.reply'))}</a>` : ''}
+                        ${gm ? `<a class="btn btn-ghost" href="${escapeHtml(gm)}" target="_blank" rel="noopener"><i class="fa-solid fa-envelope"></i> Gmail</a>` : ''}
+                        <button type="button" class="btn btn-danger" data-del="${escapeHtml(m.id)}"><i class="fa-solid fa-trash-can"></i> ${escapeHtml(t('msg.delete'))}</button>
+                    </div>
+                </article>`;
+        }
+        const listHtml = (items, kind) => (items.length
+            ? items.map((m) => msgHtml(m, kind)).join('')
+            : `<p class="msg-empty">${escapeHtml(t('msg.empty'))}</p>`);
+
+        function renderMessages() {
+            refs = {};
+            $('#inq-list').innerHTML = listHtml(inquiries, 'inquiry');
+            $('#rev-list').innerHTML = listHtml(reviews, 'review');
+            const recent = inquiries.map((m) => [m, 'inquiry']).concat(reviews.map((m) => [m, 'review']))
+                .sort((a, b) => stamp(b[0]) - stamp(a[0])).slice(0, 5);
+            $('#recent-list').innerHTML = recent.length
+                ? recent.map(([m, k]) => msgHtml(m, k)).join('')
+                : `<p class="msg-empty">${escapeHtml(t('msg.empty'))}</p>`;
+            $('#st-inq').textContent = num(inquiries.length, 0);
+            $('#st-rev').textContent = num(reviews.length, 0);
+            const rated = reviews.filter((r) => Number(r.rating) > 0);
+            $('#st-rating').textContent = rated.length ? `${num(rated.reduce((s, r) => s + Number(r.rating), 0) / rated.length, 1)} ★` : '–';
+            $('#st-calc').textContent = `${num(CALC_IDS.filter(calcOn).length, 0)} / ${num(CALC_IDS.length, 0)}`;
+            const total = inquiries.length + reviews.length;
+            $('#msg-count').hidden = !total;
+            $('#msg-count').textContent = num(total, 0);
+        }
+
+        $('#page-admin').addEventListener('click', async (e) => {
+            const btn = e.target.closest('[data-del]');
+            if (!btn) return;
+            const ref = refs[btn.dataset.del];
+            if (!ref || !window.confirm(t('msg.confirm'))) return;
+            try { await ref.delete(); toast(t('msg.deleted')); }
+            catch (err) { toast(t('admin.saveErr', { code: err.code || err.message })); }
+        });
+
+        function start() {
+            stop();
+            if (!FB.ready) return;
+            const listen = (col, set, listId) => FB.db.collection(col).orderBy('createdAt', 'desc').limit(200).onSnapshot(
+                (snap) => { set(snap.docs.map((d) => Object.assign({ id: d.id, ref: d.ref }, d.data()))); renderMessages(); },
+                (err) => { $(listId).innerHTML = `<p class="msg-empty">${escapeHtml(t('msg.noaccess', { code: err.code || err.message }))}</p>`; }
+            );
+            unsubs.push(listen('inquiries', (l) => { inquiries = l; }, '#inq-list'));
+            unsubs.push(listen('reviews', (l) => { reviews = l; }, '#rev-list'));
+        }
+        function stop() {
+            Object.values(forms).forEach((f) => { delete f.dataset.dirty; });
+            unsubs.forEach((u) => { try { u(); } catch (e) { /* ignore */ } });
+            unsubs = [];
+            inquiries = [];
+            reviews = [];
+        }
+
+        return { fill, start, stop, setTab, renderMessages };
+    })();
+
     $('#reset-settings').addEventListener('click', () => {
-        Object.assign(S, DEFAULTS);
+        LOCAL = {};
         saveSettings();
+        computeSettings();
         applyAll();
         toast(t('set.resetOk'));
     });
@@ -756,7 +1612,7 @@
     window.addEventListener('resize', () => { if (!isMobile()) closeSidebar(); syncMenuBtn(); });
 
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') { closeSettings(); closeSidebar(); $$('[data-search]').forEach((w) => w._hide()); }
+        if (e.key === 'Escape') { closeLogin(); closeSettings(); closeSidebar(); $$('[data-search]').forEach((w) => w._hide()); }
     });
 
     /* =========================================================
@@ -775,7 +1631,19 @@
     function route() {
         let id = decodeURIComponent(location.hash.replace(/^#/, '')) || 'home';
         if (!PAGES.some((p) => p.id === id)) id = 'home';
+        if (id === 'admin' && !IS_ADMIN) {
+            if (FB.ready && !FB.authResolved) pendingAdmin = true;   // wait for the session to load
+            else openLogin();
+            history.replaceState(null, '', '#home');
+            id = 'home';
+        }
+        if (CALC_IDS.includes(id) && !calcOn(id)) {
+            toast(t('admin.calcOff'));
+            history.replaceState(null, '', '#home');
+            id = 'home';
+        }
         currentPage = id;
+        document.body.dataset.page = id;
 
         $$('.page').forEach((s) => s.classList.toggle('active', s.id === 'page-' + id));
         $$('[data-link]').forEach((a) => {
@@ -788,6 +1656,7 @@
         $$('[data-search]').forEach((w) => w._hide());
         window.scrollTo(0, 0);
         VIZ.show(id);
+        if (id === 'admin') ADMIN.fill();
     }
     window.addEventListener('hashchange', route);
 
@@ -798,7 +1667,8 @@
         q = toEn(q.trim().toLowerCase());
         if (!q) return [];
         return PAGES.filter((p) => {
-            if (p.id === 'home') return false;
+            if (p.id === 'home' || p.id === 'admin') return false;
+            if (CALC_IDS.includes(p.id) && !calcOn(p.id)) return false;
             const hay = `${I18N.en['page.' + p.id]} ${I18N.bn['page.' + p.id]} ${p.keys || ''}`.toLowerCase();
             return hay.includes(q);
         });
@@ -891,9 +1761,7 @@
     const total = (label, value, unit = '') => ({ type: 'total', label, value, unit });
 
     /* ---------- Calculators (formulas kept the same as the original site) ---------- */
-    const DRY_FACTOR = 1.5;   // wet → dry volume
-    const CEMENT_BAG = 0.8;   // cft of cement → bags
-    const CFT_PER_BAG = 1.2;  // sand / khoa "bag" conversion
+    // constants (dry factor, bag sizes, bricks per cft …) come from K() — the admin can tune them
 
     const CALC = {
         roof: {
@@ -905,7 +1773,7 @@
                 const height = v.heightUnit === 'inches' ? v.height / 12 : v.height;
                 const area = length * width;
                 const volume = area * height;
-                const dry = volume * DRY_FACTOR;
+                const dry = volume * K().dry;
                 const cement = (dry / sum) * v.ratio1;
                 const sand = (dry / sum) * v.ratio2;
                 const khoa = (dry / sum) * v.ratio3;
@@ -917,11 +1785,11 @@
                     row(t('r.ratio'), ratioText(v.ratio1, v.ratio2, v.ratio3)),
                     heading(t('grp.materials')),
                     row(t('mat.cement'), num(cement), t('u.cft')),
-                    row(t('r.cementBags'), num(cement * CEMENT_BAG), t('u.bags'), true),
+                    row(t('r.cementBags'), num(cement * K().cementBag), t('u.bags'), true),
                     row(t('mat.sand'), num(sand), t('u.cft')),
-                    row(t('r.sandBags'), num(sand / CFT_PER_BAG), t('u.bags'), true),
+                    row(t('r.sandBags'), num(sand / K().cftPerBag), t('u.bags'), true),
                     row(t('mat.khoa'), num(khoa), t('u.cft')),
-                    row(t('r.khoaBags'), num(khoa / CFT_PER_BAG), t('u.bags'), true),
+                    row(t('r.khoaBags'), num(khoa / K().cftPerBag), t('u.bags'), true),
                 ];
             },
         },
@@ -931,12 +1799,12 @@
             run(v) {
                 const sum = ratioSum(v, this.ratios);
                 const volume = v.colLength * (v.colWidth / 12) * (v.colThickness / 12);
-                const dry = volume * DRY_FACTOR;
+                const dry = volume * K().dry;
                 const cement = (dry / sum) * v.ratio1;
-                const bagsCement = cement * CEMENT_BAG;
+                const bagsCement = cement * K().cementBag;
                 const sand = (dry / sum) * v.ratio2;
                 const khoa = (dry / sum) * v.ratio3;
-                const bricksForKhoa = Math.ceil(khoa * 9 - 1e-9);
+                const bricksForKhoa = Math.ceil(khoa * K().khoaBricks - 1e-9);
 
                 const cementCost = bagsCement * v.cementPrice;
                 const sandCost = sand * v.sandPrice;
@@ -950,9 +1818,9 @@
                     row(t('mat.cement'), num(cement), t('u.cft')),
                     row(t('r.cementBags'), num(bagsCement), t('u.bags'), true),
                     row(t('mat.sand'), num(sand), t('u.cft')),
-                    row(t('r.sandBags'), num(sand / CFT_PER_BAG), t('u.bags'), true),
+                    row(t('r.sandBags'), num(sand / K().cftPerBag), t('u.bags'), true),
                     row(t('mat.khoa'), num(khoa), t('u.cft')),
-                    row(t('r.khoaBags'), num(khoa / CFT_PER_BAG), t('u.bags'), true),
+                    row(t('r.khoaBags'), num(khoa / K().cftPerBag), t('u.bags'), true),
                     row(t('r.bricksKhoa'), num(bricksForKhoa, 0), t('u.pcs'), true),
                     heading(t('grp.priceCalc')),
                     row(t('r.cementCost'), num(cementCost), t('u.taka')),
@@ -968,8 +1836,8 @@
             run(v) {
                 const sum = ratioSum(v, this.ratios);
                 const volume = v.wallLength * v.wallHeight * (v.brickThickness / 12);
-                const bricks = Math.ceil(volume * 12 - 1e-9);
-                const dryMix = volume * 0.35;
+                const bricks = Math.ceil(volume * K().bricksPerCft - 1e-9);
+                const dryMix = volume * K().wallDry;
                 const cement = (dryMix / sum) * v.ratio1;
                 const sand = (dryMix / sum) * v.ratio2;
                 return [
@@ -979,9 +1847,9 @@
                     row(t('r.ratio'), ratioText(v.ratio1, v.ratio2)),
                     heading(t('grp.materials')),
                     row(t('mat.cement'), num(cement), t('u.cft')),
-                    row(t('r.cementBags'), num(cement * CEMENT_BAG), t('u.bags'), true),
+                    row(t('r.cementBags'), num(cement * K().cementBag), t('u.bags'), true),
                     row(t('mat.sand'), num(sand), t('u.cft')),
-                    row(t('r.sandBags'), num(sand / CFT_PER_BAG), t('u.bags'), true),
+                    row(t('r.sandBags'), num(sand / K().cftPerBag), t('u.bags'), true),
                 ];
             },
         },
@@ -992,7 +1860,7 @@
                 const sum = ratioSum(v, this.ratios);
                 const area = v.wallLength * v.wallHeight;
                 const volume = area * (v.plasterThickness / 12);
-                const dry = volume * DRY_FACTOR;
+                const dry = volume * K().dry;
                 const cement = (dry / sum) * v.ratio1;
                 const sand = (dry / sum) * v.ratio2;
                 return [
@@ -1002,9 +1870,9 @@
                     row(t('r.ratio'), ratioText(v.ratio1, v.ratio2)),
                     heading(t('grp.materials')),
                     row(t('mat.cement'), num(cement), t('u.cft')),
-                    row(t('r.cementBags'), num(cement * CEMENT_BAG), t('u.bags'), true),
+                    row(t('r.cementBags'), num(cement * K().cementBag), t('u.bags'), true),
                     row(t('mat.sand'), num(sand), t('u.cft')),
-                    row(t('r.sandBags'), num(sand / CFT_PER_BAG), t('u.bags'), true),
+                    row(t('r.sandBags'), num(sand / K().cftPerBag), t('u.bags'), true),
                 ];
             },
         },
@@ -1017,7 +1885,7 @@
                 const totalLength = barsA * v.width + barsB * v.length;
                 const waste = totalLength * (v.wastage / 100);
                 const subTotal = totalLength + waste;
-                const kgPerFt = (v.mm ** 2) / 532.2;
+                const kgPerFt = (v.mm ** 2) / K().steelDiv;
                 const ft = t('u.ft');
                 return [
                     row(t('r.bars', { len: `${numPlain(v.width)} ${ft}` }), num(barsA, 0), t('u.pcs')),
@@ -1155,6 +2023,25 @@
             return { v, live };
         }
 
+        // Real plot shape from four sides. A = front-left corner, 90° between
+        // AB (first length) and AD (first width); DC = second length, BC = second width.
+        function roofQuad(L1, L2, W1, W2) {
+            const A = [0, 0], B = [L1, 0], D = [0, W1];
+            const ex = B[0] - D[0], ey = B[1] - D[1], d = Math.hypot(ex, ey);
+            if (!(d > 0) || d > L2 + W2 + 1e-9 || d < Math.abs(L2 - W2) - 1e-9) return null;
+            const a = (L2 * L2 - W2 * W2 + d * d) / (2 * d);
+            const h = Math.sqrt(Math.max(L2 * L2 - a * a, 0));
+            const px = D[0] + a * ex / d, py = D[1] + a * ey / d;
+            const c1 = [px + h * ey / d, py - h * ex / d], c2 = [px - h * ey / d, py + h * ex / d];
+            const side = (p) => ex * (p[1] - D[1]) - ey * (p[0] - D[0]);
+            const C = side(c1) * side(A) < 0 ? c1 : c2;     // C on the far side of diagonal BD
+            return [A, B, C, D];
+        }
+        const polyArea = (P) => Math.abs(P.reduce((sum, p, i) => {
+            const q = P[(i + 1) % P.length];
+            return sum + p[0] * q[1] - q[0] * p[1];
+        }, 0)) / 2;
+
         const steelSteps = (v) => {
             const a = barCount(v.length, v.gap), b = barCount(v.width, v.gap);
             return { a, b, simplified: a > MAX_BARS || b > MAX_BARS };
@@ -1164,12 +2051,17 @@
         const CHIPS = {
             roof(v) {
                 const L = (v.firstLength + v.secondLength) / 2, W = (v.firstWidth + v.secondWidth) / 2;
-                return [
-                    [t('grp.length'), fv(L, 'u.ft')],
-                    [t('grp.width'), fv(W, 'u.ft')],
+                const q = roofQuad(v.firstLength, v.secondLength, v.firstWidth, v.secondWidth);
+                const chips = [
+                    [t('f.firstLength'), fv(v.firstLength, 'u.ft')],
+                    [t('f.secondLength'), fv(v.secondLength, 'u.ft')],
+                    [t('f.firstWidth'), fv(v.firstWidth, 'u.ft')],
+                    [t('f.secondWidth'), fv(v.secondWidth, 'u.ft')],
                     [t('grp.thickness'), fv(v.height, v.heightUnit === 'feet' ? 'u.ft' : 'u.inch')],
-                    [t('r.area'), `${num(L * W)} ${t('u.sqft')}`],
+                    [t('viz.areaCalc'), `${num(L * W)} ${t('u.sqft')}`],
                 ];
+                if (q) chips.push([t('viz.areaShape'), `${num(polyArea(q))} ${t('u.sqft')}`]);
+                return chips;
             },
             column(v) {
                 return [
@@ -1185,7 +2077,7 @@
                     [t('f.wallLength'), fv(v.wallLength, 'u.ft')],
                     [t('f.wallHeight'), fv(v.wallHeight, 'u.ft')],
                     [t('f.brickThickness'), fv(v.brickThickness, 'u.inch')],
-                    [t('viz.bricks'), `≈ ${num(Math.ceil(vol * 12 - 1e-9), 0)} ${t('u.pcs')}`],
+                    [t('viz.bricks'), `≈ ${num(Math.ceil(vol * K().bricksPerCft - 1e-9), 0)} ${t('u.pcs')}`],
                 ];
             },
             plaster(v) {
@@ -1341,24 +2233,76 @@
 
             let bbox;
             if (id === 'roof') {
-                const L = (v.firstLength + v.secondLength) / 2, W = (v.firstWidth + v.secondWidth) / 2;
                 const T = v.heightUnit === 'feet' ? v.height : v.height / 12;
-                const k = SIZE / Math.max(L, W, T);
-                const x = L * k, z = W * k, y = Math.max(T * k, .05), lift = .9;
-                box(x, y, z, concrete(), 0, lift + y / 2, 0);
-                // light support columns for context (not to scale)
+                const unitKey = v.heightUnit === 'feet' ? 'u.ft' : 'u.inch';
+                let q = roofQuad(v.firstLength, v.secondLength, v.firstWidth, v.secondWidth);
+                const exact = !!q;
+                const Lavg = (v.firstLength + v.secondLength) / 2, Wavg = (v.firstWidth + v.secondWidth) / 2;
+                if (!q) q = [[0, 0], [Lavg, 0], [Lavg, Wavg], [0, Wavg]];   // sides can't close → average rectangle
+
+                const xs = q.map((p) => p[0]), ys = q.map((p) => p[1]);
+                const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
+                const spanX = maxX - minX, spanY = maxY - minY;
+                const k = SIZE / Math.max(spanX, spanY, T);
+                const cx = (minX + maxX) / 2, cy = (minY + maxY) / 2;
+                // plan (x, y) → scene (x, -z): first length runs along the front, nearest the camera
+                const P = q.map(([px, py]) => V((px - cx) * k, 0, -(py - cy) * k));
+                const y = Math.max(T * k, .05), lift = .9;
+
+                const shape = new THREE.Shape(P.map((p) => new THREE.Vector2(p.x, -p.z)));
+                const geo = new THREE.ExtrudeGeometry(shape, { depth: y, bevelEnabled: false });
+                geo.rotateX(-Math.PI / 2);
+                const slab = new THREE.Mesh(geo, concrete());
+                slab.position.y = lift;
+                g.add(slab);
+                const edges = new THREE.LineSegments(new THREE.EdgesGeometry(geo), edgeMat);
+                edges.position.y = lift;
+                g.add(edges);
+
+                // light support posts at the corners (context only, not to scale)
                 const ghost = new THREE.MeshStandardMaterial({ color: C.concrete, transparent: true, opacity: .35, roughness: 1 });
-                const cs = Math.min(.14, Math.min(x, z) * .08);
-                [[-1, -1], [1, -1], [-1, 1], [1, 1]].forEach(([sx, sz]) => {
+                const cs = Math.min(.14, Math.min(spanX, spanY) * k * .08);
+                P.forEach((p) => {
+                    const pos = p.clone();
+                    const len = pos.length();
+                    if (len > 0) pos.multiplyScalar(Math.max(0, 1 - (cs * 1.3) / len));
                     const m = new THREE.Mesh(new THREE.BoxGeometry(cs, lift, cs), ghost);
-                    m.position.set(sx * (x / 2 - cs), lift / 2, sz * (z / 2 - cs));
+                    m.position.set(pos.x, lift / 2, pos.z);
                     g.add(m);
                 });
-                ground(x, z);
-                dim(V(-x / 2, lift, z / 2), V(x / 2, lift, z / 2), V(0, 0, .35), fv(L, 'u.ft'));
-                dim(V(x / 2, lift, -z / 2), V(x / 2, lift, z / 2), V(.35, 0, 0), fv(W, 'u.ft'));
-                dim(V(-x / 2, lift, z / 2), V(-x / 2, lift + y, z / 2), V(-.3, 0, .2), fv(v.height, v.heightUnit === 'feet' ? 'u.ft' : 'u.inch'));
-                bbox = { w: x, h: lift + y, d: z, cy: (lift + y) / 2 };
+                ground(spanX * k, spanY * k);
+
+                // all four sides labelled around the shape
+                const sides = exact
+                    ? [[0, 1, v.firstLength, 'f.firstLength'], [1, 2, v.secondWidth, 'f.secondWidth'],
+                       [3, 2, v.secondLength, 'f.secondLength'], [0, 3, v.firstWidth, 'f.firstWidth']]
+                    : [[0, 1, Lavg], [1, 2, Wavg], [3, 2, Lavg], [0, 3, Wavg]];
+                sides.forEach(([i, j, val, key]) => {
+                    const pa = P[i].clone().setY(lift), pb = P[j].clone().setY(lift);
+                    const dir = pb.clone().sub(pa);
+                    const n = V(dir.z, 0, -dir.x).normalize();
+                    const mid = pa.clone().lerp(pb, .5);
+                    if (n.dot(V(mid.x, 0, mid.z)) < 0) n.negate();          // point away from the centre
+                    dim(pa, pb, n.multiplyScalar(.35), key ? `${t(key)} ${fv(val, 'u.ft')}` : fv(val, 'u.ft'));
+                });
+                // thickness at the front-left corner
+                const out = V(P[0].x, 0, P[0].z).normalize().multiplyScalar(.3);
+                dim(P[0].clone().setY(lift), P[0].clone().setY(lift + y), out, fv(v.height, unitKey));
+
+                // right-angle mark on the assumed 90° corner
+                if (exact) {
+                    const sz = .22, top = lift + y + .004;
+                    const u = P[1].clone().sub(P[0]).setY(0).normalize().multiplyScalar(sz);
+                    const w = P[3].clone().sub(P[0]).setY(0).normalize().multiplyScalar(sz);
+                    const a0 = P[0].clone().setY(top);
+                    const mark = new THREE.LineSegments(
+                        new THREE.BufferGeometry().setFromPoints([a0.clone().add(u), a0.clone().add(u).add(w), a0.clone().add(u).add(w), a0.clone().add(w)]),
+                        new THREE.LineBasicMaterial({ color: C.brand, depthTest: false })
+                    );
+                    mark.renderOrder = 9;
+                    g.add(mark);
+                }
+                bbox = { w: spanX * k, h: lift + y, d: spanY * k, cy: (lift + y) / 2 };
             }
 
             else if (id === 'column') {
@@ -1626,6 +2570,12 @@
             const { v, live } = readValues(id);
             const chips = CHIPS[id](v).map(([label, value]) =>
                 `<span class="viz-chip">${escapeHtml(label)}<b>${escapeHtml(value)}</b></span>`);
+            if (id === 'roof') {
+                const q = roofQuad(v.firstLength, v.secondLength, v.firstWidth, v.secondWidth);
+                const rect = v.firstLength === v.secondLength && v.firstWidth === v.secondWidth;
+                if (!q) chips.push(`<span class="viz-chip warn">${escapeHtml(t('viz.noShape'))}</span>`);
+                else if (!rect) chips.push(`<span class="viz-chip warn">${escapeHtml(t('viz.rightAngle'))}</span>`);
+            }
             if (id === 'steel' && steelSteps(v).simplified) chips.push(`<span class="viz-chip warn">${escapeHtml(t('viz.simplified'))}</span>`);
             $('.viz-chips', card).innerHTML = chips.join('');
             const badge = $('.viz-badge', card);
@@ -1645,9 +2595,56 @@
             });
         }
 
+        /* ---------- home page demo: cycles through the shapes ---------- */
+        const ORDER = ['roof', 'column', 'wall', 'plaster', 'steel'];
+        const demo = { el: null, viewer: null, shape: 'roof', timer: 0, touched: false, bound: false };
+        const demoValues = (id) => Object.assign({ heightUnit: 'inches' },
+            id === 'roof' ? { firstLength: 30, secondLength: 24, firstWidth: 18, secondWidth: 20, height: 5 } : DEF[id]);
+
+        function setDemo(id) {
+            demo.shape = id;
+            $$('[data-demo]', demo.el).forEach((b) => b.setAttribute('aria-selected', String(b.dataset.demo === id)));
+            $('#demo-label').textContent = t('page.' + id);
+            if (demo.viewer) {
+                demo.viewer.id = id;
+                demo.viewer.userZoom = false;
+                demo.viewer.rebuild(demoValues(id));
+            }
+        }
+        function startDemo() {
+            demo.el = demo.el || $('#viz-demo');
+            if (!demo.el) return;
+            if (!demo.bound) {
+                demo.bound = true;
+                $$('[data-demo]', demo.el).forEach((b) => b.addEventListener('click', () => {
+                    demo.touched = true;
+                    setDemo(b.dataset.demo);
+                }));
+                $('.viz-stage', demo.el).addEventListener('pointerdown', () => { demo.touched = true; });
+                if (!glOK) $('.viz-stage', demo.el).insertAdjacentHTML('beforeend', '<div class="viz-empty"><div><i class="fa-solid fa-cube"></i><span data-i18n="viz.nogl"></span></div></div>');
+            }
+            if (glOK && !demo.viewer) {
+                try { demo.viewer = new Viewer(demo.shape, demo.el); }
+                catch (e) { console.warn('3D demo unavailable:', e); }
+            }
+            setDemo(demo.shape);
+            if (demo.viewer) { demo.viewer.auto = !S.motion && !demo.touched; demo.viewer.start(); }
+            clearInterval(demo.timer);
+            demo.timer = setInterval(() => {
+                if (demo.touched || S.motion || document.hidden) return;
+                setDemo(ORDER[(ORDER.indexOf(demo.shape) + 1) % ORDER.length]);
+            }, 6000);
+        }
+        function stopDemo() {
+            clearInterval(demo.timer);
+            if (demo.viewer) demo.viewer.stop();
+        }
+
         function show(id) {
             Object.values(viewers).forEach((vw) => vw.stop());
+            stopDemo();
             active = id;
+            if (id === 'home') { startDemo(); return; }
             if (!cards[id]) return;
             if (glOK && !viewers[id]) {
                 try { viewers[id] = new Viewer(id, cards[id]); }
@@ -1666,6 +2663,10 @@
                     vw.rebuild(v);
                 }
             });
+            if (demo.el) {
+                if (S.motion && demo.viewer) demo.viewer.auto = false;
+                setDemo(demo.shape);
+            }
         }
 
         // labels are drawn on canvas — redraw once the Bangla font has loaded
@@ -1731,11 +2732,35 @@
     /* =========================================================
        About: client inquiry  |  Contact: review
        ========================================================= */
+    // inquiry → opens WhatsApp or Gmail with the message already written (and saves it for the admin)
     $('#inquiry-form').addEventListener('submit', (e) => {
         e.preventDefault();
-        console.log('Client inquiry:', Object.fromEntries(new FormData(e.target)));
-        toast(t('inq.ok'));
-        e.target.reset();
+        const form = e.target;
+        const via = (e.submitter && e.submitter.value) || 'whatsapp';
+        const d = Object.fromEntries(new FormData(form));
+        const body = [
+            t('inq.msgTitle', { site: t('brand.name') }),
+            '',
+            `${t('f.name')}: ${d.name}`,
+            `${t('f.phone')}: ${d.phone}`,
+            `${t('lbl.email')}: ${d.email}`,
+            '',
+            `${t('f.req')}:`,
+            d.message,
+        ].join('\n');
+        const url = via === 'gmail' ? gmailLink(t('inq.subject', { name: d.name }), body) : waLink(body);
+        if (url) window.open(url, '_blank', 'noopener');
+        if (FB.ready) {
+            FB.db.collection('inquiries').add({
+                name: String(d.name).slice(0, 100),
+                phone: String(d.phone).slice(0, 30),
+                email: String(d.email).slice(0, 120),
+                message: String(d.message).slice(0, 2000),
+                via, lang: S.lang, createdAt: serverTime(),
+            }).catch((err) => console.warn('Inquiry not saved:', err.code || err));
+        }
+        toast(t('inq.opened'));
+        form.reset();
     });
 
     const reviewForm = $('#review-form');
@@ -1746,7 +2771,16 @@
     reviewForm.addEventListener('change', (e) => { if (e.target.name === 'rating') updateRatingText(); });
     reviewForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        console.log('Review:', Object.fromEntries(new FormData(reviewForm)));
+        const d = Object.fromEntries(new FormData(reviewForm));
+        if (FB.ready) {
+            FB.db.collection('reviews').add({
+                name: String(d.name).slice(0, 100),
+                email: String(d.email).slice(0, 120),
+                rating: Math.max(1, Math.min(5, Number(d.rating) || 5)),
+                comments: String(d.comments).slice(0, 2000),
+                lang: S.lang, createdAt: serverTime(),
+            }).catch((err) => console.warn('Review not saved:', err.code || err));
+        }
         toast(t('rev.ok'));
         reviewForm.reset();
         updateRatingText();
@@ -1754,6 +2788,7 @@
 
     /* ---------- Init ---------- */
     VIZ.createCards();
+    fbInit();
     route();
     applyAll();
 })();
