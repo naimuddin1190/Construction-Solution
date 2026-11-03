@@ -1003,6 +1003,19 @@
         @media (max-width: 480px) { .unit-pick > span { display: none; } .card-head { flex-wrap: wrap; } }
         .len-tag.solo { display: inline !important; }
 
+        /* column & lintel items */
+        .item-list { display: grid; gap: .75rem; margin-bottom: .75rem; }
+        .item-row { display: grid; gap: .75rem; padding: .875rem; border-radius: var(--radius-sm); background: var(--field); border: 1px solid var(--line); }
+        .item-row[data-type="lintel"] { border-left: 3px solid var(--brand); }
+        .item-head { display: flex; align-items: center; gap: .625rem; flex-wrap: wrap; }
+        .item-head .area-no { margin: 0; height: 2.25rem; min-width: 0; padding: 0 .75rem; }
+        .item-head .segmented { min-height: 2.25rem; flex: 0 1 15rem; }
+        .item-head .icon-btn { margin-left: auto; }
+        .item-row .fields { grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr)); }
+        .item-row .input-wrap.len-box, .item-row .input-wrap input { background: var(--field-focus); }
+        .item-add { display: flex; gap: .5rem; flex-wrap: wrap; }
+        .formula-note { margin: 0; padding: 0 1rem 1rem; font-size: .78rem; color: var(--muted); }
+
         /* Browsers without backdrop-filter: make glass more opaque */
         @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
             :root, [data-theme="light"] { --glass: rgba(255, 255, 255, .92); --glass-strong: rgba(255, 255, 255, .97); }
@@ -1301,21 +1314,16 @@
                     <div class="card-head"><h2><i class="fa-solid fa-sliders"></i> <span data-i18n="calc.inputs"></span></h2>
                         <label class="unit-pick"><i class="fa-solid fa-ruler"></i><span data-i18n="mu.label"></span>
                             <select class="unit-select" autocomplete="off">
-                                <optgroup data-i18n-label="lu.combo">
+                                <optgroup data-i18n-label="lu.imperial">
                                     <option value="ftin" data-i18n="lu.ftin"></option>
-                                    <option value="mcm" data-i18n="lu.mcm"></option>
-                                    <option value="cmmm" data-i18n="lu.cmmm"></option>
-                                    <option value="ydft" data-i18n="lu.ydft"></option>
-                                    <option value="haatin" data-i18n="lu.haatin"></option>
-                                </optgroup>
-                                <optgroup data-i18n-label="lu.single">
                                     <option value="ft" data-i18n="lu.ft"></option>
                                     <option value="in" data-i18n="lu.in"></option>
+                                    <option value="yd" data-i18n="lu.yd"></option>
+                                </optgroup>
+                                <optgroup data-i18n-label="lu.metric">
                                     <option value="m" data-i18n="lu.m"></option>
                                     <option value="cm" data-i18n="lu.cm"></option>
                                     <option value="mm" data-i18n="lu.mm"></option>
-                                    <option value="yd" data-i18n="lu.yd"></option>
-                                    <option value="haat" data-i18n="lu.haat"></option>
                                 </optgroup>
                             </select>
                         </label>
@@ -1326,17 +1334,17 @@
                             <div class="fields ratio">
                                 <div class="field">
                                     <label for="roof-ratio1" data-i18n="mat.cement"></label>
-                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="roof-ratio1" name="ratio1" data-num data-ph="1"></div>
+                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="roof-ratio1" name="ratio1" data-num data-ph="0"></div>
                                     <span class="field-error"></span>
                                 </div>
                                 <div class="field">
                                     <label for="roof-ratio2" data-i18n="mat.sand"></label>
-                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="roof-ratio2" name="ratio2" data-num data-ph="2"></div>
+                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="roof-ratio2" name="ratio2" data-num data-ph="0"></div>
                                     <span class="field-error"></span>
                                 </div>
                                 <div class="field">
                                     <label for="roof-ratio3" data-i18n="mat.khoa"></label>
-                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="roof-ratio3" name="ratio3" data-num data-ph="4"></div>
+                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="roof-ratio3" name="ratio3" data-num data-ph="0"></div>
                                     <span class="field-error"></span>
                                 </div>
                             </div>
@@ -1379,10 +1387,32 @@
                             <div class="fields">
                                 <div class="field">
                                     <label for="roof-height" data-i18n="f.height"></label>
-                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="roof-height" data-len="in" name="height" data-num data-positive data-ph="5"></div>
+                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="roof-height" data-len="in" name="height" data-num data-positive data-ph="0"></div>
                                     <span class="field-error"></span>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="fieldset">
+                            <p class="group-title"><span data-i18n="grp.price"></span> <small class="opt" data-i18n="tl.optional"></small></p>
+                            <div class="fields auto">
+                                <div class="field">
+                                    <label for="roof-cementPrice"><span data-i18n="f.cementPrice"></span></label>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="roof-cementPrice" name="cementPrice" data-num data-optional data-default="0" data-ph="0" ><span class="unit">৳</span></div>
+                                    <span class="field-error"></span>
+                                </div>
+                                <div class="field">
+                                    <label for="roof-sandPrice"><span data-i18n-k="f.sandPrice"></span></label>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="roof-sandPrice" name="sandPrice" data-num data-optional data-default="0" data-ph="0" data-price="vol"><span class="unit">৳</span></div>
+                                    <span class="field-error"></span>
+                                </div>
+                                <div class="field">
+                                    <label for="roof-khoaPrice"><span data-i18n-k="f.khoaPrice"></span></label>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="roof-khoaPrice" name="khoaPrice" data-num data-optional data-default="0" data-ph="0" data-price="vol"><span class="unit">৳</span></div>
+                                    <span class="field-error"></span>
+                                </div>
+                            </div>
+                            <small class="set-help" data-i18n="pr.hint"></small>
                         </div>
 
                         <div class="form-actions">
@@ -1390,6 +1420,19 @@
                             <button type="submit" class="btn btn-primary"><i class="fa-solid fa-calculator"></i> <span data-i18n="calc.calculate"></span></button>
                         </div>
                         <p class="hint"><i class="fa-solid fa-lightbulb"></i><span data-i18n="roof.hint"></span></p>
+                        <details class="formula">
+                            <summary><i class="fa-solid fa-square-root-variable"></i> <span data-i18n="calc.formula"></span></summary>
+                            <ol>
+                                <li data-i18n-k="roof.f1"></li>
+                                <li data-i18n-k="roof.f2"></li>
+                                <li data-i18n-k="roof.f3"></li>
+                                <li data-i18n-k="roof.f4"></li>
+                                <li data-i18n-k="roof.f5"></li>
+                                <li data-i18n-k="roof.f6"></li>
+                                <li data-i18n-k="roof.f7"></li>
+                            </ol>
+                            <p class="formula-note" data-i18n-k="calc.fnote"></p>
+                        </details>
                     </div>
                 </form>
 
@@ -1423,44 +1466,27 @@
                     <div class="card-head"><h2><i class="fa-solid fa-sliders"></i> <span data-i18n="calc.inputs"></span></h2>
                         <label class="unit-pick"><i class="fa-solid fa-ruler"></i><span data-i18n="mu.label"></span>
                             <select class="unit-select" autocomplete="off">
-                                <optgroup data-i18n-label="lu.combo">
+                                <optgroup data-i18n-label="lu.imperial">
                                     <option value="ftin" data-i18n="lu.ftin"></option>
-                                    <option value="mcm" data-i18n="lu.mcm"></option>
-                                    <option value="cmmm" data-i18n="lu.cmmm"></option>
-                                    <option value="ydft" data-i18n="lu.ydft"></option>
-                                    <option value="haatin" data-i18n="lu.haatin"></option>
-                                </optgroup>
-                                <optgroup data-i18n-label="lu.single">
                                     <option value="ft" data-i18n="lu.ft"></option>
                                     <option value="in" data-i18n="lu.in"></option>
+                                    <option value="yd" data-i18n="lu.yd"></option>
+                                </optgroup>
+                                <optgroup data-i18n-label="lu.metric">
                                     <option value="m" data-i18n="lu.m"></option>
                                     <option value="cm" data-i18n="lu.cm"></option>
                                     <option value="mm" data-i18n="lu.mm"></option>
-                                    <option value="yd" data-i18n="lu.yd"></option>
-                                    <option value="haat" data-i18n="lu.haat"></option>
                                 </optgroup>
                             </select>
                         </label>
                     </div>
                     <div class="card-body">
                         <div class="fieldset">
-                            <p class="group-title" data-i18n="grp.colsize"></p>
-                            <div class="fields auto">
-                                <div class="field">
-                                    <label for="column-colLength" data-i18n="f.colLength"></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-colLength" data-len="ft" name="colLength" data-num data-positive data-ph="10"><span class="unit" data-i18n="u.ft"></span></div>
-                                    <span class="field-error"></span>
-                                </div>
-                                <div class="field">
-                                    <label for="column-colWidth" data-i18n="f.colWidth"></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-colWidth" data-len="in" name="colWidth" data-num data-positive data-ph="12"><span class="unit" data-i18n="u.inch"></span></div>
-                                    <span class="field-error"></span>
-                                </div>
-                                <div class="field">
-                                    <label for="column-colThickness" data-i18n="f.colThickness"></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-colThickness" data-len="in" name="colThickness" data-num data-positive data-ph="12"><span class="unit" data-i18n="u.inch"></span></div>
-                                    <span class="field-error"></span>
-                                </div>
+                            <p class="group-title" data-i18n="cl.items"></p>
+                            <div class="item-list" id="col-items"></div>
+                            <div class="item-add">
+                                <button type="button" class="btn btn-soft btn-sm" data-add-item="column"><i class="fa-solid fa-plus"></i> <span data-i18n="cl.addCol"></span></button>
+                                <button type="button" class="btn btn-soft btn-sm" data-add-item="lintel"><i class="fa-solid fa-plus"></i> <span data-i18n="cl.addLin"></span></button>
                             </div>
                         </div>
 
@@ -1469,41 +1495,42 @@
                             <div class="fields ratio">
                                 <div class="field">
                                     <label for="column-ratio1" data-i18n="mat.cement"></label>
-                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="column-ratio1" name="ratio1" data-num data-ph="1"></div>
+                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="column-ratio1" name="ratio1" data-num data-ph="0"></div>
                                     <span class="field-error"></span>
                                 </div>
                                 <div class="field">
                                     <label for="column-ratio2" data-i18n="mat.sand"></label>
-                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="column-ratio2" name="ratio2" data-num data-ph="1.5"></div>
+                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="column-ratio2" name="ratio2" data-num data-ph="0"></div>
                                     <span class="field-error"></span>
                                 </div>
                                 <div class="field">
                                     <label for="column-ratio3" data-i18n="mat.khoa"></label>
-                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="column-ratio3" name="ratio3" data-num data-ph="3"></div>
+                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="column-ratio3" name="ratio3" data-num data-ph="0"></div>
                                     <span class="field-error"></span>
                                 </div>
                             </div>
                         </div>
 
                         <div class="fieldset">
-                            <p class="group-title" data-i18n="grp.price"></p>
+                            <p class="group-title"><span data-i18n="grp.price"></span> <small class="opt" data-i18n="tl.optional"></small></p>
                             <div class="fields auto">
                                 <div class="field">
-                                    <label for="column-cementPrice" data-i18n="f.cementPrice"></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-cementPrice" name="cementPrice" data-num data-ph="0"><span class="unit">৳</span></div>
+                                    <label for="column-cementPrice"><span data-i18n="f.cementPrice"></span></label>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-cementPrice" name="cementPrice" data-num data-optional data-default="0" data-ph="0" ><span class="unit">৳</span></div>
                                     <span class="field-error"></span>
                                 </div>
                                 <div class="field">
-                                    <label for="column-sandPrice" data-i18n="f.sandPrice"></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-sandPrice" name="sandPrice" data-num data-ph="0"><span class="unit">৳</span></div>
+                                    <label for="column-sandPrice"><span data-i18n-k="f.sandPrice"></span></label>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-sandPrice" name="sandPrice" data-num data-optional data-default="0" data-ph="0" data-price="vol"><span class="unit">৳</span></div>
                                     <span class="field-error"></span>
                                 </div>
                                 <div class="field">
-                                    <label for="column-khoaPrice" data-i18n="f.khoaPrice"></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-khoaPrice" name="khoaPrice" data-num data-ph="0"><span class="unit">৳</span></div>
+                                    <label for="column-khoaPrice"><span data-i18n-k="f.khoaPrice"></span></label>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-khoaPrice" name="khoaPrice" data-num data-optional data-default="0" data-ph="0" data-price="vol"><span class="unit">৳</span></div>
                                     <span class="field-error"></span>
                                 </div>
                             </div>
+                            <small class="set-help" data-i18n="pr.hint"></small>
                         </div>
 
                         <div class="form-actions">
@@ -1511,6 +1538,19 @@
                             <button type="submit" class="btn btn-primary"><i class="fa-solid fa-calculator"></i> <span data-i18n="calc.calculate"></span></button>
                         </div>
                         <p class="hint"><i class="fa-solid fa-lightbulb"></i><span data-i18n="column.hint"></span></p>
+                        <details class="formula">
+                            <summary><i class="fa-solid fa-square-root-variable"></i> <span data-i18n="calc.formula"></span></summary>
+                            <ol>
+                                <li data-i18n-k="cl.f1"></li>
+                                <li data-i18n-k="cl.f2"></li>
+                                <li data-i18n-k="cl.f3"></li>
+                                <li data-i18n-k="cl.f4"></li>
+                                <li data-i18n-k="cl.f5"></li>
+                                <li data-i18n-k="cl.f6"></li>
+                                <li data-i18n-k="cl.f7"></li>
+                            </ol>
+                            <p class="formula-note" data-i18n-k="calc.fnote"></p>
+                        </details>
                     </div>
                 </form>
 
@@ -1544,21 +1584,16 @@
                     <div class="card-head"><h2><i class="fa-solid fa-sliders"></i> <span data-i18n="calc.inputs"></span></h2>
                         <label class="unit-pick"><i class="fa-solid fa-ruler"></i><span data-i18n="mu.label"></span>
                             <select class="unit-select" autocomplete="off">
-                                <optgroup data-i18n-label="lu.combo">
+                                <optgroup data-i18n-label="lu.imperial">
                                     <option value="ftin" data-i18n="lu.ftin"></option>
-                                    <option value="mcm" data-i18n="lu.mcm"></option>
-                                    <option value="cmmm" data-i18n="lu.cmmm"></option>
-                                    <option value="ydft" data-i18n="lu.ydft"></option>
-                                    <option value="haatin" data-i18n="lu.haatin"></option>
-                                </optgroup>
-                                <optgroup data-i18n-label="lu.single">
                                     <option value="ft" data-i18n="lu.ft"></option>
                                     <option value="in" data-i18n="lu.in"></option>
+                                    <option value="yd" data-i18n="lu.yd"></option>
+                                </optgroup>
+                                <optgroup data-i18n-label="lu.metric">
                                     <option value="m" data-i18n="lu.m"></option>
                                     <option value="cm" data-i18n="lu.cm"></option>
                                     <option value="mm" data-i18n="lu.mm"></option>
-                                    <option value="yd" data-i18n="lu.yd"></option>
-                                    <option value="haat" data-i18n="lu.haat"></option>
                                 </optgroup>
                             </select>
                         </label>
@@ -1579,7 +1614,7 @@
                                 </div>
                                 <div class="field">
                                     <label for="wall-brickThickness" data-i18n="f.brickThickness"></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="wall-brickThickness" data-len="in" name="brickThickness" data-num data-positive data-ph="5"><span class="unit" data-i18n="u.inch"></span></div>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="wall-brickThickness" data-len="in" name="brickThickness" data-num data-positive data-ph="0"><span class="unit" data-i18n="u.inch"></span></div>
                                     <span class="field-error"></span>
                                 </div>
                             </div>
@@ -1590,15 +1625,37 @@
                             <div class="fields ratio">
                                 <div class="field">
                                     <label for="wall-ratio1" data-i18n="mat.cement"></label>
-                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="wall-ratio1" name="ratio1" data-num data-ph="1"></div>
+                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="wall-ratio1" name="ratio1" data-num data-ph="0"></div>
                                     <span class="field-error"></span>
                                 </div>
                                 <div class="field">
                                     <label for="wall-ratio2" data-i18n="mat.sand"></label>
-                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="wall-ratio2" name="ratio2" data-num data-ph="4"></div>
+                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="wall-ratio2" name="ratio2" data-num data-ph="0"></div>
                                     <span class="field-error"></span>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="fieldset">
+                            <p class="group-title"><span data-i18n="grp.price"></span> <small class="opt" data-i18n="tl.optional"></small></p>
+                            <div class="fields auto">
+                                <div class="field">
+                                    <label for="wall-brickPrice"><span data-i18n="f.brickPrice"></span></label>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="wall-brickPrice" name="brickPrice" data-num data-optional data-default="0" data-ph="0" ><span class="unit">৳</span></div>
+                                    <span class="field-error"></span>
+                                </div>
+                                <div class="field">
+                                    <label for="wall-cementPrice"><span data-i18n="f.cementPrice"></span></label>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="wall-cementPrice" name="cementPrice" data-num data-optional data-default="0" data-ph="0" ><span class="unit">৳</span></div>
+                                    <span class="field-error"></span>
+                                </div>
+                                <div class="field">
+                                    <label for="wall-sandPrice"><span data-i18n-k="f.sandPrice"></span></label>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="wall-sandPrice" name="sandPrice" data-num data-optional data-default="0" data-ph="0" data-price="vol"><span class="unit">৳</span></div>
+                                    <span class="field-error"></span>
+                                </div>
+                            </div>
+                            <small class="set-help" data-i18n="pr.hint"></small>
                         </div>
 
                         <div class="form-actions">
@@ -1606,6 +1663,18 @@
                             <button type="submit" class="btn btn-primary"><i class="fa-solid fa-calculator"></i> <span data-i18n="calc.calculate"></span></button>
                         </div>
                         <p class="hint"><i class="fa-solid fa-lightbulb"></i><span data-i18n="wall.hint"></span></p>
+                        <details class="formula">
+                            <summary><i class="fa-solid fa-square-root-variable"></i> <span data-i18n="calc.formula"></span></summary>
+                            <ol>
+                                <li data-i18n-k="wall.f1"></li>
+                                <li data-i18n-k="wall.f2"></li>
+                                <li data-i18n-k="wall.f3"></li>
+                                <li data-i18n-k="wall.f4"></li>
+                                <li data-i18n-k="wall.f5"></li>
+                                <li data-i18n-k="wall.f6"></li>
+                            </ol>
+                            <p class="formula-note" data-i18n-k="calc.fnote"></p>
+                        </details>
                     </div>
                 </form>
 
@@ -1639,21 +1708,16 @@
                     <div class="card-head"><h2><i class="fa-solid fa-sliders"></i> <span data-i18n="calc.inputs"></span></h2>
                         <label class="unit-pick"><i class="fa-solid fa-ruler"></i><span data-i18n="mu.label"></span>
                             <select class="unit-select" autocomplete="off">
-                                <optgroup data-i18n-label="lu.combo">
+                                <optgroup data-i18n-label="lu.imperial">
                                     <option value="ftin" data-i18n="lu.ftin"></option>
-                                    <option value="mcm" data-i18n="lu.mcm"></option>
-                                    <option value="cmmm" data-i18n="lu.cmmm"></option>
-                                    <option value="ydft" data-i18n="lu.ydft"></option>
-                                    <option value="haatin" data-i18n="lu.haatin"></option>
-                                </optgroup>
-                                <optgroup data-i18n-label="lu.single">
                                     <option value="ft" data-i18n="lu.ft"></option>
                                     <option value="in" data-i18n="lu.in"></option>
+                                    <option value="yd" data-i18n="lu.yd"></option>
+                                </optgroup>
+                                <optgroup data-i18n-label="lu.metric">
                                     <option value="m" data-i18n="lu.m"></option>
                                     <option value="cm" data-i18n="lu.cm"></option>
                                     <option value="mm" data-i18n="lu.mm"></option>
-                                    <option value="yd" data-i18n="lu.yd"></option>
-                                    <option value="haat" data-i18n="lu.haat"></option>
                                 </optgroup>
                             </select>
                         </label>
@@ -1674,7 +1738,7 @@
                                 </div>
                                 <div class="field">
                                     <label for="plaster-plasterThickness" data-i18n="f.plasterThickness"></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plaster-plasterThickness" data-len="in" name="plasterThickness" data-num data-positive data-ph="0.5"><span class="unit" data-i18n="u.inch"></span></div>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plaster-plasterThickness" data-len="in" name="plasterThickness" data-num data-positive data-ph="0"><span class="unit" data-i18n="u.inch"></span></div>
                                     <span class="field-error"></span>
                                 </div>
                             </div>
@@ -1685,15 +1749,32 @@
                             <div class="fields ratio">
                                 <div class="field">
                                     <label for="plaster-ratio1" data-i18n="mat.cement"></label>
-                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="plaster-ratio1" name="ratio1" data-num data-ph="1"></div>
+                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="plaster-ratio1" name="ratio1" data-num data-ph="0"></div>
                                     <span class="field-error"></span>
                                 </div>
                                 <div class="field">
                                     <label for="plaster-ratio2" data-i18n="mat.sand"></label>
-                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="plaster-ratio2" name="ratio2" data-num data-ph="4"></div>
+                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="plaster-ratio2" name="ratio2" data-num data-ph="0"></div>
                                     <span class="field-error"></span>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="fieldset">
+                            <p class="group-title"><span data-i18n="grp.price"></span> <small class="opt" data-i18n="tl.optional"></small></p>
+                            <div class="fields auto">
+                                <div class="field">
+                                    <label for="plaster-cementPrice"><span data-i18n="f.cementPrice"></span></label>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plaster-cementPrice" name="cementPrice" data-num data-optional data-default="0" data-ph="0" ><span class="unit">৳</span></div>
+                                    <span class="field-error"></span>
+                                </div>
+                                <div class="field">
+                                    <label for="plaster-sandPrice"><span data-i18n-k="f.sandPrice"></span></label>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plaster-sandPrice" name="sandPrice" data-num data-optional data-default="0" data-ph="0" data-price="vol"><span class="unit">৳</span></div>
+                                    <span class="field-error"></span>
+                                </div>
+                            </div>
+                            <small class="set-help" data-i18n="pr.hint"></small>
                         </div>
 
                         <div class="form-actions">
@@ -1701,6 +1782,18 @@
                             <button type="submit" class="btn btn-primary"><i class="fa-solid fa-calculator"></i> <span data-i18n="calc.calculate"></span></button>
                         </div>
                         <p class="hint"><i class="fa-solid fa-lightbulb"></i><span data-i18n="plaster.hint"></span></p>
+                        <details class="formula">
+                            <summary><i class="fa-solid fa-square-root-variable"></i> <span data-i18n="calc.formula"></span></summary>
+                            <ol>
+                                <li data-i18n-k="plaster.f1"></li>
+                                <li data-i18n-k="plaster.f2"></li>
+                                <li data-i18n-k="plaster.f3"></li>
+                                <li data-i18n-k="plaster.f4"></li>
+                                <li data-i18n-k="plaster.f5"></li>
+                                <li data-i18n-k="plaster.f6"></li>
+                            </ol>
+                            <p class="formula-note" data-i18n-k="calc.fnote"></p>
+                        </details>
                     </div>
                 </form>
 
@@ -1734,21 +1827,16 @@
                     <div class="card-head"><h2><i class="fa-solid fa-sliders"></i> <span data-i18n="calc.inputs"></span></h2>
                         <label class="unit-pick"><i class="fa-solid fa-ruler"></i><span data-i18n="mu.label"></span>
                             <select class="unit-select" autocomplete="off">
-                                <optgroup data-i18n-label="lu.combo">
+                                <optgroup data-i18n-label="lu.imperial">
                                     <option value="ftin" data-i18n="lu.ftin"></option>
-                                    <option value="mcm" data-i18n="lu.mcm"></option>
-                                    <option value="cmmm" data-i18n="lu.cmmm"></option>
-                                    <option value="ydft" data-i18n="lu.ydft"></option>
-                                    <option value="haatin" data-i18n="lu.haatin"></option>
-                                </optgroup>
-                                <optgroup data-i18n-label="lu.single">
                                     <option value="ft" data-i18n="lu.ft"></option>
                                     <option value="in" data-i18n="lu.in"></option>
+                                    <option value="yd" data-i18n="lu.yd"></option>
+                                </optgroup>
+                                <optgroup data-i18n-label="lu.metric">
                                     <option value="m" data-i18n="lu.m"></option>
                                     <option value="cm" data-i18n="lu.cm"></option>
                                     <option value="mm" data-i18n="lu.mm"></option>
-                                    <option value="yd" data-i18n="lu.yd"></option>
-                                    <option value="haat" data-i18n="lu.haat"></option>
                                 </optgroup>
                             </select>
                         </label>
@@ -1775,20 +1863,32 @@
                             <div class="fields auto">
                                 <div class="field">
                                     <label for="steel-gap" data-i18n="f.gap"></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="steel-gap" data-len="in" name="gap" data-num data-positive data-ph="6"><span class="unit" data-i18n="u.inch"></span></div>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="steel-gap" data-len="in" name="gap" data-num data-positive data-ph="0"><span class="unit" data-i18n="u.inch"></span></div>
                                     <span class="field-error"></span>
                                 </div>
                                 <div class="field">
                                     <label for="steel-wastage" data-i18n="f.wastage"></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="steel-wastage" name="wastage" data-num data-ph="5"><span class="unit">%</span></div>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="steel-wastage" name="wastage" data-num data-ph="0"><span class="unit">%</span></div>
                                     <span class="field-error"></span>
                                 </div>
                                 <div class="field">
                                     <label for="steel-mm" data-i18n="f.mm"></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="steel-mm" name="mm" data-num data-positive data-ph="10"><span class="unit" data-i18n="u.mm"></span></div>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="steel-mm" name="mm" data-num data-positive data-ph="0"><span class="unit" data-i18n="u.mm"></span></div>
                                     <span class="field-error"></span>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="fieldset">
+                            <p class="group-title"><span data-i18n="grp.price"></span> <small class="opt" data-i18n="tl.optional"></small></p>
+                            <div class="fields auto">
+                                <div class="field">
+                                    <label for="steel-rodPrice"><span data-i18n="f.rodPrice"></span></label>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="steel-rodPrice" name="rodPrice" data-num data-optional data-default="0" data-ph="0" ><span class="unit">৳</span></div>
+                                    <span class="field-error"></span>
+                                </div>
+                            </div>
+                            <small class="set-help" data-i18n="pr.hint"></small>
                         </div>
 
                         <div class="form-actions">
@@ -1796,6 +1896,18 @@
                             <button type="submit" class="btn btn-primary"><i class="fa-solid fa-calculator"></i> <span data-i18n="calc.calculate"></span></button>
                         </div>
                         <p class="hint"><i class="fa-solid fa-lightbulb"></i><span data-i18n="steel.hint"></span></p>
+                        <details class="formula">
+                            <summary><i class="fa-solid fa-square-root-variable"></i> <span data-i18n="calc.formula"></span></summary>
+                            <ol>
+                                <li data-i18n-k="steel.f1"></li>
+                                <li data-i18n-k="steel.f2"></li>
+                                <li data-i18n-k="steel.f3"></li>
+                                <li data-i18n-k="steel.f4"></li>
+                                <li data-i18n-k="steel.f5"></li>
+                                <li data-i18n-k="steel.f6"></li>
+                            </ol>
+                            <p class="formula-note" data-i18n-k="calc.fnote"></p>
+                        </details>
                     </div>
                 </form>
 
@@ -1829,21 +1941,16 @@
                     <div class="card-head"><h2><i class="fa-solid fa-sliders"></i> <span data-i18n="calc.inputs"></span></h2>
                         <label class="unit-pick"><i class="fa-solid fa-ruler"></i><span data-i18n="mu.label"></span>
                             <select class="unit-select" autocomplete="off">
-                                <optgroup data-i18n-label="lu.combo">
+                                <optgroup data-i18n-label="lu.imperial">
                                     <option value="ftin" data-i18n="lu.ftin"></option>
-                                    <option value="mcm" data-i18n="lu.mcm"></option>
-                                    <option value="cmmm" data-i18n="lu.cmmm"></option>
-                                    <option value="ydft" data-i18n="lu.ydft"></option>
-                                    <option value="haatin" data-i18n="lu.haatin"></option>
-                                </optgroup>
-                                <optgroup data-i18n-label="lu.single">
                                     <option value="ft" data-i18n="lu.ft"></option>
                                     <option value="in" data-i18n="lu.in"></option>
+                                    <option value="yd" data-i18n="lu.yd"></option>
+                                </optgroup>
+                                <optgroup data-i18n-label="lu.metric">
                                     <option value="m" data-i18n="lu.m"></option>
                                     <option value="cm" data-i18n="lu.cm"></option>
                                     <option value="mm" data-i18n="lu.mm"></option>
-                                    <option value="yd" data-i18n="lu.yd"></option>
-                                    <option value="haat" data-i18n="lu.haat"></option>
                                 </optgroup>
                             </select>
                         </label>
@@ -1856,7 +1963,7 @@
                             <div class="fields" style="margin-top:1rem">
                                 <div class="field">
                                     <label for="tiles-deduct"><span data-i18n="tl.deduct"></span> <small class="opt" data-i18n="tl.optional"></small></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-deduct" name="deduct" data-num data-optional data-default="0" data-ph="0"><span class="unit" data-i18n="u.sqft"></span></div>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-deduct" name="deduct" data-area-val data-num data-optional data-default="0" data-ph="0"><span class="unit" data-i18n-k="u.areaU"></span></div>
                                     <span class="field-error"></span>
                                 </div>
                             </div>
@@ -1876,12 +1983,12 @@
                             <div class="fields auto tile-custom" id="tile-custom" hidden>
                                 <div class="field">
                                     <label for="tiles-tileA" data-i18n="tl.sideA"></label>
-                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-tileA" data-len="in" name="tileA" data-num data-positive data-ph="24"></div>
+                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-tileA" data-len="in" name="tileA" data-num data-positive data-ph="0"></div>
                                     <span class="field-error"></span>
                                 </div>
                                 <div class="field">
                                     <label for="tiles-tileB" data-i18n="tl.sideB"></label>
-                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-tileB" data-len="in" name="tileB" data-num data-positive data-ph="24"></div>
+                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-tileB" data-len="in" name="tileB" data-num data-positive data-ph="0"></div>
                                     <span class="field-error"></span>
                                 </div>
                             </div>
@@ -1891,26 +1998,14 @@
                             <p class="group-title" data-i18n="tl.buy"></p>
                             <div class="fields auto">
                                 <div class="field">
-                                    <label for="tiles-wastage" data-i18n="f.wastage"></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-wastage" name="wastage" data-num data-optional data-default="10" data-ph="10"><span class="unit">%</span></div>
+                                    <label for="tiles-wastage"><span data-i18n="f.wastage"></span> <small class="opt" data-i18n="tl.wasteOpt"></small></label>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-wastage" name="wastage" data-num data-optional data-default="10" data-ph="0"><span class="unit">%</span></div>
                                     <span class="field-error"></span>
                                 </div>
                                 <div class="field">
                                     <label for="tiles-perBox"><span data-i18n="tl.perBox"></span> <small class="opt" data-i18n="tl.optional"></small></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-perBox" name="perBox" data-num data-optional data-default="0" data-ph="4"><span class="unit" data-i18n="u.pcs"></span></div>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-perBox" name="perBox" data-num data-optional data-default="0" data-ph="0"><span class="unit" data-i18n="u.pcs"></span></div>
                                     <span class="field-error"></span>
-                                </div>
-                                <div class="field">
-                                    <label for="tiles-price"><span data-i18n="tl.price"></span> <small class="opt" data-i18n="tl.optional"></small></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-price" name="price" data-num data-optional data-default="0" data-ph="0"><span class="unit">৳</span></div>
-                                    <span class="field-error"></span>
-                                </div>
-                                <div class="field">
-                                    <span class="field-label" id="tiles-pu-label" data-i18n="tl.priceUnit"></span>
-                                    <div class="segmented" role="radiogroup" aria-labelledby="tiles-pu-label">
-                                        <label><input type="radio" name="priceUnit" value="sft" checked><span data-i18n="tl.perSft"></span></label>
-                                        <label><input type="radio" name="priceUnit" value="box"><span data-i18n="tl.perBoxPrice"></span></label>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1920,27 +2015,57 @@
                             <div class="fields auto">
                                 <div class="field">
                                     <label for="tiles-bed"><span data-i18n="tl.bed"></span> <small class="opt" data-i18n="tl.optional"></small></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-bed" data-len="in" name="bed" data-num data-optional data-default="0" data-ph="1"><span class="unit" data-i18n="u.inch"></span></div>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-bed" data-len="in" name="bed" data-num data-optional data-default="0" data-ph="0"><span class="unit" data-i18n="u.inch"></span></div>
                                     <span class="field-error"></span>
                                 </div>
                                 <div class="field">
                                     <label for="tiles-skirt"><span data-i18n="tl.skirt"></span> <small class="opt" data-i18n="tl.optional"></small></label>
-                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-skirt" data-len="in" name="skirt" data-num data-optional data-default="0" data-ph="4"><span class="unit" data-i18n="u.inch"></span></div>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-skirt" data-len="in" name="skirt" data-num data-optional data-default="0" data-ph="0"><span class="unit" data-i18n="u.inch"></span></div>
                                     <span class="field-error"></span>
                                 </div>
                             </div>
                             <div class="fields ratio" style="margin-top:1rem">
                                 <div class="field">
                                     <label for="tiles-ratio1"><span data-i18n="grp.ratio"></span> · <span data-i18n="mat.cement"></span></label>
-                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-ratio1" name="ratio1" data-num data-optional data-default="1" data-ph="1"></div>
+                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-ratio1" name="ratio1" data-num data-optional data-default="1" data-ph="0"></div>
                                     <span class="field-error"></span>
                                 </div>
                                 <div class="field">
                                     <label for="tiles-ratio2"><span data-i18n="grp.ratio"></span> · <span data-i18n="mat.sand"></span></label>
-                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-ratio2" name="ratio2" data-num data-optional data-default="4" data-ph="4"></div>
+                                    <div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-ratio2" name="ratio2" data-num data-optional data-default="4" data-ph="0"></div>
                                     <span class="field-error"></span>
                                 </div>
                             </div>
+                            <small class="set-help" data-i18n="tl.ratioHint"></small>
+                        </div>
+
+                        <div class="fieldset">
+                            <p class="group-title"><span data-i18n="grp.price"></span> <small class="opt" data-i18n="tl.optional"></small></p>
+                            <div class="fields auto">
+                                <div class="field">
+                                    <label for="tiles-price"><span data-i18n="tl.price"></span></label>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-price" name="price" data-num data-optional data-default="0" data-ph="0" data-price="tile"><span class="unit">৳</span></div>
+                                    <span class="field-error"></span>
+                                </div>
+                                <div class="field">
+                                    <span class="field-label" id="tiles-pu-label" data-i18n="tl.priceUnit"></span>
+                                    <div class="segmented" role="radiogroup" aria-labelledby="tiles-pu-label">
+                                        <label><input type="radio" name="priceUnit" value="sft" checked><span data-i18n-k="tl.perSft"></span></label>
+                                        <label><input type="radio" name="priceUnit" value="box"><span data-i18n="tl.perBoxPrice"></span></label>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label for="tiles-cementPrice"><span data-i18n="f.cementPrice"></span></label>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-cementPrice" name="cementPrice" data-num data-optional data-default="0" data-ph="0" ><span class="unit">৳</span></div>
+                                    <span class="field-error"></span>
+                                </div>
+                                <div class="field">
+                                    <label for="tiles-sandPrice"><span data-i18n-k="f.sandPrice"></span></label>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="tiles-sandPrice" name="sandPrice" data-num data-optional data-default="0" data-ph="0" data-price="vol"><span class="unit">৳</span></div>
+                                    <span class="field-error"></span>
+                                </div>
+                            </div>
+                            <small class="set-help" data-i18n="pr.hint"></small>
                         </div>
 
                         <div class="form-actions">
@@ -1949,17 +2074,19 @@
                         </div>
                         <p class="hint"><i class="fa-solid fa-ruler-combined"></i><span data-i18n="tl.hint"></span></p>
                         <details class="formula">
-                            <summary><i class="fa-solid fa-square-root-variable"></i> <span data-i18n="tl.formula"></span></summary>
+                            <summary><i class="fa-solid fa-square-root-variable"></i> <span data-i18n="calc.formula"></span></summary>
                             <ol>
-                                <li data-i18n="tl.f1"></li>
-                                <li data-i18n="tl.f2"></li>
-                                <li data-i18n="tl.f3"></li>
-                                <li data-i18n="tl.f4"></li>
-                                <li data-i18n="tl.f5"></li>
-                                <li data-i18n="tl.f6"></li>
-                                <li data-i18n="tl.f7"></li>
-                                <li data-i18n="tl.f8"></li>
+                                <li data-i18n-k="tl.f1"></li>
+                                <li data-i18n-k="tl.f2"></li>
+                                <li data-i18n-k="tl.f3"></li>
+                                <li data-i18n-k="tl.f4"></li>
+                                <li data-i18n-k="tl.f5"></li>
+                                <li data-i18n-k="tl.f6"></li>
+                                <li data-i18n-k="tl.f7"></li>
+                                <li data-i18n-k="tl.f8"></li>
+                                <li data-i18n-k="tl.f9"></li>
                             </ol>
+                            <p class="formula-note" data-i18n-k="calc.fnote"></p>
                         </details>
                     </div>
                 </form>
@@ -2338,9 +2465,11 @@
                     <div class="fieldset">
                         <p class="group-title" data-i18n="cc.prices"></p>
                         <div class="fields auto">
-                            <div class="field"><label for="a-pc" data-i18n="f.cementPrice"></label><div class="input-wrap"><input id="a-pc" name="p_cement" data-anum inputmode="decimal"><span class="unit">৳</span></div></div>
-                            <div class="field"><label for="a-ps" data-i18n="f.sandPrice"></label><div class="input-wrap"><input id="a-ps" name="p_sand" data-anum inputmode="decimal"><span class="unit">৳</span></div></div>
-                            <div class="field"><label for="a-pk" data-i18n="f.khoaPrice"></label><div class="input-wrap"><input id="a-pk" name="p_khoa" data-anum inputmode="decimal"><span class="unit">৳</span></div></div>
+                            <div class="field"><label for="a-pc" data-i18n="ap.cement"></label><div class="input-wrap"><input id="a-pc" name="p_cement" data-anum inputmode="decimal"><span class="unit">৳</span></div></div>
+                            <div class="field"><label for="a-ps" data-i18n="ap.sand"></label><div class="input-wrap"><input id="a-ps" name="p_sand" data-anum inputmode="decimal"><span class="unit">৳</span></div></div>
+                            <div class="field"><label for="a-pb" data-i18n="ap.brick"></label><div class="input-wrap"><input id="a-pb" name="p_brick" data-anum inputmode="decimal"><span class="unit">৳</span></div></div>
+                            <div class="field"><label for="a-pr" data-i18n="ap.rod"></label><div class="input-wrap"><input id="a-pr" name="p_rod" data-anum inputmode="decimal"><span class="unit">৳</span></div></div>
+                            <div class="field"><label for="a-pk" data-i18n="ap.khoa"></label><div class="input-wrap"><input id="a-pk" name="p_khoa" data-anum inputmode="decimal"><span class="unit">৳</span></div></div>
                         </div>
                         <small class="set-help" data-i18n="cc.prices.d"></small>
                     </div>

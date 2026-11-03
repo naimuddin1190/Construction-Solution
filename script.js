@@ -22,9 +22,8 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
     measurementId: 'G-CF4V9BE8CW',
 };
 
-// Accounts with these emails are admins (create them in Firebase → Authentication → Users).
-// You can also make someone admin by adding a document admins/{their UID} in Firestore.
-const ADMIN_EMAILS = ['oletommy10@gmail.com'];
+// Who is admin is decided only by your Firestore Rules (isAdmin()), not by this file.
+// After login the site simply tries an admin-only read; if the Rules allow it, the account is admin.
 
 (() => {
     'use strict';
@@ -48,7 +47,7 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             'nav.expand': 'Expand sidebar',
             'page.home': 'Home',
             'page.roof': 'Roof Molding',
-            'page.column': 'Column Works',
+            'page.column': 'Columns & Lintels',
             'page.wall': 'Wall B-C-S',
             'page.plaster': 'Plaster',
             'page.steel': 'Roof Steel',
@@ -73,7 +72,7 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             'home.title': 'Welcome to <span>Construction Solution</span>',
             'home.lead': 'Roof casting, columns, brick walls, plaster and steel — cement, sand, khoa and cost estimates in one place, instantly.',
             'home.cta.roof': 'Calculate roof casting',
-            'home.cta.column': 'Calculate columns',
+            'home.cta.column': 'Calculate columns & lintels',
             'home.cta.wall': 'Calculate brick walls',
             'home.cta.plaster': 'Calculate plaster',
             'stat1.t': '5+ Calculators', 'stat1.s': 'More coming soon',
@@ -83,7 +82,7 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             'tools.title': 'Choose the estimate you need',
             'tools.sub': 'Enter your measurements and get material & cost estimates instantly.',
             'desc.roof': 'Find out how much cement, sand and khoa your roof casting needs.',
-            'desc.column': 'Column materials, bricks to break for khoa, and the total cost.',
+            'desc.column': 'Many columns and lintels at once — materials, bricks for khoa and cost.',
             'desc.wall': 'Bricks, cement and sand needed for brick walls.',
             'desc.plaster': 'Cement and sand by plaster thickness and mixing ratio.',
             'desc.steel': 'Total kg of rod from spacing, rod size and wastage.',
@@ -120,7 +119,7 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             'grp.width': 'Width',
             'grp.thickness': 'Thickness',
             'grp.colsize': 'Column Size',
-            'grp.price': 'Market Price',
+            'grp.price': 'Market price',
             'grp.wallsize': 'Wall Size',
             'grp.plaster': 'Wall & Plaster',
             'grp.roofsize': 'Roof Size',
@@ -144,8 +143,8 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             'f.colWidth': 'Column Width',
             'f.colThickness': 'Column Thickness',
             'f.cementPrice': 'Cement (per bag)',
-            'f.sandPrice': 'Sand (per cft)',
-            'f.khoaPrice': 'Khoa (per cft)',
+            'f.sandPrice': 'Sand (per {vol})',
+            'f.khoaPrice': 'Khoa (per {vol})',
             'f.wallLength': 'Wall Length',
             'f.wallHeight': 'Wall Height',
             'f.brickThickness': 'Brick Thickness',
@@ -162,8 +161,8 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             'roof.title': 'Roof Molding',
             'roof.sub': 'Enter the roof length, width, thickness and mixing ratio to get cement, sand and khoa quantities.',
             'roof.hint': 'For an uneven roof enter both sides — the average is used. Roof casting commonly uses a 1 : 2 : 4 ratio.',
-            'column.title': 'Column Works',
-            'column.sub': 'Enter the column size, mixing ratio and market prices to get materials and the total cost.',
+            'column.title': 'Columns & Lintels',
+            'column.sub': 'Add every column and lintel with its size and quantity — get materials and, if you enter prices, the cost.',
             'column.hint': 'Pick the unit at the top (feet + inch, meter …) — every box follows it.',
             'wall.title': 'Wall B-C-S (Brick, Cement, Sand)',
             'wall.sub': 'Enter the wall length, height, brick thickness and mixing ratio.',
@@ -191,7 +190,7 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             'tl.perBox': 'Tiles per box',
             'tl.price': 'Price',
             'tl.priceUnit': 'Price is',
-            'tl.perSft': 'Per sq ft',
+            'tl.perSft': 'Per {area}',
             'tl.perBoxPrice': 'Per box',
             'tl.mortar': 'Mortar & skirting (optional)',
             'tl.bed': 'Mortar thickness',
@@ -200,12 +199,12 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             'tl.formula': 'Show the formulas',
             'tl.f1': 'Floor area = length × width (add up every part) − area left out',
             'tl.f2': 'Skirting area = 2 × (length + width) × skirting height (in) ÷ 12',
-            'tl.f3': 'One tile = tile length (in) × tile width (in) ÷ 144 sq ft  (mm: ÷ 25.4 first)',
+            'tl.f3': 'One tile = tile length (in) × tile width (in) ÷ 144 sq ft',
             'tl.f4': 'Tiles = (floor area + skirting area) ÷ one tile, rounded up',
             'tl.f5': 'With wastage = tiles × (1 + wastage % ÷ 100), rounded up',
             'tl.f6': 'Boxes = tiles with wastage ÷ tiles per box, rounded up',
-            'tl.f7': 'Mortar dry volume = floor area × thickness (in) ÷ 12 × dry factor (1.33)',
-            'tl.f8': 'Cement = dry volume × cement ÷ (cement + sand) → bags × 0.8;  Sand = dry volume × sand ÷ (cement + sand)',
+            'tl.f7': 'Mortar dry volume = floor area × thickness (in) ÷ 12 × {tileDry}',
+            'tl.f8': 'Cement = dry volume × cement ÷ (cement + sand) → bags = × {cementBag};  Sand = dry volume × sand ÷ (cement + sand)',
             'tl.needBox': 'Enter tiles per box to price by the box',
             'r.floorArea': 'Floor area',
             'r.deduct': 'Left out',
@@ -249,7 +248,7 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             'r.rodLength': 'Total rod length',
             'r.wastage': 'Wastage ({p}%)',
             'r.subTotal': 'Sub total',
-            'r.kgPerFt': 'Weight per ft ({mm} mm)',
+            'r.kgPerFt': 'Weight per {per} ({mm} mm)',
             'r.rodTotal': 'Total rod needed',
 
             'viz.title': '3D Preview',
@@ -412,8 +411,7 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             'msg.replyText': 'Hello {name}, thank you for contacting {site}.',
             'accent.teal': 'Teal', 'accent.rose': 'Rose',
 
-            'lu.ftin': 'Feet + Inch', 'lu.ft': 'Feet', 'lu.in': 'Inch', 'lu.m': 'Meter', 'lu.cm': 'Centimeter',
-            'lu.others': 'Others', 'lu.mm': 'Millimeter', 'lu.yd': 'Yard', 'lu.haat': 'Haat (18 inch)',
+                        'lu.others': 'Others', 'lu.haat': 'Haat (18 inch)',
             'lu.ydft': 'Yard + Feet', 'lu.haatin': 'Haat + Inch', 'lu.mcm': 'Meter + Centimeter', 'lu.cmmm': 'Centimeter + Millimeter',
             'lu.combo': 'Two units together', 'lu.single': 'One unit',
             'mu.label': 'Measure in',
@@ -436,6 +434,85 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             'rp.results': 'Results',
             'rp.3d': '3D preview',
             'rp.made': 'Made with {site}',
+            'lu.imperial': 'Imperial',
+            'lu.metric': 'Metric (SI)',
+            'lu.ftin': 'Feet-Inch (ft-in)',
+            'lu.ft': 'Feet (ft)',
+            'lu.in': 'Inch (in)',
+            'lu.yd': 'Yard (yd)',
+            'lu.m': 'Metre (m)',
+            'lu.cm': 'Centimetre (cm)',
+            'lu.mm': 'Millimetre (mm)',
+            'u.m2': 'm²',
+            'u.m3': 'm³',
+            'u.rm': 'm',
+            'u.kgm': 'kg/m',
+            'u.areaU': '{area}',
+            'cl.items': 'Columns & lintels',
+            'cl.addCol': 'Add column',
+            'cl.addLin': 'Add lintel',
+            'cl.column': 'Column',
+            'cl.lintel': 'Lintel',
+            'cl.columnN': 'Column {n}',
+            'cl.lintelN': 'Lintel {n}',
+            'cl.remove': 'Remove',
+            'cl.colH': 'Height',
+            'cl.linL': 'Length (span)',
+            'cl.width': 'Width',
+            'cl.colT': 'Thickness',
+            'cl.linD': 'Depth',
+            'cl.qty': 'Quantity',
+            'cl.qtyOpt': '(empty = 1)',
+            'cl.colTotal': 'All columns ({n} pcs)',
+            'cl.linTotal': 'All lintels ({n} pcs)',
+            'f.brickPrice': 'Brick (per piece)',
+            'f.rodPrice': 'Rod (per kg)',
+            'ap.cement': 'Cement (per bag)',
+            'ap.sand': 'Sand (per cft)',
+            'ap.khoa': 'Khoa (per cft)',
+            'ap.brick': 'Brick (per piece)',
+            'ap.rod': 'Rod (per kg)',
+            'r.brickCost': 'Total brick cost',
+            'r.rodCost': 'Total rod cost',
+            'pr.hint': 'Optional — fill in the prices you know to get the cost. Results come without them too.',
+            'tl.wasteOpt': '(empty = 10%)',
+            'tl.ratioHint': 'Leave the mortar ratio empty to use 1 : 4.',
+            'calc.formula': 'Show the formulas',
+            'calc.fnote': 'Lengths are converted to feet / inches for the formulas; results are shown in the unit system you picked (1 cft = 0.0283 m³, 1 sq ft = 0.0929 m²).',
+            'roof.f1': 'Average length = (first + second length) ÷ 2;  average width = (first + second width) ÷ 2',
+            'roof.f2': 'Area = average length × average width',
+            'roof.f3': 'Volume = area × thickness (in) ÷ 12',
+            'roof.f4': 'Dry volume = volume × {dry}',
+            'roof.f5': 'Cement = dry volume × cement ÷ (cement + sand + khoa);  bags = cement cft × {cementBag}',
+            'roof.f6': 'Sand / khoa = dry volume × its part ÷ total parts;  bags = cft ÷ {cftPerBag}',
+            'roof.f7': 'Cost = cement bags × price + sand × price + khoa × price',
+            'cl.f1': 'Each item = length or height (ft) × width (in) ÷ 12 × thickness or depth (in) ÷ 12 × quantity',
+            'cl.f2': 'Total volume = all columns + all lintels',
+            'cl.f3': 'Dry volume = total volume × {dry}',
+            'cl.f4': 'Cement = dry volume × cement ÷ (cement + sand + khoa);  bags = cement cft × {cementBag}',
+            'cl.f5': 'Sand / khoa = dry volume × its part ÷ total parts;  bags = cft ÷ {cftPerBag}',
+            'cl.f6': 'Bricks to break for khoa = khoa cft × {khoaBricks}',
+            'cl.f7': 'Cost = cement bags × price + sand × price + khoa × price',
+            'wall.f1': 'Volume = length × height × brick thickness (in) ÷ 12',
+            'wall.f2': 'Bricks = volume × {bricksPerCft}, rounded up',
+            'wall.f3': 'Dry mortar = volume × {wallDry}',
+            'wall.f4': 'Cement = dry mortar × cement ÷ (cement + sand);  bags = cement cft × {cementBag}',
+            'wall.f5': 'Sand = dry mortar × sand ÷ (cement + sand);  bags = cft ÷ {cftPerBag}',
+            'wall.f6': 'Cost = bricks × price + cement bags × price + sand × price',
+            'plaster.f1': 'Area = wall length × wall height',
+            'plaster.f2': 'Volume = area × plaster thickness (in) ÷ 12',
+            'plaster.f3': 'Dry volume = volume × {dry}',
+            'plaster.f4': 'Cement = dry volume × cement ÷ (cement + sand);  bags = cement cft × {cementBag}',
+            'plaster.f5': 'Sand = dry volume × sand ÷ (cement + sand);  bags = cft ÷ {cftPerBag}',
+            'plaster.f6': 'Cost = cement bags × price + sand × price',
+            'steel.f1': 'Bars one way = length × 12 ÷ gap (in), rounded up, + 1;  the other way the same with the width',
+            'steel.f2': 'Total rod length = bars along the length × width + bars along the width × length',
+            'steel.f3': 'With wastage = total length × (1 + wastage % ÷ 100)',
+            'steel.f4': 'Weight per ft = d² ÷ {steelDiv} kg  (d = rod size in mm)',
+            'steel.f5': 'Total rod = length with wastage × weight per ft',
+            'steel.f6': 'Cost = total kg × price per kg',
+            'tl.f9': 'Cost = tiles bought × price (per sq ft or per box) + mortar cement bags × price + sand × price',
+
             'err.required': 'Please fill in this field',
             'err.number': 'Enter a valid number',
             'err.negative': 'Negative values are not allowed',
@@ -513,7 +590,7 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             'nav.expand': 'সাইডবার বড় করুন',
             'page.home': 'হোম',
             'page.roof': 'ছাদ ঢালাই',
-            'page.column': 'কলামের কাজ',
+            'page.column': 'কলাম ও লিন্টেলের কাজ',
             'page.wall': 'দেওয়াল গাঁথুনি',
             'page.plaster': 'প্লাস্টার',
             'page.steel': 'ছাদের রড',
@@ -538,7 +615,7 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             'home.title': '<span>কনস্ট্রাকশন সলিউশনে</span> স্বাগতম',
             'home.lead': 'ছাদ ঢালাই, কলাম, দেওয়াল গাঁথুনি, প্লাস্টার ও রডের হিসাব — সিমেন্ট, বালু, খোয়া ও খরচ এক জায়গায়, মুহূর্তেই।',
             'home.cta.roof': 'চলুন ছাদ ঢালাই এর হিসাব করি',
-            'home.cta.column': 'চলুন কলামের হিসাব করি',
+            'home.cta.column': 'চলুন কলাম ও লিন্টেলের হিসাব করি',
             'home.cta.wall': 'চলুন দেওয়াল গাঁথুনীর হিসাব করি',
             'home.cta.plaster': 'চলুন প্লাস্টার কাজের হিসাব করি',
             'stat1.t': '৫+ ক্যালকুলেটর', 'stat1.s': 'আরও আসছে',
@@ -548,7 +625,7 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             'tools.title': 'আপনার প্রয়োজনীয় হিসাব বেছে নিন',
             'tools.sub': 'মাপ দিন, সাথে সাথে ম্যাটেরিয়াল ও খরচের হিসাব পান।',
             'desc.roof': 'ছাদের ঢালাইয়ে সিমেন্ট, বালু ও খোয়া কত লাগবে তা বের করুন।',
-            'desc.column': 'কলামের ম্যাটেরিয়াল, খোয়ার জন্য ইট ও সর্বমোট খরচের হিসাব।',
+            'desc.column': 'একসাথে অনেকগুলো কলাম ও লিন্টেল — ম্যাটেরিয়াল, খোয়ার জন্য ইট ও খরচ।',
             'desc.wall': 'দেওয়ালের কাজে ইট, সিমেন্ট ও বালির পরিমাণ।',
             'desc.plaster': 'প্লাস্টারের পুরুত্ব ও রেশিও অনুযায়ী সিমেন্ট-বালির হিসাব।',
             'desc.steel': 'রডের গ্যাপ, সাইজ ও অপচয় ধরে মোট কত কেজি রড লাগবে।',
@@ -609,8 +686,8 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             'f.colWidth': 'কলামের প্রস্থ',
             'f.colThickness': 'কলামের পুরুত্ব',
             'f.cementPrice': 'সিমেন্ট (প্রতি ব্যাগ)',
-            'f.sandPrice': 'বালু (প্রতি ঘনফুট)',
-            'f.khoaPrice': 'খোয়া (প্রতি ঘনফুট)',
+            'f.sandPrice': 'বালু (প্রতি {vol})',
+            'f.khoaPrice': 'খোয়া (প্রতি {vol})',
             'f.wallLength': 'দেওয়ালের দৈর্ঘ্য',
             'f.wallHeight': 'দেওয়ালের উচ্চতা',
             'f.brickThickness': 'ইটের পুরুত্ব',
@@ -627,8 +704,8 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             'roof.title': 'ছাদ ঢালাই এর হিসাব',
             'roof.sub': 'ছাদের দৈর্ঘ্য, প্রস্থ, পুরুত্ব ও মিক্সিং রেশিও দিন — সিমেন্ট, বালু ও খোয়ার পরিমাণ পেয়ে যাবেন।',
             'roof.hint': 'অসমান ছাদের জন্য দুই দিকের মাপ দিন, গড় মাপ ধরে হিসাব হবে। সাধারণত ছাদ ঢালাইয়ে ১ : ২ : ৪ রেশিও ব্যবহার করা হয়।',
-            'column.title': 'কলামের হিসাব',
-            'column.sub': 'কলামের মাপ, মিক্সিং রেশিও ও বাজার দর দিন — ম্যাটেরিয়াল ও সর্বমোট খরচ পেয়ে যাবেন।',
+            'column.title': 'কলাম ও লিন্টেলের কাজ',
+            'column.sub': 'প্রতিটি কলাম ও লিন্টেলের মাপ ও সংখ্যা দিন — ম্যাটেরিয়াল পাবেন, দাম দিলে খরচও।',
             'column.hint': 'উপরের ড্রপডাউন থেকে একক বেছে নিন (ফুট + ইঞ্চি, মিটার …) — সব ঘর সেই এককে থাকবে।',
             'wall.title': 'দেওয়ালের কাজে ইট, সিমেন্ট ও বালির হিসাব',
             'wall.sub': 'দেওয়ালের দৈর্ঘ্য, উচ্চতা, ইটের পুরুত্ব ও রেশিও দিন।',
@@ -656,7 +733,7 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             'tl.perBox': 'প্রতি বক্সে টাইলস',
             'tl.price': 'দাম',
             'tl.priceUnit': 'দাম ধরা হবে',
-            'tl.perSft': 'প্রতি বর্গফুট',
+            'tl.perSft': 'প্রতি {area}',
             'tl.perBoxPrice': 'প্রতি বক্স',
             'tl.mortar': 'মসলা ও স্কার্টিং (ঐচ্ছিক)',
             'tl.bed': 'মসলার পুরুত্ব',
@@ -665,12 +742,12 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             'tl.formula': 'সূত্র দেখুন',
             'tl.f1': 'মেঝের ক্ষেত্রফল = দৈর্ঘ্য × প্রস্থ (সব অংশ যোগ করে) − বাদ যাওয়া জায়গা',
             'tl.f2': 'স্কার্টিং = ২ × (দৈর্ঘ্য + প্রস্থ) × স্কার্টিংয়ের উচ্চতা (ইঞ্চি) ÷ ১২',
-            'tl.f3': 'একটি টাইলস = টাইলসের দৈর্ঘ্য (ইঞ্চি) × প্রস্থ (ইঞ্চি) ÷ ১৪৪ বর্গফুট  (মিমি হলে আগে ÷ ২৫.৪)',
+            'tl.f3': 'একটি টাইলস = টাইলসের দৈর্ঘ্য (ইঞ্চি) × প্রস্থ (ইঞ্চি) ÷ ১৪৪ বর্গফুট',
             'tl.f4': 'টাইলস সংখ্যা = (মেঝে + স্কার্টিং) ÷ একটি টাইলসের ক্ষেত্রফল, উপরের পূর্ণসংখ্যা',
             'tl.f5': 'অপচয়সহ = টাইলস × (১ + অপচয় % ÷ ১০০), উপরের পূর্ণসংখ্যা',
             'tl.f6': 'বক্স = অপচয়সহ টাইলস ÷ প্রতি বক্সে টাইলস, উপরের পূর্ণসংখ্যা',
-            'tl.f7': 'মসলার শুকনো আয়তন = মেঝের ক্ষেত্রফল × পুরুত্ব (ইঞ্চি) ÷ ১২ × শুকনো গুণক (১.৩৩)',
-            'tl.f8': 'সিমেন্ট = শুকনো আয়তন × সিমেন্ট ÷ (সিমেন্ট + বালু) → ব্যাগ = × ০.৮;  বালু = শুকনো আয়তন × বালু ÷ (সিমেন্ট + বালু)',
+            'tl.f7': 'মসলার শুকনো আয়তন = মেঝের ক্ষেত্রফল × পুরুত্ব (ইঞ্চি) ÷ ১২ × {tileDry}',
+            'tl.f8': 'সিমেন্ট = শুকনো আয়তন × সিমেন্ট ÷ (সিমেন্ট + বালু) → ব্যাগ = × {cementBag};  বালু = শুকনো আয়তন × বালু ÷ (সিমেন্ট + বালু)',
             'tl.needBox': 'বক্স হিসেবে দাম জানতে প্রতি বক্সে টাইলস সংখ্যা দিন',
             'r.floorArea': 'মেঝের ক্ষেত্রফল',
             'r.deduct': 'বাদ গেছে',
@@ -714,7 +791,7 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             'r.rodLength': 'রডের মোট দৈর্ঘ্য',
             'r.wastage': 'অপচয় ({p}%)',
             'r.subTotal': 'সাব টোটাল',
-            'r.kgPerFt': 'প্রতি ফুটের ওজন ({mm} মিমি)',
+            'r.kgPerFt': 'প্রতি {per} ওজন ({mm} মিমি)',
             'r.rodTotal': 'মোট রড লাগবেঃ',
 
             'viz.title': '৩ডি প্রিভিউ',
@@ -877,8 +954,7 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             'msg.replyText': 'আসসালামু আলাইকুম {name}, {site}-এ যোগাযোগ করার জন্য ধন্যবাদ।',
             'accent.teal': 'টিল', 'accent.rose': 'গোলাপি',
 
-            'lu.ftin': 'ফুট + ইঞ্চি', 'lu.ft': 'ফুট', 'lu.in': 'ইঞ্চি', 'lu.m': 'মিটার', 'lu.cm': 'সেন্টিমিটার',
-            'lu.others': 'অন্যান্য', 'lu.mm': 'মিলিমিটার', 'lu.yd': 'গজ', 'lu.haat': 'হাত (১৮ ইঞ্চি)',
+                        'lu.others': 'অন্যান্য', 'lu.haat': 'হাত (১৮ ইঞ্চি)',
             'lu.ydft': 'গজ + ফুট', 'lu.haatin': 'হাত + ইঞ্চি', 'lu.mcm': 'মিটার + সেন্টিমিটার', 'lu.cmmm': 'সেন্টিমিটার + মিলিমিটার',
             'lu.combo': 'দুই একক একসাথে', 'lu.single': 'এক একক',
             'mu.label': 'মাপের একক',
@@ -901,6 +977,85 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             'rp.results': 'ফলাফল',
             'rp.3d': '৩ডি প্রিভিউ',
             'rp.made': '{site} দিয়ে তৈরি',
+            'lu.imperial': 'ইম্পেরিয়াল (Imperial)',
+            'lu.metric': 'মেট্রিক (Metric / SI)',
+            'lu.ftin': 'ফুট-ইঞ্চি (ft-in)',
+            'lu.ft': 'ফুট (ft)',
+            'lu.in': 'ইঞ্চি (in)',
+            'lu.yd': 'গজ (yd)',
+            'lu.m': 'মিটার (m)',
+            'lu.cm': 'সেন্টিমিটার (cm)',
+            'lu.mm': 'মিলিমিটার (mm)',
+            'u.m2': 'বর্গমিটার',
+            'u.m3': 'ঘনমিটার',
+            'u.rm': 'রানিং মিটার',
+            'u.kgm': 'কেজি/মিটার',
+            'u.areaU': '{area}',
+            'cl.items': 'কলাম ও লিন্টেল',
+            'cl.addCol': 'কলাম যোগ করুন',
+            'cl.addLin': 'লিন্টেল যোগ করুন',
+            'cl.column': 'কলাম',
+            'cl.lintel': 'লিন্টেল',
+            'cl.columnN': 'কলাম {n}',
+            'cl.lintelN': 'লিন্টেল {n}',
+            'cl.remove': 'মুছুন',
+            'cl.colH': 'উচ্চতা',
+            'cl.linL': 'দৈর্ঘ্য (স্প্যান)',
+            'cl.width': 'প্রস্থ',
+            'cl.colT': 'পুরুত্ব',
+            'cl.linD': 'গভীরতা',
+            'cl.qty': 'সংখ্যা',
+            'cl.qtyOpt': '(খালি = ১)',
+            'cl.colTotal': 'সব কলাম ({n} পিস)',
+            'cl.linTotal': 'সব লিন্টেল ({n} পিস)',
+            'f.brickPrice': 'ইট (প্রতি পিস)',
+            'f.rodPrice': 'রড (প্রতি কেজি)',
+            'ap.cement': 'সিমেন্ট (প্রতি ব্যাগ)',
+            'ap.sand': 'বালু (প্রতি ঘনফুট)',
+            'ap.khoa': 'খোয়া (প্রতি ঘনফুট)',
+            'ap.brick': 'ইট (প্রতি পিস)',
+            'ap.rod': 'রড (প্রতি কেজি)',
+            'r.brickCost': 'সর্বমোট ইটের দামঃ',
+            'r.rodCost': 'সর্বমোট রডের দামঃ',
+            'pr.hint': 'ঐচ্ছিক — যে দামগুলো জানেন সেগুলো দিলে খরচ পাবেন। না দিলেও ফলাফল আসবে।',
+            'tl.wasteOpt': '(খালি = ১০%)',
+            'tl.ratioHint': 'মসলার রেশিও খালি রাখলে ১ : ৪ ধরা হবে।',
+            'calc.formula': 'সূত্র দেখুন',
+            'calc.fnote': 'সূত্রে সব মাপ ফুট/ইঞ্চিতে রূপান্তর করে হিসাব হয়; ফলাফল আপনার বেছে নেওয়া একক পদ্ধতিতে দেখায় (১ ঘনফুট = ০.০২৮৩ ঘনমিটার, ১ বর্গফুট = ০.০৯২৯ বর্গমিটার)।',
+            'roof.f1': 'গড় দৈর্ঘ্য = (প্রথম + দ্বিতীয় দৈর্ঘ্য) ÷ ২;  গড় প্রস্থ = (প্রথম + দ্বিতীয় প্রস্থ) ÷ ২',
+            'roof.f2': 'ক্ষেত্রফল = গড় দৈর্ঘ্য × গড় প্রস্থ',
+            'roof.f3': 'আয়তন = ক্ষেত্রফল × পুরুত্ব (ইঞ্চি) ÷ ১২',
+            'roof.f4': 'শুকনো আয়তন = আয়তন × {dry}',
+            'roof.f5': 'সিমেন্ট = শুকনো আয়তন × সিমেন্ট ÷ (সিমেন্ট + বালু + খোয়া);  ব্যাগ = সিমেন্ট ঘনফুট × {cementBag}',
+            'roof.f6': 'বালু / খোয়া = শুকনো আয়তন × নিজের অংশ ÷ মোট অংশ;  ব্যাগ = ঘনফুট ÷ {cftPerBag}',
+            'roof.f7': 'খরচ = সিমেন্ট ব্যাগ × দর + বালু × দর + খোয়া × দর',
+            'cl.f1': 'প্রতিটি = দৈর্ঘ্য বা উচ্চতা (ফুট) × প্রস্থ (ইঞ্চি) ÷ ১২ × পুরুত্ব বা গভীরতা (ইঞ্চি) ÷ ১২ × সংখ্যা',
+            'cl.f2': 'মোট আয়তন = সব কলাম + সব লিন্টেল',
+            'cl.f3': 'শুকনো আয়তন = মোট আয়তন × {dry}',
+            'cl.f4': 'সিমেন্ট = শুকনো আয়তন × সিমেন্ট ÷ (সিমেন্ট + বালু + খোয়া);  ব্যাগ = সিমেন্ট ঘনফুট × {cementBag}',
+            'cl.f5': 'বালু / খোয়া = শুকনো আয়তন × নিজের অংশ ÷ মোট অংশ;  ব্যাগ = ঘনফুট ÷ {cftPerBag}',
+            'cl.f6': 'খোয়ার জন্য ইট = খোয়া ঘনফুট × {khoaBricks}',
+            'cl.f7': 'খরচ = সিমেন্ট ব্যাগ × দর + বালু × দর + খোয়া × দর',
+            'wall.f1': 'আয়তন = দৈর্ঘ্য × উচ্চতা × ইটের পুরুত্ব (ইঞ্চি) ÷ ১২',
+            'wall.f2': 'ইট = আয়তন × {bricksPerCft}, উপরের পূর্ণসংখ্যা',
+            'wall.f3': 'শুকনো মসলা = আয়তন × {wallDry}',
+            'wall.f4': 'সিমেন্ট = শুকনো মসলা × সিমেন্ট ÷ (সিমেন্ট + বালু);  ব্যাগ = সিমেন্ট ঘনফুট × {cementBag}',
+            'wall.f5': 'বালু = শুকনো মসলা × বালু ÷ (সিমেন্ট + বালু);  ব্যাগ = ঘনফুট ÷ {cftPerBag}',
+            'wall.f6': 'খরচ = ইট × দর + সিমেন্ট ব্যাগ × দর + বালু × দর',
+            'plaster.f1': 'ক্ষেত্রফল = দেওয়ালের দৈর্ঘ্য × উচ্চতা',
+            'plaster.f2': 'আয়তন = ক্ষেত্রফল × প্লাস্টারের পুরুত্ব (ইঞ্চি) ÷ ১২',
+            'plaster.f3': 'শুকনো আয়তন = আয়তন × {dry}',
+            'plaster.f4': 'সিমেন্ট = শুকনো আয়তন × সিমেন্ট ÷ (সিমেন্ট + বালু);  ব্যাগ = সিমেন্ট ঘনফুট × {cementBag}',
+            'plaster.f5': 'বালু = শুকনো আয়তন × বালু ÷ (সিমেন্ট + বালু);  ব্যাগ = ঘনফুট ÷ {cftPerBag}',
+            'plaster.f6': 'খরচ = সিমেন্ট ব্যাগ × দর + বালু × দর',
+            'steel.f1': 'এক দিকের রড = দৈর্ঘ্য × ১২ ÷ গ্যাপ (ইঞ্চি), উপরের পূর্ণসংখ্যা + ১;  অন্য দিকে প্রস্থ দিয়ে একইভাবে',
+            'steel.f2': 'রডের মোট দৈর্ঘ্য = দৈর্ঘ্য বরাবর রড × প্রস্থ + প্রস্থ বরাবর রড × দৈর্ঘ্য',
+            'steel.f3': 'অপচয়সহ = মোট দৈর্ঘ্য × (১ + অপচয় % ÷ ১০০)',
+            'steel.f4': 'প্রতি ফুটের ওজন = d² ÷ {steelDiv} কেজি  (d = রডের সাইজ, মিমি)',
+            'steel.f5': 'মোট রড = অপচয়সহ দৈর্ঘ্য × প্রতি ফুটের ওজন',
+            'steel.f6': 'খরচ = মোট কেজি × প্রতি কেজির দর',
+            'tl.f9': 'খরচ = কেনা টাইলস × দর (প্রতি বর্গফুট বা প্রতি বক্স) + মসলার সিমেন্ট ব্যাগ × দর + বালু × দর',
+
             'err.required': 'এই ঘরটি পূরণ করুন',
             'err.number': 'সঠিক সংখ্যা দিন',
             'err.negative': 'ঋণাত্মক মান গ্রহণযোগ্য নয়',
@@ -1030,7 +1185,7 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             phone: '01833515057',
             extras: [],
         },
-        prices: { cement: 0, sand: 0, khoa: 0 },
+        prices: { cement: 0, sand: 0, khoa: 0, brick: 0, rod: 0 },
         // calculation constants — the original formula values
         constants: { dry: 1.5, cementBag: 0.8, cftPerBag: 1.2, wallDry: 0.35, bricksPerCft: 12, khoaBricks: 9, steelDiv: 532.2, tileDry: 1.33 },
     };
@@ -1106,7 +1261,7 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
     const PAGES = [
         { id: 'home',    icon: 'fa-house' },
         { id: 'roof',    icon: 'fa-layer-group',       keys: 'roof slab casting dhalai chad ছাদ ঢালাই' },
-        { id: 'column',  icon: 'fa-building-columns',  keys: 'column pillar kolam কলাম' },
+        { id: 'column',  icon: 'fa-building-columns',  keys: 'column pillar kolam lintel beam কলাম লিন্টেল' },
         { id: 'wall',    icon: 'fa-trowel-bricks',     keys: 'wall brick cement sand bcs dewal it দেওয়াল ইট গাঁথুনি' },
         { id: 'plaster', icon: 'fa-paint-roller',      keys: 'plaster প্লাস্টার' },
         { id: 'steel',   icon: 'fa-grip-lines',        keys: 'rod steel rebar roof রড স্টিল' },
@@ -1149,10 +1304,21 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
         darkMQ.addEventListener ? darkMQ.addEventListener('change', onSystemChange) : darkMQ.addListener(onSystemChange);
     }
 
+    // values for formula / label templates: the admin's constants + current area/volume units
+    function kvars() {
+        const k = K(), met = LEN.system() === 'met', o = {};
+        Object.keys(k).forEach((key) => { o[key] = numPlain(k[key]); });
+        o.vol = t(met ? 'u.m3' : 'u.cft');
+        o.area = t(met ? 'u.m2' : 'u.sqft');
+        return o;
+    }
+
     function applyI18n() {
         root.setAttribute('lang', S.lang);
         $$('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
         $$('[data-i18n-html]').forEach((el) => { el.innerHTML = t(el.dataset.i18nHtml); });
+        const kv = kvars();
+        $$('[data-i18n-k]').forEach((el) => { el.textContent = t(el.dataset.i18nK, kv); });
         $$('[data-i18n-ph]').forEach((el) => { el.placeholder = t(el.dataset.i18nPh); });
         $$('[data-i18n-title]').forEach((el) => { el.title = t(el.dataset.i18nTitle); });
         $$('[data-i18n-label]').forEach((el) => { el.label = t(el.dataset.i18nLabel); });
@@ -1187,6 +1353,7 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
         });
 
         TILES.renumber();
+        COLS.relabel();
         updateTopbar();
         $$('[data-search]').forEach((w) => { if ($('input', w).value.trim()) w._run(); });
     }
@@ -1398,13 +1565,16 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
         $('#admin-link').hidden = !IS_ADMIN;
         $('#admin-login-btn').hidden = IS_ADMIN;
 
-        // default market prices for Column Works
-        const colForm = $('form[data-calc="column"]');
-        [['cementPrice', 'cement'], ['sandPrice', 'sand'], ['khoaPrice', 'khoa']].forEach(([name, key]) => {
-            const inp = $(`input[name="${name}"]`, colForm);
-            const price = Number(SITE.prices[key]) || 0;
-            inp.dataset.ph = price > 0 ? String(price) : '0';
-            if (price > 0 && !inp.value.trim()) inp.value = String(price);
+        // default market prices (set by the admin, per bag / cft / piece / kg) → every calculator
+        const met = LEN.system() === 'met';
+        [['cementPrice', 'cement'], ['sandPrice', 'sand'], ['khoaPrice', 'khoa'], ['brickPrice', 'brick'], ['rodPrice', 'rod']].forEach(([name, key]) => {
+            let price = Number(SITE.prices[key]) || 0;
+            if (!(price > 0)) return;
+            $$(`form[data-calc] input[name="${name}"]`).forEach((inp) => {
+                if (inp.value.trim()) return;
+                const p = inp.dataset.price === 'vol' && met ? price / 0.028316846592 : price;
+                inp.value = String(+p.toFixed(2));
+            });
         });
     }
 
@@ -1462,10 +1632,8 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             FB.user = user;
             let admin = false;
             if (user) {
-                admin = ADMIN_EMAILS.map((e) => e.toLowerCase()).includes(String(user.email || '').toLowerCase());
-                if (!admin) {
-                    try { admin = (await FB.db.doc('admins/' + user.uid).get()).exists; } catch (e) { admin = false; }
-                }
+                // admin-only read: allowed by the Rules → admin; "permission-denied" → not admin
+                try { await FB.db.collection('inquiries').limit(1).get(); admin = true; } catch (e) { admin = false; }
                 if (!admin) {
                     if (loginPending) showLoginError(t('admin.notAdmin'));
                     loginPending = false;
@@ -1755,7 +1923,7 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             const fk = forms.calc;
             if (!isDirty(fk)) {
                 CALC_IDS.forEach((id) => { el(fk, 'en_' + id).checked = calcOn(id); });
-                ['cement', 'sand', 'khoa'].forEach((k) => { el(fk, 'p_' + k).value = SITE.prices[k] || 0; });
+                ['cement', 'sand', 'khoa', 'brick', 'rod'].forEach((k) => { el(fk, 'p_' + k).value = SITE.prices[k] || 0; });
                 fillConstants(SITE.constants);
             }
         }
@@ -1831,7 +1999,7 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             const calculators = {};
             CALC_IDS.forEach((id) => { calculators[id] = el(f, 'en_' + id).checked; });
             const prices = {}, constants = {};
-            for (const k of ['cement', 'sand', 'khoa']) {
+            for (const k of ['cement', 'sand', 'khoa', 'brick', 'rod']) {
                 const n = parseNum(el(f, 'p_' + k).value || '0');
                 if (!Number.isFinite(n) || n < 0) { toast(t('admin.badNumber')); el(f, 'p_' + k).focus(); return; }
                 prices[k] = n;
@@ -2145,12 +2313,16 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
        formulas expect. Whatever the visitor types is converted to that unit.
        ========================================================= */
     // single units (inches per unit) and two-part combinations [big, small]
-    const IN_PER = { ft: 12, in: 1, yd: 36, haat: 18, m: 39.37007874015748, cm: 0.3937007874015748, mm: 0.03937007874015748 };
-    const UNIT_KEY = { ft: 'u.ft', in: 'u.inch', yd: 'u.yd', haat: 'u.haat', m: 'u.m', cm: 'u.cm', mm: 'u.mm' };
-    const COMBOS = { ftin: ['ft', 'in'], ydft: ['yd', 'ft'], haatin: ['haat', 'in'], mcm: ['m', 'cm'], cmmm: ['cm', 'mm'] };
+    // International engineering practice:
+    //   Imperial — feet-inches (12'-6"), feet, inches, yards
+    //   Metric (SI) — metre, centimetre, millimetre (never mixed with imperial)
+    const IN_PER = { ft: 12, in: 1, yd: 36, m: 39.37007874015748, cm: 0.3937007874015748, mm: 0.03937007874015748 };
+    const UNIT_KEY = { ft: 'u.ft', in: 'u.inch', yd: 'u.yd', m: 'u.m', cm: 'u.cm', mm: 'u.mm' };
+    const COMBOS = { ftin: ['ft', 'in'] };
     const LEN_UNITS = [...Object.keys(COMBOS), ...Object.keys(IN_PER)];
+    const SYSTEM_OF = { ftin: 'imp', ft: 'imp', in: 'imp', yd: 'imp', m: 'met', cm: 'met', mm: 'met' };
     const STORE_UNIT = 'cc.unit';
-    const PREC = { ft: 4, in: 3, yd: 4, haat: 4, m: 4, cm: 2, mm: 1 };      // decimals shown after converting
+    const PREC = { ft: 4, in: 3, yd: 4, m: 4, cm: 2, mm: 1 };      // decimals shown after converting
     const r3 = (n) => +(+n).toFixed(3);
 
     /* =========================================================
@@ -2261,9 +2433,27 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
                 }
             });
         }
+        // prices per cft ↔ per m³ (and per sq ft ↔ per m²), areas sq ft ↔ m², when the system changes
+        function convertSystem(toMet) {
+            const r2 = (x) => String(+x.toFixed(2));
+            $$('input[data-price], input[data-area-val]').forEach((inp) => {
+                const n = parseNum(inp.value);
+                if (!Number.isFinite(n) || inp.value.trim() === '') return;
+                let kind = inp.dataset.price || 'areaVal';
+                if (kind === 'tile') {
+                    const pu = $('input[name="priceUnit"]:checked', inp.form);
+                    if (pu && pu.value === 'box') return;
+                    kind = 'area';
+                }
+                const f = kind === 'vol' ? 0.028316846592 : 0.09290304;
+                if (kind === 'areaVal') inp.value = r2(toMet ? n * f : n / f);          // an area
+                else inp.value = r2(toMet ? n / f : n * f);                             // a price per area / volume
+            });
+        }
         // change the unit everywhere and convert what was already typed
         function setUnit(to) {
             if (!LEN_UNITS.includes(to) || to === unit) { refresh(); return; }
+            if (SYSTEM_OF[to] !== SYSTEM_OF[unit]) convertSystem(SYSTEM_OF[to] === 'met');
             $$('.len-box').forEach((w) => {
                 const inp = $('input[data-len]', w);
                 const r = read(inp, w.dataset.mode);
@@ -2282,10 +2472,7 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             const combo = COMBOS[mode];
             if (combo) {
                 const { a, b } = split(inches, combo);
-                const parts = [];
-                if (a) parts.push(`${numPlain(a)} ${t(UNIT_KEY[combo[0]])}`);
-                if (b || !a) parts.push(`${numPlain(b)} ${t(UNIT_KEY[combo[1]])}`);
-                return parts.join(' ');
+                return `${numPlain(a)}'-${numPlain(b)}"`;          // engineering notation: 12'-6"
             }
             return `${numPlain(+(inches / IN_PER[mode]).toFixed(PREC[mode]))} ${t(UNIT_KEY[mode])}`;
         }
@@ -2298,6 +2485,16 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
         // values saved in another unit are converted to the current one
         function restoreForm(form, savedUnit) {
             if (!savedUnit || savedUnit === unit || !LEN_UNITS.includes(savedUnit)) return;
+            if (SYSTEM_OF[savedUnit] !== SYSTEM_OF[unit]) {
+                const r2 = (x) => String(+x.toFixed(2)), toMet = SYSTEM_OF[unit] === 'met';
+                $$('input[data-price], input[data-area-val]', form).forEach((inp) => {
+                    const n = parseNum(inp.value);
+                    if (!Number.isFinite(n) || inp.value.trim() === '') return;
+                    if (inp.dataset.price === 'tile' && ($('input[name="priceUnit"]:checked', form) || {}).value === 'box') return;
+                    const f = inp.dataset.price === 'vol' ? 0.028316846592 : 0.09290304;
+                    inp.value = r2(inp.dataset.areaVal !== undefined ? (toMet ? n * f : n / f) : (toMet ? n / f : n * f));
+                });
+            }
             $$('.len-box', form).forEach((w) => {
                 const inp = $('input[data-len]', w);
                 const r = read(inp, savedUnit);
@@ -2306,16 +2503,20 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
         }
         const sync = () => refresh();
         const current = () => unit;
+        const system = () => SYSTEM_OF[unit] || 'imp';
 
         document.addEventListener('change', (e) => {
             if (!e.target.classList || !e.target.classList.contains('unit-select')) return;
             setUnit(e.target.value);
-            $$('form[data-calc]').forEach((f) => { saveInputs(f); VIZ.update(f.dataset.calc); });
-            const form = e.target.closest('form');
-            if (form && lastValues[form.dataset.calc]) form.requestSubmit ? form.requestSubmit() : form.dispatchEvent(new Event('submit', { cancelable: true }));
+            $$('form[data-calc]').forEach((f) => {
+                saveInputs(f);
+                VIZ.update(f.dataset.calc);
+                if (lastValues[f.dataset.calc]) { const nv = readForm(f); if (nv) lastValues[f.dataset.calc] = nv; }
+            });
+            applyI18n();                                   // units in labels + results follow the new system
         });
 
-        return { enhance, read, value, display, refresh, state, restore, restoreForm, sync, current, setUnit };
+        return { enhance, read, value, display, refresh, state, restore, restoreForm, sync, current, setUnit, system };
     })();
     LEN.enhance(document);
 
@@ -2359,6 +2560,18 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             if (inp.hasAttribute('data-len')) v._disp[inp.name] = LEN.display(inp, n);
         });
         $$('input[type="radio"]:checked', form).forEach((r) => { v[r.name] = r.value; });
+        // metric prices / areas → the per-cft, per-sq-ft basis the formulas use
+        if (ok && LEN.system() === 'met') {
+            $$('input[data-price], input[data-area-val]', form).forEach((inp) => {
+                const n = v[inp.name];
+                if (!(n > 0)) return;
+                let kind = inp.dataset.price || 'areaVal';
+                if (kind === 'tile') { if (v.priceUnit === 'box') return; kind = 'area'; }
+                if (kind === 'vol') v[inp.name] = n * 0.028316846592;           // per m³ → per cft
+                else if (kind === 'area') v[inp.name] = n * 0.09290304;         // per m² → per sq ft
+                else v[inp.name] = n / 0.09290304;                              // m² → sq ft
+            });
+        }
         return ok ? v : null;
     }
 
@@ -2373,96 +2586,129 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
     const heading = (text) => ({ type: 'title', text });
     const total = (label, value, unit = '') => ({ type: 'total', label, value, unit });
 
+    /* ---------- Unit system for results (Imperial ↔ Metric/SI) ----------
+       Formulas always work in feet / inches / cft (the original method).
+       Results are shown in the system of the chosen unit:
+       Imperial → sq ft, cft, rft, kg/ft   ·   Metric → m², m³, m, kg/m      */
+    const M2_PER_SQFT = 0.09290304, M3_PER_CFT = 0.028316846592, M_PER_FT = 0.3048;
+    const isMet = () => LEN.system() === 'met';
+    const vd = () => (isMet() ? Math.max(S.decimals, 3) : S.decimals);           // m³ needs more decimals
+    const qArea = (sqft) => [num(isMet() ? sqft * M2_PER_SQFT : sqft), t(isMet() ? 'u.m2' : 'u.sqft')];
+    const qVol = (cft) => [num(isMet() ? cft * M3_PER_CFT : cft, vd()), t(isMet() ? 'u.m3' : 'u.cft')];
+    const qLen = (ft) => [num(isMet() ? ft * M_PER_FT : ft), t(isMet() ? 'u.m' : 'u.ft')];
+    const qRun = (ft) => [num(isMet() ? ft * M_PER_FT : ft), t(isMet() ? 'u.rm' : 'u.rft')];
+    const qKgPer = (kgft) => [num(isMet() ? kgft / M_PER_FT : kgft, 3), t(isMet() ? 'u.kgm' : 'u.kgft')];
+    const rq = (label, [val, unit], key = false) => row(label, val, unit, key);
+    const qs = ([val, unit]) => `${val} ${unit}`;
+
+    // optional market prices → cost rows (only the ones that were filled in)
+    function costItems(lines) {
+        const used = lines.filter(([, qty, price]) => price > 0 && qty > 0);
+        if (!used.length) return [];
+        let sum = 0;
+        const out = [heading(t('grp.priceCalc'))];
+        used.forEach(([key, qty, price]) => {
+            const c = qty * price;
+            sum += c;
+            out.push(row(t(key), num(c), t('u.taka')));
+        });
+        out.push(total(t('r.totalCost'), num(sum), t('u.taka')));
+        return out;
+    }
+
+    // the usual cement / sand (/ khoa) block shared by roof, column, plaster
+    function mixItems(dry, v, withKhoa) {
+        const sum = v.ratio1 + v.ratio2 + (withKhoa ? v.ratio3 : 0);
+        const cement = dry / sum * v.ratio1, sand = dry / sum * v.ratio2, khoa = withKhoa ? dry / sum * v.ratio3 : 0;
+        const bags = cement * K().cementBag;
+        const items = [
+            heading(t('grp.materials')),
+            rq(t('mat.cement'), qVol(cement)),
+            row(t('r.cementBags'), num(bags), t('u.bags'), true),
+            rq(t('mat.sand'), qVol(sand)),
+            row(t('r.sandBags'), num(sand / K().cftPerBag), t('u.bags'), true),
+        ];
+        if (withKhoa) {
+            items.push(rq(t('mat.khoa'), qVol(khoa)), row(t('r.khoaBags'), num(khoa / K().cftPerBag), t('u.bags'), true));
+        }
+        return { items, cement, bags, sand, khoa };
+    }
+
     /* ---------- Calculators (formulas kept the same as the original site) ---------- */
     // constants (dry factor, bag sizes, bricks per cft …) come from K() — the admin can tune them
+    // prices arrive per bag / per piece / per kg, and per cft (or per sq ft) — readForm converts metric prices
 
     const CALC = {
         roof: {
             ratios: ['ratio1', 'ratio2', 'ratio3'],
             run(v) {
-                const sum = ratioSum(v, this.ratios);
                 const length = (v.firstLength + v.secondLength) / 2;
                 const width = (v.firstWidth + v.secondWidth) / 2;
                 const height = v.height / 12;                 // thickness is read in inches
                 const area = length * width;
                 const volume = area * height;
                 const dry = volume * K().dry;
-                const cement = (dry / sum) * v.ratio1;
-                const sand = (dry / sum) * v.ratio2;
-                const khoa = (dry / sum) * v.ratio3;
+                const m = mixItems(dry, v, true);
+                const L = qLen(length), W = qLen(width);
                 return [
-                    row(t('r.avgLW'), `${num(length)} × ${num(width)}`, t('u.ft')),
-                    row(t('r.area'), num(area), t('u.sqft')),
-                    row(t('r.totalVolume'), num(volume), t('u.cft')),
-                    row(t('r.dryVolume'), num(dry), t('u.cft')),
+                    row(t('r.avgLW'), `${L[0]} × ${W[0]}`, L[1]),
+                    rq(t('r.area'), qArea(area)),
+                    rq(t('r.totalVolume'), qVol(volume)),
+                    rq(t('r.dryVolume'), qVol(dry)),
                     row(t('r.ratio'), ratioText(v.ratio1, v.ratio2, v.ratio3)),
-                    heading(t('grp.materials')),
-                    row(t('mat.cement'), num(cement), t('u.cft')),
-                    row(t('r.cementBags'), num(cement * K().cementBag), t('u.bags'), true),
-                    row(t('mat.sand'), num(sand), t('u.cft')),
-                    row(t('r.sandBags'), num(sand / K().cftPerBag), t('u.bags'), true),
-                    row(t('mat.khoa'), num(khoa), t('u.cft')),
-                    row(t('r.khoaBags'), num(khoa / K().cftPerBag), t('u.bags'), true),
+                    ...m.items,
+                    ...costItems([['r.cementCost', m.bags, v.cementPrice], ['r.sandCost', m.sand, v.sandPrice], ['r.khoaCost', m.khoa, v.khoaPrice]]),
                 ];
             },
         },
 
+        // columns and lintels — any number of each
         column: {
             ratios: ['ratio1', 'ratio2', 'ratio3'],
             run(v) {
-                const sum = ratioSum(v, this.ratios);
-                const volume = v.colLength * (v.colWidth / 12) * (v.colThickness / 12);
+                const items = colItems(v);
+                const rows = [];
+                const sums = { column: 0, lintel: 0 }, counts = { column: 0, lintel: 0 };
+                items.forEach((it) => {
+                    const vol = it.L * (it.W / 12) * (it.T / 12) * it.Q;
+                    sums[it.type] += vol;
+                    counts[it.type] += it.Q;
+                    const dims = [it.dL, it.dW, it.dT].filter(Boolean).join(' × ');
+                    rows.push(rq(`${it.no}${dims ? ` (${dims})` : ''}${it.Q !== 1 ? ` × ${numPlain(it.Q)}` : ''}`, qVol(vol)));
+                });
+                const volume = sums.column + sums.lintel;
                 const dry = volume * K().dry;
-                const cement = (dry / sum) * v.ratio1;
-                const bagsCement = cement * K().cementBag;
-                const sand = (dry / sum) * v.ratio2;
-                const khoa = (dry / sum) * v.ratio3;
-                const bricksForKhoa = Math.ceil(khoa * K().khoaBricks - 1e-9);
-
-                const cementCost = bagsCement * v.cementPrice;
-                const sandCost = sand * v.sandPrice;
-                const khoaCost = khoa * v.khoaPrice;
-
-                return [
-                    row(t('r.workVolume'), num(volume), t('u.cft')),
-                    row(t('r.dryVolume'), num(dry), t('u.cft')),
+                const m = mixItems(dry, v, true);
+                const bricksForKhoa = Math.ceil(m.khoa * K().khoaBricks - 1e-9);
+                const out = [...rows];
+                if (counts.column) out.push(rq(t('cl.colTotal', { n: numPlain(counts.column) }), qVol(sums.column)));
+                if (counts.lintel) out.push(rq(t('cl.linTotal', { n: numPlain(counts.lintel) }), qVol(sums.lintel)));
+                out.push(
+                    rq(t('r.workVolume'), qVol(volume), true),
+                    rq(t('r.dryVolume'), qVol(dry)),
                     row(t('r.ratio'), ratioText(v.ratio1, v.ratio2, v.ratio3)),
-                    heading(t('grp.materials')),
-                    row(t('mat.cement'), num(cement), t('u.cft')),
-                    row(t('r.cementBags'), num(bagsCement), t('u.bags'), true),
-                    row(t('mat.sand'), num(sand), t('u.cft')),
-                    row(t('r.sandBags'), num(sand / K().cftPerBag), t('u.bags'), true),
-                    row(t('mat.khoa'), num(khoa), t('u.cft')),
-                    row(t('r.khoaBags'), num(khoa / K().cftPerBag), t('u.bags'), true),
+                    ...m.items,
                     row(t('r.bricksKhoa'), num(bricksForKhoa, 0), t('u.pcs'), true),
-                    heading(t('grp.priceCalc')),
-                    row(t('r.cementCost'), num(cementCost), t('u.taka')),
-                    row(t('r.sandCost'), num(sandCost), t('u.taka')),
-                    row(t('r.khoaCost'), num(khoaCost), t('u.taka')),
-                    total(t('r.totalCost'), num(cementCost + sandCost + khoaCost), t('u.taka')),
-                ];
+                    ...costItems([['r.cementCost', m.bags, v.cementPrice], ['r.sandCost', m.sand, v.sandPrice], ['r.khoaCost', m.khoa, v.khoaPrice]]),
+                );
+                return out;
             },
         },
 
         wall: {
             ratios: ['ratio1', 'ratio2'],
             run(v) {
-                const sum = ratioSum(v, this.ratios);
                 const volume = v.wallLength * v.wallHeight * (v.brickThickness / 12);
                 const bricks = Math.ceil(volume * K().bricksPerCft - 1e-9);
                 const dryMix = volume * K().wallDry;
-                const cement = (dryMix / sum) * v.ratio1;
-                const sand = (dryMix / sum) * v.ratio2;
+                const m = mixItems(dryMix, v, false);
                 return [
-                    row(t('r.workVolume'), num(volume), t('u.cft')),
+                    rq(t('r.workVolume'), qVol(volume)),
                     row(t('r.bricks'), num(bricks, 0), t('u.pcs'), true),
-                    row(t('r.dryMix'), num(dryMix), t('u.cft')),
+                    rq(t('r.dryMix'), qVol(dryMix)),
                     row(t('r.ratio'), ratioText(v.ratio1, v.ratio2)),
-                    heading(t('grp.materials')),
-                    row(t('mat.cement'), num(cement), t('u.cft')),
-                    row(t('r.cementBags'), num(cement * K().cementBag), t('u.bags'), true),
-                    row(t('mat.sand'), num(sand), t('u.cft')),
-                    row(t('r.sandBags'), num(sand / K().cftPerBag), t('u.bags'), true),
+                    ...m.items,
+                    ...costItems([['r.brickCost', bricks, v.brickPrice], ['r.cementCost', m.bags, v.cementPrice], ['r.sandCost', m.sand, v.sandPrice]]),
                 ];
             },
         },
@@ -2470,22 +2716,17 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
         plaster: {
             ratios: ['ratio1', 'ratio2'],
             run(v) {
-                const sum = ratioSum(v, this.ratios);
                 const area = v.wallLength * v.wallHeight;
                 const volume = area * (v.plasterThickness / 12);
                 const dry = volume * K().dry;
-                const cement = (dry / sum) * v.ratio1;
-                const sand = (dry / sum) * v.ratio2;
+                const m = mixItems(dry, v, false);
                 return [
-                    row(t('r.workArea'), num(area), t('u.sqft')),
-                    row(t('r.totalVolume'), num(volume), t('u.cft')),
-                    row(t('r.dryVolume'), num(dry), t('u.cft')),
+                    rq(t('r.workArea'), qArea(area)),
+                    rq(t('r.totalVolume'), qVol(volume)),
+                    rq(t('r.dryVolume'), qVol(dry)),
                     row(t('r.ratio'), ratioText(v.ratio1, v.ratio2)),
-                    heading(t('grp.materials')),
-                    row(t('mat.cement'), num(cement), t('u.cft')),
-                    row(t('r.cementBags'), num(cement * K().cementBag), t('u.bags'), true),
-                    row(t('mat.sand'), num(sand), t('u.cft')),
-                    row(t('r.sandBags'), num(sand / K().cftPerBag), t('u.bags'), true),
+                    ...m.items,
+                    ...costItems([['r.cementCost', m.bags, v.cementPrice], ['r.sandCost', m.sand, v.sandPrice]]),
                 ];
             },
         },
@@ -2499,15 +2740,17 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
                 const waste = totalLength * (v.wastage / 100);
                 const subTotal = totalLength + waste;
                 const kgPerFt = (v.mm ** 2) / K().steelDiv;
-                const ft = t('u.ft');
+                const kg = subTotal * kgPerFt;
+                const d = v._disp || {};
                 return [
-                    row(t('r.bars', { len: `${numPlain(v.width)} ${ft}` }), num(barsA, 0), t('u.pcs')),
-                    row(t('r.bars', { len: `${numPlain(v.length)} ${ft}` }), num(barsB, 0), t('u.pcs')),
-                    row(t('r.rodLength'), num(totalLength), t('u.rft')),
-                    row(t('r.wastage', { p: numPlain(v.wastage) }), num(waste), t('u.rft')),
-                    row(t('r.subTotal'), num(subTotal), t('u.rft')),
-                    row(t('r.kgPerFt', { mm: numPlain(v.mm) }), num(kgPerFt, 3), t('u.kgft')),
-                    total(t('r.rodTotal'), num(subTotal * kgPerFt), t('u.kg')),
+                    row(t('r.bars', { len: d.width || qs(qLen(v.width)) }), num(barsA, 0), t('u.pcs')),
+                    row(t('r.bars', { len: d.length || qs(qLen(v.length)) }), num(barsB, 0), t('u.pcs')),
+                    rq(t('r.rodLength'), qRun(totalLength)),
+                    rq(t('r.wastage', { p: numPlain(v.wastage) }), qRun(waste)),
+                    rq(t('r.subTotal'), qRun(subTotal)),
+                    rq(t('r.kgPerFt', { mm: numPlain(v.mm), per: t(isMet() ? 'u.m' : 'u.ft') }), qKgPer(kgPerFt)),
+                    total(t('r.rodTotal'), num(kg), t('u.kg')),
+                    ...costItems([['r.rodCost', kg, v.rodPrice]]),
                 ];
             },
         },
@@ -2531,49 +2774,68 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
                 const buyTiles = boxes ? boxes * perBox : withWaste;
                 const buySft = buyTiles * oneTile;
 
-                const items = [
-                    row(t('r.floorArea'), num(floor), t('u.sqft')),
-                ];
-                if (v.deduct > 0) items.push(row(t('r.deduct'), '− ' + num(v.deduct), t('u.sqft')));
-                if (skirt > 0) items.push(row(t('r.skirtArea'), num(skirt), t('u.sqft')));
+                const items = [rq(t('r.floorArea'), qArea(floor))];
+                if (v.deduct > 0) { const a = qArea(v.deduct); items.push(row(t('r.deduct'), '− ' + a[0], a[1])); }
+                if (skirt > 0) items.push(rq(t('r.skirtArea'), qArea(skirt)));
                 items.push(
-                    row(t('r.tileArea'), num(area), t('u.sqft')),
+                    rq(t('r.tileArea'), qArea(area)),
                     heading(t('grp.tiles')),
                     row(t('r.tileSize'), tile.label),
-                    row(t('r.oneTile'), num(oneTile, 3), t('u.sqft')),
+                    (() => { const a = qArea(oneTile); return row(t('r.oneTile'), num(isMet() ? oneTile * M2_PER_SQFT : oneTile, isMet() ? 4 : 3), a[1]); })(),
                     row(t('r.tilesNet'), num(base, 0), t('u.pcs')),
                     row(t('r.wastage', { p: numPlain(wastage) }), '+ ' + num(withWaste - base, 0), t('u.pcs')),
                     row(t('r.tilesTotal'), num(withWaste, 0), t('u.pcs'), true),
                 );
                 if (boxes) items.push(row(t('r.boxes'), `${num(boxes, 0)}`, `${t('u.box')} (${num(buyTiles, 0)} ${t('u.pcs')})`, true));
-                items.push(row(t('r.buySft'), num(buySft), t('u.sqft'), true));
+                items.push(rq(t('r.buySft'), qArea(buySft), true));
 
+                let mortar = { bags: 0, sand: 0 };
                 if (v.bed > 0) {
                     const sum = v.ratio1 + v.ratio2;
                     const dry = net * (v.bed / 12) * K().tileDry;
                     const cement = dry / sum * v.ratio1;
                     const sand = dry / sum * v.ratio2;
+                    mortar = { bags: cement * K().cementBag, sand };
                     items.push(
                         heading(t('grp.mortar')),
-                        row(t('r.dryVolume'), num(dry), t('u.cft')),
+                        rq(t('r.dryVolume'), qVol(dry)),
                         row(t('r.ratio'), ratioText(v.ratio1, v.ratio2)),
-                        row(t('mat.cement'), num(cement), t('u.cft')),
-                        row(t('r.cementBags'), num(cement * K().cementBag), t('u.bags'), true),
-                        row(t('r.sandBags'), num(sand), t('u.cft'), true),
+                        rq(t('mat.cement'), qVol(cement)),
+                        row(t('r.cementBags'), num(mortar.bags), t('u.bags'), true),
+                        rq(t('r.sandBags'), qVol(sand), true),
                     );
                 }
+                let tileCost = 0;
                 if (v.price > 0) {
-                    if (v.priceUnit === 'box' && !boxes) {
-                        items.push(heading(t('grp.priceCalc')), row(t('tl.needBox'), ''));
-                    } else {
-                        const cost = v.priceUnit === 'box' ? boxes * v.price : buySft * v.price;
-                        items.push(heading(t('grp.priceCalc')), total(t('r.tileCost'), num(cost), t('u.taka')));
-                    }
+                    if (v.priceUnit === 'box' && !boxes) items.push(heading(t('grp.priceCalc')), row(t('tl.needBox'), ''));
+                    else tileCost = v.priceUnit === 'box' ? boxes * v.price : buySft * v.price;
                 }
+                items.push(...costItems([['r.tileCost', 1, tileCost], ['r.cementCost', mortar.bags, v.cementPrice], ['r.sandCost', mortar.sand, v.sandPrice]]));
                 return items;
             },
         },
     };
+
+    /* ---------- Column & lintel helpers ---------- */
+    // rows come in as type_0 / iL_0 / iW_0 / iT_0 / iQ_0, type_1 …
+    function colItems(v) {
+        const d = v._disp || {};
+        const n = { column: 0, lintel: 0 };
+        return Object.keys(v)
+            .filter((k) => /^iL_\d+$/.test(k))
+            .map((k) => k.slice(3))
+            .sort((a, b) => a - b)
+            .map((i) => {
+                const type = v['type_' + i] === 'lintel' ? 'lintel' : 'column';
+                n[type] += 1;
+                return {
+                    type, L: v['iL_' + i], W: v['iW_' + i], T: v['iT_' + i], Q: v['iQ_' + i] > 0 ? v['iQ_' + i] : 1,
+                    dL: d['iL_' + i], dW: d['iW_' + i], dT: d['iT_' + i],
+                    no: t(type === 'lintel' ? 'cl.lintelN' : 'cl.columnN', { n: n[type] }),
+                };
+            })
+            .filter((it) => it.L > 0 && it.W > 0 && it.T > 0);
+    }
 
     /* ---------- Tiles helpers ---------- */
     // room parts come in as len_0/wid_0, len_1/wid_1 …
@@ -2640,7 +2902,8 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             if (isLen) value = (v._disp && v._disp[inp.name]) || numPlain(v[inp.name]);
             else {
                 const unitEl = $('.unit', field);
-                value = `${numPlain(v[inp.name])} ${unitEl ? unitEl.textContent : ''}`.trim();
+                const typed = parseNum(inp.value);
+                value = `${numPlain(Number.isFinite(typed) ? typed : v[inp.name])} ${unitEl ? unitEl.textContent : ''}`.trim();
             }
             out.push([label, value]);
         });
@@ -2707,7 +2970,7 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
         // sample sizes shown until the user types their own
         const DEF = {
             roof:    { firstLength: 20, secondLength: 20, firstWidth: 12, secondWidth: 12, height: 5 },
-            column:  { colLength: 10, colWidth: 12, colThickness: 12 },
+            column:  { items: [{ type: 'column', L: 10, W: 12, T: 12, Q: 1, no: '' }] },
             wall:    { wallLength: 12, wallHeight: 10, brickThickness: 5 },
             plaster: { wallLength: 12, wallHeight: 10, plasterThickness: 0.75 },
             steel:   { length: 16, width: 10, gap: 6, mm: 10 },
@@ -2770,9 +3033,28 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             };
         }
 
+        // column & lintel: every row that has its three sizes
+        function readColumn(form) {
+            const items = [];
+            const n = { column: 0, lintel: 0 };
+            $$('[data-area]', form).forEach((r) => {
+                const g = (p) => lenOf($(`input[name^="${p}_"]`, r));
+                const L = g('iL'), W = g('iW'), T = g('iT');
+                const q = parseNum($('input[name^="iQ_"]', r).value);
+                const type = ($('input[type="radio"]:checked', r) || {}).value === 'lintel' ? 'lintel' : 'column';
+                n[type] += 1;
+                if (L.n > 0 && W.n > 0 && T.n > 0) {
+                    items.push({ type, L: L.n, W: W.n, T: T.n, Q: q > 0 ? q : 1, dL: L.d, dW: W.d, dT: T.d,
+                        no: t(type === 'lintel' ? 'cl.lintelN' : 'cl.columnN', { n: n[type] }) });
+                }
+            });
+            return { v: { items: items.length ? items : DEF.column.items }, live: items.length > 0 };
+        }
+
         function readValues(id) {
             const form = $(`form[data-calc="${id}"]`);
             if (id === 'tiles') return readTiles(form);
+            if (id === 'column') return readColumn(form);
             const v = { _disp: {} };
             let live = false;
             Object.keys(DEF[id]).forEach((k) => {
@@ -2824,12 +3106,14 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
                 return chips;
             },
             column(v) {
-                return [
-                    [t('f.colLength'), D(v, 'colLength', 'u.ft')],
-                    [t('f.colWidth'), D(v, 'colWidth', 'u.inch')],
-                    [t('f.colThickness'), D(v, 'colThickness', 'u.inch')],
-                    [t('r.workVolume'), `${num(v.colLength * v.colWidth * v.colThickness / 144)} ${t('u.cft')}`],
-                ];
+                const c = { column: 0, lintel: 0 };
+                let vol = 0;
+                v.items.forEach((it) => { c[it.type] += it.Q; vol += it.L * it.W * it.T / 144 * it.Q; });
+                const chips = [];
+                if (c.column) chips.push([t('cl.column'), `${num(c.column, 0)} ${t('u.pcs')}`]);
+                if (c.lintel) chips.push([t('cl.lintel'), `${num(c.lintel, 0)} ${t('u.pcs')}`]);
+                chips.push([t('r.workVolume'), qs(qVol(vol))]);
+                return chips;
             },
             wall(v) {
                 const vol = v.wallLength * v.wallHeight * (v.brickThickness / 12);
@@ -2845,7 +3129,7 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
                     [t('f.wallLength'), D(v, 'wallLength', 'u.ft')],
                     [t('f.wallHeight'), D(v, 'wallHeight', 'u.ft')],
                     [t('f.plasterThickness'), D(v, 'plasterThickness', 'u.inch')],
-                    [t('r.workArea'), `${num(v.wallLength * v.wallHeight)} ${t('u.sqft')}`],
+                    [t('r.workArea'), qs(qArea(v.wallLength * v.wallHeight))],
                 ];
             },
             tiles(v) {
@@ -2855,7 +3139,7 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
                 const base = Math.ceil(area / (v.tileA * v.tileB / 144) - 1e-9);
                 const total = Math.ceil(base * (1 + v.wastage / 100) - 1e-9);
                 const chips = [
-                    [t('r.floorArea'), `${num(floor)} ${t('u.sqft')}`],
+                    [t('r.floorArea'), qs(qArea(floor))],
                     [t('r.tileSize'), v.tileLabel],
                     [t('grp.tiles'), `≈ ${num(total, 0)} ${t('u.pcs')}`],
                 ];
@@ -3096,15 +3380,47 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             }
 
             else if (id === 'column') {
-                const H = v.colLength, w = v.colWidth / 12, d = v.colThickness / 12;
-                const k = SIZE / Math.max(H, w, d);
-                const X = Math.max(w * k, .05), Y = H * k, Z = Math.max(d * k, .05);
-                box(X, Y, Z, concrete(), 0, Y / 2, 0);
-                ground(Math.max(X, .8), Math.max(Z, .8));
-                dim(V(-X / 2, 0, Z / 2), V(-X / 2, Y, Z / 2), V(-.35, 0, 0), D(v, 'colLength', 'u.ft'));
-                dim(V(-X / 2, 0, Z / 2), V(X / 2, 0, Z / 2), V(0, 0, .35), D(v, 'colWidth', 'u.inch'));
-                dim(V(X / 2, 0, -Z / 2), V(X / 2, 0, Z / 2), V(.35, 0, 0), D(v, 'colThickness', 'u.inch'));
-                bbox = { w: X, h: Y, d: Z, cy: Y / 2 };
+                // columns stand side by side; lintels sit across at lintel level (up to 4 copies of each row)
+                const inst = [];
+                v.items.forEach((it) => { for (let i = 0; i < Math.min(Math.ceil(it.Q), 4); i++) inst.push({ it, first: i === 0 }); });
+                const gapFt = 2;
+                const footFt = (x) => (x.it.type === 'lintel' ? x.it.L : x.it.W / 12);
+                const spanFt = inst.reduce((a, x) => a + footFt(x), 0) + gapFt * (inst.length - 1);
+                const cols = v.items.filter((it) => it.type === 'column');
+                const colH = cols.length ? Math.max(...cols.map((it) => it.L)) : 0;
+                const linY = colH ? colH * 0.8 : 7;
+                const maxDepth = Math.max(...v.items.map((it) => (it.type === 'lintel' ? it.T : 0) / 12), 0);
+                const maxZ = Math.max(...v.items.map((it) => (it.type === 'lintel' ? it.W : it.T) / 12));
+                const k = SIZE / Math.max(spanFt, colH, v.items.some((it) => it.type === 'lintel') ? linY + maxDepth : 0, 1);
+                const linMat = new THREE.MeshStandardMaterial({ color: C.dark ? 0x9aa3ad : 0xb3bac2, roughness: .9, map: concreteTex() });
+                let x = -spanFt * k / 2, topY = 0;
+                inst.forEach(({ it, first }) => {
+                    if (it.type === 'column') {
+                        const X = Math.max(it.W / 12 * k, .05), Y = it.L * k, Z = Math.max(it.T / 12 * k, .05);
+                        box(X, Y, Z, concrete(), x + X / 2, Y / 2, 0);
+                        if (first) {
+                            dim(V(x, 0, Z / 2), V(x, Y, Z / 2), V(-.3, 0, 0), it.dL || fv(it.L, 'u.ft'));
+                            const lab = makeLabel(it.Q > 1 ? `${it.no} × ${numPlain(it.Q)}` : it.no, C);
+                            lab.position.set(x + X / 2, Y + .55, 0);
+                            g.add(lab);
+                        }
+                        topY = Math.max(topY, Y);
+                        x += X + gapFt * k;
+                    } else {
+                        const X = it.L * k, Y = Math.max(it.T / 12 * k, .04), Z = Math.max(it.W / 12 * k, .04), y0 = linY * k;
+                        box(X, Y, Z, linMat, x + X / 2, y0 + Y / 2, 0);
+                        if (first) {
+                            dim(V(x, y0, Z / 2), V(x + X, y0, Z / 2), V(0, -.55, .3), it.dL || fv(it.L, 'u.ft'));
+                            const lab = makeLabel(it.Q > 1 ? `${it.no} × ${numPlain(it.Q)}` : it.no, C);
+                            lab.position.set(x + X * .65, y0 + Y + .28, .35);     // keep clear of the column labels
+                            g.add(lab);
+                        }
+                        topY = Math.max(topY, y0 + Y);
+                        x += X + gapFt * k;
+                    }
+                });
+                ground(Math.max(spanFt * k, .8), Math.max(maxZ * k, .8));
+                bbox = { w: spanFt * k, h: topY + .4, d: maxZ * k, cy: (topY + .4) / 2 };
             }
 
             else if (id === 'wall') {
@@ -3438,6 +3754,12 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
         const ORDER = ['roof', 'column', 'wall', 'plaster', 'steel', 'tiles'];
         const demo = { el: null, viewer: null, shape: 'roof', timer: 0, touched: false, bound: false };
         const demoValues = (id) => {
+            if (id === 'column') {
+                return { items: [
+                    { type: 'column', L: 10, W: 12, T: 12, Q: 2, no: t('cl.columnN', { n: 1 }) },
+                    { type: 'lintel', L: 8, W: 10, T: 6, Q: 1, no: t('cl.lintelN', { n: 1 }) },
+                ] };
+            }
             if (id === 'tiles') {
                 return { parts: [{ L: 14, W: 12 }, { L: 7, W: 7 }], tileA: 24, tileB: 24, tileLabel: `24 × 24 ${t('u.inch')}`, skirt: 4, deduct: 0, wastage: 10 };
             }
@@ -3525,6 +3847,96 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
         return { createCards, update, show, refreshAll, snapshot };
     })();
 
+    /* ---------- Column & lintel form: any number of columns and lintels ---------- */
+    const COLS = (() => {
+        const form = $('form[data-calc="column"]');
+        const list = $('#col-items');
+        let nextId = 0;
+        const translate = (scope) => {
+            $$('[data-i18n]', scope).forEach((el) => { el.textContent = t(el.dataset.i18n); });
+            $$('[data-i18n-title]', scope).forEach((el) => { el.title = t(el.dataset.i18nTitle); });
+            $$('[data-i18n-aria]', scope).forEach((el) => { el.setAttribute('aria-label', t(el.dataset.i18nAria)); });
+            $$('[data-ph]', scope).forEach((el) => { el.placeholder = digits(el.dataset.ph); });
+        };
+        const lenField = (i, name, base) => `
+            <div class="field">
+                <label for="column-${name}_${i}" data-role="${name}"></label>
+                <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-${name}_${i}" name="${name}_${i}" data-num data-positive data-len="${base}" data-ph="0"></div>
+                <span class="field-error"></span>
+            </div>`;
+        const LABELS = {
+            column: { iL: 'cl.colH', iW: 'cl.width', iT: 'cl.colT' },
+            lintel: { iL: 'cl.linL', iW: 'cl.width', iT: 'cl.linD' },
+        };
+        function relabel() {
+            const n = { column: 0, lintel: 0 };
+            const rows = $$('[data-area]', list);
+            rows.forEach((r) => {
+                const type = ($('input[type="radio"]:checked', r) || {}).value === 'lintel' ? 'lintel' : 'column';
+                r.dataset.type = type;
+                n[type] += 1;
+                $('.area-no', r).textContent = t(type === 'lintel' ? 'cl.lintelN' : 'cl.columnN', { n: n[type] });
+                ['iL', 'iW', 'iT'].forEach((k) => { $(`[data-role="${k}"]`, r).textContent = t(LABELS[type][k]); });
+                $('[data-remove-part]', r).hidden = rows.length === 1;
+            });
+        }
+        function addRow(type, focus) {
+            const i = nextId++;
+            const row = document.createElement('div');
+            row.className = 'item-row';
+            row.dataset.area = String(i);
+            row.innerHTML = `
+                <div class="item-head">
+                    <span class="area-no"></span>
+                    <div class="segmented" role="radiogroup">
+                        <label><input type="radio" name="type_${i}" value="column"${type !== 'lintel' ? ' checked' : ''}><span data-i18n="cl.column"></span></label>
+                        <label><input type="radio" name="type_${i}" value="lintel"${type === 'lintel' ? ' checked' : ''}><span data-i18n="cl.lintel"></span></label>
+                    </div>
+                    <button type="button" class="icon-btn icon-btn-sm danger" data-remove-part data-i18n-title="cl.remove" data-i18n-aria="cl.remove"><i class="fa-solid fa-trash-can"></i></button>
+                </div>
+                <div class="fields">
+                    ${lenField(i, 'iL', 'ft')}${lenField(i, 'iW', 'in')}${lenField(i, 'iT', 'in')}
+                    <div class="field">
+                        <label for="column-iQ_${i}"><span data-i18n="cl.qty"></span> <small class="opt" data-i18n="cl.qtyOpt"></small></label>
+                        <div class="input-wrap"><input type="text" inputmode="numeric" autocomplete="off" id="column-iQ_${i}" name="iQ_${i}" data-num data-optional data-default="1" data-ph="0"><span class="unit" data-i18n="u.pcs"></span></div>
+                        <span class="field-error"></span>
+                    </div>
+                </div>`;
+            list.appendChild(row);
+            LEN.enhance(row);
+            translate(row);
+            LEN.refresh(row);
+            relabel();
+            if (focus) $('input[data-len]', row).focus();
+            return row;
+        }
+        function setRows() { list.innerHTML = ''; nextId = 0; addRow('column', false); }
+
+        $$('[data-add-item]', form).forEach((b) => b.addEventListener('click', () => { addRow(b.dataset.addItem, true); saveInputs(form); VIZ.update('column'); }));
+        list.addEventListener('click', (e) => {
+            const b = e.target.closest('[data-remove-part]');
+            if (!b) return;
+            b.closest('[data-area]').remove();
+            relabel();
+            saveInputs(form);
+            VIZ.update('column');
+        });
+        list.addEventListener('change', (e) => { if (/^type_/.test(e.target.name)) relabel(); });
+        form.addEventListener('reset', () => setTimeout(() => { setRows(); }));
+
+        // rebuild the rows saved last time
+        const saved = (S.remember && storage.get(STORE_INPUTS, {}).column) || {};
+        const idx = Object.keys(saved).filter((k) => /^iL_\d+$/.test(k)).map((k) => Number(k.slice(3))).sort((a, b) => a - b);
+        list.innerHTML = '';
+        if (idx.length) {
+            idx.forEach((i) => { nextId = i; addRow(saved['type_' + i] === 'lintel' ? 'lintel' : 'column', false); });
+            nextId = idx[idx.length - 1] + 1;
+        } else {
+            addRow('column', false);
+        }
+        return { relabel };
+    })();
+
     /* ---------- Tiles form: room parts + custom size ---------- */
     const TILES = (() => {
         const form = $('form[data-calc="tiles"]');
@@ -3554,7 +3966,7 @@ const ADMIN_EMAILS = ['oletommy10@gmail.com'];
             const row = document.createElement('div');
             row.className = 'area-row';
             row.dataset.area = String(i);
-            row.innerHTML = `<span class="area-no"></span>${field(i, 'len', 'f.length', i ? '6' : '12')}${field(i, 'wid', 'f.width', i ? '5' : '10')}
+            row.innerHTML = `<span class="area-no"></span>${field(i, 'len', 'f.length', '0')}${field(i, 'wid', 'f.width', '0')}
                 <button type="button" class="icon-btn icon-btn-sm danger" data-remove-part data-i18n-title="tl.removePart" data-i18n-aria="tl.removePart"><i class="fa-solid fa-trash-can"></i></button>`;
             list.appendChild(row);
             LEN.enhance(row);
