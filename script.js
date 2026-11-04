@@ -433,6 +433,190 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             'rp.inputs': 'Measurements',
             'rp.results': 'Results',
             'rp.3d': '3D preview',
+            "tab.pro": "Pro & payments",
+            "u.days": "days",
+            "st.pending": "Checking",
+            "st.approved": "Approved",
+            "st.rejected": "Rejected",
+            "pro.kicker": "PRO · Floor plan designer",
+            "pro.title": "Design your own house — <span>2D drawing, 3D view and the full material estimate</span> in one place",
+            "pro.sub": "Draw walls, rooms, doors and windows like CAD software. Walk around the house in 3D and see how many bricks, how much cement, sand and how many tiles you need — before a single brick is laid.",
+            "pro.tick1": "Plan the room sizes yourself — no software or training needed",
+            "pro.tick2": "Show your family, mistri or contractor exactly what you want in 3D",
+            "pro.tick3": "Know the material list and the budget before you start",
+            "pro.cta": "Get Pro",
+            "pro.ctaOpen": "Open the designer",
+            "pro.ctaPending": "Payment is being checked",
+            "pro.buyNow": "Buy now",
+            "pro.see": "See the designer",
+            "pro.from": "From {m}/month · {y}/year · bKash, Nagad or UCB Bank",
+            "pro.free": "Free for everyone right now",
+            "pro.whatK": "What you get",
+            "pro.whatT": "Everything you need to plan a house",
+            "pro.f1.t": "CAD-style 2D drawing",
+            "pro.f1.d": "Walls click by click, rectangular rooms in one go, snapping to corners and straight angles — just like AutoCAD, but simple.",
+            "pro.f2.t": "Live 3D model",
+            "pro.f2.d": "Every line you draw rises as a real 3D house with doors, windows, floors and furniture. Turn it, zoom it, show it.",
+            "pro.f3.t": "Automatic material estimate",
+            "pro.f3.d": "Bricks, cement, sand, khoa, plaster, roof casting and floor tiles — worked out from your drawing, with the total cost.",
+            "pro.f4.t": "Doors, windows & furniture",
+            "pro.f4.d": "Door swings, windows with sill height, beds, sofas, kitchen, toilet, stairs and more — at real sizes.",
+            "pro.f5.t": "Exact measurements",
+            "pro.f5.d": "Type 12'6 and press Enter. Feet-inch or metre — every wall length and room area is shown automatically.",
+            "pro.f6.t": "Save, print & share",
+            "pro.f6.d": "Save on your device or as a file, download the plan as an image, print or send a PDF on WhatsApp.",
+            "pro.whyK": "Why Pro?",
+            "pro.whyT": "A small fee that saves you big mistakes",
+            "pro.w1.t": "Save money",
+            "pro.w1.d": "Try out ideas yourself before you pay a draftsman, and buy only the material the estimate says you need.",
+            "pro.w2.t": "Avoid costly mistakes",
+            "pro.w2.d": "See how big each room really is and where the doors open — fixing a line is free, breaking a wall is not.",
+            "pro.w3.t": "Everyone understands",
+            "pro.w3.d": "A 3D picture explains far more than words. Your family and mistri see the same house you have in mind.",
+            "pro.w4.t": "Plan the budget",
+            "pro.w4.d": "Put in today's market prices and see the total cost of walls, plaster, roof and tiles instantly.",
+            "pro.whoT": "Who is it for?",
+            "pro.u1.t": "Home owners",
+            "pro.u1.d": "Planning a new house, a new floor or a renovation",
+            "pro.u2.t": "Contractors & mistri",
+            "pro.u2.d": "Quick layouts and material lists for clients",
+            "pro.u3.t": "Engineering students",
+            "pro.u3.d": "Practise plans and estimates easily",
+            "pro.u4.t": "Developers & agents",
+            "pro.u4.d": "Show buyers a flat in 3D before it is built",
+            "pro.priceK": "Pricing",
+            "pro.priceT": "Simple plans, no hidden cost",
+            "pro.priceS": "All the calculators stay free. Pro opens the floor plan designer.",
+            "pro.monthly": "Monthly",
+            "pro.yearly": "Yearly",
+            "pro.perMonth": "month",
+            "pro.perYear": "year",
+            "pro.days": "Pro for {n} days",
+            "pro.perMonthOnly": "Only {m} a month",
+            "pro.best": "Best value",
+            "pro.save": "Save {p}%",
+            "pro.yearExtra": "Priority help on WhatsApp",
+            "pro.s1.t": "Create an account",
+            "pro.s1.d": "Sign up with your Gmail — takes 10 seconds",
+            "pro.s2.t": "Send the payment",
+            "pro.s2.d": "bKash, Nagad or UCB Bank, then enter the transaction ID",
+            "pro.s3.t": "Pro turns on",
+            "pro.s3.d": "After the payment is checked (usually within a few hours)",
+            "lock.title": "The floor plan designer is a Pro feature",
+            "lock.sub": "Get Pro to draw your own house plan, see it in 3D and get the estimate automatically.",
+            "lock.haveAcct": "Already have Pro? Log in",
+            "lock.pending": "Your payment is being checked — Pro will turn on as soon as it is approved.",
+            "acct.title": "My account",
+            "acct.sub": "Log in with your Gmail to buy and use Pro.",
+            "acct.login": "Login / Sign up",
+            "acct.google": "Continue with Google (Gmail)",
+            "acct.or": "or with Gmail and a password",
+            "acct.signIn": "Log in",
+            "acct.signUp": "Create account",
+            "acct.name": "Your name",
+            "acct.gmail": "Gmail address",
+            "acct.passHint": "At least 6 characters.",
+            "acct.note": "We use your Gmail only for your account and Pro subscription.",
+            "acct.err.gmail": "Please use a Gmail address (…@gmail.com).",
+            "acct.err.exists": "An account with this Gmail already exists — please log in.",
+            "acct.err.weak": "The password must be at least 6 characters.",
+            "acct.err.domain": "This website address is not allowed for login yet (Firebase → Authentication → Authorized domains).",
+            "acct.err.provider": "This login method is not turned on yet (Firebase → Authentication → Sign-in method).",
+            "acct.welcome": "Welcome! You are logged in.",
+            "acct.created": "Account created — welcome!",
+            "acct.bye": "Logged out",
+            "acct.admin": "Admin",
+            "acct.free": "Free",
+            "acct.proUntil": "Pro is active until {date} ({n} days left).",
+            "acct.expired": "Pro ended on {date}.",
+            "acct.freeNote": "You are on the free plan. All calculators are free; the floor plan designer needs Pro.",
+            "acct.pendingNote": "A payment is being checked.",
+            "acct.renew": "Renew / extend Pro",
+            "acct.openPlan": "Open floor plan designer",
+            "acct.history": "Payments",
+            "acct.noPays": "No payments yet.",
+            "buy.title": "Get Pro",
+            "buy.sub": "Pay with bKash, Nagad or UCB Bank and enter the transaction ID.",
+            "buy.step1": "1. Choose a plan",
+            "buy.step2": "2. Send the payment",
+            "buy.step3": "3. Payment details",
+            "buy.amount": "Amount",
+            "buy.number": "{m} number",
+            "buy.copy": "Copy",
+            "buy.copied": "Copied",
+            "buy.act.personal": "Send Money",
+            "buy.act.agent": "Cash Out",
+            "buy.act.merchant": "Payment",
+            "buy.m1": "Open the {m} app or dial the USSD code and choose \"{act}\".",
+            "buy.m2": "Enter the number {n}.",
+            "buy.m3": "Send exactly {amount}. In reference write: {ref}",
+            "buy.last": "Copy the transaction ID from the SMS and enter it below.",
+            "buy.lastBank": "Enter the transfer reference / transaction number below.",
+            "buy.u1": "Transfer from any bank (UCB, NPSB, BEFTN or app) to the account above.",
+            "buy.u2": "Send exactly {amount}.",
+            "buy.u3": "Write in the note/reference: {ref}",
+            "buy.sender": "Number you sent from",
+            "buy.senderBank": "Account / name you sent from",
+            "buy.trx": "Transaction ID",
+            "buy.submit": "Submit payment",
+            "buy.note": "The admin checks the payment and turns Pro on — usually within a few hours. You will see it in My account.",
+            "buy.none": "Payment numbers are not set yet. Please contact us on",
+            "buy.waMsg": "Hello, I want to buy the {plan} Pro plan.",
+            "buy.needAcct": "Create an account (or log in) with your Gmail first.",
+            "buy.err.phone": "Enter an 11-digit mobile number (01XXXXXXXXX).",
+            "buy.err.trx": "Enter the transaction ID exactly as in the SMS (6–30 letters/numbers).",
+            "buy.sent": "Payment submitted! Pro will turn on after it is checked.",
+            "buy.hasPending": "Your payment {trx} ({date}) is being checked. Please wait for it before sending another.",
+            "ap2.pending": "Waiting payments",
+            "ap2.activePro": "Active Pro",
+            "ap2.users": "Accounts",
+            "ap2.income": "Approved income",
+            "ap2.payments": "Payments",
+            "ap2.f.pending": "Waiting",
+            "ap2.f.approved": "Approved",
+            "ap2.f.rejected": "Rejected",
+            "ap2.f.all": "All",
+            "ap2.members": "Accounts & Pro members",
+            "ap2.search": "Search name or Gmail…",
+            "ap2.settings": "Pro settings",
+            "ap2.enabled": "Floor plan needs Pro",
+            "ap2.enabled.d": "Turn off to let everyone use the designer for free.",
+            "ap2.prices": "Prices (Taka)",
+            "ap2.monthly": "Monthly price",
+            "ap2.monthlyDays": "Monthly plan length",
+            "ap2.yearly": "Yearly price",
+            "ap2.yearlyDays": "Yearly plan length",
+            "ap2.methodOn": "Show this payment method",
+            "ap2.number": "Account number",
+            "ap2.accType": "Account type",
+            "ap2.t.personal": "Personal",
+            "ap2.t.agent": "Agent",
+            "ap2.t.merchant": "Merchant",
+            "ap2.accName": "Account name",
+            "ap2.accNo": "Account number",
+            "ap2.branch": "Branch",
+            "ap2.routing": "Routing number",
+            "ap2.note": "Extra note on the payment screen (optional)",
+            "ap2.noteBn": "Bangla",
+            "ap2.noteEn": "English",
+            "ap2.plan": "Plan",
+            "ap2.method": "Method",
+            "ap2.sender": "Sent from",
+            "ap2.until": "Pro until",
+            "ap2.reason": "Reason",
+            "ap2.approve": "Approve",
+            "ap2.reject": "Reject",
+            "ap2.approveConfirm": "Did you receive the money? Approve {plan} for {name} (TrxID {trx})?",
+            "ap2.approved": "Pro is on until {date}",
+            "ap2.rejectWhy": "Reason for rejecting (the customer will see it):",
+            "ap2.rejected": "Payment rejected",
+            "ap2.revoke": "Stop Pro",
+            "ap2.revokeConfirm": "Stop Pro for this account now?",
+            "ap2.revoked": "Pro stopped",
+            "ap2.proUntil": "PRO · {date}",
+            "ap2.noPays": "No payments here.",
+            "ap2.noUsers": "No accounts yet.",
+            "ap2.waMsg": "Hello {name}, about your {site} Pro payment:",
             "page.plan": "Floor Plan",
             "plan.title": "Floor Plan — 2D & 3D",
             "plan.sub": "Draw walls, rooms, doors and windows like CAD software — see it in 3D and get the material estimate automatically.",
@@ -1110,6 +1294,190 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             'rp.inputs': 'মাপ',
             'rp.results': 'ফলাফল',
             'rp.3d': '৩ডি প্রিভিউ',
+            "tab.pro": "প্রো ও পেমেন্ট",
+            "u.days": "দিন",
+            "st.pending": "যাচাই হচ্ছে",
+            "st.approved": "অনুমোদিত",
+            "st.rejected": "বাতিল",
+            "pro.kicker": "প্রো · ফ্লোর প্ল্যান ডিজাইনার",
+            "pro.title": "নিজের বাড়ির নকশা নিজেই করুন — <span>২ডি নকশা, ৩ডি ভিউ আর মালামালের পুরো হিসাব</span> এক জায়গায়",
+            "pro.sub": "ক্যাড সফটওয়্যারের মতো দেয়াল, রুম, দরজা, জানালা আঁকুন। ৩ডি-তে পুরো বাড়ি ঘুরিয়ে দেখুন, আর একটা ইট গাঁথার আগেই জেনে নিন কত ইট, সিমেন্ট, বালু আর টাইলস লাগবে।",
+            "pro.tick1": "রুমের মাপ নিজেই ঠিক করুন — কোনো সফটওয়্যার বা ট্রেনিং লাগবে না",
+            "pro.tick2": "পরিবার, মিস্ত্রি বা ঠিকাদারকে ৩ডি-তে ঠিক যা চান তা দেখান",
+            "pro.tick3": "কাজ শুরুর আগেই মালামালের তালিকা আর বাজেট জানুন",
+            "pro.cta": "প্রো নিন",
+            "pro.ctaOpen": "ডিজাইনার খুলুন",
+            "pro.ctaPending": "পেমেন্ট যাচাই হচ্ছে",
+            "pro.buyNow": "এখনই কিনুন",
+            "pro.see": "ডিজাইনার দেখুন",
+            "pro.from": "মাত্র {m}/মাস · {y}/বছর · বিকাশ, নগদ বা ইউসিবি ব্যাংক",
+            "pro.free": "এখন সবার জন্য ফ্রি",
+            "pro.whatK": "কী কী পাবেন",
+            "pro.whatT": "বাড়ির নকশা করতে যা যা লাগে সব",
+            "pro.f1.t": "ক্যাডের মতো ২ডি নকশা",
+            "pro.f1.d": "ক্লিক করে করে দেয়াল, এক টানে চারকোনা রুম, কোণ আর সোজা লাইনে স্ন্যাপ — অটোক্যাডের মতো, কিন্তু অনেক সহজ।",
+            "pro.f2.t": "লাইভ ৩ডি মডেল",
+            "pro.f2.d": "যা আঁকবেন সাথে সাথে দরজা, জানালা, মেঝে আর আসবাবসহ আসল ৩ডি বাড়ি হয়ে দাঁড়াবে। ঘোরান, জুম করুন, দেখান।",
+            "pro.f3.t": "অটোমেটিক মালামালের হিসাব",
+            "pro.f3.d": "ইট, সিমেন্ট, বালু, খোয়া, প্লাস্টার, ছাদ ঢালাই আর মেঝের টাইলস — আপনার নকশা থেকেই, মোট খরচসহ।",
+            "pro.f4.t": "দরজা, জানালা ও আসবাব",
+            "pro.f4.d": "দরজার খোলার দিক, সিলসহ জানালা, খাট, সোফা, রান্নাঘর, বাথরুম, সিঁড়ি — সব আসল মাপে।",
+            "pro.f5.t": "একদম সঠিক মাপ",
+            "pro.f5.d": "12'6 টাইপ করে Enter দিন। ফুট-ইঞ্চি বা মিটার — প্রতিটা দেয়ালের দৈর্ঘ্য আর রুমের ক্ষেত্রফল নিজে থেকেই দেখায়।",
+            "pro.f6.t": "সেভ, প্রিন্ট ও শেয়ার",
+            "pro.f6.d": "ডিভাইসে বা ফাইল হিসেবে সেভ করুন, নকশার ছবি ডাউনলোড করুন, প্রিন্ট করুন বা হোয়াটসঅ্যাপে PDF পাঠান।",
+            "pro.whyK": "কেন প্রো নেবেন?",
+            "pro.whyT": "অল্প খরচে বড় ভুল থেকে বাঁচুন",
+            "pro.w1.t": "টাকা বাঁচান",
+            "pro.w1.d": "ড্রাফটসম্যানের কাছে যাওয়ার আগে নিজেই আইডিয়াগুলো যাচাই করুন, আর হিসাব অনুযায়ী যতটুকু লাগে ততটুকুই মালামাল কিনুন।",
+            "pro.w2.t": "দামি ভুল এড়ান",
+            "pro.w2.d": "প্রতিটা রুম আসলে কত বড় আর দরজা কোন দিকে খুলবে আগেই দেখুন — লাইন ঠিক করতে খরচ নেই, দেয়াল ভাঙতে আছে।",
+            "pro.w3.t": "সবাই সহজে বুঝবে",
+            "pro.w3.d": "একটা ৩ডি ছবি অনেক কথার চেয়ে বেশি বোঝায়। আপনার মাথায় যে বাড়ি, পরিবার আর মিস্ত্রিও সেটাই দেখবে।",
+            "pro.w4.t": "বাজেট ঠিক করুন",
+            "pro.w4.d": "আজকের বাজার দর দিন, সাথে সাথে দেয়াল, প্লাস্টার, ছাদ আর টাইলসের মোট খরচ দেখুন।",
+            "pro.whoT": "কাদের জন্য?",
+            "pro.u1.t": "বাড়ির মালিক",
+            "pro.u1.d": "নতুন বাড়ি, নতুন তলা বা রেনোভেশনের পরিকল্পনায়",
+            "pro.u2.t": "ঠিকাদার ও মিস্ত্রি",
+            "pro.u2.d": "ক্লায়েন্টের জন্য দ্রুত লেআউট আর মালামালের তালিকা",
+            "pro.u3.t": "ইঞ্জিনিয়ারিং শিক্ষার্থী",
+            "pro.u3.d": "সহজে নকশা আর এস্টিমেট প্র্যাকটিস",
+            "pro.u4.t": "ডেভেলপার ও এজেন্ট",
+            "pro.u4.d": "ফ্ল্যাট বানানোর আগেই ক্রেতাকে ৩ডি-তে দেখান",
+            "pro.priceK": "প্রাইস",
+            "pro.priceT": "সহজ প্ল্যান, কোনো লুকানো খরচ নেই",
+            "pro.priceS": "সব ক্যালকুলেটর ফ্রি-ই থাকবে। প্রো দিয়ে ফ্লোর প্ল্যান ডিজাইনার খুলবে।",
+            "pro.monthly": "মাসিক",
+            "pro.yearly": "বাৎসরিক",
+            "pro.perMonth": "মাস",
+            "pro.perYear": "বছর",
+            "pro.days": "{n} দিনের প্রো",
+            "pro.perMonthOnly": "মাসে মাত্র {m}",
+            "pro.best": "সবচেয়ে সাশ্রয়ী",
+            "pro.save": "{p}% সাশ্রয়",
+            "pro.yearExtra": "হোয়াটসঅ্যাপে অগ্রাধিকার সাপোর্ট",
+            "pro.s1.t": "অ্যাকাউন্ট খুলুন",
+            "pro.s1.d": "আপনার জিমেইল দিয়ে — ১০ সেকেন্ড লাগবে",
+            "pro.s2.t": "টাকা পাঠান",
+            "pro.s2.d": "বিকাশ, নগদ বা ইউসিবি ব্যাংকে, তারপর ট্রানজেকশন আইডি দিন",
+            "pro.s3.t": "প্রো চালু",
+            "pro.s3.d": "পেমেন্ট যাচাইয়ের পর (সাধারণত কয়েক ঘণ্টার মধ্যে)",
+            "lock.title": "ফ্লোর প্ল্যান ডিজাইনার একটি প্রো ফিচার",
+            "lock.sub": "প্রো নিয়ে নিজের বাড়ির নকশা আঁকুন, ৩ডি-তে দেখুন আর হিসাব পান অটোমেটিক।",
+            "lock.haveAcct": "আগেই প্রো নিয়েছেন? লগইন করুন",
+            "lock.pending": "আপনার পেমেন্ট যাচাই হচ্ছে — অনুমোদন হলেই প্রো চালু হবে।",
+            "acct.title": "আমার অ্যাকাউন্ট",
+            "acct.sub": "প্রো কিনতে ও ব্যবহার করতে জিমেইল দিয়ে লগইন করুন।",
+            "acct.login": "লগইন / সাইন আপ",
+            "acct.google": "Google (জিমেইল) দিয়ে চালিয়ে যান",
+            "acct.or": "অথবা জিমেইল ও পাসওয়ার্ড দিয়ে",
+            "acct.signIn": "লগইন",
+            "acct.signUp": "অ্যাকাউন্ট খুলুন",
+            "acct.name": "আপনার নাম",
+            "acct.gmail": "জিমেইল ঠিকানা",
+            "acct.passHint": "কমপক্ষে ৬ অক্ষর।",
+            "acct.note": "আপনার জিমেইল শুধু অ্যাকাউন্ট আর প্রো সাবস্ক্রিপশনের জন্য ব্যবহার হবে।",
+            "acct.err.gmail": "জিমেইল ঠিকানা দিন (…@gmail.com)।",
+            "acct.err.exists": "এই জিমেইলে আগেই অ্যাকাউন্ট আছে — লগইন করুন।",
+            "acct.err.weak": "পাসওয়ার্ড কমপক্ষে ৬ অক্ষরের হতে হবে।",
+            "acct.err.domain": "এই ওয়েবসাইটের ঠিকানা থেকে এখনো লগইন অনুমোদিত নয় (Firebase → Authentication → Authorized domains)।",
+            "acct.err.provider": "এই লগইন পদ্ধতি এখনো চালু করা হয়নি (Firebase → Authentication → Sign-in method)।",
+            "acct.welcome": "স্বাগতম! লগইন হয়েছে।",
+            "acct.created": "অ্যাকাউন্ট তৈরি হয়েছে — স্বাগতম!",
+            "acct.bye": "লগআউট হয়েছে",
+            "acct.admin": "এডমিন",
+            "acct.free": "ফ্রি",
+            "acct.proUntil": "প্রো চালু আছে {date} পর্যন্ত ({n} দিন বাকি)।",
+            "acct.expired": "প্রো শেষ হয়েছে {date}।",
+            "acct.freeNote": "আপনি ফ্রি প্ল্যানে আছেন। সব ক্যালকুলেটর ফ্রি; ফ্লোর প্ল্যান ডিজাইনারের জন্য প্রো লাগবে।",
+            "acct.pendingNote": "একটি পেমেন্ট যাচাই হচ্ছে।",
+            "acct.renew": "প্রো রিনিউ / মেয়াদ বাড়ান",
+            "acct.openPlan": "ফ্লোর প্ল্যান ডিজাইনার খুলুন",
+            "acct.history": "পেমেন্টসমূহ",
+            "acct.noPays": "এখনো কোনো পেমেন্ট নেই।",
+            "buy.title": "প্রো নিন",
+            "buy.sub": "বিকাশ, নগদ বা ইউসিবি ব্যাংকে টাকা পাঠিয়ে ট্রানজেকশন আইডি দিন।",
+            "buy.step1": "১. প্ল্যান বেছে নিন",
+            "buy.step2": "২. টাকা পাঠান",
+            "buy.step3": "৩. পেমেন্টের তথ্য দিন",
+            "buy.amount": "টাকার পরিমাণ",
+            "buy.number": "{m} নম্বর",
+            "buy.copy": "কপি",
+            "buy.copied": "কপি হয়েছে",
+            "buy.act.personal": "সেন্ড মানি",
+            "buy.act.agent": "ক্যাশ আউট",
+            "buy.act.merchant": "পেমেন্ট",
+            "buy.m1": "{m} অ্যাপ খুলুন বা ডায়াল কোড চাপুন, তারপর \"{act}\" বেছে নিন।",
+            "buy.m2": "নম্বর দিন: {n}",
+            "buy.m3": "ঠিক {amount} পাঠান। রেফারেন্সে লিখুন: {ref}",
+            "buy.last": "SMS থেকে ট্রানজেকশন আইডি কপি করে নিচে দিন।",
+            "buy.lastBank": "ট্রান্সফারের রেফারেন্স / ট্রানজেকশন নম্বর নিচে দিন।",
+            "buy.u1": "যেকোনো ব্যাংক থেকে (ইউসিবি, NPSB, BEFTN বা অ্যাপে) উপরের অ্যাকাউন্টে ট্রান্সফার করুন।",
+            "buy.u2": "ঠিক {amount} পাঠান।",
+            "buy.u3": "নোট/রেফারেন্সে লিখুন: {ref}",
+            "buy.sender": "যে নম্বর থেকে পাঠিয়েছেন",
+            "buy.senderBank": "যে অ্যাকাউন্ট / নামে পাঠিয়েছেন",
+            "buy.trx": "ট্রানজেকশন আইডি (TrxID)",
+            "buy.submit": "পেমেন্ট জমা দিন",
+            "buy.note": "এডমিন পেমেন্ট যাচাই করে প্রো চালু করবেন — সাধারণত কয়েক ঘণ্টার মধ্যে। \"আমার অ্যাকাউন্ট\"-এ দেখতে পাবেন।",
+            "buy.none": "পেমেন্ট নম্বর এখনো দেওয়া হয়নি। যোগাযোগ করুন",
+            "buy.waMsg": "আসসালামু আলাইকুম, আমি {plan} প্রো প্ল্যান কিনতে চাই।",
+            "buy.needAcct": "আগে জিমেইল দিয়ে অ্যাকাউন্ট খুলুন (বা লগইন করুন)।",
+            "buy.err.phone": "১১ ডিজিটের মোবাইল নম্বর দিন (01XXXXXXXXX)।",
+            "buy.err.trx": "SMS-এ যেভাবে আছে ঠিক সেভাবে ট্রানজেকশন আইডি দিন (৬–৩০ অক্ষর/সংখ্যা)।",
+            "buy.sent": "পেমেন্ট জমা হয়েছে! যাচাইয়ের পর প্রো চালু হবে।",
+            "buy.hasPending": "আপনার পেমেন্ট {trx} ({date}) যাচাই হচ্ছে। আরেকটি পাঠানোর আগে একটু অপেক্ষা করুন।",
+            "ap2.pending": "অপেক্ষমাণ পেমেন্ট",
+            "ap2.activePro": "চালু প্রো",
+            "ap2.users": "অ্যাকাউন্ট",
+            "ap2.income": "অনুমোদিত আয়",
+            "ap2.payments": "পেমেন্টসমূহ",
+            "ap2.f.pending": "অপেক্ষমাণ",
+            "ap2.f.approved": "অনুমোদিত",
+            "ap2.f.rejected": "বাতিল",
+            "ap2.f.all": "সব",
+            "ap2.members": "অ্যাকাউন্ট ও প্রো মেম্বার",
+            "ap2.search": "নাম বা জিমেইল খুঁজুন…",
+            "ap2.settings": "প্রো সেটিংস",
+            "ap2.enabled": "ফ্লোর প্ল্যানের জন্য প্রো লাগবে",
+            "ap2.enabled.d": "বন্ধ করলে সবাই ফ্রিতে ডিজাইনার ব্যবহার করতে পারবে।",
+            "ap2.prices": "দাম (টাকা)",
+            "ap2.monthly": "মাসিক দাম",
+            "ap2.monthlyDays": "মাসিক প্ল্যানের মেয়াদ",
+            "ap2.yearly": "বাৎসরিক দাম",
+            "ap2.yearlyDays": "বাৎসরিক প্ল্যানের মেয়াদ",
+            "ap2.methodOn": "এই পেমেন্ট পদ্ধতি দেখাবে",
+            "ap2.number": "অ্যাকাউন্ট নম্বর",
+            "ap2.accType": "অ্যাকাউন্টের ধরন",
+            "ap2.t.personal": "পার্সোনাল",
+            "ap2.t.agent": "এজেন্ট",
+            "ap2.t.merchant": "মার্চেন্ট",
+            "ap2.accName": "অ্যাকাউন্টের নাম",
+            "ap2.accNo": "অ্যাকাউন্ট নম্বর",
+            "ap2.branch": "শাখা",
+            "ap2.routing": "রাউটিং নম্বর",
+            "ap2.note": "পেমেন্ট স্ক্রিনে বাড়তি নোট (ঐচ্ছিক)",
+            "ap2.noteBn": "বাংলা",
+            "ap2.noteEn": "ইংরেজি",
+            "ap2.plan": "প্ল্যান",
+            "ap2.method": "পদ্ধতি",
+            "ap2.sender": "যেখান থেকে পাঠিয়েছে",
+            "ap2.until": "প্রো যতদিন",
+            "ap2.reason": "কারণ",
+            "ap2.approve": "অনুমোদন",
+            "ap2.reject": "বাতিল",
+            "ap2.approveConfirm": "টাকা পেয়েছেন তো? {name}-এর জন্য {plan} প্রো অনুমোদন করবেন (TrxID {trx})?",
+            "ap2.approved": "প্রো চালু হয়েছে {date} পর্যন্ত",
+            "ap2.rejectWhy": "বাতিলের কারণ (কাস্টমার দেখতে পাবে):",
+            "ap2.rejected": "পেমেন্ট বাতিল হয়েছে",
+            "ap2.revoke": "প্রো বন্ধ",
+            "ap2.revokeConfirm": "এই অ্যাকাউন্টের প্রো এখনই বন্ধ করবেন?",
+            "ap2.revoked": "প্রো বন্ধ হয়েছে",
+            "ap2.proUntil": "প্রো · {date}",
+            "ap2.noPays": "এখানে কোনো পেমেন্ট নেই।",
+            "ap2.noUsers": "এখনো কোনো অ্যাকাউন্ট নেই।",
+            "ap2.waMsg": "আসসালামু আলাইকুম {name}, আপনার {site} প্রো পেমেন্টের ব্যাপারে:",
             "page.plan": "ফ্লোর প্ল্যান",
             "plan.title": "ফ্লোর প্ল্যান — ২ডি ও ৩ডি",
             "plan.sub": "ক্যাড সফটওয়্যারের মতো দেয়াল, রুম, দরজা, জানালা আঁকুন — ৩ডি-তে দেখুন আর মালামালের হিসাব পান অটোমেটিক।",
@@ -1456,6 +1824,14 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         prices: { cement: 0, sand: 0, khoa: 0, brick: 0, rod: 0 },
         // calculation constants — the original formula values
         constants: { dry: 1.5, cementBag: 0.8, cftPerBag: 1.2, wallDry: 0.35, bricksPerCft: 12, khoaBricks: 9, steelDiv: 532.2, tileDry: 1.33 },
+        // Pro subscription for the floor plan designer (prices in Taka; payment numbers are set by the admin)
+        pro: {
+            enabled: true, monthly: 149, yearly: 1199, monthlyDays: 30, yearlyDays: 365,
+            bkash: { on: true, number: '', type: 'personal' },
+            nagad: { on: true, number: '', type: 'personal' },
+            ucb: { on: true, name: '', account: '', branch: '', routing: '' },
+            note: { bn: '', en: '' },
+        },
     };
     const isObj = (o) => !!o && typeof o === 'object' && !Array.isArray(o) && !(o.toDate);
     function deepMerge(base, over) {
@@ -1638,6 +2014,8 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         applyAnnouncement();
         applyFavicon();
         VIZ.refreshAll();
+        PRO.refresh();
+        PRO.renderHome();
     }
 
     function saveSettings() {
@@ -1904,8 +2282,9 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             if (user) {
                 // admin-only read: allowed by the Rules → admin; "permission-denied" → not admin
                 try { await FB.db.collection('inquiries').limit(1).get(); admin = true; } catch (e) { admin = false; }
-                if (!admin) {
-                    if (loginPending) showLoginError(t('admin.notAdmin'));
+                // the admin login form was used with a normal account → refuse there
+                if (!admin && loginPending) {
+                    showLoginError(t('admin.notAdmin'));
                     loginPending = false;
                     await FB.auth.signOut();
                     return;
@@ -1913,6 +2292,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             }
             FB.authResolved = true;
             setAdmin(admin);
+            PRO.onUser(user);
         });
     }
 
@@ -2014,7 +2394,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
        Admin dashboard
        ========================================================= */
     const ADMIN = (() => {
-        const forms = { site: $('#af-site'), dev: $('#af-dev'), contact: $('#af-contact'), calc: $('#af-calc') };
+        const forms = { site: $('#af-site'), dev: $('#af-dev'), contact: $('#af-contact'), calc: $('#af-calc'), pro: $('#af-pro') };
         const el = (form, name) => $(`[name="${name}"]`, form);
         const setRadio = (form, name, val) => $$(`input[name="${name}"]`, form).forEach((r) => { r.checked = String(val) === r.value; });
         const getRadio = (form, name) => { const r = $(`input[name="${name}"]:checked`, form); return r ? r.value : null; };
@@ -2043,6 +2423,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             $('#last-saved').textContent = ts ? t('ov.lastSaved', { time: fmtTime(ts), who: SITE.updatedBy || '' }) : '';
             $('#admin-email').textContent = FB.user ? FB.user.email : '';
             renderMessages();
+            renderPro();
         }
         /* ---------- Developer tab ---------- */
         const extrasBox = $('#dev-extras');
@@ -2196,6 +2577,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 ['cement', 'sand', 'khoa', 'brick', 'rod'].forEach((k) => { el(fk, 'p_' + k).value = SITE.prices[k] || 0; });
                 fillConstants(SITE.constants);
             }
+            fillPro();
         }
         function fillConstants(k) {
             Object.keys(SITE_DEFAULT.constants).forEach((key) => { el(forms.calc, 'k_' + key).value = k[key]; });
@@ -2312,6 +2694,147 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         });
         $('#icon-delete').addEventListener('click', () => save({ favicon: '' }, forms.site, true));
 
+        /* ---------- Pro: settings, payments, members ---------- */
+        let payments = [], members = [];
+        const msOf = (ts) => PRO.ms(ts);
+        function fillPro() {
+            const f = forms.pro, p = SITE.pro;
+            if (isDirty(f)) return;
+            el(f, 'proEnabled').checked = p.enabled !== false;
+            ['monthly', 'yearly', 'monthlyDays', 'yearlyDays'].forEach((k) => { el(f, k).value = p[k] ?? ''; });
+            el(f, 'bkashOn').checked = p.bkash.on !== false; el(f, 'bkashNumber').value = p.bkash.number || ''; el(f, 'bkashType').value = p.bkash.type || 'personal';
+            el(f, 'nagadOn').checked = p.nagad.on !== false; el(f, 'nagadNumber').value = p.nagad.number || ''; el(f, 'nagadType').value = p.nagad.type || 'personal';
+            el(f, 'ucbOn').checked = p.ucb.on !== false;
+            el(f, 'ucbName').value = p.ucb.name || ''; el(f, 'ucbAccount').value = p.ucb.account || '';
+            el(f, 'ucbBranch').value = p.ucb.branch || ''; el(f, 'ucbRouting').value = p.ucb.routing || '';
+            el(f, 'noteBn').value = (p.note || {}).bn || ''; el(f, 'noteEn').value = (p.note || {}).en || '';
+        }
+        forms.pro.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const f = forms.pro, v = (n) => el(f, n).value.trim();
+            const nums = {};
+            for (const k of ['monthly', 'yearly', 'monthlyDays', 'yearlyDays']) {
+                const n = parseNum(v(k));
+                if (!Number.isFinite(n) || n <= 0) { toast(t('admin.badNumber')); el(f, k).focus(); return; }
+                nums[k] = /Days$/.test(k) ? Math.round(n) : n;
+            }
+            const phone = (n) => { let d = onlyDigits(toEn(v(n))); if (d.startsWith('880')) d = d.slice(2); return d; };
+            for (const n of ['bkashNumber', 'nagadNumber']) {
+                const d = phone(n);
+                if (d && !/^01\d{9}$/.test(d)) { toast(t('buy.err.phone')); el(f, n).focus(); return; }
+            }
+            save({
+                pro: Object.assign(nums, {
+                    enabled: el(f, 'proEnabled').checked,
+                    bkash: { on: el(f, 'bkashOn').checked, number: phone('bkashNumber'), type: v('bkashType') },
+                    nagad: { on: el(f, 'nagadOn').checked, number: phone('nagadNumber'), type: v('nagadType') },
+                    ucb: { on: el(f, 'ucbOn').checked, name: v('ucbName'), account: toEn(v('ucbAccount')), branch: v('ucbBranch'), routing: toEn(v('ucbRouting')) },
+                    note: { bn: v('noteBn'), en: v('noteEn') },
+                }),
+            }, f);
+        });
+
+        const payFilter = () => ($('input[name="payFilter"]:checked') || {}).value || 'pending';
+        function payHtml(p) {
+            const until = msOf(p.until);
+            const g = (label, val) => `<div><small>${escapeHtml(label)}</small><b>${escapeHtml(val || '—')}</b></div>`;
+            const acts = p.status === 'pending'
+                ? `<button type="button" class="btn btn-primary" data-pay-ok="${escapeHtml(p.id)}"><i class="fa-solid fa-check"></i> ${escapeHtml(t('ap2.approve'))}</button>
+                   <button type="button" class="btn btn-danger" data-pay-no="${escapeHtml(p.id)}"><i class="fa-solid fa-xmark"></i> ${escapeHtml(t('ap2.reject'))}</button>`
+                : `<button type="button" class="btn btn-ghost" data-pay-del="${escapeHtml(p.id)}"><i class="fa-solid fa-trash-can"></i> ${escapeHtml(t('msg.delete'))}</button>`;
+            const wa = p.sender && /^01\d{9}$/.test(p.sender) ? waLink(t('ap2.waMsg', { name: p.name || '', site: t('brand.name') }), '88' + p.sender) : '';
+            return `
+                <article class="msg pay-card">
+                    <div class="msg-top"><strong>${escapeHtml(p.name || p.email || '—')}<span class="st ${escapeHtml(p.status)}">${escapeHtml(t('st.' + p.status))}</span></strong><time>${escapeHtml(PRO.fmtStamp(p.createdAt))}</time></div>
+                    <div class="msg-meta">${escapeHtml(p.email || '')}</div>
+                    <div class="pay-grid">
+                        ${g(t('ap2.plan'), t('pro.' + (p.plan === 'yearly' ? 'yearly' : 'monthly')) + ' · ' + PRO.taka(p.amount))}
+                        ${g(t('ap2.method'), PRO.M_NAME[p.method] || p.method)}
+                        ${g(t('ap2.sender'), p.sender)}
+                        ${g(t('buy.trx'), p.trxId)}
+                        ${until ? g(t('ap2.until'), PRO.fmtDate(until)) : ''}
+                        ${p.reason ? g(t('ap2.reason'), p.reason) : ''}
+                    </div>
+                    <div class="msg-actions">${acts}${wa ? `<a class="btn btn-wa" href="${escapeHtml(wa)}" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>` : ''}</div>
+                </article>`;
+        }
+        function memberHtml(u) {
+            const until = msOf(u.proUntil), on = until > Date.now();
+            const status = on ? t('ap2.proUntil', { date: PRO.fmtDate(until) }) : until ? t('acct.expired', { date: PRO.fmtDate(until) }) : t('acct.free');
+            return `
+                <div class="user-row">
+                    <span><b>${escapeHtml(u.name || (u.email || '').split('@')[0] || '—')}</b><small>${escapeHtml(u.email || u.id)}</small></span>
+                    <span class="plan-chip${on ? ' on' : ''}">${escapeHtml(status)}</span>
+                    <span class="user-acts">
+                        <button type="button" class="btn btn-soft" data-add-days="${escapeHtml(u.id)}" data-days="${Number(SITE.pro.monthlyDays) || 30}">+${escapeHtml(num(SITE.pro.monthlyDays || 30, 0))} ${escapeHtml(t('u.days'))}</button>
+                        <button type="button" class="btn btn-soft" data-add-days="${escapeHtml(u.id)}" data-days="${Number(SITE.pro.yearlyDays) || 365}">+${escapeHtml(num(SITE.pro.yearlyDays || 365, 0))} ${escapeHtml(t('u.days'))}</button>
+                        ${on ? `<button type="button" class="btn btn-danger" data-revoke="${escapeHtml(u.id)}">${escapeHtml(t('ap2.revoke'))}</button>` : ''}
+                    </span>
+                </div>`;
+        }
+        function renderPro() {
+            const f = payFilter();
+            const list = payments.filter((p) => f === 'all' || p.status === f);
+            $('#pay-list').innerHTML = list.length ? list.map(payHtml).join('') : `<p class="msg-empty">${escapeHtml(t('ap2.noPays'))}</p>`;
+            const q = toEn($('#user-search').value.trim().toLowerCase());
+            const us = members.filter((u) => !q || `${u.name || ''} ${u.email || ''}`.toLowerCase().includes(q))
+                .sort((a, b) => (msOf(b.proUntil) > Date.now()) - (msOf(a.proUntil) > Date.now()) || msOf(b.createdAt) - msOf(a.createdAt));
+            $('#user-list').innerHTML = us.length ? us.slice(0, 200).map(memberHtml).join('') : `<p class="msg-empty">${escapeHtml(t('ap2.noUsers'))}</p>`;
+            const pend = payments.filter((p) => p.status === 'pending').length;
+            $('#st-pending').textContent = num(pend, 0);
+            $('#st-pro').textContent = num(members.filter((u) => msOf(u.proUntil) > Date.now()).length, 0);
+            $('#st-users').textContent = num(members.length, 0);
+            $('#st-income').textContent = PRO.taka(payments.filter((p) => p.status === 'approved').reduce((s, p) => s + (Number(p.amount) || 0), 0));
+            $('#pay-count').hidden = !pend;
+            $('#pay-count').textContent = num(pend, 0);
+        }
+        $('#pay-filter').addEventListener('change', renderPro);
+        $('#user-search').addEventListener('input', renderPro);
+
+        async function extend(uid, days, extra = {}) {
+            const ref = FB.db.doc('users/' + uid);
+            const snap = await ref.get();
+            const cur = snap.exists ? msOf(snap.data().proUntil) : 0;
+            const until = new Date(Math.max(Date.now(), cur) + days * 864e5);
+            return { ref, until, data: Object.assign({ proUntil: firebase.firestore.Timestamp.fromDate(until), proUpdatedBy: FB.user ? FB.user.email : '' }, extra) };
+        }
+        $('[data-panel="pro"]').addEventListener('click', async (e) => {
+            const b = e.target.closest('[data-pay-ok], [data-pay-no], [data-pay-del], [data-add-days], [data-revoke]');
+            if (!b || !FB.ready) return;
+            b.disabled = true;
+            try {
+                if (b.dataset.payOk) {
+                    const p = payments.find((x) => x.id === b.dataset.payOk);
+                    if (!p || !window.confirm(t('ap2.approveConfirm', { name: p.name || p.email, plan: t('pro.' + p.plan), trx: p.trxId }))) return;
+                    const days = Number(p.days) || (p.plan === 'yearly' ? SITE.pro.yearlyDays : SITE.pro.monthlyDays);
+                    const x = await extend(p.uid, days, { plan: p.plan, email: p.email || '' });
+                    const batch = FB.db.batch();
+                    batch.set(x.ref, x.data, { merge: true });
+                    batch.update(FB.db.doc('payments/' + p.id), { status: 'approved', until: x.data.proUntil, reviewedAt: serverTime(), reviewedBy: FB.user.email });
+                    await batch.commit();
+                    toast(t('ap2.approved', { date: PRO.fmtDate(x.until) }));
+                } else if (b.dataset.payNo) {
+                    const why = window.prompt(t('ap2.rejectWhy'), '');
+                    if (why === null) return;
+                    await FB.db.doc('payments/' + b.dataset.payNo).update({ status: 'rejected', reason: why.slice(0, 200), reviewedAt: serverTime(), reviewedBy: FB.user.email });
+                    toast(t('ap2.rejected'));
+                } else if (b.dataset.payDel) {
+                    if (!window.confirm(t('msg.confirm'))) return;
+                    await FB.db.doc('payments/' + b.dataset.payDel).delete();
+                } else if (b.dataset.addDays) {
+                    const x = await extend(b.dataset.addDays, Number(b.dataset.days));
+                    await x.ref.set(x.data, { merge: true });
+                    toast(t('ap2.approved', { date: PRO.fmtDate(x.until) }));
+                } else if (b.dataset.revoke) {
+                    if (!window.confirm(t('ap2.revokeConfirm'))) return;
+                    await FB.db.doc('users/' + b.dataset.revoke).set({ proUntil: null }, { merge: true });
+                    toast(t('ap2.revoked'));
+                }
+            } catch (err) {
+                toast(t('admin.saveErr', { code: err.code || err.message }));
+            } finally { b.disabled = false; }
+        });
+
         $('#admin-logout').addEventListener('click', () => { if (FB.ready) FB.auth.signOut(); });
 
         /* ---------- messages ---------- */
@@ -2384,6 +2907,12 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             );
             unsubs.push(listen('inquiries', (l) => { inquiries = l; }, '#inq-list'));
             unsubs.push(listen('reviews', (l) => { reviews = l; }, '#rev-list'));
+            const live = (q, set, listId) => q.onSnapshot(
+                (snap) => { set(snap.docs.map((d) => Object.assign({ id: d.id }, d.data()))); renderPro(); },
+                (err) => { $(listId).innerHTML = `<p class="msg-empty">${escapeHtml(t('msg.noaccess', { code: err.code || err.message }))}</p>`; }
+            );
+            unsubs.push(live(FB.db.collection('payments').orderBy('createdAt', 'desc').limit(300), (l) => { payments = l; }, '#pay-list'));
+            unsubs.push(live(FB.db.collection('users').limit(1000), (l) => { members = l; }, '#user-list'));
         }
         function stop() {
             Object.values(forms).forEach((f) => { delete f.dataset.dirty; });
@@ -2391,6 +2920,8 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             unsubs = [];
             inquiries = [];
             reviews = [];
+            payments = [];
+            members = [];
         }
 
         return { fill, start, stop, setTab, renderMessages };
@@ -4428,6 +4959,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
        Floor plan — a small 2D CAD editor with a live 3D model
        Plan units are feet (x → right, y → down). Wall thickness is in inches.
        ========================================================= */
+    let planLocked = false;          // set by PRO: the designer needs an active subscription
     const PLAN = (() => {
         const STORE = 'cc.plan', STORE_VIEW = 'cc.planView';
         const svg = $('#plan-svg'), wrap = $('#plan-2d'), main = $('#plan-main'), insp = $('#fp-inspector');
@@ -4622,7 +5154,9 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         }
 
         /* ---------- history + saving ---------- */
+        let previewing = false;
         function commit() {
+            previewing = false;
             hist = hist.slice(0, hi + 1);
             hist.push(JSON.stringify(P));
             if (hist.length > 120) hist.shift();
@@ -5133,7 +5667,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         /* ---------- keyboard ---------- */
         const KEYS = { v: 'select', h: 'pan', w: 'wall', r: 'room', d: 'door', n: 'window', t: 'text', m: 'dim', f: 'furn', e: 'erase' };
         document.addEventListener('keydown', (e) => {
-            if (currentPage !== 'plan') return;
+            if (currentPage !== 'plan' || planLocked) return;
             const tg = e.target;
             if (tg && (tg.closest('input, textarea, select, [contenteditable]') || tg.closest('.modal, .drawer'))) return;
             if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z') { e.preventDefault(); e.shiftKey ? redo() : undo(); return; }
@@ -5512,7 +6046,435 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             relabel() { fillKinds(); inspector(); draw(); if (currentPage === 'plan') refreshEstimate(); },
             show() { view.fitted = view.fitted && wrap.clientWidth > 0; draw(); inspector(); setTimeout(refreshEstimate, 0); },
             refreshEstimate,
+            // locked page: show the sample house behind the Pro card (not saved)
+            preview() {
+                if (previewing || P.walls.length || P.furn.length) return;
+                previewing = true;
+                sample();
+                hist = [JSON.stringify(P)]; hi = 0;
+                view.fitted = false;
+                draw(); inspector(); VIZ.update('plan');
+            },
+            // unlocked again → back to the visitor's own (saved) drawing
+            unpreview() {
+                if (!previewing) return;
+                previewing = false;
+                P = sanitize(storage.get(STORE, null));
+                sel = null;
+                hist = [JSON.stringify(P)]; hi = 0;
+                view.fitted = false;
+                draw(); inspector(); VIZ.update('plan');
+            },
+            // the sample house as an SVG for the home page
+            previewSvg(W = 900, H = 600) {
+                const saved = P;
+                sample();
+                const b = bounds(), pad = 2.5;
+                const bw = b.x1 - b.x0 + pad * 2, bh = b.y1 - b.y0 + pad * 2;
+                const s = Math.min(W / bw, H / bh);
+                const ox = (W - (b.x1 - b.x0) * s) / 2 - b.x0 * s, oy = (H - (b.y1 - b.y0) * s) / 2 - b.y0 * s;
+                const savedSel = sel; sel = null;
+                const body = worldMarkup(palette(true), s / 1.25, false);
+                sel = savedSel;
+                P = saved;
+                return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet" font-family="Noto Sans Bengali, Poppins, sans-serif"><rect width="${W}" height="${H}" fill="#fff"/><g transform="translate(${ox} ${oy}) scale(${s})">${body}</g></svg>`;
+            },
         };
+    })();
+
+    /* =========================================================
+       Accounts (Gmail) + Pro subscription for the floor plan designer
+       Payment is manual: the visitor sends money by bKash / Nagad / UCB Bank and
+       submits the transaction ID; the admin checks it and turns Pro on.
+       ========================================================= */
+    const PRO = (() => {
+        const STORE_PRO = 'cc.pro';
+        const DAY = 864e5;
+        const ms = (ts) => (!ts ? 0 : ts.toMillis ? ts.toMillis() : ts.seconds ? ts.seconds * 1000 : Number(ts) || 0);
+        const taka = (n) => `৳${num(Number(n) || 0, 0)}`;
+        const fmtDate = (m) => (m ? digits(new Date(m).toLocaleDateString(S.lang === 'bn' ? 'bn-BD' : 'en-GB', { dateStyle: 'medium' })) : '');
+        const fmtStamp = (ts) => { const m = ms(ts); return m ? digits(new Date(m).toLocaleString(S.lang === 'bn' ? 'bn-BD' : 'en-GB', { dateStyle: 'medium', timeStyle: 'short' })) : ''; };
+        const isGmail = (e) => /^[a-z0-9.+_-]+@(gmail|googlemail)\.com$/i.test(String(e || '').trim());
+        const P = () => SITE.pro || SITE_DEFAULT.pro;
+
+        let user = null, me = null, myPays = [];
+        let unsubMe = null, unsubPays = null, pendingBuy = null;
+        const cached = storage.get(STORE_PRO, null);        // last known Pro end date, so the editor opens instantly
+
+        const required = () => P().enabled !== false;
+        const until = () => {
+            if (me) return ms(me.proUntil);
+            if (user && cached && cached.uid === user.uid) return Number(cached.until) || 0;
+            return 0;
+        };
+        const isPro = () => until() > Date.now();
+        const canUse = () => !required() || IS_ADMIN || isPro();
+        const pending = () => myPays.find((p) => p.status === 'pending');
+        const saving = () => { const m = +P().monthly, y = +P().yearly; return m > 0 && y > 0 ? Math.max(0, Math.round((1 - y / (m * 12)) * 100)) : 0; };
+        const methods = () => {
+            const p = P(), out = [];
+            if (p.bkash && p.bkash.on !== false && p.bkash.number) out.push('bkash');
+            if (p.nagad && p.nagad.on !== false && p.nagad.number) out.push('nagad');
+            if (p.ucb && p.ucb.on !== false && p.ucb.account) out.push('ucb');
+            return out;
+        };
+        const M_NAME = { bkash: 'bKash', nagad: 'Nagad', ucb: 'UCB Bank' };
+        const chip = (m) => `<span class="pm-chip"><span class="pm-dot ${m}"></span>${M_NAME[m]}</span>`;
+
+        /* ---------- session ---------- */
+        function onUser(u) {
+            user = u;
+            if (unsubMe) { unsubMe(); unsubMe = null; }
+            if (unsubPays) { unsubPays(); unsubPays = null; }
+            me = null; myPays = [];
+            if (u && FB.ready) {
+                const ref = FB.db.doc('users/' + u.uid);
+                let touched = false;
+                unsubMe = ref.onSnapshot((snap) => {
+                    if (!snap.exists) {
+                        ref.set({ email: u.email || '', name: u.displayName || '', photo: u.photoURL || '', createdAt: serverTime(), lastLogin: serverTime() })
+                            .catch((e) => console.warn('Profile not created:', e.code || e));
+                        me = {};
+                    } else {
+                        me = snap.data() || {};
+                        if (!touched) {
+                            touched = true;
+                            const upd = { lastLogin: serverTime() };
+                            if (u.displayName && !me.name) upd.name = u.displayName;
+                            if (u.photoURL && me.photo !== u.photoURL) upd.photo = u.photoURL;
+                            ref.update(upd).catch(() => {});
+                        }
+                    }
+                    storage.set(STORE_PRO, { uid: u.uid, until: ms(me.proUntil) });
+                    refresh();
+                }, (e) => { console.warn('Profile not loaded:', e.code || e); refresh(); });
+                unsubPays = FB.db.collection('payments').where('uid', '==', u.uid).limit(30).onSnapshot((snap) => {
+                    myPays = snap.docs.map((d) => Object.assign({ id: d.id }, d.data())).sort((a, b) => ms(b.createdAt) - ms(a.createdAt));
+                    refresh();
+                }, (e) => console.warn('Payments not loaded:', e.code || e));
+                if (pendingBuy) {
+                    const plan = pendingBuy;
+                    pendingBuy = null;
+                    closeAcct();
+                    setTimeout(() => buy(plan), 250);
+                }
+            } else if (!u) {
+                storage.remove(STORE_PRO);
+            }
+            refresh();
+        }
+
+        /* ---------- everything that shows the plan state ---------- */
+        function refresh() {
+            const locked = !canUse();
+            planLocked = locked;
+            const body = $('.plan-body');
+            if (body) body.classList.toggle('locked', locked);
+            $('#plan-lock').hidden = !locked;
+            if (locked) PLAN.preview(); else PLAN.unpreview();
+            const pend = pending();
+            $('#lock-pending').hidden = !(locked && pend);
+            $('#lock-pending').textContent = pend ? t('lock.pending') : '';
+            $('#lock-login').hidden = !!user;
+
+            // CTA labels
+            $$('[data-pro-cta]').forEach((el) => { el.textContent = canUse() ? t('pro.ctaOpen') : (pend ? t('pro.ctaPending') : t('pro.cta')); });
+            $$('[data-pro-from]').forEach((el) => { el.textContent = required() ? t('pro.from', { m: taka(P().monthly), y: taka(P().yearly) }) : t('pro.free'); });
+            $$('[data-pricing]').forEach((el) => { el.innerHTML = required() ? pricingHtml() : ''; el.hidden = !required(); });
+            $$('.pro-steps').forEach((el) => { el.hidden = !required(); });
+            $$('#pricing').forEach((el) => { el.hidden = !required(); });
+            $$('[data-pay-logos]').forEach((el) => { const m = methods(); el.innerHTML = (m.length ? m : ['bkash', 'nagad', 'ucb']).map(chip).join(''); el.hidden = !required(); });
+            $$('.pro-badge:not(#acct-side-pro)').forEach((el) => { el.hidden = !required(); });
+
+            // account buttons
+            const name = user ? (me && me.name) || user.displayName || (user.email || '').split('@')[0] : '';
+            const ini = name ? name.trim().charAt(0).toUpperCase() : '';
+            $('#acct-side-label').textContent = user ? name : t('acct.login');
+            $('#acct-side-pro').hidden = !(user && isPro());
+            $('#acct-top-ini').hidden = !user;
+            $('#acct-top-ini').textContent = ini;
+            $('#acct-top').classList.toggle('pro', !!(user && isPro()));
+
+            // account modal
+            $('#acct-out').hidden = !!user;
+            $('#acct-in').hidden = !user;
+            $$('[data-fb-missing]').forEach((el) => { el.hidden = FB.ready; });
+            if (user) {
+                const photo = user.photoURL && /^https:\/\//.test(user.photoURL) ? `<img src="${escapeHtml(user.photoURL)}" alt="" referrerpolicy="no-referrer">` : escapeHtml(ini || '?');
+                $('#acct-avatar').innerHTML = photo;
+                $('#acct-name-out').textContent = name;
+                $('#acct-email-out').textContent = user.email || '';
+                const pc = $('#acct-plan');
+                pc.className = 'plan-chip' + (isPro() || IS_ADMIN ? ' on' : '');
+                pc.textContent = IS_ADMIN ? t('acct.admin') : isPro() ? 'PRO' : t('acct.free');
+                const u2 = until();
+                let st = '';
+                if (isPro()) st = t('acct.proUntil', { date: fmtDate(u2), n: num(Math.ceil((u2 - Date.now()) / DAY), 0) });
+                else if (u2) st = t('acct.expired', { date: fmtDate(u2) });
+                else st = required() ? t('acct.freeNote') : '';
+                if (pend) st += (st ? ' ' : '') + t('acct.pendingNote');
+                $('#acct-status').textContent = st;
+                $('#acct-buy-label').textContent = isPro() ? t('acct.renew') : t('pro.cta');
+                $('[data-buy-pro]', $('#acct-in')).hidden = !required() || IS_ADMIN;
+                $('#acct-pays').innerHTML = myPays.length ? myPays.map((p) => `
+                    <div class="pay-row"><span><b>${escapeHtml(t('pro.' + (p.plan === 'yearly' ? 'yearly' : 'monthly')))} · ${escapeHtml(taka(p.amount))}</b>
+                    <small>${escapeHtml(M_NAME[p.method] || p.method || '')} · ${escapeHtml(p.trxId || '')} · ${escapeHtml(fmtStamp(p.createdAt))}</small>
+                    ${p.status === 'rejected' && p.reason ? `<small>${escapeHtml(p.reason)}</small>` : ''}</span>
+                    <span class="st ${escapeHtml(p.status)}">${escapeHtml(t('st.' + p.status))}</span></div>`).join('')
+                    : `<p class="msg-empty">${escapeHtml(t('acct.noPays'))}</p>`;
+            }
+        }
+
+        function pricingHtml() {
+            const p = P(), sv = saving();
+            const feats = ['pro.f1.t', 'pro.f2.t', 'pro.f3.t', 'pro.f4.t', 'pro.f6.t'].map((k) => `<li><i class="fa-solid fa-check"></i>${escapeHtml(t(k))}</li>`).join('');
+            const cta = IS_ADMIN ? t('pro.ctaOpen') : isPro() ? t('acct.renew') : t('pro.buyNow');
+            return `
+                <div class="price-card">
+                    <h3>${escapeHtml(t('pro.monthly'))}</h3>
+                    <div class="price">${escapeHtml(taka(p.monthly))}<small> / ${escapeHtml(t('pro.perMonth'))}</small></div>
+                    <div class="per">${escapeHtml(t('pro.days', { n: num(p.monthlyDays, 0) }))}</div>
+                    <ul>${feats}</ul>
+                    <button type="button" class="btn btn-soft btn-block" data-buy-pro="monthly"><i class="fa-solid fa-crown"></i> ${escapeHtml(cta)}</button>
+                </div>
+                <div class="price-card best">
+                    <span class="best-tag">${escapeHtml(t('pro.best'))}</span>
+                    <h3>${escapeHtml(t('pro.yearly'))} ${sv ? `<span class="save-tag">${escapeHtml(t('pro.save', { p: num(sv, 0) }))}</span>` : ''}</h3>
+                    <div class="price">${escapeHtml(taka(p.yearly))}<small> / ${escapeHtml(t('pro.perYear'))}</small></div>
+                    <div class="per">${escapeHtml(t('pro.perMonthOnly', { m: taka(p.yearly / 12) }))}</div>
+                    <ul>${feats}<li><i class="fa-solid fa-check"></i>${escapeHtml(t('pro.yearExtra'))}</li></ul>
+                    <button type="button" class="btn btn-pro btn-block" data-buy-pro="yearly"><i class="fa-solid fa-crown"></i> ${escapeHtml(cta)}</button>
+                </div>`;
+        }
+
+        /* ---------- account modal ---------- */
+        const acct = $('#acct-modal'), acctScrim = $('#acct-scrim'), acctErr = $('#acct-error');
+        const mode = () => ($('input[name="acctMode"]:checked') || {}).value || 'in';
+        function setMode(m) {
+            $$('input[name="acctMode"]').forEach((r) => { r.checked = r.value === m; });
+            $$('[data-up-only]', acct).forEach((el) => { el.hidden = m !== 'up'; });
+            $('#acct-submit span').textContent = t(m === 'up' ? 'acct.signUp' : 'acct.signIn');
+            $('#acct-pass').autocomplete = m === 'up' ? 'new-password' : 'current-password';
+            $('#acct-forgot').hidden = m === 'up';
+            acctErr.textContent = '';
+        }
+        function openAcct(m) {
+            closeSidebar(); closeSettings(); closeBuy();
+            if (m) setMode(m);
+            acctErr.textContent = '';
+            refresh();
+            acct.classList.add('open'); acctScrim.classList.add('show'); document.body.classList.add('lock');
+        }
+        function closeAcct() {
+            if (!acct.classList.contains('open')) return;
+            acct.classList.remove('open'); acctScrim.classList.remove('show'); document.body.classList.remove('lock');
+        }
+        function acctError(err) {
+            const c = (err && err.code) || '';
+            if (/email-already-in-use/.test(c)) return t('acct.err.exists');
+            if (/weak-password/.test(c)) return t('acct.err.weak');
+            if (/popup-closed|cancelled-popup/.test(c)) return '';
+            if (/unauthorized-domain/.test(c)) return t('acct.err.domain');
+            if (/operation-not-allowed/.test(c)) return t('acct.err.provider');
+            return authError(err);
+        }
+        $$('input[name="acctMode"]').forEach((r) => r.addEventListener('change', () => setMode(r.value)));
+        $('#acct-close').addEventListener('click', () => { pendingBuy = null; closeAcct(); });
+        acctScrim.addEventListener('click', () => { pendingBuy = null; closeAcct(); });
+        $$('[data-pass-toggle]').forEach((b) => b.addEventListener('click', () => {
+            const inp = $('#' + b.dataset.passToggle), show = inp.type === 'password';
+            inp.type = show ? 'text' : 'password';
+            $('i', b).className = show ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye';
+        }));
+        document.addEventListener('click', (e) => {
+            const o = e.target.closest('[data-open-account]');
+            if (o) { e.preventDefault(); openAcct(); return; }
+            const b = e.target.closest('[data-buy-pro]');
+            if (b) { e.preventDefault(); buy(b.dataset.buyPro || ''); }
+        });
+
+        $('#google-btn').addEventListener('click', async () => {
+            if (!FB.ready) { acctErr.textContent = t('admin.noFirebase'); return; }
+            acctErr.textContent = '';
+            const provider = new firebase.auth.GoogleAuthProvider();
+            provider.setCustomParameters({ prompt: 'select_account' });
+            try {
+                await FB.auth.signInWithPopup(provider);
+                toast(t('acct.welcome'));
+                if (!pendingBuy) closeAcct();
+            } catch (err) {
+                const c = (err && err.code) || '';
+                if (/popup-blocked|operation-not-supported|web-storage-unsupported/.test(c)) {
+                    try { await FB.auth.signInWithRedirect(provider); return; } catch (e2) { acctErr.textContent = acctError(e2); return; }
+                }
+                acctErr.textContent = acctError(err);
+            }
+        });
+        $('#acct-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!FB.ready) { acctErr.textContent = t('admin.noFirebase'); return; }
+            const email = $('#acct-email').value.trim(), pass = $('#acct-pass').value, name = $('#acct-name').value.trim();
+            const up = mode() === 'up';
+            if (!email || !pass || (up && !name)) { acctErr.textContent = t('err.required'); return; }
+            if (up && !isGmail(email)) { acctErr.textContent = t('acct.err.gmail'); $('#acct-email').focus(); return; }
+            if (up && pass.length < 6) { acctErr.textContent = t('acct.err.weak'); return; }
+            const btn = $('#acct-submit');
+            btn.disabled = true;
+            acctErr.textContent = '';
+            try {
+                if (up) {
+                    const cred = await FB.auth.createUserWithEmailAndPassword(email, pass);
+                    await cred.user.updateProfile({ displayName: name.slice(0, 60) });
+                    FB.db.doc('users/' + cred.user.uid).set({ name: name.slice(0, 60), email }, { merge: true }).catch(() => {});
+                    cred.user.sendEmailVerification().catch(() => {});
+                    if (me) me.name = name;
+                    toast(t('acct.created'));
+                } else {
+                    await FB.auth.signInWithEmailAndPassword(email, pass);
+                    toast(t('acct.welcome'));
+                }
+                $('#acct-pass').value = '';
+                refresh();
+                if (!pendingBuy) closeAcct();
+            } catch (err) {
+                acctErr.textContent = acctError(err);
+            } finally { btn.disabled = false; }
+        });
+        $('#acct-forgot').addEventListener('click', async () => {
+            if (!FB.ready) { acctErr.textContent = t('admin.noFirebase'); return; }
+            const email = $('#acct-email').value.trim();
+            if (!email) { acctErr.textContent = t('admin.needEmail'); $('#acct-email').focus(); return; }
+            try { await FB.auth.sendPasswordResetEmail(email); acctErr.textContent = ''; toast(t('admin.resetSent', { email })); }
+            catch (err) { acctErr.textContent = acctError(err); }
+        });
+        $('#acct-logout').addEventListener('click', async () => { if (FB.ready) await FB.auth.signOut(); closeAcct(); toast(t('acct.bye')); });
+        $('#acct-open-plan').addEventListener('click', () => closeAcct());
+
+        /* ---------- buy modal ---------- */
+        const bm = $('#buy-modal'), bScrim = $('#buy-scrim'), bErr = $('#buy-error');
+        const curPlan = () => ($('input[name="buyPlan"]:checked') || {}).value || 'yearly';
+        const curMethod = () => ($('input[name="buyMethod"]:checked') || {}).value || '';
+        function buy(plan) {
+            if (!required() || IS_ADMIN || (isPro() && !plan && !acct.classList.contains('open'))) { closeAcct(); closeBuy(); location.hash = 'plan'; return; }
+            if (!FB.ready) { toast(t('admin.noFirebase')); return; }
+            if (!user) { pendingBuy = plan || 'yearly'; openAcct('up'); toast(t('buy.needAcct')); return; }
+            openBuy(plan || 'yearly');
+        }
+        function openBuy(plan) {
+            closeSidebar(); closeAcct();
+            const p = P(), sv = saving();
+            $('#buy-plans').innerHTML = ['monthly', 'yearly'].map((k) => `
+                <label class="plan-opt"><input type="radio" name="buyPlan" value="${k}"${k === plan ? ' checked' : ''}>
+                <span><small>${escapeHtml(t('pro.' + k))}${k === 'yearly' && sv ? ` · <b class="save-tag">${escapeHtml(t('pro.save', { p: num(sv, 0) }))}</b>` : ''}</small>
+                <b>${escapeHtml(taka(p[k]))}</b><small>${escapeHtml(t('pro.days', { n: num(p[k + 'Days'], 0) }))}</small></span></label>`).join('');
+            const ms2 = methods();
+            $('#buy-methods').innerHTML = ms2.map((m, i) => `<label><input type="radio" name="buyMethod" value="${m}"${i === 0 ? ' checked' : ''}><span><span class="pm-dot ${m}"></span>${M_NAME[m]}</span></label>`).join('');
+            const none = !ms2.length;
+            $('#buy-none').hidden = !none;
+            const wa = waLink(t('buy.waMsg', { plan: t('pro.' + plan) }));
+            $('#buy-none span').innerHTML = escapeHtml(t('buy.none')) + (wa ? ` <a href="${escapeHtml(wa)}" target="_blank" rel="noopener">WhatsApp</a>` : '');
+            ['#buy-pay', '#buy-fields', '#buy-submit'].forEach((s) => { $(s).hidden = none; });
+            const pend = pending();
+            $('#buy-pending').hidden = !pend;
+            if (pend) $('#buy-pending span').textContent = t('buy.hasPending', { trx: pend.trxId, date: fmtStamp(pend.createdAt) });
+            $('#buy-submit').disabled = !!pend;
+            bErr.textContent = '';
+            $$('.field-error', bm).forEach((x) => { x.textContent = ''; });
+            payBox();
+            bm.classList.add('open'); bScrim.classList.add('show'); document.body.classList.add('lock');
+        }
+        function closeBuy() {
+            if (!bm.classList.contains('open')) return;
+            bm.classList.remove('open'); bScrim.classList.remove('show'); document.body.classList.remove('lock');
+        }
+        function payBox() {
+            const m = curMethod(), p = P(), plan = curPlan(), amount = p[plan];
+            if (!m) { $('#buy-box').innerHTML = ''; return; }
+            const line = (label, value, copy) => `<div class="pay-line"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}${copy ? ` <button type="button" class="copy-btn" data-copy="${escapeHtml(value)}"><i class="fa-regular fa-copy"></i> ${escapeHtml(t('buy.copy'))}</button>` : ''}</strong></div>`;
+            let h = line(t('buy.amount'), taka(amount), false);
+            const ref = user ? (user.email || '').split('@')[0] : '';
+            if (m === 'ucb') {
+                const u = p.ucb;
+                h += line(t('ap2.accName'), u.name || '—') + line(t('ap2.accNo'), u.account, true);
+                if (u.branch) h += line(t('ap2.branch'), u.branch);
+                if (u.routing) h += line(t('ap2.routing'), u.routing, true);
+                h += `<ol class="pay-steps"><li>${escapeHtml(t('buy.u1'))}</li><li>${escapeHtml(t('buy.u2', { amount: taka(amount) }))}</li><li>${escapeHtml(t('buy.u3', { ref }))}</li><li>${escapeHtml(t('buy.lastBank'))}</li></ol>`;
+                $('#buy-sender-label').textContent = t('buy.senderBank');
+                $('#buy-sender').inputMode = 'text';
+            } else {
+                const x = p[m], kind = x.type || 'personal';
+                const action = t('buy.act.' + kind);
+                h += line(t('buy.number', { m: M_NAME[m] }), x.number, true) + line(t('ap2.accType'), t('ap2.t.' + kind));
+                h += `<ol class="pay-steps"><li>${escapeHtml(t('buy.m1', { m: M_NAME[m], act: action }))}</li><li>${escapeHtml(t('buy.m2', { n: x.number }))}</li><li>${escapeHtml(t('buy.m3', { amount: taka(amount), ref }))}</li><li>${escapeHtml(t('buy.last'))}</li></ol>`;
+                $('#buy-sender-label').textContent = t('buy.sender');
+                $('#buy-sender').inputMode = 'tel';
+            }
+            const note = (p.note || {})[S.lang] || (p.note || {}).bn || '';
+            if (note) h += `<div class="pay-line"><span>${escapeHtml(note)}</span></div>`;
+            $('#buy-box').innerHTML = h;
+        }
+        bm.addEventListener('change', (e) => { if (e.target.name === 'buyPlan' || e.target.name === 'buyMethod') payBox(); });
+        bm.addEventListener('click', async (e) => {
+            const c = e.target.closest('[data-copy]');
+            if (!c) return;
+            try { await navigator.clipboard.writeText(c.dataset.copy); toast(t('buy.copied')); }
+            catch (err) { toast(c.dataset.copy); }
+        });
+        $('#buy-close').addEventListener('click', closeBuy);
+        bScrim.addEventListener('click', closeBuy);
+        const fieldErr = (id, key) => { const f = $(id).closest('.field'); $('.field-error', f).textContent = key ? t(key) : ''; };
+        $('#buy-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!user || !FB.ready) { openAcct('up'); return; }
+            if (pending()) return;
+            const m = curMethod(), plan = curPlan(), p = P();
+            let sender = toEn($('#buy-sender').value.trim());
+            const trx = toEn($('#buy-trx').value).trim().toUpperCase().replace(/\s+/g, '');
+            fieldErr('#buy-sender', ''); fieldErr('#buy-trx', '');
+            let ok = true;
+            if (m !== 'ucb') {
+                let d = onlyDigits(sender);
+                if (d.startsWith('880')) d = d.slice(2);
+                if (!/^01\d{9}$/.test(d)) { fieldErr('#buy-sender', 'buy.err.phone'); ok = false; } else sender = d;
+            } else if (sender.length < 3) { fieldErr('#buy-sender', 'err.required'); ok = false; }
+            if (!/^[A-Z0-9-]{6,30}$/.test(trx)) { fieldErr('#buy-trx', 'buy.err.trx'); ok = false; }
+            if (!ok) return;
+            const btn = $('#buy-submit');
+            btn.disabled = true;
+            bErr.textContent = '';
+            try {
+                await FB.db.collection('payments').add({
+                    uid: user.uid, email: user.email || '', name: ((me && me.name) || user.displayName || '').slice(0, 60),
+                    plan, amount: Number(p[plan]) || 0, days: Number(p[plan + 'Days']) || (plan === 'yearly' ? 365 : 30),
+                    method: m, sender: sender.slice(0, 40), trxId: trx, status: 'pending', lang: S.lang, createdAt: serverTime(),
+                });
+                $('#buy-trx').value = ''; $('#buy-sender').value = '';
+                closeBuy();
+                toast(t('buy.sent'));
+                setTimeout(() => openAcct(), 400);
+            } catch (err) {
+                bErr.textContent = t('admin.saveErr', { code: err.code || err.message });
+            } finally { btn.disabled = !!pending(); }
+        });
+
+        /* ---------- home page preview ---------- */
+        function renderHome() {
+            const box = $('#pro-preview');
+            if (box) { try { box.innerHTML = PLAN.previewSvg(); } catch (e) { console.warn(e); } }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key !== 'Escape') return;
+            if (bm.classList.contains('open')) closeBuy();
+            else if (acct.classList.contains('open')) { pendingBuy = null; closeAcct(); }
+        });
+        function init() {
+            if (FB.ready) FB.auth.getRedirectResult().catch((err) => { const m = acctError(err); if (m) toast(m); });
+            refresh();
+            renderHome();
+        }
+
+        return { init, onUser, refresh, renderHome, canUse, isPro, ms, taka, fmtStamp, fmtDate, M_NAME, open: openAcct };
     })();
 
     /* ---------- Wire up calculator forms ---------- */
@@ -5858,6 +6820,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
     /* ---------- Init ---------- */
     VIZ.createCards();
     fbInit();
+    PRO.init();
     route();
     applyAll();
 })();

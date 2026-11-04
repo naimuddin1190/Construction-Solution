@@ -1090,6 +1090,162 @@
             .pt { min-width: 3.1rem; height: 3rem; }
             .plan-actions { width: 100%; justify-content: space-between; }
         }
+        /* ===== PRO (subscription) ===== */
+        :root { --pro-1: #f59e0b; --pro-2: #ea580c; --pro-grad: linear-gradient(135deg, #fbbf24, #f59e0b 45%, #ea580c); --pro-ink: #b45309; --pro-50: rgba(245, 158, 11, .12); }
+        [data-theme="dark"] { --pro-ink: #fbbf24; --pro-50: rgba(245, 158, 11, .14); }
+        .btn-pro { background: var(--pro-grad); color: #fff; border-color: transparent; box-shadow: 0 10px 24px -10px rgba(234, 88, 12, .65); }
+        .btn-pro:hover:not(:disabled) { filter: brightness(1.05); transform: translateY(-1px); }
+        .pro-badge { background: var(--pro-grad) !important; color: #fff !important; border-color: transparent !important; display: inline-flex; align-items: center; gap: .25rem; }
+        .pro-badge i { font-size: .6rem; }
+        .pro-pill { display: inline-flex; align-items: center; gap: .4rem; padding: .3rem .8rem; border-radius: 999px; background: var(--pro-50); color: var(--pro-ink); border: 1px solid rgba(245, 158, 11, .35); font-weight: 700; font-size: .8rem; }
+        .pro-section { position: relative; }
+        .pro-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 2.5rem; align-items: center; padding: 2.5rem; border-radius: 1.75rem; border: 1px solid var(--glass-border);
+            background: radial-gradient(ellipse 60% 70% at 100% 0%, rgba(245, 158, 11, .16), transparent 60%), radial-gradient(ellipse 60% 70% at 0% 100%, rgba(var(--brand-rgb), .16), transparent 60%), var(--glass-strong);
+            -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur); box-shadow: var(--shadow-lg); }
+        .pro-hero h2 { font-size: clamp(1.6rem, 3.2vw, 2.4rem); line-height: 1.25; margin: .9rem 0 .75rem; }
+        .pro-hero h2 span { background: var(--pro-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .pro-hero .lead { color: var(--ink-2); margin: 0 0 1rem; }
+        .pro-ticks { list-style: none; margin: 0 0 1.25rem; padding: 0; display: grid; gap: .5rem; }
+        .pro-ticks li { display: flex; gap: .6rem; align-items: flex-start; color: var(--ink-2); }
+        .pro-ticks i { flex: none; width: 1.35rem; height: 1.35rem; border-radius: 50%; display: grid; place-items: center; font-size: .65rem; background: var(--pro-grad); color: #fff; margin-top: .15rem; }
+        .pro-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+        .pro-from { display: block; margin-top: .75rem; color: var(--muted); }
+        .pro-window { position: relative; border-radius: 1.25rem; overflow: visible; }
+        .pro-window-bar { display: flex; align-items: center; gap: .4rem; padding: .6rem .9rem; border-radius: 1.25rem 1.25rem 0 0; background: var(--field); border: 1px solid var(--line); border-bottom: 0; font-size: .78rem; color: var(--muted); }
+        .pro-window-bar i { width: .6rem; height: .6rem; border-radius: 50%; background: #f87171; }
+        .pro-window-bar i:nth-child(2) { background: #fbbf24; } .pro-window-bar i:nth-child(3) { background: #34d399; }
+        .pro-window-bar span { margin-left: .5rem; font-weight: 600; color: var(--ink-2); }
+        .pro-window-bar b { margin-left: auto; color: var(--pro-ink); }
+        .pro-window-body { aspect-ratio: 3 / 2; border: 1px solid var(--line); border-radius: 0 0 1.25rem 1.25rem; overflow: hidden; background: #fff; }
+        .pro-window-body svg { display: block; width: 100%; height: 100%; }
+        .pro-float { position: absolute; display: inline-flex; align-items: center; gap: .5rem; padding: .55rem .85rem; border-radius: .9rem; font-size: .8rem; font-weight: 600; background: var(--glass-strong); border: 1px solid var(--glass-border); box-shadow: var(--shadow-lg); -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur); color: var(--ink); }
+        .pro-float i { color: var(--pro-ink); }
+        .pro-float.pf1 { left: -1rem; bottom: 1.5rem; } .pro-float.pf2 { right: -1rem; top: 3.5rem; }
+        .pro-head { margin-top: 3.5rem; }
+        .pro-features { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap); }
+        .pro-feat { padding: 1.5rem; border-radius: 1.25rem; background: var(--glass); border: 1px solid var(--glass-border); -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur); transition: transform .2s, box-shadow .2s; }
+        .pro-feat:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+        .pro-feat .menu-icon { background: var(--pro-50); color: var(--pro-ink); }
+        .pro-feat h3 { margin: .9rem 0 .4rem; font-size: 1.05rem; }
+        .pro-feat p { margin: 0; color: var(--muted); font-size: .9rem; }
+        .pro-why { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: var(--gap); margin-top: 3.5rem; }
+        .pro-why-text h2 { margin: .75rem 0 1.25rem; font-size: clamp(1.4rem, 2.6vw, 1.9rem); }
+        .pro-why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .pro-why-grid > div { padding: 1.1rem 1.2rem; border-radius: 1rem; background: var(--glass); border: 1px solid var(--glass-border); }
+        .pro-why-grid i { color: var(--brand-ink); font-size: 1.2rem; }
+        .pro-why-grid h4 { margin: .5rem 0 .3rem; font-size: .98rem; }
+        .pro-why-grid p { margin: 0; color: var(--muted); font-size: .88rem; }
+        .pro-who { padding: 1.5rem; border-radius: 1.25rem; background: var(--brand-grad); color: var(--on-brand); box-shadow: var(--brand-shadow); }
+        .pro-who h3 { margin: 0 0 1rem; }
+        .pro-who ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .9rem; }
+        .pro-who li { display: flex; gap: .75rem; align-items: flex-start; }
+        .pro-who li i { width: 2.2rem; height: 2.2rem; flex: none; border-radius: .7rem; display: grid; place-items: center; background: rgba(255, 255, 255, .18); }
+        .pro-who b { display: block; } .pro-who small { opacity: .85; }
+        .pricing { display: grid; grid-template-columns: repeat(2, minmax(0, 20rem)); justify-content: center; gap: var(--gap); }
+        .price-card { position: relative; padding: 1.75rem 1.5rem; border-radius: 1.5rem; background: var(--glass-strong); border: 1px solid var(--glass-border); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: .9rem; }
+        .price-card.best { border: 2px solid var(--pro-1); box-shadow: 0 18px 40px -18px rgba(234, 88, 12, .5); }
+        .price-card .best-tag { position: absolute; top: -.8rem; left: 50%; transform: translateX(-50%); padding: .2rem .8rem; border-radius: 999px; background: var(--pro-grad); color: #fff; font-size: .75rem; font-weight: 700; white-space: nowrap; }
+        .price-card h3 { margin: 0; font-size: 1.05rem; }
+        .price-card .price { font-size: 2.3rem; font-weight: 700; line-height: 1.1; }
+        .price-card .price small { font-size: .9rem; color: var(--muted); font-weight: 500; }
+        .price-card .per { color: var(--muted); font-size: .85rem; margin-top: -.5rem; }
+        .price-card ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; font-size: .9rem; color: var(--ink-2); flex: 1; }
+        .price-card li i { color: var(--brand-ink); margin-right: .4rem; }
+        .save-tag { display: inline-block; padding: .1rem .55rem; border-radius: 999px; background: rgba(16, 185, 129, .14); color: #047857; font-size: .75rem; font-weight: 700; }
+        [data-theme="dark"] .save-tag { color: #34d399; }
+        .pro-steps { list-style: none; margin: 2rem auto 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap); max-width: 62rem; }
+        .pro-steps li { display: flex; gap: .8rem; align-items: flex-start; padding: 1rem 1.1rem; border-radius: 1rem; background: var(--glass); border: 1px solid var(--glass-border); }
+        .pro-steps b { flex: none; width: 2rem; height: 2rem; border-radius: 50%; display: grid; place-items: center; background: var(--brand-grad); color: var(--on-brand); }
+        .pro-steps strong { display: block; font-size: .95rem; } .pro-steps small { color: var(--muted); }
+        .pay-logos { display: flex; justify-content: center; flex-wrap: wrap; gap: .6rem; margin-top: 1.25rem; }
+        .pm-chip { display: inline-flex; align-items: center; gap: .45rem; padding: .4rem .85rem; border-radius: .75rem; font-weight: 700; font-size: .85rem; background: var(--glass-strong); border: 1px solid var(--line); }
+        .pm-dot { display: inline-block; width: .7rem; height: .7rem; border-radius: 50%; vertical-align: middle; }
+        .pm-dot.bkash { background: #e2136e; } .pm-dot.nagad { background: #f6921e; } .pm-dot.ucb { background: #1d4f91; }
+        @media (max-width: 980px) {
+            .pro-hero { grid-template-columns: 1fr; padding: 1.75rem 1.25rem; gap: 2rem; }
+            .pro-features { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .pro-why { grid-template-columns: 1fr; }
+            .pro-float.pf1 { left: .5rem; bottom: -1rem; } .pro-float.pf2 { right: .5rem; top: 3rem; }
+        }
+        @media (max-width: 620px) {
+            .pro-features, .pro-why-grid, .pro-steps { grid-template-columns: 1fr; }
+            .pricing { grid-template-columns: minmax(0, 1fr); }
+        }
+
+        /* lock over the plan editor */
+        .plan-body { position: relative; }
+        .plan-body.locked > :not(.pro-lock) { filter: blur(3px) saturate(.8); pointer-events: none; user-select: none; opacity: .7; }
+        .pro-lock { position: absolute; inset: 0; z-index: 20; display: flex; justify-content: center; align-items: flex-start; padding: 3rem 1rem; }
+        .pro-lock[hidden] { display: none; }
+        .pro-lock-card { position: sticky; top: 6rem; width: min(27rem, 100%); padding: 2rem 1.75rem; border-radius: 1.5rem; text-align: center; background: var(--glass-strong); border: 1px solid var(--glass-border); box-shadow: var(--shadow-lg); -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur); display: grid; gap: .8rem; justify-items: center; }
+        .pro-lock-card h2 { margin: .25rem 0 0; font-size: 1.4rem; }
+        .pro-lock-card p { margin: 0; color: var(--muted); }
+        .pro-lock-card .pro-ticks { text-align: left; margin: .25rem 0; }
+        .lock-pending { color: var(--pro-ink); font-weight: 600; }
+
+        /* account + buy modals */
+        .modal-wide { width: min(32rem, calc(100% - 2rem)); }
+        #acct-scrim, #buy-scrim { z-index: 85; }
+        .btn-google { background: #fff; color: #1f2937; border: 1px solid #d1d5db; font-weight: 600; }
+        .btn-google:hover:not(:disabled) { background: #f9fafb; }
+        .g-mark { width: 1.4rem; height: 1.4rem; border-radius: 50%; display: inline-grid; place-items: center; font-weight: 800; font-family: Arial, sans-serif; color: #fff; background: conic-gradient(#ea4335 0 25%, #fbbc05 0 50%, #34a853 0 75%, #4285f4 0); }
+        .or-line { display: flex; align-items: center; gap: .75rem; color: var(--muted); font-size: .8rem; }
+        .or-line::before, .or-line::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+        .acct-form { display: grid; gap: .9rem; }
+        .acct-note { text-align: center; }
+        .acct-card { display: flex; align-items: center; gap: .85rem; padding: .9rem 1rem; border-radius: 1rem; background: var(--field); border: 1px solid var(--line); }
+        .acct-avatar { width: 2.9rem; height: 2.9rem; flex: none; border-radius: 50%; display: grid; place-items: center; background: var(--brand-grad); color: var(--on-brand); font-weight: 700; font-size: 1.1rem; overflow: hidden; }
+        .acct-avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .acct-who { flex: 1; min-width: 0; } .acct-who strong, .acct-who small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .acct-who small { color: var(--muted); }
+        .plan-chip { flex: none; padding: .25rem .65rem; border-radius: 999px; font-size: .75rem; font-weight: 700; background: var(--field); border: 1px solid var(--line-2); color: var(--muted); }
+        .plan-chip.on { background: var(--pro-grad); color: #fff; border-color: transparent; }
+        .acct-status { font-size: .9rem; color: var(--ink-2); }
+        .acct-status:empty { display: none; }
+        .pay-row { display: flex; justify-content: space-between; gap: .5rem; align-items: center; padding: .6rem .75rem; border-radius: .75rem; border: 1px solid var(--line); background: var(--glass); font-size: .85rem; }
+        .pay-row + .pay-row { margin-top: .5rem; }
+        .pay-row small { color: var(--muted); display: block; }
+        .st { padding: .15rem .55rem; border-radius: 999px; font-size: .72rem; font-weight: 700; white-space: nowrap; }
+        .st.pending { background: var(--pro-50); color: var(--pro-ink); } .st.approved { background: rgba(16, 185, 129, .14); color: #059669; } .st.rejected { background: rgba(239, 68, 68, .12); color: var(--err); }
+        .acct-top { position: relative; }
+        .acct-top-ini { position: absolute; inset: .35rem; border-radius: 50%; display: grid; place-items: center; background: var(--brand-grad); color: var(--on-brand); font-weight: 700; font-size: .85rem; }
+        .acct-top.pro .acct-top-ini { background: var(--pro-grad); }
+        .acct-top-ini[hidden] { display: none; }
+        .plan-pick { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+        .plan-opt { position: relative; cursor: pointer; }
+        .plan-opt input { position: absolute; opacity: 0; pointer-events: none; }
+        .plan-opt > span { display: grid; gap: .2rem; padding: .9rem 1rem; border-radius: 1rem; border: 1.5px solid var(--line-2); background: var(--field); transition: border-color .15s, box-shadow .15s; }
+        .plan-opt > span > b { font-size: 1.35rem; } .plan-opt > span > small { color: var(--muted); }
+        .plan-opt input:checked + span { border-color: var(--pro-1); box-shadow: 0 0 0 3px rgba(245, 158, 11, .2); background: var(--pro-50); }
+        .plan-opt input:focus-visible + span { outline: 2px solid var(--brand); outline-offset: 2px; }
+        .method-pick { display: flex; flex-wrap: wrap; gap: .5rem; }
+        .method-pick label { cursor: pointer; }
+        .method-pick input { position: absolute; opacity: 0; pointer-events: none; }
+        .method-pick label > span { display: inline-flex; align-items: center; gap: .45rem; padding: .55rem .9rem; border-radius: .8rem; border: 1.5px solid var(--line-2); background: var(--field); font-weight: 700; font-size: .9rem; }
+        .method-pick input:checked + span { border-color: var(--brand); background: var(--brand-50); color: var(--brand-ink); }
+        .method-pick input:focus-visible + span { outline: 2px solid var(--brand); outline-offset: 2px; }
+        .pay-box { margin-top: .75rem; padding: 1rem; border-radius: 1rem; border: 1px dashed var(--brand-100); background: var(--brand-50); display: grid; gap: .55rem; font-size: .9rem; }
+        .pay-box:empty { display: none; }
+        .pay-line { display: flex; justify-content: space-between; align-items: center; gap: .75rem; flex-wrap: wrap; }
+        .pay-line > span { color: var(--muted); }
+        .pay-line strong { font-size: 1.05rem; letter-spacing: .02em; display: inline-flex; align-items: center; gap: .4rem; word-break: break-all; }
+        .copy-btn { border: 0; background: var(--glass-strong); border-radius: .5rem; padding: .25rem .5rem; cursor: pointer; color: var(--brand-ink); font-size: .8rem; }
+        .pay-steps { margin: .25rem 0 0; padding-left: 1.2rem; color: var(--ink-2); display: grid; gap: .25rem; }
+        .hint.warn { background: var(--pro-50); border-color: rgba(245, 158, 11, .4); }
+        .pro-icon { background: var(--pro-grad) !important; box-shadow: 0 10px 22px -10px rgba(234, 88, 12, .6) !important; }
+
+        /* admin: payments & members */
+        .seg-sm { min-height: 2.25rem !important; } .seg-sm label > span { padding: .25rem .65rem !important; font-size: .8rem !important; white-space: nowrap; }
+        .control-sm { height: 2.4rem; min-height: 2.4rem; max-width: 15rem; font-size: .88rem; }
+        .pay-card .msg-meta b { color: var(--ink); }
+        .pay-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: .5rem .9rem; margin: .6rem 0; font-size: .85rem; }
+        .pay-grid small { display: block; color: var(--muted); font-size: .72rem; }
+        .pay-grid b { word-break: break-all; }
+        .user-list { display: grid; gap: .5rem; }
+        .user-row { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: .5rem .75rem; align-items: center; padding: .7rem .85rem; border-radius: .9rem; border: 1px solid var(--line); background: var(--glass); }
+        .user-row small { display: block; color: var(--muted); font-size: .78rem; overflow: hidden; text-overflow: ellipsis; }
+        .user-acts { display: flex; gap: .35rem; flex-wrap: wrap; justify-content: flex-end; }
+        .user-acts .btn { padding: .35rem .6rem; font-size: .78rem; min-height: 0; }
+        @media (max-width: 620px) { .user-row { grid-template-columns: minmax(0, 1fr) auto; } .user-acts { grid-column: 1 / -1; justify-content: flex-start; } }
         /* svg drawing */
         #plan-svg .w-sel { fill: var(--brand) !important; }
         #plan-svg .sel-line { stroke: var(--brand); }
@@ -1182,7 +1338,7 @@
         </div>
         <div class="side-group">
             <p class="side-group-label" data-i18n="nav.design"></p>
-            <a class="side-link" href="#plan" data-link="plan"><i class="fa-solid fa-compass-drafting"></i><span class="side-label" data-i18n="page.plan"></span><span class="side-badge" data-i18n="badge.new"></span></a>
+            <a class="side-link" href="#plan" data-link="plan"><i class="fa-solid fa-compass-drafting"></i><span class="side-label" data-i18n="page.plan"></span><span class="side-badge pro-badge"><i class="fa-solid fa-crown"></i> PRO</span></a>
         </div>
         <div class="side-group">
             <p class="side-group-label" data-i18n="nav.more"></p>
@@ -1193,6 +1349,7 @@
 
     <div class="side-foot">
         <a class="side-link" href="#admin" data-link="admin" id="admin-link" hidden><i class="fa-solid fa-gauge-high"></i><span class="side-label" data-i18n="page.admin"></span></a>
+        <button class="side-link" type="button" id="acct-btn" data-open-account><i class="fa-solid fa-circle-user"></i><span class="side-label" id="acct-side-label" data-i18n="acct.login"></span><span class="side-badge pro-badge" id="acct-side-pro" hidden><i class="fa-solid fa-crown"></i> PRO</span></button>
         <button class="side-link" type="button" id="admin-login-btn"><i class="fa-solid fa-user-shield"></i><span class="side-label" data-i18n="admin.login"></span></button>
         <button class="side-link" type="button" data-open-settings><i class="fa-solid fa-gear"></i><span class="side-label" data-i18n="set.title"></span></button>
     </div>
@@ -1208,6 +1365,7 @@
             <h2 id="top-title"></h2>
         </div>
         <div class="top-actions">
+            <button class="icon-btn acct-top" id="acct-top" type="button" data-open-account data-i18n-title="acct.title" data-i18n-aria="acct.title"><i class="fa-solid fa-circle-user"></i><span class="acct-top-ini" id="acct-top-ini" hidden></span></button>
             <button class="icon-btn lang-btn" id="lang-btn" type="button" data-i18n-title="a11y.lang" data-i18n-aria="a11y.lang"><i class="fa-solid fa-language lang-icon"></i><span id="lang-btn-text"></span></button>
             <button class="icon-btn" id="theme-btn" type="button" data-i18n-title="a11y.theme" data-i18n-aria="a11y.theme"><i class="fa-solid fa-moon" id="theme-icon"></i></button>
             <button class="icon-btn" type="button" data-open-settings data-i18n-title="set.title" data-i18n-aria="set.title"><i class="fa-solid fa-gear"></i></button>
@@ -1258,6 +1416,83 @@
                 <div class="stat"><span class="menu-icon"><i class="fa-solid fa-print"></i></span><span><strong data-i18n="stat4.t"></strong><small data-i18n="stat4.s"></small></span></div>
             </div>
         </div>
+
+        <!-- ===== PRO: floor plan designer showcase ===== -->
+        <section class="section pro-section" id="pro-showcase" data-feature="plan">
+            <div class="container">
+                <div class="pro-hero">
+                    <div class="pro-hero-text">
+                        <span class="pro-pill"><i class="fa-solid fa-crown"></i> <span data-i18n="pro.kicker"></span></span>
+                        <h2 data-i18n-html="pro.title"></h2>
+                        <p class="lead" data-i18n="pro.sub"></p>
+                        <ul class="pro-ticks">
+                            <li><i class="fa-solid fa-check"></i><span data-i18n="pro.tick1"></span></li>
+                            <li><i class="fa-solid fa-check"></i><span data-i18n="pro.tick2"></span></li>
+                            <li><i class="fa-solid fa-check"></i><span data-i18n="pro.tick3"></span></li>
+                        </ul>
+                        <div class="pro-actions">
+                            <button type="button" class="btn btn-pro" data-buy-pro><i class="fa-solid fa-crown"></i> <span data-pro-cta></span></button>
+                            <a href="#plan" class="btn btn-ghost"><i class="fa-solid fa-eye"></i> <span data-i18n="pro.see"></span></a>
+                        </div>
+                        <small class="pro-from" data-pro-from></small>
+                    </div>
+                    <div class="pro-window" aria-hidden="true">
+                        <div class="pro-window-bar"><i></i><i></i><i></i><span data-i18n="page.plan"></span><b>2D · 3D</b></div>
+                        <div class="pro-window-body" id="pro-preview"></div>
+                        <div class="pro-float pf1"><i class="fa-solid fa-cube"></i><span data-i18n="pro.f2.t"></span></div>
+                        <div class="pro-float pf2"><i class="fa-solid fa-calculator"></i><span data-i18n="pro.f3.t"></span></div>
+                    </div>
+                </div>
+
+                <div class="section-head pro-head">
+                    <span class="kicker" data-i18n="pro.whatK"></span>
+                    <h2 data-i18n="pro.whatT"></h2>
+                </div>
+                <div class="pro-features">
+                    <div class="pro-feat"><span class="menu-icon"><i class="fa-solid fa-draw-polygon"></i></span><h3 data-i18n="pro.f1.t"></h3><p data-i18n="pro.f1.d"></p></div>
+                    <div class="pro-feat"><span class="menu-icon"><i class="fa-solid fa-cube"></i></span><h3 data-i18n="pro.f2.t"></h3><p data-i18n="pro.f2.d"></p></div>
+                    <div class="pro-feat"><span class="menu-icon"><i class="fa-solid fa-calculator"></i></span><h3 data-i18n="pro.f3.t"></h3><p data-i18n="pro.f3.d"></p></div>
+                    <div class="pro-feat"><span class="menu-icon"><i class="fa-solid fa-door-open"></i></span><h3 data-i18n="pro.f4.t"></h3><p data-i18n="pro.f4.d"></p></div>
+                    <div class="pro-feat"><span class="menu-icon"><i class="fa-solid fa-ruler-combined"></i></span><h3 data-i18n="pro.f5.t"></h3><p data-i18n="pro.f5.d"></p></div>
+                    <div class="pro-feat"><span class="menu-icon"><i class="fa-solid fa-file-export"></i></span><h3 data-i18n="pro.f6.t"></h3><p data-i18n="pro.f6.d"></p></div>
+                </div>
+
+                <div class="pro-why">
+                    <div class="pro-why-text">
+                        <span class="kicker" data-i18n="pro.whyK"></span>
+                        <h2 data-i18n="pro.whyT"></h2>
+                        <div class="pro-why-grid">
+                            <div><i class="fa-solid fa-piggy-bank"></i><h4 data-i18n="pro.w1.t"></h4><p data-i18n="pro.w1.d"></p></div>
+                            <div><i class="fa-solid fa-shield-halved"></i><h4 data-i18n="pro.w2.t"></h4><p data-i18n="pro.w2.d"></p></div>
+                            <div><i class="fa-solid fa-people-group"></i><h4 data-i18n="pro.w3.t"></h4><p data-i18n="pro.w3.d"></p></div>
+                            <div><i class="fa-solid fa-boxes-stacked"></i><h4 data-i18n="pro.w4.t"></h4><p data-i18n="pro.w4.d"></p></div>
+                        </div>
+                    </div>
+                    <div class="pro-who">
+                        <h3 data-i18n="pro.whoT"></h3>
+                        <ul>
+                            <li><i class="fa-solid fa-house-user"></i><span><b data-i18n="pro.u1.t"></b><small data-i18n="pro.u1.d"></small></span></li>
+                            <li><i class="fa-solid fa-helmet-safety"></i><span><b data-i18n="pro.u2.t"></b><small data-i18n="pro.u2.d"></small></span></li>
+                            <li><i class="fa-solid fa-user-graduate"></i><span><b data-i18n="pro.u3.t"></b><small data-i18n="pro.u3.d"></small></span></li>
+                            <li><i class="fa-solid fa-building"></i><span><b data-i18n="pro.u4.t"></b><small data-i18n="pro.u4.d"></small></span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section-head pro-head" id="pricing">
+                    <span class="kicker" data-i18n="pro.priceK"></span>
+                    <h2 data-i18n="pro.priceT"></h2>
+                    <p data-i18n="pro.priceS"></p>
+                </div>
+                <div class="pricing" data-pricing></div>
+                <ol class="pro-steps">
+                    <li><b data-dg="1"></b><span><strong data-i18n="pro.s1.t"></strong><small data-i18n="pro.s1.d"></small></span></li>
+                    <li><b data-dg="2"></b><span><strong data-i18n="pro.s2.t"></strong><small data-i18n="pro.s2.d"></small></span></li>
+                    <li><b data-dg="3"></b><span><strong data-i18n="pro.s3.t"></strong><small data-i18n="pro.s3.d"></small></span></li>
+                </ol>
+                <div class="pay-logos" data-pay-logos></div>
+            </div>
+        </section>
 
         <section class="section">
             <div class="container">
@@ -1329,7 +1564,7 @@
                     </div>
                     <div class="tool-card tool-card-hl" data-feature="plan">
                         <span class="menu-icon"><i class="fa-solid fa-compass-drafting"></i></span>
-                        <h3><span data-i18n="page.plan"></span> <span class="badge" data-i18n="badge.new"></span></h3>
+                        <h3><span data-i18n="page.plan"></span> <span class="badge pro-badge"><i class="fa-solid fa-crown"></i> PRO</span></h3>
                         <p data-i18n="desc.plan"></p>
                         <a href="#plan" class="btn btn-soft btn-sm tool-btn"><span data-i18n="common.start"></span> <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
@@ -2207,7 +2442,25 @@
                 <p data-i18n="plan.sub"></p></div>
             </div>
         </div>
-        <div class="container page-body">
+        <div class="container page-body plan-body">
+            <!-- Pro lock: shown when the visitor has no active subscription -->
+            <div class="pro-lock" id="plan-lock" hidden>
+                <div class="pro-lock-card">
+                    <span class="pro-pill"><i class="fa-solid fa-crown"></i> PRO</span>
+                    <h2 data-i18n="lock.title"></h2>
+                    <p data-i18n="lock.sub"></p>
+                    <ul class="pro-ticks">
+                        <li><i class="fa-solid fa-check"></i><span data-i18n="pro.f1.t"></span></li>
+                        <li><i class="fa-solid fa-check"></i><span data-i18n="pro.f2.t"></span></li>
+                        <li><i class="fa-solid fa-check"></i><span data-i18n="pro.f3.t"></span></li>
+                        <li><i class="fa-solid fa-check"></i><span data-i18n="pro.f6.t"></span></li>
+                    </ul>
+                    <button type="button" class="btn btn-pro btn-block" data-buy-pro><i class="fa-solid fa-crown"></i> <span data-pro-cta></span></button>
+                    <small class="pro-from" data-pro-from></small>
+                    <button type="button" class="link-btn" data-open-account id="lock-login" data-i18n="lock.haveAcct"></button>
+                    <small class="lock-pending" id="lock-pending" hidden></small>
+                </div>
+            </div>
             <div class="card plan-card" id="plan-card">
                 <!-- toolbar -->
                 <div class="plan-bar">
@@ -2525,6 +2778,7 @@
                     <button type="button" role="tab" data-tab="dev"><i class="fa-solid fa-user-tie"></i><span data-i18n="tab.dev"></span></button>
                     <button type="button" role="tab" data-tab="contact"><i class="fa-solid fa-address-book"></i><span data-i18n="tab.contact"></span></button>
                     <button type="button" role="tab" data-tab="calc"><i class="fa-solid fa-calculator"></i><span data-i18n="tab.calc"></span></button>
+                    <button type="button" role="tab" data-tab="pro"><i class="fa-solid fa-crown"></i><span data-i18n="tab.pro"></span><b class="tab-count" id="pay-count" hidden></b></button>
                     <button type="button" role="tab" data-tab="messages"><i class="fa-solid fa-inbox"></i><span data-i18n="tab.messages"></span><b class="tab-count" id="msg-count" hidden></b></button>
                 </div>
                 <div class="admin-user">
@@ -2793,6 +3047,87 @@
                 </div>
             </form>
 
+            <!-- Pro / subscriptions -->
+            <div class="admin-panel" data-panel="pro" hidden>
+                <div class="admin-stats">
+                    <div class="stat"><span class="menu-icon"><i class="fa-solid fa-hourglass-half"></i></span><span><strong id="st-pending">–</strong><small data-i18n="ap2.pending"></small></span></div>
+                    <div class="stat"><span class="menu-icon"><i class="fa-solid fa-crown"></i></span><span><strong id="st-pro">–</strong><small data-i18n="ap2.activePro"></small></span></div>
+                    <div class="stat"><span class="menu-icon"><i class="fa-solid fa-users"></i></span><span><strong id="st-users">–</strong><small data-i18n="ap2.users"></small></span></div>
+                    <div class="stat"><span class="menu-icon"><i class="fa-solid fa-sack-dollar"></i></span><span><strong id="st-income">–</strong><small data-i18n="ap2.income"></small></span></div>
+                </div>
+
+                <div class="card">
+                    <div class="card-head"><h2><i class="fa-solid fa-receipt"></i> <span data-i18n="ap2.payments"></span></h2>
+                        <div class="segmented seg-sm" role="radiogroup" id="pay-filter">
+                            <label><input type="radio" name="payFilter" value="pending" checked><span data-i18n="ap2.f.pending"></span></label>
+                            <label><input type="radio" name="payFilter" value="approved"><span data-i18n="ap2.f.approved"></span></label>
+                            <label><input type="radio" name="payFilter" value="rejected"><span data-i18n="ap2.f.rejected"></span></label>
+                            <label><input type="radio" name="payFilter" value="all"><span data-i18n="ap2.f.all"></span></label>
+                        </div>
+                    </div>
+                    <div class="card-body"><div class="msg-list" id="pay-list"></div></div>
+                </div>
+
+                <div class="card">
+                    <div class="card-head"><h2><i class="fa-solid fa-users"></i> <span data-i18n="ap2.members"></span></h2>
+                        <input class="control control-sm" type="search" id="user-search" data-i18n-ph="ap2.search" autocomplete="off">
+                    </div>
+                    <div class="card-body"><div class="user-list" id="user-list"></div></div>
+                </div>
+
+                <form class="card" id="af-pro" novalidate>
+                    <div class="card-head"><h2><i class="fa-solid fa-sliders"></i> <span data-i18n="ap2.settings"></span></h2></div>
+                    <div class="card-body">
+                        <label class="set-row"><span><strong data-i18n="ap2.enabled"></strong><small data-i18n="ap2.enabled.d"></small></span><input type="checkbox" class="switch" role="switch" name="proEnabled"></label>
+                        <div class="fieldset">
+                            <p class="group-title" data-i18n="ap2.prices"></p>
+                            <div class="fields auto">
+                                <div class="field"><label for="a-pm" data-i18n="ap2.monthly"></label><div class="input-wrap"><input id="a-pm" name="monthly" data-anum inputmode="decimal"><span class="unit">৳</span></div></div>
+                                <div class="field"><label for="a-pmd" data-i18n="ap2.monthlyDays"></label><div class="input-wrap"><input id="a-pmd" name="monthlyDays" data-anum inputmode="numeric"><span class="unit" data-i18n="u.days"></span></div></div>
+                                <div class="field"><label for="a-py" data-i18n="ap2.yearly"></label><div class="input-wrap"><input id="a-py" name="yearly" data-anum inputmode="decimal"><span class="unit">৳</span></div></div>
+                                <div class="field"><label for="a-pyd" data-i18n="ap2.yearlyDays"></label><div class="input-wrap"><input id="a-pyd" name="yearlyDays" data-anum inputmode="numeric"><span class="unit" data-i18n="u.days"></span></div></div>
+                            </div>
+                        </div>
+                        <div class="fieldset">
+                            <p class="group-title"><span class="pm-dot bkash"></span> bKash</p>
+                            <label class="set-row"><span><strong data-i18n="ap2.methodOn"></strong></span><input type="checkbox" class="switch" role="switch" name="bkashOn"></label>
+                            <div class="form-grid">
+                                <div class="field"><label for="a-bk" data-i18n="ap2.number"></label><input class="control" id="a-bk" name="bkashNumber" inputmode="tel" maxlength="20" placeholder="01XXXXXXXXX"></div>
+                                <div class="field"><label for="a-bkt" data-i18n="ap2.accType"></label><select class="control" id="a-bkt" name="bkashType"><option value="personal" data-i18n="ap2.t.personal"></option><option value="agent" data-i18n="ap2.t.agent"></option><option value="merchant" data-i18n="ap2.t.merchant"></option></select></div>
+                            </div>
+                        </div>
+                        <div class="fieldset">
+                            <p class="group-title"><span class="pm-dot nagad"></span> Nagad</p>
+                            <label class="set-row"><span><strong data-i18n="ap2.methodOn"></strong></span><input type="checkbox" class="switch" role="switch" name="nagadOn"></label>
+                            <div class="form-grid">
+                                <div class="field"><label for="a-ng" data-i18n="ap2.number"></label><input class="control" id="a-ng" name="nagadNumber" inputmode="tel" maxlength="20" placeholder="01XXXXXXXXX"></div>
+                                <div class="field"><label for="a-ngt" data-i18n="ap2.accType"></label><select class="control" id="a-ngt" name="nagadType"><option value="personal" data-i18n="ap2.t.personal"></option><option value="agent" data-i18n="ap2.t.agent"></option><option value="merchant" data-i18n="ap2.t.merchant"></option></select></div>
+                            </div>
+                        </div>
+                        <div class="fieldset">
+                            <p class="group-title"><span class="pm-dot ucb"></span> UCB Bank</p>
+                            <label class="set-row"><span><strong data-i18n="ap2.methodOn"></strong></span><input type="checkbox" class="switch" role="switch" name="ucbOn"></label>
+                            <div class="form-grid">
+                                <div class="field"><label for="a-ucn" data-i18n="ap2.accName"></label><input class="control" id="a-ucn" name="ucbName" maxlength="80"></div>
+                                <div class="field"><label for="a-uca" data-i18n="ap2.accNo"></label><input class="control" id="a-uca" name="ucbAccount" inputmode="numeric" maxlength="30"></div>
+                                <div class="field"><label for="a-ucb" data-i18n="ap2.branch"></label><input class="control" id="a-ucb" name="ucbBranch" maxlength="80"></div>
+                                <div class="field"><label for="a-ucr" data-i18n="ap2.routing"></label><input class="control" id="a-ucr" name="ucbRouting" inputmode="numeric" maxlength="20"></div>
+                            </div>
+                        </div>
+                        <div class="fieldset">
+                            <p class="group-title" data-i18n="ap2.note"></p>
+                            <div class="form-grid">
+                                <div class="field"><label for="a-pnb" data-i18n="ap2.noteBn"></label><textarea class="control" id="a-pnb" name="noteBn" rows="2" maxlength="300"></textarea></div>
+                                <div class="field"><label for="a-pne" data-i18n="ap2.noteEn"></label><textarea class="control" id="a-pne" name="noteEn" rows="2" maxlength="300"></textarea></div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> <span data-i18n="admin.save"></span></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
             <!-- Messages -->
             <div class="admin-panel" data-panel="messages" hidden>
                 <div class="two-col msg-cols">
@@ -2956,6 +3291,103 @@
         <p class="form-error" id="login-error" role="alert"></p>
         <button type="submit" class="btn btn-primary btn-block" id="login-submit"><i class="fa-solid fa-right-to-bracket"></i> <span data-i18n="admin.signIn"></span></button>
         <button type="button" class="link-btn" id="forgot-btn" data-i18n="admin.forgot"></button>
+    </form>
+</section>
+
+<!-- ================= Account (Gmail) ================= -->
+<div class="scrim" id="acct-scrim"></div>
+<section class="modal modal-wide" id="acct-modal" role="dialog" aria-modal="true" aria-labelledby="acct-title">
+    <div class="modal-head">
+        <span class="modal-icon"><i class="fa-solid fa-circle-user"></i></span>
+        <div>
+            <h2 id="acct-title" data-i18n="acct.title"></h2>
+            <p id="acct-sub" data-i18n="acct.sub"></p>
+        </div>
+        <button class="icon-btn" type="button" id="acct-close" data-i18n-aria="set.close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <!-- signed out -->
+    <div class="modal-body" id="acct-out">
+        <p class="hint" data-fb-missing hidden><i class="fa-solid fa-plug-circle-exclamation"></i><span data-i18n="admin.noFirebase"></span></p>
+        <button type="button" class="btn btn-google btn-block" id="google-btn"><span class="g-mark" aria-hidden="true">G</span> <span data-i18n="acct.google"></span></button>
+        <div class="or-line"><span data-i18n="acct.or"></span></div>
+        <div class="segmented acct-mode" role="radiogroup">
+            <label><input type="radio" name="acctMode" value="in" checked><span data-i18n="acct.signIn"></span></label>
+            <label><input type="radio" name="acctMode" value="up"><span data-i18n="acct.signUp"></span></label>
+        </div>
+        <form id="acct-form" class="acct-form" novalidate>
+            <div class="field" data-up-only hidden>
+                <label for="acct-name" data-i18n="acct.name"></label>
+                <input class="control" id="acct-name" autocomplete="name" maxlength="60">
+            </div>
+            <div class="field">
+                <label for="acct-email" data-i18n="acct.gmail"></label>
+                <input class="control" type="email" id="acct-email" autocomplete="email" placeholder="yourname@gmail.com" maxlength="120">
+            </div>
+            <div class="field">
+                <label for="acct-pass" data-i18n="admin.password"></label>
+                <div class="pass-wrap">
+                    <input class="control" type="password" id="acct-pass" autocomplete="current-password" maxlength="100">
+                    <button type="button" class="pass-toggle" data-pass-toggle="acct-pass" aria-label="Show password"><i class="fa-solid fa-eye"></i></button>
+                </div>
+                <small class="set-help" data-up-only hidden data-i18n="acct.passHint"></small>
+            </div>
+            <p class="form-error" id="acct-error" role="alert"></p>
+            <button type="submit" class="btn btn-primary btn-block" id="acct-submit"><i class="fa-solid fa-right-to-bracket"></i> <span data-i18n="acct.signIn"></span></button>
+            <button type="button" class="link-btn" id="acct-forgot" data-i18n="admin.forgot"></button>
+        </form>
+        <small class="set-help acct-note" data-i18n="acct.note"></small>
+    </div>
+    <!-- signed in -->
+    <div class="modal-body" id="acct-in" hidden>
+        <div class="acct-card">
+            <span class="acct-avatar" id="acct-avatar"></span>
+            <span class="acct-who"><strong id="acct-name-out"></strong><small id="acct-email-out"></small></span>
+            <span class="plan-chip" id="acct-plan"></span>
+        </div>
+        <div class="acct-status" id="acct-status"></div>
+        <button type="button" class="btn btn-pro btn-block" data-buy-pro><i class="fa-solid fa-crown"></i> <span id="acct-buy-label"></span></button>
+        <a href="#plan" class="btn btn-soft btn-block" id="acct-open-plan"><i class="fa-solid fa-compass-drafting"></i> <span data-i18n="acct.openPlan"></span></a>
+        <div class="acct-pays">
+            <p class="group-title" data-i18n="acct.history"></p>
+            <div id="acct-pays"></div>
+        </div>
+        <button type="button" class="btn btn-ghost btn-block" id="acct-logout"><i class="fa-solid fa-right-from-bracket"></i> <span data-i18n="admin.logout"></span></button>
+    </div>
+</section>
+
+<!-- ================= Buy Pro (bKash / Nagad / UCB) ================= -->
+<div class="scrim" id="buy-scrim"></div>
+<section class="modal modal-wide" id="buy-modal" role="dialog" aria-modal="true" aria-labelledby="buy-title">
+    <div class="modal-head">
+        <span class="modal-icon pro-icon"><i class="fa-solid fa-crown"></i></span>
+        <div>
+            <h2 id="buy-title" data-i18n="buy.title"></h2>
+            <p data-i18n="buy.sub"></p>
+        </div>
+        <button class="icon-btn" type="button" id="buy-close" data-i18n-aria="set.close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <form class="modal-body" id="buy-form" novalidate>
+        <p class="hint warn" id="buy-pending" hidden><i class="fa-solid fa-hourglass-half"></i><span></span></p>
+        <div>
+            <p class="group-title" data-i18n="buy.step1"></p>
+            <div class="plan-pick" id="buy-plans"></div>
+        </div>
+        <div id="buy-pay">
+            <p class="group-title" data-i18n="buy.step2"></p>
+            <div class="method-pick" id="buy-methods" role="radiogroup"></div>
+            <div class="pay-box" id="buy-box"></div>
+        </div>
+        <div id="buy-fields">
+            <p class="group-title" data-i18n="buy.step3"></p>
+            <div class="form-grid">
+                <div class="field"><label for="buy-sender" id="buy-sender-label" data-i18n="buy.sender"></label><input class="control" id="buy-sender" inputmode="tel" maxlength="40" autocomplete="off"><span class="field-error"></span></div>
+                <div class="field"><label for="buy-trx" data-i18n="buy.trx"></label><input class="control" id="buy-trx" maxlength="40" autocomplete="off" placeholder="8N7A6B5C4D" style="text-transform:uppercase"><span class="field-error"></span></div>
+            </div>
+        </div>
+        <p class="form-error" id="buy-error" role="alert"></p>
+        <button type="submit" class="btn btn-pro btn-block" id="buy-submit"><i class="fa-solid fa-paper-plane"></i> <span data-i18n="buy.submit"></span></button>
+        <small class="set-help" data-i18n="buy.note"></small>
+        <p class="hint" id="buy-none" hidden><i class="fa-solid fa-circle-info"></i><span data-i18n="buy.none"></span></p>
     </form>
 </section>
 
