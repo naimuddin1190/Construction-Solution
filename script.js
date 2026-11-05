@@ -433,6 +433,67 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             'rp.inputs': 'Measurements',
             'rp.results': 'Results',
             'rp.3d': '3D preview',
+            "fp.lvl0": "Ground floor",
+            "fp.lvlN": "{n} floor",
+            "fp.lvl": "Floors",
+            "fp.lvlAdd": "Floor",
+            "fp.lvlAddCopy": "New floor (copy walls)",
+            "fp.lvlAddEmpty": "New empty floor",
+            "fp.lvlDel": "Delete this floor",
+            "fp.lvlDelConfirm": "Delete \"{name}\" with everything on it?",
+            "fp.lvlAdded": "{name} added — the floor below is shown faintly",
+            "fp.lvlName": "Floor name (optional)",
+            "fp.plot": "Plot",
+            "fp.plotShape": "Plot shape",
+            "fp.plotRect": "Rectangle",
+            "fp.plotQuad": "4 sides different",
+            "fp.pTop": "Top side (width)",
+            "fp.pBottom": "Bottom side (width)",
+            "fp.pLeft": "Left side (length)",
+            "fp.pRight": "Right side (length)",
+            "fp.pWidth": "Plot width",
+            "fp.pLength": "Plot length",
+            "fp.plotArea": "Plot area",
+            "fp.cover": "Ground covered",
+            "fp.openSpace": "Open space",
+            "fp.plotUpdate": "Update the boundary",
+            "fp.plotMake": "Plot size",
+            "fp.plotEdit": "Change the plot size",
+            "fp.plotDel": "Remove the plot",
+            "fp.plotHint": "The boundary is drawn first; then draw rooms inside it. Walls snap to its corners.",
+            "fp.plotBad": "These four sides cannot make a plot — please check the measurements.",
+            "fp.plotNeed": "Enter the plot measurements.",
+            "fp.plotMade": "Boundary ready — now draw the rooms inside it.",
+            "fp.land": "Land",
+            "u.katha": "katha",
+            "u.decimal": "decimal",
+            "fp.slabT": "Floor slab thickness (3D)",
+            "fp.touchHint": "Phone: tap to place, drag one finger to draw walls/rooms, two fingers to move & zoom.",
+            "fp.qa.type": "Type length",
+            "fp.qa.typeRect": "Type L × W",
+            "fp.qa.close": "Close room",
+            "fp.qa.finish": "Done",
+            "fp.qa.flip": "Flip",
+            "fp.qa.props": "Details",
+            "fp.full": "Full screen",
+            "fp.ok": "OK",
+            "fp.st.title": "How do you want to start?",
+            "fp.st.plot": "With the plot (land) size",
+            "fp.st.plotD": "The boundary is drawn first; you design the house inside it.",
+            "fp.st.plotBtn": "Make the boundary",
+            "fp.st.free": "Draw without a plot",
+            "acct.or2": "or",
+            "fp.allFloors": "All floors",
+            "fp.upTo": "up to {name}",
+            "fp.view3d": "3D",
+            "fp.r.floors": "Floors",
+            "fp.r.totalFloor": "Total floor area (all floors)",
+            "fp.g.slabs": "Roof slabs ({n} floors)",
+            "ap2.logoUp": "Upload logo",
+            "ap2.logoDel": "Delete",
+            "ap2.logoHint": "PNG / JPG / SVG — shown on the payment screen and the home page.",
+            "ap2.noLogo": "No logo",
+            "ap2.logoDelConfirm": "Delete this logo?",
             "tab.pro": "Pro & payments",
             "u.days": "days",
             "st.pending": "Checking",
@@ -441,7 +502,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             "pro.kicker": "PRO · Floor plan designer",
             "pro.title": "Design your own house — <span>2D drawing, 3D view and the full material estimate</span> in one place",
             "pro.sub": "Draw walls, rooms, doors and windows like CAD software. Walk around the house in 3D and see how many bricks, how much cement, sand and how many tiles you need — before a single brick is laid.",
-            "pro.tick1": "Plan the room sizes yourself — no software or training needed",
+            "pro.tick1": "Start with your plot size — design single or multi-storey buildings",
             "pro.tick2": "Show your family, mistri or contractor exactly what you want in 3D",
             "pro.tick3": "Know the material list and the budget before you start",
             "pro.cta": "Get Pro",
@@ -454,9 +515,9 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             "pro.whatK": "What you get",
             "pro.whatT": "Everything you need to plan a house",
             "pro.f1.t": "CAD-style 2D drawing",
-            "pro.f1.d": "Walls click by click, rectangular rooms in one go, snapping to corners and straight angles — just like AutoCAD, but simple.",
+            "pro.f1.d": "Start from your plot boundary, then draw walls, rooms and as many floors as you need — snapping to corners and straight angles, like AutoCAD but simple.",
             "pro.f2.t": "Live 3D model",
-            "pro.f2.d": "Every line you draw rises as a real 3D house with doors, windows, floors and furniture. Turn it, zoom it, show it.",
+            "pro.f2.d": "Every line you draw rises as a real 3D building — multi-storey, with doors, windows, floors, furniture and the plot around it.",
             "pro.f3.t": "Automatic material estimate",
             "pro.f3.d": "Bricks, cement, sand, khoa, plaster, roof casting and floor tiles — worked out from your drawing, with the total cost.",
             "pro.f4.t": "Doors, windows & furniture",
@@ -645,10 +706,10 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             "fp.t.dim": "Dimension line (M)",
             "fp.t.furn": "Place furniture (F)",
             "fp.t.erase": "Click anything to erase it (E)",
-            "fp.h.select": "Tap an item to edit it · drag empty space to pan · wheel / pinch to zoom",
-            "fp.h.pan": "Drag to move the drawing · wheel / pinch to zoom",
-            "fp.h.wall": "Mortar ratio cement : sand (usually 1 : 4 or 1 : 6).",
-            "fp.h.room": "Click two opposite corners · or click once and type L x W",
+            "fp.h.select": "Tap an item to edit it · drag to move · two fingers / wheel to zoom",
+            "fp.h.pan": "Drag to move the drawing · pinch / wheel to zoom",
+            "fp.h.wall": "Tap/click each corner (or drag a finger) · type a length · tap the first point to close a room",
+            "fp.h.room": "Tap two opposite corners or drag a finger · or tap once and type L x W",
             "fp.h.door": "Click on a wall to put a door",
             "fp.h.window": "Click on a wall to put a window",
             "fp.h.text": "Click where the text should go",
@@ -674,6 +735,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             "fp.g.slab": "Roof slab (casting)",
             "fp.g.tiles": "Floor tiles",
             "fp.h.ratio": "Ratio cement : sand : khoa (usually 1 : 2 : 4).",
+            "fp.h.mortar": "Mortar ratio cement : sand (usually 1 : 4 or 1 : 6).",
             "fp.o.pThk": "(default 0.5\")",
             "fp.o.sThk": "(default 5\")",
             "fp.sides": "Plaster on",
@@ -1294,6 +1356,67 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             'rp.inputs': 'মাপ',
             'rp.results': 'ফলাফল',
             'rp.3d': '৩ডি প্রিভিউ',
+            "fp.lvl0": "নিচতলা",
+            "fp.lvlN": "{n} তলা",
+            "fp.lvl": "তলা",
+            "fp.lvlAdd": "তলা",
+            "fp.lvlAddCopy": "নতুন তলা (দেয়াল কপি)",
+            "fp.lvlAddEmpty": "নতুন খালি তলা",
+            "fp.lvlDel": "এই তলা মুছুন",
+            "fp.lvlDelConfirm": "\"{name}\" আর এর সব কিছু মুছে ফেলবেন?",
+            "fp.lvlAdded": "{name} যোগ হয়েছে — নিচের তলা হালকা করে দেখাচ্ছে",
+            "fp.lvlName": "তলার নাম (ঐচ্ছিক)",
+            "fp.plot": "জমি",
+            "fp.plotShape": "জমির আকার",
+            "fp.plotRect": "চারকোনা",
+            "fp.plotQuad": "চার বাহু আলাদা",
+            "fp.pTop": "উপরের বাহু (প্রস্থ)",
+            "fp.pBottom": "নিচের বাহু (প্রস্থ)",
+            "fp.pLeft": "বাম বাহু (দৈর্ঘ্য)",
+            "fp.pRight": "ডান বাহু (দৈর্ঘ্য)",
+            "fp.pWidth": "জমির প্রস্থ",
+            "fp.pLength": "জমির দৈর্ঘ্য",
+            "fp.plotArea": "জমির পরিমাণ",
+            "fp.cover": "জমির কতটুকু বাড়ি",
+            "fp.openSpace": "খোলা জায়গা",
+            "fp.plotUpdate": "বাউন্ডারি আপডেট",
+            "fp.plotMake": "জমির মাপ",
+            "fp.plotEdit": "জমির মাপ বদলান",
+            "fp.plotDel": "জমি মুছুন",
+            "fp.plotHint": "আগে বাউন্ডারি তৈরি হবে, তারপর এর ভেতরে রুম আঁকুন। দেয়াল জমির কোণে স্ন্যাপ করবে।",
+            "fp.plotBad": "এই চার বাহু দিয়ে জমি হয় না — মাপগুলো আবার দেখুন।",
+            "fp.plotNeed": "জমির মাপ দিন।",
+            "fp.plotMade": "বাউন্ডারি তৈরি — এবার ভেতরে রুম আঁকুন।",
+            "fp.land": "জমি",
+            "u.katha": "কাঠা",
+            "u.decimal": "শতাংশ",
+            "fp.slabT": "ছাদ/মেঝের পুরুত্ব (৩ডি)",
+            "fp.touchHint": "মোবাইলে: ট্যাপ করে বসান, এক আঙুল টেনে দেয়াল/রুম আঁকুন, দুই আঙুলে সরান ও জুম করুন।",
+            "fp.qa.type": "মাপ লিখুন",
+            "fp.qa.typeRect": "দৈর্ঘ্য × প্রস্থ",
+            "fp.qa.close": "রুম বন্ধ",
+            "fp.qa.finish": "শেষ",
+            "fp.qa.flip": "উল্টান",
+            "fp.qa.props": "বিস্তারিত",
+            "fp.full": "পূর্ণ স্ক্রিন",
+            "fp.ok": "ঠিক আছে",
+            "fp.st.title": "কীভাবে শুরু করবেন?",
+            "fp.st.plot": "জায়গার (জমির) মাপ দিয়ে",
+            "fp.st.plotD": "আগে বাউন্ডারি তৈরি হবে, তারপর এর ভেতরে বাড়ির নকশা করবেন।",
+            "fp.st.plotBtn": "বাউন্ডারি তৈরি করুন",
+            "fp.st.free": "মাপ ছাড়াই আঁকুন",
+            "acct.or2": "অথবা",
+            "fp.allFloors": "সব তলা",
+            "fp.upTo": "{name} পর্যন্ত",
+            "fp.view3d": "৩ডি",
+            "fp.r.floors": "তলা",
+            "fp.r.totalFloor": "মোট ফ্লোর এরিয়া (সব তলা)",
+            "fp.g.slabs": "ছাদ ঢালাই ({n} তলা)",
+            "ap2.logoUp": "লোগো আপলোড",
+            "ap2.logoDel": "মুছুন",
+            "ap2.logoHint": "PNG / JPG / SVG — পেমেন্ট স্ক্রিন আর হোম পেজে দেখাবে।",
+            "ap2.noLogo": "লোগো নেই",
+            "ap2.logoDelConfirm": "লোগোটি মুছে ফেলবেন?",
             "tab.pro": "প্রো ও পেমেন্ট",
             "u.days": "দিন",
             "st.pending": "যাচাই হচ্ছে",
@@ -1302,7 +1425,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             "pro.kicker": "প্রো · ফ্লোর প্ল্যান ডিজাইনার",
             "pro.title": "নিজের বাড়ির নকশা নিজেই করুন — <span>২ডি নকশা, ৩ডি ভিউ আর মালামালের পুরো হিসাব</span> এক জায়গায়",
             "pro.sub": "ক্যাড সফটওয়্যারের মতো দেয়াল, রুম, দরজা, জানালা আঁকুন। ৩ডি-তে পুরো বাড়ি ঘুরিয়ে দেখুন, আর একটা ইট গাঁথার আগেই জেনে নিন কত ইট, সিমেন্ট, বালু আর টাইলস লাগবে।",
-            "pro.tick1": "রুমের মাপ নিজেই ঠিক করুন — কোনো সফটওয়্যার বা ট্রেনিং লাগবে না",
+            "pro.tick1": "জমির মাপ দিয়ে শুরু করুন — একতলা থেকে বহুতল ভবন ডিজাইন করুন",
             "pro.tick2": "পরিবার, মিস্ত্রি বা ঠিকাদারকে ৩ডি-তে ঠিক যা চান তা দেখান",
             "pro.tick3": "কাজ শুরুর আগেই মালামালের তালিকা আর বাজেট জানুন",
             "pro.cta": "প্রো নিন",
@@ -1315,9 +1438,9 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             "pro.whatK": "কী কী পাবেন",
             "pro.whatT": "বাড়ির নকশা করতে যা যা লাগে সব",
             "pro.f1.t": "ক্যাডের মতো ২ডি নকশা",
-            "pro.f1.d": "ক্লিক করে করে দেয়াল, এক টানে চারকোনা রুম, কোণ আর সোজা লাইনে স্ন্যাপ — অটোক্যাডের মতো, কিন্তু অনেক সহজ।",
+            "pro.f1.d": "জমির বাউন্ডারি থেকে শুরু করে দেয়াল, রুম আর যত তলা দরকার — কোণ ও সোজা লাইনে স্ন্যাপ করে, অটোক্যাডের মতো কিন্তু অনেক সহজ।",
             "pro.f2.t": "লাইভ ৩ডি মডেল",
-            "pro.f2.d": "যা আঁকবেন সাথে সাথে দরজা, জানালা, মেঝে আর আসবাবসহ আসল ৩ডি বাড়ি হয়ে দাঁড়াবে। ঘোরান, জুম করুন, দেখান।",
+            "pro.f2.d": "যা আঁকবেন সাথে সাথে আসল ৩ডি ভবন হয়ে দাঁড়াবে — বহুতলসহ, দরজা, জানালা, মেঝে, আসবাব আর চারপাশের জমিসহ।",
             "pro.f3.t": "অটোমেটিক মালামালের হিসাব",
             "pro.f3.d": "ইট, সিমেন্ট, বালু, খোয়া, প্লাস্টার, ছাদ ঢালাই আর মেঝের টাইলস — আপনার নকশা থেকেই, মোট খরচসহ।",
             "pro.f4.t": "দরজা, জানালা ও আসবাব",
@@ -1506,10 +1629,10 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             "fp.t.dim": "মাপের লাইন (M)",
             "fp.t.furn": "আসবাব বসান (F)",
             "fp.t.erase": "যেটাতে ক্লিক করবেন মুছে যাবে (E)",
-            "fp.h.select": "এডিট করতে কোনো কিছুতে ট্যাপ করুন · ফাঁকা জায়গা টেনে সরান · হুইল / দুই আঙুলে জুম",
-            "fp.h.pan": "টেনে নকশা সরান · হুইল / দুই আঙুলে জুম",
-            "fp.h.wall": "মসলার অনুপাত সিমেন্ট : বালু (সাধারণত ১ : ৪ বা ১ : ৬)।",
-            "fp.h.room": "দুই বিপরীত কোণে ক্লিক করুন · বা একবার ক্লিক করে দৈর্ঘ্য x প্রস্থ টাইপ করুন",
+            "fp.h.select": "এডিট করতে ট্যাপ করুন · টেনে সরান · দুই আঙুল / হুইলে জুম",
+            "fp.h.pan": "টেনে নকশা সরান · দুই আঙুল / হুইলে জুম",
+            "fp.h.wall": "প্রতিটি কোণে ট্যাপ/ক্লিক করুন (বা আঙুল টেনে আঁকুন) · মাপ লিখুন · প্রথম পয়েন্টে ট্যাপ করলে রুম বন্ধ",
+            "fp.h.room": "দুই বিপরীত কোণে ট্যাপ করুন বা আঙুল টেনে আঁকুন · বা একবার ট্যাপ করে দৈর্ঘ্য x প্রস্থ লিখুন",
             "fp.h.door": "দরজা বসাতে দেয়ালে ক্লিক করুন",
             "fp.h.window": "জানালা বসাতে দেয়ালে ক্লিক করুন",
             "fp.h.text": "যেখানে লেখা বসবে সেখানে ক্লিক করুন",
@@ -1535,6 +1658,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             "fp.g.slab": "ছাদ ঢালাই",
             "fp.g.tiles": "মেঝের টাইলস",
             "fp.h.ratio": "অনুপাত সিমেন্ট : বালু : খোয়া (সাধারণত ১ : ২ : ৪)।",
+            "fp.h.mortar": "মসলার অনুপাত সিমেন্ট : বালু (সাধারণত ১ : ৪ বা ১ : ৬)।",
             "fp.o.pThk": "(না দিলে ০.৫\")",
             "fp.o.sThk": "(না দিলে ৫\")",
             "fp.sides": "প্লাস্টার হবে",
@@ -2699,6 +2823,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         const msOf = (ts) => PRO.ms(ts);
         function fillPro() {
             const f = forms.pro, p = SITE.pro;
+            showLogos();
             if (isDirty(f)) return;
             el(f, 'proEnabled').checked = p.enabled !== false;
             ['monthly', 'yearly', 'monthlyDays', 'yearlyDays'].forEach((k) => { el(f, k).value = p[k] ?? ''; });
@@ -2789,6 +2914,46 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             $('#pay-count').textContent = num(pend, 0);
         }
         $('#pay-filter').addEventListener('change', renderPro);
+
+        // payment logos (bKash / Nagad / UCB): small PNG saved straight to the site config
+        function showLogos() {
+            ['bkash', 'nagad', 'ucb'].forEach((m) => {
+                const url = (SITE.pro[m] || {}).logo || '';
+                const ok = /^data:image\//.test(url);
+                $(`[data-logo-prev="${m}"]`).innerHTML = ok ? `<img src="${escapeHtml(url)}" alt="">` : escapeHtml(t('ap2.noLogo'));
+                $(`[data-logo-del="${m}"]`).disabled = !ok;
+            });
+        }
+        $$('[data-logo-file]').forEach((inp) => inp.addEventListener('change', (e) => {
+            const m = inp.dataset.logoFile, file = e.target.files && e.target.files[0];
+            e.target.value = '';
+            if (!file) return;
+            if (!/^image\//.test(file.type) || file.size > 5 * 1024 * 1024) { toast(t('icon.bad')); return; }
+            const reader = new FileReader();
+            reader.onload = () => {
+                const img = new Image();
+                img.onload = () => {
+                    const maxW = 240, maxH = 96, w0 = img.naturalWidth || maxW, h0 = img.naturalHeight || maxH;
+                    const k = Math.min(maxW / w0, maxH / h0, 1);
+                    const c = document.createElement('canvas');
+                    c.width = Math.max(1, Math.round(w0 * k)); c.height = Math.max(1, Math.round(h0 * k));
+                    const ctx = c.getContext('2d');
+                    ctx.imageSmoothingQuality = 'high';
+                    ctx.drawImage(img, 0, 0, c.width, c.height);
+                    let url;
+                    try { url = c.toDataURL('image/png'); } catch (err) { toast(t('icon.bad')); return; }
+                    if (url.length > 120000) url = c.toDataURL('image/webp', .9);
+                    save({ pro: { [m]: { logo: url } } }, forms.pro, true).then(showLogos);
+                };
+                img.onerror = () => toast(t('icon.bad'));
+                img.src = reader.result;
+            };
+            reader.readAsDataURL(file);
+        }));
+        $$('[data-logo-del]').forEach((b) => b.addEventListener('click', () => {
+            if (!window.confirm(t('ap2.logoDelConfirm'))) return;
+            save({ pro: { [b.dataset.logoDel]: { logo: '' } } }, forms.pro, true).then(showLogos);
+        }));
         $('#user-search').addEventListener('input', renderPro);
 
         async function extend(uid, days, extra = {}) {
@@ -3874,7 +4039,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             const form = $(`form[data-calc="${id}"]`);
             if (id === 'tiles') return readTiles(form);
             if (id === 'column') return readColumn(form);
-            if (id === 'plan') { const d = planSrc ? planSrc() : null; return { v: { plan: d }, live: !!(d && (d.walls.length || d.furn.length)) }; }
+            if (id === 'plan') { const d = planSrc ? planSrc() : null; return { v: { plan: d }, live: !!(d && (d.plot || d.levels.some((L) => L.walls.length || L.furn.length))) }; }
             const v = { _disp: {} };
             let live = false;
             Object.keys(DEF[id]).forEach((k) => {
@@ -3968,14 +4133,14 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             },
             plan(v) {
                 const d = v.plan;
-                if (!d || !(d.walls.length || d.furn.length)) return [[t('fp.r.rooms'), num(0, 0)]];
-                const floor = d.rooms.reduce((a, r) => a + PLAN.polyArea(r.pts), 0);
-                const doors = d.openings.filter((o) => o.type === 'door').length;
-                return [
-                    [t('fp.r.rooms'), num(d.rooms.length, 0)],
-                    [t('r.floorArea'), qs(qArea(floor))],
-                    [t('fp.r.doorWin'), `${num(doors, 0)} / ${num(d.openings.length - doors, 0)}`],
-                ];
+                if (!d) return [];
+                const chips = [];
+                if (d.plot) chips.push([t('fp.plot'), qs(qArea(PLAN.polyArea(d.plot.pts)))]);
+                const floor = d.levels.reduce((a, L) => a + L.rooms.reduce((b, r) => b + PLAN.polyArea(r.pts), 0), 0);
+                if (d.levels.length > 1) chips.push([t('fp.r.floors'), num(d.levels.length, 0)]);
+                chips.push([t('fp.r.rooms'), num(d.levels.reduce((a, L) => a + L.rooms.length, 0), 0)], [d.levels.length > 1 ? t('fp.r.totalFloor') : t('r.floorArea'), qs(qArea(floor))]);
+                if (d.levels.length > 1) chips.push([t('fp.view3d'), d.opt.all3d ? t('fp.allFloors') : t('fp.upTo', { name: PLAN.floorName(d.cur) })]);
+                return chips;
             },
             steel(v) {
                 const s = steelSteps(v);
@@ -4359,11 +4524,16 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 bbox = { w: X, h: y0 + slabT, d: Z, cy: y0 };
             }
             else if (id === 'plan') {
-                const d = v.plan || { walls: [], rooms: [], openings: [], furn: [] };
+                const D = v.plan || { levels: [], plot: null, cur: 0, opt: {} };
+                const top = D.opt.all3d ? D.levels.length - 1 : D.cur;
+                const shown = D.levels.slice(0, top + 1);
                 const pts = [];
-                d.walls.forEach((w) => pts.push(w.a, w.b));
-                d.rooms.forEach((r) => pts.push(...r.pts));
-                d.furn.forEach((f) => pts.push({ x: f.x - f.w / 2, y: f.y - f.d / 2 }, { x: f.x + f.w / 2, y: f.y + f.d / 2 }));
+                shown.forEach((L) => {
+                    L.walls.forEach((w) => pts.push(w.a, w.b));
+                    L.rooms.forEach((r) => pts.push(...r.pts));
+                    L.furn.forEach((f) => pts.push({ x: f.x - f.w / 2, y: f.y - f.d / 2 }, { x: f.x + f.w / 2, y: f.y + f.d / 2 }));
+                });
+                if (D.plot) pts.push(...D.plot.pts);
                 if (!pts.length) pts.push({ x: 0, y: 0 }, { x: 30, y: 20 });
                 const xs = pts.map((p) => p.x), ys = pts.map((p) => p.y);
                 const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
@@ -4374,8 +4544,9 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 const capMat = new THREE.MeshStandardMaterial({ color: C.dark ? 0x9aa3ad : 0x8b95a1, roughness: .9 });
                 const glass = new THREE.MeshStandardMaterial({ color: 0x8ec5e8, transparent: true, opacity: .45, roughness: .1, metalness: .1, depthWrite: false });
                 const wood = new THREE.MeshStandardMaterial({ color: 0xa47148, roughness: .7 });
+                const slabMat = new THREE.MeshStandardMaterial({ color: C.concrete, roughness: .92, map: concreteTex() });
+                const slabT = Math.max((PLAN.slabFt() || 0) * k, .015);
                 let topY = 0;
-                // a box placed along a direction (angle in plan) — w along, h up, t across
                 function seg(w, h, tt, mat, centre, y0, ang) {
                     if (w <= 1e-4 || h <= 1e-4) return;
                     const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, tt), Array.isArray(mat) ? mat : [mat, mat, capMat, mat, mat, mat]);
@@ -4386,74 +4557,104 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                     e.position.copy(m.position); e.rotation.copy(m.rotation);
                     g.add(e);
                 }
-                // floors
+                const shapeOf = (q) => new THREE.Shape(q.map((p) => new THREE.Vector2((p.x - cx) * k, (p.y - cy) * k)));
+                // a flat face looking up (lit from above): plan y → scene z
+                const flat = (q) => { const geo = new THREE.ShapeGeometry(new THREE.Shape(q.map((p) => new THREE.Vector2((p.x - cx) * k, -(p.y - cy) * k)))); geo.rotateX(-Math.PI / 2); return geo; };
+                // a flat slab (floor / roof) from room outlines
+                function slab(rooms, y0) {
+                    rooms.forEach((r) => {
+                        const geo = new THREE.ExtrudeGeometry(shapeOf(r.pts), { depth: slabT, bevelEnabled: false });
+                        geo.rotateX(Math.PI / 2);                      // extrude goes down from y0
+                        const m = new THREE.Mesh(geo, slabMat);
+                        m.position.y = y0 + slabT;
+                        g.add(m);
+                    });
+                }
+                // the plot: lawn + a low boundary kerb
+                if (D.plot) {
+                    const geo = flat(D.plot.pts);
+                    const lawn = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ color: C.dark ? 0x1f4a2a : 0x3f8f4c, roughness: 1, side: THREE.DoubleSide }));
+                    lawn.position.y = .004;
+                    g.add(lawn);
+                    const kerb = new THREE.MeshStandardMaterial({ color: C.dark ? 0x94a3b8 : 0xb6bec8, roughness: .9 });
+                    const q = D.plot.pts;
+                    q.forEach((a, i) => {
+                        const b = q[(i + 1) % q.length], L = Math.hypot(b.x - a.x, b.y - a.y);
+                        seg(L * k, Math.max(.6 * k, .03), Math.max(.4 * k, .02), [kerb, kerb, kerb, kerb, kerb, kerb], { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 }, 0, Math.atan2(b.y - a.y, b.x - a.x));
+                    });
+                }
                 const floorTx = tileTex().clone();
                 floorTx.userData = {}; floorTx.needsUpdate = true; floorTx.repeat.set(k * 2.5, k * 2.5);
                 const floorMat = new THREE.MeshStandardMaterial({ map: floorTx, roughness: .6, side: THREE.DoubleSide });
-                d.rooms.forEach((r) => {
-                    const shape = new THREE.Shape(r.pts.map((p) => new THREE.Vector2((p.x - cx) * k, (p.y - cy) * k)));
-                    const geo = new THREE.ShapeGeometry(shape);
-                    geo.rotateX(Math.PI / 2);
-                    const m = new THREE.Mesh(geo, floorMat);
-                    m.position.y = .012;
-                    g.add(m);
-                });
-                // walls, cut around doors and windows
-                d.walls.forEach((w) => {
-                    const dx = w.b.x - w.a.x, dy = w.b.y - w.a.y, L = Math.hypot(dx, dy);
-                    if (L < 1e-3) return;
-                    const ang = Math.atan2(dy, dx), u = { x: dx / L, y: dy / L };
-                    const at = (s) => ({ x: w.a.x + u.x * s, y: w.a.y + u.y * s });
-                    const tt = Math.max(w.t / 12 * k, .02), H = w.h * k;
-                    topY = Math.max(topY, H);
-                    const ops = d.openings.filter((o) => o.wall === w.id).map((o) => ({ o, s: Math.max(o.at - o.w / 2, 0), e: Math.min(o.at + o.w / 2, L) })).sort((p, q) => p.s - q.s);
-                    let cur = 0;
-                    ops.forEach(({ o, s, e }) => {
-                        if (s > cur) seg((s - cur) * k, H, tt, wallMat, at((cur + s) / 2), 0, ang);
-                        const sill = Math.min(o.sill || 0, w.h), top = Math.min(sill + o.h, w.h);
-                        const wd = (e - Math.max(s, cur)) * k, mid = at((Math.max(s, cur) + e) / 2);
-                        if (wd > 0) {
-                            if (sill > 0) seg(wd, sill * k, tt, wallMat, mid, 0, ang);
-                            if (top < w.h) seg(wd, (w.h - top) * k, tt, wallMat, mid, top * k, ang);
-                            if (o.type === 'window') seg(wd, (top - sill) * k, Math.max(tt * .18, .006), glass, mid, sill * k, ang);
-                            else seg(wd, (top - sill) * k, Math.max(tt * .35, .01), wood, mid, 0, ang);
-                        }
-                        cur = Math.max(cur, e);
+                shown.forEach((L, li) => {
+                    const base = PLAN.elevOf(li) * k;
+                    if (li > 0) slab(L.rooms.length ? L.rooms : D.levels[li - 1].rooms, base - slabT);
+                    L.rooms.forEach((r) => {
+                        const m = new THREE.Mesh(flat(r.pts), floorMat);
+                        m.position.y = base + .006;
+                        g.add(m);
                     });
-                    if (cur < L) seg((L - cur) * k, H, tt, wallMat, at((cur + L) / 2), 0, ang);
-                });
-                // furniture
-                const LIBF = PLAN.LIB;
-                d.furn.forEach((f) => {
-                    const L = LIBF[f.kind];
-                    if (!L) return;
-                    const mat = new THREE.MeshStandardMaterial({ color: L.c, roughness: .8 });
-                    const ang = (f.rot || 0) * Math.PI / 180;
-                    if (f.kind === 'stairs') {
-                        const n = Math.max(2, Math.round(f.d / .85)), step = f.d / n;
-                        for (let i = 0; i < n; i++) {
-                            const off = -f.d / 2 + step * (i + .5);
-                            const c = { x: f.x - Math.sin(ang) * off, y: f.y + Math.cos(ang) * off };
-                            seg(f.w * k, (L.h / n) * (n - i) * k, step * k, mat, c, 0, ang);
+                    L.walls.forEach((w) => {
+                        const dx = w.b.x - w.a.x, dy = w.b.y - w.a.y, len0 = Math.hypot(dx, dy);
+                        if (len0 < 1e-3) return;
+                        const ang = Math.atan2(dy, dx), u = { x: dx / len0, y: dy / len0 };
+                        const at = (s) => ({ x: w.a.x + u.x * s, y: w.a.y + u.y * s });
+                        const tt = Math.max(w.t / 12 * k, .02), H = w.h * k;
+                        topY = Math.max(topY, base + H);
+                        const ops = L.openings.filter((o) => o.wall === w.id).map((o) => ({ o, s: Math.max(o.at - o.w / 2, 0), e: Math.min(o.at + o.w / 2, len0) })).sort((p, q) => p.s - q.s);
+                        let cur = 0;
+                        ops.forEach(({ o, s, e }) => {
+                            if (s > cur) seg((s - cur) * k, H, tt, wallMat, at((cur + s) / 2), base, ang);
+                            const sill = Math.min(o.sill || 0, w.h), tp = Math.min(sill + o.h, w.h);
+                            const wd = (e - Math.max(s, cur)) * k, mid = at((Math.max(s, cur) + e) / 2);
+                            if (wd > 0) {
+                                if (sill > 0) seg(wd, sill * k, tt, wallMat, mid, base, ang);
+                                if (tp < w.h) seg(wd, (w.h - tp) * k, tt, wallMat, mid, base + tp * k, ang);
+                                if (o.type === 'window') seg(wd, (tp - sill) * k, Math.max(tt * .18, .006), glass, mid, base + sill * k, ang);
+                                else seg(wd, (tp - sill) * k, Math.max(tt * .35, .01), wood, mid, base, ang);
+                            }
+                            cur = Math.max(cur, e);
+                        });
+                        if (cur < len0) seg((len0 - cur) * k, H, tt, wallMat, at((cur + len0) / 2), base, ang);
+                    });
+                    L.furn.forEach((f) => {
+                        const F = PLAN.LIB[f.kind];
+                        if (!F) return;
+                        const mat = new THREE.MeshStandardMaterial({ color: F.c, roughness: .8 });
+                        const mats = [mat, mat, mat, mat, mat, mat];
+                        const ang = (f.rot || 0) * Math.PI / 180;
+                        if (f.kind === 'stairs') {
+                            const fh = PLAN.levelH(L) + PLAN.slabFt();
+                            const n = Math.max(2, Math.round(f.d / .85)), step = f.d / n;
+                            for (let i = 0; i < n; i++) {
+                                const off = -f.d / 2 + step * (i + .5);
+                                const c = { x: f.x - Math.sin(ang) * off, y: f.y + Math.cos(ang) * off };
+                                seg(f.w * k, (fh / n) * (n - i) * k, step * k, mats, c, base, ang);
+                            }
+                            return;
                         }
-                        return;
+                        seg(f.w * k, F.h * k, f.d * k, mats, f, base, ang);
+                    });
+                    if (li === D.cur) {
+                        L.rooms.forEach((r) => {
+                            if (!r.name) return;
+                            const lab = makeLabel(r.name, C);
+                            lab.scale.multiplyScalar(.8);
+                            lab.position.copy(S3(PLAN.centroid(r.pts), base + .25));
+                            g.add(lab);
+                        });
                     }
-                    const h = L.h * k;
-                    seg(f.w * k, h, f.d * k, [mat, mat, mat, mat, mat, mat], f, 0, ang);
-                    topY = Math.max(topY, h);
                 });
-                // room names
-                d.rooms.forEach((r) => {
-                    if (!r.name) return;
-                    const c = PLAN.centroid(r.pts);
-                    const lab = makeLabel(r.name, C);
-                    lab.scale.multiplyScalar(.8);
-                    lab.position.copy(S3(c, .25));
-                    g.add(lab);
-                });
+                // a roof on top when the whole building is shown
+                if (D.opt.all3d && shown.length) {
+                    const li = shown.length - 1, L = shown[li];
+                    const roofY = (PLAN.elevOf(li) + PLAN.levelH(L)) * k;
+                    slab(L.rooms, roofY);
+                    topY = Math.max(topY, roofY + slabT);
+                }
                 ground((maxX - minX) * k, (maxY - minY) * k);
                 topY = Math.max(topY, .3);
-                bbox = { w: (maxX - minX) * k, h: topY, d: (maxY - minY) * k, cy: topY / 3 };
+                bbox = { w: (maxX - minX) * k, h: topY, d: (maxY - minY) * k, cy: topY / 2.4 };
             }
             return { group: g, bbox };
         }
@@ -4960,19 +5161,30 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
        Plan units are feet (x → right, y → down). Wall thickness is in inches.
        ========================================================= */
     let planLocked = false;          // set by PRO: the designer needs an active subscription
+    /* =========================================================
+       Floor plan — a small 2D CAD editor with a live 3D model
+       • a plot (land) boundary — optional
+       • any number of floors (তলা), each with its own walls, rooms, doors …
+       Plan units are feet (x → right, y → down). Wall thickness is in inches.
+       ========================================================= */
     const PLAN = (() => {
         const STORE = 'cc.plan', STORE_VIEW = 'cc.planView';
         const svg = $('#plan-svg'), wrap = $('#plan-2d'), main = $('#plan-main'), insp = $('#fp-inspector');
+        const card = $('#plan-card');
         const form = $('form[data-calc="plan"]');
         const uid = () => Math.random().toString(36).slice(2, 9);
-        const KINDS = ['walls', 'rooms', 'openings', 'texts', 'dims', 'furn'];
-        const blank = () => ({ v: 1, walls: [], rooms: [], openings: [], texts: [], dims: [], furn: [],
-            opt: { wallT: 5, wallH: 10, showDims: true, ortho: true, snap: 0.5 } });
         const fin = (n, d = 0) => (Number.isFinite(+n) ? +n : d);
         const pt = (p) => ({ x: fin(p && p.x), y: fin(p && p.y) });
-        function sanitize(o) {
-            const b = blank();
+        const isTouch = () => window.matchMedia('(pointer: coarse)').matches;
+        const blankLevel = () => ({ id: uid(), name: '', walls: [], rooms: [], openings: [], texts: [], dims: [], furn: [] });
+        const blank = () => ({ v: 2, cur: 0, plot: null, levels: [blankLevel()],
+            opt: { wallT: 5, wallH: 10, showDims: true, ortho: true, snap: 0.5, slabT: 5, all3d: false, started: false } });
+
+        function sanLevel(o) {
+            const b = blankLevel();
             if (!o || typeof o !== 'object') return b;
+            b.id = String(o.id || b.id);
+            b.name = String(o.name || '').slice(0, 30);
             b.walls = (Array.isArray(o.walls) ? o.walls : []).filter(Boolean).map((w) => ({ id: String(w.id || uid()), a: pt(w.a), b: pt(w.b), t: Math.max(fin(w.t, 5), .5), h: Math.max(fin(w.h, 10), .5) }));
             b.rooms = (Array.isArray(o.rooms) ? o.rooms : []).filter((r) => r && Array.isArray(r.pts) && r.pts.length >= 3).map((r) => ({ id: String(r.id || uid()), name: String(r.name || '').slice(0, 40), pts: r.pts.map(pt) }));
             const wallIds = new Set(b.walls.map((w) => w.id));
@@ -4980,7 +5192,23 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             b.texts = (Array.isArray(o.texts) ? o.texts : []).filter(Boolean).map((x) => ({ id: String(x.id || uid()), x: fin(x.x), y: fin(x.y), text: String(x.text || '').slice(0, 80), size: Math.max(fin(x.size, 1), .2) }));
             b.dims = (Array.isArray(o.dims) ? o.dims : []).filter(Boolean).map((x) => ({ id: String(x.id || uid()), a: pt(x.a), b: pt(x.b), off: fin(x.off, -2) }));
             b.furn = (Array.isArray(o.furn) ? o.furn : []).filter((x) => x && LIB[x.kind]).map((x) => ({ id: String(x.id || uid()), kind: x.kind, x: fin(x.x), y: fin(x.y), rot: fin(x.rot) % 360, w: Math.max(fin(x.w, LIB[x.kind].w), .3), d: Math.max(fin(x.d, LIB[x.kind].d), .3) }));
+            return b;
+        }
+        function sanPlot(p) {
+            if (!p || !Array.isArray(p.pts) || p.pts.length < 3) return null;
+            const s = p.s && typeof p.s === 'object' ? p.s : {};
+            return { pts: p.pts.slice(0, 12).map(pt), s: { mode: s.mode === 'q' ? 'q' : 'r', L1: fin(s.L1), L2: fin(s.L2), W1: fin(s.W1), W2: fin(s.W2), ox: fin(s.ox), oy: fin(s.oy) } };
+        }
+        // also reads the old one-floor format (v1)
+        function sanitize(o) {
+            const b = blank();
+            if (!o || typeof o !== 'object') return b;
+            const lv = Array.isArray(o.levels) && o.levels.length ? o.levels : [o];
+            b.levels = lv.slice(0, 40).map(sanLevel);
+            b.cur = Math.max(0, Math.min(b.levels.length - 1, Math.round(fin(o.cur))));
+            b.plot = sanPlot(o.plot);
             b.opt = Object.assign(b.opt, o.opt && typeof o.opt === 'object' ? o.opt : {});
+            if (!Array.isArray(o.levels) && (b.levels[0].walls.length || b.levels[0].furn.length)) b.opt.started = true;
             return b;
         }
 
@@ -5006,14 +5234,6 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             stairs:   { w: 3.5, d: 10, h: 10, c: 0xcbd5e1, draw: (w, d) => { let s = R(-w / 2, -d / 2, w, d); for (let y = -d / 2 + .85; y < d / 2 - .1; y += .85) s += Ln(-w / 2, y, w / 2, y); return s + Ln(0, d / 2 - .4, 0, -d / 2 + .6) + Ln(-.4, -d / 2 + 1.1, 0, -d / 2 + .6) + Ln(.4, -d / 2 + 1.1, 0, -d / 2 + .6); } },
         };
 
-        let P = sanitize(storage.get(STORE, null));
-        const view = { s: 18, x: 40, y: 40, fitted: false };
-        let tool = 'select', sel = null, furnKind = 'bed';
-        let chain = null, rectStart = null, dimPts = null, hover = null, snapKind = '';
-        let drag = null, pan = null, pinch = null, down = null, spaceDown = false;
-        const pointers = new Map();
-        let hist = [JSON.stringify(P)], hi = 0;
-
         /* ---------- geometry ---------- */
         const sub = (a, b) => ({ x: a.x - b.x, y: a.y - b.y });
         const add = (a, b) => ({ x: a.x + b.x, y: a.y + b.y });
@@ -5037,31 +5257,121 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         const wallLen = (w) => dist(w.a, w.b);
         const byId = (arr, id) => arr.find((x) => x.id === id);
         const LIST = { wall: 'walls', room: 'rooms', op: 'openings', text: 'texts', dim: 'dims', furn: 'furn' };
-        const getSel = () => (sel ? byId(P[LIST[sel.k]], sel.id) : null);
+        const getSel = () => (!sel ? null : sel.k === 'plot' ? D.plot : byId(P[LIST[sel.k]] || [], sel.id));
+
+        let D = sanitize(storage.get(STORE, null));
+        let P = D.levels[D.cur];                       // the floor being edited
+        const bind = () => { D.cur = Math.max(0, Math.min(D.levels.length - 1, D.cur)); P = D.levels[D.cur]; };
+        const view = { s: 18, x: 40, y: 40, fitted: false };
+        let tool = 'select', sel = null, furnKind = 'bed';
+        let chain = null, rectStart = null, dimPts = null, hover = null, snapKind = '', lastDir = { x: 1, y: 0 };
+        let drag = null, pan = null, pinch = null, down = null, spaceDown = false;
+        const pointers = new Map();
+        let hist = [JSON.stringify(D)], hi = 0;
+
+        /* ---------- floors ---------- */
+        const ORD_BN = ['', '১ম', '২য়', '৩য়', '৪র্থ', '৫ম', '৬ষ্ঠ', '৭ম', '৮ম', '৯ম', '১০ম'];
+        function ordinal(n) {
+            if (S.lang === 'bn') return ORD_BN[n] || `${digits(n)}তম`;
+            const s = ['th', 'st', 'nd', 'rd'], v = n % 100;
+            return n + (s[(v - 20) % 10] || s[v] || s[0]);
+        }
+        const floorName = (i) => { const L = D.levels[i]; return L && L.name ? L.name : i === 0 ? t('fp.lvl0') : t('fp.lvlN', { n: ordinal(i) }); };
+        const levelH = (L) => (L.walls.length ? Math.max(...L.walls.map((w) => w.h)) : fin(D.opt.wallH, 10));
+        const slabFt = () => Math.max(fin(D.opt.slabT, 5), 0) / 12;
+        function elevOf(i) { let e = 0; for (let j = 0; j < i; j++) e += levelH(D.levels[j]) + slabFt(); return e; }
+        const hasContent = (L) => !!(L.walls.length || L.rooms.length || L.furn.length || L.texts.length || L.dims.length);
+        const anyContent = () => D.levels.some(hasContent);
+        function setLevel(i) {
+            if (i === D.cur || i < 0 || i >= D.levels.length) return;
+            D.cur = i; bind();
+            sel = null; chain = null; rectStart = null; dimPts = null;
+            changed(true);
+            renderFloors();
+        }
+        function addLevel(copy) {
+            const L = blankLevel();
+            if (copy) {
+                const map = {};
+                L.walls = P.walls.map((w) => { const n = { id: uid(), a: { ...w.a }, b: { ...w.b }, t: w.t, h: w.h }; map[w.id] = n.id; return n; });
+                L.rooms = P.rooms.map((r) => ({ id: uid(), name: r.name, pts: r.pts.map((p) => ({ ...p })) }));
+                L.openings = P.openings.filter((o) => map[o.wall]).map((o) => ({ ...o, id: uid(), wall: map[o.wall] }));
+            }
+            D.levels.push(L);
+            D.cur = D.levels.length - 1; bind();
+            sel = null;
+            commit();
+            renderFloors();
+            toast(t('fp.lvlAdded', { name: floorName(D.cur) }));
+        }
+        function deleteLevel() {
+            if (D.levels.length < 2) return;
+            if (!window.confirm(t('fp.lvlDelConfirm', { name: floorName(D.cur) }))) return;
+            D.levels.splice(D.cur, 1);
+            D.cur = Math.max(0, D.cur - 1); bind();
+            sel = null;
+            commit();
+            renderFloors();
+        }
+
+        /* ---------- plot (land boundary) ---------- */
+        // four sides like a real plot: A top-left, AB top (L1), AD left (W1), DC bottom (L2), BC right (W2); right angle at A
+        function quad(L1, L2, W1, W2) {
+            const A = { x: 0, y: 0 }, B = { x: L1, y: 0 }, Dp = { x: 0, y: W1 };
+            const ex = B.x - Dp.x, ey = B.y - Dp.y, d = Math.hypot(ex, ey);
+            if (!(d > 0) || d > L2 + W2 + 1e-9 || d < Math.abs(L2 - W2) - 1e-9) return null;
+            const a = (L2 * L2 - W2 * W2 + d * d) / (2 * d);
+            const h = Math.sqrt(Math.max(L2 * L2 - a * a, 0));
+            const px = Dp.x + a * ex / d, py = Dp.y + a * ey / d;
+            const c1 = { x: px + h * ey / d, y: py - h * ex / d }, c2 = { x: px - h * ey / d, y: py + h * ex / d };
+            const side = (p) => ex * (p.y - Dp.y) - ey * (p.x - Dp.x);
+            const C = side(c1) * side(A) < 0 ? c1 : c2;
+            return [A, B, C, Dp];
+        }
+        function makePlot(s) {
+            const q = s.mode === 'q' ? quad(s.L1, s.L2, s.W1, s.W2) : (s.L1 > 0 && s.W1 > 0 ? [{ x: 0, y: 0 }, { x: s.L1, y: 0 }, { x: s.L1, y: s.W1 }, { x: 0, y: s.W1 }] : null);
+            if (!q) return null;
+            return { pts: q.map((p) => clean({ x: p.x + s.ox, y: p.y + s.oy })), s: { ...s } };
+        }
+        function setPlot(s) {
+            if (!D.plot) {
+                // a plot added after drawing: put it around what is already there
+                const b = bounds(true);
+                s.ox = b.empty ? 0 : Math.floor(b.x0 - 3); s.oy = b.empty ? 0 : Math.floor(b.y0 - 3);
+            } else { s.ox = D.plot.s.ox; s.oy = D.plot.s.oy; }
+            const p = makePlot(s);
+            if (!p) { toast(t('fp.plotBad')); return false; }
+            D.plot = p;
+            return true;
+        }
+        const KATHA = 720, DECIMAL = 435.6;          // sq ft in one কাঠা / শতাংশ
+        const landText = (a) => `${num(a / KATHA)} ${t('u.katha')} · ${num(a / DECIMAL)} ${t('u.decimal')}`;
 
         function endpoints(exclude) {
             const out = [];
             P.walls.forEach((w) => { out.push(w.a, w.b); });
+            if (D.cur > 0) D.levels[D.cur - 1].walls.forEach((w) => { out.push(w.a, w.b); });     // the floor below
+            if (D.plot) out.push(...D.plot.pts);
             if (chain) out.push(...chain.pts);
             return exclude ? out.filter((q) => dist(q, exclude) > 1e-3) : out;
         }
-        function degreeMap() {
+        function degreeMap(L = P) {
             const m = new Map();
             const key = (p) => `${Math.round(p.x * 100)}:${Math.round(p.y * 100)}`;
-            P.walls.forEach((w) => { [w.a, w.b].forEach((p) => m.set(key(p), (m.get(key(p)) || 0) + 1)); });
+            L.walls.forEach((w) => { [w.a, w.b].forEach((p) => m.set(key(p), (m.get(key(p)) || 0) + 1)); });
             return (p) => m.get(key(p)) || 0;
         }
 
         /* ---------- snapping ---------- */
         const isMetric = () => LEN.system() === 'met';
-        const snapStep = () => fin(P.opt.snap);
+        const snapStep = () => fin(D.opt.snap);
         function snapPoint(p, from, exclude) {
-            const tol = 10 / view.s;
+            const tol = (isTouch() ? 16 : 10) / view.s;
             let best = null, bd = tol;
             endpoints(exclude).forEach((q) => { const d = dist(p, q); if (d < bd) { bd = d; best = q; } });
             if (best) { snapKind = 'end'; return { x: best.x, y: best.y }; }
             const st = snapStep();
-            if (from && P.opt.ortho) {
+            if (from && D.opt.ortho) {
                 const d = sub(p, from), step = Math.PI / 4;
                 const ang = Math.round(Math.atan2(d.y, d.x) / step) * step;
                 let L = len(d);
@@ -5077,7 +5387,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         }
 
         /* ---------- model edits ---------- */
-        function addWall(a, b, t = P.opt.wallT, h = P.opt.wallH) {
+        function addWall(a, b, t = D.opt.wallT, h = D.opt.wallH) {
             const L = dist(a, b);
             if (L < .05) return [];
             let iv = [[0, 1]];
@@ -5100,6 +5410,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 P.walls.push(w);
                 ids.push(w.id);
             });
+            lastDir = unitv(sub(b, a));
             return ids;
         }
         function addRoom(pts, name) {
@@ -5147,10 +5458,72 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             });
         }
         function remove(k, id) {
+            if (k === 'plot') { D.plot = null; sel = null; return; }
             const list = LIST[k];
+            if (!list) return;
             P[list] = P[list].filter((x) => x.id !== id);
             if (k === 'wall') P.openings = P.openings.filter((o) => o.wall !== id);
             if (sel && sel.id === id) sel = null;
+        }
+        function rotateSel(deg) {
+            const o = getSel();
+            if (!o || sel.k !== 'furn') return;
+            o.rot = ((o.rot + deg) % 360 + 360) % 360;
+            commit();
+        }
+
+        /* ---------- picking: the nearest thing under a finger / the mouse ---------- */
+        function inPoly(p, pts) {
+            let c = false;
+            for (let i = 0, j = pts.length - 1; i < pts.length; j = i++) {
+                const a = pts[i], b = pts[j];
+                if ((a.y > p.y) !== (b.y > p.y) && p.x < (b.x - a.x) * (p.y - a.y) / (b.y - a.y) + a.x) c = !c;
+            }
+            return c;
+        }
+        function pick(p, tolPx) {
+            const tol = tolPx / view.s;
+            let best = null, bd = Infinity;
+            const take = (k, id, d) => { if (d <= tol && d < bd) { bd = d; best = { k, id }; } };
+            P.openings.forEach((o) => {
+                const w = byId(P.walls, o.wall);
+                if (!w) return;
+                const u = unitv(sub(w.b, w.a)), c = add(w.a, mul(u, o.at));
+                take('op', o.id, Math.max(distSeg(p, sub(c, mul(u, o.w / 2)), add(c, mul(u, o.w / 2))) - w.t / 24, 0));
+            });
+            if (best) return best;
+            P.furn.forEach((f) => {
+                const r = -f.rot * Math.PI / 180, dx = p.x - f.x, dy = p.y - f.y;
+                const lx = dx * Math.cos(r) - dy * Math.sin(r), ly = dx * Math.sin(r) + dy * Math.cos(r);
+                take('furn', f.id, Math.hypot(Math.max(Math.abs(lx) - f.w / 2, 0), Math.max(Math.abs(ly) - f.d / 2, 0)));
+            });
+            P.texts.forEach((x) => {
+                const w = x.text.length * x.size * .55;
+                take('text', x.id, Math.hypot(Math.max(x.x - p.x, 0, p.x - (x.x + w)), Math.max(x.y - x.size - p.y, 0, p.y - x.y)));
+            });
+            P.dims.forEach((d) => {
+                const n = perp(unitv(sub(d.b, d.a)));
+                take('dim', d.id, distSeg(p, add(d.a, mul(n, d.off)), add(d.b, mul(n, d.off))));
+            });
+            if (best) return best;
+            P.walls.forEach((w) => take('wall', w.id, Math.max(distSeg(p, w.a, w.b) - w.t / 24, 0)));
+            if (best) return best;
+            const rooms = P.rooms.filter((r) => inPoly(p, r.pts)).sort((a, b) => polyArea(a.pts) - polyArea(b.pts));
+            if (rooms.length) return { k: 'room', id: rooms[0].id };
+            if (D.plot) {
+                const q = D.plot.pts;
+                const d = Math.min(...q.map((a, i) => distSeg(p, a, q[(i + 1) % q.length])));
+                if (d <= tol) return { k: 'plot', id: 'plot' };
+            }
+            return null;
+        }
+        function handleAt(p, tolPx) {
+            const o = getSel();
+            if (!o || !(sel.k === 'wall' || sel.k === 'dim')) return null;
+            const tol = tolPx / view.s;
+            if (dist(p, o.a) <= tol) return 'a';
+            if (dist(p, o.b) <= tol) return 'b';
+            return null;
         }
 
         /* ---------- history + saving ---------- */
@@ -5158,17 +5531,19 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         function commit() {
             previewing = false;
             hist = hist.slice(0, hi + 1);
-            hist.push(JSON.stringify(P));
+            hist.push(JSON.stringify(D));
             if (hist.length > 120) hist.shift();
             hi = hist.length - 1;
-            storage.set(STORE, P);
+            storage.set(STORE, D);
             changed();
         }
         function restoreFrom(json) {
-            P = sanitize(JSON.parse(json));
+            D = sanitize(JSON.parse(json));
+            bind();
             if (sel && !getSel()) sel = null;
-            storage.set(STORE, P);
+            storage.set(STORE, D);
             changed();
+            renderFloors();
         }
         const undo = () => { if (hi > 0) { hi -= 1; restoreFrom(hist[hi]); } };
         const redo = () => { if (hi < hist.length - 1) { hi += 1; restoreFrom(hist[hi]); } };
@@ -5176,6 +5551,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         function changed() {
             draw();
             inspector();
+            startScreen();
             VIZ.update('plan');
             clearTimeout(estT);
             estT = setTimeout(refreshEstimate, 120);
@@ -5196,32 +5572,62 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 bg: dark ? '#172133' : '#ffffff', grid: dark ? 'rgba(148,163,184,.12)' : 'rgba(30,41,59,.07)', grid2: dark ? 'rgba(148,163,184,.24)' : 'rgba(30,41,59,.15)',
                 wall: dark ? '#cbd5e1' : '#334155', ink: dark ? '#e2e8f0' : '#1e293b', muted: dark ? '#94a3b8' : '#64748b',
                 room: dark ? 'rgba(148,163,184,.07)' : 'rgba(13,148,136,.05)', furn: dark ? 'rgba(148,163,184,.10)' : 'rgba(255,255,255,.9)', brand,
+                plot: dark ? '#4ade80' : '#16a34a', plotFill: dark ? 'rgba(74,222,128,.06)' : 'rgba(22,163,74,.06)', ghost: dark ? 'rgba(203,213,225,.22)' : 'rgba(51,65,85,.16)',
             };
         }
         const esc = escapeHtml;
         const fmtL = (ft) => LEN.fmt(ft);
 
-        // everything in plan (ft) coordinates; s = pixels per foot (for text and line sizes)
-        function worldMarkup(pal, s, live) {
+        // the land boundary with its side lengths
+        function plotMarkup(pal, s, live) {
+            if (!D.plot) return '';
+            const px = (n) => n / s, q = D.plot.pts;
+            const isSel = live && sel && sel.k === 'plot';
+            const c = centroid(q);
+            let g = `<polygon points="${q.map((p) => `${p.x},${p.y}`).join(' ')}" fill="${pal.plotFill}" stroke="${pal.plot}" stroke-width="${px(isSel ? 3 : 2)}" stroke-dasharray="${px(10)} ${px(5)}"/>`;
+            q.forEach((a, i) => {
+                const b = q[(i + 1) % q.length], m = lerp(a, b, .5), u = unitv(sub(b, a));
+                let n = perp(u);
+                if ((m.x - c.x) * n.x + (m.y - c.y) * n.y < 0) n = mul(n, -1);         // outside
+                const pos = add(m, mul(n, px(12)));
+                let ang = Math.atan2(u.y, u.x) * 180 / Math.PI;
+                if (ang > 90 || ang < -90) ang += 180;
+                g += `<text x="${pos.x}" y="${pos.y}" font-size="${px(11)}" font-weight="600" fill="${pal.plot}" text-anchor="middle" dominant-baseline="middle" transform="rotate(${ang} ${pos.x} ${pos.y})">${esc(fmtL(dist(a, b)))}</text>`;
+                g += `<circle cx="${a.x}" cy="${a.y}" r="${px(3)}" fill="${pal.plot}"/>`;
+            });
+            const lab = add(q[0], { x: px(8), y: px(14) });
+            g += `<text x="${lab.x}" y="${lab.y}" font-size="${px(11)}" fill="${pal.plot}" font-weight="600">${esc(t('fp.plot'))} · ${esc(qs(qArea(polyArea(q))))}</text>`;
+            return `<g data-id="plot" data-k="plot" pointer-events="none">${g}</g>`;
+        }
+        // the floor below, faint, to line the walls up
+        function ghostMarkup(L, pal) {
+            const deg = degreeMap(L);
+            return L.walls.map((w) => {
+                const u = unitv(sub(w.b, w.a)), n = perp(u), ht = w.t / 24;
+                const a = deg(w.a) > 1 ? sub(w.a, mul(u, ht)) : w.a, b = deg(w.b) > 1 ? add(w.b, mul(u, ht)) : w.b;
+                const q = [add(a, mul(n, ht)), add(b, mul(n, ht)), sub(b, mul(n, ht)), sub(a, mul(n, ht))];
+                return `<polygon points="${q.map((p) => `${p.x},${p.y}`).join(' ')}" fill="${pal.ghost}" pointer-events="none"/>`;
+            }).join('');
+        }
+
+        // everything of one floor in plan (ft) coordinates; s = pixels per foot (for text and line sizes)
+        function worldMarkup(pal, s, live, L = P) {
             const px = (n) => n / s;               // n screen pixels in ft
-            const deg = degreeMap();
+            const deg = degreeMap(L);
             let out = '';
-            // rooms
-            P.rooms.forEach((r) => {
+            L.rooms.forEach((r) => {
                 const isSel = live && sel && sel.k === 'room' && sel.id === r.id;
                 out += `<polygon data-id="${r.id}" data-k="room" points="${r.pts.map((p) => `${p.x},${p.y}`).join(' ')}" fill="${isSel ? 'rgba(13,148,136,.14)' : pal.room}" ${isSel ? `stroke="${pal.brand}" stroke-width="${px(2)}" stroke-dasharray="${px(6)} ${px(4)}"` : ''}/>`;
             });
-            // walls
-            P.walls.forEach((w) => {
+            L.walls.forEach((w) => {
                 const u = unitv(sub(w.b, w.a)), n = perp(u), ht = w.t / 24;
                 const a = deg(w.a) > 1 ? sub(w.a, mul(u, ht)) : w.a, b = deg(w.b) > 1 ? add(w.b, mul(u, ht)) : w.b;
                 const q = [add(a, mul(n, ht)), add(b, mul(n, ht)), sub(b, mul(n, ht)), sub(a, mul(n, ht))];
                 const isSel = live && sel && sel.k === 'wall' && sel.id === w.id;
                 out += `<polygon data-id="${w.id}" data-k="wall" points="${q.map((p) => `${p.x},${p.y}`).join(' ')}" fill="${isSel ? pal.brand : pal.wall}"/>`;
             });
-            // openings
-            P.openings.forEach((o) => {
-                const w = byId(P.walls, o.wall);
+            L.openings.forEach((o) => {
+                const w = byId(L.walls, o.wall);
                 if (!w) return;
                 const u = unitv(sub(w.b, w.a)), n = perp(u), ht = w.t / 24 + px(1);
                 const c = add(w.a, mul(u, o.at)), hw = o.w / 2;
@@ -5247,37 +5653,32 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 }
                 out += `<g data-id="${o.id}" data-k="op">${g}</g>`;
             });
-            // furniture
-            P.furn.forEach((f) => {
-                const L = LIB[f.kind];
+            L.furn.forEach((f) => {
+                const F = LIB[f.kind];
                 const isSel = live && sel && sel.k === 'furn' && sel.id === f.id;
-                out += `<g data-id="${f.id}" data-k="furn" transform="translate(${f.x} ${f.y}) rotate(${f.rot})" stroke="${isSel ? pal.brand : pal.ink}" stroke-width="${px(isSel ? 2 : 1.1)}" fill="${pal.furn}">${L.draw(f.w, f.d)}</g>`;
+                out += `<g data-id="${f.id}" data-k="furn" transform="translate(${f.x} ${f.y}) rotate(${f.rot})" stroke="${isSel ? pal.brand : pal.ink}" stroke-width="${px(isSel ? 2 : 1.1)}" fill="${pal.furn}">${F.draw(f.w, f.d)}</g>`;
             });
-            // dimension lines
-            P.dims.forEach((d) => {
+            L.dims.forEach((d) => {
                 const isSel = live && sel && sel.k === 'dim' && sel.id === d.id;
                 out += dimMarkup(d, pal, s, isSel);
             });
-            // wall lengths
-            if (P.opt.showDims) {
-                P.walls.forEach((w) => {
-                    const L = wallLen(w);
-                    if (L * s < 40) return;
+            if (D.opt.showDims) {
+                L.walls.forEach((w) => {
+                    const len0 = wallLen(w);
+                    if (len0 * s < 40) return;
                     const u = unitv(sub(w.b, w.a)), n = perp(u), m = lerp(w.a, w.b, .5);
                     const pos = add(m, mul(n, w.t / 24 + px(9)));
                     let ang = Math.atan2(u.y, u.x) * 180 / Math.PI;
                     if (ang > 90 || ang < -90) ang += 180;
-                    out += `<text x="${pos.x}" y="${pos.y}" font-size="${px(10.5)}" fill="${pal.muted}" text-anchor="middle" dominant-baseline="middle" transform="rotate(${ang} ${pos.x} ${pos.y})" pointer-events="none">${esc(fmtL(L))}</text>`;
+                    out += `<text x="${pos.x}" y="${pos.y}" font-size="${px(10.5)}" fill="${pal.muted}" text-anchor="middle" dominant-baseline="middle" transform="rotate(${ang} ${pos.x} ${pos.y})" pointer-events="none">${esc(fmtL(len0))}</text>`;
                 });
             }
-            // room names + areas
-            P.rooms.forEach((r) => {
+            L.rooms.forEach((r) => {
                 const c = centroid(r.pts);
                 const fs = Math.max(px(12), Math.min(1.2, px(16)));
                 out += `<text x="${c.x}" y="${c.y}" text-anchor="middle" fill="${pal.ink}" pointer-events="none"><tspan x="${c.x}" font-size="${fs}" font-weight="600">${esc(r.name)}</tspan><tspan x="${c.x}" dy="${fs * 1.25}" font-size="${fs * .8}" fill="${pal.muted}">${esc(qs(qArea(polyArea(r.pts))))}</tspan></text>`;
             });
-            // texts
-            P.texts.forEach((x) => {
+            L.texts.forEach((x) => {
                 const isSel = live && sel && sel.k === 'text' && sel.id === x.id;
                 out += `<text data-id="${x.id}" data-k="text" x="${x.x}" y="${x.y}" font-size="${x.size}" fill="${isSel ? pal.brand : pal.ink}" ${isSel ? 'text-decoration="underline"' : ''}>${esc(x.text)}</text>`;
             });
@@ -5334,50 +5735,121 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
             let over = '';
             const px = (n) => n / s;
-            // previews
+            const hs = isTouch() ? 11 : 6;               // handle half size in px
             if (chain && hover) {
                 const last = chain.pts[chain.pts.length - 1];
                 const pts = chain.pts.map((p) => `${p.x},${p.y}`).join(' ') + ` ${hover.x},${hover.y}`;
-                over += `<polyline points="${pts}" fill="none" stroke="${pal.brand}" stroke-width="${px(Math.max(2, P.opt.wallT / 12 * s))}" stroke-opacity=".35" stroke-linejoin="round"/>`;
+                over += `<polyline points="${pts}" fill="none" stroke="${pal.brand}" stroke-width="${px(Math.max(2, D.opt.wallT / 12 * s))}" stroke-opacity=".35" stroke-linejoin="round"/>`;
                 over += `<line x1="${last.x}" y1="${last.y}" x2="${hover.x}" y2="${hover.y}" stroke="${pal.brand}" stroke-width="${px(1.5)}" stroke-dasharray="${px(6)} ${px(4)}"/>`;
                 over += dimMarkup({ a: last, b: hover, off: -1.2 }, pal, s, false, true);
+            } else if (chain) {
+                chain.pts.forEach((p) => { over += `<circle cx="${p.x}" cy="${p.y}" r="${px(5)}" fill="${pal.brand}"/>`; });
             }
             if (rectStart && hover) {
                 const x = Math.min(rectStart.x, hover.x), y = Math.min(rectStart.y, hover.y), w = Math.abs(hover.x - rectStart.x), h = Math.abs(hover.y - rectStart.y);
                 over += `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="rgba(13,148,136,.08)" stroke="${pal.brand}" stroke-width="${px(1.6)}" stroke-dasharray="${px(6)} ${px(4)}"/>`;
                 over += dimMarkup({ a: { x, y }, b: { x: x + w, y }, off: -1.4 }, pal, s, false, true);
                 over += dimMarkup({ a: { x, y }, b: { x, y: y + h }, off: 1.4 }, pal, s, false, true);
+            } else if (rectStart) {
+                over += `<circle cx="${rectStart.x}" cy="${rectStart.y}" r="${px(5)}" fill="${pal.brand}"/>`;
             }
             if (dimPts && hover) {
                 if (dimPts.length === 1) over += `<line x1="${dimPts[0].x}" y1="${dimPts[0].y}" x2="${hover.x}" y2="${hover.y}" stroke="${pal.brand}" stroke-width="${px(1.2)}" stroke-dasharray="${px(5)} ${px(4)}"/>`;
                 else if (dimPts.length === 2) over += dimMarkup({ a: dimPts[0], b: dimPts[1], off: signedOff(hover) }, pal, s, false, true);
             }
-            // selection handles
             const so = getSel();
-            if (so && sel.k === 'wall') [so.a, so.b].forEach((p, i) => { over += `<rect class="handle" data-handle="${i ? 'b' : 'a'}" x="${p.x - px(6)}" y="${p.y - px(6)}" width="${px(12)}" height="${px(12)}" stroke-width="${px(2)}"/>`; });
-            if (so && sel.k === 'dim') [so.a, so.b].forEach((p, i) => { over += `<rect class="handle" data-handle="${i ? 'b' : 'a'}" x="${p.x - px(5)}" y="${p.y - px(5)}" width="${px(10)}" height="${px(10)}" stroke-width="${px(2)}"/>`; });
+            if (so && (sel.k === 'wall' || sel.k === 'dim')) [so.a, so.b].forEach((p) => { over += `<rect class="handle" x="${p.x - px(hs)}" y="${p.y - px(hs)}" width="${px(2 * hs)}" height="${px(2 * hs)}" rx="${px(3)}" stroke-width="${px(2)}"/>`; });
             if (so && sel.k === 'room') so.pts.forEach((p) => { over += `<circle cx="${p.x}" cy="${p.y}" r="${px(4)}" fill="${pal.brand}"/>`; });
-            // snap marker
             if (hover && tool !== 'select' && tool !== 'pan' && tool !== 'erase') {
-                const r = px(5);
+                const r = px(isTouch() ? 8 : 5);
                 over += snapKind === 'end'
                     ? `<rect x="${hover.x - r}" y="${hover.y - r}" width="${2 * r}" height="${2 * r}" fill="none" stroke="${pal.brand}" stroke-width="${px(2)}"/>`
                     : `<path d="M${hover.x - r} ${hover.y}H${hover.x + r}M${hover.x} ${hover.y - r}V${hover.y + r}" stroke="${pal.brand}" stroke-width="${px(1.5)}"/>`;
             }
+            const ghost = D.cur > 0 ? ghostMarkup(D.levels[D.cur - 1], pal) : '';
             svg.innerHTML = `<rect width="${W}" height="${H}" fill="${pal.bg}"/>`
-                + `<g transform="translate(${view.x} ${view.y}) scale(${s})">${gridMarkup(pal, s, W, H)}${worldMarkup(pal, s, true)}<g pointer-events="none">${over}</g></g>`;
+                + `<g transform="translate(${view.x} ${view.y}) scale(${s})">${gridMarkup(pal, s, W, H)}${plotMarkup(pal, s, true)}${ghost}${worldMarkup(pal, s, true)}<g pointer-events="none">${over}</g></g>`;
             status();
+            actions();
         }
 
         /* ---------- status bar + hints ---------- */
         function status() {
             const parts = [`<span class="hint-chip">${esc(t('fp.h.' + tool))}</span>`];
-            if (hover) parts.push(`<span>${esc(fmtL(hover.x))}, ${esc(fmtL(hover.y))}</span>`);
+            if (D.levels.length > 1) parts.unshift(`<span class="lvl-chip">${esc(floorName(D.cur))}</span>`);
+            if (hover && !isTouch()) parts.push(`<span>${esc(fmtL(hover.x))}, ${esc(fmtL(hover.y))}</span>`);
             if (chain && hover) {
                 const last = chain.pts[chain.pts.length - 1], d = sub(hover, last);
                 parts.push(`<span>${esc(fmtL(len(d)))} · ${numPlain(Math.round(-Math.atan2(d.y, d.x) * 180 / Math.PI))}°</span>`);
             }
             $('#fp-status').innerHTML = parts.join('');
+        }
+
+        /* ---------- quick action bar (big buttons — made for fingers) ---------- */
+        const actBar = $('#fp-actions');
+        let actKey = '';
+        const AB = (act, icon, label, cls = '') => `<button type="button" class="fa-btn ${cls}" data-qa="${act}"><i class="fa-solid ${icon}"></i><span>${esc(label)}</span></button>`;
+        function actions() {
+            const so = getSel();
+            const key = [tool, !!chain, chain ? chain.pts.length : 0, !!rectStart, dimPts ? dimPts.length : 0, sel ? sel.k + sel.id : '', hi, hist.length, card.classList.contains('fs'), S.lang].join('|');
+            if (key === actKey) return;
+            actKey = key;
+            let h = '';
+            if (tool === 'wall' && chain) {
+                h += AB('typeLen', 'fa-keyboard', t('fp.qa.type'), 'pri');
+                if (chain.pts.length > 2) h += AB('close', 'fa-draw-polygon', t('fp.qa.close'));
+                h += AB('finish', 'fa-check', t('fp.qa.finish'));
+                h += AB('cancel', 'fa-xmark', t('fp.cancel'));
+            } else if (tool === 'room' && rectStart) {
+                h += AB('typeLen', 'fa-keyboard', t('fp.qa.typeRect'), 'pri') + AB('cancel', 'fa-xmark', t('fp.cancel'));
+            } else if (tool === 'dim' && dimPts) {
+                h += AB('cancel', 'fa-xmark', t('fp.cancel'));
+            } else if (so) {
+                if (sel.k === 'furn') h += AB('rot', 'fa-rotate-right', '90°');
+                if (sel.k === 'op' && so.type === 'door') h += AB('flip', 'fa-arrows-up-down', t('fp.qa.flip'));
+                h += AB('props', 'fa-sliders', t('fp.qa.props'), 'pri');
+                h += AB('del', 'fa-trash-can', t('fp.delete'), 'danger');
+                h += AB('desel', 'fa-xmark', '');
+            }
+            h += `<span class="fa-sep"></span>`;
+            h += `<button type="button" class="fa-btn icon" data-qa="undo"${hi > 0 ? '' : ' disabled'} aria-label="${esc(t('fp.undo'))}"><i class="fa-solid fa-rotate-left"></i></button>`;
+            h += `<button type="button" class="fa-btn icon" data-qa="redo"${hi < hist.length - 1 ? '' : ' disabled'} aria-label="${esc(t('fp.redo'))}"><i class="fa-solid fa-rotate-right"></i></button>`;
+            h += `<button type="button" class="fa-btn icon" data-qa="fit" aria-label="${esc(t('fp.fit'))}"><i class="fa-solid fa-expand"></i></button>`;
+            actBar.innerHTML = h;
+        }
+        actBar.addEventListener('pointerdown', (e) => e.stopPropagation());
+        actBar.addEventListener('click', (e) => {
+            const b = e.target.closest('[data-qa]');
+            if (!b) return;
+            const a = b.dataset.qa, o = getSel();
+            if (a === 'typeLen') typedLength('');
+            else if (a === 'finish') finishChain();
+            else if (a === 'close' && chain && chain.pts.length > 2) clickAt(chain.pts[0]);
+            else if (a === 'cancel') { chain = null; rectStart = null; dimPts = null; hidePrompt(); draw(); }
+            else if (a === 'rot') rotateSel(90);
+            else if (a === 'flip' && o) { o.flip ^= 1; commit(); }
+            else if (a === 'del' && sel) { remove(sel.k, sel.id); commit(); }
+            else if (a === 'desel') { sel = null; inspector(); draw(); }
+            else if (a === 'props') openProps();
+            else if (a === 'undo') undo();
+            else if (a === 'redo') redo();
+            else if (a === 'fit') fit();
+        });
+        // show the properties: a sheet in full screen on a phone, otherwise scroll to the panel
+        function openProps() {
+            if (card.classList.contains('fs') && window.matchMedia('(max-width: 860px)').matches) insp.classList.toggle('open');
+            else insp.scrollIntoView({ behavior: S.motion ? 'auto' : 'smooth', block: 'nearest' });
+        }
+
+        /* ---------- full screen editor (great on phones) ---------- */
+        function setFull(on) {
+            card.classList.toggle('fs', on);
+            document.body.classList.toggle('lock', on);
+            insp.classList.remove('open');
+            const b = $('#fp-full');
+            if (b) { b.setAttribute('aria-pressed', String(on)); $('i', b).className = on ? 'fa-solid fa-compress' : 'fa-solid fa-maximize'; }
+            actKey = '';
+            setTimeout(() => { view.fitted = false; draw(); VIZ.update('plan'); }, 60);
         }
 
         /* ---------- view: pan / zoom / fit ---------- */
@@ -5394,25 +5866,29 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             view.s = ns;
             draw();
         }
-        function bounds() {
+        function bounds(all, L = P) {
             const xs = [], ys = [];
             const push = (p, m = 0) => { xs.push(p.x - m, p.x + m); ys.push(p.y - m, p.y + m); };
-            P.walls.forEach((w) => { push(w.a, w.t / 24); push(w.b, w.t / 24); });
-            P.rooms.forEach((r) => r.pts.forEach((p) => push(p)));
-            P.furn.forEach((f) => push(f, Math.max(f.w, f.d) / 2));
-            P.texts.forEach((x) => push(x, x.size));
-            P.dims.forEach((d) => { push(add(d.a, mul(perp(unitv(sub(d.b, d.a))), d.off))); push(add(d.b, mul(perp(unitv(sub(d.b, d.a))), d.off))); });
+            (all ? D.levels : [L]).forEach((Lv) => {
+                Lv.walls.forEach((w) => { push(w.a, w.t / 24); push(w.b, w.t / 24); });
+                Lv.rooms.forEach((r) => r.pts.forEach((p) => push(p)));
+                Lv.furn.forEach((f) => push(f, Math.max(f.w, f.d) / 2));
+                Lv.texts.forEach((x) => push(x, x.size));
+                Lv.dims.forEach((d) => { push(add(d.a, mul(perp(unitv(sub(d.b, d.a))), d.off))); push(add(d.b, mul(perp(unitv(sub(d.b, d.a))), d.off))); });
+            });
+            const empty = !xs.length;
+            if (D.plot && (all !== true || !empty)) D.plot.pts.forEach((p) => push(p, 1.5));
             if (!xs.length) return { x0: 0, y0: 0, x1: 30, y1: 20, empty: true };
-            return { x0: Math.min(...xs), y0: Math.min(...ys), x1: Math.max(...xs), y1: Math.max(...ys) };
+            return { x0: Math.min(...xs), y0: Math.min(...ys), x1: Math.max(...xs), y1: Math.max(...ys), empty };
         }
         function fit(quiet) {
             const W = wrap.clientWidth, H = wrap.clientHeight;
             if (!W || !H) return;
-            const b = bounds(), pad = 3;
+            const b = bounds(false), pad = 3, bottom = 64;
             const bw = b.x1 - b.x0 + pad * 2, bh = b.y1 - b.y0 + pad * 2;
-            view.s = Math.max(2, Math.min(120, Math.min(W / bw, (H - 30) / bh)));
+            view.s = Math.max(2, Math.min(120, Math.min(W / bw, (H - bottom) / bh)));
             view.x = (W - (b.x1 - b.x0) * view.s) / 2 - b.x0 * view.s;
-            view.y = (H - 30 - (b.y1 - b.y0) * view.s) / 2 - b.y0 * view.s;
+            view.y = (H - bottom - (b.y1 - b.y0) * view.s) / 2 + 34 - b.y0 * view.s;
             if (!quiet) draw();
         }
 
@@ -5426,7 +5902,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             $('#fp-furn-kind').hidden = tl !== 'furn';
             draw();
         }
-        function finishChain() { chain = null; draw(); }
+        function finishChain() { chain = null; hidePrompt(); draw(); }
         function signedOff(p) {
             const [a, b] = dimPts, u = unitv(sub(b, a)), n = perp(u);
             return +(((p.x - a.x) * n.x + (p.y - a.y) * n.y)).toFixed(3);
@@ -5461,7 +5937,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                     commit();
                 }
             } else if (tool === 'door' || tool === 'window') {
-                const w = nearestWall(raw, 16);
+                const w = nearestWall(raw, isTouch() ? 28 : 16);
                 if (!w) { toast(t('fp.needWall')); return; }
                 const o = addOpening(tool, w, raw);
                 sel = { k: 'op', id: o.id };
@@ -5485,8 +5961,8 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 commit();
             } else if (tool === 'furn') {
                 const p = snapPoint(raw, null);
-                const L = LIB[furnKind];
-                const f = { id: uid(), kind: furnKind, x: p.x, y: p.y, rot: 0, w: L.w, d: L.d };
+                const F = LIB[furnKind];
+                const f = { id: uid(), kind: furnKind, x: p.x, y: p.y, rot: 0, w: F.w, d: F.d };
                 P.furn.push(f);
                 sel = { k: 'furn', id: f.id };
                 commit();
@@ -5503,19 +5979,25 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             prompt.hidden = false;
             prompt.dataset.kind = kind;
             const r = svg.getBoundingClientRect();
-            const sx = at ? at.x * view.s + view.x : 20, sy = at ? at.y * view.s + view.y : 20;
-            prompt.style.left = Math.max(8, Math.min(r.width - 230, sx + 14)) + 'px';
-            prompt.style.top = Math.max(8, Math.min(r.height - 60, sy + 14)) + 'px';
+            if (isTouch()) { prompt.style.left = '50%'; prompt.style.top = '3.25rem'; prompt.classList.add('center'); }
+            else {
+                prompt.classList.remove('center');
+                const sx = at ? at.x * view.s + view.x : 20, sy = at ? at.y * view.s + view.y : 20;
+                prompt.style.left = Math.max(8, Math.min(r.width - 260, sx + 14)) + 'px';
+                prompt.style.top = Math.max(8, Math.min(r.height - 60, sy + 14)) + 'px';
+            }
             promptIn.focus();
             promptIn.setSelectionRange(promptIn.value.length, promptIn.value.length);
         }
         function hidePrompt() { prompt.hidden = true; promptCb = null; }
+        const submitPrompt = () => { const cb = promptCb, v = promptIn.value; hidePrompt(); if (cb) cb(v); };
         promptIn.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') { e.preventDefault(); const cb = promptCb, v = promptIn.value; hidePrompt(); if (cb) cb(v); svg.focus && svg.focus(); }
+            if (e.key === 'Enter') { e.preventDefault(); submitPrompt(); }
             else if (e.key === 'Escape') { e.preventDefault(); hidePrompt(); }
             e.stopPropagation();
         });
-        promptIn.addEventListener('blur', () => setTimeout(() => { if (document.activeElement !== promptIn) hidePrompt(); }, 150));
+        $('#fp-prompt-ok').addEventListener('pointerdown', (e) => { e.preventDefault(); submitPrompt(); });
+        promptIn.addEventListener('blur', () => setTimeout(() => { if (document.activeElement !== promptIn) hidePrompt(); }, 200));
 
         // "12'6", "12 6", "3.5" (in the chosen unit) → feet
         function parseLen(str) {
@@ -5531,17 +6013,19 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         }
         function typedLength(first) {
             if (tool === 'wall' && chain) {
+                const last0 = chain.pts[chain.pts.length - 1];
                 showPrompt('len', t('fp.lenPrompt'), (val) => {
                     const L = parseLen(val);
                     if (!(L > 0)) { toast(t('err.number')); return; }
                     const last = chain.pts[chain.pts.length - 1];
-                    let dir = hover && dist(hover, last) > 1e-3 ? unitv(sub(hover, last)) : { x: 1, y: 0 };
-                    if (P.opt.ortho) { const a = Math.round(Math.atan2(dir.y, dir.x) / (Math.PI / 4)) * (Math.PI / 4); dir = { x: Math.cos(a), y: Math.sin(a) }; }
+                    let dir = hover && dist(hover, last) > 1e-3 ? unitv(sub(hover, last)) : lastDir;
+                    if (D.opt.ortho) { const a = Math.round(Math.atan2(dir.y, dir.x) / (Math.PI / 4)) * (Math.PI / 4); dir = { x: Math.cos(a), y: Math.sin(a) }; }
                     const p = clean(add(last, mul(dir, L)));
                     addWall(last, p);
                     chain.pts.push(p);
+                    hover = null;
                     commit();
-                }, hover, first);
+                }, hover || last0, first);
             } else if (tool === 'room' && rectStart) {
                 showPrompt('rect', t('fp.rectPrompt'), (val) => {
                     const [a, b] = String(val).split(/\s*[x×*,]\s*/i);
@@ -5551,23 +6035,30 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                     const q = { x: rectStart.x + sx * L, y: rectStart.y + sy * W };
                     const r = addRect({ x: Math.min(q.x, rectStart.x), y: Math.min(q.y, rectStart.y) }, { x: Math.max(q.x, rectStart.x), y: Math.max(q.y, rectStart.y) });
                     rectStart = null;
+                    hover = null;
                     if (r) sel = { k: 'room', id: r.id };
                     commit();
-                }, hover, first);
+                }, hover || rectStart, first);
             }
         }
 
-        /* ---------- pointer input ---------- */
+        /* ---------- pointer input ----------
+           mouse: click to place, drag empty space / middle button to pan, wheel to zoom
+           touch: tap to place, ONE finger drag draws walls / rooms (like a pencil), TWO fingers pan + zoom */
         svg.addEventListener('contextmenu', (e) => e.preventDefault());
         svg.addEventListener('pointerdown', (e) => {
-            svg.setPointerCapture(e.pointerId);
+            if (planLocked) return;
+            try { svg.setPointerCapture(e.pointerId); } catch (err) { /* synthetic pointer */ }
+            if (insp.classList.contains('open')) insp.classList.remove('open');
             pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
             if (pointers.size === 2) {
                 const [a, b] = [...pointers.values()];
                 pinch = { d: Math.hypot(a.x - b.x, a.y - b.y), cx: (a.x + b.x) / 2, cy: (a.y + b.y) / 2 };
+                if (down && down.drawing && down.started) { chain = down.chainBefore; rectStart = null; }
                 down = null; drag = null; pan = null;
                 return;
             }
+            const touch = e.pointerType === 'touch' || e.pointerType === 'pen';
             const wp = toWorld(e.clientX, e.clientY);
             if (e.button === 2 && tool === 'wall' && chain) { finishChain(); return; }
             if (e.button === 1 || e.button === 2 || tool === 'pan' || spaceDown) {
@@ -5575,21 +6066,19 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 wrap.classList.add('panning');
                 return;
             }
+            const tolPx = touch ? 22 : 10;
             if (tool === 'select') {
-                const h = e.target.closest('[data-handle]');
-                const hit = e.target.closest('[data-id]');
+                const key = handleAt(wp, touch ? 26 : 9);
                 const so = getSel();
-                if (h && so) {
-                    const key = h.dataset.handle;
-                    drag = { kind: 'handle', key, orig: { ...so[key] }, moved: false };
-                    return;
-                }
+                if (key && so) { drag = { kind: 'handle', key, orig: { ...so[key] }, moved: false }; return; }
+                const hit = pick(wp, tolPx);
                 if (hit) {
-                    sel = { k: hit.dataset.k, id: hit.dataset.id };
+                    sel = hit;
                     const o = getSel();
                     if (sel.k === 'furn' || sel.k === 'text') drag = { kind: 'move', off: sub(wp, o), moved: false };
                     else if (sel.k === 'op') drag = { kind: 'op', moved: false };
                     else drag = null;
+                    if (!drag) pan = { x: e.clientX, y: e.clientY, vx: view.x, vy: view.y, keep: true };
                     inspector();
                     draw();
                     return;
@@ -5599,11 +6088,11 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 return;
             }
             if (tool === 'erase') {
-                const hit = e.target.closest('[data-id]');
-                if (hit) { remove(hit.dataset.k, hit.dataset.id); commit(); }
+                const hit = pick(wp, tolPx);
+                if (hit) { remove(hit.k, hit.id); commit(); }
                 return;
             }
-            down = { x: e.clientX, y: e.clientY, vx: view.x, vy: view.y, wp };
+            down = { x: e.clientX, y: e.clientY, vx: view.x, vy: view.y, wp, touch, drawing: touch && (tool === 'wall' || tool === 'room'), started: false };
         });
         svg.addEventListener('pointermove', (e) => {
             if (pointers.has(e.pointerId)) pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
@@ -5617,6 +6106,23 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             }
             const wp = toWorld(e.clientX, e.clientY);
             if (pan) { view.x = pan.vx + e.clientX - pan.x; view.y = pan.vy + e.clientY - pan.y; draw(); return; }
+            if (down && down.drawing) {
+                // finger drawing: the press point starts (or continues) the wall / room, the finger is the other end
+                if (!down.started) {
+                    if (Math.hypot(e.clientX - down.x, e.clientY - down.y) < 8) return;
+                    down.started = true;
+                    down.chainBefore = chain ? { pts: chain.pts.slice() } : null;
+                    if (tool === 'wall') {
+                        const last = chain ? chain.pts[chain.pts.length - 1] : null;
+                        const start = snapPoint(down.wp, null);
+                        if (!last || dist(start, last) > 24 / view.s) chain = { pts: [start] };
+                    } else rectStart = snapPoint(down.wp, null);
+                }
+                const from = tool === 'wall' ? chain.pts[chain.pts.length - 1] : null;
+                hover = snapPoint(wp, from);
+                draw();
+                return;
+            }
             if (down && Math.hypot(e.clientX - down.x, e.clientY - down.y) > 6) {
                 pan = { x: down.x, y: down.y, vx: down.vx, vy: down.vy };
                 down = null;
@@ -5647,6 +6153,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 draw();
                 return;
             }
+            if (e.pointerType === 'touch') return;          // no hover on a touch screen
             const last = chain ? chain.pts[chain.pts.length - 1] : (dimPts && dimPts.length === 1 ? dimPts[0] : null);
             hover = (tool === 'select' || tool === 'pan' || tool === 'erase') ? wp : (dimPts && dimPts.length === 2 ? wp : snapPoint(wp, last));
             draw();
@@ -5656,11 +6163,26 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             if (pinch) { if (pointers.size < 2) pinch = null; return; }
             if (pan) { pan = null; wrap.classList.remove('panning'); return; }
             if (drag) { const moved = drag.moved; drag = null; if (moved) commit(); return; }
-            if (down) { const wp = down.wp; down = null; clickAt(wp); }
+            if (down) {
+                const d0 = down;
+                down = null;
+                if (d0.drawing && d0.started && hover) {
+                    const end = hover;
+                    if (tool === 'wall') {
+                        const last = chain.pts[chain.pts.length - 1];
+                        if (dist(end, last) > .3) clickAt(end);
+                    } else if (tool === 'room' && rectStart) clickAt(end);
+                    hover = null;
+                    draw();
+                    return;
+                }
+                clickAt(d0.wp);
+                if (d0.touch) { hover = null; draw(); }
+            }
         };
         svg.addEventListener('pointerup', endPointer);
         svg.addEventListener('pointercancel', (e) => { pointers.delete(e.pointerId); pinch = null; pan = null; down = null; drag = null; wrap.classList.remove('panning'); });
-        svg.addEventListener('pointerleave', () => { if (!pointers.size) { hover = null; draw(); } });
+        svg.addEventListener('pointerleave', (e) => { if (!pointers.size && e.pointerType !== 'touch') { hover = null; draw(); } });
         svg.addEventListener('dblclick', () => { if (tool === 'wall' && chain) finishChain(); });
         svg.addEventListener('wheel', (e) => { e.preventDefault(); zoomAt(e.clientX, e.clientY, Math.pow(1.0015, -e.deltaY)); }, { passive: false });
 
@@ -5669,6 +6191,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         document.addEventListener('keydown', (e) => {
             if (currentPage !== 'plan' || planLocked) return;
             const tg = e.target;
+            if (e.key === 'Escape' && card.classList.contains('fs') && !(chain || rectStart || dimPts || sel)) { setFull(false); return; }
             if (tg && (tg.closest('input, textarea, select, [contenteditable]') || tg.closest('.modal, .drawer'))) return;
             if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z') { e.preventDefault(); e.shiftKey ? redo() : undo(); return; }
             if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'y') { e.preventDefault(); redo(); return; }
@@ -5683,9 +6206,11 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             if (e.key === 'Enter' && tool === 'wall' && chain) { finishChain(); return; }
             if ((e.key === 'Delete' || e.key === 'Backspace') && sel) { e.preventDefault(); remove(sel.k, sel.id); commit(); return; }
             if (/^[0-9.'০-৯]$/.test(e.key) && ((tool === 'wall' && chain) || (tool === 'room' && rectStart))) { e.preventDefault(); typedLength(e.key); return; }
+            if (e.key === 'PageUp') { setLevel(D.cur + 1); return; }
+            if (e.key === 'PageDown') { setLevel(D.cur - 1); return; }
             const tl = KEYS[e.key.toLowerCase()];
             if (tl) { setTool(tl); return; }
-            if (e.key.toLowerCase() === 'o') { P.opt.ortho = !P.opt.ortho; commit(); }
+            if (e.key.toLowerCase() === 'o') { D.opt.ortho = !D.opt.ortho; commit(); }
         });
         document.addEventListener('keyup', (e) => { if (e.key === ' ') spaceDown = false; });
 
@@ -5694,31 +6219,63 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         const field = (label, inner) => `<div class="field"><label>${esc(label)}</label>${inner}</div>`;
         function setLen(id, val) { const el = $('#' + id, insp); if (el) LEN.set(el, val); }
         function readLen(id) { const el = $('#' + id, insp); const r = el ? LEN.read(el) : {}; return r.value; }
+        const delBtn = (label = t('fp.delete')) => `<button type="button" class="btn btn-danger btn-sm" data-act="del"><i class="fa-solid fa-trash-can"></i> ${esc(label)}</button>`;
+
+        function plotPanel() {
+            const p = D.plot, s = p ? p.s : { mode: 'r' };
+            const q = s.mode === 'q';
+            const area = p ? polyArea(p.pts) : 0;
+            const foot = D.levels[0].rooms.reduce((a, r) => a + polyArea(r.pts), 0);
+            return `<h3><i class="fa-solid fa-vector-square"></i>${esc(t('fp.plot'))}</h3>
+                ${field(t('fp.plotShape'), `<div class="segmented"><label><input type="radio" name="fpPlotMode" value="r"${q ? '' : ' checked'}><span>${esc(t('fp.plotRect'))}</span></label><label><input type="radio" name="fpPlotMode" value="q"${q ? ' checked' : ''}><span>${esc(t('fp.plotQuad'))}</span></label></div>`)}
+                ${q ? field(t('fp.pTop'), lenBox('fp-i-pL1', 'ft')) + field(t('fp.pBottom'), lenBox('fp-i-pL2', 'ft')) + field(t('fp.pLeft'), lenBox('fp-i-pW1', 'ft')) + field(t('fp.pRight'), lenBox('fp-i-pW2', 'ft'))
+                    : field(t('fp.pWidth'), lenBox('fp-i-pL1', 'ft')) + field(t('fp.pLength'), lenBox('fp-i-pW1', 'ft'))}
+                ${p ? `<div class="fp-stats">
+                    <div><small>${esc(t('fp.plotArea'))}</small><b>${esc(qs(qArea(area)))}</b></div>
+                    <div><small>${esc(t('u.katha'))} / ${esc(t('u.decimal'))}</small><b>${esc(num(area / KATHA))} / ${esc(num(area / DECIMAL))}</b></div>
+                    <div><small>${esc(t('fp.cover'))}</small><b>${esc(num(area ? foot / area * 100 : 0, 0))}%</b></div>
+                    <div><small>${esc(t('fp.openSpace'))}</small><b>${esc(qs(qArea(Math.max(area - foot, 0))))}</b></div>
+                </div>` : ''}
+                <button type="button" class="btn btn-primary btn-sm" data-act="plotApply"><i class="fa-solid fa-check"></i> ${esc(t(p ? 'fp.plotUpdate' : 'fp.plotMake'))}</button>
+                ${p ? delBtn(t('fp.plotDel')) : ''}
+                <small class="set-help">${esc(t('fp.plotHint'))}</small>`;
+        }
 
         function inspector() {
             const o = getSel();
             let h = '';
-            if (!o) {
+            if (sel && sel.k === 'plot') h = plotPanel();
+            else if (!o) {
                 const floor = P.rooms.reduce((s, r) => s + polyArea(r.pts), 0);
                 const wl = P.walls.reduce((s, w) => s + wallLen(w), 0);
                 const steps = isMetric() ? [[0, 'fp.snapOff'], [0.164042, '5 cm'], [0.328084, '10 cm'], [1.64042, '50 cm']] : [[0, 'fp.snapOff'], [1 / 12, '1"'], [0.25, '3"'], [0.5, '6"'], [1, "1'"]];
-                h = `<h3><i class="fa-solid fa-sliders"></i>${esc(t('fp.planSet'))}</h3>
+                h = `<h3><i class="fa-solid fa-layer-group"></i>${esc(floorName(D.cur))}</h3>
                     <div class="fp-stats">
                         <div><small>${esc(t('fp.r.rooms'))}</small><b>${num(P.rooms.length, 0)}</b></div>
                         <div><small>${esc(t('r.floorArea'))}</small><b>${esc(qs(qArea(floor)))}</b></div>
                         <div><small>${esc(t('fp.r.wallLen'))}</small><b>${esc(fmtL(wl))}</b></div>
                         <div><small>${esc(t('fp.r.doorWin'))}</small><b>${num(P.openings.filter((x) => x.type === 'door').length, 0)} / ${num(P.openings.filter((x) => x.type === 'window').length, 0)}</b></div>
                     </div>
-                    ${field(t('fp.newWallT'), `<div class="segmented"><label><input type="radio" name="fpT" value="5"${P.opt.wallT === 5 ? ' checked' : ''}><span>5"</span></label><label><input type="radio" name="fpT" value="10"${P.opt.wallT === 10 ? ' checked' : ''}><span>10"</span></label><label><input type="radio" name="fpT" value="c"${P.opt.wallT !== 5 && P.opt.wallT !== 10 ? ' checked' : ''}><span>${esc(t('tl.custom'))}</span></label></div>`)}
+                    ${field(t('fp.lvlName'), `<input class="control" id="fp-i-lname" maxlength="30" placeholder="${esc(floorName(D.cur))}" value="${esc(P.name)}">`)}
+                    <div class="btn-row">
+                        <button type="button" class="btn btn-soft btn-sm" data-act="lvlCopy"><i class="fa-solid fa-clone"></i> ${esc(t('fp.lvlAddCopy'))}</button>
+                        <button type="button" class="btn btn-soft btn-sm" data-act="lvlEmpty"><i class="fa-solid fa-plus"></i> ${esc(t('fp.lvlAddEmpty'))}</button>
+                        ${D.levels.length > 1 ? `<button type="button" class="btn btn-danger btn-sm" data-act="lvlDel"><i class="fa-solid fa-trash-can"></i> ${esc(t('fp.lvlDel'))}</button>` : ''}
+                    </div>
+                    <button type="button" class="btn btn-ghost btn-sm" data-act="plotOpen"><i class="fa-solid fa-vector-square"></i> ${esc(t(D.plot ? 'fp.plotEdit' : 'fp.plotMake'))}</button>
+                    <h3 class="h3-gap"><i class="fa-solid fa-sliders"></i>${esc(t('fp.planSet'))}</h3>
+                    ${field(t('fp.newWallT'), `<div class="segmented"><label><input type="radio" name="fpT" value="5"${D.opt.wallT === 5 ? ' checked' : ''}><span>5"</span></label><label><input type="radio" name="fpT" value="10"${D.opt.wallT === 10 ? ' checked' : ''}><span>10"</span></label><label><input type="radio" name="fpT" value="c"${D.opt.wallT !== 5 && D.opt.wallT !== 10 ? ' checked' : ''}><span>${esc(t('tl.custom'))}</span></label></div>`)}
                     ${field(t('fp.wallT'), lenBox('fp-i-wt', 'in'))}
                     ${field(t('fp.wallH'), lenBox('fp-i-wh', 'ft'))}
+                    ${field(t('fp.slabT'), lenBox('fp-i-st', 'in'))}
                     ${field(t('fp.snap'), `<select class="control" id="fp-i-snap">${steps.map(([v, l]) => `<option value="${v}"${Math.abs(v - snapStep()) < 1e-6 ? ' selected' : ''}>${esc(l.startsWith('fp.') ? t(l) : digits(l))}</option>`).join('')}</select>`)}
-                    <label class="set-row"><span><strong>${esc(t('fp.ortho'))}</strong></span><input type="checkbox" class="switch" id="fp-i-ortho"${P.opt.ortho ? ' checked' : ''}></label>
-                    <label class="set-row"><span><strong>${esc(t('fp.showDims'))}</strong></span><input type="checkbox" class="switch" id="fp-i-dims"${P.opt.showDims ? ' checked' : ''}></label>
+                    <label class="set-row"><span><strong>${esc(t('fp.ortho'))}</strong></span><input type="checkbox" class="switch" id="fp-i-ortho"${D.opt.ortho ? ' checked' : ''}></label>
+                    <label class="set-row"><span><strong>${esc(t('fp.showDims'))}</strong></span><input type="checkbox" class="switch" id="fp-i-dims"${D.opt.showDims ? ' checked' : ''}></label>
                     <ul class="fp-keys">
-                        <li><kbd>W</kbd>${esc(t('fp.wall'))} <kbd>R</kbd>${esc(t('fp.room'))} <kbd>D</kbd>${esc(t('fp.door'))} <kbd>N</kbd>${esc(t('fp.window'))}</li>
-                        <li><kbd>T</kbd>${esc(t('fp.text'))} <kbd>M</kbd>${esc(t('fp.dim'))} <kbd>F</kbd>${esc(t('fp.furn'))} <kbd>E</kbd>${esc(t('fp.erase'))}</li>
-                        <li><kbd>Ctrl Z</kbd>${esc(t('fp.undo'))} <kbd>Del</kbd>${esc(t('fp.delete'))} <kbd>Esc</kbd>${esc(t('fp.cancel'))}</li>
+                        <li class="touch-only">${esc(t('fp.touchHint'))}</li>
+                        <li class="mouse-only"><kbd>W</kbd>${esc(t('fp.wall'))} <kbd>R</kbd>${esc(t('fp.room'))} <kbd>D</kbd>${esc(t('fp.door'))} <kbd>N</kbd>${esc(t('fp.window'))}</li>
+                        <li class="mouse-only"><kbd>T</kbd>${esc(t('fp.text'))} <kbd>M</kbd>${esc(t('fp.dim'))} <kbd>F</kbd>${esc(t('fp.furn'))} <kbd>E</kbd>${esc(t('fp.erase'))}</li>
+                        <li class="mouse-only"><kbd>Ctrl Z</kbd>${esc(t('fp.undo'))} <kbd>Del</kbd>${esc(t('fp.delete'))} <kbd>PgUp/PgDn</kbd>${esc(t('fp.lvl'))}</li>
                         <li>${esc(t('fp.typeHint'))}</li>
                     </ul>
                     <button type="button" class="btn btn-danger btn-sm" data-act="clear"><i class="fa-solid fa-trash-can"></i> ${esc(t('fp.clear'))}</button>`;
@@ -5729,12 +6286,12 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                     ${field(t('fp.wallH'), lenBox('fp-i-h', 'ft'))}
                     <button type="button" class="btn btn-soft btn-sm" data-act="addDoor"><i class="fa-solid fa-door-open"></i> ${esc(t('fp.addDoor'))}</button>
                     <button type="button" class="btn btn-soft btn-sm" data-act="addWin"><i class="fa-solid fa-table-columns"></i> ${esc(t('fp.addWin'))}</button>
-                    <button type="button" class="btn btn-danger btn-sm" data-act="del"><i class="fa-solid fa-trash-can"></i> ${esc(t('fp.delete'))}</button>`;
+                    ${delBtn()}`;
             } else if (sel.k === 'room') {
                 h = `<h3><i class="fa-regular fa-square"></i>${esc(t('fp.room'))}</h3>
                     ${field(t('fp.roomName'), `<input class="control" id="fp-i-name" maxlength="40" value="${esc(o.name)}">`)}
                     <div class="fp-stats"><div><small>${esc(t('r.area'))}</small><b>${esc(qs(qArea(polyArea(o.pts))))}</b></div><div><small>${esc(t('fp.perim'))}</small><b>${esc(fmtL(o.pts.reduce((s, p, i) => s + dist(p, o.pts[(i + 1) % o.pts.length]), 0)))}</b></div></div>
-                    <button type="button" class="btn btn-danger btn-sm" data-act="del"><i class="fa-solid fa-trash-can"></i> ${esc(t('fp.delRoom'))}</button>
+                    ${delBtn(t('fp.delRoom'))}
                     <small class="set-help">${esc(t('fp.delRoomHint'))}</small>`;
             } else if (sel.k === 'op') {
                 h = `<h3><i class="fa-solid ${o.type === 'door' ? 'fa-door-open' : 'fa-table-columns'}"></i>${esc(t(o.type === 'door' ? 'fp.door' : 'fp.window'))}</h3>
@@ -5743,35 +6300,50 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                     ${field(t('fp.opH'), lenBox('fp-i-oh', 'ft'))}
                     ${o.type === 'window' ? field(t('fp.sill'), lenBox('fp-i-os', 'ft')) : ''}
                     ${o.type === 'door' ? `<button type="button" class="btn btn-soft btn-sm" data-act="flipSide"><i class="fa-solid fa-arrows-up-down"></i> ${esc(t('fp.flipSide'))}</button><button type="button" class="btn btn-soft btn-sm" data-act="flipHinge"><i class="fa-solid fa-arrows-left-right"></i> ${esc(t('fp.flipHinge'))}</button>` : ''}
-                    <button type="button" class="btn btn-danger btn-sm" data-act="del"><i class="fa-solid fa-trash-can"></i> ${esc(t('fp.delete'))}</button>`;
+                    ${delBtn()}`;
             } else if (sel.k === 'text') {
                 h = `<h3><i class="fa-solid fa-font"></i>${esc(t('fp.text'))}</h3>
                     ${field(t('fp.textPrompt'), `<input class="control" id="fp-i-text" maxlength="80" value="${esc(o.text)}">`)}
                     ${field(t('fp.textSize'), lenBox('fp-i-ts', 'ft'))}
-                    <button type="button" class="btn btn-danger btn-sm" data-act="del"><i class="fa-solid fa-trash-can"></i> ${esc(t('fp.delete'))}</button>`;
+                    ${delBtn()}`;
             } else if (sel.k === 'dim') {
                 h = `<h3><i class="fa-solid fa-ruler-horizontal"></i>${esc(t('fp.dim'))}</h3>
                     <div class="fp-stats"><div><small>${esc(t('grp.length'))}</small><b>${esc(fmtL(dist(o.a, o.b)))}</b></div></div>
                     ${field(t('fp.dimOff'), lenBox('fp-i-do', 'ft'))}
                     <button type="button" class="btn btn-soft btn-sm" data-act="flipDim"><i class="fa-solid fa-arrows-up-down"></i> ${esc(t('fp.flipSide'))}</button>
-                    <button type="button" class="btn btn-danger btn-sm" data-act="del"><i class="fa-solid fa-trash-can"></i> ${esc(t('fp.delete'))}</button>`;
+                    ${delBtn()}`;
             } else if (sel.k === 'furn') {
                 h = `<h3><i class="fa-solid fa-couch"></i>${esc(t('fp.f.' + o.kind))}</h3>
                     ${field(t('cl.width'), lenBox('fp-i-fw', 'ft'))}
                     ${field(t('fp.depth'), lenBox('fp-i-fd', 'ft'))}
                     <button type="button" class="btn btn-soft btn-sm" data-act="rotL"><i class="fa-solid fa-rotate-left"></i> ${esc(t('fp.rotate'))} −90°</button>
                     <button type="button" class="btn btn-soft btn-sm" data-act="rotR"><i class="fa-solid fa-rotate-right"></i> ${esc(t('fp.rotate'))} +90°</button>
-                    <button type="button" class="btn btn-danger btn-sm" data-act="del"><i class="fa-solid fa-trash-can"></i> ${esc(t('fp.delete'))}</button>`;
+                    ${delBtn()}`;
             }
-            insp.innerHTML = h;
+            insp.innerHTML = `<button type="button" class="sheet-grip" data-act="sheet" aria-label="${esc(t('fp.qa.props'))}"></button>` + h;
             LEN.enhance(insp);
             LEN.refresh(insp);
-            if (!o) { setLen('fp-i-wt', P.opt.wallT); setLen('fp-i-wh', P.opt.wallH); }
+            if (sel && sel.k === 'plot') {
+                const s = D.plot ? D.plot.s : null;
+                if (s) { setLen('fp-i-pL1', s.L1); setLen('fp-i-pL2', s.L2); setLen('fp-i-pW1', s.W1); setLen('fp-i-pW2', s.W2); }
+            } else if (!o) { setLen('fp-i-wt', D.opt.wallT); setLen('fp-i-wh', D.opt.wallH); setLen('fp-i-st', D.opt.slabT); }
             else if (sel.k === 'wall') { setLen('fp-i-len', wallLen(o)); setLen('fp-i-t', o.t); setLen('fp-i-h', o.h); }
             else if (sel.k === 'op') { setLen('fp-i-ow', o.w); setLen('fp-i-oh', o.h); setLen('fp-i-os', o.sill); }
             else if (sel.k === 'text') setLen('fp-i-ts', o.size);
             else if (sel.k === 'dim') setLen('fp-i-do', Math.abs(o.off));
             else if (sel.k === 'furn') { setLen('fp-i-fw', o.w); setLen('fp-i-fd', o.d); }
+        }
+
+        function applyPlotFromPanel() {
+            const mode = ($('input[name="fpPlotMode"]:checked', insp) || {}).value || 'r';
+            const L1 = readLen('fp-i-pL1'), W1 = readLen('fp-i-pW1');
+            const s = { mode, L1, W1, L2: mode === 'q' ? readLen('fp-i-pL2') : L1, W2: mode === 'q' ? readLen('fp-i-pW2') : W1 };
+            if (![s.L1, s.L2, s.W1, s.W2].every((x) => Number.isFinite(x) && x > 0)) { toast(t('fp.plotNeed')); return; }
+            if (!setPlot(s)) return;
+            D.opt.started = true;
+            sel = { k: 'plot', id: 'plot' };
+            commit();
+            fit();
         }
 
         insp.addEventListener('change', (e) => {
@@ -5780,13 +6352,19 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             const id = box ? $('input[data-len]', box).id : tg.id;
             const v = box ? readLen(id) : null;
             const ok = (x) => Number.isFinite(x) && x > 0;
+            if (sel && sel.k === 'plot') {
+                if (tg.name === 'fpPlotMode') plotModeView(tg.value, { L1: readLen('fp-i-pL1'), W1: readLen('fp-i-pW1') });
+                return;
+            }
             if (!o) {
-                if (tg.name === 'fpT' && tg.value !== 'c') P.opt.wallT = Number(tg.value);
-                else if (id === 'fp-i-wt' && ok(v)) P.opt.wallT = +v.toFixed(3);
-                else if (id === 'fp-i-wh' && ok(v)) P.opt.wallH = +v.toFixed(3);
-                else if (id === 'fp-i-snap') P.opt.snap = Number(tg.value);
-                else if (id === 'fp-i-ortho') P.opt.ortho = tg.checked;
-                else if (id === 'fp-i-dims') P.opt.showDims = tg.checked;
+                if (tg.name === 'fpT' && tg.value !== 'c') D.opt.wallT = Number(tg.value);
+                else if (id === 'fp-i-wt' && ok(v)) D.opt.wallT = +v.toFixed(3);
+                else if (id === 'fp-i-wh' && ok(v)) D.opt.wallH = +v.toFixed(3);
+                else if (id === 'fp-i-st' && Number.isFinite(v) && v >= 0) D.opt.slabT = +v.toFixed(3);
+                else if (id === 'fp-i-snap') D.opt.snap = Number(tg.value);
+                else if (id === 'fp-i-ortho') D.opt.ortho = tg.checked;
+                else if (id === 'fp-i-dims') D.opt.showDims = tg.checked;
+                else if (id === 'fp-i-lname') { P.name = tg.value.trim().slice(0, 30); renderFloors(); }
                 else return;
                 commit();
                 return;
@@ -5820,17 +6398,34 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             }
             commit();
         });
+        // the plot panel: rectangle (2 boxes) ↔ four sides (4 boxes)
+        function plotModeView(mode, keep) {
+            const html = mode === 'q'
+                ? field(t('fp.pTop'), lenBox('fp-i-pL1', 'ft')) + field(t('fp.pBottom'), lenBox('fp-i-pL2', 'ft')) + field(t('fp.pLeft'), lenBox('fp-i-pW1', 'ft')) + field(t('fp.pRight'), lenBox('fp-i-pW2', 'ft'))
+                : field(t('fp.pWidth'), lenBox('fp-i-pL1', 'ft')) + field(t('fp.pLength'), lenBox('fp-i-pW1', 'ft'));
+            $$('.field', insp).filter((f) => $('[id^="fp-i-p"]', f)).forEach((f) => f.remove());
+            $('.field', insp).insertAdjacentHTML('afterend', html);
+            LEN.enhance(insp); LEN.refresh(insp);
+            const s = D.plot ? D.plot.s : {};
+            setLen('fp-i-pL1', keep.L1 || s.L1); setLen('fp-i-pW1', keep.W1 || s.W1);
+            if (mode === 'q') { setLen('fp-i-pL2', s.L2 || keep.L1); setLen('fp-i-pW2', s.W2 || keep.W1); }
+        }
         insp.addEventListener('click', (e) => {
             const b = e.target.closest('[data-act]');
             if (!b) return;
             const o = getSel(), act = b.dataset.act;
+            if (act === 'sheet') { insp.classList.toggle('open'); return; }
             if (act === 'clear') {
                 if (!window.confirm(t('fp.clearConfirm'))) return;
-                const opt = P.opt;
-                P = blank(); P.opt = opt; sel = null;
-                commit();
+                const opt = D.opt;
+                D = blank(); D.opt = opt; D.opt.started = false; bind(); sel = null;
+                commit(); renderFloors();
                 return;
             }
+            if (act === 'lvlCopy' || act === 'lvlEmpty') { addLevel(act === 'lvlCopy'); return; }
+            if (act === 'lvlDel') { deleteLevel(); return; }
+            if (act === 'plotOpen') { sel = { k: 'plot', id: 'plot' }; inspector(); draw(); openProps(); return; }
+            if (act === 'plotApply') { applyPlotFromPanel(); return; }
             if (!o) return;
             if (act === 'del') remove(sel.k, sel.id);
             else if (act === 'addDoor' || act === 'addWin') { const n = addOpening(act === 'addDoor' ? 'door' : 'window', o, lerp(o.a, o.b, .5)); sel = { k: 'op', id: n.id }; }
@@ -5841,6 +6436,73 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             commit();
         });
 
+        /* ---------- floors strip + plot button ---------- */
+        const floorsBox = $('#fp-floors');
+        function renderFloors() {
+            const chips = D.levels.map((L, i) => `<button type="button" class="lvl${i === D.cur ? ' on' : ''}" data-level="${i}" aria-pressed="${i === D.cur}">${esc(floorName(i))}</button>`).reverse().join('');
+            floorsBox.innerHTML = `
+                <span class="lvl-label"><i class="fa-solid fa-building"></i>${esc(t('fp.lvl'))}</span>
+                <div class="lvl-list">${chips}</div>
+                <div class="fp-menu lvl-add">
+                    <button type="button" class="lvl add" data-lvl-menu aria-haspopup="true"><i class="fa-solid fa-plus"></i> ${esc(t('fp.lvlAdd'))}</button>
+                    <div class="fp-menu-list" data-lvl-list hidden>
+                        <button type="button" data-lvl-add="copy"><i class="fa-solid fa-clone"></i><span>${esc(t('fp.lvlAddCopy'))}</span></button>
+                        <button type="button" data-lvl-add="empty"><i class="fa-regular fa-square"></i><span>${esc(t('fp.lvlAddEmpty'))}</span></button>
+                    </div>
+                </div>
+                <span class="lvl-sp"></span>
+                <button type="button" class="lvl plot${D.plot ? ' has' : ''}${sel && sel.k === 'plot' ? ' on' : ''}" data-plot-btn><i class="fa-solid fa-vector-square"></i> ${esc(D.plot ? `${t('fp.plot')}: ${qs(qArea(polyArea(D.plot.pts)))}` : t('fp.plotMake'))}</button>`;
+            syncAllBtn();
+        }
+        floorsBox.addEventListener('click', (e) => {
+            const lv = e.target.closest('[data-level]');
+            if (lv) { setLevel(Number(lv.dataset.level)); return; }
+            const m = e.target.closest('[data-lvl-menu]');
+            if (m) {
+                e.stopPropagation();
+                const l = $('[data-lvl-list]', floorsBox), r = m.getBoundingClientRect();
+                l.hidden = !l.hidden;
+                l.style.left = Math.max(8, Math.min(window.innerWidth - 230, r.left)) + 'px';
+                l.style.top = (r.bottom + 6) + 'px';
+                return;
+            }
+            const a = e.target.closest('[data-lvl-add]');
+            if (a) { addLevel(a.dataset.lvlAdd === 'copy'); return; }
+            if (e.target.closest('[data-plot-btn]')) { sel = { k: 'plot', id: 'plot' }; setTool('select'); inspector(); renderFloors(); openProps(); }
+        });
+        document.addEventListener('click', (e) => { const l = $('[data-lvl-list]', floorsBox); if (l && !l.hidden && !e.target.closest('.lvl-add')) l.hidden = true; });
+
+        /* ---------- start screen: with the plot size, or straight to drawing ---------- */
+        const start = $('#fp-start');
+        function startScreen() {
+            const show = !previewing && !planLocked && !D.opt.started && !anyContent() && !D.plot;
+            if (start.hidden === !show) return;
+            start.hidden = !show;
+            if (show) { LEN.enhance(start); LEN.refresh(start); }
+        }
+        start.addEventListener('click', (e) => {
+            const b = e.target.closest('[data-start]');
+            if (!b) return;
+            const k = b.dataset.start;
+            if (k === 'plot') {
+                const W = LEN.read($('#fp-s-w')).value, L = LEN.read($('#fp-s-l')).value;
+                if (!(W > 0 && L > 0)) { toast(t('fp.plotNeed')); $('#fp-s-w').focus(); return; }
+                D.plot = null;
+                if (!setPlot({ mode: 'r', L1: W, L2: W, W1: L, W2: L })) return;
+                D.opt.started = true;
+                sel = null;
+                commit(); fit(); renderFloors();
+                setTool('room');
+                toast(t('fp.plotMade'));
+            } else if (k === 'free') {
+                D.opt.started = true;
+                commit();
+                setTool('wall');
+            } else if (k === 'sample') {
+                sample(); commit(); fit(); renderFloors();
+            }
+        });
+
         /* ---------- toolbar, view, file menu ---------- */
         $$('.plan-tools [data-tool]').forEach((b) => b.addEventListener('click', () => setTool(b.dataset.tool)));
         const kindSel = $('#fp-furn-kind');
@@ -5849,6 +6511,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         $('#fp-undo').addEventListener('click', undo);
         $('#fp-redo').addEventListener('click', redo);
         $('#fp-fit').addEventListener('click', () => fit());
+        $('#fp-full').addEventListener('click', () => setFull(!card.classList.contains('fs')));
         function setView(v) {
             main.dataset.view = v;
             $$('input[name="fpView"]').forEach((r) => { r.checked = r.value === v; });
@@ -5856,6 +6519,9 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             setTimeout(() => { draw(); VIZ.update('plan'); }, 30);
         }
         $$('input[name="fpView"]').forEach((r) => r.addEventListener('change', () => setView(r.value)));
+        const allBtn = $('#fp-3d-all');
+        function syncAllBtn() { allBtn.setAttribute('aria-pressed', String(!!D.opt.all3d)); allBtn.hidden = D.levels.length < 2 && !D.opt.all3d; }
+        allBtn.addEventListener('click', () => { D.opt.all3d = !D.opt.all3d; storage.set(STORE, D); syncAllBtn(); VIZ.update('plan'); });
         const menuBtn2 = $('#fp-menu-btn'), menu = $('#fp-menu');
         menuBtn2.addEventListener('click', (e) => { e.stopPropagation(); menu.hidden = !menu.hidden; menuBtn2.setAttribute('aria-expanded', String(!menu.hidden)); });
         document.addEventListener('click', (e) => { if (!menu.hidden && !e.target.closest('.fp-menu')) { menu.hidden = true; menuBtn2.setAttribute('aria-expanded', 'false'); } });
@@ -5865,17 +6531,17 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             menu.hidden = true;
             const a = b.dataset.fp;
             if (a === 'new') {
-                if ((P.walls.length || P.furn.length) && !window.confirm(t('fp.clearConfirm'))) return;
-                const opt = P.opt; P = blank(); P.opt = opt; sel = null; commit(); fit();
+                if ((anyContent() || D.plot) && !window.confirm(t('fp.clearConfirm'))) return;
+                const opt = D.opt; D = blank(); D.opt = opt; D.opt.started = false; bind(); sel = null; commit(); fit(); renderFloors();
             } else if (a === 'sample') {
-                if ((P.walls.length || P.furn.length) && !window.confirm(t('fp.sampleConfirm'))) return;
-                sample(); commit(); fit();
+                if ((anyContent() || D.plot) && !window.confirm(t('fp.sampleConfirm'))) return;
+                sample(); commit(); fit(); renderFloors();
             } else if (a === 'open') $('#fp-file').click();
-            else if (a === 'save') downloadBlob(new Blob([JSON.stringify(P, null, 1)], { type: 'application/json' }), fileBase() + '.json');
+            else if (a === 'save') downloadBlob(new Blob([JSON.stringify(D, null, 1)], { type: 'application/json' }), fileBase() + '.json');
             else if (a === 'png') {
-                const url = await toPng();
+                const url = await toPng(1800, D.cur);
                 const res = await fetch(url);
-                downloadBlob(await res.blob(), fileBase() + '.png');
+                downloadBlob(await res.blob(), `${fileBase()}_F${D.cur}.png`);
             }
         });
         $('#fp-file').addEventListener('change', (e) => {
@@ -5885,7 +6551,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             if (file.size > 3 * 1024 * 1024) { toast(t('fp.badFile')); return; }
             const rd = new FileReader();
             rd.onload = () => {
-                try { P = sanitize(JSON.parse(rd.result)); sel = null; commit(); fit(); toast(t('fp.opened')); }
+                try { D = sanitize(JSON.parse(rd.result)); D.opt.started = true; bind(); sel = null; commit(); fit(); renderFloors(); toast(t('fp.opened')); }
                 catch (err) { toast(t('fp.badFile')); }
             };
             rd.readAsText(file);
@@ -5902,15 +6568,16 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             return `Floor-Plan_${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
         }
 
-        /* ---------- PNG export (also used in the PDF) ---------- */
-        function toPng(maxW = 1800) {
-            const b = bounds(), pad = 3;
+        /* ---------- PNG export of one floor (also used in the PDF) ---------- */
+        function toPng(maxW = 1800, li = D.cur) {
+            const L = D.levels[li] || P;
+            const b = bounds(false, L), pad = 3;
             const bw = b.x1 - b.x0 + pad * 2, bh = b.y1 - b.y0 + pad * 2;
             const s = Math.min(maxW / bw, 1400 / bh, 60);
             const W = Math.round(bw * s), H = Math.round(bh * s);
             const pal = palette(true);
             const savedSel = sel; sel = null;
-            const body = worldMarkup(pal, s / 1.7, false);       // a little bigger text and lines for print
+            const body = plotMarkup(pal, s / 1.7, false) + (li > 0 ? ghostMarkup(D.levels[li - 1], pal) : '') + worldMarkup(pal, s / 1.7, false, L);
             sel = savedSel;
             const markup = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="Noto Sans Bengali, Nirmala UI, Vrinda, Poppins, Arial, sans-serif"><rect width="${W}" height="${H}" fill="#ffffff"/><g transform="translate(${(pad - b.x0) * s} ${(pad - b.y0) * s}) scale(${s})">${body}</g></svg>`;
             return new Promise((res, rej) => {
@@ -5927,12 +6594,22 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(markup);
             });
         }
+        // every floor that has something on it (for the report)
+        async function toPngAll(maxW = 1600) {
+            const out = [];
+            for (let i = 0; i < D.levels.length; i++) {
+                if (!hasContent(D.levels[i]) && !(i === 0 && D.plot)) continue;
+                out.push({ name: floorName(i), url: await toPng(maxW, i) });
+            }
+            return out;
+        }
 
-        /* ---------- sample house ---------- */
+        /* ---------- sample: a two-storey house on a plot ---------- */
         function sample() {
-            const opt = P.opt;
-            P = blank(); P.opt = opt;
+            const opt = { ...D.opt };
+            D = blank(); D.opt = opt; D.opt.started = true; D.opt.all3d = true; bind();
             const bn = S.lang === 'bn';
+            D.plot = makePlot({ mode: 'r', L1: 42, L2: 42, W1: 32, W2: 32, ox: -3, oy: -4 });
             addRect({ x: 0, y: 0 }, { x: 36, y: 24 }, null, 10);
             P.rooms = [];
             addRect({ x: 0, y: 0 }, { x: 14, y: 12 }, bn ? 'শোবার ঘর ১' : 'Bedroom 1', 5);
@@ -5942,52 +6619,77 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             addRect({ x: 25, y: 14 }, { x: 36, y: 24 }, bn ? 'বাথরুম' : 'Bathroom', 5);
             const at = (type, x, y, extra) => { const w = nearestWall({ x, y }, 4); if (w) addOpening(type, w, { x, y }, extra); };
             const v0 = view.s; view.s = 18;
+            const openings = () => {
+                at('door', 14, 8, { flip: 0 });
+                at('door', 14, 16, { flip: 0 });
+                at('door', 21.5, 14, { flip: 1 });
+                at('door', 28, 14, { w: 2.5, flip: 1 });
+                at('window', 0, 6); at('window', 0, 18); at('window', 7, 0); at('window', 32, 0, { w: 5 });
+                at('window', 19, 24); at('window', 33, 24, { w: 2.5, h: 2, sill: 5 }); at('window', 36, 7, { w: 5 });
+            };
             at('door', 25, 0, { w: 3.5, flip: 0 });
-            at('door', 14, 8, { flip: 0 });
-            at('door', 14, 16, { flip: 0 });
-            at('door', 21.5, 14, { flip: 1 });
-            at('door', 28, 14, { w: 2.5, flip: 1 });
-            at('window', 0, 6); at('window', 0, 18); at('window', 7, 0); at('window', 32, 0, { w: 5 });
-            at('window', 19, 24); at('window', 33, 24, { w: 2.5, h: 2, sill: 5 }); at('window', 36, 7, { w: 5 });
-            view.s = v0;
+            openings();
             const f = (kind, x, y, rot = 0) => P.furn.push({ id: uid(), kind, x, y, rot, w: LIB[kind].w, d: LIB[kind].d });
             f('bed', 6, 5.5); f('wardrobe', 2.5, 10.6); f('bed', 6, 19, 180); f('wardrobe', 3.5, 13.4, 180);
             f('sofa', 23, 10.8, 180); f('dining', 31.5, 5); f('counter', 19.5, 22.6); f('fridge', 15.7, 15.7);
             f('wc', 34.6, 22.5); f('basin', 27, 22.8); f('shower', 33.9, 16.1);
-            P.dims.push({ id: uid(), a: { x: 0, y: 0 }, b: { x: 36, y: 0 }, off: -3 });
-            P.dims.push({ id: uid(), a: { x: 0, y: 0 }, b: { x: 0, y: 24 }, off: 3 });
+            P.dims.push({ id: uid(), a: { x: 0, y: 0 }, b: { x: 36, y: 0 }, off: -2 });
+            // 1st floor: same walls, a balcony window instead of the main door
+            const L1 = blankLevel();
+            D.levels.push(L1); D.cur = 1; bind();
+            const g = D.levels[0];
+            g.walls.forEach((w) => P.walls.push({ id: uid(), a: { ...w.a }, b: { ...w.b }, t: w.t, h: w.h }));
+            const names = bn ? ['শোবার ঘর ৩', 'শোবার ঘর ৪', 'ফ্যামিলি লিভিং', 'স্টাডি', 'বাথরুম ২'] : ['Bedroom 3', 'Bedroom 4', 'Family living', 'Study', 'Bathroom 2'];
+            g.rooms.forEach((r, i) => P.rooms.push({ id: uid(), name: names[i] || r.name, pts: r.pts.map((p) => ({ ...p })) }));
+            at('window', 25, 0, { w: 5 });
+            openings();
+            f('bed', 6, 5.5); f('bed', 6, 19, 180); f('sofa', 23, 10.8, 180); f('desk', 19.5, 21.5); f('wc', 34.6, 22.5); f('basin', 27, 22.8);
+            D.cur = 0; bind();
+            view.s = v0;
         }
 
-        /* ---------- estimate from the drawing ---------- */
+        /* ---------- estimate from the drawing (all floors) ---------- */
         CALC.plan = {
             ratios: [],
             run(v) {
                 const k = K();
-                const walls = P.walls;
-                if (!walls.length && !P.rooms.length) return [row(t('fp.empty'), '')];
-                const floor = P.rooms.reduce((s, r) => s + polyArea(r.pts), 0);
+                const levels = D.levels.filter(hasContent);
+                if (!levels.length && !D.plot) return [row(t('fp.empty'), '')];
+                const roomsOf = (L) => L.rooms.reduce((s, r) => s + polyArea(r.pts), 0);
+                const floor = D.levels.reduce((s, L) => s + roomsOf(L), 0);
                 const groups = {};
-                let wl = 0, netTotal = 0;
-                walls.forEach((w) => {
-                    const L = wallLen(w);
-                    const op = P.openings.filter((o) => o.wall === w.id).reduce((s, o) => s + o.w * Math.min(o.h, Math.max(w.h - o.sill, 0)), 0);
-                    const net = Math.max(L * w.h - op, 0);
-                    const g = groups[w.t] || (groups[w.t] = { len: 0, vol: 0 });
-                    g.len += L; g.vol += net * w.t / 12;
-                    wl += L; netTotal += net;
+                let wl = 0, netTotal = 0, doors = 0, wins = 0, rooms = 0, walls = 0;
+                D.levels.forEach((L) => {
+                    rooms += L.rooms.length;
+                    walls += L.walls.length;
+                    L.openings.forEach((o) => { if (o.type === 'door') doors += 1; else wins += 1; });
+                    L.walls.forEach((w) => {
+                        const len0 = wallLen(w);
+                        const op = L.openings.filter((o) => o.wall === w.id).reduce((s, o) => s + o.w * Math.min(o.h, Math.max(w.h - o.sill, 0)), 0);
+                        const net = Math.max(len0 * w.h - op, 0);
+                        const g = groups[w.t] || (groups[w.t] = { len: 0, vol: 0 });
+                        g.len += len0; g.vol += net * w.t / 12;
+                        wl += len0; netTotal += net;
+                    });
                 });
-                const doors = P.openings.filter((o) => o.type === 'door').length, wins = P.openings.length - doors;
-                const items = [
-                    heading(t('fp.r.summary')),
-                    row(t('fp.r.rooms'), num(P.rooms.length, 0), t('u.pcs')),
-                    rq(t('r.floorArea'), qArea(floor)),
+                const items = [heading(t('fp.r.summary'))];
+                if (D.plot) {
+                    const pa = polyArea(D.plot.pts), foot = roomsOf(D.levels[0]);
+                    items.push(rq(t('fp.plotArea'), qArea(pa), true), row(t('fp.land'), landText(pa)));
+                    if (foot) items.push(row(t('fp.cover'), `${num(foot / pa * 100, 0)}%`), rq(t('fp.openSpace'), qArea(Math.max(pa - foot, 0))));
+                }
+                if (D.levels.length > 1) items.push(row(t('fp.r.floors'), num(D.levels.length, 0), t('u.pcs')));
+                items.push(
+                    row(t('fp.r.rooms'), num(rooms, 0), t('u.pcs')),
+                    rq(D.levels.length > 1 ? t('fp.r.totalFloor') : t('r.floorArea'), qArea(floor)),
                     rq(t('fp.r.wallLen'), qRun(wl)),
                     row(t('fp.r.doors'), num(doors, 0), t('u.pcs')),
                     row(t('fp.r.windows'), num(wins, 0), t('u.pcs')),
-                ];
+                );
+                if (D.levels.length > 1) D.levels.forEach((L, i) => { if (hasContent(L)) items.push(rq(`· ${floorName(i)}`, qArea(roomsOf(L)))); });
                 let bricks = 0, bags = 0, sand = 0, khoa = 0, tileCost = 0;
                 const mix = (dry, parts, idx) => dry / parts.reduce((a, b) => a + b, 0) * parts[idx];
-                if (walls.length) {
+                if (walls) {
                     let vol = 0;
                     items.push(heading(t('fp.g.wall')));
                     Object.keys(groups).map(Number).sort((a, b) => b - a).forEach((tk) => {
@@ -6007,17 +6709,18 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                     );
                 }
                 const sides = Number(v.pSides ?? 2);
-                if (walls.length && sides > 0 && v.pThk > 0) {
+                if (walls && sides > 0 && v.pThk > 0) {
                     const area = netTotal * sides, dry = area * v.pThk / 12 * k.dry, rt = [v.pRatio1, v.pRatio2];
                     const c = mix(dry, rt, 0), s = mix(dry, rt, 1);
                     bags += c * k.cementBag; sand += s;
                     items.push(heading(t('fp.g.plaster')), rq(t('r.workArea'), qArea(area)), row(t('r.cementBags'), num(c * k.cementBag), t('u.bags'), true), rq(t('mat.sand'), qVol(s), true));
                 }
+                // one roof slab over every floor
                 if (v.slab !== '0' && floor > 0 && v.sThk > 0) {
                     const vol = floor * v.sThk / 12, dry = vol * k.dry, rt = [v.sRatio1, v.sRatio2, v.sRatio3];
                     const c = mix(dry, rt, 0), s = mix(dry, rt, 1), kh = mix(dry, rt, 2);
                     bags += c * k.cementBag; sand += s; khoa += kh;
-                    items.push(heading(t('fp.g.slab')), rq(t('r.totalVolume'), qVol(vol)), row(t('r.cementBags'), num(c * k.cementBag), t('u.bags'), true), rq(t('mat.sand'), qVol(s), true), rq(t('mat.khoa'), qVol(kh), true));
+                    items.push(heading(D.levels.length > 1 ? t('fp.g.slabs', { n: num(levels.length, 0) }) : t('fp.g.slab')), rq(t('r.totalVolume'), qVol(vol)), row(t('r.cementBags'), num(c * k.cementBag), t('u.bags'), true), rq(t('mat.sand'), qVol(s), true), rq(t('mat.khoa'), qVol(kh), true));
                 }
                 if (v.fTile && v.fTile !== '0' && floor > 0) {
                     const [a, b] = v.fTile.split('x').map(Number), one = a * b / 144;
@@ -6034,49 +6737,52 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
 
         /* ---------- init ---------- */
         new ResizeObserver(() => draw()).observe(wrap);
-        VIZ.attach('plan', $('#plan-3d'), () => P);
+        VIZ.attach('plan', $('#plan-3d'), () => D);
         const savedView = storage.get(STORE_VIEW, null);
         if (savedView && ['2d', 'split', '3d'].includes(savedView)) { main.dataset.view = savedView; $$('input[name="fpView"]').forEach((r) => { r.checked = r.value === savedView; }); }
         setTool('select');
+        renderFloors();
+        syncAllBtn();
 
         return {
-            data: () => P,
-            polyArea, centroid, LIB,
-            toPng,
-            relabel() { fillKinds(); inspector(); draw(); if (currentPage === 'plan') refreshEstimate(); },
-            show() { view.fitted = view.fitted && wrap.clientWidth > 0; draw(); inspector(); setTimeout(refreshEstimate, 0); },
+            data: () => D,
+            polyArea, centroid, LIB, elevOf, levelH, slabFt, floorName,
+            toPng, toPngAll,
+            relabel() { fillKinds(); renderFloors(); syncAllBtn(); inspector(); actKey = ''; draw(); if (currentPage === 'plan') refreshEstimate(); },
+            show() { view.fitted = view.fitted && wrap.clientWidth > 0; draw(); inspector(); startScreen(); syncAllBtn(); setTimeout(refreshEstimate, 0); },
             refreshEstimate,
             // locked page: show the sample house behind the Pro card (not saved)
             preview() {
-                if (previewing || P.walls.length || P.furn.length) return;
+                if (previewing || anyContent() || D.plot) return;
                 previewing = true;
                 sample();
-                hist = [JSON.stringify(P)]; hi = 0;
+                hist = [JSON.stringify(D)]; hi = 0;
                 view.fitted = false;
-                draw(); inspector(); VIZ.update('plan');
+                draw(); inspector(); renderFloors(); startScreen(); VIZ.update('plan');
             },
             // unlocked again → back to the visitor's own (saved) drawing
             unpreview() {
                 if (!previewing) return;
                 previewing = false;
-                P = sanitize(storage.get(STORE, null));
+                D = sanitize(storage.get(STORE, null)); bind();
                 sel = null;
-                hist = [JSON.stringify(P)]; hi = 0;
+                hist = [JSON.stringify(D)]; hi = 0;
                 view.fitted = false;
-                draw(); inspector(); VIZ.update('plan');
+                draw(); inspector(); renderFloors(); startScreen(); VIZ.update('plan');
             },
             // the sample house as an SVG for the home page
             previewSvg(W = 900, H = 600) {
-                const saved = P;
+                const savedD = D, savedSel = sel;
                 sample();
-                const b = bounds(), pad = 2.5;
+                const b = bounds(false), pad = 2;
                 const bw = b.x1 - b.x0 + pad * 2, bh = b.y1 - b.y0 + pad * 2;
                 const s = Math.min(W / bw, H / bh);
                 const ox = (W - (b.x1 - b.x0) * s) / 2 - b.x0 * s, oy = (H - (b.y1 - b.y0) * s) / 2 - b.y0 * s;
-                const savedSel = sel; sel = null;
-                const body = worldMarkup(palette(true), s / 1.25, false);
+                sel = null;
+                const pal = palette(true);
+                const body = plotMarkup(pal, s / 1.25, false) + worldMarkup(pal, s / 1.25, false);
                 sel = savedSel;
-                P = saved;
+                D = savedD; bind();
                 return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet" font-family="Noto Sans Bengali, Poppins, sans-serif"><rect width="${W}" height="${H}" fill="#fff"/><g transform="translate(${ox} ${oy}) scale(${s})">${body}</g></svg>`;
             },
         };
@@ -6119,7 +6825,9 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             return out;
         };
         const M_NAME = { bkash: 'bKash', nagad: 'Nagad', ucb: 'UCB Bank' };
-        const chip = (m) => `<span class="pm-chip"><span class="pm-dot ${m}"></span>${M_NAME[m]}</span>`;
+        const logoOf = (m) => { const x = P()[m] || {}; return typeof x.logo === 'string' && /^data:image\//.test(x.logo) ? x.logo : ''; };
+        const mark = (m) => (logoOf(m) ? `<img class="pm-logo" src="${escapeHtml(logoOf(m))}" alt="${M_NAME[m]}">` : `<span class="pm-dot ${m}"></span>${M_NAME[m]}`);
+        const chip = (m) => `<span class="pm-chip${logoOf(m) ? ' has-logo' : ''}" title="${M_NAME[m]}">${mark(m)}</span>`;
 
         /* ---------- session ---------- */
         function onUser(u) {
@@ -6368,7 +7076,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 <span><small>${escapeHtml(t('pro.' + k))}${k === 'yearly' && sv ? ` · <b class="save-tag">${escapeHtml(t('pro.save', { p: num(sv, 0) }))}</b>` : ''}</small>
                 <b>${escapeHtml(taka(p[k]))}</b><small>${escapeHtml(t('pro.days', { n: num(p[k + 'Days'], 0) }))}</small></span></label>`).join('');
             const ms2 = methods();
-            $('#buy-methods').innerHTML = ms2.map((m, i) => `<label><input type="radio" name="buyMethod" value="${m}"${i === 0 ? ' checked' : ''}><span><span class="pm-dot ${m}"></span>${M_NAME[m]}</span></label>`).join('');
+            $('#buy-methods').innerHTML = ms2.map((m, i) => `<label><input type="radio" name="buyMethod" value="${m}"${i === 0 ? ' checked' : ''}><span>${mark(m)}</span></label>`).join('');
             const none = !ms2.length;
             $('#buy-none').hidden = !none;
             const wa = waLink(t('buy.waMsg', { plan: t('pro.' + plan) }));
@@ -6536,7 +7244,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
     const SHARE = (() => {
         const modal = $('#share-modal'), scrim = $('#share-scrim');
         const chk = $('#share-3d');
-        const st = { id: null, img: '', planImg: '', pdf: {} };
+        const st = { id: null, img: '', planImgs: [], pdf: {} };
         const LIBS = [
             'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js',
             'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js',
@@ -6580,7 +7288,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                         <div><div class="rp-brand">${escapeHtml(t('brand.name'))}</div><div class="rp-title">${escapeHtml(t('page.' + id))}</div></div>
                         <div class="rp-date">${escapeHtml(stamp())}</div>
                     </div>
-                    ${id === 'plan' && st.planImg ? `<div class="rp-3d"><h3>${escapeHtml(t('rp.plan2d'))}</h3><img src="${st.planImg}" alt=""></div>` : ''}
+                    ${id === 'plan' ? st.planImgs.map((p) => `<div class="rp-3d"><h3>${escapeHtml(t('rp.plan2d'))}${st.planImgs.length > 1 ? ' — ' + escapeHtml(p.name) : ''}</h3><img src="${p.url}" alt=""></div>`).join('') : ''}
                     <h3>${escapeHtml(t('rp.inputs'))}</h3>
                     <table class="rp-table rp-inputs">${inputs}</table>
                     <h3>${escapeHtml(t('rp.results'))}</h3>
@@ -6660,8 +7368,8 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             if (!lastValues[id]) return;
             st.id = id;
             st.pdf = {};
-            st.planImg = '';
-            if (id === 'plan') { try { st.planImg = await PLAN.toPng(1600); } catch (e) { console.warn('2D export failed:', e); } }
+            st.planImgs = [];
+            if (id === 'plan') { try { st.planImgs = await PLAN.toPngAll(1600); } catch (e) { console.warn('2D export failed:', e); } }
             st.img = VIZ.snapshot(id);
             chk.disabled = !st.img;
             if (!st.img) chk.checked = false;

@@ -1246,6 +1246,88 @@
         .user-acts { display: flex; gap: .35rem; flex-wrap: wrap; justify-content: flex-end; }
         .user-acts .btn { padding: .35rem .6rem; font-size: .78rem; min-height: 0; }
         @media (max-width: 620px) { .user-row { grid-template-columns: minmax(0, 1fr) auto; } .user-acts { grid-column: 1 / -1; justify-content: flex-start; } }
+        /* floors strip + plot button */
+        .plan-floors { display: flex; align-items: center; gap: .4rem; padding: .45rem .6rem; border-bottom: 1px solid var(--line); overflow-x: auto; scrollbar-width: none; }
+        .plan-floors::-webkit-scrollbar { display: none; }
+        .lvl-label { display: inline-flex; align-items: center; gap: .35rem; font-size: .78rem; color: var(--muted); font-weight: 600; flex: none; }
+        .lvl-list { display: flex; gap: .3rem; flex: none; }
+        .lvl { flex: none; display: inline-flex; align-items: center; gap: .35rem; min-height: 2.2rem; padding: .3rem .8rem; border-radius: 999px; border: 1px solid var(--line-2); background: var(--field); color: var(--ink-2); font-size: .8rem; font-weight: 600; cursor: pointer; white-space: nowrap; }
+        .lvl.on { background: var(--brand-grad); color: var(--on-brand); border-color: transparent; box-shadow: var(--brand-shadow); }
+        .lvl.add { border-style: dashed; color: var(--brand-ink); }
+        .lvl.plot { color: #15803d; border-color: rgba(22, 163, 74, .35); }
+        .lvl.plot.has, .lvl.plot.on { background: rgba(22, 163, 74, .1); }
+        [data-theme="dark"] .lvl.plot { color: #4ade80; }
+        .lvl-sp { flex: 1; min-width: .5rem; }
+        .lvl-add { position: relative; flex: none; }
+        .lvl-add .fp-menu-list { position: fixed; left: 0; right: auto; top: 0; z-index: 90; }
+        .chip-btn { display: inline-flex; align-items: center; gap: .35rem; height: 2rem; padding: 0 .7rem; border-radius: 999px; border: 1px solid var(--line-2); background: var(--field); font-size: .75rem; font-weight: 600; color: var(--ink-2); cursor: pointer; }
+        .chip-btn[aria-pressed="true"] { background: var(--brand-50); color: var(--brand-ink); border-color: var(--brand-100); }
+        .chip-btn[hidden] { display: none; }
+
+        /* canvas overlays */
+        .plan-status { top: .55rem; bottom: auto !important; }
+        .lvl-chip { background: var(--brand-grad) !important; color: var(--on-brand); border-color: transparent !important; font-weight: 600; }
+        .plan-actions-bar { position: absolute; left: 50%; bottom: .6rem; transform: translateX(-50%); z-index: 3; display: flex; align-items: center; gap: .3rem; padding: .3rem; max-width: calc(100% - 1rem); overflow-x: auto; scrollbar-width: none; border-radius: 1rem; background: var(--glass-strong); border: 1px solid var(--glass-border); box-shadow: var(--shadow-lg); -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur); }
+        .plan-actions-bar::-webkit-scrollbar { display: none; }
+        .fa-btn { flex: none; display: inline-flex; align-items: center; justify-content: center; gap: .4rem; height: 2.6rem; min-width: 2.6rem; padding: 0 .8rem; border: 0; border-radius: .75rem; background: transparent; color: var(--ink-2); font-size: .82rem; font-weight: 600; cursor: pointer; white-space: nowrap; }
+        .fa-btn.icon { padding: 0; }
+        .fa-btn span:empty { display: none; }
+        .fa-btn:hover:not(:disabled) { background: var(--brand-50); color: var(--brand-ink); }
+        .fa-btn.pri { background: var(--brand-grad); color: var(--on-brand); }
+        .fa-btn.danger { color: var(--err); }
+        .fa-btn:disabled { opacity: .35; cursor: default; }
+        .fa-sep { width: 1px; align-self: stretch; margin: .3rem .1rem; background: var(--line-2); flex: none; }
+        .fa-sep:first-child { display: none; }
+        .plan-prompt { z-index: 6; }
+        .plan-prompt.center { transform: translateX(-50%); }
+        .prompt-ok { width: 2.2rem; height: 2.2rem; border: 0; border-radius: .6rem; background: var(--brand-grad); color: var(--on-brand); cursor: pointer; flex: none; }
+        .plan-start { position: absolute; inset: 0; z-index: 5; display: grid; place-items: center; padding: 1rem; background: rgba(var(--brand-rgb), .05); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); overflow-y: auto; }
+        .plan-start[hidden] { display: none; }
+        .start-card { width: min(28rem, 100%); padding: 1.4rem; border-radius: 1.25rem; background: var(--glass-strong); border: 1px solid var(--glass-border); box-shadow: var(--shadow-lg); display: grid; gap: 1rem; }
+        .start-card h3 { margin: 0; font-size: 1.1rem; text-align: center; }
+        .start-opt { display: flex; gap: .85rem; align-items: flex-start; }
+        .start-ic { width: 2.6rem; height: 2.6rem; flex: none; border-radius: .8rem; display: grid; place-items: center; background: rgba(22, 163, 74, .12); color: #15803d; }
+        .start-body { flex: 1; min-width: 0; display: grid; gap: .6rem; }
+        .start-body small { color: var(--muted); margin-top: -.4rem; }
+        .start-fields { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
+        .start-fields .field > label { font-size: .78rem; }
+        .start-or { display: flex; align-items: center; gap: .6rem; color: var(--muted); font-size: .8rem; }
+        .start-or::before, .start-or::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+        .start-row { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
+        .btn-row { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .6rem; }
+        .btn-row .btn { width: auto !important; flex: 1 1 auto; margin-top: 0 !important; }
+        .plan-side h3.h3-gap { margin-top: 1.4rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+        .sheet-grip { display: none; }
+        .touch-only { display: none; }
+        @media (pointer: coarse) { .touch-only { display: list-item; } .mouse-only { display: none; } }
+
+        /* full screen editor */
+        .plan-card.fs { position: fixed; inset: 0; z-index: 70; margin: 0; border-radius: 0; display: flex; flex-direction: column; max-width: none; }
+        .plan-card.fs .plan-main { flex: 1; min-height: 0; }
+        .plan-card.fs .plan-2d, .plan-card.fs .plan-3d .viz-stage { min-height: 0; height: auto; }
+        .plan-card.fs .plan-side { max-height: none; }
+        @media (max-width: 860px) {
+            .plan-card.fs .plan-main { position: relative; display: flex; flex-direction: column; }
+            .plan-card.fs .plan-main[data-view="split"] .plan-2d { flex: 1.3; }
+            .plan-card.fs .plan-main[data-view="split"] .plan-3d { flex: 1; }
+            .plan-card.fs .plan-2d, .plan-card.fs .plan-3d { flex: 1; min-height: 0; height: auto; }
+            .plan-card.fs .plan-3d .viz-stage { flex: 1; min-height: 0; }
+            .plan-card.fs .plan-3d .viz-foot { display: none; }
+            .plan-card.fs .plan-side { position: absolute; left: 0; right: 0; bottom: 0; z-index: 8; max-height: 62%; border-radius: 1.25rem 1.25rem 0 0; border-top: 1px solid var(--line); box-shadow: 0 -12px 30px -12px rgba(15, 23, 42, .35); background: var(--glass-strong); -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur); transform: translateY(100%); transition: transform .25s; padding-top: .4rem; }
+            .plan-card.fs .plan-side.open { transform: none; }
+            .plan-card.fs .sheet-grip { display: block; width: 3rem; height: 1.4rem; margin: 0 auto .4rem; border: 0; background: none; cursor: pointer; position: relative; }
+            .plan-card.fs .sheet-grip::after { content: ""; position: absolute; left: 50%; top: 50%; width: 2.6rem; height: .3rem; border-radius: 999px; background: var(--line-2); transform: translate(-50%, -50%); }
+            .plan-bar { gap: .35rem; }
+            .start-fields, .start-row { grid-template-columns: 1fr; }
+        }
+        .logo-row { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem .9rem; margin: 0 0 .9rem; }
+        .logo-prev { width: 7.5rem; height: 3rem; flex: none; border-radius: .7rem; border: 1px dashed var(--line-2); background: #fff; display: grid; place-items: center; overflow: hidden; color: var(--muted); font-size: .72rem; }
+        .logo-prev img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .logo-acts { display: flex; gap: .4rem; flex-wrap: wrap; }
+        .logo-row .set-help { flex-basis: 100%; margin: 0; }
+        .pm-logo { height: 1.5rem; width: auto; max-width: 5.5rem; object-fit: contain; display: block; }
+        .pm-chip.has-logo { background: #fff; padding: .3rem .7rem; }
+        .method-pick label > span .pm-logo { height: 1.35rem; }
         /* svg drawing */
         #plan-svg .w-sel { fill: var(--brand) !important; }
         #plan-svg .sel-line { stroke: var(--brand); }
@@ -2482,6 +2564,7 @@
                         <button type="button" class="icon-btn icon-btn-sm" id="fp-undo" data-i18n-title="fp.undo" data-i18n-aria="fp.undo"><i class="fa-solid fa-rotate-left"></i></button>
                         <button type="button" class="icon-btn icon-btn-sm" id="fp-redo" data-i18n-title="fp.redo" data-i18n-aria="fp.redo"><i class="fa-solid fa-rotate-right"></i></button>
                         <button type="button" class="icon-btn icon-btn-sm" id="fp-fit" data-i18n-title="fp.fit" data-i18n-aria="fp.fit"><i class="fa-solid fa-expand"></i></button>
+                        <button type="button" class="icon-btn icon-btn-sm" id="fp-full" aria-pressed="false" data-i18n-title="fp.full" data-i18n-aria="fp.full"><i class="fa-solid fa-maximize"></i></button>
                         <div class="segmented fp-view" role="radiogroup" data-i18n-aria="fp.view">
                             <label><input type="radio" name="fpView" value="2d"><span>2D</span></label>
                             <label><input type="radio" name="fpView" value="split" checked><span>2D + 3D</span></label>
@@ -2501,13 +2584,40 @@
                     </div>
                 </div>
 
+                <div class="plan-floors" id="fp-floors"></div>
+
                 <div class="plan-main" id="plan-main" data-view="split">
                     <div class="plan-2d" id="plan-2d">
                         <svg id="plan-svg" xmlns="http://www.w3.org/2000/svg" role="img" data-i18n-aria="fp.canvas"></svg>
                         <div class="plan-status" id="fp-status"></div>
                         <div class="plan-prompt" id="fp-prompt" hidden>
                             <label for="fp-prompt-input" id="fp-prompt-label"></label>
-                            <input type="text" id="fp-prompt-input" autocomplete="off">
+                            <input type="text" id="fp-prompt-input" autocomplete="off" enterkeyhint="done">
+                            <button type="button" class="prompt-ok" id="fp-prompt-ok" data-i18n-aria="fp.ok"><i class="fa-solid fa-check"></i></button>
+                        </div>
+                        <div class="plan-actions-bar" id="fp-actions"></div>
+                        <!-- first visit: start with the plot size or draw freely -->
+                        <div class="plan-start" id="fp-start" hidden>
+                            <div class="start-card">
+                                <h3 data-i18n="fp.st.title"></h3>
+                                <div class="start-opt">
+                                    <span class="start-ic"><i class="fa-solid fa-vector-square"></i></span>
+                                    <div class="start-body">
+                                        <strong data-i18n="fp.st.plot"></strong>
+                                        <small data-i18n="fp.st.plotD"></small>
+                                        <div class="start-fields">
+                                            <div class="field"><label for="fp-s-w" data-i18n="fp.pWidth"></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="fp-s-w" data-len="ft" data-ph="0"></div></div>
+                                            <div class="field"><label for="fp-s-l" data-i18n="fp.pLength"></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="fp-s-l" data-len="ft" data-ph="0"></div></div>
+                                        </div>
+                                        <button type="button" class="btn btn-primary btn-sm" data-start="plot"><i class="fa-solid fa-check"></i> <span data-i18n="fp.st.plotBtn"></span></button>
+                                    </div>
+                                </div>
+                                <div class="start-or"><span data-i18n="acct.or2"></span></div>
+                                <div class="start-row">
+                                    <button type="button" class="btn btn-soft" data-start="free"><i class="fa-solid fa-pen-ruler"></i> <span data-i18n="fp.st.free"></span></button>
+                                    <button type="button" class="btn btn-ghost" data-start="sample"><i class="fa-solid fa-house-chimney"></i> <span data-i18n="fp.sample"></span></button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="plan-3d" id="plan-3d">
@@ -2517,6 +2627,7 @@
                             <div class="plan-3d-tools">
                                 <small class="viz-hint"><i class="fa-solid fa-hand-pointer"></i><span></span></small>
                                 <span>
+                                    <button type="button" class="chip-btn" id="fp-3d-all" aria-pressed="false" hidden><i class="fa-solid fa-building"></i> <span data-i18n="fp.allFloors"></span></button>
                                     <button type="button" class="icon-btn icon-btn-sm" data-viz-rotate aria-pressed="false" data-i18n-title="viz.rotate" data-i18n-aria="viz.rotate"><i class="fa-solid fa-rotate"></i></button>
                                     <button type="button" class="icon-btn icon-btn-sm" data-viz-reset data-i18n-title="viz.reset" data-i18n-aria="viz.reset"><i class="fa-solid fa-expand"></i></button>
                                 </span>
@@ -2556,7 +2667,7 @@
                                 <div class="field"><label for="plan-wRatio1"><span data-i18n="mat.cement"></span></label><div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="plan-wRatio1" name="wRatio1" data-num data-optional data-default="1" data-ph="0"></div><span class="field-error"></span></div>
                                 <div class="field"><label for="plan-wRatio2"><span data-i18n="mat.sand"></span></label><div class="input-wrap plain"><input type="text" inputmode="decimal" autocomplete="off" id="plan-wRatio2" name="wRatio2" data-num data-optional data-default="4" data-ph="0"></div><span class="field-error"></span></div>
                             </div>
-                            <small class="set-help" data-i18n="fp.h.wall"></small>
+                            <small class="set-help" data-i18n="fp.h.mortar"></small>
                         </div>
 
                         <div class="fieldset">
@@ -3090,6 +3201,14 @@
                         </div>
                         <div class="fieldset">
                             <p class="group-title"><span class="pm-dot bkash"></span> bKash</p>
+                            <div class="logo-row" data-logo-row="bkash">
+                                <span class="logo-prev" data-logo-prev="bkash"></span>
+                                <span class="logo-acts">
+                                    <label class="btn btn-soft btn-sm"><i class="fa-solid fa-upload"></i> <span data-i18n="ap2.logoUp"></span><input type="file" accept="image/*" data-logo-file="bkash" hidden></label>
+                                    <button type="button" class="btn btn-ghost btn-sm" data-logo-del="bkash"><i class="fa-solid fa-trash-can"></i> <span data-i18n="ap2.logoDel"></span></button>
+                                </span>
+                                <small class="set-help" data-i18n="ap2.logoHint"></small>
+                            </div>
                             <label class="set-row"><span><strong data-i18n="ap2.methodOn"></strong></span><input type="checkbox" class="switch" role="switch" name="bkashOn"></label>
                             <div class="form-grid">
                                 <div class="field"><label for="a-bk" data-i18n="ap2.number"></label><input class="control" id="a-bk" name="bkashNumber" inputmode="tel" maxlength="20" placeholder="01XXXXXXXXX"></div>
@@ -3098,6 +3217,14 @@
                         </div>
                         <div class="fieldset">
                             <p class="group-title"><span class="pm-dot nagad"></span> Nagad</p>
+                            <div class="logo-row" data-logo-row="nagad">
+                                <span class="logo-prev" data-logo-prev="nagad"></span>
+                                <span class="logo-acts">
+                                    <label class="btn btn-soft btn-sm"><i class="fa-solid fa-upload"></i> <span data-i18n="ap2.logoUp"></span><input type="file" accept="image/*" data-logo-file="nagad" hidden></label>
+                                    <button type="button" class="btn btn-ghost btn-sm" data-logo-del="nagad"><i class="fa-solid fa-trash-can"></i> <span data-i18n="ap2.logoDel"></span></button>
+                                </span>
+                                <small class="set-help" data-i18n="ap2.logoHint"></small>
+                            </div>
                             <label class="set-row"><span><strong data-i18n="ap2.methodOn"></strong></span><input type="checkbox" class="switch" role="switch" name="nagadOn"></label>
                             <div class="form-grid">
                                 <div class="field"><label for="a-ng" data-i18n="ap2.number"></label><input class="control" id="a-ng" name="nagadNumber" inputmode="tel" maxlength="20" placeholder="01XXXXXXXXX"></div>
@@ -3106,6 +3233,14 @@
                         </div>
                         <div class="fieldset">
                             <p class="group-title"><span class="pm-dot ucb"></span> UCB Bank</p>
+                            <div class="logo-row" data-logo-row="ucb">
+                                <span class="logo-prev" data-logo-prev="ucb"></span>
+                                <span class="logo-acts">
+                                    <label class="btn btn-soft btn-sm"><i class="fa-solid fa-upload"></i> <span data-i18n="ap2.logoUp"></span><input type="file" accept="image/*" data-logo-file="ucb" hidden></label>
+                                    <button type="button" class="btn btn-ghost btn-sm" data-logo-del="ucb"><i class="fa-solid fa-trash-can"></i> <span data-i18n="ap2.logoDel"></span></button>
+                                </span>
+                                <small class="set-help" data-i18n="ap2.logoHint"></small>
+                            </div>
                             <label class="set-row"><span><strong data-i18n="ap2.methodOn"></strong></span><input type="checkbox" class="switch" role="switch" name="ucbOn"></label>
                             <div class="form-grid">
                                 <div class="field"><label for="a-ucn" data-i18n="ap2.accName"></label><input class="control" id="a-ucn" name="ucbName" maxlength="80"></div>
