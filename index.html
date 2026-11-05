@@ -1328,6 +1328,45 @@
         .pm-logo { height: 1.5rem; width: auto; max-width: 5.5rem; object-fit: contain; display: block; }
         .pm-chip.has-logo { background: #fff; padding: .3rem .7rem; }
         .method-pick label > span .pm-logo { height: 1.35rem; }
+        .rod-fields { margin-top: .9rem; padding-top: .8rem; border-top: 1px dashed var(--line-2); }
+        .rod-fields[hidden], [data-rod][hidden] { display: none !important; }
+        .rod-title { margin: 0 0 .6rem; font-size: .82rem; font-weight: 600; color: var(--brand-ink); display: flex; gap: .4rem; align-items: center; }
+        .side-pick { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .75rem; margin: 0 0 1.25rem; padding: .7rem .85rem; border-radius: var(--radius-sm); background: var(--brand-50); border: 1px dashed var(--brand-100); }
+        .side-pick label { flex: 1 1 12rem; font-size: .85rem; font-weight: 600; color: var(--ink-2); display: flex; align-items: center; gap: .4rem; }
+        .side-pick label i { color: var(--brand-ink); }
+        .side-pick select { flex: 1 1 10rem; max-width: 16rem; height: 2.6rem; min-height: 2.6rem; }
+        .side-tag { color: var(--brand-ink); font-weight: 600; }
+        .side-tag:empty { display: none; }
+        .plan-compass { position: absolute; right: .6rem; top: .55rem; z-index: 3; width: 3rem; height: 3.4rem; padding: .2rem 0 0; border-radius: .9rem; border: 1px solid var(--glass-border); background: var(--glass-strong); box-shadow: var(--shadow); cursor: pointer; display: grid; justify-items: center; align-content: start; color: var(--ink); }
+        .plan-compass svg { width: 2rem; height: 2rem; }
+        .plan-compass g { transform-origin: 20px 20px; transition: transform .25s; }
+        .plan-compass b { font-size: .62rem; line-height: 1; margin-top: -.1rem; }
+        .plan-status { right: 4rem !important; }
+        .north-pick { display: grid; grid-template-columns: repeat(8, 1fr); gap: .25rem; }
+        .north-pick label { cursor: pointer; }
+        .north-pick input { position: absolute; opacity: 0; pointer-events: none; }
+        .north-pick span { display: grid; place-items: center; height: 2.3rem; border-radius: .6rem; border: 1px solid var(--line-2); background: var(--field); font-size: 1.05rem; font-weight: 700; }
+        .north-pick input:checked + span { background: var(--brand-grad); color: var(--on-brand); border-color: transparent; }
+        .seg-3 label > span { padding-left: .4rem !important; padding-right: .4rem !important; font-size: .78rem; }
+        .plot-fields { display: grid; gap: .75rem; margin-top: .75rem; }
+        .plot-fields .btn { margin-top: 0 !important; }
+        .side-list { list-style: none; margin: .25rem 0 0; padding: 0; display: grid; gap: .3rem; font-size: .82rem; }
+        .side-list li { display: flex; justify-content: space-between; gap: .5rem; padding: .35rem .6rem; border-radius: .55rem; background: rgba(22, 163, 74, .08); }
+        .side-list b { color: #15803d; } [data-theme="dark"] .side-list b { color: #4ade80; }
+        .start-row { grid-template-columns: 1fr 1fr 1fr; }
+        @media (max-width: 560px) { .start-row { grid-template-columns: 1fr; } }
+        .plan-head { display: flex; align-items: center; gap: .6rem; padding: .55rem .9rem; border-bottom: 1px solid var(--line); }
+        .plan-head i { color: var(--brand-ink); }
+        .plan-title { flex: 1; min-width: 0; height: 2.4rem; border: 1px solid transparent; border-radius: .6rem; background: transparent; padding: 0 .6rem; font: 700 1.05rem/1 var(--font); color: var(--ink); }
+        .plan-title:hover { border-color: var(--line-2); }
+        .plan-title:focus { outline: none; border-color: var(--brand); background: var(--field-focus); }
+        .plan-title::placeholder { color: var(--muted); font-weight: 500; }
+        .fa-count { flex: none; padding: 0 .6rem; font-size: .8rem; font-weight: 700; color: var(--brand-ink); white-space: nowrap; }
+        .nudge-pad { display: grid; grid-template-columns: repeat(3, 2.6rem); gap: .3rem; justify-content: center; margin: .6rem 0; }
+        .nudge-pad .btn { width: 2.6rem !important; height: 2.6rem; min-height: 0; padding: 0; margin: 0 !important; }
+        .nudge-step { display: grid; place-items: center; font-size: .68rem; color: var(--muted); }
+        .plot-chips { display: flex; flex-wrap: wrap; gap: .35rem; margin: 0 0 .75rem; }
+        .plan-2d[data-tool="box"] svg { cursor: cell; }
         /* svg drawing */
         #plan-svg .w-sel { fill: var(--brand) !important; }
         #plan-svg .sel-line { stroke: var(--brand); }
@@ -1730,6 +1769,7 @@
                                     <option value="yd" data-i18n="lu.yd"></option>
                                 </optgroup>
                                 <optgroup data-i18n-label="lu.metric">
+                                    <option value="mcm" data-i18n="lu.mcm"></option>
                                     <option value="m" data-i18n="lu.m"></option>
                                     <option value="cm" data-i18n="lu.cm"></option>
                                     <option value="mm" data-i18n="lu.mm"></option>
@@ -1738,6 +1778,10 @@
                         </label>
                     </div>
                     <div class="card-body">
+                        <div class="side-pick">
+                            <label for="roof-side"><i class="fa-solid fa-compass"></i> <span data-i18n="sd.front"></span> <small class="opt" data-i18n="tl.optional"></small></label>
+                            <select class="control" id="roof-side" name="side" data-side="front" autocomplete="off"></select>
+                        </div>
                         <div class="fieldset">
                             <p class="group-title" data-i18n="grp.ratio"></p>
                             <div class="fields ratio">
@@ -1763,12 +1807,12 @@
                             <p class="group-title" data-i18n="grp.length"></p>
                             <div class="fields">
                                 <div class="field">
-                                    <label for="roof-firstLength" data-i18n="f.firstLength"></label>
+                                    <label for="roof-firstLength"><span data-i18n="f.firstLength"></span> <small class="side-tag" data-side-of="L1"></small></label>
                                     <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="roof-firstLength" data-len="ft" name="firstLength" data-num data-positive data-ph="0"><span class="unit" data-i18n="u.ft"></span></div>
                                     <span class="field-error"></span>
                                 </div>
                                 <div class="field">
-                                    <label for="roof-secondLength" data-i18n="f.secondLength"></label>
+                                    <label for="roof-secondLength"><span data-i18n="f.secondLength"></span> <small class="side-tag" data-side-of="L2"></small></label>
                                     <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="roof-secondLength" data-len="ft" name="secondLength" data-num data-positive data-ph="0"><span class="unit" data-i18n="u.ft"></span></div>
                                     <span class="field-error"></span>
                                 </div>
@@ -1779,12 +1823,12 @@
                             <p class="group-title" data-i18n="grp.width"></p>
                             <div class="fields">
                                 <div class="field">
-                                    <label for="roof-firstWidth" data-i18n="f.firstWidth"></label>
+                                    <label for="roof-firstWidth"><span data-i18n="f.firstWidth"></span> <small class="side-tag" data-side-of="W1"></small></label>
                                     <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="roof-firstWidth" data-len="ft" name="firstWidth" data-num data-positive data-ph="0"><span class="unit" data-i18n="u.ft"></span></div>
                                     <span class="field-error"></span>
                                 </div>
                                 <div class="field">
-                                    <label for="roof-secondWidth" data-i18n="f.secondWidth"></label>
+                                    <label for="roof-secondWidth"><span data-i18n="f.secondWidth"></span> <small class="side-tag" data-side-of="W2"></small></label>
                                     <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="roof-secondWidth" data-len="ft" name="secondWidth" data-num data-positive data-ph="0"><span class="unit" data-i18n="u.ft"></span></div>
                                     <span class="field-error"></span>
                                 </div>
@@ -1882,6 +1926,7 @@
                                     <option value="yd" data-i18n="lu.yd"></option>
                                 </optgroup>
                                 <optgroup data-i18n-label="lu.metric">
+                                    <option value="mcm" data-i18n="lu.mcm"></option>
                                     <option value="m" data-i18n="lu.m"></option>
                                     <option value="cm" data-i18n="lu.cm"></option>
                                     <option value="mm" data-i18n="lu.mm"></option>
@@ -1890,6 +1935,10 @@
                         </label>
                     </div>
                     <div class="card-body">
+                        <div class="side-pick">
+                            <label for="column-side"><i class="fa-solid fa-compass"></i> <span data-i18n="sd.dir8c"></span> <small class="opt" data-i18n="tl.optional"></small></label>
+                            <select class="control" id="column-side" name="side" data-side="dir8c" autocomplete="off"></select>
+                        </div>
                         <div class="fieldset">
                             <p class="group-title" data-i18n="cl.items"></p>
                             <div class="item-list" id="col-items"></div>
@@ -1920,6 +1969,22 @@
                             </div>
                         </div>
 
+                        <div class="fieldset rod-set">
+                            <p class="group-title" data-i18n="cl.rodTitle"></p>
+                            <div class="field"><span class="field-label" data-i18n="cl.rodAsk"></span>
+                                <div class="segmented" role="radiogroup">
+                                    <label><input type="radio" name="colRod" value="0" checked><span data-i18n="fp.no"></span></label>
+                                    <label><input type="radio" name="colRod" value="1"><span data-i18n="cl.rodYes"></span></label>
+                                </div>
+                            </div>
+                            <div class="fields auto" data-rod hidden style="margin-top:1rem">
+                                <div class="field"><label for="column-rodCover"><span data-i18n="cl.cover"></span> <small class="opt" data-i18n="cl.coverDef"></small></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-rodCover" name="rodCover" data-num data-optional data-default="1.5" data-len="in" data-ph="0"></div><span class="field-error"></span></div>
+                                <div class="field"><label for="column-rodLap"><span data-i18n="cl.lap"></span> <small class="opt" data-i18n="cl.lapDef"></small></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-rodLap" name="rodLap" data-num data-optional data-default="0" data-len="ft" data-ph="0"></div><span class="field-error"></span></div>
+                                <div class="field"><label for="column-rodWaste"><span data-i18n="f.wastage"></span> <small class="opt" data-i18n="cl.wasteDef"></small></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-rodWaste" name="rodWaste" data-num data-optional data-default="5" data-ph="0"><span class="unit">%</span></div><span class="field-error"></span></div>
+                            </div>
+                            <small class="set-help" data-rod hidden data-i18n="cl.rodHelp"></small>
+                        </div>
+
                         <div class="fieldset">
                             <p class="group-title"><span data-i18n="grp.price"></span> <small class="opt" data-i18n="tl.optional"></small></p>
                             <div class="fields auto">
@@ -1936,6 +2001,11 @@
                                 <div class="field">
                                     <label for="column-khoaPrice"><span data-i18n-k="f.khoaPrice"></span></label>
                                     <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-khoaPrice" name="khoaPrice" data-num data-optional data-default="0" data-ph="0" data-price="vol"><span class="unit">৳</span></div>
+                                    <span class="field-error"></span>
+                                </div>
+                                <div class="field" data-rod hidden>
+                                    <label for="column-rodPrice"><span data-i18n="f.rodPrice"></span></label>
+                                    <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-rodPrice" name="rodPrice" data-num data-optional data-default="0" data-ph="0"><span class="unit">৳</span></div>
                                     <span class="field-error"></span>
                                 </div>
                             </div>
@@ -1957,6 +2027,9 @@
                                 <li data-i18n-k="cl.f5"></li>
                                 <li data-i18n-k="cl.f6"></li>
                                 <li data-i18n-k="cl.f7"></li>
+                                <li data-i18n-k="cl.rf1"></li>
+                                <li data-i18n-k="cl.rf2"></li>
+                                <li data-i18n-k="cl.rf3"></li>
                             </ol>
                             <p class="formula-note" data-i18n-k="calc.fnote"></p>
                         </details>
@@ -2000,6 +2073,7 @@
                                     <option value="yd" data-i18n="lu.yd"></option>
                                 </optgroup>
                                 <optgroup data-i18n-label="lu.metric">
+                                    <option value="mcm" data-i18n="lu.mcm"></option>
                                     <option value="m" data-i18n="lu.m"></option>
                                     <option value="cm" data-i18n="lu.cm"></option>
                                     <option value="mm" data-i18n="lu.mm"></option>
@@ -2008,6 +2082,10 @@
                         </label>
                     </div>
                     <div class="card-body">
+                        <div class="side-pick">
+                            <label for="wall-side"><i class="fa-solid fa-compass"></i> <span data-i18n="sd.dir8i"></span> <small class="opt" data-i18n="tl.optional"></small></label>
+                            <select class="control" id="wall-side" name="side" data-side="dir8i" autocomplete="off"></select>
+                        </div>
                         <div class="fieldset">
                             <p class="group-title" data-i18n="grp.wallsize"></p>
                             <div class="fields auto">
@@ -2124,6 +2202,7 @@
                                     <option value="yd" data-i18n="lu.yd"></option>
                                 </optgroup>
                                 <optgroup data-i18n-label="lu.metric">
+                                    <option value="mcm" data-i18n="lu.mcm"></option>
                                     <option value="m" data-i18n="lu.m"></option>
                                     <option value="cm" data-i18n="lu.cm"></option>
                                     <option value="mm" data-i18n="lu.mm"></option>
@@ -2132,6 +2211,10 @@
                         </label>
                     </div>
                     <div class="card-body">
+                        <div class="side-pick">
+                            <label for="plaster-side"><i class="fa-solid fa-compass"></i> <span data-i18n="sd.dir8i"></span> <small class="opt" data-i18n="tl.optional"></small></label>
+                            <select class="control" id="plaster-side" name="side" data-side="dir8i" autocomplete="off"></select>
+                        </div>
                         <div class="fieldset">
                             <p class="group-title" data-i18n="grp.plaster"></p>
                             <div class="fields auto">
@@ -2243,6 +2326,7 @@
                                     <option value="yd" data-i18n="lu.yd"></option>
                                 </optgroup>
                                 <optgroup data-i18n-label="lu.metric">
+                                    <option value="mcm" data-i18n="lu.mcm"></option>
                                     <option value="m" data-i18n="lu.m"></option>
                                     <option value="cm" data-i18n="lu.cm"></option>
                                     <option value="mm" data-i18n="lu.mm"></option>
@@ -2251,6 +2335,10 @@
                         </label>
                     </div>
                     <div class="card-body">
+                        <div class="side-pick">
+                            <label for="steel-side"><i class="fa-solid fa-compass"></i> <span data-i18n="sd.axis"></span> <small class="opt" data-i18n="tl.optional"></small></label>
+                            <select class="control" id="steel-side" name="side" data-side="axis" autocomplete="off"></select>
+                        </div>
                         <div class="fieldset">
                             <p class="group-title" data-i18n="grp.roofsize"></p>
                             <div class="fields">
@@ -2357,6 +2445,7 @@
                                     <option value="yd" data-i18n="lu.yd"></option>
                                 </optgroup>
                                 <optgroup data-i18n-label="lu.metric">
+                                    <option value="mcm" data-i18n="lu.mcm"></option>
                                     <option value="m" data-i18n="lu.m"></option>
                                     <option value="cm" data-i18n="lu.cm"></option>
                                     <option value="mm" data-i18n="lu.mm"></option>
@@ -2365,6 +2454,10 @@
                         </label>
                     </div>
                     <div class="card-body">
+                        <div class="side-pick">
+                            <label for="tiles-side"><i class="fa-solid fa-compass"></i> <span data-i18n="sd.dir8c"></span> <small class="opt" data-i18n="tl.optional"></small></label>
+                            <select class="control" id="tiles-side" name="side" data-side="dir8c" autocomplete="off"></select>
+                        </div>
                         <div class="fieldset">
                             <p class="group-title" data-i18n="tl.areas"></p>
                             <div class="area-list" id="tile-areas"></div>
@@ -2544,10 +2637,15 @@
                 </div>
             </div>
             <div class="card plan-card" id="plan-card">
+                <div class="plan-head">
+                    <i class="fa-solid fa-file-signature"></i>
+                    <input type="text" id="fp-title" class="plan-title" maxlength="80" autocomplete="off" data-i18n-ph="fp.titlePh" data-i18n-aria="fp.title">
+                </div>
                 <!-- toolbar -->
                 <div class="plan-bar">
                     <div class="plan-tools" role="toolbar" data-i18n-aria="fp.tools">
                         <button type="button" class="pt" data-tool="select" data-i18n-title="fp.t.select"><i class="fa-solid fa-arrow-pointer"></i><span data-i18n="fp.select"></span></button>
+                        <button type="button" class="pt" data-tool="box" data-i18n-title="fp.t.box"><i class="fa-solid fa-object-group"></i><span data-i18n="fp.box"></span></button>
                         <button type="button" class="pt" data-tool="pan" data-i18n-title="fp.t.pan"><i class="fa-solid fa-hand"></i><span data-i18n="fp.pan"></span></button>
                         <span class="pt-sep"></span>
                         <button type="button" class="pt" data-tool="wall" data-i18n-title="fp.t.wall"><i class="fa-solid fa-draw-polygon"></i><span data-i18n="fp.wall"></span></button>
@@ -2596,6 +2694,7 @@
                             <button type="button" class="prompt-ok" id="fp-prompt-ok" data-i18n-aria="fp.ok"><i class="fa-solid fa-check"></i></button>
                         </div>
                         <div class="plan-actions-bar" id="fp-actions"></div>
+                        <button type="button" class="plan-compass" id="fp-compass" data-i18n-title="fp.compass" data-i18n-aria="fp.compass"><svg viewBox="0 0 40 40" aria-hidden="true"><g id="fp-compass-g"><path d="M20 4 L26 21 L20 18 L14 21 Z" fill="#dc2626"/><path d="M20 36 L14 19 L20 22 L26 19 Z" fill="#94a3b8"/></g></svg><b id="fp-compass-n"></b></button>
                         <!-- first visit: start with the plot size or draw freely -->
                         <div class="plan-start" id="fp-start" hidden>
                             <div class="start-card">
@@ -2614,6 +2713,7 @@
                                 </div>
                                 <div class="start-or"><span data-i18n="acct.or2"></span></div>
                                 <div class="start-row">
+                                    <button type="button" class="btn btn-soft" data-start="draw"><i class="fa-solid fa-draw-polygon"></i> <span data-i18n="fp.st.draw"></span></button>
                                     <button type="button" class="btn btn-soft" data-start="free"><i class="fa-solid fa-pen-ruler"></i> <span data-i18n="fp.st.free"></span></button>
                                     <button type="button" class="btn btn-ghost" data-start="sample"><i class="fa-solid fa-house-chimney"></i> <span data-i18n="fp.sample"></span></button>
                                 </div>
@@ -2651,6 +2751,7 @@
                                     <option value="yd" data-i18n="lu.yd"></option>
                                 </optgroup>
                                 <optgroup data-i18n-label="lu.metric">
+                                    <option value="mcm" data-i18n="lu.mcm"></option>
                                     <option value="m" data-i18n="lu.m"></option>
                                     <option value="cm" data-i18n="lu.cm"></option>
                                     <option value="mm" data-i18n="lu.mm"></option>

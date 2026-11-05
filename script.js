@@ -433,6 +433,108 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             'rp.inputs': 'Measurements',
             'rp.results': 'Results',
             'rp.3d': '3D preview',
+            "fp.titlePh": "Plan name — e.g. \"Rahim's 3-storey house, Mirpur\"",
+            "fp.title": "Plan name",
+            "fp.box": "Box select",
+            "fp.t.box": "Drag a box to select many items; tap items to add / remove (B)",
+            "fp.h.box": "Drag a box around things · tap to add/remove · drag a selected item to move them all",
+            "fp.selAll": "Select all",
+            "fp.multiN": "{n} selected",
+            "fp.copy": "Copy",
+            "fp.deselect": "Deselect",
+            "fp.nothing": "Nothing here to select",
+            "fp.moveHint": "Drag any selected item to move them all together, or use the arrows (Shift + arrow = 10×).",
+            "fp.allFloorsMove": "Everything on every floor moves together.",
+            "fp.delManyConfirm": "Delete {n} items?",
+            "fp.merge": "Merge {n} plots into one",
+            "fp.qa.merge": "Merge",
+            "fp.mergeNeed": "Select two or more plots to merge.",
+            "fp.mergeFail": "These plots do not touch each other — move them side by side (sharing a boundary) and try again.",
+            "fp.merged": "{n} plots merged — total {a}",
+            "fp.mergedSome": "{n} plots merged; {m} did not touch and were left as they are.",
+            "fp.plotN": "Plot {n}",
+            "fp.plotsN": "{n} plots",
+            "fp.plotAdd": "Add plot",
+            "fp.plotNew": "New plot",
+            "fp.plotName": "Plot name / dag no. (optional)",
+            "fp.plotMergeAll": "Select all plots (to merge / move)",
+            "fp.plotTotal": "Total land ({n} plots)",
+            "fp.fg.in": "Living & bedroom",
+            "fp.fg.kb": "Kitchen, bath & utility",
+            "fp.fg.out": "Garden & outside",
+            "fp.fg.veh": "Vehicles",
+            "fp.f.tv": "TV unit",
+            "fp.f.shelf": "Bookshelf",
+            "fp.f.ctable": "Coffee table",
+            "fp.f.stove": "Cooker / stove",
+            "fp.f.washer": "Washing machine",
+            "fp.f.tank": "Water tank",
+            "fp.f.tree": "Tree",
+            "fp.f.bush": "Bush / plant",
+            "fp.f.flower": "Flower bed",
+            "fp.f.lawn": "Lawn (grass)",
+            "fp.f.pool": "Swimming pool",
+            "fp.f.fountain": "Fountain",
+            "fp.f.bench": "Garden bench",
+            "fp.f.patio": "Patio table & umbrella",
+            "fp.f.path": "Walkway",
+            "fp.f.parking": "Car parking",
+            "fp.f.gate": "Main gate",
+            "fp.f.car": "Car",
+            "fp.f.bike": "Motorcycle",
+            "fp.f.cycle": "Bicycle",
+            "dir.N": "North",
+            "dir.NE": "North-east",
+            "dir.E": "East",
+            "dir.SE": "South-east",
+            "dir.S": "South",
+            "dir.SW": "South-west",
+            "dir.W": "West",
+            "dir.NW": "North-west",
+            "dir.C": "Middle / inside",
+            "dir.I": "Inner wall",
+            "dir.NS": "North–South",
+            "dir.EW": "East–West",
+            "sd.front": "Front side (first length) faces",
+            "sd.dir8c": "Side / position",
+            "sd.dir8i": "Which side wall",
+            "sd.axis": "Length runs",
+            "sd.none": "— Not set —",
+            "fp.sideN": "Side {n}",
+            "fp.sideOf": "{d} side",
+            "fp.sidesOf": "{a} & {b} sides",
+            "fp.north": "North is towards",
+            "fp.plotAny": "Any shape",
+            "fp.plotDraw": "Draw the plot (any shape)",
+            "fp.plotAnyHint": "Tap each corner of the land; tap the first corner to close it. Drag the green corners to adjust, or type a side length and press Update.",
+            "fp.h.plotdraw": "Tap each corner of the plot · type a length · tap the first corner (or Close) to finish",
+            "fp.qa.closePlot": "Close plot",
+            "fp.plotSides": "Sides",
+            "fp.st.draw": "Draw any shape",
+            "fp.compass": "North (tap to turn)",
+            "fp.northNow": "North is now {a}",
+            "cl.rodTitle": "Rod (rebar)",
+            "cl.rodAsk": "Calculate the rod too?",
+            "cl.rodYes": "Yes, with rod",
+            "cl.rodFor": "Rod for this piece",
+            "cl.nb": "Main rods",
+            "cl.md": "Main rod size",
+            "cl.td": "Ring (tie) size",
+            "cl.ts": "Ring spacing",
+            "cl.def": "(empty = {v})",
+            "cl.cover": "Clear cover",
+            "cl.coverDef": "(empty = 1.5\")",
+            "cl.lap": "Extra per main rod (lap / bend)",
+            "cl.lapDef": "(empty = 0)",
+            "cl.wasteDef": "(empty = 5%)",
+            "cl.rodHelp": "Each column / lintel has its own rod boxes. Empty boxes use the usual sizes: column 4 × 12 mm, lintel 4 × 10 mm, ring 8 mm @ 6\".",
+            "cl.mainBars": "{n} × {d} mm main rod",
+            "cl.ties": "{n} rings {d} mm ({c} each)",
+            "cl.byDia": "{d} mm rod — {l}",
+            "cl.rodNone": "Enter rod details for at least one piece",
+            "cl.rf1": "Main rod length = number of rods × (length + extra) × quantity",
+            "cl.rf2": "Rings = length ÷ spacing + 1; one ring = 2 × ((width − 2 × cover) + (depth − 2 × cover)) + 2 hooks of 10 × size",
+            "cl.rf3": "Rod weight (kg) = length (ft) × size² ÷ {steelDiv}, plus wastage",
             "fp.lvl0": "Ground floor",
             "fp.lvlN": "{n} floor",
             "fp.lvl": "Floors",
@@ -820,6 +922,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             'lu.ft': 'Feet (ft)',
             'lu.in': 'Inch (in)',
             'lu.yd': 'Yard (yd)',
+            'lu.mcm': 'Metre + Centimetre (m-cm)',
             'lu.m': 'Metre (m)',
             'lu.cm': 'Centimetre (cm)',
             'lu.mm': 'Millimetre (mm)',
@@ -1356,6 +1459,108 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             'rp.inputs': 'মাপ',
             'rp.results': 'ফলাফল',
             'rp.3d': '৩ডি প্রিভিউ',
+            "fp.titlePh": "প্ল্যানের নাম — যেমন \"রহিমের ৩ তলা বাড়ি, মিরপুর\"",
+            "fp.title": "প্ল্যানের নাম",
+            "fp.box": "বক্স সিলেক্ট",
+            "fp.t.box": "বক্স টেনে অনেকগুলো একসাথে সিলেক্ট করুন; ট্যাপ করে যোগ/বাদ দিন (B)",
+            "fp.h.box": "জিনিসগুলোর চারপাশে বক্স টানুন · ট্যাপ করে যোগ/বাদ · সিলেক্ট করা কিছু টানলে সব একসাথে সরবে",
+            "fp.selAll": "সব সিলেক্ট",
+            "fp.multiN": "{n}টি সিলেক্ট",
+            "fp.copy": "কপি",
+            "fp.deselect": "সিলেক্ট বাদ",
+            "fp.nothing": "সিলেক্ট করার মতো কিছু নেই",
+            "fp.moveHint": "সিলেক্ট করা যেকোনো কিছু টানলে সব একসাথে সরবে, অথবা তীর চাপুন (Shift + তীর = ১০ গুণ)।",
+            "fp.allFloorsMove": "সব তলার সব কিছু একসাথে সরবে।",
+            "fp.delManyConfirm": "{n}টি জিনিস মুছে ফেলবেন?",
+            "fp.merge": "{n}টি প্লট একসাথে (মার্জ) করুন",
+            "fp.qa.merge": "মার্জ",
+            "fp.mergeNeed": "মার্জ করতে দুই বা বেশি প্লট সিলেক্ট করুন।",
+            "fp.mergeFail": "প্লটগুলো একটার সাথে আরেকটা লাগোয়া নয় — পাশাপাশি (একই সীমানায়) এনে আবার চেষ্টা করুন।",
+            "fp.merged": "{n}টি প্লট এক হয়েছে — মোট {a}",
+            "fp.mergedSome": "{n}টি প্লট এক হয়েছে; {m}টি লাগোয়া না থাকায় আলাদা রইল।",
+            "fp.plotN": "প্লট {n}",
+            "fp.plotsN": "{n}টি প্লট",
+            "fp.plotAdd": "প্লট যোগ",
+            "fp.plotNew": "নতুন প্লট",
+            "fp.plotName": "প্লটের নাম / দাগ নং (ঐচ্ছিক)",
+            "fp.plotMergeAll": "সব প্লট সিলেক্ট (মার্জ / সরানোর জন্য)",
+            "fp.plotTotal": "মোট জমি ({n}টি প্লট)",
+            "fp.fg.in": "বসার ও শোবার ঘর",
+            "fp.fg.kb": "রান্নাঘর, বাথরুম ও অন্যান্য",
+            "fp.fg.out": "বাগান ও বাইরে",
+            "fp.fg.veh": "যানবাহন",
+            "fp.f.tv": "টিভি ইউনিট",
+            "fp.f.shelf": "বুকশেলফ",
+            "fp.f.ctable": "কফি টেবিল",
+            "fp.f.stove": "চুলা",
+            "fp.f.washer": "ওয়াশিং মেশিন",
+            "fp.f.tank": "পানির ট্যাংক",
+            "fp.f.tree": "গাছ",
+            "fp.f.bush": "ঝোপ / চারা গাছ",
+            "fp.f.flower": "ফুলের বেড",
+            "fp.f.lawn": "লন (ঘাস)",
+            "fp.f.pool": "সুইমিং পুল",
+            "fp.f.fountain": "ফোয়ারা",
+            "fp.f.bench": "বাগানের বেঞ্চ",
+            "fp.f.patio": "ছাতাসহ টেবিল",
+            "fp.f.path": "হাঁটার রাস্তা",
+            "fp.f.parking": "গাড়ি পার্কিং",
+            "fp.f.gate": "মেইন গেট",
+            "fp.f.car": "গাড়ি",
+            "fp.f.bike": "মোটরসাইকেল",
+            "fp.f.cycle": "সাইকেল",
+            "dir.N": "উত্তর",
+            "dir.NE": "উত্তর-পূর্ব",
+            "dir.E": "পূর্ব",
+            "dir.SE": "দক্ষিণ-পূর্ব",
+            "dir.S": "দক্ষিণ",
+            "dir.SW": "দক্ষিণ-পশ্চিম",
+            "dir.W": "পশ্চিম",
+            "dir.NW": "উত্তর-পশ্চিম",
+            "dir.C": "মাঝখানে / ভেতরে",
+            "dir.I": "ভেতরের দেয়াল",
+            "dir.NS": "উত্তর–দক্ষিণ",
+            "dir.EW": "পূর্ব–পশ্চিম",
+            "sd.front": "সামনের দিক (প্রথম দৈর্ঘ্য)",
+            "sd.dir8c": "সাইড / অবস্থান",
+            "sd.dir8i": "কোন সাইডের দেয়াল",
+            "sd.axis": "দৈর্ঘ্য কোন দিক বরাবর",
+            "sd.none": "— বাছাই করা নেই —",
+            "fp.sideN": "বাহু {n}",
+            "fp.sideOf": "{d} বাহু",
+            "fp.sidesOf": "{a} ও {b} বাহু",
+            "fp.north": "উত্তর দিক কোন দিকে",
+            "fp.plotAny": "যেকোনো আকার",
+            "fp.plotDraw": "জমি আঁকুন (যেকোনো আকার)",
+            "fp.plotAnyHint": "জমির প্রতিটি কোণে ট্যাপ করুন, প্রথম কোণে ট্যাপ করলে বন্ধ হবে। সবুজ কোণ টেনে ঠিক করুন, বা বাহুর মাপ লিখে আপডেট চাপুন।",
+            "fp.h.plotdraw": "জমির প্রতিটি কোণে ট্যাপ করুন · মাপ লিখুন · প্রথম কোণে ট্যাপ করলে (বা বন্ধ চাপলে) শেষ",
+            "fp.qa.closePlot": "জমি বন্ধ",
+            "fp.plotSides": "বাহুগুলো",
+            "fp.st.draw": "যেকোনো আকারে আঁকুন",
+            "fp.compass": "উত্তর দিক (ট্যাপ করে ঘোরান)",
+            "fp.northNow": "উত্তর এখন {a}",
+            "cl.rodTitle": "রডের হিসাব",
+            "cl.rodAsk": "রডের হিসাবও করবেন?",
+            "cl.rodYes": "হ্যাঁ, রডসহ",
+            "cl.rodFor": "এই অংশের রড",
+            "cl.nb": "মেইন রড (টি)",
+            "cl.md": "মেইন রডের সাইজ",
+            "cl.td": "রিং রডের সাইজ",
+            "cl.ts": "রিংয়ের দূরত্ব",
+            "cl.def": "(না দিলে {v})",
+            "cl.cover": "ক্লিয়ার কভার",
+            "cl.coverDef": "(না দিলে ১.৫\")",
+            "cl.lap": "প্রতি মেইন রডে বাড়তি (ল্যাপ/বাঁক)",
+            "cl.lapDef": "(না দিলে ০)",
+            "cl.wasteDef": "(না দিলে ৫%)",
+            "cl.rodHelp": "প্রতিটি কলাম/লিন্টেলের নিজস্ব রডের ঘর আছে। খালি রাখলে সাধারণ মাপ ধরা হবে: কলাম ৪ × ১২ মিমি, লিন্টেল ৪ × ১০ মিমি, রিং ৮ মিমি @ ৬\"।",
+            "cl.mainBars": "{n} × {d} মিমি মেইন রড",
+            "cl.ties": "{n}টি রিং {d} মিমি (প্রতিটি {c})",
+            "cl.byDia": "{d} মিমি রড — {l}",
+            "cl.rodNone": "অন্তত একটি অংশের রডের তথ্য দিন",
+            "cl.rf1": "মেইন রডের দৈর্ঘ্য = রডের সংখ্যা × (দৈর্ঘ্য + বাড়তি) × পরিমাণ",
+            "cl.rf2": "রিং = দৈর্ঘ্য ÷ দূরত্ব + ১; একটি রিং = ২ × ((প্রস্থ − ২ × কভার) + (পুরুত্ব − ২ × কভার)) + ২টি হুক (১০ × সাইজ)",
+            "cl.rf3": "রডের ওজন (কেজি) = দৈর্ঘ্য (ফুট) × সাইজ² ÷ {steelDiv}, সাথে অপচয়",
             "fp.lvl0": "নিচতলা",
             "fp.lvlN": "{n} তলা",
             "fp.lvl": "তলা",
@@ -1743,6 +1948,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             'lu.ft': 'ফুট (ft)',
             'lu.in': 'ইঞ্চি (in)',
             'lu.yd': 'গজ (yd)',
+            'lu.mcm': 'মিটার + সেন্টিমিটার (m-cm)',
             'lu.m': 'মিটার (m)',
             'lu.cm': 'সেন্টিমিটার (cm)',
             'lu.mm': 'মিলিমিটার (mm)',
@@ -2121,6 +2327,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             else resetResult(id);
         });
 
+        SIDES.fill();
         TILES.renumber();
         COLS.relabel();
         PLAN.relabel();
@@ -3285,9 +3492,9 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
     //   Metric (SI) — metre, centimetre, millimetre (never mixed with imperial)
     const IN_PER = { ft: 12, in: 1, yd: 36, m: 39.37007874015748, cm: 0.3937007874015748, mm: 0.03937007874015748 };
     const UNIT_KEY = { ft: 'u.ft', in: 'u.inch', yd: 'u.yd', m: 'u.m', cm: 'u.cm', mm: 'u.mm' };
-    const COMBOS = { ftin: ['ft', 'in'] };
+    const COMBOS = { ftin: ['ft', 'in'], mcm: ['m', 'cm'] };
     const LEN_UNITS = [...Object.keys(COMBOS), ...Object.keys(IN_PER)];
-    const SYSTEM_OF = { ftin: 'imp', ft: 'imp', in: 'imp', yd: 'imp', m: 'met', cm: 'met', mm: 'met' };
+    const SYSTEM_OF = { ftin: 'imp', ft: 'imp', in: 'imp', yd: 'imp', mcm: 'met', m: 'met', cm: 'met', mm: 'met' };
     const STORE_UNIT = 'cc.unit';
     const PREC = { ft: 4, in: 3, yd: 4, m: 4, cm: 2, mm: 1 };      // decimals shown after converting
     const r3 = (n) => +(+n).toFixed(3);
@@ -3439,6 +3646,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             const combo = COMBOS[mode];
             if (combo) {
                 const { a, b } = split(inches, combo);
+                if (mode === 'mcm') return `${numPlain(a)} ${t('u.m')} ${numPlain(+b.toFixed(1))} ${t('u.cm')}`;
                 return `${numPlain(a)}'-${numPlain(b)}"`;          // engineering notation: 12'-6"
             }
             return `${numPlain(+(inches / IN_PER[mode]).toFixed(PREC[mode]))} ${t(UNIT_KEY[mode])}`;
@@ -3475,13 +3683,14 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 const neg = inches < 0 ? '−' : '';
                 const { a, b } = split(Math.abs(inches), combo);
                 const bb = +b.toFixed(1);
+                if (unit === 'mcm') return !a ? `${neg}${numPlain(bb)} ${t('u.cm')}` : `${neg}${numPlain(a)} ${t('u.m')} ${numPlain(bb)} ${t('u.cm')}`;
                 if (!a) return `${neg}${numPlain(bb)}"`;
                 return `${neg}${numPlain(a)}'-${numPlain(bb)}"`;
             }
             return `${numPlain(+(inches / IN_PER[unit]).toFixed(Math.min(PREC[unit], 2)))} ${t(UNIT_KEY[unit])}`;
         }
         const fmt = (ft) => fmtInches(ft * 12);
-        const fmtIn = (inch) => (unit === 'm' ? `${numPlain(+(inch * 2.54).toFixed(1))} ${t('u.cm')}` : fmtInches(inch));
+        const fmtIn = (inch) => (unit === 'm' || unit === 'mcm' ? `${numPlain(+(inch * 2.54).toFixed(1))} ${t('u.cm')}` : fmtInches(inch));
         // put a value (in the field's base unit) into a length box
         const set = (inp, val) => write(inp, Number.isFinite(+val) ? toInches(inp, +val) : null);
         const sync = () => refresh();
@@ -3509,6 +3718,45 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         if (pa.length === 2 && pb.length === 2 && pa[1] === pb[1]) return `${pa[0]} × ${pb[0]} ${pa[1]}`;
         return `${a} × ${b}`;
     }
+
+    /* ---------- Sides / directions (উত্তর, দক্ষিণ, পূর্ব, পশ্চিম) for every calculator ---------- */
+    const SIDES = (() => {
+        const DIR = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
+        const KINDS = { front: ['', 'S', 'N', 'E', 'W'], dir8c: ['', ...DIR, 'C'], dir8i: ['', ...DIR, 'I'], axis: ['', 'NS', 'EW'] };
+        const KIND_OF = { roof: 'front', column: 'dir8c', wall: 'dir8i', plaster: 'dir8i', steel: 'axis', tiles: 'dir8c' };
+        const name = (k) => (k ? t('dir.' + k) : '');
+        const fromBearing = (deg) => DIR[Math.round((((deg % 360) + 360) % 360) / 45) % 8];
+        const bearing = (k) => DIR.indexOf(k) * 45;
+        // roof: the front side (first length) decides the other three
+        function roofSides(front) {
+            if (!front || DIR.indexOf(front) < 0) return null;
+            const b = bearing(front);
+            return { L1: front, L2: fromBearing(b + 180), W1: fromBearing(b + 90), W2: fromBearing(b + 270) };
+        }
+        function tags() {
+            const sel = $('form[data-calc="roof"] select[data-side]');
+            const m = roofSides(sel && sel.value);
+            $$('[data-side-of]').forEach((el) => { el.textContent = m ? `(${name(m[el.dataset.sideOf])})` : ''; });
+        }
+        function fill() {
+            $$('select[data-side]').forEach((sel) => {
+                const want = sel.dataset.want != null ? sel.dataset.want : sel.value;
+                delete sel.dataset.want;
+                sel.innerHTML = KINDS[sel.dataset.side].map((k) => `<option value="${k}">${escapeHtml(k ? name(k) : t('sd.none'))}</option>`).join('');
+                sel.value = KINDS[sel.dataset.side].includes(want) ? want : '';
+            });
+            tags();
+        }
+        document.addEventListener('change', (e) => {
+            if (!e.target.matches || !e.target.matches('select[data-side]')) return;
+            const form = e.target.form, id = form.dataset.calc;
+            tags();
+            saveInputs(form);
+            VIZ.update(id);
+            if (lastValues[id]) { const nv = readForm(form); if (nv) { lastValues[id] = nv; renderResult(id, nv); } }
+        });
+        return { fill, name, roofSides, fromBearing, bearing, KIND_OF };
+    })();
 
     function readForm(form) {
         let ok = true;
@@ -3543,6 +3791,8 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             if (inp.hasAttribute('data-len')) v._disp[inp.name] = LEN.display(inp, n);
         });
         $$('input[type="radio"]:checked', form).forEach((r) => { v[r.name] = r.value; });
+        const sd = $('select[data-side]', form);
+        v._side = sd ? sd.value : '';
         // metric prices / areas → the per-cft, per-sq-ft basis the formulas use
         if (ok && LEN.system() === 'met') {
             $$('input[data-price], input[data-area-val]', form).forEach((inp) => {
@@ -3672,8 +3922,10 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                     row(t('r.ratio'), ratioText(v.ratio1, v.ratio2, v.ratio3)),
                     ...m.items,
                     row(t('r.bricksKhoa'), num(bricksForKhoa, 0), t('u.pcs'), true),
-                    ...costItems([['r.cementCost', m.bags, v.cementPrice], ['r.sandCost', m.sand, v.sandPrice], ['r.khoaCost', m.khoa, v.khoaPrice]]),
                 );
+                const rod = v.colRod === '1' ? colRebar(items, v) : null;
+                if (rod) out.push(...rod.items);
+                out.push(...costItems([['r.cementCost', m.bags, v.cementPrice], ['r.sandCost', m.sand, v.sandPrice], ['r.khoaCost', m.khoa, v.khoaPrice], ['r.rodCost', rod ? rod.kg : 0, v.rodPrice]]));
                 return out;
             },
         },
@@ -3798,6 +4050,17 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             },
         },
     };
+    // every calculator shows the chosen side first
+    Object.keys(SIDES.KIND_OF).forEach((id) => {
+        const run = CALC[id].run;
+        CALC[id].run = function (v) {
+            const out = run.call(this, v);
+            if (!v || !v._side) return out;
+            const m = id === 'roof' ? SIDES.roofSides(v._side) : null;
+            const val = m ? `${t('f.firstLength')}: ${SIDES.name(m.L1)} · ${t('f.secondLength')}: ${SIDES.name(m.L2)} · ${t('f.firstWidth')}: ${SIDES.name(m.W1)} · ${t('f.secondWidth')}: ${SIDES.name(m.W2)}` : SIDES.name(v._side);
+            return [row(t('sd.' + SIDES.KIND_OF[id]), val, '', true), ...out];
+        };
+    });
 
     /* ---------- Column & lintel helpers ---------- */
     // rows come in as type_0 / iL_0 / iW_0 / iT_0 / iQ_0, type_1 …
@@ -3814,10 +4077,51 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 return {
                     type, L: v['iL_' + i], W: v['iW_' + i], T: v['iT_' + i], Q: v['iQ_' + i] > 0 ? v['iQ_' + i] : 1,
                     dL: d['iL_' + i], dW: d['iW_' + i], dT: d['iT_' + i],
+                    nb: v['nb_' + i], md: v['md_' + i], td: v['td_' + i], ts: v['ts_' + i],
                     no: t(type === 'lintel' ? 'cl.lintelN' : 'cl.columnN', { n: n[type] }),
                 };
             })
             .filter((it) => it.L > 0 && it.W > 0 && it.T > 0);
+    }
+
+    /* ---------- Column & lintel rebar ----------
+       main bars : count × (length + extra/lap) per piece
+       ties/rings: count = length ÷ spacing + 1;  cut length = 2 × ((W − 2c) + (T − 2c)) + 2 hooks of 10d
+       weight    : d² ÷ 532.2 kg per ft (d in mm) */
+    function colRebar(items, v) {
+        const div = K().steelDiv, cover = v.rodCover >= 0 ? v.rodCover : 1.5, lap = v.rodLap > 0 ? v.rodLap : 0;
+        const waste = v.rodWaste >= 0 ? v.rodWaste : 5;
+        const byDia = {};
+        const addDia = (d, ft) => { byDia[d] = (byDia[d] || 0) + ft; };
+        const out = [heading(t('cl.rodTitle'))];
+        items.forEach((it) => {
+            const nb = Math.max(Math.round(it.nb || 0), 0), md = it.md, td = it.td, ts = it.ts;
+            const mainFt = nb * (it.L + lap) * it.Q;
+            if (nb && md > 0) addDia(md, mainFt);
+            let tieN = 0, tieFt = 0, cut = 0;
+            if (td > 0 && ts > 0) {
+                const a = it.W - 2 * cover, b = it.T - 2 * cover;
+                if (a > 0 && b > 0) {
+                    tieN = Math.floor(it.L * 12 / ts + 1e-9) + 1;
+                    cut = (2 * (a + b) + 2 * 10 * td / 25.4) / 12;          // ft
+                    tieFt = tieN * cut * it.Q;
+                    addDia(td, tieFt);
+                }
+            }
+            const q = it.Q !== 1 ? ` × ${numPlain(it.Q)}` : '';
+            out.push(rq(`${it.no}${q}: ${t('cl.mainBars', { n: digits(nb), d: digits(md) })}`, qRun(mainFt)));
+            if (tieN) out.push(rq(`${it.no}${q}: ${t('cl.ties', { n: num(tieN, 0), d: digits(td), c: LEN.fmt(cut) })}`, qRun(tieFt)));
+        });
+        let kg = 0;
+        Object.keys(byDia).map(Number).sort((a, b) => b - a).forEach((d) => {
+            const w = byDia[d] * d * d / div;
+            kg += w;
+            out.push(row(t('cl.byDia', { d: digits(d), l: qs(qRun(byDia[d])) }), num(w), t('u.kg'), true));
+        });
+        const total = kg * (1 + waste / 100);
+        if (waste) out.push(row(t('r.wastage', { p: numPlain(waste) }), '+ ' + num(total - kg), t('u.kg')));
+        out.push(total ? { type: 'total', label: t('r.rodTotal'), value: num(total), unit: t('u.kg') } : row(t('cl.rodNone'), ''));
+        return { items: out, kg: total };
     }
 
     /* ---------- Tiles helpers ---------- */
@@ -3930,6 +4234,8 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             if (st) data[inp.name + '__in'] = st.sub;
         });
         $$('input[type="radio"]:checked', form).forEach((r) => { data[r.name] = r.value; });
+        const sd = $('select[data-side]', form);
+        if (sd) data.__side = sd.value;
         data.__unit = LEN.current();
         all[form.dataset.calc] = data;
         storage.set(STORE_INPUTS, all);
@@ -3944,6 +4250,8 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         });
         LEN.restoreForm(form, data.__unit || 'ftin');
         $$('input[type="radio"]', form).forEach((r) => { if (data[r.name] != null) r.checked = data[r.name] === r.value; });
+        const sd = $('select[data-side]', form);
+        if (sd && data.__side != null) sd.dataset.want = data.__side;
     }
 
     /* =========================================================
@@ -4036,10 +4344,16 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         }
 
         function readValues(id) {
+            const r = readValues0(id);
+            const sd = $(`form[data-calc="${id}"] select[data-side]`);
+            if (r && r.v && sd) r.v._side = sd.value;
+            return r;
+        }
+        function readValues0(id) {
             const form = $(`form[data-calc="${id}"]`);
             if (id === 'tiles') return readTiles(form);
             if (id === 'column') return readColumn(form);
-            if (id === 'plan') { const d = planSrc ? planSrc() : null; return { v: { plan: d }, live: !!(d && (d.plot || d.levels.some((L) => L.walls.length || L.furn.length))) }; }
+            if (id === 'plan') { const d = planSrc ? planSrc() : null; return { v: { plan: d }, live: !!(d && (d.plots.length || d.levels.some((L) => L.walls.length || L.furn.length))) }; }
             const v = { _disp: {} };
             let live = false;
             Object.keys(DEF[id]).forEach((k) => {
@@ -4135,7 +4449,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 const d = v.plan;
                 if (!d) return [];
                 const chips = [];
-                if (d.plot) chips.push([t('fp.plot'), qs(qArea(PLAN.polyArea(d.plot.pts)))]);
+                if (d.plots.length) chips.push([t('fp.plot'), qs(qArea(d.plots.reduce((a, pl) => a + PLAN.polyArea(pl.pts), 0)))]);
                 const floor = d.levels.reduce((a, L) => a + L.rooms.reduce((b, r) => b + PLAN.polyArea(r.pts), 0), 0);
                 if (d.levels.length > 1) chips.push([t('fp.r.floors'), num(d.levels.length, 0)]);
                 chips.push([t('fp.r.rooms'), num(d.levels.reduce((a, L) => a + L.rooms.length, 0), 0)], [d.levels.length > 1 ? t('fp.r.totalFloor') : t('r.floorArea'), qs(qArea(floor))]);
@@ -4353,7 +4667,8 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                     const n = V(dir.z, 0, -dir.x).normalize();
                     const mid = pa.clone().lerp(pb, .5);
                     if (n.dot(V(mid.x, 0, mid.z)) < 0) n.negate();          // point away from the centre
-                    dim(pa, pb, n.multiplyScalar(.35), key ? `${t(key)} ${D(v, key.slice(2), 'u.ft')}` : fv(val, 'u.ft'));
+                    const sm = SIDES.roofSides(v._side), sk = { 'f.firstLength': 'L1', 'f.secondLength': 'L2', 'f.firstWidth': 'W1', 'f.secondWidth': 'W2' }[key];
+                    dim(pa, pb, n.multiplyScalar(.35), key ? `${sm ? SIDES.name(sm[sk]) + ' · ' : ''}${t(key)} ${D(v, key.slice(2), 'u.ft')}` : fv(val, 'u.ft'));
                 });
                 // thickness at the front-left corner
                 const out = V(P[0].x, 0, P[0].z).normalize().multiplyScalar(.3);
@@ -4524,7 +4839,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 bbox = { w: X, h: y0 + slabT, d: Z, cy: y0 };
             }
             else if (id === 'plan') {
-                const D = v.plan || { levels: [], plot: null, cur: 0, opt: {} };
+                const D = v.plan || { levels: [], plots: [], cur: 0, opt: {} };
                 const top = D.opt.all3d ? D.levels.length - 1 : D.cur;
                 const shown = D.levels.slice(0, top + 1);
                 const pts = [];
@@ -4533,7 +4848,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                     L.rooms.forEach((r) => pts.push(...r.pts));
                     L.furn.forEach((f) => pts.push({ x: f.x - f.w / 2, y: f.y - f.d / 2 }, { x: f.x + f.w / 2, y: f.y + f.d / 2 }));
                 });
-                if (D.plot) pts.push(...D.plot.pts);
+                D.plots.forEach((pl) => pts.push(...pl.pts));
                 if (!pts.length) pts.push({ x: 0, y: 0 }, { x: 30, y: 20 });
                 const xs = pts.map((p) => p.x), ys = pts.map((p) => p.y);
                 const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
@@ -4571,18 +4886,18 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                     });
                 }
                 // the plot: lawn + a low boundary kerb
-                if (D.plot) {
-                    const geo = flat(D.plot.pts);
+                D.plots.forEach((pl) => {
+                    const geo = flat(pl.pts);
                     const lawn = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ color: C.dark ? 0x1f4a2a : 0x3f8f4c, roughness: 1, side: THREE.DoubleSide }));
                     lawn.position.y = .004;
                     g.add(lawn);
                     const kerb = new THREE.MeshStandardMaterial({ color: C.dark ? 0x94a3b8 : 0xb6bec8, roughness: .9 });
-                    const q = D.plot.pts;
+                    const q = pl.pts;
                     q.forEach((a, i) => {
                         const b = q[(i + 1) % q.length], L = Math.hypot(b.x - a.x, b.y - a.y);
                         seg(L * k, Math.max(.6 * k, .03), Math.max(.4 * k, .02), [kerb, kerb, kerb, kerb, kerb, kerb], { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 }, 0, Math.atan2(b.y - a.y, b.x - a.x));
                     });
-                }
+                });
                 const floorTx = tileTex().clone();
                 floorTx.userData = {}; floorTx.needsUpdate = true; floorTx.repeat.set(k * 2.5, k * 2.5);
                 const floorMat = new THREE.MeshStandardMaterial({ map: floorTx, roughness: .6, side: THREE.DoubleSide });
@@ -4633,7 +4948,47 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                             }
                             return;
                         }
-                        seg(f.w * k, F.h * k, f.d * k, mats, f, base, ang);
+                        const col = (c) => new THREE.MeshStandardMaterial({ color: c, roughness: .85 });
+                        const all6 = (m) => [m, m, m, m, m, m];
+                        const at3 = (y) => S3(f, base + y);
+                        if (f.kind === 'tree' || f.kind === 'bush') {
+                            const r = Math.min(f.w, f.d) / 2 * k;
+                            if (f.kind === 'tree') {
+                                const trunkH = F.h * .45 * k;
+                                const tr = new THREE.Mesh(new THREE.CylinderGeometry(.35 * k, .45 * k, trunkH, 10), col(0x6b4423));
+                                tr.position.copy(at3(0)); tr.position.y = base + trunkH / 2;
+                                g.add(tr);
+                                const cr = new THREE.Mesh(new THREE.SphereGeometry(r, 16, 12), col(0x2f7d3a));
+                                cr.scale.y = Math.max(F.h * .6 * k / (2 * r), .6);
+                                cr.position.copy(at3(0)); cr.position.y = base + trunkH + r * cr.scale.y * .8;
+                                g.add(cr);
+                            } else {
+                                const b = new THREE.Mesh(new THREE.SphereGeometry(r, 14, 10), col(0x3f8f4c));
+                                b.scale.y = .8; b.position.copy(at3(0)); b.position.y = base + r * .75;
+                                g.add(b);
+                            }
+                            return;
+                        }
+                        if (F.round) {
+                            const r = Math.min(f.w, f.d) / 2 * k, hh = F.h * k;
+                            const c = new THREE.Mesh(new THREE.CylinderGeometry(r, r, hh, 24), col(F.c));
+                            c.position.copy(at3(0)); c.position.y = base + hh / 2;
+                            g.add(c);
+                            return;
+                        }
+                        if (F.pool) {
+                            seg(f.w * k, .35 * k, f.d * k, all6(col(0xe7e5e4)), f, base, ang);
+                            const water = new THREE.MeshStandardMaterial({ color: 0x0ea5e9, roughness: .15, metalness: .1, transparent: true, opacity: .85 });
+                            seg(Math.max(f.w - 1.6, .5) * k, .36 * k, Math.max(f.d - 1.6, .5) * k, [water, water, water, water, water, water], f, base + .005, ang);
+                            return;
+                        }
+                        if (F.car) {
+                            seg(f.w * k, F.h * .5 * k, f.d * k, all6(col(F.c)), f, base + .5 * k, ang);
+                            const cab = { x: f.x - Math.sin(ang) * f.d * .05, y: f.y + Math.cos(ang) * f.d * .05 };
+                            seg(f.w * .86 * k, F.h * .4 * k, f.d * .5 * k, all6(col(0x93c5fd)), cab, base + (.5 + F.h * .5) * k, ang);
+                            return;
+                        }
+                        seg(f.w * k, Math.max(F.h * k, .004), f.d * k, F.flat ? all6(col(F.c)) : mats, f, base, ang);
                     });
                     if (li === D.cur) {
                         L.rooms.forEach((r) => {
@@ -4652,6 +5007,12 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                     slab(L.rooms, roofY);
                     topY = Math.max(topY, roofY + slabT);
                 }
+                // north marker
+                const nd = (Number(D.opt.north) || 0) * Math.PI / 180, rr = span / 2 + 2.5;
+                const nl = makeLabel(`${t('dir.N')} ▲`, C);
+                nl.scale.multiplyScalar(.85);
+                nl.position.copy(S3({ x: cx + Math.sin(nd) * rr, y: cy - Math.cos(nd) * rr }, .1));
+                g.add(nl);
                 ground((maxX - minX) * k, (maxY - minY) * k);
                 topY = Math.max(topY, .3);
                 bbox = { w: (maxX - minX) * k, h: topY, d: (maxY - minY) * k, cy: topY / 2.4 };
@@ -4853,7 +5214,9 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         function updateInfo(id) {
             const card = cards[id];
             const { v, live } = readValues(id);
-            const chips = CHIPS[id](v).map(([label, value]) =>
+            const list = CHIPS[id](v);
+            if (v._side && SIDES.KIND_OF[id]) list.unshift([t('sd.' + SIDES.KIND_OF[id]), SIDES.name(v._side)]);
+            const chips = list.map(([label, value]) =>
                 `<span class="viz-chip">${escapeHtml(label)}<b>${escapeHtml(value)}</b></span>`);
             if (id === 'roof') {
                 const q = roofQuad(v.firstLength, v.secondLength, v.firstWidth, v.secondWidth);
@@ -5012,6 +5375,19 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             column: { iL: 'cl.colH', iW: 'cl.width', iT: 'cl.colT' },
             lintel: { iL: 'cl.linL', iW: 'cl.width', iT: 'cl.linD' },
         };
+        // rebar defaults (used when a box is left empty)
+        const ROD_DEF = { column: { nb: 4, md: 12, td: 8, ts: 6 }, lintel: { nb: 4, md: 10, td: 8, ts: 6 } };
+        const numField = (i, name, unitKey, len) => `
+            <div class="field">
+                <label for="column-${name}_${i}"><span data-i18n="cl.${name}"></span> <small class="opt" data-def="${name}"></small></label>
+                <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-${name}_${i}" name="${name}_${i}" data-num data-optional data-ph="0"${len ? ' data-len="in"' : ''}>${unitKey ? `<span class="unit" data-i18n="${unitKey}"></span>` : ''}</div>
+                <span class="field-error"></span>
+            </div>`;
+        const rodOn = () => ($('input[name="colRod"]:checked', form) || {}).value === '1';
+        function syncRod() {
+            const on = rodOn();
+            $$('[data-rod]', form).forEach((el) => { el.hidden = !on; });
+        }
         function relabel() {
             const n = { column: 0, lintel: 0 };
             const rows = $$('[data-area]', list);
@@ -5022,6 +5398,14 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 $('.area-no', r).textContent = t(type === 'lintel' ? 'cl.lintelN' : 'cl.columnN', { n: n[type] });
                 ['iL', 'iW', 'iT'].forEach((k) => { $(`[data-role="${k}"]`, r).textContent = t(LABELS[type][k]); });
                 $('[data-remove-part]', r).hidden = rows.length === 1;
+                const def = ROD_DEF[type];
+                ['nb', 'md', 'td', 'ts'].forEach((k) => {
+                    const inp = $(`input[name^="${k}_"]`, r);
+                    if (!inp) return;
+                    inp.dataset.default = String(def[k]);
+                    const hint = $(`[data-def="${k}"]`, r);
+                    if (hint) hint.textContent = t('cl.def', { v: k === 'ts' ? LEN.fmtIn(def[k]) : digits(def[k]) });
+                });
             });
         }
         function addRow(type, focus) {
@@ -5045,6 +5429,12 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                         <div class="input-wrap"><input type="text" inputmode="numeric" autocomplete="off" id="column-iQ_${i}" name="iQ_${i}" data-num data-optional data-default="1" data-ph="0"><span class="unit" data-i18n="u.pcs"></span></div>
                         <span class="field-error"></span>
                     </div>
+                </div>
+                <div class="rod-fields" data-rod${rodOn() ? '' : ' hidden'}>
+                    <p class="rod-title"><i class="fa-solid fa-grip-lines"></i> <span data-i18n="cl.rodFor"></span></p>
+                    <div class="fields">
+                        ${numField(i, 'nb', 'u.pcs')}${numField(i, 'md', 'u.mm')}${numField(i, 'td', 'u.mm')}${numField(i, 'ts', '', true)}
+                    </div>
                 </div>`;
             list.appendChild(row);
             LEN.enhance(row);
@@ -5066,7 +5456,8 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             VIZ.update('column');
         });
         list.addEventListener('change', (e) => { if (/^type_/.test(e.target.name)) relabel(); });
-        form.addEventListener('reset', () => setTimeout(() => { setRows(); }));
+        form.addEventListener('change', (e) => { if (e.target.name === 'colRod') { syncRod(); VIZ.update('column'); } });
+        form.addEventListener('reset', () => setTimeout(() => { setRows(); syncRod(); }));
 
         // rebuild the rows saved last time
         const saved = (S.remember && storage.get(STORE_INPUTS, {}).column) || {};
@@ -5078,7 +5469,9 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         } else {
             addRow('column', false);
         }
-        return { relabel };
+        if (saved.colRod) $$('input[name="colRod"]', form).forEach((r) => { r.checked = r.value === saved.colRod; });
+        syncRod();
+        return { relabel, syncRod };
     })();
 
     /* ---------- Tiles form: room parts + custom size ---------- */
@@ -5177,8 +5570,8 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         const pt = (p) => ({ x: fin(p && p.x), y: fin(p && p.y) });
         const isTouch = () => window.matchMedia('(pointer: coarse)').matches;
         const blankLevel = () => ({ id: uid(), name: '', walls: [], rooms: [], openings: [], texts: [], dims: [], furn: [] });
-        const blank = () => ({ v: 2, cur: 0, plot: null, levels: [blankLevel()],
-            opt: { wallT: 5, wallH: 10, showDims: true, ortho: true, snap: 0.5, slabT: 5, all3d: false, started: false } });
+        const blank = () => ({ v: 3, title: '', cur: 0, plots: [], levels: [blankLevel()],
+            opt: { wallT: 5, wallH: 10, showDims: true, ortho: true, snap: 0.5, slabT: 5, all3d: false, started: false, north: 0 } });
 
         function sanLevel(o) {
             const b = blankLevel();
@@ -5197,7 +5590,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         function sanPlot(p) {
             if (!p || !Array.isArray(p.pts) || p.pts.length < 3) return null;
             const s = p.s && typeof p.s === 'object' ? p.s : {};
-            return { pts: p.pts.slice(0, 12).map(pt), s: { mode: s.mode === 'q' ? 'q' : 'r', L1: fin(s.L1), L2: fin(s.L2), W1: fin(s.W1), W2: fin(s.W2), ox: fin(s.ox), oy: fin(s.oy) } };
+            return { id: String(p.id || uid()), name: String(p.name || '').slice(0, 40), pts: p.pts.slice(0, 40).map(pt), s: { mode: ['q', 'p'].includes(s.mode) ? s.mode : 'r', L1: fin(s.L1), L2: fin(s.L2), W1: fin(s.W1), W2: fin(s.W2), ox: fin(s.ox), oy: fin(s.oy) } };
         }
         // also reads the old one-floor format (v1)
         function sanitize(o) {
@@ -5206,7 +5599,8 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             const lv = Array.isArray(o.levels) && o.levels.length ? o.levels : [o];
             b.levels = lv.slice(0, 40).map(sanLevel);
             b.cur = Math.max(0, Math.min(b.levels.length - 1, Math.round(fin(o.cur))));
-            b.plot = sanPlot(o.plot);
+            b.plots = (Array.isArray(o.plots) ? o.plots : [o.plot]).map(sanPlot).filter(Boolean).slice(0, 30);
+            b.title = String(o.title || '').slice(0, 80);
             b.opt = Object.assign(b.opt, o.opt && typeof o.opt === 'object' ? o.opt : {});
             if (!Array.isArray(o.levels) && (b.levels[0].walls.length || b.levels[0].furn.length)) b.opt.started = true;
             return b;
@@ -5232,6 +5626,30 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             shower:   { w: 3, d: 3, h: .3, c: 0xdbeafe, draw: (w, d) => R(-w / 2, -d / 2, w, d) + Ln(-w / 2, -d / 2, w / 2, d / 2) + Ln(-w / 2, d / 2, w / 2, -d / 2) + Ci(0, 0, .18) },
             tub:      { w: 2.5, d: 5.5, h: 1.8, c: 0xf8fafc, draw: (w, d) => R(-w / 2, -d / 2, w, d, .35) + R(-w / 2 + .25, -d / 2 + .25, w - .5, d - .5, .6) },
             stairs:   { w: 3.5, d: 10, h: 10, c: 0xcbd5e1, draw: (w, d) => { let s = R(-w / 2, -d / 2, w, d); for (let y = -d / 2 + .85; y < d / 2 - .1; y += .85) s += Ln(-w / 2, y, w / 2, y); return s + Ln(0, d / 2 - .4, 0, -d / 2 + .6) + Ln(-.4, -d / 2 + 1.1, 0, -d / 2 + .6) + Ln(.4, -d / 2 + 1.1, 0, -d / 2 + .6); } },
+            // living
+            tv:       { w: 4, d: 1.5, h: 2, c: 0x475569, g: 'in', draw: (w, d) => R(-w / 2, -d / 2, w, d, .1) + R(-w / 2 + .3, -d / 2 + .15, w - .6, .25) },
+            shelf:    { w: 3, d: 1, h: 6, c: 0x9a7b5a, g: 'in', draw: (w, d) => R(-w / 2, -d / 2, w, d) + Ln(-w / 6, -d / 2, -w / 6, d / 2) + Ln(w / 6, -d / 2, w / 6, d / 2) },
+            ctable:   { w: 3.5, d: 2, h: 1.5, c: 0x8b6b4a, g: 'in', draw: (w, d) => R(-w / 2, -d / 2, w, d, .3) },
+            // kitchen & utility
+            stove:    { w: 2.5, d: 2, h: 3, c: 0x52525b, g: 'kb', draw: (w, d) => R(-w / 2, -d / 2, w, d, .1) + Ci(-w / 4, -d / 4, .35) + Ci(w / 4, -d / 4, .35) + Ci(-w / 4, d / 4, .35) + Ci(w / 4, d / 4, .35) },
+            washer:   { w: 2, d: 2, h: 3, c: 0xe5e7eb, g: 'kb', draw: (w, d) => R(-w / 2, -d / 2, w, d, .15) + Ci(0, .1, Math.min(w, d) * .32) },
+            tank:     { w: 4, d: 4, h: 5, c: 0x2563eb, fill: 'rgba(37,99,235,.14)', g: 'out', round: true, draw: (w, d) => El(0, 0, w / 2, d / 2) + El(0, 0, w / 2 - .4, d / 2 - .4) },
+            // garden & outside
+            tree:     { w: 7, d: 7, h: 16, c: 0x2f7d3a, fill: 'rgba(47,125,58,.2)', g: 'out', round: true, draw: (w, d) => El(0, 0, w / 2, d / 2) + El(0, 0, w / 3, d / 3) + Ci(0, 0, .35) },
+            bush:     { w: 2.5, d: 2.5, h: 3, c: 0x3f8f4c, fill: 'rgba(63,143,76,.22)', g: 'out', round: true, draw: (w, d) => El(0, 0, w / 2, d / 2) + Ci(-w / 6, -d / 8, w / 7) + Ci(w / 6, d / 8, w / 7) },
+            flower:   { w: 6, d: 2, h: .9, c: 0xd97706, fill: 'rgba(217,119,6,.16)', g: 'out', draw: (w, d) => { let s0 = R(-w / 2, -d / 2, w, d, .4); for (let x = -w / 2 + .8; x < w / 2 - .3; x += 1.2) s0 += Ci(x, 0, .3); return s0; } },
+            lawn:     { w: 12, d: 10, h: .08, c: 0x4ea35a, fill: 'rgba(74,163,90,.28)', g: 'out', flat: true, draw: (w, d) => { let s0 = R(-w / 2, -d / 2, w, d, .3); for (let x = -w / 2 + 1; x < w / 2; x += 2) for (let y = -d / 2 + 1; y < d / 2; y += 2) s0 += Ln(x - .2, y + .2, x, y - .2) + Ln(x, y - .2, x + .2, y + .2); return s0; } },
+            pool:     { w: 12, d: 24, h: .3, c: 0x38bdf8, fill: 'rgba(56,189,248,.3)', g: 'out', pool: true, draw: (w, d) => { let s0 = R(-w / 2, -d / 2, w, d, .4) + R(-w / 2 + .8, -d / 2 + .8, w - 1.6, d - 1.6, .3); for (let y = -d / 2 + 3; y < d / 2 - 2; y += 3) s0 += `<path d="M${-w / 2 + 1.5} ${y} q ${(w - 3) / 4} -.6 ${(w - 3) / 2} 0 t ${(w - 3) / 2} 0"/>`; return s0; } },
+            fountain: { w: 5, d: 5, h: 2.5, c: 0x93c5fd, fill: 'rgba(147,197,253,.32)', g: 'out', round: true, draw: (w, d) => El(0, 0, w / 2, d / 2) + El(0, 0, w / 2 - .5, d / 2 - .5) + Ci(0, 0, .6) },
+            bench:    { w: 5, d: 1.6, h: 1.6, c: 0x8b6b4a, g: 'out', draw: (w, d) => R(-w / 2, -d / 2, w, d, .1) + Ln(-w / 2, d / 6, w / 2, d / 6) },
+            patio:    { w: 4, d: 4, h: 2.5, c: 0xf59e0b, g: 'out', round: true, draw: (w, d) => El(0, 0, w / 2, d / 2) + Ln(-w / 2, 0, w / 2, 0) + Ln(0, -d / 2, 0, d / 2) },
+            path:     { w: 4, d: 12, h: .06, c: 0xa8a29e, fill: 'rgba(168,162,158,.22)', g: 'out', flat: true, draw: (w, d) => { let s0 = R(-w / 2, -d / 2, w, d); for (let y = -d / 2 + 2; y < d / 2; y += 2) s0 += Ln(-w / 2, y, w / 2, y); return s0; } },
+            parking:  { w: 11, d: 18, h: .06, c: 0x94a3b8, fill: 'rgba(148,163,184,.16)', g: 'out', flat: true, draw: (w, d) => R(-w / 2, -d / 2, w, d) + Ln(-w / 2 + .5, -d / 2 + .5, w / 2 - .5, d / 2 - .5) + Ln(w / 2 - .5, -d / 2 + .5, -w / 2 + .5, d / 2 - .5) },
+            gate:     { w: 12, d: .6, h: 7, c: 0x334155, g: 'out', draw: (w, d) => R(-w / 2, -d / 2, w, d) + `<path d="M${-w / 2} 0 A ${w / 2} ${w / 2} 0 0 1 0 ${w / 2}" stroke-dasharray=".4 .3"/>` + `<path d="M${w / 2} 0 A ${w / 2} ${w / 2} 0 0 0 0 ${w / 2}" stroke-dasharray=".4 .3"/>` },
+            // vehicles
+            car:      { w: 6, d: 14, h: 4.8, c: 0xdc2626, fill: 'rgba(220,38,38,.12)', g: 'veh', car: true, draw: (w, d) => R(-w / 2, -d / 2, w, d, 1.2) + R(-w / 2 + .5, -d / 2 + 3.2, w - 1, 3, .5) + R(-w / 2 + .5, d / 2 - 4.6, w - 1, 2.6, .5) + R(-w / 2 - .25, -d / 2 + 2, .4, 1.6, .2) + R(w / 2 - .15, -d / 2 + 2, .4, 1.6, .2) + R(-w / 2 - .25, d / 2 - 3.6, .4, 1.6, .2) + R(w / 2 - .15, d / 2 - 3.6, .4, 1.6, .2) },
+            bike:     { w: 2.4, d: 7, h: 3.6, c: 0x111827, g: 'veh', draw: (w, d) => El(0, -d / 2 + 1, .35, 1) + El(0, d / 2 - 1, .35, 1) + R(-.45, -d / 4, .9, d / 2, .4) + Ln(-w / 2, -d / 2 + 2, w / 2, -d / 2 + 2) },
+            cycle:    { w: 2, d: 5.8, h: 3.3, c: 0x0ea5e9, g: 'veh', draw: (w, d) => El(0, -d / 2 + 1.1, .2, 1.1) + El(0, d / 2 - 1.1, .2, 1.1) + Ln(0, -d / 2 + 1.1, 0, d / 2 - 1.1) + Ln(-w / 2, -d / 2 + 1.6, w / 2, -d / 2 + 1.6) },
         };
 
         /* ---------- geometry ---------- */
@@ -5257,7 +5675,8 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         const wallLen = (w) => dist(w.a, w.b);
         const byId = (arr, id) => arr.find((x) => x.id === id);
         const LIST = { wall: 'walls', room: 'rooms', op: 'openings', text: 'texts', dim: 'dims', furn: 'furn' };
-        const getSel = () => (!sel ? null : sel.k === 'plot' ? D.plot : byId(P[LIST[sel.k]] || [], sel.id));
+        const getSel = () => (!sel || sel.k === 'multi' ? null : sel.k === 'plot' ? byId(D.plots, sel.id) || null : byId(P[LIST[sel.k]] || [], sel.id));
+        const isSelected = (k, id) => !!sel && ((sel.k === k && sel.id === id) || (sel.k === 'multi' && sel.items.some((x) => x.k === k && x.id === id)));
 
         let D = sanitize(storage.get(STORE, null));
         let P = D.levels[D.cur];                       // the floor being edited
@@ -5265,7 +5684,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         const view = { s: 18, x: 40, y: 40, fitted: false };
         let tool = 'select', sel = null, furnKind = 'bed';
         let chain = null, rectStart = null, dimPts = null, hover = null, snapKind = '', lastDir = { x: 1, y: 0 };
-        let drag = null, pan = null, pinch = null, down = null, spaceDown = false;
+        let drag = null, pan = null, pinch = null, down = null, spaceDown = false, boxSel = null;
         const pointers = new Map();
         let hist = [JSON.stringify(D)], hi = 0;
 
@@ -5333,25 +5752,50 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             if (!q) return null;
             return { pts: q.map((p) => clean({ x: p.x + s.ox, y: p.y + s.oy })), s: { ...s } };
         }
-        function setPlot(s) {
-            if (!D.plot) {
-                // a plot added after drawing: put it around what is already there
+        // update a plot, or add a new one (next to the others, so neighbouring plots touch and can be merged)
+        function setPlot(s, target) {
+            if (target) {
+                // keep the top-left corner where it is
+                const x0 = Math.min(...target.pts.map((q) => q.x)), y0 = Math.min(...target.pts.map((q) => q.y));
+                s.ox = x0; s.oy = y0;
+            } else if (D.plots.length) {
+                const xs = D.plots.flatMap((p) => p.pts.map((q) => q.x)), ys = D.plots.flatMap((p) => p.pts.map((q) => q.y));
+                s.ox = Math.max(...xs); s.oy = Math.min(...ys);
+            } else {
                 const b = bounds(true);
                 s.ox = b.empty ? 0 : Math.floor(b.x0 - 3); s.oy = b.empty ? 0 : Math.floor(b.y0 - 3);
-            } else { s.ox = D.plot.s.ox; s.oy = D.plot.s.oy; }
+            }
             const p = makePlot(s);
-            if (!p) { toast(t('fp.plotBad')); return false; }
-            D.plot = p;
-            return true;
+            if (!p) { toast(t('fp.plotBad')); return null; }
+            if (target) { target.pts = p.pts; target.s = p.s; return target; }
+            p.id = uid(); p.name = '';
+            D.plots.push(p);
+            return p;
         }
+        const plotName = (p) => (p.name || t('fp.plotN', { n: digits(D.plots.indexOf(p) + 1) }));
         const KATHA = 720, DECIMAL = 435.6;          // sq ft in one কাঠা / শতাংশ
         const landText = (a) => `${num(a / KATHA)} ${t('u.katha')} · ${num(a / DECIMAL)} ${t('u.decimal')}`;
+        // compass: D.opt.north = where north points on the drawing (0 = up, 90 = right …)
+        const northDeg = () => ((fin(D.opt.north) % 360) + 360) % 360;
+        const dirOf = (n) => SIDES.fromBearing(Math.atan2(n.x, -n.y) * 180 / Math.PI - northDeg());   // a direction the vector faces
+        // every side of the plot: its outward direction and length
+        function plotSides(q) {
+            if (!q) return [];
+            const c = centroid(q);
+            return q.map((a, i) => {
+                const b = q[(i + 1) % q.length], m = lerp(a, b, .5);
+                let n = perp(unitv(sub(b, a)));
+                if ((m.x - c.x) * n.x + (m.y - c.y) * n.y < 0) n = mul(n, -1);
+                return { i, a, b, len: dist(a, b), dir: dirOf(n), n };
+            });
+        }
+        const sidesText = (pl) => plotSides(pl.pts).map((sd) => `${SIDES.name(sd.dir)} ${fmtL(sd.len)}`).join(' · ');
 
         function endpoints(exclude) {
             const out = [];
             P.walls.forEach((w) => { out.push(w.a, w.b); });
             if (D.cur > 0) D.levels[D.cur - 1].walls.forEach((w) => { out.push(w.a, w.b); });     // the floor below
-            if (D.plot) out.push(...D.plot.pts);
+            D.plots.forEach((pl) => out.push(...pl.pts));
             if (chain) out.push(...chain.pts);
             return exclude ? out.filter((q) => dist(q, exclude) > 1e-3) : out;
         }
@@ -5458,7 +5902,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             });
         }
         function remove(k, id) {
-            if (k === 'plot') { D.plot = null; sel = null; return; }
+            if (k === 'plot') { D.plots = D.plots.filter((x) => x.id !== id); if (sel && sel.id === id) sel = null; return; }
             const list = LIST[k];
             if (!list) return;
             P[list] = P[list].filter((x) => x.id !== id);
@@ -5472,6 +5916,193 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             commit();
         }
 
+        /* ---------- many items at once: select all / box select, move, rotate, copy, delete, merge plots ---------- */
+        const itemObj = (it, L = P) => (it.k === 'plot' ? byId(D.plots, it.id) : byId(L[LIST[it.k]] || [], it.id));
+        function ptsOf(o, k) {
+            if (!o) return [];
+            if (k === 'wall' || k === 'dim') return [o.a, o.b];
+            if (k === 'room' || k === 'plot') return o.pts;
+            if (k === 'furn' || k === 'text') return [o];
+            return [];
+        }
+        const selItems = () => (!sel ? [] : sel.k === 'multi' ? sel.items : [{ k: sel.k, id: sel.id }]).filter((it) => it.id !== 'new' && itemObj(it));
+        function levelItems(L) {
+            const out = [];
+            ['wall', 'room', 'furn', 'text', 'dim'].forEach((k) => L[LIST[k]].forEach((o) => out.push({ k, id: o.id })));
+            return out;
+        }
+        function selectAll() {
+            const items = levelItems(P).concat(D.plots.map((pl) => ({ k: 'plot', id: pl.id })));
+            if (!items.length) { toast(t('fp.nothing')); return; }
+            sel = { k: 'multi', items, all: true };
+            setTool('select'); inspector(); draw(); renderFloors();
+        }
+        function setMulti(items) {
+            if (!items.length) sel = null;
+            else if (items.length === 1) sel = items[0];
+            else sel = { k: 'multi', items };
+            inspector(); draw(); renderFloors();
+        }
+        function toggleSel(hit) {
+            const cur = selItems();
+            const i = cur.findIndex((x) => x.k === hit.k && x.id === hit.id);
+            if (i >= 0) cur.splice(i, 1); else cur.push(hit);
+            setMulti(cur);
+        }
+        // every point that moves with the selection (all floors when everything is selected)
+        function groupPoints() {
+            const pts = [], rots = [];
+            const scope = sel && sel.all ? D.levels : [P];
+            if (sel && sel.all) {
+                scope.forEach((L) => levelItems(L).forEach((it) => { const o = itemObj(it, L); pts.push(...ptsOf(o, it.k)); if (it.k === 'furn') rots.push(o); }));
+                D.plots.forEach((pl) => pts.push(...pl.pts));
+            } else {
+                selItems().forEach((it) => { const o = itemObj(it); pts.push(...ptsOf(o, it.k)); if (it.k === 'furn') rots.push(o); });
+            }
+            return { pts, rots };
+        }
+        function startGroupDrag(wp) {
+            const g = groupPoints();
+            drag = { kind: 'group', start: wp, base: g.pts.map((p) => ({ x: p.x, y: p.y })), pts: g.pts, moved: false };
+        }
+        function moveGroup(wp) {
+            const st = snapStep();
+            let dx = wp.x - drag.start.x, dy = wp.y - drag.start.y;
+            if (st) { dx = Math.round(dx / st) * st; dy = Math.round(dy / st) * st; }
+            drag.pts.forEach((p, i) => { p.x = +(drag.base[i].x + dx).toFixed(4); p.y = +(drag.base[i].y + dy).toFixed(4); });
+            drag.d = { x: dx, y: dy };
+        }
+        function nudge(dx, dy) {
+            const g = groupPoints();
+            if (!g.pts.length) return;
+            g.pts.forEach((p) => { p.x = +(p.x + dx).toFixed(4); p.y = +(p.y + dy).toFixed(4); });
+            markPlotsFree();
+            commit();
+        }
+        const markPlotsFree = () => selItems().forEach((it) => { if (it.k === 'plot') { const o = itemObj(it); if (o) o.s.mode = 'p'; } });
+        function rotateGroup() {
+            const g = groupPoints();
+            if (!g.pts.length) return;
+            const xs = g.pts.map((p) => p.x), ys = g.pts.map((p) => p.y);
+            const cx = (Math.min(...xs) + Math.max(...xs)) / 2, cy = (Math.min(...ys) + Math.max(...ys)) / 2;
+            const seen = new Set();
+            g.pts.forEach((p) => { if (seen.has(p)) return; seen.add(p); const dx = p.x - cx, dy = p.y - cy; p.x = +(cx - dy).toFixed(4); p.y = +(cy + dx).toFixed(4); });
+            g.rots.forEach((f) => { f.rot = ((f.rot || 0) + 90) % 360; });
+            if (sel && sel.all) D.plots.forEach((pl) => { pl.s.mode = 'p'; }); else markPlotsFree();
+            commit();
+        }
+        function deleteGroup() {
+            const items = selItems();
+            if (!items.length) return;
+            if (items.length > 3 && !window.confirm(t('fp.delManyConfirm', { n: digits(items.length) }))) return;
+            items.forEach((it) => remove(it.k, it.id));
+            sel = null;
+            commit(); renderFloors();
+        }
+        function duplicateGroup() {
+            const items = selItems(), off = 3, added = [];
+            const mv = (p) => ({ x: +(p.x + off).toFixed(4), y: +(p.y + off).toFixed(4) });
+            items.forEach((it) => {
+                const o = itemObj(it);
+                if (!o) return;
+                if (it.k === 'plot') { const n = { id: uid(), name: '', pts: o.pts.map(mv), s: { ...o.s, mode: 'p' } }; D.plots.push(n); added.push({ k: 'plot', id: n.id }); return; }
+                const n = JSON.parse(JSON.stringify(o)); n.id = uid();
+                ptsOf(n, it.k).forEach((p) => { const q = mv(p); p.x = q.x; p.y = q.y; });
+                P[LIST[it.k]].push(n);
+                added.push({ k: it.k, id: n.id });
+                if (it.k === 'wall') P.openings.filter((x) => x.wall === o.id).forEach((x) => P.openings.push({ ...x, id: uid(), wall: n.id }));
+            });
+            setMulti(added);
+            commit(); renderFloors();
+        }
+
+        // join plots that touch along their sides into one plot
+        function signedArea(q) { return q.reduce((s, p, i) => { const r = q[(i + 1) % q.length]; return s + p.x * r.y - r.x * p.y; }, 0) / 2; }
+        function mergePolys(polys) {
+            const tol = .06, key = (p) => `${Math.round(p.x * 16)}:${Math.round(p.y * 16)}`;
+            const all = polys.flat();
+            const segs = [];
+            polys.forEach((q0) => {
+                const q = signedArea(q0) < 0 ? q0.slice().reverse() : q0.slice();
+                q.forEach((a, i) => {
+                    const b = q[(i + 1) % q.length];
+                    const cuts = all.filter((p) => distSeg(p, a, b) < tol && dist(p, a) > tol && dist(p, b) > tol)
+                        .map((p) => ({ p, t: projT(p, a, b) })).sort((x, y) => x.t - y.t);
+                    let prev = a;
+                    cuts.forEach((c) => { if (dist(prev, c.p) > tol) { segs.push([prev, c.p]); prev = c.p; } });
+                    if (dist(prev, b) > tol) segs.push([prev, b]);
+                });
+            });
+            const keep = segs.filter(([a, b]) => !segs.some(([c, d]) => key(c) === key(b) && key(d) === key(a)));
+            if (!keep.length || keep.length === segs.length) return null;          // nothing shared → they do not touch
+            const from = new Map();
+            keep.forEach((sg) => { const k = key(sg[0]); if (!from.has(k)) from.set(k, []); from.get(k).push(sg); });
+            const used = new Set([keep[0]]), loop = [keep[0][0]];
+            let cur = keep[0];
+            for (let g = 0; g <= keep.length; g++) {
+                if (key(cur[1]) === key(keep[0][0])) break;
+                const nx = (from.get(key(cur[1])) || []).find((sg) => !used.has(sg));
+                if (!nx) return null;
+                used.add(nx); loop.push(nx[0]); cur = nx;
+            }
+            if (used.size !== keep.length) return null;                             // a hole or two separate pieces
+            // drop points in the middle of straight lines
+            const out = loop.filter((p, i) => { const a = loop[(i - 1 + loop.length) % loop.length], b = loop[(i + 1) % loop.length]; return distLine(p, a, b) > .01; });
+            return out.length >= 3 ? out.map(clean) : null;
+        }
+        function mergePlots() {
+            const ids = selItems().filter((it) => it.k === 'plot').map((it) => it.id);
+            const list = D.plots.filter((pl) => ids.includes(pl.id));
+            if (list.length < 2) { toast(t('fp.mergeNeed')); return; }
+            // merge one by one so plots in a chain also join
+            let rest = list.slice(), acc = rest.shift().pts, joined = 1, progress = true;
+            while (rest.length && progress) {
+                progress = false;
+                for (let i = 0; i < rest.length; i++) {
+                    const m = mergePolys([acc, rest[i].pts]);
+                    if (m) { acc = m; rest.splice(i, 1); joined += 1; progress = true; break; }
+                }
+            }
+            if (joined < 2) { toast(t('fp.mergeFail')); return; }
+            const first = list[0];
+            const mergedIds = list.filter((pl) => !rest.includes(pl)).map((pl) => pl.id);
+            const name = list.filter((pl) => mergedIds.includes(pl.id)).map((pl) => pl.name).filter(Boolean).join(' + ');
+            const np = { id: uid(), name: name.slice(0, 40), pts: acc, s: { mode: 'p', L1: 0, L2: 0, W1: 0, W2: 0, ox: 0, oy: 0 } };
+            const at = D.plots.indexOf(first);
+            D.plots = D.plots.filter((pl) => !mergedIds.includes(pl.id));
+            D.plots.splice(Math.min(at, D.plots.length), 0, np);
+            sel = { k: 'plot', id: np.id };
+            commit(); renderFloors();
+            toast(rest.length ? t('fp.mergedSome', { n: digits(joined), m: digits(rest.length) }) : t('fp.merged', { n: digits(joined), a: qs(qArea(polyArea(acc))) }));
+        }
+
+        function multiPanel() {
+            const items = selItems();
+            const plots = items.filter((it) => it.k === 'plot').length;
+            const count = (k) => items.filter((it) => it.k === k).length;
+            const parts = [['wall', 'fp.wall'], ['room', 'fp.room'], ['furn', 'fp.furn'], ['text', 'fp.text'], ['dim', 'fp.dim'], ['plot', 'fp.plot']]
+                .filter(([k]) => count(k)).map(([k, l]) => `<div><small>${esc(t(l))}</small><b>${num(count(k), 0)}</b></div>`).join('');
+            return `<h3><i class="fa-solid fa-object-group"></i>${esc(t('fp.multiN', { n: digits(items.length) }))}</h3>
+                ${sel.all && D.levels.length > 1 ? `<p class="set-help">${esc(t('fp.allFloorsMove'))}</p>` : ''}
+                <div class="fp-stats">${parts}</div>
+                <small class="set-help">${esc(t('fp.moveHint'))}</small>
+                <div class="nudge-pad">
+                    <span></span><button type="button" class="btn btn-soft btn-sm" data-act="nudge" data-dx="0" data-dy="-1"><i class="fa-solid fa-arrow-up"></i></button><span></span>
+                    <button type="button" class="btn btn-soft btn-sm" data-act="nudge" data-dx="-1" data-dy="0"><i class="fa-solid fa-arrow-left"></i></button>
+                    <span class="nudge-step">${esc(fmtL(nudgeStep()))}</span>
+                    <button type="button" class="btn btn-soft btn-sm" data-act="nudge" data-dx="1" data-dy="0"><i class="fa-solid fa-arrow-right"></i></button>
+                    <span></span><button type="button" class="btn btn-soft btn-sm" data-act="nudge" data-dx="0" data-dy="1"><i class="fa-solid fa-arrow-down"></i></button><span></span>
+                </div>
+                ${plots >= 2 ? `<button type="button" class="btn btn-primary btn-sm" data-act="merge"><i class="fa-solid fa-object-union"></i> ${esc(t('fp.merge', { n: digits(plots) }))}</button>` : ''}
+                <div class="btn-row">
+                    <button type="button" class="btn btn-soft btn-sm" data-act="grpRot"><i class="fa-solid fa-rotate-right"></i> ${esc(t('fp.rotate'))} 90°</button>
+                    <button type="button" class="btn btn-soft btn-sm" data-act="grpCopy"><i class="fa-solid fa-clone"></i> ${esc(t('fp.copy'))}</button>
+                </div>
+                <button type="button" class="btn btn-danger btn-sm" data-act="grpDel"><i class="fa-solid fa-trash-can"></i> ${esc(t('fp.delete'))}</button>
+                <button type="button" class="btn btn-ghost btn-sm" data-act="grpNone"><i class="fa-solid fa-xmark"></i> ${esc(t('fp.deselect'))}</button>`;
+        }
+        const nudgeStep = () => snapStep() || (isMetric() ? 0.328084 : 0.5);
+
         /* ---------- picking: the nearest thing under a finger / the mouse ---------- */
         function inPoly(p, pts) {
             let c = false;
@@ -5481,7 +6112,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             }
             return c;
         }
-        function pick(p, tolPx) {
+        function pick(p, tolPx, interior) {
             const tol = tolPx / view.s;
             let best = null, bd = Infinity;
             const take = (k, id, d) => { if (d <= tol && d < bd) { bd = d; best = { k, id }; } };
@@ -5510,15 +6141,25 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             if (best) return best;
             const rooms = P.rooms.filter((r) => inPoly(p, r.pts)).sort((a, b) => polyArea(a.pts) - polyArea(b.pts));
             if (rooms.length) return { k: 'room', id: rooms[0].id };
-            if (D.plot) {
-                const q = D.plot.pts;
+            let pb = null, pd = tol;
+            D.plots.forEach((pl) => {
+                const q = pl.pts;
                 const d = Math.min(...q.map((a, i) => distSeg(p, a, q[(i + 1) % q.length])));
-                if (d <= tol) return { k: 'plot', id: 'plot' };
-            }
-            return null;
+                if (d <= pd) { pd = d; pb = pl; }
+            });
+            if (pb) return { k: 'plot', id: pb.id };
+            if (!interior) return null;
+            // inside a plot (when nothing else is there)
+            const inside = D.plots.filter((pl) => inPoly(p, pl.pts)).sort((a, b) => polyArea(a.pts) - polyArea(b.pts));
+            return inside.length ? { k: 'plot', id: inside[0].id } : null;
         }
         function handleAt(p, tolPx) {
             const o = getSel();
+            if (o && sel.k === 'plot') {
+                const tol = tolPx / view.s;
+                const i = o.pts.findIndex((q) => dist(p, q) <= tol);
+                return i >= 0 ? 'v' + i : null;
+            }
             if (!o || !(sel.k === 'wall' || sel.k === 'dim')) return null;
             const tol = tolPx / view.s;
             if (dist(p, o.a) <= tol) return 'a';
@@ -5580,24 +6221,25 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
 
         // the land boundary with its side lengths
         function plotMarkup(pal, s, live) {
-            if (!D.plot) return '';
-            const px = (n) => n / s, q = D.plot.pts;
-            const isSel = live && sel && sel.k === 'plot';
+            return D.plots.map((pl) => oneplotMarkup(pl, pal, s, live)).join('');
+        }
+        function oneplotMarkup(pl, pal, s, live) {
+            const px = (n) => n / s, q = pl.pts;
+            const isSel = live && isSelected('plot', pl.id);
             const c = centroid(q);
             let g = `<polygon points="${q.map((p) => `${p.x},${p.y}`).join(' ')}" fill="${pal.plotFill}" stroke="${pal.plot}" stroke-width="${px(isSel ? 3 : 2)}" stroke-dasharray="${px(10)} ${px(5)}"/>`;
-            q.forEach((a, i) => {
-                const b = q[(i + 1) % q.length], m = lerp(a, b, .5), u = unitv(sub(b, a));
-                let n = perp(u);
-                if ((m.x - c.x) * n.x + (m.y - c.y) * n.y < 0) n = mul(n, -1);         // outside
-                const pos = add(m, mul(n, px(12)));
+            plotSides(q).forEach((sd) => {
+                const u = unitv(sub(sd.b, sd.a)), m = lerp(sd.a, sd.b, .5);
+                const pos = add(m, mul(sd.n, px(13)));
                 let ang = Math.atan2(u.y, u.x) * 180 / Math.PI;
                 if (ang > 90 || ang < -90) ang += 180;
-                g += `<text x="${pos.x}" y="${pos.y}" font-size="${px(11)}" font-weight="600" fill="${pal.plot}" text-anchor="middle" dominant-baseline="middle" transform="rotate(${ang} ${pos.x} ${pos.y})">${esc(fmtL(dist(a, b)))}</text>`;
-                g += `<circle cx="${a.x}" cy="${a.y}" r="${px(3)}" fill="${pal.plot}"/>`;
+                g += `<text x="${pos.x}" y="${pos.y}" font-size="${px(11)}" font-weight="600" fill="${pal.plot}" text-anchor="middle" dominant-baseline="middle" transform="rotate(${ang} ${pos.x} ${pos.y})">${esc(SIDES.name(sd.dir))} · ${esc(fmtL(sd.len))}</text>`;
+                g += `<circle cx="${sd.a.x}" cy="${sd.a.y}" r="${px(3)}" fill="${pal.plot}"/>`;
             });
-            const lab = add(q[0], { x: px(8), y: px(14) });
-            g += `<text x="${lab.x}" y="${lab.y}" font-size="${px(11)}" fill="${pal.plot}" font-weight="600">${esc(t('fp.plot'))} · ${esc(qs(qArea(polyArea(q))))}</text>`;
-            return `<g data-id="plot" data-k="plot" pointer-events="none">${g}</g>`;
+            const tl = q.reduce((a, b) => (b.x + b.y < a.x + a.y ? b : a), q[0]);
+            const lab = add(tl, { x: px(8), y: px(16) });
+            g += `<text x="${lab.x}" y="${lab.y}" font-size="${px(11.5)}" fill="${pal.plot}" font-weight="700">${esc(plotName(pl))} · ${esc(qs(qArea(polyArea(q))))}</text>`;
+            return `<g data-id="${pl.id}" data-k="plot" pointer-events="none">${g}</g>`;
         }
         // the floor below, faint, to line the walls up
         function ghostMarkup(L, pal) {
@@ -5615,15 +6257,22 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             const px = (n) => n / s;               // n screen pixels in ft
             const deg = degreeMap(L);
             let out = '';
+            const under = (f) => LIB[f.kind] && (LIB[f.kind].flat || LIB[f.kind].pool);
+            const furnG = (f) => {
+                const F = LIB[f.kind];
+                const isSel = live && isSelected('furn', f.id);
+                return `<g data-id="${f.id}" data-k="furn" transform="translate(${f.x} ${f.y}) rotate(${f.rot})" stroke="${isSel ? pal.brand : pal.ink}" stroke-width="${px(isSel ? 2 : 1.1)}" fill="${F.fill || pal.furn}">${F.draw(f.w, f.d)}</g>`;
+            };
+            L.furn.filter(under).forEach((f) => { out += furnG(f); });
             L.rooms.forEach((r) => {
-                const isSel = live && sel && sel.k === 'room' && sel.id === r.id;
+                const isSel = live && isSelected('room', r.id);
                 out += `<polygon data-id="${r.id}" data-k="room" points="${r.pts.map((p) => `${p.x},${p.y}`).join(' ')}" fill="${isSel ? 'rgba(13,148,136,.14)' : pal.room}" ${isSel ? `stroke="${pal.brand}" stroke-width="${px(2)}" stroke-dasharray="${px(6)} ${px(4)}"` : ''}/>`;
             });
             L.walls.forEach((w) => {
                 const u = unitv(sub(w.b, w.a)), n = perp(u), ht = w.t / 24;
                 const a = deg(w.a) > 1 ? sub(w.a, mul(u, ht)) : w.a, b = deg(w.b) > 1 ? add(w.b, mul(u, ht)) : w.b;
                 const q = [add(a, mul(n, ht)), add(b, mul(n, ht)), sub(b, mul(n, ht)), sub(a, mul(n, ht))];
-                const isSel = live && sel && sel.k === 'wall' && sel.id === w.id;
+                const isSel = live && isSelected('wall', w.id);
                 out += `<polygon data-id="${w.id}" data-k="wall" points="${q.map((p) => `${p.x},${p.y}`).join(' ')}" fill="${isSel ? pal.brand : pal.wall}"/>`;
             });
             L.openings.forEach((o) => {
@@ -5632,7 +6281,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 const u = unitv(sub(w.b, w.a)), n = perp(u), ht = w.t / 24 + px(1);
                 const c = add(w.a, mul(u, o.at)), hw = o.w / 2;
                 const j1 = sub(c, mul(u, hw)), j2 = add(c, mul(u, hw));
-                const isSel = live && sel && sel.k === 'op' && sel.id === o.id;
+                const isSel = live && isSelected('op', o.id);
                 const st = `stroke="${isSel ? pal.brand : pal.ink}" stroke-width="${px(isSel ? 2.2 : 1.3)}" fill="none"`;
                 const gap = [add(j1, mul(n, ht)), add(j2, mul(n, ht)), sub(j2, mul(n, ht)), sub(j1, mul(n, ht))];
                 let g = `<polygon points="${gap.map((p) => `${p.x},${p.y}`).join(' ')}" fill="${pal.bg}"/>`;
@@ -5653,13 +6302,9 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 }
                 out += `<g data-id="${o.id}" data-k="op">${g}</g>`;
             });
-            L.furn.forEach((f) => {
-                const F = LIB[f.kind];
-                const isSel = live && sel && sel.k === 'furn' && sel.id === f.id;
-                out += `<g data-id="${f.id}" data-k="furn" transform="translate(${f.x} ${f.y}) rotate(${f.rot})" stroke="${isSel ? pal.brand : pal.ink}" stroke-width="${px(isSel ? 2 : 1.1)}" fill="${pal.furn}">${F.draw(f.w, f.d)}</g>`;
-            });
+            L.furn.filter((f) => !under(f)).forEach((f) => { out += furnG(f); });
             L.dims.forEach((d) => {
-                const isSel = live && sel && sel.k === 'dim' && sel.id === d.id;
+                const isSel = live && isSelected('dim', d.id);
                 out += dimMarkup(d, pal, s, isSel);
             });
             if (D.opt.showDims) {
@@ -5679,7 +6324,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 out += `<text x="${c.x}" y="${c.y}" text-anchor="middle" fill="${pal.ink}" pointer-events="none"><tspan x="${c.x}" font-size="${fs}" font-weight="600">${esc(r.name)}</tspan><tspan x="${c.x}" dy="${fs * 1.25}" font-size="${fs * .8}" fill="${pal.muted}">${esc(qs(qArea(polyArea(r.pts))))}</tspan></text>`;
             });
             L.texts.forEach((x) => {
-                const isSel = live && sel && sel.k === 'text' && sel.id === x.id;
+                const isSel = live && isSelected('text', x.id);
                 out += `<text data-id="${x.id}" data-k="text" x="${x.x}" y="${x.y}" font-size="${x.size}" fill="${isSel ? pal.brand : pal.ink}" ${isSel ? 'text-decoration="underline"' : ''}>${esc(x.text)}</text>`;
             });
             return out;
@@ -5757,8 +6402,16 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 if (dimPts.length === 1) over += `<line x1="${dimPts[0].x}" y1="${dimPts[0].y}" x2="${hover.x}" y2="${hover.y}" stroke="${pal.brand}" stroke-width="${px(1.2)}" stroke-dasharray="${px(5)} ${px(4)}"/>`;
                 else if (dimPts.length === 2) over += dimMarkup({ a: dimPts[0], b: dimPts[1], off: signedOff(hover) }, pal, s, false, true);
             }
+            if (boxSel) {
+                const x = Math.min(boxSel.a.x, boxSel.b.x), y = Math.min(boxSel.a.y, boxSel.b.y), w = Math.abs(boxSel.b.x - boxSel.a.x), h = Math.abs(boxSel.b.y - boxSel.a.y);
+                over += `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="rgba(59,130,246,.08)" stroke="#3b82f6" stroke-width="${px(1.5)}" stroke-dasharray="${px(5)} ${px(3)}"/>`;
+            }
+            if (sel && sel.k === 'multi' && drag && drag.kind === 'group' && drag.d) {
+                over += `<text x="${drag.start.x + drag.d.x}" y="${drag.start.y + drag.d.y - px(14)}" font-size="${px(12)}" font-weight="700" fill="${pal.brand}" text-anchor="middle">${esc(fmtL(Math.hypot(drag.d.x, drag.d.y)))}</text>`;
+            }
             const so = getSel();
             if (so && (sel.k === 'wall' || sel.k === 'dim')) [so.a, so.b].forEach((p) => { over += `<rect class="handle" x="${p.x - px(hs)}" y="${p.y - px(hs)}" width="${px(2 * hs)}" height="${px(2 * hs)}" rx="${px(3)}" stroke-width="${px(2)}"/>`; });
+            if (so && sel.k === 'plot') so.pts.forEach((p) => { over += `<rect class="handle plot-h" x="${p.x - px(hs)}" y="${p.y - px(hs)}" width="${px(2 * hs)}" height="${px(2 * hs)}" rx="${px(hs)}" stroke-width="${px(2)}"/>`; });
             if (so && sel.k === 'room') so.pts.forEach((p) => { over += `<circle cx="${p.x}" cy="${p.y}" r="${px(4)}" fill="${pal.brand}"/>`; });
             if (hover && tool !== 'select' && tool !== 'pan' && tool !== 'erase') {
                 const r = px(isTouch() ? 8 : 5);
@@ -5771,6 +6424,8 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 + `<g transform="translate(${view.x} ${view.y}) scale(${s})">${gridMarkup(pal, s, W, H)}${plotMarkup(pal, s, true)}${ghost}${worldMarkup(pal, s, true)}<g pointer-events="none">${over}</g></g>`;
             status();
             actions();
+            $('#fp-compass-g').style.transform = `rotate(${northDeg()}deg)`;
+            $('#fp-compass-n').textContent = t('dir.N');
         }
 
         /* ---------- status bar + hints ---------- */
@@ -5791,25 +6446,33 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         const AB = (act, icon, label, cls = '') => `<button type="button" class="fa-btn ${cls}" data-qa="${act}"><i class="fa-solid ${icon}"></i><span>${esc(label)}</span></button>`;
         function actions() {
             const so = getSel();
-            const key = [tool, !!chain, chain ? chain.pts.length : 0, !!rectStart, dimPts ? dimPts.length : 0, sel ? sel.k + sel.id : '', hi, hist.length, card.classList.contains('fs'), S.lang].join('|');
+            const key = [tool, !!chain, chain ? chain.pts.length : 0, !!rectStart, dimPts ? dimPts.length : 0, sel ? sel.k + (sel.id || '') + (sel.items ? sel.items.length + JSON.stringify(sel.items.filter((x) => x.k === 'plot').length) : '') : '', hi, hist.length, card.classList.contains('fs'), S.lang].join('|');
             if (key === actKey) return;
             actKey = key;
             let h = '';
-            if (tool === 'wall' && chain) {
+            if ((tool === 'wall' || tool === 'plotdraw') && chain) {
                 h += AB('typeLen', 'fa-keyboard', t('fp.qa.type'), 'pri');
-                if (chain.pts.length > 2) h += AB('close', 'fa-draw-polygon', t('fp.qa.close'));
-                h += AB('finish', 'fa-check', t('fp.qa.finish'));
+                if (chain.pts.length > 2) h += AB('close', 'fa-draw-polygon', t(tool === 'plotdraw' ? 'fp.qa.closePlot' : 'fp.qa.close'));
+                if (tool === 'wall') h += AB('finish', 'fa-check', t('fp.qa.finish'));
                 h += AB('cancel', 'fa-xmark', t('fp.cancel'));
             } else if (tool === 'room' && rectStart) {
                 h += AB('typeLen', 'fa-keyboard', t('fp.qa.typeRect'), 'pri') + AB('cancel', 'fa-xmark', t('fp.cancel'));
             } else if (tool === 'dim' && dimPts) {
                 h += AB('cancel', 'fa-xmark', t('fp.cancel'));
+            } else if (sel && sel.k === 'multi') {
+                const np = sel.items.filter((x) => x.k === 'plot').length;
+                h += `<span class="fa-count">${esc(t('fp.multiN', { n: digits(sel.items.length) }))}</span>`;
+                if (np >= 2) h += AB('merge', 'fa-object-union', t('fp.qa.merge'), 'pri');
+                h += AB('grpRot', 'fa-rotate-right', '90°') + AB('grpCopy', 'fa-clone', t('fp.copy')) + AB('props', 'fa-sliders', t('fp.qa.props'));
+                h += AB('grpDel', 'fa-trash-can', t('fp.delete'), 'danger') + AB('desel', 'fa-xmark', '');
             } else if (so) {
                 if (sel.k === 'furn') h += AB('rot', 'fa-rotate-right', '90°');
                 if (sel.k === 'op' && so.type === 'door') h += AB('flip', 'fa-arrows-up-down', t('fp.qa.flip'));
                 h += AB('props', 'fa-sliders', t('fp.qa.props'), 'pri');
                 h += AB('del', 'fa-trash-can', t('fp.delete'), 'danger');
                 h += AB('desel', 'fa-xmark', '');
+            } else if (tool === 'select' || tool === 'box') {
+                h += AB('selAll', 'fa-object-group', t('fp.selAll'));
             }
             h += `<span class="fa-sep"></span>`;
             h += `<button type="button" class="fa-btn icon" data-qa="undo"${hi > 0 ? '' : ' disabled'} aria-label="${esc(t('fp.undo'))}"><i class="fa-solid fa-rotate-left"></i></button>`;
@@ -5818,6 +6481,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             actBar.innerHTML = h;
         }
         actBar.addEventListener('pointerdown', (e) => e.stopPropagation());
+        $('#fp-compass').addEventListener('click', () => { D.opt.north = (northDeg() + 45) % 360; commit(); renderFloors(); toast(t('fp.northNow', { a: NORTH_OPTS.find(([v]) => v === northDeg())[1] })); });
         actBar.addEventListener('click', (e) => {
             const b = e.target.closest('[data-qa]');
             if (!b) return;
@@ -5829,6 +6493,11 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             else if (a === 'rot') rotateSel(90);
             else if (a === 'flip' && o) { o.flip ^= 1; commit(); }
             else if (a === 'del' && sel) { remove(sel.k, sel.id); commit(); }
+            else if (a === 'merge') mergePlots();
+            else if (a === 'grpRot') rotateGroup();
+            else if (a === 'grpCopy') duplicateGroup();
+            else if (a === 'grpDel') deleteGroup();
+            else if (a === 'selAll') selectAll();
             else if (a === 'desel') { sel = null; inspector(); draw(); }
             else if (a === 'props') openProps();
             else if (a === 'undo') undo();
@@ -5877,7 +6546,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 Lv.dims.forEach((d) => { push(add(d.a, mul(perp(unitv(sub(d.b, d.a))), d.off))); push(add(d.b, mul(perp(unitv(sub(d.b, d.a))), d.off))); });
             });
             const empty = !xs.length;
-            if (D.plot && (all !== true || !empty)) D.plot.pts.forEach((p) => push(p, 1.5));
+            if (all !== true || !empty) D.plots.forEach((pl) => pl.pts.forEach((p) => push(p, 1.5)));
             if (!xs.length) return { x0: 0, y0: 0, x1: 30, y1: 20, empty: true };
             return { x0: Math.min(...xs), y0: Math.min(...ys), x1: Math.max(...xs), y1: Math.max(...ys), empty };
         }
@@ -5902,13 +6571,37 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             $('#fp-furn-kind').hidden = tl !== 'furn';
             draw();
         }
-        function finishChain() { chain = null; hidePrompt(); draw(); }
+        function finishChain() { if (tool === 'plotdraw' && chain && chain.pts.length >= 3) { hidePrompt(); closePlot(); return; } chain = null; hidePrompt(); draw(); }
         function signedOff(p) {
             const [a, b] = dimPts, u = unitv(sub(b, a)), n = perp(u);
             return +(((p.x - a.x) * n.x + (p.y - a.y) * n.y)).toFixed(3);
         }
 
+        function closePlot() {
+            if (!chain || chain.pts.length < 3) return;
+            const pts = chain.pts.map(clean);
+            chain = null;
+            if (polyArea(pts) < 1) { toast(t('fp.plotBad')); return; }
+            const pl = { id: uid(), name: '', pts, s: { mode: 'p', L1: 0, L2: 0, W1: 0, W2: 0, ox: 0, oy: 0 } };
+            D.plots.push(pl);
+            D.opt.started = true;
+            setTool('select');
+            sel = { k: 'plot', id: pl.id };
+            commit(); renderFloors();
+            toast(t('fp.plotMade'));
+        }
         function clickAt(raw) {
+            if (tool === 'plotdraw') {
+                const last = chain ? chain.pts[chain.pts.length - 1] : null;
+                const p = snapPoint(raw, last);
+                if (!chain) { chain = { pts: [p] }; draw(); return; }
+                if (dist(p, last) < .05) return;
+                if (chain.pts.length >= 3 && dist(p, chain.pts[0]) < 1e-3) { closePlot(); return; }
+                chain.pts.push(p);
+                lastDir = unitv(sub(p, last));
+                draw();
+                return;
+            }
             if (tool === 'wall') {
                 const last = chain ? chain.pts[chain.pts.length - 1] : null;
                 const p = snapPoint(raw, last);
@@ -6005,14 +6698,15 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             if (!s) return NaN;
             const u = LEN.current();
             const two = s.match(/^(\d+(?:\.\d+)?)\s+(\d+(?:\.\d+)?)$/);
-            if (u === 'ftin' && two) return Number(two[1]) + Number(two[2]) / 12;
+            const combo = COMBOS[u];
+            if (combo && two) return (Number(two[1]) * IN_PER[combo[0]] + Number(two[2]) * IN_PER[combo[1]]) / 12;
             const n = parseNum(s);
             if (!Number.isFinite(n)) return NaN;
             if (/['’′]/.test(s) || u === 'ftin' || u === 'ft') return n;
-            return n * IN_PER[u] / 12;
+            return n * IN_PER[combo ? combo[0] : u] / 12;
         }
         function typedLength(first) {
-            if (tool === 'wall' && chain) {
+            if ((tool === 'wall' || tool === 'plotdraw') && chain) {
                 const last0 = chain.pts[chain.pts.length - 1];
                 showPrompt('len', t('fp.lenPrompt'), (val) => {
                     const L = parseLen(val);
@@ -6021,10 +6715,10 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                     let dir = hover && dist(hover, last) > 1e-3 ? unitv(sub(hover, last)) : lastDir;
                     if (D.opt.ortho) { const a = Math.round(Math.atan2(dir.y, dir.x) / (Math.PI / 4)) * (Math.PI / 4); dir = { x: Math.cos(a), y: Math.sin(a) }; }
                     const p = clean(add(last, mul(dir, L)));
-                    addWall(last, p);
+                    if (tool === 'wall') addWall(last, p); else lastDir = dir;
                     chain.pts.push(p);
                     hover = null;
-                    commit();
+                    if (tool === 'wall') commit(); else draw();
                 }, hover || last0, first);
             } else if (tool === 'room' && rectStart) {
                 showPrompt('rect', t('fp.rectPrompt'), (val) => {
@@ -6060,18 +6754,33 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             }
             const touch = e.pointerType === 'touch' || e.pointerType === 'pen';
             const wp = toWorld(e.clientX, e.clientY);
-            if (e.button === 2 && tool === 'wall' && chain) { finishChain(); return; }
+            if (e.button === 2 && (tool === 'wall' || tool === 'plotdraw') && chain) { finishChain(); return; }
             if (e.button === 1 || e.button === 2 || tool === 'pan' || spaceDown) {
                 pan = { x: e.clientX, y: e.clientY, vx: view.x, vy: view.y };
                 wrap.classList.add('panning');
                 return;
             }
             const tolPx = touch ? 22 : 10;
-            if (tool === 'select') {
-                const key = handleAt(wp, touch ? 26 : 9);
-                const so = getSel();
-                if (key && so) { drag = { kind: 'handle', key, orig: { ...so[key] }, moved: false }; return; }
-                const hit = pick(wp, tolPx);
+            if (tool === 'select' || tool === 'box') {
+                const additive = e.shiftKey || e.ctrlKey || e.metaKey;
+                if (tool === 'select' && !additive) {
+                    const key = handleAt(wp, touch ? 26 : 9);
+                    const so = getSel();
+                    if (key && so) { drag = { kind: 'handle', key, orig: key[0] === 'v' && sel.k === 'plot' ? { ...so.pts[+key.slice(1)] } : { ...so[key] }, moved: false }; return; }
+                }
+                const hit = pick(wp, tolPx, tool === 'box');
+                // press on something already selected → drag the whole selection
+                if (hit && isSelected(hit.k, hit.id) && (sel.k === 'multi' || ['wall', 'plot', 'dim'].includes(hit.k))) {
+                    startGroupDrag(wp);
+                    drag.tap = tool === 'box' || additive ? hit : null;
+                    return;
+                }
+                if (tool === 'box') {
+                    if (hit) { toggleSel(hit); return; }
+                    boxSel = { a: wp, b: wp };
+                    return;
+                }
+                if (hit && additive) { toggleSel(hit); return; }
                 if (hit) {
                     sel = hit;
                     const o = getSel();
@@ -6092,7 +6801,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 if (hit) { remove(hit.k, hit.id); commit(); }
                 return;
             }
-            down = { x: e.clientX, y: e.clientY, vx: view.x, vy: view.y, wp, touch, drawing: touch && (tool === 'wall' || tool === 'room'), started: false };
+            down = { x: e.clientX, y: e.clientY, vx: view.x, vy: view.y, wp, touch, drawing: touch && (tool === 'wall' || tool === 'room' || tool === 'plotdraw'), started: false };
         });
         svg.addEventListener('pointermove', (e) => {
             if (pointers.has(e.pointerId)) pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
@@ -6112,13 +6821,13 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                     if (Math.hypot(e.clientX - down.x, e.clientY - down.y) < 8) return;
                     down.started = true;
                     down.chainBefore = chain ? { pts: chain.pts.slice() } : null;
-                    if (tool === 'wall') {
+                    if (tool === 'wall' || tool === 'plotdraw') {
                         const last = chain ? chain.pts[chain.pts.length - 1] : null;
                         const start = snapPoint(down.wp, null);
                         if (!last || dist(start, last) > 24 / view.s) chain = { pts: [start] };
                     } else rectStart = snapPoint(down.wp, null);
                 }
-                const from = tool === 'wall' ? chain.pts[chain.pts.length - 1] : null;
+                const from = tool === 'wall' || tool === 'plotdraw' ? chain.pts[chain.pts.length - 1] : null;
                 hover = snapPoint(wp, from);
                 draw();
                 return;
@@ -6129,15 +6838,27 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 wrap.classList.add('panning');
                 return;
             }
+            if (boxSel) { boxSel.b = wp; draw(); return; }
+            if (drag && drag.kind === 'group') {
+                if (!drag.moved && Math.hypot(wp.x - drag.start.x, wp.y - drag.start.y) * view.s < 4) return;
+                drag.moved = true;
+                moveGroup(wp);
+                draw();
+                return;
+            }
             if (drag) {
                 const o = getSel();
                 if (!o) { drag = null; return; }
                 drag.moved = true;
                 if (drag.kind === 'handle') {
-                    if (sel.k === 'wall') {
+                    if (sel.k === 'plot') {
+                        const i = +drag.key.slice(1);
+                        o.pts[i] = snapPoint(wp, null, o.pts[i]);
+                        o.s.mode = 'p';
+                    } else if (sel.k === 'wall') {
                         const cur = o[drag.key];
                         const other = o[drag.key === 'a' ? 'b' : 'a'];
-                        const p = snapPoint(wp, other, drag.orig);
+                        const p = snapPoint(wp, other, cur);
                         moveEndpoint(cur, p);
                     } else {
                         o[drag.key] = snapPoint(wp, null);
@@ -6162,13 +6883,30 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             pointers.delete(e.pointerId);
             if (pinch) { if (pointers.size < 2) pinch = null; return; }
             if (pan) { pan = null; wrap.classList.remove('panning'); return; }
+            if (boxSel) {
+                const a = boxSel.a, b = boxSel.b;
+                boxSel = null;
+                const x0 = Math.min(a.x, b.x), x1 = Math.max(a.x, b.x), y0 = Math.min(a.y, b.y), y1 = Math.max(a.y, b.y);
+                if ((x1 - x0) * view.s < 6 && (y1 - y0) * view.s < 6) { setMulti([]); return; }
+                const inside = (q) => q.x >= x0 && q.x <= x1 && q.y >= y0 && q.y <= y1;
+                const items = levelItems(P).filter((it) => ptsOf(itemObj(it), it.k).every(inside))
+                    .concat(D.plots.filter((pl) => pl.pts.every(inside)).map((pl) => ({ k: 'plot', id: pl.id })));
+                setMulti(items);
+                if (!items.length) toast(t('fp.nothing'));
+                return;
+            }
+            if (drag && drag.kind === 'group') {
+                const d0 = drag; drag = null;
+                if (d0.moved) { markPlotsFree(); commit(); } else if (d0.tap) toggleSel(d0.tap);
+                return;
+            }
             if (drag) { const moved = drag.moved; drag = null; if (moved) commit(); return; }
             if (down) {
                 const d0 = down;
                 down = null;
                 if (d0.drawing && d0.started && hover) {
                     const end = hover;
-                    if (tool === 'wall') {
+                    if (tool === 'wall' || tool === 'plotdraw') {
                         const last = chain.pts[chain.pts.length - 1];
                         if (dist(end, last) > .3) clickAt(end);
                     } else if (tool === 'room' && rectStart) clickAt(end);
@@ -6181,13 +6919,13 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             }
         };
         svg.addEventListener('pointerup', endPointer);
-        svg.addEventListener('pointercancel', (e) => { pointers.delete(e.pointerId); pinch = null; pan = null; down = null; drag = null; wrap.classList.remove('panning'); });
+        svg.addEventListener('pointercancel', (e) => { pointers.delete(e.pointerId); pinch = null; pan = null; down = null; boxSel = null; if (drag && drag.kind === 'group' && drag.moved) { drag.pts.forEach((p, i) => { p.x = drag.base[i].x; p.y = drag.base[i].y; }); draw(); } drag = null; wrap.classList.remove('panning'); });
         svg.addEventListener('pointerleave', (e) => { if (!pointers.size && e.pointerType !== 'touch') { hover = null; draw(); } });
-        svg.addEventListener('dblclick', () => { if (tool === 'wall' && chain) finishChain(); });
+        svg.addEventListener('dblclick', () => { if ((tool === 'wall' || tool === 'plotdraw') && chain) finishChain(); });
         svg.addEventListener('wheel', (e) => { e.preventDefault(); zoomAt(e.clientX, e.clientY, Math.pow(1.0015, -e.deltaY)); }, { passive: false });
 
         /* ---------- keyboard ---------- */
-        const KEYS = { v: 'select', h: 'pan', w: 'wall', r: 'room', d: 'door', n: 'window', t: 'text', m: 'dim', f: 'furn', e: 'erase' };
+        const KEYS = { v: 'select', b: 'box', h: 'pan', w: 'wall', r: 'room', d: 'door', n: 'window', t: 'text', m: 'dim', f: 'furn', e: 'erase' };
         document.addEventListener('keydown', (e) => {
             if (currentPage !== 'plan' || planLocked) return;
             const tg = e.target;
@@ -6195,6 +6933,14 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             if (tg && (tg.closest('input, textarea, select, [contenteditable]') || tg.closest('.modal, .drawer'))) return;
             if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z') { e.preventDefault(); e.shiftKey ? redo() : undo(); return; }
             if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'y') { e.preventDefault(); redo(); return; }
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'a') { e.preventDefault(); selectAll(); return; }
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'd' && sel) { e.preventDefault(); duplicateGroup(); return; }
+            if (e.key.startsWith('Arrow') && sel && !(chain || rectStart || dimPts)) {
+                e.preventDefault();
+                const st = nudgeStep() * (e.shiftKey ? 10 : 1);
+                nudge(e.key === 'ArrowLeft' ? -st : e.key === 'ArrowRight' ? st : 0, e.key === 'ArrowUp' ? -st : e.key === 'ArrowDown' ? st : 0);
+                return;
+            }
             if (e.ctrlKey || e.metaKey || e.altKey) return;
             if (e.key === ' ') { spaceDown = true; e.preventDefault(); return; }
             if (e.key === 'Escape') {
@@ -6203,9 +6949,9 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 else setTool('select');
                 return;
             }
-            if (e.key === 'Enter' && tool === 'wall' && chain) { finishChain(); return; }
-            if ((e.key === 'Delete' || e.key === 'Backspace') && sel) { e.preventDefault(); remove(sel.k, sel.id); commit(); return; }
-            if (/^[0-9.'০-৯]$/.test(e.key) && ((tool === 'wall' && chain) || (tool === 'room' && rectStart))) { e.preventDefault(); typedLength(e.key); return; }
+            if (e.key === 'Enter' && (tool === 'wall' || tool === 'plotdraw') && chain) { finishChain(); return; }
+            if ((e.key === 'Delete' || e.key === 'Backspace') && sel) { e.preventDefault(); deleteGroup(); return; }
+            if (/^[0-9.'০-৯]$/.test(e.key) && (((tool === 'wall' || tool === 'plotdraw') && chain) || (tool === 'room' && rectStart))) { e.preventDefault(); typedLength(e.key); return; }
             if (e.key === 'PageUp') { setLevel(D.cur + 1); return; }
             if (e.key === 'PageDown') { setLevel(D.cur - 1); return; }
             const tl = KEYS[e.key.toLowerCase()];
@@ -6221,30 +6967,99 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         function readLen(id) { const el = $('#' + id, insp); const r = el ? LEN.read(el) : {}; return r.value; }
         const delBtn = (label = t('fp.delete')) => `<button type="button" class="btn btn-danger btn-sm" data-act="del"><i class="fa-solid fa-trash-can"></i> ${esc(label)}</button>`;
 
+        const curPl = () => (sel && sel.k === 'plot' ? byId(D.plots, sel.id) || null : null);
+        // where north points on the drawing — 8 choices
+        const NORTH_OPTS = [[0, '↑'], [45, '↗'], [90, '→'], [135, '↘'], [180, '↓'], [225, '↙'], [270, '←'], [315, '↖']];
+        function plotFields(mode) {
+            const d = (x, y) => SIDES.name(dirOf({ x, y }));
+            if (mode === 'p') {
+                return plotSides(curPl().pts).map((sd) => field(`${t('fp.sideN', { n: digits(sd.i + 1) })} — ${SIDES.name(sd.dir)}`, lenBox('fp-i-ps' + sd.i, 'ft'))).join('')
+                    + `<button type="button" class="btn btn-soft btn-sm" data-act="plotDraw"><i class="fa-solid fa-draw-polygon"></i> ${esc(t('fp.plotDraw'))}</button>`;
+            }
+            if (mode === 'q') return field(t('fp.sideOf', { d: d(0, -1) }), lenBox('fp-i-pL1', 'ft')) + field(t('fp.sideOf', { d: d(0, 1) }), lenBox('fp-i-pL2', 'ft'))
+                + field(t('fp.sideOf', { d: d(-1, 0) }), lenBox('fp-i-pW1', 'ft')) + field(t('fp.sideOf', { d: d(1, 0) }), lenBox('fp-i-pW2', 'ft'));
+            return field(t('fp.sidesOf', { a: d(0, -1), b: d(0, 1) }), lenBox('fp-i-pL1', 'ft')) + field(t('fp.sidesOf', { a: d(-1, 0), b: d(1, 0) }), lenBox('fp-i-pW1', 'ft'));
+        }
         function plotPanel() {
-            const p = D.plot, s = p ? p.s : { mode: 'r' };
-            const q = s.mode === 'q';
+            const p = curPl(), s = p ? p.s : { mode: 'r' };
+            const mode = s.mode || 'r';
             const area = p ? polyArea(p.pts) : 0;
             const foot = D.levels[0].rooms.reduce((a, r) => a + polyArea(r.pts), 0);
-            return `<h3><i class="fa-solid fa-vector-square"></i>${esc(t('fp.plot'))}</h3>
-                ${field(t('fp.plotShape'), `<div class="segmented"><label><input type="radio" name="fpPlotMode" value="r"${q ? '' : ' checked'}><span>${esc(t('fp.plotRect'))}</span></label><label><input type="radio" name="fpPlotMode" value="q"${q ? ' checked' : ''}><span>${esc(t('fp.plotQuad'))}</span></label></div>`)}
-                ${q ? field(t('fp.pTop'), lenBox('fp-i-pL1', 'ft')) + field(t('fp.pBottom'), lenBox('fp-i-pL2', 'ft')) + field(t('fp.pLeft'), lenBox('fp-i-pW1', 'ft')) + field(t('fp.pRight'), lenBox('fp-i-pW2', 'ft'))
-                    : field(t('fp.pWidth'), lenBox('fp-i-pL1', 'ft')) + field(t('fp.pLength'), lenBox('fp-i-pW1', 'ft'))}
+            const seg = (v, k) => `<label><input type="radio" name="fpPlotMode" value="${v}"${mode === v ? ' checked' : ''}><span>${esc(t(k))}</span></label>`;
+            const others = D.plots.length > 1 || (D.plots.length && !p)
+                ? `<div class="plot-chips">${D.plots.map((pl) => `<button type="button" class="lvl${p && p.id === pl.id ? ' on' : ''}" data-act="plotSel" data-id="${pl.id}">${esc(plotName(pl))}</button>`).join('')}<button type="button" class="lvl add${!p ? ' on' : ''}" data-act="plotNew"><i class="fa-solid fa-plus"></i> ${esc(t('fp.plotAdd'))}</button></div>` : '';
+            return `<h3><i class="fa-solid fa-vector-square"></i>${esc(p ? plotName(p) : (D.plots.length ? t('fp.plotNew') : t('fp.plot')))}</h3>
+                ${others}
+                ${p ? field(t('fp.plotName'), `<input class="control" id="fp-i-plname" maxlength="40" placeholder="${esc(plotName(p))}" value="${esc(p.name)}">`) : ''}
+                ${field(t('fp.north'), `<div class="north-pick">${NORTH_OPTS.map(([v, a]) => `<label><input type="radio" name="fpNorth" value="${v}"${northDeg() === v ? ' checked' : ''}><span>${a}</span></label>`).join('')}</div>`)}
+                ${field(t('fp.plotShape'), `<div class="segmented seg-3">${seg('r', 'fp.plotRect')}${seg('q', 'fp.plotQuad')}${seg('p', 'fp.plotAny')}</div>`)}
+                <div class="plot-fields">${mode === 'p' && !p ? `<button type="button" class="btn btn-soft btn-sm" data-act="plotDraw"><i class="fa-solid fa-draw-polygon"></i> ${esc(t('fp.plotDraw'))}</button>` : plotFields(mode)}</div>
                 ${p ? `<div class="fp-stats">
                     <div><small>${esc(t('fp.plotArea'))}</small><b>${esc(qs(qArea(area)))}</b></div>
                     <div><small>${esc(t('u.katha'))} / ${esc(t('u.decimal'))}</small><b>${esc(num(area / KATHA))} / ${esc(num(area / DECIMAL))}</b></div>
                     <div><small>${esc(t('fp.cover'))}</small><b>${esc(num(area ? foot / area * 100 : 0, 0))}%</b></div>
                     <div><small>${esc(t('fp.openSpace'))}</small><b>${esc(qs(qArea(Math.max(area - foot, 0))))}</b></div>
-                </div>` : ''}
-                <button type="button" class="btn btn-primary btn-sm" data-act="plotApply"><i class="fa-solid fa-check"></i> ${esc(t(p ? 'fp.plotUpdate' : 'fp.plotMake'))}</button>
+                </div>
+                <ul class="side-list">${plotSides(curPl().pts).map((sd) => `<li><b>${esc(SIDES.name(sd.dir))}</b><span>${esc(fmtL(sd.len))}</span></li>`).join('')}</ul>` : ''}
+                ${mode === 'p' && !p ? '' : `<button type="button" class="btn btn-primary btn-sm" data-act="plotApply"><i class="fa-solid fa-check"></i> ${esc(t(p ? 'fp.plotUpdate' : 'fp.plotMake'))}</button>`}
                 ${p ? delBtn(t('fp.plotDel')) : ''}
-                <small class="set-help">${esc(t('fp.plotHint'))}</small>`;
+                ${p && D.plots.length === 1 ? `<button type="button" class="btn btn-ghost btn-sm" data-act="plotNew"><i class="fa-solid fa-plus"></i> ${esc(t('fp.plotAdd'))}</button>` : ''}
+                ${D.plots.length > 1 ? `<button type="button" class="btn btn-soft btn-sm" data-act="plotAllSel"><i class="fa-solid fa-object-group"></i> ${esc(t('fp.plotMergeAll'))}</button>` : ''}
+                <small class="set-help">${esc(t(mode === 'p' ? 'fp.plotAnyHint' : 'fp.plotHint'))}</small>`;
+        }
+
+        function applyPlotFromPanel() {
+            const mode = ($('input[name="fpPlotMode"]:checked', insp) || {}).value || 'r';
+            if (mode === 'p') {
+                if (!curPl()) return;
+                // a new side length moves the corner at its end, along the same line
+                const q = curPl().pts;
+                for (let i = 0; i < q.length; i++) {
+                    const L = readLen('fp-i-ps' + i), a = q[i], j = (i + 1) % q.length;
+                    if (!(L > 0) || Math.abs(L - dist(a, q[j])) < 1e-3) continue;
+                    q[j] = clean(add(a, mul(unitv(sub(q[j], a)), L)));
+                }
+                curPl().s.mode = 'p';
+                commit(); renderFloors();
+                return;
+            }
+            const L1 = readLen('fp-i-pL1'), W1 = readLen('fp-i-pW1');
+            const s = { mode, L1, W1, L2: mode === 'q' ? readLen('fp-i-pL2') : L1, W2: mode === 'q' ? readLen('fp-i-pW2') : W1 };
+            if (![s.L1, s.L2, s.W1, s.W2].every((x) => Number.isFinite(x) && x > 0)) { toast(t('fp.plotNeed')); return; }
+            const pl = setPlot(s, curPl());
+            if (!pl) return;
+            D.opt.started = true;
+            sel = { k: 'plot', id: pl.id };
+            commit();
+            fit();
+            renderFloors();
+        }
+        function fillPlotBoxes(keep = {}) {
+            const p = curPl();
+            if (p && p.s.mode !== 'p') { setLen('fp-i-pL1', keep.L1 || p.s.L1); setLen('fp-i-pL2', keep.L2 || p.s.L2); setLen('fp-i-pW1', keep.W1 || p.s.W1); setLen('fp-i-pW2', keep.W2 || p.s.W2); }
+            else if (p) {
+                plotSides(curPl().pts).forEach((sd) => setLen('fp-i-ps' + sd.i, Math.round(sd.len * 1200) / 1200));
+                const xs = p.pts.map((q) => q.x), ys = p.pts.map((q) => q.y);
+                setLen('fp-i-pL1', keep.L1 || (Math.max(...xs) - Math.min(...xs))); setLen('fp-i-pW1', keep.W1 || (Math.max(...ys) - Math.min(...ys)));
+            }
+            if (keep.L1) setLen('fp-i-pL1', keep.L1);
+            if (keep.W1) setLen('fp-i-pW1', keep.W1);
+        }
+        // the plot panel: rectangle (2 boxes) · four sides (4 boxes) · any shape (one box per side)
+        function plotModeView(mode, keep) {
+            const box = $('.plot-fields', insp);
+            box.innerHTML = mode === 'p' && !curPl() ? `<button type="button" class="btn btn-soft btn-sm" data-act="plotDraw"><i class="fa-solid fa-draw-polygon"></i> ${esc(t('fp.plotDraw'))}</button>` : (mode === 'p' && curPl() ? plotFields('p') : plotFields(mode));
+            LEN.enhance(insp); LEN.refresh(insp);
+            fillPlotBoxes(keep);
+            const ap = $('[data-act="plotApply"]', insp);
+            if (ap) ap.hidden = mode === 'p' && !curPl();
         }
 
         function inspector() {
             const o = getSel();
             let h = '';
             if (sel && sel.k === 'plot') h = plotPanel();
+            else if (sel && sel.k === 'multi') h = multiPanel();
             else if (!o) {
                 const floor = P.rooms.reduce((s, r) => s + polyArea(r.pts), 0);
                 const wl = P.walls.reduce((s, w) => s + wallLen(w), 0);
@@ -6262,7 +7077,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                         <button type="button" class="btn btn-soft btn-sm" data-act="lvlEmpty"><i class="fa-solid fa-plus"></i> ${esc(t('fp.lvlAddEmpty'))}</button>
                         ${D.levels.length > 1 ? `<button type="button" class="btn btn-danger btn-sm" data-act="lvlDel"><i class="fa-solid fa-trash-can"></i> ${esc(t('fp.lvlDel'))}</button>` : ''}
                     </div>
-                    <button type="button" class="btn btn-ghost btn-sm" data-act="plotOpen"><i class="fa-solid fa-vector-square"></i> ${esc(t(D.plot ? 'fp.plotEdit' : 'fp.plotMake'))}</button>
+                    <button type="button" class="btn btn-ghost btn-sm" data-act="plotOpen"><i class="fa-solid fa-vector-square"></i> ${esc(t(D.plots.length ? 'fp.plotEdit' : 'fp.plotMake'))}</button>
                     <h3 class="h3-gap"><i class="fa-solid fa-sliders"></i>${esc(t('fp.planSet'))}</h3>
                     ${field(t('fp.newWallT'), `<div class="segmented"><label><input type="radio" name="fpT" value="5"${D.opt.wallT === 5 ? ' checked' : ''}><span>5"</span></label><label><input type="radio" name="fpT" value="10"${D.opt.wallT === 10 ? ' checked' : ''}><span>10"</span></label><label><input type="radio" name="fpT" value="c"${D.opt.wallT !== 5 && D.opt.wallT !== 10 ? ' checked' : ''}><span>${esc(t('tl.custom'))}</span></label></div>`)}
                     ${field(t('fp.wallT'), lenBox('fp-i-wt', 'in'))}
@@ -6323,27 +7138,14 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             insp.innerHTML = `<button type="button" class="sheet-grip" data-act="sheet" aria-label="${esc(t('fp.qa.props'))}"></button>` + h;
             LEN.enhance(insp);
             LEN.refresh(insp);
-            if (sel && sel.k === 'plot') {
-                const s = D.plot ? D.plot.s : null;
-                if (s) { setLen('fp-i-pL1', s.L1); setLen('fp-i-pL2', s.L2); setLen('fp-i-pW1', s.W1); setLen('fp-i-pW2', s.W2); }
-            } else if (!o) { setLen('fp-i-wt', D.opt.wallT); setLen('fp-i-wh', D.opt.wallH); setLen('fp-i-st', D.opt.slabT); }
+            if (sel && sel.k === 'plot') fillPlotBoxes();
+            else if (sel && sel.k === 'multi') { /* nothing to fill */ }
+            else if (!o) { setLen('fp-i-wt', D.opt.wallT); setLen('fp-i-wh', D.opt.wallH); setLen('fp-i-st', D.opt.slabT); }
             else if (sel.k === 'wall') { setLen('fp-i-len', wallLen(o)); setLen('fp-i-t', o.t); setLen('fp-i-h', o.h); }
             else if (sel.k === 'op') { setLen('fp-i-ow', o.w); setLen('fp-i-oh', o.h); setLen('fp-i-os', o.sill); }
             else if (sel.k === 'text') setLen('fp-i-ts', o.size);
             else if (sel.k === 'dim') setLen('fp-i-do', Math.abs(o.off));
             else if (sel.k === 'furn') { setLen('fp-i-fw', o.w); setLen('fp-i-fd', o.d); }
-        }
-
-        function applyPlotFromPanel() {
-            const mode = ($('input[name="fpPlotMode"]:checked', insp) || {}).value || 'r';
-            const L1 = readLen('fp-i-pL1'), W1 = readLen('fp-i-pW1');
-            const s = { mode, L1, W1, L2: mode === 'q' ? readLen('fp-i-pL2') : L1, W2: mode === 'q' ? readLen('fp-i-pW2') : W1 };
-            if (![s.L1, s.L2, s.W1, s.W2].every((x) => Number.isFinite(x) && x > 0)) { toast(t('fp.plotNeed')); return; }
-            if (!setPlot(s)) return;
-            D.opt.started = true;
-            sel = { k: 'plot', id: 'plot' };
-            commit();
-            fit();
         }
 
         insp.addEventListener('change', (e) => {
@@ -6354,6 +7156,8 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             const ok = (x) => Number.isFinite(x) && x > 0;
             if (sel && sel.k === 'plot') {
                 if (tg.name === 'fpPlotMode') plotModeView(tg.value, { L1: readLen('fp-i-pL1'), W1: readLen('fp-i-pW1') });
+                else if (tg.name === 'fpNorth') { D.opt.north = Number(tg.value); commit(); renderFloors(); }
+                else if (id === 'fp-i-plname' && curPl()) { curPl().name = tg.value.trim().slice(0, 40); commit(); renderFloors(); }
                 return;
             }
             if (!o) {
@@ -6398,18 +7202,6 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             }
             commit();
         });
-        // the plot panel: rectangle (2 boxes) ↔ four sides (4 boxes)
-        function plotModeView(mode, keep) {
-            const html = mode === 'q'
-                ? field(t('fp.pTop'), lenBox('fp-i-pL1', 'ft')) + field(t('fp.pBottom'), lenBox('fp-i-pL2', 'ft')) + field(t('fp.pLeft'), lenBox('fp-i-pW1', 'ft')) + field(t('fp.pRight'), lenBox('fp-i-pW2', 'ft'))
-                : field(t('fp.pWidth'), lenBox('fp-i-pL1', 'ft')) + field(t('fp.pLength'), lenBox('fp-i-pW1', 'ft'));
-            $$('.field', insp).filter((f) => $('[id^="fp-i-p"]', f)).forEach((f) => f.remove());
-            $('.field', insp).insertAdjacentHTML('afterend', html);
-            LEN.enhance(insp); LEN.refresh(insp);
-            const s = D.plot ? D.plot.s : {};
-            setLen('fp-i-pL1', keep.L1 || s.L1); setLen('fp-i-pW1', keep.W1 || s.W1);
-            if (mode === 'q') { setLen('fp-i-pL2', s.L2 || keep.L1); setLen('fp-i-pW2', s.W2 || keep.W1); }
-        }
         insp.addEventListener('click', (e) => {
             const b = e.target.closest('[data-act]');
             if (!b) return;
@@ -6424,8 +7216,19 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             }
             if (act === 'lvlCopy' || act === 'lvlEmpty') { addLevel(act === 'lvlCopy'); return; }
             if (act === 'lvlDel') { deleteLevel(); return; }
-            if (act === 'plotOpen') { sel = { k: 'plot', id: 'plot' }; inspector(); draw(); openProps(); return; }
+            if (act === 'plotOpen') { sel = { k: 'plot', id: D.plots.length ? D.plots[0].id : 'new' }; inspector(); draw(); renderFloors(); openProps(); return; }
+            if (act === 'plotSel') { sel = { k: 'plot', id: b.dataset.id }; inspector(); draw(); renderFloors(); return; }
+            if (act === 'plotNew') { sel = { k: 'plot', id: 'new' }; inspector(); draw(); renderFloors(); return; }
+            if (act === 'plotAllSel') { sel = { k: 'multi', items: D.plots.map((pl) => ({ k: 'plot', id: pl.id })) }; inspector(); draw(); renderFloors(); return; }
             if (act === 'plotApply') { applyPlotFromPanel(); return; }
+            if (act === 'merge') { mergePlots(); return; }
+            if (act === 'grpRot') { rotateGroup(); return; }
+            if (act === 'grpCopy') { duplicateGroup(); return; }
+            if (act === 'grpDel') { deleteGroup(); return; }
+            if (act === 'grpNone') { sel = null; inspector(); draw(); renderFloors(); return; }
+            if (act === 'nudge') { nudge(Number(b.dataset.dx) * nudgeStep(), Number(b.dataset.dy) * nudgeStep()); return; }
+            if (act === 'selAll') { selectAll(); return; }
+            if (act === 'plotDraw') { sel = null; setTool('plotdraw'); inspector(); insp.classList.remove('open'); toast(t('fp.h.plotdraw')); return; }
             if (!o) return;
             if (act === 'del') remove(sel.k, sel.id);
             else if (act === 'addDoor' || act === 'addWin') { const n = addOpening(act === 'addDoor' ? 'door' : 'window', o, lerp(o.a, o.b, .5)); sel = { k: 'op', id: n.id }; }
@@ -6436,9 +7239,16 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             commit();
         });
 
+        /* ---------- plan title ---------- */
+        const titleIn = $('#fp-title');
+        titleIn.addEventListener('input', () => { D.title = titleIn.value.slice(0, 80); storage.set(STORE, D); });
+        titleIn.addEventListener('change', () => { D.title = titleIn.value.trim().slice(0, 80); commit(); });
+        const syncTitle = () => { if (document.activeElement !== titleIn) titleIn.value = D.title || ''; };
+
         /* ---------- floors strip + plot button ---------- */
         const floorsBox = $('#fp-floors');
         function renderFloors() {
+            syncTitle();
             const chips = D.levels.map((L, i) => `<button type="button" class="lvl${i === D.cur ? ' on' : ''}" data-level="${i}" aria-pressed="${i === D.cur}">${esc(floorName(i))}</button>`).reverse().join('');
             floorsBox.innerHTML = `
                 <span class="lvl-label"><i class="fa-solid fa-building"></i>${esc(t('fp.lvl'))}</span>
@@ -6451,7 +7261,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                     </div>
                 </div>
                 <span class="lvl-sp"></span>
-                <button type="button" class="lvl plot${D.plot ? ' has' : ''}${sel && sel.k === 'plot' ? ' on' : ''}" data-plot-btn><i class="fa-solid fa-vector-square"></i> ${esc(D.plot ? `${t('fp.plot')}: ${qs(qArea(polyArea(D.plot.pts)))}` : t('fp.plotMake'))}</button>`;
+                <button type="button" class="lvl plot${D.plots.length ? ' has' : ''}${sel && sel.k === 'plot' ? ' on' : ''}" data-plot-btn><i class="fa-solid fa-vector-square"></i> ${esc(D.plots.length ? `${D.plots.length > 1 ? t('fp.plotsN', { n: digits(D.plots.length) }) : t('fp.plot')}: ${qs(qArea(D.plots.reduce((a, pl) => a + polyArea(pl.pts), 0)))}` : t('fp.plotMake'))}</button>`;
             syncAllBtn();
         }
         floorsBox.addEventListener('click', (e) => {
@@ -6468,14 +7278,14 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             }
             const a = e.target.closest('[data-lvl-add]');
             if (a) { addLevel(a.dataset.lvlAdd === 'copy'); return; }
-            if (e.target.closest('[data-plot-btn]')) { sel = { k: 'plot', id: 'plot' }; setTool('select'); inspector(); renderFloors(); openProps(); }
+            if (e.target.closest('[data-plot-btn]')) { sel = { k: 'plot', id: D.plots.length ? D.plots[0].id : 'new' }; setTool('select'); inspector(); renderFloors(); openProps(); }
         });
         document.addEventListener('click', (e) => { const l = $('[data-lvl-list]', floorsBox); if (l && !l.hidden && !e.target.closest('.lvl-add')) l.hidden = true; });
 
         /* ---------- start screen: with the plot size, or straight to drawing ---------- */
         const start = $('#fp-start');
         function startScreen() {
-            const show = !previewing && !planLocked && !D.opt.started && !anyContent() && !D.plot;
+            const show = !previewing && !planLocked && !D.opt.started && !anyContent() && !D.plots.length;
             if (start.hidden === !show) return;
             start.hidden = !show;
             if (show) { LEN.enhance(start); LEN.refresh(start); }
@@ -6487,13 +7297,18 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             if (k === 'plot') {
                 const W = LEN.read($('#fp-s-w')).value, L = LEN.read($('#fp-s-l')).value;
                 if (!(W > 0 && L > 0)) { toast(t('fp.plotNeed')); $('#fp-s-w').focus(); return; }
-                D.plot = null;
-                if (!setPlot({ mode: 'r', L1: W, L2: W, W1: L, W2: L })) return;
+                D.plots = [];
+                if (!setPlot({ mode: 'r', L1: W, L2: W, W1: L, W2: L }, null)) return;
                 D.opt.started = true;
                 sel = null;
                 commit(); fit(); renderFloors();
                 setTool('room');
                 toast(t('fp.plotMade'));
+            } else if (k === 'draw') {
+                D.opt.started = true;
+                commit();
+                setTool('plotdraw');
+                toast(t('fp.h.plotdraw'));
             } else if (k === 'free') {
                 D.opt.started = true;
                 commit();
@@ -6506,7 +7321,11 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         /* ---------- toolbar, view, file menu ---------- */
         $$('.plan-tools [data-tool]').forEach((b) => b.addEventListener('click', () => setTool(b.dataset.tool)));
         const kindSel = $('#fp-furn-kind');
-        function fillKinds() { kindSel.innerHTML = Object.keys(LIB).map((k) => `<option value="${k}"${k === furnKind ? ' selected' : ''}>${esc(t('fp.f.' + k))}</option>`).join(''); }
+        const KB = ['counter', 'fridge', 'wc', 'basin', 'shower', 'tub'];
+        const groupOf = (k) => LIB[k].g || (KB.includes(k) ? 'kb' : 'in');
+        function fillKinds() {
+            kindSel.innerHTML = ['in', 'kb', 'out', 'veh'].map((g) => `<optgroup label="${esc(t('fp.fg.' + g))}">${Object.keys(LIB).filter((k) => groupOf(k) === g).map((k) => `<option value="${k}"${k === furnKind ? ' selected' : ''}>${esc(t('fp.f.' + k))}</option>`).join('')}</optgroup>`).join('');
+        }
         kindSel.addEventListener('change', () => { furnKind = kindSel.value; });
         $('#fp-undo').addEventListener('click', undo);
         $('#fp-redo').addEventListener('click', redo);
@@ -6531,10 +7350,10 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             menu.hidden = true;
             const a = b.dataset.fp;
             if (a === 'new') {
-                if ((anyContent() || D.plot) && !window.confirm(t('fp.clearConfirm'))) return;
+                if ((anyContent() || D.plots.length) && !window.confirm(t('fp.clearConfirm'))) return;
                 const opt = D.opt; D = blank(); D.opt = opt; D.opt.started = false; bind(); sel = null; commit(); fit(); renderFloors();
             } else if (a === 'sample') {
-                if ((anyContent() || D.plot) && !window.confirm(t('fp.sampleConfirm'))) return;
+                if ((anyContent() || D.plots.length) && !window.confirm(t('fp.sampleConfirm'))) return;
                 sample(); commit(); fit(); renderFloors();
             } else if (a === 'open') $('#fp-file').click();
             else if (a === 'save') downloadBlob(new Blob([JSON.stringify(D, null, 1)], { type: 'application/json' }), fileBase() + '.json');
@@ -6565,7 +7384,8 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         }
         function fileBase() {
             const d = new Date();
-            return `Floor-Plan_${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+            const slug = String(D.title || '').normalize('NFKD').replace(/[^A-Za-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40);
+            return `Floor-Plan${slug ? '_' + slug : ''}_${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
         }
 
         /* ---------- PNG export of one floor (also used in the PDF) ---------- */
@@ -6579,14 +7399,17 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             const savedSel = sel; sel = null;
             const body = plotMarkup(pal, s / 1.7, false) + (li > 0 ? ghostMarkup(D.levels[li - 1], pal) : '') + worldMarkup(pal, s / 1.7, false, L);
             sel = savedSel;
-            const markup = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="Noto Sans Bengali, Nirmala UI, Vrinda, Poppins, Arial, sans-serif"><rect width="${W}" height="${H}" fill="#ffffff"/><g transform="translate(${(pad - b.x0) * s} ${(pad - b.y0) * s}) scale(${s})">${body}</g></svg>`;
+            const head = [D.title, D.levels.length > 1 ? floorName(li) : ''].filter(Boolean).join(' — ');
+            const TH = head ? 56 : 0;
+            const H2 = H + TH;
+            const markup = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H2}" viewBox="0 0 ${W} ${H2}" font-family="Noto Sans Bengali, Nirmala UI, Vrinda, Poppins, Arial, sans-serif"><rect width="${W}" height="${H2}" fill="#ffffff"/>${head ? `<text x="24" y="38" font-size="26" font-weight="700" fill="#1e293b">${esc(head)}</text>` : ''}<g transform="translate(${(pad - b.x0) * s} ${(pad - b.y0) * s + TH}) scale(${s})">${body}</g></svg>`;
             return new Promise((res, rej) => {
                 const img = new Image();
                 img.onload = () => {
                     const c = document.createElement('canvas');
-                    c.width = W; c.height = H;
+                    c.width = W; c.height = H2;
                     const g = c.getContext('2d');
-                    g.fillStyle = '#fff'; g.fillRect(0, 0, W, H);
+                    g.fillStyle = '#fff'; g.fillRect(0, 0, W, H2);
                     g.drawImage(img, 0, 0);
                     res(c.toDataURL('image/png'));
                 };
@@ -6598,7 +7421,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         async function toPngAll(maxW = 1600) {
             const out = [];
             for (let i = 0; i < D.levels.length; i++) {
-                if (!hasContent(D.levels[i]) && !(i === 0 && D.plot)) continue;
+                if (!hasContent(D.levels[i]) && !(i === 0 && D.plots.length)) continue;
                 out.push({ name: floorName(i), url: await toPng(maxW, i) });
             }
             return out;
@@ -6609,7 +7432,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             const opt = { ...D.opt };
             D = blank(); D.opt = opt; D.opt.started = true; D.opt.all3d = true; bind();
             const bn = S.lang === 'bn';
-            D.plot = makePlot({ mode: 'r', L1: 42, L2: 42, W1: 32, W2: 32, ox: -3, oy: -4 });
+            D.plots = [Object.assign(makePlot({ mode: 'r', L1: 42, L2: 42, W1: 32, W2: 32, ox: -3, oy: -4 }), { id: uid(), name: '' })];
             addRect({ x: 0, y: 0 }, { x: 36, y: 24 }, null, 10);
             P.rooms = [];
             addRect({ x: 0, y: 0 }, { x: 14, y: 12 }, bn ? 'শোবার ঘর ১' : 'Bedroom 1', 5);
@@ -6654,7 +7477,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             run(v) {
                 const k = K();
                 const levels = D.levels.filter(hasContent);
-                if (!levels.length && !D.plot) return [row(t('fp.empty'), '')];
+                if (!levels.length && !D.plots.length) return [row(t('fp.empty'), '')];
                 const roomsOf = (L) => L.rooms.reduce((s, r) => s + polyArea(r.pts), 0);
                 const floor = D.levels.reduce((s, L) => s + roomsOf(L), 0);
                 const groups = {};
@@ -6673,9 +7496,11 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                     });
                 });
                 const items = [heading(t('fp.r.summary'))];
-                if (D.plot) {
-                    const pa = polyArea(D.plot.pts), foot = roomsOf(D.levels[0]);
-                    items.push(rq(t('fp.plotArea'), qArea(pa), true), row(t('fp.land'), landText(pa)));
+                if (D.plots.length) {
+                    const pa = D.plots.reduce((a, pl) => a + polyArea(pl.pts), 0), foot = roomsOf(D.levels[0]);
+                    if (D.plots.length > 1) D.plots.forEach((pl) => items.push(rq(`${plotName(pl)}`, qArea(polyArea(pl.pts))), row(`· ${t('fp.plotSides')}`, sidesText(pl))));
+                    items.push(rq(D.plots.length > 1 ? t('fp.plotTotal', { n: num(D.plots.length, 0) }) : t('fp.plotArea'), qArea(pa), true), row(t('fp.land'), landText(pa)));
+                    if (D.plots.length === 1) items.push(row(t('fp.plotSides'), sidesText(D.plots[0])));
                     if (foot) items.push(row(t('fp.cover'), `${num(foot / pa * 100, 0)}%`), rq(t('fp.openSpace'), qArea(Math.max(pa - foot, 0))));
                 }
                 if (D.levels.length > 1) items.push(row(t('fp.r.floors'), num(D.levels.length, 0), t('u.pcs')));
@@ -6746,6 +7571,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
 
         return {
             data: () => D,
+            title: () => String(D.title || '').trim(),
             polyArea, centroid, LIB, elevOf, levelH, slabFt, floorName,
             toPng, toPngAll,
             relabel() { fillKinds(); renderFloors(); syncAllBtn(); inspector(); actKey = ''; draw(); if (currentPage === 'plan') refreshEstimate(); },
@@ -6753,7 +7579,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             refreshEstimate,
             // locked page: show the sample house behind the Pro card (not saved)
             preview() {
-                if (previewing || anyContent() || D.plot) return;
+                if (previewing || anyContent() || D.plots.length) return;
                 previewing = true;
                 sample();
                 hist = [JSON.stringify(D)]; hi = 0;
@@ -7270,7 +8096,8 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             const day = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
             const ascii = (x) => String(x || '').normalize('NFKD').replace(/[^A-Za-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
             const brand = ascii(SITE.brand && SITE.brand.en) || ascii(I18N.en['brand.name']) || 'Construction-Solution';
-            return `${brand}_${ascii(I18N.en['page.' + st.id]) || st.id}_${day}.pdf`;
+            const extra = st.id === 'plan' ? ascii(PLAN.title()) : '';
+            return `${brand}_${ascii(I18N.en['page.' + st.id]) || st.id}${extra ? '_' + extra.slice(0, 40) : ''}_${day}.pdf`;
         };
 
         function reportHtml(img) {
@@ -7285,7 +8112,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             return `
                 <div class="rp" lang="${S.lang}">
                     <div class="rp-head">
-                        <div><div class="rp-brand">${escapeHtml(t('brand.name'))}</div><div class="rp-title">${escapeHtml(t('page.' + id))}</div></div>
+                        <div><div class="rp-brand">${escapeHtml(t('brand.name'))}</div><div class="rp-title">${escapeHtml(t('page.' + id))}${id === 'plan' && PLAN.title() ? ' — ' + escapeHtml(PLAN.title()) : ''}</div></div>
                         <div class="rp-date">${escapeHtml(stamp())}</div>
                     </div>
                     ${id === 'plan' ? st.planImgs.map((p) => `<div class="rp-3d"><h3>${escapeHtml(t('rp.plan2d'))}${st.planImgs.length > 1 ? ' — ' + escapeHtml(p.name) : ''}</h3><img src="${p.url}" alt=""></div>`).join('') : ''}
