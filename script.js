@@ -433,6 +433,9 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             'rp.inputs': 'Measurements',
             'rp.results': 'Results',
             'rp.3d': '3D preview',
+            "page.survey": "Land Survey",
+            "desc.survey": "Measure any land: trace a mouza map with its scale, work out area from field sides, divide land between sharers and print the division map.",
+            "nav.land": "Land",
             "cl.qtyCol": "Set number of columns",
             "cl.qtyLin": "Set number of lintels",
             "cl.fillAsk": "Concrete in 3D",
@@ -1480,6 +1483,9 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             'rp.inputs': 'মাপ',
             'rp.results': 'ফলাফল',
             'rp.3d': '৩ডি প্রিভিউ',
+            "page.survey": "ভূমি জরিপ",
+            "desc.survey": "যেকোনো জমির মাপ — মৌজা নকশা স্কেলে মেপে দাগের পরিমাণ, মাঠের বাহু দিয়ে ক্ষেত্রফল, শরিকদের মধ্যে নির্ভুল বণ্টন ও বণ্টন নকশা।",
+            "nav.land": "জমি",
             "cl.qtyCol": "কলাম সংখ্যা সেট করুন",
             "cl.qtyLin": "লিন্টেল সংখ্যা সেট করুন",
             "cl.fillAsk": "৩ডি-তে ঢালাই",
@@ -2282,6 +2288,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         { id: 'plaster', icon: 'fa-paint-roller',      keys: 'plaster প্লাস্টার' },
         { id: 'steel',   icon: 'fa-grip-lines',        keys: 'rod steel rebar roof রড স্টিল' },
         { id: 'tiles',   icon: 'fa-table-cells-large', keys: 'tiles floor টাইলস' },
+        { id: 'survey',  icon: 'fa-map-location-dot',  keys: 'land survey jomi jorip mouza map naksha division bonton dag khatian area decimal katha bigha acre জমি জরিপ ভূমি মৌজা নকশা ম্যাপ বণ্টন বন্টন দাগ খতিয়ান শতাংশ শতক কাঠা বিঘা একর' },
         { id: 'plan',    icon: 'fa-compass-drafting',  keys: 'floor plan cad autocad design drawing house map নকশা ফ্লোর প্ল্যান বাড়ির' },
         { id: 'about',   icon: 'fa-circle-info',       keys: 'about developer আমাদের' },
         { id: 'review',  icon: 'fa-star',              keys: 'review rating feedback contact রিভিউ রেটিং মতামত যোগাযোগ' },
@@ -2373,6 +2380,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         TILES.renumber();
         COLS.relabel();
         PLAN.relabel();
+        if (window.SURVEY) window.SURVEY.relabel();
         updateTopbar();
         $$('[data-search]').forEach((w) => { if ($('input', w).value.trim()) w._run(); });
     }
@@ -3447,6 +3455,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         window.scrollTo(0, 0);
         VIZ.show(id);
         if (id === 'plan') PLAN.show();
+        if (id === 'survey' && window.SURVEY) window.SURVEY.show();
         if (id === 'admin') ADMIN.fill();
     }
     window.addEventListener('hashchange', route);
@@ -7986,6 +7995,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             $('#plan-lock').hidden = !locked;
             if (locked) PLAN.preview(); else PLAN.unpreview();
             const pend = pending();
+            if (window.SURVEY && window.SURVEY.lock) window.SURVEY.lock(locked, !!pend, !!user);
             $('#lock-pending').hidden = !(locked && pend);
             $('#lock-pending').textContent = pend ? t('lock.pending') : '';
             $('#lock-login').hidden = !!user;
@@ -8168,7 +8178,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         const curPlan = () => ($('input[name="buyPlan"]:checked') || {}).value || 'yearly';
         const curMethod = () => ($('input[name="buyMethod"]:checked') || {}).value || '';
         function buy(plan) {
-            if (!required() || IS_ADMIN || (isPro() && !plan && !acct.classList.contains('open'))) { closeAcct(); closeBuy(); location.hash = 'plan'; return; }
+            if (!required() || IS_ADMIN || (isPro() && !plan && !acct.classList.contains('open'))) { closeAcct(); closeBuy(); location.hash = currentPage === 'survey' ? 'survey' : 'plan'; return; }
             if (!FB.ready) { toast(t('admin.noFirebase')); return; }
             if (!user) { pendingBuy = plan || 'yearly'; openAcct('up'); toast(t('buy.needAcct')); return; }
             openBuy(plan || 'yearly');
@@ -8630,6 +8640,13 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         reviewForm.reset();
         updateRatingText();
     });
+
+    /* ---------- shared helpers for the extra modules (survey.js) ---------- */
+    window.CS = {
+        $, $$, t, num, numPlain, digits, toEn, parseNum, esc: escapeHtml, toast, storage, I18N, S,
+        applyI18n, page: () => currentPage,
+        pro: () => ({ canUse: PRO.canUse(), pending: false }),
+    };
 
     /* ---------- Init ---------- */
     VIZ.createCards();
