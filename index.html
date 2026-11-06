@@ -1367,6 +1367,20 @@
         .nudge-step { display: grid; place-items: center; font-size: .68rem; color: var(--muted); }
         .plot-chips { display: flex; flex-wrap: wrap; gap: .35rem; margin: 0 0 .75rem; }
         .plan-2d[data-tool="box"] svg { cursor: cell; }
+        .mode-seg { display: grid !important; grid-template-columns: repeat(3, 1fr); width: 100%; }
+        .mode-seg label > span { display: inline-flex; align-items: center; justify-content: center; gap: .35rem; white-space: nowrap; font-size: .85rem; }
+        @media (max-width: 520px) { .mode-seg { grid-template-columns: 1fr; } }
+        .step-no { display: inline-grid; place-items: center; width: 1.45rem; height: 1.45rem; margin-right: .45rem; border-radius: 50%; background: var(--brand-grad); color: var(--on-brand); font-size: .75rem; font-weight: 700; vertical-align: middle; }
+        .step-no:empty { display: none; }
+        [data-conc][hidden] { display: none !important; }
+        .row-tools { display: inline-flex; gap: .25rem; margin-left: auto; }
+        .item-head { flex-wrap: wrap; }
+        .dup-chips { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem; margin: -.2rem 0 .8rem; padding: .55rem .7rem; border-radius: .8rem; background: var(--brand-50); font-size: .8rem; color: var(--ink-2); }
+        .dup-chips[hidden] { display: none; }
+        .dup-chips .lvl { min-height: 1.9rem; padding: .2rem .7rem; }
+        .item-row.flash { box-shadow: 0 0 0 3px var(--brand-100); transition: box-shadow .3s; }
+        .join-pick { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem .8rem; margin-top: 1rem; padding: .6rem .8rem; border-radius: .8rem; border: 1px dashed var(--line-2); font-size: .85rem; font-weight: 600; color: var(--ink-2); }
+        .join-pick i { color: var(--brand-ink); }
         /* svg drawing */
         #plan-svg .w-sel { fill: var(--brand) !important; }
         #plan-svg .sel-line { stroke: var(--brand); }
@@ -1939,6 +1953,15 @@
                             <label for="column-side"><i class="fa-solid fa-compass"></i> <span data-i18n="sd.dir8c"></span> <small class="opt" data-i18n="tl.optional"></small></label>
                             <select class="control" id="column-side" name="side" data-side="dir8c" autocomplete="off"></select>
                         </div>
+                        <div class="fieldset mode-set">
+                            <p class="group-title" data-i18n="cl.modeAsk"></p>
+                            <div class="segmented mode-seg" role="radiogroup">
+                                <label><input type="radio" name="colMode" value="both" checked><span><i class="fa-solid fa-layer-group"></i> <span data-i18n="cl.mBoth"></span></span></label>
+                                <label><input type="radio" name="colMode" value="rod"><span><i class="fa-solid fa-grip-lines"></i> <span data-i18n="cl.mRod"></span></span></label>
+                                <label><input type="radio" name="colMode" value="conc"><span><i class="fa-solid fa-cubes-stacked"></i> <span data-i18n="cl.mConc"></span></span></label>
+                            </div>
+                        </div>
+
                         <div class="fieldset">
                             <p class="group-title" data-i18n="cl.items"></p>
                             <div class="item-list" id="col-items"></div>
@@ -1946,10 +1969,27 @@
                                 <button type="button" class="btn btn-soft btn-sm" data-add-item="column"><i class="fa-solid fa-plus"></i> <span data-i18n="cl.addCol"></span></button>
                                 <button type="button" class="btn btn-soft btn-sm" data-add-item="lintel"><i class="fa-solid fa-plus"></i> <span data-i18n="cl.addLin"></span></button>
                             </div>
+                            <div class="join-pick">
+                                <span><i class="fa-solid fa-cube"></i> <span data-i18n="cl.joinAsk"></span></span>
+                                <div class="segmented seg-sm" role="radiogroup">
+                                    <label><input type="radio" name="colJoin" value="0" checked><span data-i18n="cl.joinNo"></span></label>
+                                    <label><input type="radio" name="colJoin" value="1"><span data-i18n="cl.joinYes"></span></label>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="fieldset">
-                            <p class="group-title" data-i18n="grp.ratio"></p>
+                        <div class="fieldset rod-set" data-rod>
+                            <p class="group-title"><span class="step-no" data-step="rod"></span><span data-i18n="cl.rodTitle"></span></p>
+                            <div class="fields auto">
+                                <div class="field"><label for="column-rodCover"><span data-i18n="cl.cover"></span> <small class="opt" data-i18n="cl.coverDef"></small></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-rodCover" name="rodCover" data-num data-optional data-default="1.5" data-len="in" data-ph="0"></div><span class="field-error"></span></div>
+                                <div class="field"><label for="column-rodLap"><span data-i18n="cl.lap"></span> <small class="opt" data-i18n="cl.lapDef"></small></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-rodLap" name="rodLap" data-num data-optional data-default="0" data-len="ft" data-ph="0"></div><span class="field-error"></span></div>
+                                <div class="field"><label for="column-rodWaste"><span data-i18n="f.wastage"></span> <small class="opt" data-i18n="cl.wasteDef"></small></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-rodWaste" name="rodWaste" data-num data-optional data-default="5" data-ph="0"><span class="unit">%</span></div><span class="field-error"></span></div>
+                            </div>
+                            <small class="set-help" data-i18n="cl.rodHelp"></small>
+                        </div>
+
+                        <div class="fieldset" data-conc>
+                            <p class="group-title"><span class="step-no" data-step="conc"></span><span data-i18n="cl.concTitle"></span> — <span data-i18n="grp.ratio"></span></p>
                             <div class="fields ratio">
                                 <div class="field">
                                     <label for="column-ratio1" data-i18n="mat.cement"></label>
@@ -1967,43 +2007,34 @@
                                     <span class="field-error"></span>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="fieldset rod-set">
-                            <p class="group-title" data-i18n="cl.rodTitle"></p>
-                            <div class="field"><span class="field-label" data-i18n="cl.rodAsk"></span>
-                                <div class="segmented" role="radiogroup">
-                                    <label><input type="radio" name="colRod" value="0" checked><span data-i18n="fp.no"></span></label>
-                                    <label><input type="radio" name="colRod" value="1"><span data-i18n="cl.rodYes"></span></label>
+                            <div class="join-pick">
+                                <span><i class="fa-solid fa-fill-drip"></i> <span data-i18n="cl.fillAsk"></span></span>
+                                <div class="segmented seg-sm" role="radiogroup">
+                                    <label><input type="radio" name="colFill" value="0" checked><span data-i18n="cl.fillLight"></span></label>
+                                    <label><input type="radio" name="colFill" value="1"><span data-i18n="cl.fillFull"></span></label>
                                 </div>
                             </div>
-                            <div class="fields auto" data-rod hidden style="margin-top:1rem">
-                                <div class="field"><label for="column-rodCover"><span data-i18n="cl.cover"></span> <small class="opt" data-i18n="cl.coverDef"></small></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-rodCover" name="rodCover" data-num data-optional data-default="1.5" data-len="in" data-ph="0"></div><span class="field-error"></span></div>
-                                <div class="field"><label for="column-rodLap"><span data-i18n="cl.lap"></span> <small class="opt" data-i18n="cl.lapDef"></small></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-rodLap" name="rodLap" data-num data-optional data-default="0" data-len="ft" data-ph="0"></div><span class="field-error"></span></div>
-                                <div class="field"><label for="column-rodWaste"><span data-i18n="f.wastage"></span> <small class="opt" data-i18n="cl.wasteDef"></small></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-rodWaste" name="rodWaste" data-num data-optional data-default="5" data-ph="0"><span class="unit">%</span></div><span class="field-error"></span></div>
-                            </div>
-                            <small class="set-help" data-rod hidden data-i18n="cl.rodHelp"></small>
                         </div>
 
                         <div class="fieldset">
                             <p class="group-title"><span data-i18n="grp.price"></span> <small class="opt" data-i18n="tl.optional"></small></p>
                             <div class="fields auto">
-                                <div class="field">
+                                <div class="field" data-conc>
                                     <label for="column-cementPrice"><span data-i18n="f.cementPrice"></span></label>
                                     <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-cementPrice" name="cementPrice" data-num data-optional data-default="0" data-ph="0" ><span class="unit">৳</span></div>
                                     <span class="field-error"></span>
                                 </div>
-                                <div class="field">
+                                <div class="field" data-conc>
                                     <label for="column-sandPrice"><span data-i18n-k="f.sandPrice"></span></label>
                                     <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-sandPrice" name="sandPrice" data-num data-optional data-default="0" data-ph="0" data-price="vol"><span class="unit">৳</span></div>
                                     <span class="field-error"></span>
                                 </div>
-                                <div class="field">
+                                <div class="field" data-conc>
                                     <label for="column-khoaPrice"><span data-i18n-k="f.khoaPrice"></span></label>
                                     <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-khoaPrice" name="khoaPrice" data-num data-optional data-default="0" data-ph="0" data-price="vol"><span class="unit">৳</span></div>
                                     <span class="field-error"></span>
                                 </div>
-                                <div class="field" data-rod hidden>
+                                <div class="field" data-rod>
                                     <label for="column-rodPrice"><span data-i18n="f.rodPrice"></span></label>
                                     <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-rodPrice" name="rodPrice" data-num data-optional data-default="0" data-ph="0"><span class="unit">৳</span></div>
                                     <span class="field-error"></span>
@@ -2020,16 +2051,16 @@
                         <details class="formula">
                             <summary><i class="fa-solid fa-square-root-variable"></i> <span data-i18n="calc.formula"></span></summary>
                             <ol>
+                                <li data-i18n-k="cl.rf1" data-rod></li>
+                                <li data-i18n-k="cl.rf2" data-rod></li>
+                                <li data-i18n-k="cl.rf3" data-rod></li>
                                 <li data-i18n-k="cl.f1"></li>
-                                <li data-i18n-k="cl.f2"></li>
-                                <li data-i18n-k="cl.f3"></li>
-                                <li data-i18n-k="cl.f4"></li>
-                                <li data-i18n-k="cl.f5"></li>
-                                <li data-i18n-k="cl.f6"></li>
-                                <li data-i18n-k="cl.f7"></li>
-                                <li data-i18n-k="cl.rf1"></li>
-                                <li data-i18n-k="cl.rf2"></li>
-                                <li data-i18n-k="cl.rf3"></li>
+                                <li data-i18n-k="cl.f2" data-conc></li>
+                                <li data-i18n-k="cl.f3" data-conc></li>
+                                <li data-i18n-k="cl.f4" data-conc></li>
+                                <li data-i18n-k="cl.f5" data-conc></li>
+                                <li data-i18n-k="cl.f6" data-conc></li>
+                                <li data-i18n-k="cl.f7" data-conc></li>
                             </ol>
                             <p class="formula-note" data-i18n-k="calc.fnote"></p>
                         </details>

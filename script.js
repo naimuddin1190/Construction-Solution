@@ -433,6 +433,27 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             'rp.inputs': 'Measurements',
             'rp.results': 'Results',
             'rp.3d': '3D preview',
+            "cl.qtyCol": "Set number of columns",
+            "cl.qtyLin": "Set number of lintels",
+            "cl.fillAsk": "Concrete in 3D",
+            "cl.fillLight": "Light (rod visible)",
+            "cl.fillFull": "Full fill",
+            "cl.tiesJ": "{n} rings {d} mm in total, only between the columns (each {c})",
+            "cl.joinCut": "Joint already in the column (not counted twice)",
+            "cl.up": "Move up",
+            "cl.down": "Move down",
+            "cl.dup": "Copy (same size)",
+            "cl.dupHow": "How many more of the same size?",
+            "cl.dupDone": "{n} more added with the same size",
+            "cl.joinAsk": "In 3D, show the pieces",
+            "cl.joinNo": "Separately",
+            "cl.joinYes": "Joined (lintel on columns)",
+            "cl.modeAsk": "What do you want to calculate?",
+            "cl.mBoth": "Rod + concrete",
+            "cl.mRod": "Rod only",
+            "cl.mConc": "Concrete only (cement, sand, khoa)",
+            "cl.concTitle": "Concrete — cement, sand, khoa",
+            "cl.rodShort": "Rod",
             "fp.titlePh": "Plan name — e.g. \"Rahim's 3-storey house, Mirpur\"",
             "fp.title": "Plan name",
             "fp.box": "Box select",
@@ -1459,6 +1480,27 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             'rp.inputs': 'মাপ',
             'rp.results': 'ফলাফল',
             'rp.3d': '৩ডি প্রিভিউ',
+            "cl.qtyCol": "কলাম সংখ্যা সেট করুন",
+            "cl.qtyLin": "লিন্টেল সংখ্যা সেট করুন",
+            "cl.fillAsk": "৩ডি-তে ঢালাই",
+            "cl.fillLight": "হালকা (রড দেখা যায়)",
+            "cl.fillFull": "পুরো ভরাট",
+            "cl.tiesJ": "মোট {n}টি রিং {d} মিমি, শুধু দুই কলামের মাঝে (প্রতিটি {c})",
+            "cl.joinCut": "জোড়ার অংশ কলামে ধরা আছে (দুবার ধরা হয়নি)",
+            "cl.up": "উপরে সরান",
+            "cl.down": "নিচে সরান",
+            "cl.dup": "কপি (একই মাপ)",
+            "cl.dupHow": "একই মাপের আরও কয়টি?",
+            "cl.dupDone": "একই মাপের আরও {n}টি যোগ হয়েছে",
+            "cl.joinAsk": "৩ডি-তে অংশগুলো দেখাবে",
+            "cl.joinNo": "আলাদা আলাদা",
+            "cl.joinYes": "জোড়া লাগানো (কলামের উপর লিন্টেল)",
+            "cl.modeAsk": "কীসের হিসাব করবেন?",
+            "cl.mBoth": "রড + ঢালাই দুটোই",
+            "cl.mRod": "শুধু রড",
+            "cl.mConc": "শুধু ঢালাই (সিমেন্ট, বালু, খোয়া)",
+            "cl.concTitle": "ঢালাই — সিমেন্ট, বালু, খোয়া",
+            "cl.rodShort": "রড",
             "fp.titlePh": "প্ল্যানের নাম — যেমন \"রহিমের ৩ তলা বাড়ি, মিরপুর\"",
             "fp.title": "প্ল্যানের নাম",
             "fp.box": "বক্স সিলেক্ট",
@@ -3897,35 +3939,47 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
 
         // columns and lintels — any number of each
         column: {
-            ratios: ['ratio1', 'ratio2', 'ratio3'],
+            // the mix ratio is only needed when concrete is worked out
+            get ratios() { return ($('form[data-calc="column"] input[name="colMode"]:checked') || {}).value === 'rod' ? [] : ['ratio1', 'ratio2', 'ratio3']; },
             run(v) {
                 const items = colItems(v);
-                const rows = [];
-                const sums = { column: 0, lintel: 0 }, counts = { column: 0, lintel: 0 };
-                items.forEach((it) => {
-                    const vol = it.L * (it.W / 12) * (it.T / 12) * it.Q;
-                    sums[it.type] += vol;
-                    counts[it.type] += it.Q;
-                    const dims = [it.dL, it.dW, it.dT].filter(Boolean).join(' × ');
-                    rows.push(rq(`${it.no}${dims ? ` (${dims})` : ''}${it.Q !== 1 ? ` × ${numPlain(it.Q)}` : ''}`, qVol(vol)));
-                });
-                const volume = sums.column + sums.lintel;
-                const dry = volume * K().dry;
-                const m = mixItems(dry, v, true);
-                const bricksForKhoa = Math.ceil(m.khoa * K().khoaBricks - 1e-9);
-                const out = [...rows];
-                if (counts.column) out.push(rq(t('cl.colTotal', { n: numPlain(counts.column) }), qVol(sums.column)));
-                if (counts.lintel) out.push(rq(t('cl.linTotal', { n: numPlain(counts.lintel) }), qVol(sums.lintel)));
-                out.push(
-                    rq(t('r.workVolume'), qVol(volume), true),
-                    rq(t('r.dryVolume'), qVol(dry)),
-                    row(t('r.ratio'), ratioText(v.ratio1, v.ratio2, v.ratio3)),
-                    ...m.items,
-                    row(t('r.bricksKhoa'), num(bricksForKhoa, 0), t('u.pcs'), true),
-                );
-                const rod = v.colRod === '1' ? colRebar(items, v) : null;
+                const mode = v.colMode || 'both';
+                const doRod = mode !== 'conc', doConc = mode !== 'rod';
+                const out = [];
+                // 1) rod
+                const rod = doRod ? colRebar(items, v) : null;
                 if (rod) out.push(...rod.items);
-                out.push(...costItems([['r.cementCost', m.bags, v.cementPrice], ['r.sandCost', m.sand, v.sandPrice], ['r.khoaCost', m.khoa, v.khoaPrice], ['r.rodCost', rod ? rod.kg : 0, v.rodPrice]]));
+                // 2) concrete: cement, sand, khoa
+                let m = { bags: 0, sand: 0, khoa: 0 };
+                if (doConc) {
+                    const sums = { column: 0, lintel: 0 }, counts = { column: 0, lintel: 0 };
+                    out.push(heading(t('cl.concTitle')));
+                    items.forEach((it) => {
+                        const vol = it.L * (it.W / 12) * (it.T / 12) * it.Q;
+                        sums[it.type] += vol;
+                        counts[it.type] += it.Q;
+                        const dims = [it.dL, it.dW, it.dT].filter(Boolean).join(' × ');
+                        out.push(rq(`${it.no}${dims ? ` (${dims})` : ''}${it.Q !== 1 ? ` × ${numPlain(it.Q)}` : ''}`, qVol(vol)));
+                    });
+                    // joined frame: the joint is already inside the column → don't count it twice
+                    let overlap = 0;
+                    colJoins(items, v.colJoin === '1').forEach((r) => { overlap += r.overlap; });
+                    const volume = Math.max(sums.column + sums.lintel - overlap, 0);
+                    const dry = volume * K().dry;
+                    m = mixItems(dry, v, true);
+                    const bricksForKhoa = Math.ceil(m.khoa * K().khoaBricks - 1e-9);
+                    if (counts.column) out.push(rq(t('cl.colTotal', { n: numPlain(counts.column) }), qVol(sums.column)));
+                    if (counts.lintel) out.push(rq(t('cl.linTotal', { n: numPlain(counts.lintel) }), qVol(sums.lintel)));
+                    if (overlap > 0) { const [a, u] = qVol(overlap); out.push(row(t('cl.joinCut'), '− ' + a, u)); }
+                    out.push(
+                        rq(t('r.workVolume'), qVol(volume), true),
+                        rq(t('r.dryVolume'), qVol(dry)),
+                        row(t('r.ratio'), ratioText(v.ratio1, v.ratio2, v.ratio3)),
+                        ...m.items,
+                        row(t('r.bricksKhoa'), num(bricksForKhoa, 0), t('u.pcs'), true),
+                    );
+                }
+                out.push(...costItems([['r.rodCost', rod ? rod.kg : 0, v.rodPrice], ['r.cementCost', m.bags, v.cementPrice], ['r.sandCost', m.sand, v.sandPrice], ['r.khoaCost', m.khoa, v.khoaPrice]]));
                 return out;
             },
         },
@@ -4067,10 +4121,11 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
     function colItems(v) {
         const d = v._disp || {};
         const n = { column: 0, lintel: 0 };
-        return Object.keys(v)
-            .filter((k) => /^iL_\d+$/.test(k))
-            .map((k) => k.slice(3))
-            .sort((a, b) => a - b)
+        const keys = Object.keys(v).filter((k) => /^iL_\d+$/.test(k)).map((k) => k.slice(3));
+        const dom = $$('#col-items [data-area]').map((r) => r.dataset.area);       // the order on screen
+        const pos = (i) => { const p = dom.indexOf(i); return p < 0 ? 1e6 + Number(i) : p; };
+        return keys
+            .sort((a, b) => pos(a) - pos(b))
             .map((i) => {
                 const type = v['type_' + i] === 'lintel' ? 'lintel' : 'column';
                 n[type] += 1;
@@ -4084,6 +4139,31 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             .filter((it) => it.L > 0 && it.W > 0 && it.T > 0);
     }
 
+    /* ---------- Joined frame ----------
+       lintel n sits on column n and column n+1 (in the order shown, each "count" is one piece).
+       Real-life rules used:
+         · the lintel's main bars run into the columns (length unchanged)
+         · the lintel's rings are only in the open span between the column faces —
+           inside the joint the column's own rings carry on (they are not removed)
+         · the joint concrete belongs to the column, so it is not counted twice */
+    function colJoins(items, join) {
+        const res = new Map();
+        if (!join) return res;
+        const cols = [], lins = [];
+        items.forEach((it) => { const n = Math.max(Math.ceil(it.Q), 1); for (let i = 0; i < n; i++) (it.type === 'column' ? cols : lins).push(it); });
+        lins.forEach((l, j) => {
+            const a = cols[j], b = cols[j + 1];
+            if (!a || !b) return;
+            const r = res.get(l) || { n: 0, clear: [], overlap: 0 };
+            const Wa = a.W / 12, Wb = b.W / 12, d = l.T / 12;
+            r.n += 1;
+            r.clear.push(Math.max(l.L - Wa - Wb, 0));
+            r.overlap += Wa * d * Math.min(l.W, a.T) / 12 + Wb * d * Math.min(l.W, b.T) / 12;
+            res.set(l, r);
+        });
+        return res;
+    }
+
     /* ---------- Column & lintel rebar ----------
        main bars : count × (length + extra/lap) per piece
        ties/rings: count = length ÷ spacing + 1;  cut length = 2 × ((W − 2c) + (T − 2c)) + 2 hooks of 10d
@@ -4092,25 +4172,31 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         const div = K().steelDiv, cover = v.rodCover >= 0 ? v.rodCover : 1.5, lap = v.rodLap > 0 ? v.rodLap : 0;
         const waste = v.rodWaste >= 0 ? v.rodWaste : 5;
         const byDia = {};
+        const joins = colJoins(items, v.colJoin === '1');
         const addDia = (d, ft) => { byDia[d] = (byDia[d] || 0) + ft; };
         const out = [heading(t('cl.rodTitle'))];
         items.forEach((it) => {
             const nb = Math.max(Math.round(it.nb || 0), 0), md = it.md, td = it.td, ts = it.ts;
             const mainFt = nb * (it.L + lap) * it.Q;
             if (nb && md > 0) addDia(md, mainFt);
-            let tieN = 0, tieFt = 0, cut = 0;
+            let tieN = 0, tieFt = 0, cut = 0, tieAll = 0;
+            const J = joins.get(it);
             if (td > 0 && ts > 0) {
                 const a = it.W - 2 * cover, b = it.T - 2 * cover;
                 if (a > 0 && b > 0) {
-                    tieN = Math.floor(it.L * 12 / ts + 1e-9) + 1;
+                    const count = (len) => (len > 0 ? Math.floor(len * 12 / ts + 1e-9) + 1 : 0);
+                    tieN = count(it.L);
                     cut = (2 * (a + b) + 2 * 10 * td / 25.4) / 12;          // ft
-                    tieFt = tieN * cut * it.Q;
+                    // joined lintel: rings only between the column faces
+                    tieAll = J ? J.clear.reduce((s, c) => s + count(c), 0) + Math.max(it.Q - J.n, 0) * tieN : tieN * it.Q;
+                    tieFt = tieAll * cut;
                     addDia(td, tieFt);
                 }
             }
             const q = it.Q !== 1 ? ` × ${numPlain(it.Q)}` : '';
             out.push(rq(`${it.no}${q}: ${t('cl.mainBars', { n: digits(nb), d: digits(md) })}`, qRun(mainFt)));
-            if (tieN) out.push(rq(`${it.no}${q}: ${t('cl.ties', { n: num(tieN, 0), d: digits(td), c: LEN.fmt(cut) })}`, qRun(tieFt)));
+            if (tieAll && J) out.push(rq(`${it.no}${q}: ${t('cl.tiesJ', { n: num(tieAll, 0), d: digits(td), c: LEN.fmt(cut) })}`, qRun(tieFt)));
+            else if (tieN) out.push(rq(`${it.no}${q}: ${t('cl.ties', { n: num(tieN, 0), d: digits(td), c: LEN.fmt(cut) })}`, qRun(tieFt)));
         });
         let kg = 0;
         Object.keys(byDia).map(Number).sort((a, b) => b - a).forEach((d) => {
@@ -4236,6 +4322,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         $$('input[type="radio"]:checked', form).forEach((r) => { data[r.name] = r.value; });
         const sd = $('select[data-side]', form);
         if (sd) data.__side = sd.value;
+        if (form.dataset.calc === 'column') data.__order = $$('[data-area]', form).map((r) => r.dataset.area);
         data.__unit = LEN.current();
         all[form.dataset.calc] = data;
         storage.set(STORE_INPUTS, all);
@@ -4273,6 +4360,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         const viewers = {};
         let active = null;
         let planSrc = null;        // floor plan data comes from the PLAN editor
+        let pourAt = 0, lastMix = null;            // column & lintel: when the concrete pour animation started
 
         const glOK = (() => {
             try {
@@ -4335,12 +4423,25 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 const q = parseNum($('input[name^="iQ_"]', r).value);
                 const type = ($('input[type="radio"]:checked', r) || {}).value === 'lintel' ? 'lintel' : 'column';
                 n[type] += 1;
+                // rod boxes: empty → the usual size for a column / lintel
+                const rv = (p) => { const inp = $(`input[name^="${p}_"]`, r); if (!inp) return NaN; const x = lenOf(inp).n; return x > 0 ? x : Number(inp.dataset.default); };
                 if (L.n > 0 && W.n > 0 && T.n > 0) {
                     items.push({ type, L: L.n, W: W.n, T: T.n, Q: q > 0 ? q : 1, dL: L.d, dW: W.d, dT: T.d,
+                        nb: rv('nb'), md: rv('md'), td: rv('td'), ts: rv('ts'),
                         no: t(type === 'lintel' ? 'cl.lintelN' : 'cl.columnN', { n: n[type] }) });
                 }
             });
-            return { v: { items: items.length ? items : DEF.column.items }, live: items.length > 0 };
+            const mode = ($('input[name="colMode"]:checked', form) || {}).value || 'both';
+            const g1 = (name, def) => { const x = lenOf($(`[name="${name}"]`, form)).n; return x >= 0 && Number.isFinite(x) ? x : def; };
+            const base = items.length ? items : DEF.column.items.map((it) => ({ ...it, nb: 4, md: it.type === 'lintel' ? 10 : 12, td: 8, ts: 6 }));
+            const join = ($('input[name="colJoin"]:checked', form) || {}).value === '1';
+            const fill = ($('input[name="colFill"]:checked', form) || {}).value === '1';
+            // with rod + concrete, the concrete only shows once a mix is typed (clear all three → it goes away)
+            let mix = true;
+            if (mode === 'both' && items.length) mix = ['ratio1', 'ratio2', 'ratio3'].some((nm) => ($(`[name="${nm}"]`, form) || {}).value?.trim());
+            if (mix && lastMix === false) pour();
+            lastMix = mix;
+            return { v: { items: base, mode, stage: COLS.stage(), join, fill, mix, rodCover: g1('rodCover', 1.5), rodLap: g1('rodLap', 0), rodWaste: g1('rodWaste', 5) }, live: items.length > 0 };
         }
 
         function readValues(id) {
@@ -4411,7 +4512,8 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 const chips = [];
                 if (c.column) chips.push([t('cl.column'), `${num(c.column, 0)} ${t('u.pcs')}`]);
                 if (c.lintel) chips.push([t('cl.lintel'), `${num(c.lintel, 0)} ${t('u.pcs')}`]);
-                chips.push([t('r.workVolume'), qs(qVol(vol))]);
+                if (v.mode !== 'conc') { const r = colRebar(v.items, v); chips.push([t('cl.rodShort'), `${num(r.kg)} ${t('u.kg')}`]); }
+                if (v.mode !== 'rod') chips.push([t('r.workVolume'), qs(qVol(vol))]);
                 return chips;
             },
             wall(v) {
@@ -4691,45 +4793,142 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             }
 
             else if (id === 'column') {
-                // columns stand side by side; lintels sit across at lintel level (up to 4 copies of each row)
+                // where every piece goes (in ft). Separate: side by side. Joined: lintels sit on top of the columns, like a frame.
                 const inst = [];
                 v.items.forEach((it) => { for (let i = 0; i < Math.min(Math.ceil(it.Q), 4); i++) inst.push({ it, first: i === 0 }); });
-                const gapFt = 2;
-                const footFt = (x) => (x.it.type === 'lintel' ? x.it.L : x.it.W / 12);
-                const spanFt = inst.reduce((a, x) => a + footFt(x), 0) + gapFt * (inst.length - 1);
-                const cols = v.items.filter((it) => it.type === 'column');
-                const colH = cols.length ? Math.max(...cols.map((it) => it.L)) : 0;
-                const linY = colH ? colH * 0.8 : 7;
-                const maxDepth = Math.max(...v.items.map((it) => (it.type === 'lintel' ? it.T : 0) / 12), 0);
+                const gapFt = 2, place = [];
+                const colsI = inst.filter((x) => x.it.type === 'column'), linsI = inst.filter((x) => x.it.type === 'lintel');
+                const colH = colsI.length ? Math.max(...colsI.map((x) => x.it.L)) : 0;
+                let cursor = 0;
+                if (v.join && colsI.length) {
+                    let cx = colsI[0].it.W / 24;
+                    colsI.forEach((c, j) => {
+                        const w = c.it.W / 12;
+                        if (j > 0) {
+                            const prevW = colsI[j - 1].it.W / 12, ln = linsI[j - 1];
+                            cx += ln ? Math.max(ln.it.L - (prevW + w) / 2, (prevW + w) / 2 + .5) : (prevW + w) / 2 + 3;
+                        }
+                        place.push({ ...c, x: cx - w / 2, y0: 0 });
+                        c.cx = cx;
+                    });
+                    linsI.forEach((l, j) => {
+                        const a0 = colsI[j], b0 = colsI[j + 1];
+                        if (a0 && b0) {
+                            const mid = (a0.cx + b0.cx) / 2, top = Math.min(a0.it.L, b0.it.L);
+                            place.push({ ...l, x: mid - l.it.L / 2, y0: Math.max(top - l.it.T / 12, 0), joined: true, wa: a0.it.W / 12, wb: b0.it.W / 12 });
+                        } else l.loose = true;
+                    });
+                    cursor = Math.max(...place.map((q) => q.x + (q.it.type === 'lintel' ? q.it.L : q.it.W / 12))) + gapFt;
+                    linsI.filter((l) => l.loose).forEach((l) => { place.push({ ...l, x: cursor, y0: colH ? colH * .8 : 7 }); cursor += l.it.L + gapFt; });
+                } else {
+                    inst.forEach((q) => {
+                        const wFt = q.it.type === 'lintel' ? q.it.L : q.it.W / 12;
+                        place.push({ ...q, x: cursor, y0: q.it.type === 'lintel' ? (colH ? colH * .8 : 7) : 0 });
+                        cursor += wFt + gapFt;
+                    });
+                }
+                const right = Math.max(...place.map((q) => q.x + (q.it.type === 'lintel' ? q.it.L : q.it.W / 12)));
+                const left = Math.min(...place.map((q) => q.x));
+                const spanFt = right - left;
+                const topFt = Math.max(...place.map((q) => q.y0 + (q.it.type === 'lintel' ? q.it.T / 12 : q.it.L)));
                 const maxZ = Math.max(...v.items.map((it) => (it.type === 'lintel' ? it.W : it.T) / 12));
-                const k = SIZE / Math.max(spanFt, colH, v.items.some((it) => it.type === 'lintel') ? linY + maxDepth : 0, 1);
+                const k = SIZE / Math.max(spanFt, topFt, 1);
                 const linMat = new THREE.MeshStandardMaterial({ color: C.dark ? 0x9aa3ad : 0xb3bac2, roughness: .9, map: concreteTex() });
-                let x = -spanFt * k / 2, topY = 0;
-                inst.forEach(({ it, first }) => {
+                const mode = v.mode || 'conc', stage = mode === 'both' ? (v.stage || 'all') : mode;
+                const showRod = mode !== 'conc', showConc = mode !== 'rod' && stage !== 'rod' && v.mix !== false;
+                // light: see-through so the rod cage shows (more solid while you fill in the concrete part). full: solid concrete.
+                const glassy = (mat) => { if (showRod && !v.fill) { mat.transparent = true; mat.opacity = stage === 'conc' ? .55 : .28; mat.depthWrite = false; } return mat; };
+                const steel = new THREE.MeshStandardMaterial({ color: C.dark ? 0xb08a6a : 0x8a5a3c, roughness: .55, metalness: .5 });
+                const tieMat = new THREE.MeshStandardMaterial({ color: C.dark ? 0x9ca3af : 0x52606d, roughness: .5, metalness: .5 });
+                const rodR = (mm) => Math.max(mm / 304.8 / 2 * k * 1.6, .006);
+                // bar positions around the section (corners first, the rest along the long sides)
+                function barSpots(n, a, b) {
+                    const c = [[-a / 2, -b / 2], [a / 2, -b / 2], [a / 2, b / 2], [-a / 2, b / 2]];
+                    if (n <= 4) return c.slice(0, Math.max(n, 0));
+                    const out = c.slice(), extra = n - 4, long = a >= b;
+                    const perSide = [Math.ceil(extra / 2), Math.floor(extra / 2)];
+                    perSide.forEach((m, side) => {
+                        for (let i = 1; i <= m; i++) {
+                            const f = -1 / 2 + i / (m + 1);
+                            out.push(long ? [f * a, (side ? 1 : -1) * b / 2] : [(side ? 1 : -1) * a / 2, f * b]);
+                        }
+                    });
+                    return out;
+                }
+                // rod cage: axis 'y' (column) or 'x' (lintel); a × b = section inside the cover
+                function cage(it, cx, cy, cz, len, a, b, axis, t0 = -len / 2, t1 = len / 2) {
+                    const nb = Math.max(Math.round(it.nb || 0), 0), md = it.md || 12, td = it.td || 8, ts = it.ts || 6;
+                    const r = rodR(md), rt = rodR(td) * .8;
+                    barSpots(nb, a, b).forEach(([p, q]) => {
+                        const m = new THREE.Mesh(new THREE.CylinderGeometry(r, r, len, 8), steel);
+                        if (axis === 'y') m.position.set(cx + p, cy, cz + q);
+                        else { m.rotation.z = Math.PI / 2; m.position.set(cx, cy + p, cz + q); }
+                        g.add(m);
+                    });
+                    if (!(ts > 0) || a <= 0 || b <= 0) return;
+                    const span = t1 - t0;
+                    if (span <= 0) return;
+                    const n = Math.min(Math.floor(span / k * 12 / ts + 1e-9) + 1, 70);
+                    for (let i = 0; i < n; i++) {
+                        const s0 = t0 + (n > 1 ? span * i / (n - 1) : span / 2);
+                        const parts = axis === 'y'
+                            ? [[a, rt * 2, rt * 2, 0, 0, -b / 2], [a, rt * 2, rt * 2, 0, 0, b / 2], [rt * 2, rt * 2, b, -a / 2, 0, 0], [rt * 2, rt * 2, b, a / 2, 0, 0]]
+                            : [[rt * 2, a, rt * 2, 0, 0, -b / 2], [rt * 2, a, rt * 2, 0, 0, b / 2], [rt * 2, rt * 2, b, 0, -a / 2, 0], [rt * 2, rt * 2, b, 0, a / 2, 0]];
+                        parts.forEach(([w, h, d, ox, oy, oz]) => {
+                            const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), tieMat);
+                            if (axis === 'y') m.position.set(cx + ox, cy + s0, cz + oz);
+                            else m.position.set(cx + s0, cy + oy, cz + oz);
+                            g.add(m);
+                        });
+                    }
+                }
+                const coverFt = (v.rodCover >= 0 ? v.rodCover : 1.5) / 12;
+                // concrete is poured over the rod cage (animated when you move on to the concrete inputs)
+                const pours = [];
+                function pour(X, Y, Z, mat, cx, y0) {
+                    const m = box(X, Y, Z, mat, cx, y0 + Y / 2, 0);
+                    pours.push({ m, edge: g.children[g.children.length - 1], y0, Y });
+                }
+                const shift = -(left + spanFt / 2);
+                let topY = 0;
+                place.forEach((q) => {
+                    const it = q.it, x = (q.x + shift) * k;
                     if (it.type === 'column') {
                         const X = Math.max(it.W / 12 * k, .05), Y = it.L * k, Z = Math.max(it.T / 12 * k, .05);
-                        box(X, Y, Z, concrete(), x + X / 2, Y / 2, 0);
-                        if (first) {
+                        if (showConc) pour(X, Y, Z, glassy(concrete()), x + X / 2, 0);
+                        if (showRod) cage(it, x + X / 2, Y / 2, 0, Y, Math.max(it.W / 12 - 2 * coverFt, .02) * k, Math.max(it.T / 12 - 2 * coverFt, .02) * k, 'y');
+                        if (q.first) {
                             dim(V(x, 0, Z / 2), V(x, Y, Z / 2), V(-.3, 0, 0), it.dL || fv(it.L, 'u.ft'));
                             const lab = makeLabel(it.Q > 1 ? `${it.no} × ${numPlain(it.Q)}` : it.no, C);
                             lab.position.set(x + X / 2, Y + .55, 0);
                             g.add(lab);
                         }
                         topY = Math.max(topY, Y);
-                        x += X + gapFt * k;
                     } else {
-                        const X = it.L * k, Y = Math.max(it.T / 12 * k, .04), Z = Math.max(it.W / 12 * k, .04), y0 = linY * k;
-                        box(X, Y, Z, linMat, x + X / 2, y0 + Y / 2, 0);
-                        if (first) {
-                            dim(V(x, y0, Z / 2), V(x + X, y0, Z / 2), V(0, -.55, .3), it.dL || fv(it.L, 'u.ft'));
+                        const X = it.L * k, Y = Math.max(it.T / 12 * k, .04), Z = Math.max(it.W / 12 * k, .04), y0 = q.y0 * k;
+                        if (showConc) pour(X, Y, Z, glassy(linMat.clone()), x + X / 2, y0);
+                        const tA = q.joined ? -X / 2 + q.wa * k : -X / 2, tB = q.joined ? X / 2 - q.wb * k : X / 2;
+                        if (showRod) cage(it, x + X / 2, y0 + Y / 2, 0, X, Math.max(it.T / 12 - 2 * coverFt, .02) * k, Math.max(it.W / 12 - 2 * coverFt, .02) * k, 'x', tA, tB);
+                        if (q.first) {
+                            dim(V(x, y0 + (q.joined ? Y : 0), Z / 2), V(x + X, y0 + (q.joined ? Y : 0), Z / 2), V(0, q.joined ? .45 : -.55, .3), it.dL || fv(it.L, 'u.ft'));
                             const lab = makeLabel(it.Q > 1 ? `${it.no} × ${numPlain(it.Q)}` : it.no, C);
-                            lab.position.set(x + X * .65, y0 + Y + .28, .35);     // keep clear of the column labels
+                            lab.position.set(x + X * .5, y0 + Y + (q.joined ? .75 : .28), .35);
                             g.add(lab);
                         }
                         topY = Math.max(topY, y0 + Y);
-                        x += X + gapFt * k;
                     }
                 });
+                // pour animation: the concrete rises from the bottom
+                const t0 = pourAt && performance.now() - pourAt < 1200 ? pourAt : 0;
+                if (t0 && pours.length) {
+                    const set = (p) => pours.forEach(({ m, edge, y0, Y }) => {
+                        const s = Math.max(p, .001);
+                        m.scale.y = s; m.position.y = y0 + Y * s / 2;
+                        if (edge) { edge.scale.y = s; edge.position.y = m.position.y; }
+                    });
+                    set(0);
+                    g.userData.anim = (now) => { const p = Math.min((now - t0) / 1100, 1); set(1 - Math.pow(1 - p, 3)); return p < 1; };
+                }
                 ground(Math.max(spanFt * k, .8), Math.max(maxZ * k, .8));
                 bbox = { w: spanFt * k, h: topY + .4, d: maxZ * k, cy: (topY + .4) / 2 };
             }
@@ -5164,6 +5363,9 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 const tick = () => {
                     if (!this.running) return;
                     if (this.auto) { this.view.theta += .0035; this.dirty = true; }
+                    const grp = this.content.children[0];
+                    if (grp && grp.userData.anim && grp.userData.anim(performance.now())) this.dirty = true;
+                    else if (grp && grp.userData.anim) { grp.userData.anim = null; this.dirty = true; }
                     if (this.dirty) { this.render(); this.dirty = false; }
                     this.raf = requestAnimationFrame(tick);
                 };
@@ -5248,9 +5450,9 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         const demo = { el: null, viewer: null, shape: 'roof', timer: 0, touched: false, bound: false };
         const demoValues = (id) => {
             if (id === 'column') {
-                return { items: [
-                    { type: 'column', L: 10, W: 12, T: 12, Q: 2, no: t('cl.columnN', { n: 1 }) },
-                    { type: 'lintel', L: 8, W: 10, T: 6, Q: 1, no: t('cl.lintelN', { n: 1 }) },
+                return { mode: 'both', rodCover: 1.5, rodLap: 0, rodWaste: 5, items: [
+                    { type: 'column', L: 10, W: 12, T: 12, Q: 2, nb: 4, md: 12, td: 8, ts: 6, no: t('cl.columnN', { n: 1 }) },
+                    { type: 'lintel', L: 8, W: 10, T: 6, Q: 1, nb: 4, md: 10, td: 8, ts: 6, no: t('cl.lintelN', { n: 1 }) },
                 ] };
             }
             if (id === 'tiles') {
@@ -5351,7 +5553,8 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             $('[data-viz-reset]', el).addEventListener('click', () => { if (viewers[id]) viewers[id].resetView(); });
         }
 
-        return { createCards, update, show, refreshAll, snapshot, attach };
+        const pour = () => { pourAt = performance.now(); };
+        return { createCards, update, show, refreshAll, snapshot, attach, pour };
     })();
 
     /* ---------- Column & lintel form: any number of columns and lintels ---------- */
@@ -5372,8 +5575,8 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 <span class="field-error"></span>
             </div>`;
         const LABELS = {
-            column: { iL: 'cl.colH', iW: 'cl.width', iT: 'cl.colT' },
-            lintel: { iL: 'cl.linL', iW: 'cl.width', iT: 'cl.linD' },
+            column: { iL: 'cl.colH', iW: 'cl.width', iT: 'cl.colT', iQ: 'cl.qtyCol' },
+            lintel: { iL: 'cl.linL', iW: 'cl.width', iT: 'cl.linD', iQ: 'cl.qtyLin' },
         };
         // rebar defaults (used when a box is left empty)
         const ROD_DEF = { column: { nb: 4, md: 12, td: 8, ts: 6 }, lintel: { nb: 4, md: 10, td: 8, ts: 6 } };
@@ -5383,10 +5586,15 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 <div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="column-${name}_${i}" name="${name}_${i}" data-num data-optional data-ph="0"${len ? ' data-len="in"' : ''}>${unitKey ? `<span class="unit" data-i18n="${unitKey}"></span>` : ''}</div>
                 <span class="field-error"></span>
             </div>`;
-        const rodOn = () => ($('input[name="colRod"]:checked', form) || {}).value === '1';
+        // what to work out: rod, concrete (cement-sand-khoa), or both
+        const mode = () => ($('input[name="colMode"]:checked', form) || {}).value || 'both';
+        const rodOn = () => mode() !== 'conc';
         function syncRod() {
-            const on = rodOn();
-            $$('[data-rod]', form).forEach((el) => { el.hidden = !on; });
+            const m = mode();
+            $$('[data-rod]', form).forEach((el) => { el.hidden = m === 'conc'; });
+            $$('[data-conc]', form).forEach((el) => { el.hidden = m === 'rod'; });
+            $$('[data-step]', form).forEach((el) => { el.textContent = m === 'both' ? digits(el.dataset.step === 'rod' ? 1 : 2) : ''; });
+            $$('[data-mode-label]').forEach((el) => { el.textContent = t('cl.m' + (m === 'both' ? 'Both' : m === 'rod' ? 'Rod' : 'Conc')); });
         }
         function relabel() {
             const n = { column: 0, lintel: 0 };
@@ -5396,7 +5604,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 r.dataset.type = type;
                 n[type] += 1;
                 $('.area-no', r).textContent = t(type === 'lintel' ? 'cl.lintelN' : 'cl.columnN', { n: n[type] });
-                ['iL', 'iW', 'iT'].forEach((k) => { $(`[data-role="${k}"]`, r).textContent = t(LABELS[type][k]); });
+                ['iL', 'iW', 'iT', 'iQ'].forEach((k) => { const el = $(`[data-role="${k}"]`, r); if (el) el.textContent = t(LABELS[type][k]); });
                 $('[data-remove-part]', r).hidden = rows.length === 1;
                 const def = ROD_DEF[type];
                 ['nb', 'md', 'td', 'ts'].forEach((k) => {
@@ -5420,12 +5628,21 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                         <label><input type="radio" name="type_${i}" value="column"${type !== 'lintel' ? ' checked' : ''}><span data-i18n="cl.column"></span></label>
                         <label><input type="radio" name="type_${i}" value="lintel"${type === 'lintel' ? ' checked' : ''}><span data-i18n="cl.lintel"></span></label>
                     </div>
-                    <button type="button" class="icon-btn icon-btn-sm danger" data-remove-part data-i18n-title="cl.remove" data-i18n-aria="cl.remove"><i class="fa-solid fa-trash-can"></i></button>
+                    <span class="row-tools">
+                        <button type="button" class="icon-btn icon-btn-sm" data-move="up" data-i18n-title="cl.up" data-i18n-aria="cl.up"><i class="fa-solid fa-arrow-up"></i></button>
+                        <button type="button" class="icon-btn icon-btn-sm" data-move="down" data-i18n-title="cl.down" data-i18n-aria="cl.down"><i class="fa-solid fa-arrow-down"></i></button>
+                        <button type="button" class="icon-btn icon-btn-sm" data-dup data-i18n-title="cl.dup" data-i18n-aria="cl.dup"><i class="fa-solid fa-clone"></i></button>
+                        <button type="button" class="icon-btn icon-btn-sm danger" data-remove-part data-i18n-title="cl.remove" data-i18n-aria="cl.remove"><i class="fa-solid fa-trash-can"></i></button>
+                    </span>
+                </div>
+                <div class="dup-chips" hidden>
+                    <span data-i18n="cl.dupHow"></span>
+                    ${[1, 2, 3, 4, 5, 10].map((n) => `<button type="button" class="lvl" data-dup-n="${n}">+${digits(n)}</button>`).join('')}
                 </div>
                 <div class="fields">
                     ${lenField(i, 'iL', 'ft')}${lenField(i, 'iW', 'in')}${lenField(i, 'iT', 'in')}
                     <div class="field">
-                        <label for="column-iQ_${i}"><span data-i18n="cl.qty"></span> <small class="opt" data-i18n="cl.qtyOpt"></small></label>
+                        <label for="column-iQ_${i}"><span data-role="iQ"></span> <small class="opt" data-i18n="cl.qtyOpt"></small></label>
                         <div class="input-wrap"><input type="text" inputmode="numeric" autocomplete="off" id="column-iQ_${i}" name="iQ_${i}" data-num data-optional data-default="1" data-ph="0"><span class="unit" data-i18n="u.pcs"></span></div>
                         <span class="field-error"></span>
                     </div>
@@ -5447,31 +5664,93 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         function setRows() { list.innerHTML = ''; nextId = 0; addRow('column', false); }
 
         $$('[data-add-item]', form).forEach((b) => b.addEventListener('click', () => { addRow(b.dataset.addItem, true); saveInputs(form); VIZ.update('column'); }));
-        list.addEventListener('click', (e) => {
-            const b = e.target.closest('[data-remove-part]');
-            if (!b) return;
-            b.closest('[data-area]').remove();
+        // same size again: copy a row (with its rod boxes) 1–10 times, right below it
+        function copyRow(src, n) {
+            const type = ($('input[type="radio"]:checked', src) || {}).value === 'lintel' ? 'lintel' : 'column';
+            let after = src;
+            for (let c = 0; c < n; c++) {
+                const row = addRow(type, false);
+                $$('input[name]', src).forEach((inp) => {
+                    if (inp.type === 'radio') return;
+                    const base = inp.name.replace(/_\d+$/, '');
+                    const dst = $(`input[name="${base}_${row.dataset.area}"]`, row);
+                    if (!dst) return;
+                    // copy exactly what is typed (main box + its inch/cm box), so empty stays empty → defaults apply
+                    dst.value = inp.value;
+                    const ss = inp.parentElement && $('.len-sub', inp.parentElement), ds = dst.parentElement && $('.len-sub', dst.parentElement);
+                    if (ss && ds) ds.value = ss.value;
+                    if (inp.dataset.exact) { dst.dataset.exact = inp.dataset.exact; dst.dataset.shown = inp.dataset.shown; }
+                });
+                after.after(row);
+                after = row;
+            }
             relabel();
+            refresh();
+            toast(t('cl.dupDone', { n: digits(n) }));
+        }
+        const refresh = () => {
             saveInputs(form);
             VIZ.update('column');
+            if (lastValues.column) { const nv = readForm(form); if (nv) { lastValues.column = nv; renderResult('column', nv); } }
+        };
+        list.addEventListener('click', (e) => {
+            const row = e.target.closest('[data-area]');
+            if (!row) return;
+            if (e.target.closest('[data-remove-part]')) { row.remove(); relabel(); refresh(); return; }
+            const mv = e.target.closest('[data-move]');
+            if (mv) {
+                const other = mv.dataset.move === 'up' ? row.previousElementSibling : row.nextElementSibling;
+                if (!other) return;
+                if (mv.dataset.move === 'up') other.before(row); else other.after(row);
+                relabel(); refresh();
+                row.classList.add('flash'); setTimeout(() => row.classList.remove('flash'), 600);
+                return;
+            }
+            if (e.target.closest('[data-dup]')) { const c = $('.dup-chips', row); c.hidden = !c.hidden; return; }
+            const dn = e.target.closest('[data-dup-n]');
+            if (dn) { $('.dup-chips', row).hidden = true; copyRow(row, Number(dn.dataset.dupN)); }
         });
+        // which step is being filled in → the 3D shows the rod cage, then the concrete poured over it
+        let stage = 'all';
+        form.addEventListener('focusin', (e) => {
+            if (mode() !== 'both') return;
+            const ns = e.target.closest('[data-conc]') ? 'conc' : e.target.closest('[data-rod], .rod-fields') ? 'rod' : stage;
+            if (ns === stage) return;
+            stage = ns;
+            if (ns === 'conc') VIZ.pour();
+            VIZ.update('column');
+        });
+        form.addEventListener('submit', () => { if (stage !== 'all') { stage = 'all'; VIZ.update('column'); } });
         list.addEventListener('change', (e) => { if (/^type_/.test(e.target.name)) relabel(); });
-        form.addEventListener('change', (e) => { if (e.target.name === 'colRod') { syncRod(); VIZ.update('column'); } });
+        form.addEventListener('change', (e) => {
+            if (e.target.name === 'colJoin') { saveInputs(form); VIZ.update('column'); if (lastValues.column) renderResult('column', readForm(form) || lastValues.column); return; }
+            if (e.target.name === 'colFill') { saveInputs(form); VIZ.update('column'); return; }
+            if (e.target.name !== 'colMode') return;
+            stage = 'all';
+            syncRod();
+            VIZ.update('column');
+            if (lastValues.column) { const nv = readForm(form); if (nv) { lastValues.column = nv; renderResult('column', nv); } else { delete lastValues.column; resetResult('column'); } }
+        });
         form.addEventListener('reset', () => setTimeout(() => { setRows(); syncRod(); }));
 
         // rebuild the rows saved last time
         const saved = (S.remember && storage.get(STORE_INPUTS, {}).column) || {};
-        const idx = Object.keys(saved).filter((k) => /^iL_\d+$/.test(k)).map((k) => Number(k.slice(3))).sort((a, b) => a - b);
+        let idx = Object.keys(saved).filter((k) => /^iL_\d+$/.test(k)).map((k) => Number(k.slice(3))).sort((a, b) => a - b);
+        if (Array.isArray(saved.__order)) {             // the order the rows were moved into
+            const ord = saved.__order.map(Number).filter((i) => idx.includes(i));
+            idx = ord.concat(idx.filter((i) => !ord.includes(i)));
+        }
         list.innerHTML = '';
         if (idx.length) {
             idx.forEach((i) => { nextId = i; addRow(saved['type_' + i] === 'lintel' ? 'lintel' : 'column', false); });
-            nextId = idx[idx.length - 1] + 1;
+            nextId = Math.max(...idx) + 1;
         } else {
             addRow('column', false);
         }
-        if (saved.colRod) $$('input[name="colRod"]', form).forEach((r) => { r.checked = r.value === saved.colRod; });
+        const m0 = saved.colMode || (saved.colRod === '1' ? 'both' : saved.colRod === '0' ? 'conc' : '');
+        if (m0) $$('input[name="colMode"]', form).forEach((r) => { r.checked = r.value === m0; });
         syncRod();
-        return { relabel, syncRod };
+        return { relabel, syncRod, mode, stage: () => stage };
     })();
 
     /* ---------- Tiles form: room parts + custom size ---------- */
