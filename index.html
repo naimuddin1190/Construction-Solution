@@ -143,6 +143,7 @@
         }
         html[lang="bn"] body { font-family: var(--font-bn); line-height: 1.7; }
         img { max-width: 100%; display: block; }
+        img[width="1"][height="1"] { display: inline !important; max-width: none !important; }   /* html2canvas measures the text baseline with this 1×1 image */
         a { color: inherit; text-decoration: none; }
         button, input, select, textarea { font: inherit; color: inherit; }
         .container { width: 100%; max-width: 75rem; margin: 0 auto; padding: 0 1rem; }
@@ -963,30 +964,68 @@
         /* ===== Printable report (print + PDF) ===== */
         #print-root, #pdf-root { display: none; }
         #pdf-root.render { display: block; position: fixed; left: -12000px; top: 0; width: 794px; z-index: -1; }
-        .rp, .rp * { letter-spacing: 0 !important; }
-        .rp { width: 100%; box-sizing: border-box; background: #fff; color: #1e293b; padding: 44px 46px 36px; font-family: var(--font-bn); font-size: 14px; line-height: 1.55; }
-        .rp-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; border-bottom: 3px solid var(--brand); padding-bottom: 14px; margin-bottom: 18px; }
-        .rp-brand { font-size: 22px; font-weight: 700; color: var(--brand-700); line-height: 1.2; }
-        .rp-title { font-size: 16px; color: #334155; margin-top: 4px; }
-        .rp-date { font-size: 12px; color: #64748b; text-align: right; white-space: nowrap; }
-        .rp h3 { font-size: 13px; letter-spacing: .04em; text-transform: uppercase; color: var(--brand-700); margin: 20px 0 8px; }
-        .rp-table { width: 100%; border-collapse: collapse; }
-        .rp-table td { padding: 7px 10px; border-bottom: 1px solid #e5e7eb; vertical-align: top; }
-        .rp-table td:last-child { text-align: right; font-weight: 600; white-space: nowrap; }
-        .rp-table td small { color: #64748b; font-weight: 500; margin-left: 4px; }
-        .rp-table tr.key td { background: rgba(var(--brand-rgb), .10); font-weight: 700; }
-        .rp-table tr.sub td { text-align: left !important; background: #f1f5f9; font-weight: 700; color: #475569; font-size: 12px; letter-spacing: .03em; }
-        .rp-inputs td:last-child { font-weight: 500; }
-        .rp-total { margin-top: 10px; display: flex; justify-content: space-between; align-items: center; padding: 12px 14px; border-radius: 8px; background: var(--brand); color: var(--on-brand); font-size: 16px; font-weight: 700; }
-        .rp-3d { margin-top: 20px; text-align: center; }
-        .rp-3d img { display: block; margin: 0 auto; width: 100%; max-width: 640px; max-height: 380px; border: 1px solid #e5e7eb; border-radius: 10px; background: linear-gradient(180deg, #f8fafc, #eef2f5); }
-        .rp-foot { margin-top: 26px; padding-top: 10px; border-top: 1px solid #e5e7eb; font-size: 11px; color: #94a3b8; text-align: center; }
+        .rp, .rp * { letter-spacing: 0 !important; box-sizing: border-box; }
+        .rp { width: 100%; background: #fff; color: #0f172a; padding: 40px 42px 32px; font-family: var(--font-bn); font-size: 14px; line-height: 1.6; }
+        .rp-head { display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; padding: 14px 16px; border-radius: 14px; background: #0f766e; color: #fff; margin-bottom: 16px; }
+        .rp-mark { width: 48px; height: 48px; border-radius: 12px; background: #fff; color: #0f766e; text-align: center; font: 800 18px/48px Poppins, sans-serif; }
+        .rp-brand { font-size: 20px; font-weight: 700; line-height: 1.6; }
+        .rp-title { font-size: 15px; opacity: .92; margin-top: 2px; }
+        .rp-date { text-align: right; background: rgba(255,255,255,.14); border-radius: 10px; padding: 6px 10px; white-space: nowrap; }
+        .rp-date small { display: block; font-size: 10.5px; opacity: .85; line-height: 1.6; }
+        .rp-date b { font-size: 12.5px; }
+        .rp-cap { font-size: 12px; font-weight: 700; color: #0f766e; margin: 4px 0 8px; text-transform: uppercase; }
+        .rp-kpis { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-flow: row dense; gap: 10px; margin-bottom: 16px; }
+        .rp-kpi { border: 2px solid #f59e0b; background: #fffbeb; border-radius: 12px; padding: 9px 12px 10px; min-width: 0; }
+        .rp-kpi small { display: block; font-size: 10.5px; color: #92400e; font-weight: 600; line-height: 1.5; }
+        .rp-kpi span { display: block; font-size: 12.5px; color: #334155; line-height: 1.5; }
+        .rp-kpi b { display: block; font-size: 21px; font-weight: 800; color: #0f172a; line-height: 1.45; margin-top: 2px; }
+        .rp-kpi b i, .rp-row b i { font-style: normal; font-size: .62em; font-weight: 600; color: #475569; margin-left: 5px; }
+        .rp-kpi.cost { border-color: #15803d; background: #15803d; grid-column: span 3; display: grid; grid-template-columns: 1fr auto; align-items: center; }
+        .rp-kpi.cost small, .rp-kpi.cost span, .rp-kpi.cost b, .rp-kpi.cost b i { color: #fff; }
+        .rp-kpi.cost small { grid-column: 1 / -1; }
+        .rp-kpi.cost b { font-size: 26px; }
+        .rp-brk { grid-column: 1 / -1; }
+        .rp-kpi.wide { grid-column: span 3; border-color: #2563eb; background: #eff6ff; }
+        .rp-kpi.wide small { color: #1d4ed8; }
+        .rp-kpi p { margin: 4px 0 0; padding: 4px 8px; border-radius: 7px; background: #fff; border: 1px solid #bfdbfe; font-size: 12.5px; font-weight: 600; color: #1e3a8a; line-height: 1.5; }
+        .rp-sec { border: 1.5px solid #cbd5e1; border-radius: 12px; margin: 0 0 14px; overflow: hidden; }
+        .rp-sec-h { display: flex; align-items: center; gap: 9px; padding: 8px 12px; background: #f0fdfa; border-bottom: 1.5px solid #99f6e4; font-size: 14.5px; font-weight: 700; color: #115e59; }
+        .rp-sec-h .no { min-width: 26px; border-radius: 7px; background: #0f766e; color: #fff; display: inline-block; text-align: center; line-height: 1.8; padding: 0 6px; font-size: 13px; font-weight: 700; flex: none; }
+        .rp-rows { padding: 2px 0; }
+        .rp-row { display: flex; justify-content: space-between; gap: 12px; padding: 7px 12px; border-bottom: 1px dashed #e2e8f0; align-items: baseline; }
+        .rp-row:last-child { border-bottom: 0; }
+        .rp-row > span { color: #334155; }
+        .rp-row > b { font-weight: 700; white-space: nowrap; text-align: right; }
+        .rp-row.key { background: #fef9c3; border-left: 5px solid #f59e0b; padding-left: 9px; }
+        .rp-row.key > span { color: #0f172a; font-weight: 600; }
+        .rp-row.key > b { font-size: 15.5px; }
+        .rp-row em { font-style: normal; color: #f59e0b; margin-right: 6px; font-size: 11px; }
+        .rp-sec.cost { border-color: #86efac; }
+        .rp-sec.cost .rp-sec-h { background: #f0fdf4; border-color: #86efac; color: #166534; }
+        .rp-sec.cost .rp-sec-h .no { background: #15803d; }
+        .rp-row.tot { background: #15803d; color: #fff; font-size: 16px; padding: 10px 12px; }
+        .rp-row.tot > span, .rp-row.tot > b, .rp-row.tot > b i { color: #fff; }
+        .rp-row.tot.sum { background: #1d4ed8; }
+        .rp-ins { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 10px 12px; }
+        .rp-in { border: 1px solid #e2e8f0; border-radius: 9px; padding: 6px 9px; background: #f8fafc; min-width: 0; }
+        .rp-in small { display: block; font-size: 10.5px; color: #64748b; line-height: 1.5; }
+        .rp-in b { font-size: 13.5px; font-weight: 700; }
+        .rp-pic { padding: 10px; text-align: center; background: #fff; }
+        .rp-pic img { display: block; margin: 0 auto; max-width: 100%; max-height: 400px; }
+        .rp-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 11.5px; color: #475569; margin: 4px 0 0; }
+        .rp-legend em { font-style: normal; margin-right: 5px; }
+        .rp-legend em.k { color: #f59e0b; }
+        .rp-legend em.c { display: inline-block; width: 12px; height: 12px; border-radius: 3px; background: #15803d; vertical-align: -1px; }
+        .rp-foot { margin-top: 14px; padding-top: 10px; border-top: 1px solid #e5e7eb; font-size: 11px; color: #64748b; text-align: center; }
+        @page { size: A4; margin: 12mm; }
         @media print {
             html.printing-report body > *:not(#print-root) { display: none !important; }
             html.printing-report body::before { display: none; }
             html.printing-report #print-root { display: block !important; }
             html.printing-report .rp { padding: 0; }
             html.printing-report .rp * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .rp-kpi, .rp-in, .rp-row, .rp-img, .rp-sec-h, .rp-head { break-inside: avoid; }
+            .rp-sec-h { break-after: avoid; }
         }
 
         /* one unit menu per calculator */
@@ -1066,6 +1105,15 @@
         .plan-side .set-row { padding: .5rem 0; }
         .plan-side .set-row strong { font-size: .85rem; }
         .fp-stats { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; margin: .75rem 0; }
+        .fp-use { height: .5rem; border-radius: 99px; background: rgba(var(--brand-rgb), .14); overflow: hidden; margin: -.25rem 0 .3rem; }
+        .fp-use span { display: block; height: 100%; background: var(--brand); border-radius: 99px; }
+        .fp-flist { list-style: none; margin: .5rem 0; padding: 0; display: grid; gap: .25rem; font-size: .8rem; }
+        .fp-flist li { display: flex; justify-content: space-between; gap: .5rem; padding: .3rem .5rem; border-radius: .5rem; background: var(--brand-50); }
+        .fp-flist li b { font-weight: 600; white-space: nowrap; }
+        .len-pair { display: flex; align-items: center; gap: .35rem; }
+        .len-pair > span { color: var(--muted); }
+        .len-pair .len-box { flex: 1; min-width: 0; }
+        .plan-2d[data-tool="col"] svg, .plan-2d[data-tool="lin"] svg { cursor: crosshair; }
         .fp-stats div { padding: .5rem .625rem; border-radius: .625rem; background: var(--field); border: 1px solid var(--line); }
         .fp-stats small { display: block; color: var(--muted); font-size: .7rem; }
         .fp-stats b { font-size: .9rem; }
@@ -2743,6 +2791,8 @@
                         <button type="button" class="pt" data-tool="text" data-i18n-title="fp.t.text"><i class="fa-solid fa-font"></i><span data-i18n="fp.text"></span></button>
                         <button type="button" class="pt" data-tool="dim" data-i18n-title="fp.t.dim"><i class="fa-solid fa-ruler-horizontal"></i><span data-i18n="fp.dim"></span></button>
                         <button type="button" class="pt" data-tool="furn" data-i18n-title="fp.t.furn"><i class="fa-solid fa-couch"></i><span data-i18n="fp.furn"></span></button>
+                        <button type="button" class="pt" data-tool="col" data-i18n-title="fp.t.col"><i class="fa-solid fa-square"></i><span data-i18n="fp.col"></span></button>
+                        <button type="button" class="pt" data-tool="lin" data-i18n-title="fp.t.lin"><i class="fa-solid fa-grip-lines"></i><span data-i18n="fp.lin"></span></button>
                         <select class="pt-select" id="fp-furn-kind" data-i18n-aria="fp.furn"></select>
                         <button type="button" class="pt" data-tool="erase" data-i18n-title="fp.t.erase"><i class="fa-solid fa-eraser"></i><span data-i18n="fp.erase"></span></button>
                     </div>
@@ -2897,6 +2947,40 @@
                         </div>
 
                         <div class="fieldset">
+                            <p class="group-title" data-i18n="fp.g.roofRod"></p>
+                            <div class="fields auto">
+                                <div class="field"><label for="plan-rMain"><span data-i18n="fp.o.rMain"></span></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plan-rMain" name="rMain" data-num data-optional data-default="10" data-ph="10"><span class="unit" data-i18n="u.mm"></span></div><span class="field-error"></span></div>
+                                <div class="field"><label for="plan-rMainSp"><span data-i18n="fp.o.rMainSp"></span></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plan-rMainSp" name="rMainSp" data-num data-optional data-default="6" data-ph="6"><span class="unit" data-i18n="u.inch"></span></div><span class="field-error"></span></div>
+                                <div class="field"><label for="plan-rDist"><span data-i18n="fp.o.rDist"></span></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plan-rDist" name="rDist" data-num data-optional data-default="10" data-ph="10"><span class="unit" data-i18n="u.mm"></span></div><span class="field-error"></span></div>
+                                <div class="field"><label for="plan-rDistSp"><span data-i18n="fp.o.rDistSp"></span></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plan-rDistSp" name="rDistSp" data-num data-optional data-default="8" data-ph="8"><span class="unit" data-i18n="u.inch"></span></div><span class="field-error"></span></div>
+                                <div class="field"><label for="plan-rExtra"><span data-i18n="fp.o.rExtra"></span></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plan-rExtra" name="rExtra" data-num data-optional data-default="20" data-ph="20"><span class="unit">%</span></div><span class="field-error"></span></div>
+                            </div>
+                            <small class="set-help" data-i18n="fp.h.roofRod"></small>
+                        </div>
+
+                        <div class="fieldset">
+                            <p class="group-title" data-i18n="fp.g.colRod"></p>
+                            <div class="fields auto">
+                                <div class="field"><label for="plan-colBars"><span data-i18n="fp.o.colBars"></span></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plan-colBars" name="colBars" data-num data-optional data-default="4" data-ph="4"><span class="unit" data-i18n="u.pcs"></span></div><span class="field-error"></span></div>
+                                <div class="field"><label for="plan-colDia"><span data-i18n="fp.o.colDia"></span></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plan-colDia" name="colDia" data-num data-optional data-default="12" data-ph="12"><span class="unit" data-i18n="u.mm"></span></div><span class="field-error"></span></div>
+                                <div class="field"><label for="plan-colRing"><span data-i18n="fp.o.colRing"></span></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plan-colRing" name="colRing" data-num data-optional data-default="8" data-ph="8"><span class="unit" data-i18n="u.mm"></span></div><span class="field-error"></span></div>
+                                <div class="field"><label for="plan-colSp"><span data-i18n="fp.o.colSp"></span></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plan-colSp" name="colSp" data-num data-optional data-default="6" data-ph="6"><span class="unit" data-i18n="u.inch"></span></div><span class="field-error"></span></div>
+                            </div>
+                            <small class="set-help" data-i18n="fp.h.colRod"></small>
+                        </div>
+
+                        <div class="fieldset">
+                            <p class="group-title" data-i18n="fp.g.linRod"></p>
+                            <div class="fields auto">
+                                <div class="field"><label for="plan-linBars"><span data-i18n="fp.o.linBars"></span></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plan-linBars" name="linBars" data-num data-optional data-default="4" data-ph="4"><span class="unit" data-i18n="u.pcs"></span></div><span class="field-error"></span></div>
+                                <div class="field"><label for="plan-linDia"><span data-i18n="fp.o.linDia"></span></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plan-linDia" name="linDia" data-num data-optional data-default="10" data-ph="10"><span class="unit" data-i18n="u.mm"></span></div><span class="field-error"></span></div>
+                                <div class="field"><label for="plan-linRing"><span data-i18n="fp.o.linRing"></span></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plan-linRing" name="linRing" data-num data-optional data-default="8" data-ph="8"><span class="unit" data-i18n="u.mm"></span></div><span class="field-error"></span></div>
+                                <div class="field"><label for="plan-linSp"><span data-i18n="fp.o.linSp"></span></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plan-linSp" name="linSp" data-num data-optional data-default="6" data-ph="6"><span class="unit" data-i18n="u.inch"></span></div><span class="field-error"></span></div>
+                            </div>
+                            <small class="set-help" data-i18n="fp.h.linRod"></small>
+                        </div>
+
+                        <div class="fieldset">
                             <p class="group-title" data-i18n="fp.g.tiles"></p>
                             <div class="tile-presets" role="radiogroup">
                                 <label><input type="radio" name="fTile" value="12x12"><span><i class="tp" style="--a:12;--b:12"></i><b data-dg="12×12"></b></span></label>
@@ -2917,6 +3001,7 @@
                                 <div class="field"><label for="plan-cementPrice"><span data-i18n="f.cementPrice"></span></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plan-cementPrice" name="cementPrice" data-num data-optional data-default="0" data-ph="0"><span class="unit">৳</span></div><span class="field-error"></span></div>
                                 <div class="field"><label for="plan-sandPrice"><span data-i18n-k="f.sandPrice"></span></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plan-sandPrice" name="sandPrice" data-num data-optional data-default="0" data-ph="0" data-price="vol"><span class="unit">৳</span></div><span class="field-error"></span></div>
                                 <div class="field"><label for="plan-khoaPrice"><span data-i18n-k="f.khoaPrice"></span></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plan-khoaPrice" name="khoaPrice" data-num data-optional data-default="0" data-ph="0" data-price="vol"><span class="unit">৳</span></div><span class="field-error"></span></div>
+                                <div class="field"><label for="plan-rodPrice"><span data-i18n="f.rodPrice"></span></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plan-rodPrice" name="rodPrice" data-num data-optional data-default="0" data-ph="0"><span class="unit">৳</span></div><span class="field-error"></span></div>
                                 <div class="field"><label for="plan-tilePrice"><span data-i18n-k="fp.tilePrice"></span></label><div class="input-wrap"><input type="text" inputmode="decimal" autocomplete="off" id="plan-tilePrice" name="tilePrice" data-num data-optional data-default="0" data-ph="0" data-price="area"><span class="unit">৳</span></div><span class="field-error"></span></div>
                             </div>
                             <small class="set-help" data-i18n="pr.hint"></small>
@@ -3079,6 +3164,7 @@
                     <button type="button" role="tab" data-tab="contact"><i class="fa-solid fa-address-book"></i><span data-i18n="tab.contact"></span></button>
                     <button type="button" role="tab" data-tab="calc"><i class="fa-solid fa-calculator"></i><span data-i18n="tab.calc"></span></button>
                     <button type="button" role="tab" data-tab="pro"><i class="fa-solid fa-crown"></i><span data-i18n="tab.pro"></span><b class="tab-count" id="pay-count" hidden></b></button>
+                    <button type="button" role="tab" data-tab="survey"><i class="fa-solid fa-map-location-dot"></i><span data-i18n="page.survey"></span></button>
                     <button type="button" role="tab" data-tab="messages"><i class="fa-solid fa-inbox"></i><span data-i18n="tab.messages"></span><b class="tab-count" id="msg-count" hidden></b></button>
                 </div>
                 <div class="admin-user">
@@ -3443,6 +3529,61 @@
                             <div class="form-grid">
                                 <div class="field"><label for="a-pnb" data-i18n="ap2.noteBn"></label><textarea class="control" id="a-pnb" name="noteBn" rows="2" maxlength="300"></textarea></div>
                                 <div class="field"><label for="a-pne" data-i18n="ap2.noteEn"></label><textarea class="control" id="a-pne" name="noteEn" rows="2" maxlength="300"></textarea></div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> <span data-i18n="admin.save"></span></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Land survey -->
+            <div class="admin-panel" data-panel="survey" hidden>
+                <form class="card" id="af-survey" novalidate>
+                    <div class="card-head"><h2><i class="fa-solid fa-map-location-dot"></i> <span data-i18n="sa.title"></span></h2></div>
+                    <div class="card-body">
+                        <label class="set-row"><span><strong data-i18n="sa.enabled"></strong><small data-i18n="sa.enabled.d"></small></span><input type="checkbox" class="switch" role="switch" name="svEnabled"></label>
+                        <label class="set-row"><span><strong data-i18n="sa.pro"></strong><small data-i18n="sa.pro.d"></small></span><input type="checkbox" class="switch" role="switch" name="svPro"></label>
+                        <label class="set-row"><span><strong data-i18n="sa.showcase"></strong><small data-i18n="sa.showcase.d"></small></span><input type="checkbox" class="switch" role="switch" name="svShowcase"></label>
+                        <div class="fieldset">
+                            <p class="group-title" data-i18n="sa.free"></p>
+                            <p class="hint" data-i18n="sa.free.d"></p>
+                            <div class="sv-achecks"><label class="sv-acheck"><input type="checkbox" name="free_map"><span data-i18n="sv.tab.map"></span></label><label class="sv-acheck"><input type="checkbox" name="free_field"><span data-i18n="sv.tab.field"></span></label><label class="sv-acheck"><input type="checkbox" name="free_blk"><span data-i18n="sv.tab.blk"></span></label><label class="sv-acheck"><input type="checkbox" name="free_inh"><span data-i18n="sv.tab.inh"></span></label><label class="sv-acheck"><input type="checkbox" name="free_kh"><span data-i18n="sv.tab.kh"></span></label><label class="sv-acheck"><input type="checkbox" name="free_conv"><span data-i18n="sv.tab.conv"></span></label></div>
+                        </div>
+                        <div class="fieldset">
+                            <p class="group-title" data-i18n="sa.tools"></p>
+                        <label class="set-row"><span><strong data-i18n="sa.tMagic"></strong><small data-i18n="sa.tMagic.d"></small></span><input type="checkbox" class="switch" role="switch" name="tMagic"></label>
+                        <label class="set-row"><span><strong data-i18n="sa.tKml"></strong><small data-i18n="sa.tKml.d"></small></span><input type="checkbox" class="switch" role="switch" name="tKml"></label>
+                        <label class="set-row"><span><strong data-i18n="sa.tWa"></strong><small data-i18n="sa.tWa.d"></small></span><input type="checkbox" class="switch" role="switch" name="tWa"></label>
+                        <label class="set-row"><span><strong data-i18n="sa.tSketch"></strong><small data-i18n="sa.tSketch.d"></small></span><input type="checkbox" class="switch" role="switch" name="tSketch"></label>
+                        </div>
+                        <div class="fieldset">
+                            <p class="group-title" data-i18n="sa.defaults"></p>
+                            <p class="hint" data-i18n="sa.defaults.d"></p>
+                            <div class="fields auto">
+                                <div class="field"><label for="sa-ratio" data-i18n="sv.sc.ratio"></label><select class="control" id="sa-ratio" name="ratio"><option value="r16" data-i18n="sv.sc.r16"></option><option value="r32" data-i18n="sv.sc.r32"></option><option value="r64" data-i18n="sv.sc.r64"></option><option value="r8" data-i18n="sv.sc.r8"></option></select></div>
+                                <div class="field"><label for="sa-paper" data-i18n="sv.x.paper"></label><select class="control" id="sa-paper" name="paper"><option value="a4">A4</option><option value="legal">Legal</option><option value="letter">Letter</option></select></div>
+                                <div class="field"><label for="sa-len" data-i18n="sv.lenUnit"></label><select class="control" id="sa-len" name="len"><option value="ftin" data-i18n="sv.l.ftin"></option><option value="ft" data-i18n="sv.l.ft"></option><option value="m" data-i18n="sv.l.m"></option><option value="hat" data-i18n="sv.l.hat"></option><option value="link" data-i18n="sv.l.chainlink"></option></select></div>
+                                <div class="field"><label for="sa-area" data-i18n="sv.areaUnit"></label><select class="control" id="sa-area" name="area"><option value="dec" data-i18n="sv.u.dec"></option><option value="katha" data-i18n="sv.u.katha"></option><option value="sft" data-i18n="sv.u.sft"></option><option value="sqm" data-i18n="sv.u.sqm"></option><option value="acre" data-i18n="sv.u.acre"></option></select></div>
+                            </div>
+                        </div>
+                        <div class="fieldset">
+                            <p class="group-title" data-i18n="sa.units"></p>
+                            <p class="hint" data-i18n="sa.units.d"></p>
+                            <div class="fields auto">
+                                <div class="field"><label for="sa-kani" data-i18n="sa.kani"></label><div class="input-wrap"><input id="sa-kani" name="kani" data-anum inputmode="decimal"><span class="unit" data-i18n="sv.us.dec"></span></div></div>
+                                <div class="field"><label for="sa-ganda" data-i18n="sa.ganda"></label><div class="input-wrap"><input id="sa-ganda" name="ganda" data-anum inputmode="decimal"><span class="unit" data-i18n="sv.us.dec"></span></div></div>
+                                <div class="field"><label for="sa-katha" data-i18n="sa.katha"></label><div class="input-wrap"><input id="sa-katha" name="katha" data-anum inputmode="decimal"><span class="unit" data-i18n="sv.us.sft"></span></div></div>
+                            </div>
+                        </div>
+                        <div class="fieldset">
+                            <p class="group-title" data-i18n="sa.texts"></p>
+                            <div class="form-grid">
+                                <div class="field"><label for="sa-nbn" data-i18n="sa.noticeBn"></label><textarea class="control" id="sa-nbn" name="noticeBn" rows="2" maxlength="300"></textarea></div>
+                                <div class="field"><label for="sa-nen" data-i18n="sa.noticeEn"></label><textarea class="control" id="sa-nen" name="noticeEn" rows="2" maxlength="300"></textarea></div>
+                                <div class="field"><label for="sa-fbn" data-i18n="sa.footBn"></label><input class="control" id="sa-fbn" name="footBn" maxlength="120"></div>
+                                <div class="field"><label for="sa-fen" data-i18n="sa.footEn"></label><input class="control" id="sa-fen" name="footEn" maxlength="120"></div>
                             </div>
                         </div>
                         <div class="form-actions">

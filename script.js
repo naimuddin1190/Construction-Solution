@@ -433,6 +433,11 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             'rp.inputs': 'Measurements',
             'rp.results': 'Results',
             'rp.3d': '3D preview',
+            "rp.date": "Date",
+            "rp.key": "Main results at a glance",
+            "rp.legKey": "Marked = the numbers to buy / note",
+            "rp.legCost": "Green box = money",
+            "rp.note": "Estimates — check the market before buying",
             "page.survey": "Land Survey",
             "desc.survey": "Measure any land: trace a mouza map with its scale, work out area from field sides, divide land between sharers and print the division map.",
             "nav.land": "Land",
@@ -841,6 +846,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             "fp.h.text": "Click where the text should go",
             "fp.h.dim": "Click the start, the end, then where the line should sit",
             "fp.h.furn": "Choose an item, then click to place it",
+            "fp.h.col": "Click to place a column — it snaps to wall corners and turns with the wall",
             "fp.h.erase": "Click an item to delete it",
             "fp.undo": "Undo",
             "fp.redo": "Redo",
@@ -907,6 +913,84 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             "fp.addDoor": "Add door",
             "fp.addWin": "Add window",
             "fp.roomName": "Room name",
+            "fp.k.ti": "nos",
+            "fp.k.pcs40": "pcs (40 ft)",
+            "fp.g.rodAll": "Rod — roof, columns & lintels",
+            "fp.g.rodSize": "By size (rod comes in 40 ft lengths)",
+            "fp.rb.roof": "Roof rod",
+            "fp.rb.col": "Column rod",
+            "fp.rb.lin": "Lintel rod",
+            "fp.r.rbMain": "Main {n} × {d} mm ({c} pcs)",
+            "fp.r.rbRing": "Rings {d} mm @ {s}\"",
+            "fp.r.size": "{d} mm",
+            "fp.g.colRod": "Column rod",
+            "fp.o.colBars": "Main rods",
+            "fp.o.colDia": "Main rod size",
+            "fp.o.colRing": "Ring size",
+            "fp.o.colSp": "Ring spacing",
+            "fp.h.colRod": "For the columns you drew — usually 4 × 12 mm (or 16 mm) with 8 mm rings @ 6\". Main bars are counted for the floor height + 2 ft lap.",
+            "fp.k.all": "Whole house",
+            "fp.k.bricks": "Bricks in all",
+            "fp.k.cement": "Cement in all",
+            "fp.k.sand": "Sand in all",
+            "fp.k.khoa": "Khoa (stone chips) in all",
+            "fp.k.rod": "Rod in all",
+            "fp.k.tiles": "Floor tiles",
+            "fp.lin": "Lintel",
+            "fp.t.lin": "Place a lintel (L) — click a door / window or a wall",
+            "fp.h.lin": "Click a door or window to put a lintel over it (with 9\" bearing each side), or click a wall",
+            "fp.linD": "Lintel depth",
+            "fp.linH": "Bottom height from floor",
+            "fp.linWid": "Width (= wall)",
+            "fp.linHint": "Drag it along the wall to move it.",
+            "fp.linAll": "Lintel over every door & window",
+            "fp.linAllDone": "{n} lintels added",
+            "fp.linAllNone": "Every door and window already has a lintel",
+            "fp.addLin": "Add a lintel",
+            "fp.r.lins": "Lintels",
+            "fp.r.linLen": "Lintel length",
+            "fp.r.linVol": "Lintel concrete",
+            "fp.r.linRod": "Lintel rod ({n} × {d} mm, ring {r} mm @ {s}\")",
+            "fp.g.colLin": "Columns & lintels — casting",
+            "fp.g.roofRod": "Roof rod",
+            "fp.g.linRod": "Lintel rod",
+            "fp.r.roofArea": "Roof area (to wall centre)",
+            "fp.r.rodMain": "Main rod {d} mm @ {s}\"",
+            "fp.r.rodDist": "Distribution rod {d} mm @ {s}\"",
+            "fp.r.rodExtra": "Extra for top bars, cranks & laps",
+            "fp.r.roofRodKg": "Roof rod in all",
+            "fp.r.rodPerSft": "Rod per sq ft",
+            "fp.r.rodAll": "Total rod (roof + columns + lintels)",
+            "fp.o.rMain": "Main rod size",
+            "fp.o.rMainSp": "Main rod spacing",
+            "fp.o.rDist": "Distribution rod size",
+            "fp.o.rDistSp": "Distribution spacing",
+            "fp.o.rExtra": "Extra (top bars, crank, lap)",
+            "fp.h.roofRod": "Usual 5\" roof: 10 mm main @ 6\" and 10 mm distribution @ 8\". The rod is worked out over the whole roof area.",
+            "fp.o.linBars": "Main rods",
+            "fp.o.linDia": "Main rod size",
+            "fp.o.linRing": "Ring size",
+            "fp.o.linSp": "Ring spacing",
+            "fp.h.linRod": "Lintels you drew on the plan are counted here — usually 4 × 10 mm with 8 mm rings @ 6\".",
+            "fp.col": "Column",
+            "fp.t.col": "Place a column (C) — snaps to wall corners",
+            "fp.colSizeNew": "New column size (width × depth)",
+            "fp.colH": "Height",
+            "fp.colVol": "Concrete",
+            "fp.colAll": "Same size for all columns",
+            "fp.colAllDone": "All {n} columns now have this size",
+            "fp.r.cols": "Columns",
+            "fp.r.colVol": "Column concrete",
+            "fp.r.byRoom": "Room by room",
+            "fp.carpet": "Inside area",
+            "fp.clArea": "To wall centre",
+            "fp.furnUsed": "Furniture",
+            "fp.freeSp": "Free space",
+            "fp.useFree": "furniture {a} · free {b}",
+            "fp.freeShort": "free {b}",
+            "fp.usePct": "{a}% taken by furniture · {b}% free",
+            "fp.noFurn": "No furniture in this room yet.",
+            "fp.autoRoomHint": "Found automatically from the walls around it. Give it a name — it stays as long as the walls do.",
             "fp.perim": "Perimeter",
             "fp.delRoom": "Delete room",
             "fp.delRoomHint": "Only the room (floor and name) is deleted — its walls stay.",
@@ -1483,6 +1567,11 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             'rp.inputs': 'মাপ',
             'rp.results': 'ফলাফল',
             'rp.3d': '৩ডি প্রিভিউ',
+            "rp.date": "তারিখ",
+            "rp.key": "এক নজরে মূল হিসাব",
+            "rp.legKey": "দাগ দেওয়া = কিনতে / লিখে রাখতে যে সংখ্যা লাগবে",
+            "rp.legCost": "সবুজ বক্স = টাকার হিসাব",
+            "rp.note": "আনুমানিক হিসাব — কেনার আগে বাজারদর মিলিয়ে নিন",
             "page.survey": "ভূমি জরিপ",
             "desc.survey": "যেকোনো জমির মাপ — মৌজা নকশা স্কেলে মেপে দাগের পরিমাণ, মাঠের বাহু দিয়ে ক্ষেত্রফল, শরিকদের মধ্যে নির্ভুল বণ্টন ও বণ্টন নকশা।",
             "nav.land": "জমি",
@@ -1891,6 +1980,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             "fp.h.text": "যেখানে লেখা বসবে সেখানে ক্লিক করুন",
             "fp.h.dim": "শুরু, শেষ, তারপর লাইন কোথায় বসবে — ক্লিক করুন",
             "fp.h.furn": "আসবাব বেছে নিয়ে ক্লিক করে বসান",
+            "fp.h.col": "ক্লিক করে কলাম বসান — দেয়ালের কোণে বসে যায়, দেয়ালের দিকে ঘুরে যায়",
             "fp.h.erase": "মুছতে কোনো কিছুতে ক্লিক করুন",
             "fp.undo": "আগের অবস্থা",
             "fp.redo": "আবার করুন",
@@ -1957,6 +2047,84 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             "fp.addDoor": "দরজা যোগ",
             "fp.addWin": "জানালা যোগ",
             "fp.roomName": "রুমের নাম",
+            "fp.k.ti": "টি",
+            "fp.k.pcs40": "পিস (৪০ ফুটি)",
+            "fp.g.rodAll": "রডের হিসাব — ছাদ, কলাম ও লিন্টেল",
+            "fp.g.rodSize": "সাইজ অনুযায়ী (রড ৪০ ফুট লম্বা পিসে বিক্রি হয়)",
+            "fp.rb.roof": "ছাদের রড",
+            "fp.rb.col": "কলামের রড",
+            "fp.rb.lin": "লিন্টেলের রড",
+            "fp.r.rbMain": "মেইন রড {n}টি × {d} মিমি ({c}টি)",
+            "fp.r.rbRing": "রিং {d} মিমি @ {s}\"",
+            "fp.r.size": "{d} মিমি",
+            "fp.g.colRod": "কলামের রড",
+            "fp.o.colBars": "মেইন রড (টি)",
+            "fp.o.colDia": "মেইন রডের সাইজ",
+            "fp.o.colRing": "রিংয়ের সাইজ",
+            "fp.o.colSp": "রিংয়ের দূরত্ব",
+            "fp.h.colRod": "প্ল্যানে আঁকা কলামগুলোর জন্য — সাধারণত ৪টি × ১২ মিমি (বা ১৬ মিমি), ৮ মিমি রিং ৬\" পরপর। মেইন রড তলার উচ্চতা + ২ ফুট ল্যাপ ধরে হিসাব হয়।",
+            "fp.k.all": "পুরো বাড়ি",
+            "fp.k.bricks": "মোট ইট",
+            "fp.k.cement": "মোট সিমেন্ট",
+            "fp.k.sand": "মোট বালু",
+            "fp.k.khoa": "মোট খোয়া",
+            "fp.k.rod": "মোট রড",
+            "fp.k.tiles": "মেঝের টাইলস",
+            "fp.lin": "লিন্টেল",
+            "fp.t.lin": "লিন্টেল বসান (L) — দরজা/জানালা বা দেয়ালে ক্লিক করুন",
+            "fp.h.lin": "দরজা বা জানালায় ক্লিক করলে তার ওপরে লিন্টেল বসবে (দুই পাশে ৯\" বেশি), অথবা দেয়ালে ক্লিক করুন",
+            "fp.linD": "লিন্টেলের গভীরতা",
+            "fp.linH": "মেঝে থেকে নিচের উচ্চতা",
+            "fp.linWid": "চওড়া (= দেয়াল)",
+            "fp.linHint": "দেয়াল বরাবর টেনে সরাতে পারবেন।",
+            "fp.linAll": "সব দরজা-জানালায় লিন্টেল দিন",
+            "fp.linAllDone": "{n}টি লিন্টেল বসানো হয়েছে",
+            "fp.linAllNone": "সব দরজা-জানালায় আগেই লিন্টেল আছে",
+            "fp.addLin": "লিন্টেল দিন",
+            "fp.r.lins": "লিন্টেল",
+            "fp.r.linLen": "লিন্টেলের মোট দৈর্ঘ্য",
+            "fp.r.linVol": "লিন্টেলের ঢালাই",
+            "fp.r.linRod": "লিন্টেলের রড ({n}টি × {d} মিমি, রিং {r} মিমি @ {s}\")",
+            "fp.g.colLin": "কলাম ও লিন্টেলের ঢালাই",
+            "fp.g.roofRod": "ছাদের রড",
+            "fp.g.linRod": "লিন্টেলের রড",
+            "fp.r.roofArea": "ছাদের ক্ষেত্রফল (দেয়ালের মাঝ পর্যন্ত)",
+            "fp.r.rodMain": "মেইন রড {d} মিমি @ {s}\"",
+            "fp.r.rodDist": "ডিস্ট্রিবিউশন রড {d} মিমি @ {s}\"",
+            "fp.r.rodExtra": "টপ বার, ক্র্যাংক ও ল্যাপের জন্য বাড়তি",
+            "fp.r.roofRodKg": "ছাদে মোট রড",
+            "fp.r.rodPerSft": "প্রতি বর্গফুটে রড",
+            "fp.r.rodAll": "মোট রড (ছাদ + কলাম + লিন্টেল)",
+            "fp.o.rMain": "মেইন রডের সাইজ",
+            "fp.o.rMainSp": "মেইন রডের দূরত্ব",
+            "fp.o.rDist": "ডিস্ট্রিবিউশন রডের সাইজ",
+            "fp.o.rDistSp": "ডিস্ট্রিবিউশন রডের দূরত্ব",
+            "fp.o.rExtra": "বাড়তি (টপ বার, ক্র্যাংক, ল্যাপ)",
+            "fp.h.roofRod": "সাধারণ ৫\" ছাদে: ১০ মিমি মেইন রড ৬\" পরপর আর ১০ মিমি ডিস্ট্রিবিউশন রড ৮\" পরপর। পুরো ছাদের ক্ষেত্রফল ধরে রড হিসাব হয়।",
+            "fp.o.linBars": "মেইন রড (টি)",
+            "fp.o.linDia": "মেইন রডের সাইজ",
+            "fp.o.linRing": "রিংয়ের সাইজ",
+            "fp.o.linSp": "রিংয়ের দূরত্ব",
+            "fp.h.linRod": "প্ল্যানে আঁকা লিন্টেলগুলো এখানে হিসাব হয় — সাধারণত ৪টি × ১০ মিমি, ৮ মিমি রিং ৬\" পরপর।",
+            "fp.col": "কলাম",
+            "fp.t.col": "কলাম বসান (C) — দেয়ালের কোণে বসে যায়",
+            "fp.colSizeNew": "নতুন কলামের মাপ (চওড়া × গভীর)",
+            "fp.colH": "উচ্চতা",
+            "fp.colVol": "ঢালাই",
+            "fp.colAll": "সব কলাম এই মাপের করুন",
+            "fp.colAllDone": "{n}টি কলাম এখন এই মাপের",
+            "fp.r.cols": "কলাম",
+            "fp.r.colVol": "কলামের ঢালাই",
+            "fp.r.byRoom": "রুম অনুযায়ী",
+            "fp.carpet": "ভেতরের মাপ",
+            "fp.clArea": "দেয়ালের মাঝ থেকে",
+            "fp.furnUsed": "আসবাব",
+            "fp.freeSp": "খালি জায়গা",
+            "fp.useFree": "আসবাব {a} · খালি {b}",
+            "fp.freeShort": "খালি {b}",
+            "fp.usePct": "{a}% আসবাবে · {b}% খালি",
+            "fp.noFurn": "এই রুমে এখনও কোনো আসবাব নেই।",
+            "fp.autoRoomHint": "চারপাশের দেয়াল থেকে নিজে থেকে পাওয়া রুম। নাম দিন — দেয়াল যতদিন থাকবে নামও থাকবে।",
             "fp.perim": "পরিধি",
             "fp.delRoom": "রুম মুছুন",
             "fp.delRoomHint": "শুধু রুম (মেঝে ও নাম) মুছবে — দেয়াল থাকবে।",
@@ -2629,6 +2797,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         applyAll();
         if (CALC_IDS.includes(currentPage) && !calcOn(currentPage)) { toast(t('admin.calcOff')); location.hash = 'home'; }
         if (currentPage === 'admin') ADMIN.fill();
+        if (window.SURVEY && window.SURVEY.config) window.SURVEY.config();
     }
 
     /* =========================================================
@@ -2800,6 +2969,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
 
         function fill() {
             fillForms();
+            if (window.SURVEY && window.SURVEY.adminFill) window.SURVEY.adminFill();
             const ts = SITE.updatedAt;
             $('#last-saved').textContent = ts ? t('ov.lastSaved', { time: fmtTime(ts), who: SITE.updatedBy || '' }) : '';
             $('#admin-email').textContent = FB.user ? FB.user.email : '';
@@ -3346,7 +3516,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             members = [];
         }
 
-        return { fill, start, stop, setTab, renderMessages };
+        return { fill, start, stop, setTab, renderMessages, save };
     })();
 
     $('#reset-settings').addEventListener('click', () => {
@@ -4270,18 +4440,38 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
     // [label, value] pairs for the print/PDF report
     function inputsList(form, v) {
         const out = [];
+        const many = $$('.fieldset .group-title', form).length > 1;
+        const groupOf = (el) => { const fs = el.closest('.fieldset'), gt = fs && $('.group-title', fs); return many && gt ? gt.textContent.replace(/\s+/g, ' ').trim() : ''; };
+        const labelOf = (field) => $('label', field).textContent.replace(/\s*\(.*?\)\s*$/, '').trim();
+        const seen = new Set();
+        // the floor plan: also show the assumptions it used (thickness, rod size …), not only what was typed
+        const showDefaults = form.dataset.calc === 'plan';
         $$('input[data-num]', form).forEach((inp) => {
             if (inp.closest('[hidden]')) return;
+            const field = inp.closest('.field');
+            // a mixing ratio → one line: "ছাদ ঢালাই — মিক্সিং রেশিও (সিমেন্ট : বালু : খোয়া)  ১ : ২ : ৪"
+            const rbox = field.closest('.fields.ratio');
+            if (rbox) {
+                if (seen.has(rbox)) return;
+                seen.add(rbox);
+                const ins = $$('input[data-num]', rbox);
+                const vals = ins.map((x) => v[x.name]);
+                if (vals.some((x) => !Number.isFinite(x))) return;
+                const names = ins.map((x) => labelOf(x.closest('.field')).replace(/^.*·\s*/, ''));
+                const g = groupOf(rbox);
+                out.push([`${g ? g + ' — ' : ''}${t('grp.ratio')} (${names.join(' : ')})`, vals.map((x) => numPlain(x)).join(' : ')]);
+                return;
+            }
             const isLen = inp.hasAttribute('data-len');
             const empty = isLen ? LEN.read(inp).empty : !inp.value.trim();
-            if (inp.hasAttribute('data-optional') && empty) return;
-            const field = inp.closest('.field');
-            let label = $('label', field).textContent.replace(/\s*\(.*?\)\s*$/, '').trim();
-            if (field.closest('.fields.ratio') && !/·/.test(label)) label = `${t('grp.ratio')} · ${label}`;
+            if (inp.hasAttribute('data-optional') && empty && !(showDefaults && Number(inp.dataset.default) > 0)) return;
+            let label = labelOf(field);
+            const g = groupOf(field);
+            if (g) label = `${g} — ${label}`;
             const part = inp.closest('[data-area]');
             if (part) label = `${$('.area-no', part).textContent} · ${label}`;
             let value;
-            if (isLen) value = (v._disp && v._disp[inp.name]) || numPlain(v[inp.name]);
+            if (isLen) value = (v._disp && v._disp[inp.name]) || (empty ? LEN.fmtIn ? (inp.dataset.len === 'in' ? LEN.fmtIn(v[inp.name]) : LEN.fmt(v[inp.name])) : numPlain(v[inp.name]) : numPlain(v[inp.name]));
             else {
                 const unitEl = $('.unit', field);
                 const typed = parseNum(inp.value);
@@ -4289,7 +4479,6 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             }
             out.push([label, value]);
         });
-        if (form.dataset.calc === 'tiles') out.splice(0, 0);
         return out;
     }
     function inputsSummary(form, v) {
@@ -4561,9 +4750,9 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 if (!d) return [];
                 const chips = [];
                 if (d.plots.length) chips.push([t('fp.plot'), qs(qArea(d.plots.reduce((a, pl) => a + PLAN.polyArea(pl.pts), 0)))]);
-                const floor = d.levels.reduce((a, L) => a + L.rooms.reduce((b, r) => b + PLAN.polyArea(r.pts), 0), 0);
+                const floor = d.levels.reduce((a, L) => a + PLAN.roomsOf(L).reduce((b, r) => b + r.area, 0), 0);
                 if (d.levels.length > 1) chips.push([t('fp.r.floors'), num(d.levels.length, 0)]);
-                chips.push([t('fp.r.rooms'), num(d.levels.reduce((a, L) => a + L.rooms.length, 0), 0)], [d.levels.length > 1 ? t('fp.r.totalFloor') : t('r.floorArea'), qs(qArea(floor))]);
+                chips.push([t('fp.r.rooms'), num(d.levels.reduce((a, L) => a + PLAN.roomsOf(L).length, 0), 0)], [d.levels.length > 1 ? t('fp.r.totalFloor') : t('r.floorArea'), qs(qArea(floor))]);
                 if (d.levels.length > 1) chips.push([t('fp.view3d'), d.opt.all3d ? t('fp.allFloors') : t('fp.upTo', { name: PLAN.floorName(d.cur) })]);
                 return chips;
             },
@@ -5054,6 +5243,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 shown.forEach((L) => {
                     L.walls.forEach((w) => pts.push(w.a, w.b));
                     L.rooms.forEach((r) => pts.push(...r.pts));
+                    (L.cols || []).forEach((c) => pts.push(c));
                     L.furn.forEach((f) => pts.push({ x: f.x - f.w / 2, y: f.y - f.d / 2 }, { x: f.x + f.w / 2, y: f.y + f.d / 2 }));
                 });
                 D.plots.forEach((pl) => pts.push(...pl.pts));
@@ -5111,8 +5301,9 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 const floorMat = new THREE.MeshStandardMaterial({ map: floorTx, roughness: .6, side: THREE.DoubleSide });
                 shown.forEach((L, li) => {
                     const base = PLAN.elevOf(li) * k;
-                    if (li > 0) slab(L.rooms.length ? L.rooms : D.levels[li - 1].rooms, base - slabT);
-                    L.rooms.forEach((r) => {
+                    const RM = PLAN.roomsOf(L);
+                    if (li > 0) slab(RM.length ? RM : PLAN.roomsOf(D.levels[li - 1]), base - slabT);
+                    RM.forEach((r) => {
                         const m = new THREE.Mesh(flat(r.pts), floorMat);
                         m.position.y = base + .006;
                         g.add(m);
@@ -5198,8 +5389,22 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                         }
                         seg(f.w * k, Math.max(F.h * k, .004), f.d * k, F.flat ? all6(col(F.c)) : mats, f, base, ang);
                     });
+                    // columns: from the floor up to the top of the walls
+                    const colMat = new THREE.MeshStandardMaterial({ color: C.dark ? 0x9ca3af : 0xa8a29e, roughness: .85 });
+                    const linMat = new THREE.MeshStandardMaterial({ color: C.dark ? 0xb45309 : 0xd6a77a, roughness: .8 });
+                    (L.lins || []).forEach((l) => {
+                        const w = L.walls.find((x) => x.id === l.wall); if (!w) return;
+                        const dx = w.b.x - w.a.x, dy = w.b.y - w.a.y, len0 = Math.hypot(dx, dy); if (len0 < 1e-3) return;
+                        const c = { x: w.a.x + dx / len0 * l.at, y: w.a.y + dy / len0 * l.at };
+                        seg(l.w * k, l.d / 12 * k, (w.t / 12 + .08) * k, [linMat, linMat, linMat, linMat, linMat, linMat], c, base + Math.min(l.h, w.h - l.d / 12) * k, Math.atan2(dy, dx));
+                    });
+                    (L.cols || []).forEach((c) => {
+                        const H = PLAN.levelH(L) * k;
+                        seg(c.w * k, H, c.d * k, [colMat, colMat, colMat, colMat, colMat, colMat], c, base, (c.rot || 0) * Math.PI / 180);
+                        topY = Math.max(topY, base + H);
+                    });
                     if (li === D.cur) {
-                        L.rooms.forEach((r) => {
+                        RM.forEach((r) => {
                             if (!r.name) return;
                             const lab = makeLabel(r.name, C);
                             lab.scale.multiplyScalar(.8);
@@ -5212,7 +5417,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 if (D.opt.all3d && shown.length) {
                     const li = shown.length - 1, L = shown[li];
                     const roofY = (PLAN.elevOf(li) + PLAN.levelH(L)) * k;
-                    slab(L.rooms, roofY);
+                    slab(PLAN.roomsOf(L), roofY);
                     topY = Math.max(topY, roofY + slabT);
                 }
                 // north marker
@@ -5857,9 +6062,9 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         const fin = (n, d = 0) => (Number.isFinite(+n) ? +n : d);
         const pt = (p) => ({ x: fin(p && p.x), y: fin(p && p.y) });
         const isTouch = () => window.matchMedia('(pointer: coarse)').matches;
-        const blankLevel = () => ({ id: uid(), name: '', walls: [], rooms: [], openings: [], texts: [], dims: [], furn: [] });
+        const blankLevel = () => ({ id: uid(), name: '', walls: [], rooms: [], openings: [], texts: [], dims: [], furn: [], cols: [], lins: [], roomNames: {} });
         const blank = () => ({ v: 3, title: '', cur: 0, plots: [], levels: [blankLevel()],
-            opt: { wallT: 5, wallH: 10, showDims: true, ortho: true, snap: 0.5, slabT: 5, all3d: false, started: false, north: 0 } });
+            opt: { wallT: 5, wallH: 10, showDims: true, ortho: true, snap: 0.5, slabT: 5, all3d: false, started: false, north: 0, colW: 12, colD: 12 } });
 
         function sanLevel(o) {
             const b = blankLevel();
@@ -5873,6 +6078,9 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             b.texts = (Array.isArray(o.texts) ? o.texts : []).filter(Boolean).map((x) => ({ id: String(x.id || uid()), x: fin(x.x), y: fin(x.y), text: String(x.text || '').slice(0, 80), size: Math.max(fin(x.size, 1), .2) }));
             b.dims = (Array.isArray(o.dims) ? o.dims : []).filter(Boolean).map((x) => ({ id: String(x.id || uid()), a: pt(x.a), b: pt(x.b), off: fin(x.off, -2) }));
             b.furn = (Array.isArray(o.furn) ? o.furn : []).filter((x) => x && LIB[x.kind]).map((x) => ({ id: String(x.id || uid()), kind: x.kind, x: fin(x.x), y: fin(x.y), rot: fin(x.rot) % 360, w: Math.max(fin(x.w, LIB[x.kind].w), .3), d: Math.max(fin(x.d, LIB[x.kind].d), .3) }));
+            b.cols = (Array.isArray(o.cols) ? o.cols : []).filter(Boolean).map((x) => ({ id: String(x.id || uid()), x: fin(x.x), y: fin(x.y), rot: fin(x.rot) % 360, w: Math.max(fin(x.w, 1), .2), d: Math.max(fin(x.d, 1), .2) }));
+            b.lins = (Array.isArray(o.lins) ? o.lins : []).filter((x) => x && wallIds.has(String(x.wall))).map((x) => ({ id: String(x.id || uid()), wall: String(x.wall), at: fin(x.at), w: Math.max(fin(x.w, 4), .5), d: Math.max(fin(x.d, 6), 2), h: Math.max(fin(x.h, 7), .5) }));
+            if (o.roomNames && typeof o.roomNames === 'object') Object.entries(o.roomNames).slice(0, 300).forEach(([k, v]) => { if (typeof v === 'string' && v.trim()) b.roomNames[String(k).slice(0, 400)] = v.slice(0, 40); });
             return b;
         }
         function sanPlot(p) {
@@ -5962,9 +6170,120 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         }
         const wallLen = (w) => dist(w.a, w.b);
         const byId = (arr, id) => arr.find((x) => x.id === id);
-        const LIST = { wall: 'walls', room: 'rooms', op: 'openings', text: 'texts', dim: 'dims', furn: 'furn' };
+        const LIST = { wall: 'walls', room: 'rooms', op: 'openings', text: 'texts', dim: 'dims', furn: 'furn', col: 'cols', lin: 'lins' };
         const getSel = () => (!sel || sel.k === 'multi' ? null : sel.k === 'plot' ? byId(D.plots, sel.id) || null : byId(P[LIST[sel.k]] || [], sel.id));
         const isSelected = (k, id) => !!sel && ((sel.k === k && sel.id === id) || (sel.k === 'multi' && sel.items.some((x) => x.k === k && x.id === id)));
+
+        /* ---------- rooms: drawn ones + every space closed by walls ----------
+           Each room gets its inner (carpet) outline — the wall centre lines
+           pulled in by half the wall thickness — and the furniture inside it. */
+        const RCACHE = new WeakMap();
+        // thickness (ft) of a wall lying along a→b, 0 when none
+        function edgeT(a, b, L) {
+            const l = dist(a, b); if (l < 1e-6) return 0;
+            for (const w of L.walls) {
+                if (distLine(w.a, a, b) > .03 || distLine(w.b, a, b) > .03) continue;
+                const t1 = projT(w.a, a, b), t2 = projT(w.b, a, b);
+                if (Math.min(Math.max(t1, t2), 1) - Math.max(Math.min(t1, t2), 0) > .3 / l) return w.t / 12;
+            }
+            return 0;
+        }
+        // pull every side in by its own half-thickness (sharp corners)
+        function insetPoly(q, th) {
+            const n = q.length; if (n < 3) return q;
+            let s0 = 0; q.forEach((p, i) => { const r = q[(i + 1) % n]; s0 += p.x * r.y - r.x * p.y; });
+            const sg = s0 > 0 ? 1 : -1;
+            const E = q.map((p, i) => { const r = q[(i + 1) % n], u = unitv(sub(r, p)), nin = { x: -u.y * sg, y: u.x * sg }, d = th[i] / 2; return { p: add(p, mul(nin, d)), u, d }; });
+            return q.map((p, i) => {
+                const A = E[(i - 1 + n) % n], B = E[i], cr = A.u.x * B.u.y - A.u.y * B.u.x;
+                if (Math.abs(cr) < 1e-6) return B.p;
+                const tt = ((B.p.x - A.p.x) * B.u.y - (B.p.y - A.p.y) * B.u.x) / cr, X = add(A.p, mul(A.u, tt));
+                return dist(X, p) > 4 * Math.max(A.d, B.d, .05) + .01 ? B.p : X;
+            });
+        }
+        function wallFaces(L) {
+            const K = (p) => `${Math.round(p.x * 50)}:${Math.round(p.y * 50)}`;
+            const W = L.walls.filter((w) => wallLen(w) > .05);
+            const nodes = new Map(), adj = new Map(), eT = new Map();
+            const node = (p) => { const k = K(p); if (!nodes.has(k)) nodes.set(k, { x: p.x, y: p.y }); return k; };
+            const link = (a, b, th) => { if (a === b) return; [[a, b], [b, a]].forEach(([u, v]) => { if (!adj.has(u)) adj.set(u, new Set()); adj.get(u).add(v); }); eT.set(a + '>' + b, th); eT.set(b + '>' + a, th); };
+            W.forEach((w) => {
+                const cuts = [0, 1];
+                W.forEach((o) => {
+                    if (o === w) return;
+                    [o.a, o.b].forEach((e) => { if (distSeg(e, w.a, w.b) < .03) { const tt = projT(e, w.a, w.b); if (tt > 1e-4 && tt < 1 - 1e-4) cuts.push(tt); } });
+                    const r = sub(w.b, w.a), s1 = sub(o.b, o.a), den = r.x * s1.y - r.y * s1.x;
+                    if (Math.abs(den) > 1e-9) {
+                        const tt = ((o.a.x - w.a.x) * s1.y - (o.a.y - w.a.y) * s1.x) / den, uu = ((o.a.x - w.a.x) * r.y - (o.a.y - w.a.y) * r.x) / den;
+                        if (tt > 1e-4 && tt < 1 - 1e-4 && uu > -1e-4 && uu < 1 + 1e-4) cuts.push(tt);
+                    }
+                });
+                cuts.sort((x, y) => x - y);
+                for (let i = 0; i < cuts.length - 1; i++) { if ((cuts[i + 1] - cuts[i]) * wallLen(w) < .02) continue; link(node(lerp(w.a, w.b, cuts[i])), node(lerp(w.a, w.b, cuts[i + 1])), w.t / 12); }
+            });
+            const ang = (u, v) => { const a = nodes.get(u), b = nodes.get(v); return Math.atan2(b.y - a.y, b.x - a.x); };
+            const order = new Map(); adj.forEach((nb, u) => order.set(u, [...nb].sort((x, y) => ang(u, x) - ang(u, y))));
+            const seen = new Set(), out = [];
+            adj.forEach((nb, u0) => nb.forEach((v0) => {
+                if (seen.has(u0 + '>' + v0)) return;
+                const cyc = []; let u = u0, v = v0;
+                for (let g = 0; g < 5000; g++) {
+                    seen.add(u + '>' + v); cyc.push(u);
+                    const o = order.get(v), k = o.indexOf(u), w = o[(k + 1) % o.length];
+                    u = v; v = w;
+                    if (u === u0 && v === v0) break;
+                }
+                let c = cyc.slice(), again = true;
+                while (again && c.length > 2) { again = false; for (let i = 0; i < c.length; i++) { if (c[(i - 1 + c.length) % c.length] === c[(i + 1) % c.length]) { c.splice(i, 1); c.splice(i % c.length, 1); again = true; break; } } }
+                if (c.length < 3) return;
+                const pts = c.map((k) => nodes.get(k));
+                const sa = pts.reduce((a, p, i) => { const q = pts[(i + 1) % pts.length]; return a + p.x * q.y - q.x * p.y; }, 0) / 2;
+                if (sa < -1) out.push({ keys: c, pts, th: c.map((k, i) => eT.get(k + '>' + c[(i + 1) % c.length]) || 0) });
+            }));
+            return out;
+        }
+        // a point well inside a polygon for its label
+        function labelAt(q, obs = []) {
+            const c = centroid(q);
+            const edgeD = (p) => Math.min(...q.map((a, i) => distSeg(p, a, q[(i + 1) % q.length])));
+            const blocked = (p) => obs.some((f) => { const r = -(f.rot || 0) * Math.PI / 180, dx = p.x - f.x, dy = p.y - f.y; return Math.abs(dx * Math.cos(r) - dy * Math.sin(r)) < f.w / 2 + .6 && Math.abs(dx * Math.sin(r) + dy * Math.cos(r)) < f.d / 2 + .9; });
+            if (inPoly(c, q) && edgeD(c) > .8 && !blocked(c)) return c;
+            const xs = q.map((p) => p.x), ys = q.map((p) => p.y), x0 = Math.min(...xs), x1 = Math.max(...xs), y0 = Math.min(...ys), y1 = Math.max(...ys);
+            let best = c, bd = -1;
+            for (let i = 1; i < 12; i++) for (let j = 1; j < 12; j++) { const p = { x: x0 + (x1 - x0) * i / 12, y: y0 + (y1 - y0) * j / 12 }; if (!inPoly(p, q) || blocked(p)) continue; const fo = obs.length ? Math.min(...obs.map((f) => Math.max(dist(p, f) - Math.max(f.w, f.d) / 2, 0))) : 99; const d0 = Math.min(edgeD(p), fo * 1.2) - dist(p, c) * .05; if (d0 > bd) { bd = d0; best = p; } }
+            return best;
+        }
+        function roomsOf(L) {
+            const sig = JSON.stringify([L.walls, L.rooms, L.roomNames, L.furn, S.lang]);
+            const hit = RCACHE.get(L); if (hit && hit.sig === sig) return hit.out;
+            const out = L.rooms.map((r) => {
+                const th = r.pts.map((p, i) => edgeT(p, r.pts[(i + 1) % r.pts.length], L));
+                const inner = th.some((x) => x > 0) ? insetPoly(r.pts, th) : r.pts;
+                return { id: r.id, k: 'room', name: r.name, pts: r.pts, inner, area: polyArea(inner), cl: polyArea(r.pts), auto: false };
+            });
+            const autos = [];
+            wallFaces(L).forEach((f) => {
+                const cl = polyArea(f.pts); if (cl < 4) return;
+                if (L.rooms.some((r) => { const a = polyArea(r.pts); return inPoly(centroid(r.pts), f.pts) && a > cl * .6 && a < cl * 1.4; })) return;
+                const inner = insetPoly(f.pts, f.th), area = polyArea(inner);
+                if (area < 2) return;
+                const key = f.keys.slice().sort().join('|');
+                autos.push({ id: key, k: 'aroom', key, pts: f.pts, inner, area, cl, auto: true });
+            });
+            autos.sort((a, b) => { const p = centroid(a.pts), q = centroid(b.pts); return Math.abs(p.y - q.y) > 2 ? p.y - q.y : p.x - q.x; });
+            autos.forEach((r, i) => { r.name = (L.roomNames && L.roomNames[r.key]) || t('fp.roomN', { n: L.rooms.length + i + 1 }); out.push(r); });
+            // furniture (and columns) standing in each room
+            out.forEach((r) => { r.furn = []; r.used = 0; });
+            L.furn.forEach((f) => {
+                const F = LIB[f.kind]; if (!F || F.flat || F.pool) return;
+                const r = out.filter((x) => inPoly(f, x.inner)).sort((a, b) => a.area - b.area)[0];
+                if (r) { r.furn.push(f); r.used += f.w * f.d; }
+            });
+            (L.cols || []).forEach((c) => { const r = out.filter((x) => inPoly(c, x.inner)).sort((a, b) => a.area - b.area)[0]; if (r) r.used += c.w * c.d; });
+            out.forEach((r) => { r.free = Math.max(r.area - r.used, 0); });
+            RCACHE.set(L, { sig, out });
+            return out;
+        }
 
         let D = sanitize(storage.get(STORE, null));
         let P = D.levels[D.cur];                       // the floor being edited
@@ -5987,7 +6306,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         const levelH = (L) => (L.walls.length ? Math.max(...L.walls.map((w) => w.h)) : fin(D.opt.wallH, 10));
         const slabFt = () => Math.max(fin(D.opt.slabT, 5), 0) / 12;
         function elevOf(i) { let e = 0; for (let j = 0; j < i; j++) e += levelH(D.levels[j]) + slabFt(); return e; }
-        const hasContent = (L) => !!(L.walls.length || L.rooms.length || L.furn.length || L.texts.length || L.dims.length);
+        const hasContent = (L) => !!(L.walls.length || L.rooms.length || L.furn.length || L.texts.length || L.dims.length || (L.cols && L.cols.length) || (L.lins && L.lins.length));
         const anyContent = () => D.levels.some(hasContent);
         function setLevel(i) {
             if (i === D.cur || i < 0 || i >= D.levels.length) return;
@@ -6003,6 +6322,9 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 L.walls = P.walls.map((w) => { const n = { id: uid(), a: { ...w.a }, b: { ...w.b }, t: w.t, h: w.h }; map[w.id] = n.id; return n; });
                 L.rooms = P.rooms.map((r) => ({ id: uid(), name: r.name, pts: r.pts.map((p) => ({ ...p })) }));
                 L.openings = P.openings.filter((o) => map[o.wall]).map((o) => ({ ...o, id: uid(), wall: map[o.wall] }));
+                L.cols = P.cols.map((c) => ({ ...c, id: uid() }));
+                L.lins = P.lins.filter((o) => map[o.wall]).map((o) => ({ ...o, id: uid(), wall: map[o.wall] }));
+                L.roomNames = { ...P.roomNames };
             }
             D.levels.push(L);
             D.cur = D.levels.length - 1; bind();
@@ -6188,18 +6510,46 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 o.at = Math.max(o.w / 2, Math.min(L - o.w / 2, o.at));
                 return true;
             });
+            P.lins = P.lins.filter((o) => {
+                const w = byId(P.walls, o.wall);
+                if (!w) return false;
+                const L = wallLen(w);
+                o.w = Math.min(o.w, L);
+                o.at = Math.max(o.w / 2, Math.min(L - o.w / 2, o.at));
+                return true;
+            });
+        }
+        // a lintel over a door / window: its width + bearing on both sides, at the top of the opening
+        const BEAR = .75;
+        function addLintel(w, p, op) {
+            const L = wallLen(w);
+            const o = op ? { at: op.at, w: Math.min(op.w + BEAR * 2, L), h: op.type === 'window' ? op.sill + op.h : op.h }
+                : { at: projT(p, w.a, w.b) * L, w: Math.min(4, L), h: 7 };
+            const l = { id: uid(), wall: w.id, at: Math.max(o.w / 2, Math.min(L - o.w / 2, o.at)), w: o.w, d: fin(D.opt.linD, 6), h: o.h };
+            P.lins.push(l);
+            return l;
+        }
+        // one lintel over every door and window that has none yet
+        function lintelsForAll() {
+            let n = 0;
+            P.openings.forEach((op) => {
+                if (P.lins.some((l) => l.wall === op.wall && Math.abs(l.at - op.at) < op.w / 2 + .1)) return;
+                const w = byId(P.walls, op.wall); if (!w) return;
+                addLintel(w, null, op); n += 1;
+            });
+            return n;
         }
         function remove(k, id) {
             if (k === 'plot') { D.plots = D.plots.filter((x) => x.id !== id); if (sel && sel.id === id) sel = null; return; }
             const list = LIST[k];
             if (!list) return;
             P[list] = P[list].filter((x) => x.id !== id);
-            if (k === 'wall') P.openings = P.openings.filter((o) => o.wall !== id);
+            if (k === 'wall') { P.openings = P.openings.filter((o) => o.wall !== id); P.lins = P.lins.filter((o) => o.wall !== id); }
             if (sel && sel.id === id) sel = null;
         }
         function rotateSel(deg) {
             const o = getSel();
-            if (!o || sel.k !== 'furn') return;
+            if (!o || (sel.k !== 'furn' && sel.k !== 'col')) return;
             o.rot = ((o.rot + deg) % 360 + 360) % 360;
             commit();
         }
@@ -6210,13 +6560,13 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             if (!o) return [];
             if (k === 'wall' || k === 'dim') return [o.a, o.b];
             if (k === 'room' || k === 'plot') return o.pts;
-            if (k === 'furn' || k === 'text') return [o];
+            if (k === 'furn' || k === 'text' || k === 'col') return [o];
             return [];
         }
         const selItems = () => (!sel ? [] : sel.k === 'multi' ? sel.items : [{ k: sel.k, id: sel.id }]).filter((it) => it.id !== 'new' && itemObj(it));
         function levelItems(L) {
             const out = [];
-            ['wall', 'room', 'furn', 'text', 'dim'].forEach((k) => L[LIST[k]].forEach((o) => out.push({ k, id: o.id })));
+            ['wall', 'room', 'furn', 'col', 'text', 'dim'].forEach((k) => (L[LIST[k]] || []).forEach((o) => out.push({ k, id: o.id })));
             return out;
         }
         function selectAll() {
@@ -6242,10 +6592,10 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             const pts = [], rots = [];
             const scope = sel && sel.all ? D.levels : [P];
             if (sel && sel.all) {
-                scope.forEach((L) => levelItems(L).forEach((it) => { const o = itemObj(it, L); pts.push(...ptsOf(o, it.k)); if (it.k === 'furn') rots.push(o); }));
+                scope.forEach((L) => levelItems(L).forEach((it) => { const o = itemObj(it, L); pts.push(...ptsOf(o, it.k)); if (it.k === 'furn' || it.k === 'col') rots.push(o); }));
                 D.plots.forEach((pl) => pts.push(...pl.pts));
             } else {
-                selItems().forEach((it) => { const o = itemObj(it); pts.push(...ptsOf(o, it.k)); if (it.k === 'furn') rots.push(o); });
+                selItems().forEach((it) => { const o = itemObj(it); pts.push(...ptsOf(o, it.k)); if (it.k === 'furn' || it.k === 'col') rots.push(o); });
             }
             return { pts, rots };
         }
@@ -6299,6 +6649,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 P[LIST[it.k]].push(n);
                 added.push({ k: it.k, id: n.id });
                 if (it.k === 'wall') P.openings.filter((x) => x.wall === o.id).forEach((x) => P.openings.push({ ...x, id: uid(), wall: n.id }));
+                if (it.k === 'wall') P.lins.filter((x) => x.wall === o.id).forEach((x) => P.lins.push({ ...x, id: uid(), wall: n.id }));
             });
             setMulti(added);
             commit(); renderFloors();
@@ -6368,7 +6719,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             const items = selItems();
             const plots = items.filter((it) => it.k === 'plot').length;
             const count = (k) => items.filter((it) => it.k === k).length;
-            const parts = [['wall', 'fp.wall'], ['room', 'fp.room'], ['furn', 'fp.furn'], ['text', 'fp.text'], ['dim', 'fp.dim'], ['plot', 'fp.plot']]
+            const parts = [['wall', 'fp.wall'], ['room', 'fp.room'], ['furn', 'fp.furn'], ['col', 'fp.col'], ['lin', 'fp.lin'], ['text', 'fp.text'], ['dim', 'fp.dim'], ['plot', 'fp.plot']]
                 .filter(([k]) => count(k)).map(([k, l]) => `<div><small>${esc(t(l))}</small><b>${num(count(k), 0)}</b></div>`).join('');
             return `<h3><i class="fa-solid fa-object-group"></i>${esc(t('fp.multiN', { n: digits(items.length) }))}</h3>
                 ${sel.all && D.levels.length > 1 ? `<p class="set-help">${esc(t('fp.allFloorsMove'))}</p>` : ''}
@@ -6410,6 +6761,20 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 const u = unitv(sub(w.b, w.a)), c = add(w.a, mul(u, o.at));
                 take('op', o.id, Math.max(distSeg(p, sub(c, mul(u, o.w / 2)), add(c, mul(u, o.w / 2))) - w.t / 24, 0));
             });
+            if (best && tool !== 'lin') return best;
+            if (tool === 'lin') { best = null; bd = Infinity; }
+            P.lins.forEach((l) => {
+                const w = byId(P.walls, l.wall);
+                if (!w) return;
+                const u = unitv(sub(w.b, w.a)), c = add(w.a, mul(u, l.at));
+                take('lin', l.id, Math.max(distSeg(p, sub(c, mul(u, l.w / 2)), add(c, mul(u, l.w / 2))) - w.t / 24, 0) + .01);
+            });
+            if (best) return best;
+            P.cols.forEach((c) => {
+                const r = -c.rot * Math.PI / 180, dx = p.x - c.x, dy = p.y - c.y;
+                const lx = dx * Math.cos(r) - dy * Math.sin(r), ly = dx * Math.sin(r) + dy * Math.cos(r);
+                take('col', c.id, Math.hypot(Math.max(Math.abs(lx) - c.w / 2, 0), Math.max(Math.abs(ly) - c.d / 2, 0)));
+            });
             if (best) return best;
             P.furn.forEach((f) => {
                 const r = -f.rot * Math.PI / 180, dx = p.x - f.x, dy = p.y - f.y;
@@ -6427,8 +6792,8 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             if (best) return best;
             P.walls.forEach((w) => take('wall', w.id, Math.max(distSeg(p, w.a, w.b) - w.t / 24, 0)));
             if (best) return best;
-            const rooms = P.rooms.filter((r) => inPoly(p, r.pts)).sort((a, b) => polyArea(a.pts) - polyArea(b.pts));
-            if (rooms.length) return { k: 'room', id: rooms[0].id };
+            const rooms = roomsOf(P).filter((r) => inPoly(p, r.auto ? r.inner : r.pts)).sort((a, b) => a.area - b.area);
+            if (rooms.length) return { k: rooms[0].k, id: rooms[0].id };
             let pb = null, pd = tol;
             D.plots.forEach((pl) => {
                 const q = pl.pts;
@@ -6501,7 +6866,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 bg: dark ? '#172133' : '#ffffff', grid: dark ? 'rgba(148,163,184,.12)' : 'rgba(30,41,59,.07)', grid2: dark ? 'rgba(148,163,184,.24)' : 'rgba(30,41,59,.15)',
                 wall: dark ? '#cbd5e1' : '#334155', ink: dark ? '#e2e8f0' : '#1e293b', muted: dark ? '#94a3b8' : '#64748b',
                 room: dark ? 'rgba(148,163,184,.07)' : 'rgba(13,148,136,.05)', furn: dark ? 'rgba(148,163,184,.10)' : 'rgba(255,255,255,.9)', brand,
-                plot: dark ? '#4ade80' : '#16a34a', plotFill: dark ? 'rgba(74,222,128,.06)' : 'rgba(22,163,74,.06)', ghost: dark ? 'rgba(203,213,225,.22)' : 'rgba(51,65,85,.16)',
+                col: dark ? '#64748b' : '#475569', plot: dark ? '#4ade80' : '#16a34a', plotFill: dark ? 'rgba(74,222,128,.06)' : 'rgba(22,163,74,.06)', ghost: dark ? 'rgba(203,213,225,.22)' : 'rgba(51,65,85,.16)',
             };
         }
         const esc = escapeHtml;
@@ -6552,9 +6917,11 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 return `<g data-id="${f.id}" data-k="furn" transform="translate(${f.x} ${f.y}) rotate(${f.rot})" stroke="${isSel ? pal.brand : pal.ink}" stroke-width="${px(isSel ? 2 : 1.1)}" fill="${F.fill || pal.furn}">${F.draw(f.w, f.d)}</g>`;
             };
             L.furn.filter(under).forEach((f) => { out += furnG(f); });
-            L.rooms.forEach((r) => {
-                const isSel = live && isSelected('room', r.id);
-                out += `<polygon data-id="${r.id}" data-k="room" points="${r.pts.map((p) => `${p.x},${p.y}`).join(' ')}" fill="${isSel ? 'rgba(13,148,136,.14)' : pal.room}" ${isSel ? `stroke="${pal.brand}" stroke-width="${px(2)}" stroke-dasharray="${px(6)} ${px(4)}"` : ''}/>`;
+            const RM = roomsOf(L);
+            RM.forEach((r) => {
+                const isSel = live && isSelected(r.k, r.id);
+                const q = r.auto ? r.inner : r.pts;
+                out += `<polygon ${r.auto ? '' : `data-id="${r.id}" data-k="room" `}points="${q.map((p) => `${p.x},${p.y}`).join(' ')}" fill="${isSel ? 'rgba(13,148,136,.14)' : pal.room}" ${isSel ? `stroke="${pal.brand}" stroke-width="${px(2)}" stroke-dasharray="${px(6)} ${px(4)}"` : ''}/>`;
             });
             L.walls.forEach((w) => {
                 const u = unitv(sub(w.b, w.a)), n = perp(u), ht = w.t / 24;
@@ -6562,6 +6929,10 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 const q = [add(a, mul(n, ht)), add(b, mul(n, ht)), sub(b, mul(n, ht)), sub(a, mul(n, ht))];
                 const isSel = live && isSelected('wall', w.id);
                 out += `<polygon data-id="${w.id}" data-k="wall" points="${q.map((p) => `${p.x},${p.y}`).join(' ')}" fill="${isSel ? pal.brand : pal.wall}"/>`;
+            });
+            (L.cols || []).forEach((c) => {
+                const isSel = live && isSelected('col', c.id);
+                out += `<g data-id="${c.id}" data-k="col" transform="translate(${c.x} ${c.y}) rotate(${c.rot})"><rect x="${-c.w / 2}" y="${-c.d / 2}" width="${c.w}" height="${c.d}" fill="${isSel ? pal.brand : pal.col}" stroke="${isSel ? pal.brand : pal.ink}" stroke-width="${px(1.2)}"/><path d="M${-c.w / 2} ${-c.d / 2} L${c.w / 2} ${c.d / 2} M${c.w / 2} ${-c.d / 2} L${-c.w / 2} ${c.d / 2}" stroke="${pal.bg}" stroke-width="${px(1)}" opacity=".8"/></g>`;
             });
             L.openings.forEach((o) => {
                 const w = byId(L.walls, o.wall);
@@ -6590,6 +6961,14 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 }
                 out += `<g data-id="${o.id}" data-k="op">${g}</g>`;
             });
+            (L.lins || []).forEach((l) => {
+                const w = byId(L.walls, l.wall); if (!w) return;
+                const u = unitv(sub(w.b, w.a)), n = perp(u), ht = w.t / 24 + px(2.5);
+                const c = add(w.a, mul(u, l.at)), j1 = sub(c, mul(u, l.w / 2)), j2 = add(c, mul(u, l.w / 2));
+                const q = [add(j1, mul(n, ht)), add(j2, mul(n, ht)), sub(j2, mul(n, ht)), sub(j1, mul(n, ht))];
+                const isSel = live && isSelected('lin', l.id);
+                out += `<g data-id="${l.id}" data-k="lin"><polygon points="${q.map((p) => `${p.x},${p.y}`).join(' ')}" fill="${isSel ? 'rgba(13,148,136,.35)' : 'rgba(234,88,12,.22)'}" stroke="${isSel ? pal.brand : '#ea580c'}" stroke-width="${px(isSel ? 2.2 : 1.5)}" stroke-dasharray="${px(5)} ${px(3)}"/><line x1="${q[0].x}" y1="${q[0].y}" x2="${q[2].x}" y2="${q[2].y}" stroke="#ea580c" stroke-width="${px(1)}" opacity=".7"/><line x1="${q[1].x}" y1="${q[1].y}" x2="${q[3].x}" y2="${q[3].y}" stroke="#ea580c" stroke-width="${px(1)}" opacity=".7"/></g>`;
+            });
             L.furn.filter((f) => !under(f)).forEach((f) => { out += furnG(f); });
             L.dims.forEach((d) => {
                 const isSel = live && isSelected('dim', d.id);
@@ -6606,10 +6985,11 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                     out += `<text x="${pos.x}" y="${pos.y}" font-size="${px(10.5)}" fill="${pal.muted}" text-anchor="middle" dominant-baseline="middle" transform="rotate(${ang} ${pos.x} ${pos.y})" pointer-events="none">${esc(fmtL(len0))}</text>`;
                 });
             }
-            L.rooms.forEach((r) => {
-                const c = centroid(r.pts);
+            RM.forEach((r) => {
+                const c = labelAt(r.inner, r.furn);
                 const fs = Math.max(px(12), Math.min(1.2, px(16)));
-                out += `<text x="${c.x}" y="${c.y}" text-anchor="middle" fill="${pal.ink}" pointer-events="none"><tspan x="${c.x}" font-size="${fs}" font-weight="600">${esc(r.name)}</tspan><tspan x="${c.x}" dy="${fs * 1.25}" font-size="${fs * .8}" fill="${pal.muted}">${esc(qs(qArea(polyArea(r.pts))))}</tspan></text>`;
+                const use = r.used > 0 ? `<tspan x="${c.x}" dy="${fs * 1.1}" font-size="${fs * .68}" fill="${pal.brand}">${esc(t('fp.freeShort', { b: qs(qArea(r.free)) }))}</tspan>` : '';
+                out += `<text x="${c.x}" y="${c.y - (r.used > 0 ? fs * .5 : 0)}" text-anchor="middle" fill="${pal.ink}" pointer-events="none" paint-order="stroke" stroke="${pal.bg}" stroke-width="${px(3)}" stroke-linejoin="round"><tspan x="${c.x}" font-size="${fs}" font-weight="600">${esc(r.name)}</tspan><tspan x="${c.x}" dy="${fs * 1.25}" font-size="${fs * .8}" fill="${pal.muted}">${esc(qs(qArea(r.area)))}</tspan>${use}</text>`;
             });
             L.texts.forEach((x) => {
                 const isSel = live && isSelected('text', x.id);
@@ -6754,7 +7134,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 h += AB('grpRot', 'fa-rotate-right', '90°') + AB('grpCopy', 'fa-clone', t('fp.copy')) + AB('props', 'fa-sliders', t('fp.qa.props'));
                 h += AB('grpDel', 'fa-trash-can', t('fp.delete'), 'danger') + AB('desel', 'fa-xmark', '');
             } else if (so) {
-                if (sel.k === 'furn') h += AB('rot', 'fa-rotate-right', '90°');
+                if (sel.k === 'furn' || sel.k === 'col') h += AB('rot', 'fa-rotate-right', '90°');
                 if (sel.k === 'op' && so.type === 'door') h += AB('flip', 'fa-arrows-up-down', t('fp.qa.flip'));
                 h += AB('props', 'fa-sliders', t('fp.qa.props'), 'pri');
                 h += AB('del', 'fa-trash-can', t('fp.delete'), 'danger');
@@ -6830,6 +7210,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 Lv.walls.forEach((w) => { push(w.a, w.t / 24); push(w.b, w.t / 24); });
                 Lv.rooms.forEach((r) => r.pts.forEach((p) => push(p)));
                 Lv.furn.forEach((f) => push(f, Math.max(f.w, f.d) / 2));
+                (Lv.cols || []).forEach((c) => push(c, Math.max(c.w, c.d) / 2));
                 Lv.texts.forEach((x) => push(x, x.size));
                 Lv.dims.forEach((d) => { push(add(d.a, mul(perp(unitv(sub(d.b, d.a))), d.off))); push(add(d.b, mul(perp(unitv(sub(d.b, d.a))), d.off))); });
             });
@@ -6939,6 +7320,22 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 const d = { id: uid(), a: dimPts[0], b: dimPts[1], off: signedOff(raw) || -2 };
                 P.dims.push(d);
                 dimPts = null;
+                commit();
+            } else if (tool === 'lin') {
+                const hit = pick(raw, isTouch() ? 28 : 16);
+                if (hit && hit.k === 'lin') { sel = hit; inspector(); draw(); return; }
+                const w = nearestWall(raw, isTouch() ? 28 : 16);
+                if (!w) { toast(t('fp.needWall')); return; }
+                const L = wallLen(w), at = projT(raw, w.a, w.b) * L;
+                const op = P.openings.find((o) => o.wall === w.id && Math.abs(o.at - at) <= o.w / 2 + .5);
+                const l = addLintel(w, raw, op);
+                sel = { k: 'lin', id: l.id };
+                commit();
+            } else if (tool === 'col') {
+                const p = snapPoint(raw, null), w = nearestWall(p, 20);
+                const c = { id: uid(), x: p.x, y: p.y, rot: w ? ((Math.round(Math.atan2(w.b.y - w.a.y, w.b.x - w.a.x) * 180 / Math.PI) % 180) + 180) % 180 : 0, w: fin(D.opt.colW, 12) / 12, d: fin(D.opt.colD, 12) / 12 };
+                P.cols.push(c);
+                sel = { k: 'col', id: c.id };
                 commit();
             } else if (tool === 'furn') {
                 const p = snapPoint(raw, null);
@@ -7072,8 +7469,8 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 if (hit) {
                     sel = hit;
                     const o = getSel();
-                    if (sel.k === 'furn' || sel.k === 'text') drag = { kind: 'move', off: sub(wp, o), moved: false };
-                    else if (sel.k === 'op') drag = { kind: 'op', moved: false };
+                    if (sel.k === 'furn' || sel.k === 'text' || sel.k === 'col') drag = { kind: 'move', off: sub(wp, o), moved: false };
+                    else if (sel.k === 'op' || sel.k === 'lin') drag = { kind: 'op', moved: false };
                     else drag = null;
                     if (!drag) pan = { x: e.clientX, y: e.clientY, vx: view.x, vy: view.y, keep: true };
                     inspector();
@@ -7213,7 +7610,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         svg.addEventListener('wheel', (e) => { e.preventDefault(); zoomAt(e.clientX, e.clientY, Math.pow(1.0015, -e.deltaY)); }, { passive: false });
 
         /* ---------- keyboard ---------- */
-        const KEYS = { v: 'select', b: 'box', h: 'pan', w: 'wall', r: 'room', d: 'door', n: 'window', t: 'text', m: 'dim', f: 'furn', e: 'erase' };
+        const KEYS = { v: 'select', b: 'box', h: 'pan', w: 'wall', r: 'room', d: 'door', n: 'window', t: 'text', m: 'dim', f: 'furn', c: 'col', l: 'lin', e: 'erase' };
         document.addEventListener('keydown', (e) => {
             if (currentPage !== 'plan' || planLocked) return;
             const tg = e.target;
@@ -7272,7 +7669,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             const p = curPl(), s = p ? p.s : { mode: 'r' };
             const mode = s.mode || 'r';
             const area = p ? polyArea(p.pts) : 0;
-            const foot = D.levels[0].rooms.reduce((a, r) => a + polyArea(r.pts), 0);
+            const foot = roomsOf(D.levels[0]).reduce((a, r) => a + r.cl, 0);
             const seg = (v, k) => `<label><input type="radio" name="fpPlotMode" value="${v}"${mode === v ? ' checked' : ''}><span>${esc(t(k))}</span></label>`;
             const others = D.plots.length > 1 || (D.plots.length && !p)
                 ? `<div class="plot-chips">${D.plots.map((pl) => `<button type="button" class="lvl${p && p.id === pl.id ? ' on' : ''}" data-act="plotSel" data-id="${pl.id}">${esc(plotName(pl))}</button>`).join('')}<button type="button" class="lvl add${!p ? ' on' : ''}" data-act="plotNew"><i class="fa-solid fa-plus"></i> ${esc(t('fp.plotAdd'))}</button></div>` : '';
@@ -7346,15 +7743,35 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         function inspector() {
             const o = getSel();
             let h = '';
+            const RMs = roomsOf(P), rInfo = (r) => {
+                const F = r.furn.map((f) => `<li><span>${esc(t('fp.f.' + f.kind))}</span><b>${esc(fmtL(f.w))} × ${esc(fmtL(f.d))} = ${esc(qs(qArea(f.w * f.d)))}</b></li>`).join('');
+                const pc = r.area ? Math.min(r.used / r.area * 100, 100) : 0;
+                return `<div class="fp-stats">
+                        <div><small>${esc(t('fp.carpet'))}</small><b>${esc(qs(qArea(r.area)))}</b></div>
+                        <div><small>${esc(t('fp.clArea'))}</small><b>${esc(qs(qArea(r.cl)))}</b></div>
+                        <div><small>${esc(t('fp.furnUsed'))}</small><b>${esc(qs(qArea(r.used)))}</b></div>
+                        <div><small>${esc(t('fp.freeSp'))}</small><b>${esc(qs(qArea(r.free)))}</b></div>
+                    </div>
+                    <div class="fp-use"><span style="width:${pc.toFixed(1)}%"></span></div>
+                    <small class="set-help">${esc(t('fp.usePct', { a: num(pc, 0), b: num(100 - pc, 0) }))}</small>
+                    ${F ? `<ul class="fp-flist">${F}</ul>` : `<small class="set-help">${esc(t('fp.noFurn'))}</small>`}`;
+            };
             if (sel && sel.k === 'plot') h = plotPanel();
             else if (sel && sel.k === 'multi') h = multiPanel();
-            else if (!o) {
-                const floor = P.rooms.reduce((s, r) => s + polyArea(r.pts), 0);
+            else if (sel && sel.k === 'aroom') {
+                const r = RMs.find((x) => x.id === sel.id);
+                if (!r) { sel = null; return inspector(); }
+                h = `<h3><i class="fa-regular fa-square"></i>${esc(r.name)}</h3>
+                    ${field(t('fp.roomName'), `<input class="control" id="fp-i-aname" maxlength="40" value="${esc(P.roomNames[r.key] || '')}" placeholder="${esc(r.name)}">`)}
+                    ${rInfo(r)}
+                    <small class="set-help">${esc(t('fp.autoRoomHint'))}</small>`;
+            } else if (!o) {
+                const floor = RMs.reduce((s, r) => s + r.area, 0);
                 const wl = P.walls.reduce((s, w) => s + wallLen(w), 0);
                 const steps = isMetric() ? [[0, 'fp.snapOff'], [0.164042, '5 cm'], [0.328084, '10 cm'], [1.64042, '50 cm']] : [[0, 'fp.snapOff'], [1 / 12, '1"'], [0.25, '3"'], [0.5, '6"'], [1, "1'"]];
                 h = `<h3><i class="fa-solid fa-layer-group"></i>${esc(floorName(D.cur))}</h3>
                     <div class="fp-stats">
-                        <div><small>${esc(t('fp.r.rooms'))}</small><b>${num(P.rooms.length, 0)}</b></div>
+                        <div><small>${esc(t('fp.r.rooms'))}</small><b>${num(RMs.length, 0)}</b></div>
                         <div><small>${esc(t('r.floorArea'))}</small><b>${esc(qs(qArea(floor)))}</b></div>
                         <div><small>${esc(t('fp.r.wallLen'))}</small><b>${esc(fmtL(wl))}</b></div>
                         <div><small>${esc(t('fp.r.doorWin'))}</small><b>${num(P.openings.filter((x) => x.type === 'door').length, 0)} / ${num(P.openings.filter((x) => x.type === 'window').length, 0)}</b></div>
@@ -7365,12 +7782,14 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                         <button type="button" class="btn btn-soft btn-sm" data-act="lvlEmpty"><i class="fa-solid fa-plus"></i> ${esc(t('fp.lvlAddEmpty'))}</button>
                         ${D.levels.length > 1 ? `<button type="button" class="btn btn-danger btn-sm" data-act="lvlDel"><i class="fa-solid fa-trash-can"></i> ${esc(t('fp.lvlDel'))}</button>` : ''}
                     </div>
+                    ${P.openings.length ? `<button type="button" class="btn btn-soft btn-sm" data-act="linAll"><i class="fa-solid fa-grip-lines"></i> ${esc(t('fp.linAll'))}</button>` : ''}
                     <button type="button" class="btn btn-ghost btn-sm" data-act="plotOpen"><i class="fa-solid fa-vector-square"></i> ${esc(t(D.plots.length ? 'fp.plotEdit' : 'fp.plotMake'))}</button>
                     <h3 class="h3-gap"><i class="fa-solid fa-sliders"></i>${esc(t('fp.planSet'))}</h3>
                     ${field(t('fp.newWallT'), `<div class="segmented"><label><input type="radio" name="fpT" value="5"${D.opt.wallT === 5 ? ' checked' : ''}><span>5"</span></label><label><input type="radio" name="fpT" value="10"${D.opt.wallT === 10 ? ' checked' : ''}><span>10"</span></label><label><input type="radio" name="fpT" value="c"${D.opt.wallT !== 5 && D.opt.wallT !== 10 ? ' checked' : ''}><span>${esc(t('tl.custom'))}</span></label></div>`)}
                     ${field(t('fp.wallT'), lenBox('fp-i-wt', 'in'))}
                     ${field(t('fp.wallH'), lenBox('fp-i-wh', 'ft'))}
                     ${field(t('fp.slabT'), lenBox('fp-i-st', 'in'))}
+                    ${field(t('fp.colSizeNew'), `<div class="len-pair">${lenBox('fp-i-cw0', 'in')}<span>×</span>${lenBox('fp-i-cd0', 'in')}</div>`)}
                     ${field(t('fp.snap'), `<select class="control" id="fp-i-snap">${steps.map(([v, l]) => `<option value="${v}"${Math.abs(v - snapStep()) < 1e-6 ? ' selected' : ''}>${esc(l.startsWith('fp.') ? t(l) : digits(l))}</option>`).join('')}</select>`)}
                     <label class="set-row"><span><strong>${esc(t('fp.ortho'))}</strong></span><input type="checkbox" class="switch" id="fp-i-ortho"${D.opt.ortho ? ' checked' : ''}></label>
                     <label class="set-row"><span><strong>${esc(t('fp.showDims'))}</strong></span><input type="checkbox" class="switch" id="fp-i-dims"${D.opt.showDims ? ' checked' : ''}></label>
@@ -7389,11 +7808,13 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                     ${field(t('fp.wallH'), lenBox('fp-i-h', 'ft'))}
                     <button type="button" class="btn btn-soft btn-sm" data-act="addDoor"><i class="fa-solid fa-door-open"></i> ${esc(t('fp.addDoor'))}</button>
                     <button type="button" class="btn btn-soft btn-sm" data-act="addWin"><i class="fa-solid fa-table-columns"></i> ${esc(t('fp.addWin'))}</button>
+                    <button type="button" class="btn btn-soft btn-sm" data-act="addLin"><i class="fa-solid fa-grip-lines"></i> ${esc(t('fp.addLin'))}</button>
                     ${delBtn()}`;
             } else if (sel.k === 'room') {
                 h = `<h3><i class="fa-regular fa-square"></i>${esc(t('fp.room'))}</h3>
                     ${field(t('fp.roomName'), `<input class="control" id="fp-i-name" maxlength="40" value="${esc(o.name)}">`)}
-                    <div class="fp-stats"><div><small>${esc(t('r.area'))}</small><b>${esc(qs(qArea(polyArea(o.pts))))}</b></div><div><small>${esc(t('fp.perim'))}</small><b>${esc(fmtL(o.pts.reduce((s, p, i) => s + dist(p, o.pts[(i + 1) % o.pts.length]), 0)))}</b></div></div>
+                    ${(() => { const r = RMs.find((x) => x.id === o.id); return r ? rInfo(r) : ''; })()}
+                    <div class="fp-stats"><div><small>${esc(t('fp.perim'))}</small><b>${esc(fmtL(o.pts.reduce((s, p, i) => s + dist(p, o.pts[(i + 1) % o.pts.length]), 0)))}</b></div></div>
                     ${delBtn(t('fp.delRoom'))}
                     <small class="set-help">${esc(t('fp.delRoomHint'))}</small>`;
             } else if (sel.k === 'op') {
@@ -7402,6 +7823,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                     ${field(t('cl.width'), lenBox('fp-i-ow', 'ft'))}
                     ${field(t('fp.opH'), lenBox('fp-i-oh', 'ft'))}
                     ${o.type === 'window' ? field(t('fp.sill'), lenBox('fp-i-os', 'ft')) : ''}
+                    <button type="button" class="btn btn-soft btn-sm" data-act="addLin"><i class="fa-solid fa-grip-lines"></i> ${esc(t('fp.addLin'))}</button>
                     ${o.type === 'door' ? `<button type="button" class="btn btn-soft btn-sm" data-act="flipSide"><i class="fa-solid fa-arrows-up-down"></i> ${esc(t('fp.flipSide'))}</button><button type="button" class="btn btn-soft btn-sm" data-act="flipHinge"><i class="fa-solid fa-arrows-left-right"></i> ${esc(t('fp.flipHinge'))}</button>` : ''}
                     ${delBtn()}`;
             } else if (sel.k === 'text') {
@@ -7414,6 +7836,24 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                     <div class="fp-stats"><div><small>${esc(t('grp.length'))}</small><b>${esc(fmtL(dist(o.a, o.b)))}</b></div></div>
                     ${field(t('fp.dimOff'), lenBox('fp-i-do', 'ft'))}
                     <button type="button" class="btn btn-soft btn-sm" data-act="flipDim"><i class="fa-solid fa-arrows-up-down"></i> ${esc(t('fp.flipSide'))}</button>
+                    ${delBtn()}`;
+            } else if (sel.k === 'lin') {
+                const w = byId(P.walls, o.wall);
+                h = `<h3><i class="fa-solid fa-grip-lines"></i>${esc(t('fp.lin'))}</h3>
+                    ${field(t('grp.length'), lenBox('fp-i-lw', 'ft'))}
+                    ${field(t('fp.linD'), lenBox('fp-i-ld', 'in'))}
+                    ${field(t('fp.linH'), lenBox('fp-i-lh', 'ft'))}
+                    <div class="fp-stats"><div><small>${esc(t('fp.linWid'))}</small><b>${esc(LEN.fmtIn(w ? w.t : 5))}</b></div><div><small>${esc(t('fp.colVol'))}</small><b>${esc(qs(qVol(o.w * (w ? w.t : 5) / 12 * o.d / 12)))}</b></div></div>
+                    <small class="set-help">${esc(t('fp.linHint'))}</small>
+                    <button type="button" class="btn btn-soft btn-sm" data-act="linAll"><i class="fa-solid fa-check-double"></i> ${esc(t('fp.linAll'))}</button>
+                    ${delBtn()}`;
+            } else if (sel.k === 'col') {
+                h = `<h3><i class="fa-solid fa-square"></i>${esc(t('fp.col'))}</h3>
+                    ${field(t('cl.width'), lenBox('fp-i-cw', 'in'))}
+                    ${field(t('fp.depth'), lenBox('fp-i-cd', 'in'))}
+                    <div class="fp-stats"><div><small>${esc(t('fp.colH'))}</small><b>${esc(fmtL(levelH(P)))}</b></div><div><small>${esc(t('fp.colVol'))}</small><b>${esc(qs(qVol(o.w * o.d * levelH(P))))}</b></div></div>
+                    <button type="button" class="btn btn-soft btn-sm" data-act="rotR"><i class="fa-solid fa-rotate-right"></i> ${esc(t('fp.rotate'))} 90°</button>
+                    <button type="button" class="btn btn-soft btn-sm" data-act="colAll"><i class="fa-solid fa-check-double"></i> ${esc(t('fp.colAll'))}</button>
                     ${delBtn()}`;
             } else if (sel.k === 'furn') {
                 h = `<h3><i class="fa-solid fa-couch"></i>${esc(t('fp.f.' + o.kind))}</h3>
@@ -7428,7 +7868,10 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             LEN.refresh(insp);
             if (sel && sel.k === 'plot') fillPlotBoxes();
             else if (sel && sel.k === 'multi') { /* nothing to fill */ }
-            else if (!o) { setLen('fp-i-wt', D.opt.wallT); setLen('fp-i-wh', D.opt.wallH); setLen('fp-i-st', D.opt.slabT); }
+            else if (sel && sel.k === 'aroom') { /* nothing to fill */ }
+            else if (!o) { setLen('fp-i-wt', D.opt.wallT); setLen('fp-i-wh', D.opt.wallH); setLen('fp-i-st', D.opt.slabT); setLen('fp-i-cw0', fin(D.opt.colW, 12)); setLen('fp-i-cd0', fin(D.opt.colD, 12)); }
+            else if (sel.k === 'col') { setLen('fp-i-cw', o.w * 12); setLen('fp-i-cd', o.d * 12); }
+            else if (sel.k === 'lin') { setLen('fp-i-lw', o.w); setLen('fp-i-ld', o.d); setLen('fp-i-lh', o.h); }
             else if (sel.k === 'wall') { setLen('fp-i-len', wallLen(o)); setLen('fp-i-t', o.t); setLen('fp-i-h', o.h); }
             else if (sel.k === 'op') { setLen('fp-i-ow', o.w); setLen('fp-i-oh', o.h); setLen('fp-i-os', o.sill); }
             else if (sel.k === 'text') setLen('fp-i-ts', o.size);
@@ -7448,7 +7891,16 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 else if (id === 'fp-i-plname' && curPl()) { curPl().name = tg.value.trim().slice(0, 40); commit(); renderFloors(); }
                 return;
             }
+            if (sel && sel.k === 'aroom') {
+                if (id === 'fp-i-aname') {
+                    const r = roomsOf(P).find((x) => x.id === sel.id);
+                    if (r) { const v0 = tg.value.trim().slice(0, 40); if (v0) P.roomNames[r.key] = v0; else delete P.roomNames[r.key]; commit(); }
+                }
+                return;
+            }
             if (!o) {
+                if (id === 'fp-i-cw0' && ok(v)) { D.opt.colW = +v.toFixed(3); commit(); return; }
+                if (id === 'fp-i-cd0' && ok(v)) { D.opt.colD = +v.toFixed(3); commit(); return; }
                 if (tg.name === 'fpT' && tg.value !== 'c') D.opt.wallT = Number(tg.value);
                 else if (id === 'fp-i-wt' && ok(v)) D.opt.wallT = +v.toFixed(3);
                 else if (id === 'fp-i-wh' && ok(v)) D.opt.wallH = +v.toFixed(3);
@@ -7483,6 +7935,16 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 else return;
             } else if (sel.k === 'dim') {
                 if (id === 'fp-i-do' && ok(v)) o.off = Math.sign(o.off || -1) * v; else return;
+            } else if (sel.k === 'lin') {
+                if (id === 'fp-i-lw' && ok(v)) o.w = v;
+                else if (id === 'fp-i-ld' && ok(v)) { o.d = v; D.opt.linD = +v.toFixed(3); }
+                else if (id === 'fp-i-lh' && ok(v)) o.h = v;
+                else return;
+                clampOpenings();
+            } else if (sel.k === 'col') {
+                if (id === 'fp-i-cw' && ok(v)) o.w = v / 12;
+                else if (id === 'fp-i-cd' && ok(v)) o.d = v / 12;
+                else return;
             } else if (sel.k === 'furn') {
                 if (id === 'fp-i-fw' && ok(v)) o.w = v;
                 else if (id === 'fp-i-fd' && ok(v)) o.d = v;
@@ -7516,14 +7978,20 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             if (act === 'grpNone') { sel = null; inspector(); draw(); renderFloors(); return; }
             if (act === 'nudge') { nudge(Number(b.dataset.dx) * nudgeStep(), Number(b.dataset.dy) * nudgeStep()); return; }
             if (act === 'selAll') { selectAll(); return; }
+            if (act === 'linAll') { const n = lintelsForAll(); toast(n ? t('fp.linAllDone', { n: digits(n) }) : t('fp.linAllNone')); commit(); return; }
             if (act === 'plotDraw') { sel = null; setTool('plotdraw'); inspector(); insp.classList.remove('open'); toast(t('fp.h.plotdraw')); return; }
             if (!o) return;
             if (act === 'del') remove(sel.k, sel.id);
+            else if (act === 'addLin') {
+                if (sel.k === 'op') { const ex = P.lins.find((l) => l.wall === o.wall && Math.abs(l.at - o.at) < o.w / 2 + .1); sel = { k: 'lin', id: (ex || addLintel(byId(P.walls, o.wall), null, o)).id }; }
+                else if (sel.k === 'wall') { const l = addLintel(o, lerp(o.a, o.b, .5), null); sel = { k: 'lin', id: l.id }; }
+            }
             else if (act === 'addDoor' || act === 'addWin') { const n = addOpening(act === 'addDoor' ? 'door' : 'window', o, lerp(o.a, o.b, .5)); sel = { k: 'op', id: n.id }; }
             else if (act === 'flipSide') { if (sel.k === 'dim') o.off = -o.off; else o.flip ^= 1; }
             else if (act === 'flipHinge') o.flip ^= 2;
             else if (act === 'flipDim') o.off = -o.off;
             else if (act === 'rotL' || act === 'rotR') o.rot = ((o.rot + (act === 'rotR' ? 90 : -90)) % 360 + 360) % 360;
+            else if (act === 'colAll' && sel.k === 'col') { P.cols.forEach((c) => { c.w = o.w; c.d = o.d; }); D.opt.colW = +(o.w * 12).toFixed(3); D.opt.colD = +(o.d * 12).toFixed(3); toast(t('fp.colAllDone', { n: digits(P.cols.length) })); }
             commit();
         });
 
@@ -7677,20 +8145,21 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         }
 
         /* ---------- PNG export of one floor (also used in the PDF) ---------- */
-        function toPng(maxW = 1800, li = D.cur) {
+        function toPng(maxW = 1800, li = D.cur, dispW = 0) {
             const L = D.levels[li] || P;
             const b = bounds(false, L), pad = 3;
             const bw = b.x1 - b.x0 + pad * 2, bh = b.y1 - b.y0 + pad * 2;
-            const s = Math.min(maxW / bw, 1400 / bh, 60);
+            const s = Math.min(maxW / bw, maxW * .8 / bh, 90);
             const W = Math.round(bw * s), H = Math.round(bh * s);
             const pal = palette(true);
             const savedSel = sel; sel = null;
-            const body = plotMarkup(pal, s / 1.7, false) + (li > 0 ? ghostMarkup(D.levels[li - 1], pal) : '') + worldMarkup(pal, s / 1.7, false, L);
+            const sk = dispW ? s * dispW / W : s / 1.7;              // labels sized for the width the picture is shown at
+            const body = plotMarkup(pal, sk, false) + (li > 0 ? ghostMarkup(D.levels[li - 1], pal) : '') + worldMarkup(pal, sk, false, L);
             sel = savedSel;
             const head = [D.title, D.levels.length > 1 ? floorName(li) : ''].filter(Boolean).join(' — ');
-            const TH = head ? 56 : 0;
+            const TH = head ? (dispW ? Math.round(W / dispW * 26) : 56) : 0;
             const H2 = H + TH;
-            const markup = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H2}" viewBox="0 0 ${W} ${H2}" font-family="Noto Sans Bengali, Nirmala UI, Vrinda, Poppins, Arial, sans-serif"><rect width="${W}" height="${H2}" fill="#ffffff"/>${head ? `<text x="24" y="38" font-size="26" font-weight="700" fill="#1e293b">${esc(head)}</text>` : ''}<g transform="translate(${(pad - b.x0) * s} ${(pad - b.y0) * s + TH}) scale(${s})">${body}</g></svg>`;
+            const markup = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H2}" viewBox="0 0 ${W} ${H2}" font-family="Noto Sans Bengali, Nirmala UI, Vrinda, Poppins, Arial, sans-serif"><rect width="${W}" height="${H2}" fill="#ffffff"/>${head ? `<text x="24" y="${dispW ? 54 : 38}" font-size="${dispW ? Math.round(W / dispW * 13) : 26}" font-weight="700" fill="#1e293b">${esc(head)}</text>` : ''}<g transform="translate(${(pad - b.x0) * s} ${(pad - b.y0) * s + TH}) scale(${s})">${body}</g></svg>`;
             return new Promise((res, rej) => {
                 const img = new Image();
                 img.onload = () => {
@@ -7706,11 +8175,11 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             });
         }
         // every floor that has something on it (for the report)
-        async function toPngAll(maxW = 1600) {
+        async function toPngAll(maxW = 1600, dispW = 0) {
             const out = [];
             for (let i = 0; i < D.levels.length; i++) {
                 if (!hasContent(D.levels[i]) && !(i === 0 && D.plots.length)) continue;
-                out.push({ name: floorName(i), url: await toPng(maxW, i) });
+                out.push({ name: floorName(i), url: await toPng(maxW, i, dispW) });
             }
             return out;
         }
@@ -7766,12 +8235,32 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 const k = K();
                 const levels = D.levels.filter(hasContent);
                 if (!levels.length && !D.plots.length) return [row(t('fp.empty'), '')];
-                const roomsOf = (L) => L.rooms.reduce((s, r) => s + polyArea(r.pts), 0);
-                const floor = D.levels.reduce((s, L) => s + roomsOf(L), 0);
+                const areaOf = (L) => roomsOf(L).reduce((s, r) => s + r.area, 0), footOf = (L) => roomsOf(L).reduce((s, r) => s + r.cl, 0);
+                const floor = D.levels.reduce((s, L) => s + areaOf(L), 0);
                 const groups = {};
-                let wl = 0, netTotal = 0, doors = 0, wins = 0, rooms = 0, walls = 0;
+                let wl = 0, netTotal = 0, doors = 0, wins = 0, rooms = 0, walls = 0, cols = 0, colVol = 0, lins = 0, linLen = 0, linVol = 0;
+                const kgFt = (mm) => mm * mm / k.steelDiv;
+                // rod, part by part: { main: ft, ring: ft, rings: pcs } — and every size added up
+                const RB = { col: { main: 0, ring: 0, rings: 0 }, lin: { main: 0, ring: 0, rings: 0 } }, bySize = {};
+                const addSize = (mm, ft) => { if (ft > 0) bySize[mm] = (bySize[mm] || 0) + ft; };
+                const cB = v.colBars || 4, cD = v.colDia || 12, cR = v.colRing || 8, cS = Math.max(v.colSp || 6, 1);
+                const lB = v.linBars || 4, lD = v.linDia || 10, lR = v.linRing || 8, lS = Math.max(v.linSp || 6, 1);
                 D.levels.forEach((L) => {
-                    rooms += L.rooms.length;
+                    rooms += roomsOf(L).length;
+                    (L.cols || []).forEach((c) => {
+                        const H = levelH(L);
+                        cols += 1; colVol += c.w * c.d * H;
+                        // main bars run the floor height + 2 ft lap; rings with 1.5" cover all round + 6" hooks
+                        const nR = Math.floor(H * 12 / cS) + 1, ring = (2 * (Math.max(c.w * 12 - 3, 1) + Math.max(c.d * 12 - 3, 1)) + 6) / 12;
+                        RB.col.main += cB * (H + 2); RB.col.ring += nR * ring; RB.col.rings += nR;
+                    });
+                    (L.lins || []).forEach((l) => {
+                        const w = byId(L.walls, l.wall), tIn = w ? w.t : 5;
+                        lins += 1; linLen += l.w; linVol += l.w * tIn / 12 * l.d / 12;
+                        // main bars (+1 ft hooks) and rings (cover 0.75" all round, + 4" hooks)
+                        const nR = Math.floor(l.w * 12 / lS) + 1, ring = (2 * (Math.max(tIn - 1.5, 1) + Math.max(l.d - 1.5, 1)) + 4) / 12;
+                        RB.lin.main += lB * (l.w + 1); RB.lin.ring += nR * ring; RB.lin.rings += nR;
+                    });
                     walls += L.walls.length;
                     L.openings.forEach((o) => { if (o.type === 'door') doors += 1; else wins += 1; });
                     L.walls.forEach((w) => {
@@ -7785,7 +8274,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 });
                 const items = [heading(t('fp.r.summary'))];
                 if (D.plots.length) {
-                    const pa = D.plots.reduce((a, pl) => a + polyArea(pl.pts), 0), foot = roomsOf(D.levels[0]);
+                    const pa = D.plots.reduce((a, pl) => a + polyArea(pl.pts), 0), foot = footOf(D.levels[0]);
                     if (D.plots.length > 1) D.plots.forEach((pl) => items.push(rq(`${plotName(pl)}`, qArea(polyArea(pl.pts))), row(`· ${t('fp.plotSides')}`, sidesText(pl))));
                     items.push(rq(D.plots.length > 1 ? t('fp.plotTotal', { n: num(D.plots.length, 0) }) : t('fp.plotArea'), qArea(pa), true), row(t('fp.land'), landText(pa)));
                     if (D.plots.length === 1) items.push(row(t('fp.plotSides'), sidesText(D.plots[0])));
@@ -7793,14 +8282,25 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                 }
                 if (D.levels.length > 1) items.push(row(t('fp.r.floors'), num(D.levels.length, 0), t('u.pcs')));
                 items.push(
-                    row(t('fp.r.rooms'), num(rooms, 0), t('u.pcs')),
+                    row(t('fp.r.rooms'), num(rooms, 0), t('fp.k.ti')),
                     rq(D.levels.length > 1 ? t('fp.r.totalFloor') : t('r.floorArea'), qArea(floor)),
                     rq(t('fp.r.wallLen'), qRun(wl)),
                     row(t('fp.r.doors'), num(doors, 0), t('u.pcs')),
                     row(t('fp.r.windows'), num(wins, 0), t('u.pcs')),
                 );
-                if (D.levels.length > 1) D.levels.forEach((L, i) => { if (hasContent(L)) items.push(rq(`· ${floorName(i)}`, qArea(roomsOf(L)))); });
-                let bricks = 0, bags = 0, sand = 0, khoa = 0, tileCost = 0;
+                if (cols) items.push(row(t('fp.r.cols'), num(cols, 0), t('fp.k.ti')), rq(t('fp.r.colVol'), qVol(colVol)));
+                if (lins) items.push(row(t('fp.r.lins'), num(lins, 0), t('fp.k.ti')), rq(t('fp.r.linLen'), qRun(linLen)));
+                if (D.levels.length > 1) D.levels.forEach((L, i) => { if (hasContent(L)) items.push(rq(`· ${floorName(i)}`, qArea(areaOf(L)))); });
+                // every room: carpet area, furniture and what is left free
+                D.levels.forEach((L, i) => {
+                    const RM = roomsOf(L); if (!RM.length) return;
+                    items.push(heading(D.levels.length > 1 ? `${t('fp.r.byRoom')} — ${floorName(i)}` : t('fp.r.byRoom')));
+                    RM.forEach((r) => {
+                        items.push(rq(r.name, qArea(r.area), true));
+                        if (r.used > 0) items.push(row(`· ${t('fp.furnUsed')}`, `${qs(qArea(r.used))} (${num(r.area ? r.used / r.area * 100 : 0, 0)}%)`), row(`· ${t('fp.freeSp')}`, qs(qArea(r.free))));
+                    });
+                });
+                let bricks = 0, bags = 0, sand = 0, khoa = 0, tileCost = 0, tilesN = 0, tilesSft = 0;
                 const mix = (dry, parts, idx) => dry / parts.reduce((a, b) => a + b, 0) * parts[idx];
                 if (walls) {
                     let vol = 0;
@@ -7828,20 +8328,79 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                     bags += c * k.cementBag; sand += s;
                     items.push(heading(t('fp.g.plaster')), rq(t('r.workArea'), qArea(area)), row(t('r.cementBags'), num(c * k.cementBag), t('u.bags'), true), rq(t('mat.sand'), qVol(s), true));
                 }
-                // one roof slab over every floor
-                if (v.slab !== '0' && floor > 0 && v.sThk > 0) {
-                    const vol = floor * v.sThk / 12, dry = vol * k.dry, rt = [v.sRatio1, v.sRatio2, v.sRatio3];
+                // one roof slab over every floor (it covers the walls too → outline to the wall centre)
+                const roofA = D.levels.reduce((s0, L) => s0 + footOf(L), 0);
+                if (v.slab !== '0' && roofA > 0 && v.sThk > 0) {
+                    const vol = roofA * v.sThk / 12, dry = vol * k.dry, rt = [v.sRatio1, v.sRatio2, v.sRatio3];
                     const c = mix(dry, rt, 0), s = mix(dry, rt, 1), kh = mix(dry, rt, 2);
                     bags += c * k.cementBag; sand += s; khoa += kh;
-                    items.push(heading(D.levels.length > 1 ? t('fp.g.slabs', { n: num(levels.length, 0) }) : t('fp.g.slab')), rq(t('r.totalVolume'), qVol(vol)), row(t('r.cementBags'), num(c * k.cementBag), t('u.bags'), true), rq(t('mat.sand'), qVol(s), true), rq(t('mat.khoa'), qVol(kh), true));
+                    items.push(heading(D.levels.length > 1 ? t('fp.g.slabs', { n: num(levels.length, 0) }) : t('fp.g.slab')), rq(t('fp.r.roofArea'), qArea(roofA)), rq(t('r.totalVolume'), qVol(vol)), row(t('r.cementBags'), num(c * k.cementBag), t('u.bags'), true), rq(t('mat.sand'), qVol(s), true), rq(t('mat.khoa'), qVol(kh), true));
+                }
+                // roof rod: bars both ways at their spacing, plus top / crank / lap extra
+                const d1 = v.rMain || 10, s1 = Math.max(v.rMainSp || 6, 1), d2 = v.rDist || 10, s2 = Math.max(v.rDistSp || 8, 1), ex = (v.rExtra ?? 20) / 100;
+                const roofRod = v.slab !== '0' && roofA > 0 ? { L1: roofA * 12 / s1 * (1 + ex), L2: roofA * 12 / s2 * (1 + ex) } : null;
+                // columns + lintels: concrete with the roof mix, and the lintel rod
+                if (colVol + linVol > 0) {
+                    const vol = colVol + linVol, dry = vol * k.dry, rt = [v.sRatio1, v.sRatio2, v.sRatio3];
+                    const c = mix(dry, rt, 0), s = mix(dry, rt, 1), kh = mix(dry, rt, 2);
+                    bags += c * k.cementBag; sand += s; khoa += kh;
+                    items.push(heading(t('fp.g.colLin')));
+                    if (colVol) items.push(rq(t('fp.r.colVol'), qVol(colVol)));
+                    if (linVol) items.push(rq(t('fp.r.linVol'), qVol(linVol)));
+                    items.push(row(t('r.cementBags'), num(c * k.cementBag), t('u.bags'), true), rq(t('mat.sand'), qVol(s), true), rq(t('mat.khoa'), qVol(kh), true));
+                }
+                // ---- all the rod in one box: roof, columns, lintels, then size by size
+                const BAR = 40;                                            // rod is sold in 40 ft lengths
+                const parts = [];
+                if (roofRod) {
+                    const a = roofRod.L1 * kgFt(d1), b = roofRod.L2 * kgFt(d2);
+                    addSize(d1, roofRod.L1); addSize(d2, roofRod.L2);
+                    parts.push({ key: 'fp.rb.roof', kg: a + b, rows: [
+                        row(`· ${t('fp.r.rodMain', { d: numPlain(d1), s: numPlain(s1) })}`, `${qs(qRun(roofRod.L1))} · ${num(a)} ${t('u.kg')}`),
+                        row(`· ${t('fp.r.rodDist', { d: numPlain(d2), s: numPlain(s2) })}`, `${qs(qRun(roofRod.L2))} · ${num(b)} ${t('u.kg')}`),
+                        row(`· ${t('fp.r.rodExtra')}`, `${numPlain(ex * 100)}% · ${num((a + b) / roofA, 2)} ${t('u.kg')}/${t('u.sqft')}`)] });
+                }
+                [['col', cols, cB, cD, cR, cS], ['lin', lins, lB, lD, lR, lS]].forEach(([key, n0, nb, dm, dr, sp]) => {
+                    const r = RB[key]; if (!n0) return;
+                    const a = r.main * kgFt(dm), b = r.ring * kgFt(dr);
+                    addSize(dm, r.main); addSize(dr, r.ring);
+                    parts.push({ key: 'fp.rb.' + key, kg: a + b, rows: [
+                        row(`· ${t('fp.r.rbMain', { n: numPlain(nb), d: numPlain(dm), c: num(n0, 0) })}`, `${qs(qRun(r.main))} · ${num(a)} ${t('u.kg')}`),
+                        row(`· ${t('fp.r.rbRing', { d: numPlain(dr), s: numPlain(sp) })}`, `${num(r.rings, 0)} ${t('fp.k.ti')} · ${num(b)} ${t('u.kg')}`)] });
+                });
+                let rodKg = 0;
+                const rodSizes = [];
+                if (parts.length) {
+                    items.push(heading(t('fp.g.rodAll')));
+                    parts.forEach((pt) => { rodKg += pt.kg; items.push(row(t(pt.key), num(pt.kg), t('u.kg'), true), ...pt.rows); });
+                    items.push(row(t('fp.g.rodSize'), ''));
+                    Object.keys(bySize).map(Number).sort((a, b) => b - a).forEach((mm) => {
+                        const ft = bySize[mm], kg = ft * kgFt(mm), pcs = Math.ceil(ft / BAR - 1e-9);
+                        rodSizes.push({ mm, kg, pcs });
+                        items.push(row(t('fp.r.size', { d: numPlain(mm) }), `${num(kg)} ${t('u.kg')} = ${num(pcs, 0)} ${t('fp.k.pcs40')}`, '', true));
+                    });
+                    items.push(total(t('fp.r.rodAll'), num(rodKg), t('u.kg')));
                 }
                 if (v.fTile && v.fTile !== '0' && floor > 0) {
                     const [a, b] = v.fTile.split('x').map(Number), one = a * b / 144;
                     const n = Math.ceil(floor / one - 1e-9), nw = Math.ceil(n * (1 + (v.fWaste || 0) / 100) - 1e-9);
-                    tileCost = nw * one * (v.tilePrice || 0);
+                    tileCost = nw * one * (v.tilePrice || 0); tilesN = nw; tilesSft = nw * one;
                     items.push(heading(t('fp.g.tiles')), row(t('r.tileSize'), `${numPlain(a)} × ${numPlain(b)} ${t('u.inch')}`), row(t('r.tilesTotal'), num(nw, 0), t('u.pcs'), true), rq(t('r.buySft'), qArea(nw * one)));
                 }
-                items.push(...costItems([['r.brickCost', bricks, v.brickPrice], ['r.cementCost', bags, v.cementPrice], ['r.sandCost', sand, v.sandPrice], ['r.khoaCost', khoa, v.khoaPrice], ['r.tileCost', 1, tileCost]]));
+                items.push(...costItems([['r.brickCost', bricks, v.brickPrice], ['r.cementCost', bags, v.cementPrice], ['r.sandCost', sand, v.sandPrice], ['r.khoaCost', khoa, v.khoaPrice], ['r.rodCost', rodKg, v.rodPrice], ['r.tileCost', 1, tileCost]]));
+                // headline numbers for the printed sheet: the whole house in one place
+                const G = t('fp.k.all'), kp = [];
+                if (D.plots.length) { const pa = D.plots.reduce((a, pl) => a + polyArea(pl.pts), 0); kp.push({ grp: t('fp.land'), label: t('fp.plotArea'), value: qArea(pa)[0], unit: `${qArea(pa)[1]} · ${num(pa / KATHA)} ${t('u.katha')}` }); }
+                if (floor) kp.push({ grp: G, label: t('r.floorArea'), value: qArea(floor)[0], unit: qArea(floor)[1] });
+                if (rooms) kp.push({ grp: G, label: t('fp.r.rooms'), value: num(rooms, 0), unit: t('fp.k.ti') });
+                if (bricks) kp.push({ grp: G, label: t('fp.k.bricks'), value: num(bricks, 0), unit: t('u.pcs') });
+                if (bags) kp.push({ grp: G, label: t('fp.k.cement'), value: num(bags), unit: t('u.bags') });
+                if (sand) kp.push({ grp: G, label: t('fp.k.sand'), value: qVol(sand)[0], unit: qVol(sand)[1] });
+                if (khoa) kp.push({ grp: G, label: t('fp.k.khoa'), value: qVol(khoa)[0], unit: qVol(khoa)[1] });
+                if (tilesN) kp.push({ grp: G, label: t('fp.k.tiles'), value: num(tilesN, 0), unit: `${t('u.pcs')} · ${qs(qArea(tilesSft))}` });
+                if (rodKg) kp.push({ grp: G, label: t('fp.k.rod'), value: num(rodKg), unit: t('u.kg'), wide: true,
+                    note: [parts.map((pt) => `${t(pt.key)} ${num(pt.kg)}`).join(' + '), rodSizes.map((r) => `${t('fp.r.size', { d: numPlain(r.mm) })}: ${num(r.pcs, 0)} ${t('fp.k.pcs40')}`).join(' · ')] });
+                CALC.plan._kpis = kp;
                 return items;
             },
         };
@@ -7860,7 +8419,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         return {
             data: () => D,
             title: () => String(D.title || '').trim(),
-            polyArea, centroid, LIB, elevOf, levelH, slabFt, floorName,
+            polyArea, centroid, LIB, elevOf, levelH, slabFt, floorName, roomsOf,
             toPng, toPngAll,
             relabel() { fillKinds(); renderFloors(); syncAllBtn(); inspector(); actKey = ''; draw(); if (currentPage === 'plan') refreshEstimate(); },
             show() { view.fitted = view.fitted && wrap.clientWidth > 0; draw(); inspector(); startScreen(); syncAllBtn(); setTimeout(refreshEstimate, 0); },
@@ -8389,28 +8948,54 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             return `${brand}_${ascii(I18N.en['page.' + st.id]) || st.id}${extra ? '_' + extra.slice(0, 40) : ''}_${day}.pdf`;
         };
 
+        // a clean, boxed sheet: big result cards first, then every group in its own box
         function reportHtml(img) {
             const id = st.id, v = lastValues[id];
             const form = $(`form[data-calc="${id}"]`);
-            const inputs = inputsList(form, v).map(([l, val]) => `<tr><td>${escapeHtml(l)}</td><td>${escapeHtml(val)}</td></tr>`).join('');
-            const res = CALC[id].run(v).map((it) => {
-                if (it.type === 'title') return `<tr class="sub"><td colspan="2">${escapeHtml(it.text)}</td></tr>`;
-                const unit = it.unit ? `<small>${escapeHtml(it.unit)}</small>` : '';
-                return `<tr class="${it.key || it.type === 'total' ? 'key' : ''}"><td>${escapeHtml(it.label)}</td><td>${escapeHtml(it.value)}${unit}</td></tr>`;
+            const E = escapeHtml;
+            const list = CALC[id].run(v);
+            // split the result list into groups (one box each)
+            const groups = []; let g = null;
+            list.forEach((it) => {
+                if (it.type === 'title') { g = { title: it.text, rows: [] }; groups.push(g); return; }
+                if (!g) { g = { title: t('rp.results'), rows: [] }; groups.push(g); }
+                g.rows.push(it);
+            });
+            const isCost = (gr) => gr.rows.some((r) => r.type === 'total' && r.unit === t('u.taka'));
+            // the headline numbers: every marked row (with the group it belongs to) + the total cost
+            const kpis = [];
+            if (CALC[id]._kpis && id === 'plan') kpis.push(...CALC[id]._kpis);
+            else groups.forEach((gr) => { if (isCost(gr)) return; gr.rows.forEach((r) => { if (r.key && r.value) kpis.push({ grp: gr.title, label: String(r.label).replace(/[:ঃ]\s*$/, ''), value: r.value, unit: r.unit || '' }); }); });
+            const costTotal = groups.filter(isCost).map((gr) => gr.rows.find((r) => r.type === 'total' && r.unit === t('u.taka'))).filter(Boolean)[0];
+            const kpiHtml = kpis.length || costTotal ? `<div class="rp-kpis">${kpis.slice(0, 12).map((k) => `<div class="rp-kpi${k.wide ? ' wide' : ''}"><small>${E(k.grp)}</small><span>${E(k.label)}</span><b>${E(k.value)}<i>${E(k.unit)}</i></b>${(k.note || []).filter(Boolean).map((x) => `<p>${E(x)}</p>`).join('')}</div>`).join('')}${costTotal ? `<div class="rp-kpi cost"><small>${E(t('grp.priceCalc'))}</small><span>${E(costTotal.label)}</span><b>${E(costTotal.value)}<i>${E(costTotal.unit)}</i></b></div>` : ''}</div>` : '';
+            const inputs = inputsList(form, v);
+            const inHtml = inputs.length ? `<section class="rp-sec"><div class="rp-sec-h"><span class="no">✎</span>${E(t('rp.inputs'))}</div><div class="rp-ins">${inputs.map(([l, val]) => `<div class="rp-in"><small>${E(l)}</small><b>${E(val)}</b></div>`).join('')}</div></section>` : '';
+            let n = 0;
+            const grHtml = groups.map((gr) => {
+                n += 1;
+                const cost = isCost(gr);
+                const rows = gr.rows.map((r) => {
+                    const cls = r.type === 'total' ? (r.unit === t('u.taka') ? 'tot' : 'tot sum') : r.key ? 'key' : '';
+                    return `<div class="rp-row ${cls}"><span>${cls === 'key' ? '<em>●</em>' : ''}${E(r.label)}</span><b>${E(r.value)}${r.unit ? `<i>${E(r.unit)}</i>` : ''}</b></div>`;
+                }).join('');
+                return `<section class="rp-sec${cost ? ' cost' : ''}"><div class="rp-sec-h"><span class="no">${cost ? '৳' : digits(n)}</span>${E(gr.title)}</div><div class="rp-rows">${rows}</div></section>`;
             }).join('');
+            const plans = id === 'plan' ? st.planImgs.map((p) => `<section class="rp-sec rp-img"><div class="rp-sec-h"><span class="no">⌂</span>${E(t('rp.plan2d'))}${st.planImgs.length > 1 ? ' — ' + E(p.name) : ''}</div><div class="rp-pic"><img src="${p.url}" alt=""></div></section>`).join('') : '';
+            const title = `${t('page.' + id)}${id === 'plan' && PLAN.title() ? ' — ' + PLAN.title() : ''}`;
             return `
                 <div class="rp" lang="${S.lang}">
-                    <div class="rp-head">
-                        <div><div class="rp-brand">${escapeHtml(t('brand.name'))}</div><div class="rp-title">${escapeHtml(t('page.' + id))}${id === 'plan' && PLAN.title() ? ' — ' + escapeHtml(PLAN.title()) : ''}</div></div>
-                        <div class="rp-date">${escapeHtml(stamp())}</div>
-                    </div>
-                    ${id === 'plan' ? st.planImgs.map((p) => `<div class="rp-3d"><h3>${escapeHtml(t('rp.plan2d'))}${st.planImgs.length > 1 ? ' — ' + escapeHtml(p.name) : ''}</h3><img src="${p.url}" alt=""></div>`).join('') : ''}
-                    <h3>${escapeHtml(t('rp.inputs'))}</h3>
-                    <table class="rp-table rp-inputs">${inputs}</table>
-                    <h3>${escapeHtml(t('rp.results'))}</h3>
-                    <table class="rp-table">${res}</table>
-                    ${img ? `<div class="rp-3d"><h3>${escapeHtml(t('rp.3d'))}</h3><img src="${img}" alt=""></div>` : ''}
-                    <div class="rp-foot">${escapeHtml(t('rp.made', { site: t('brand.name') }))}</div>
+                    <header class="rp-head">
+                        <div class="rp-mark">CS</div>
+                        <div class="rp-hd"><div class="rp-brand">${E(t('brand.name'))}</div><div class="rp-title">${E(title)}</div></div>
+                        <div class="rp-date"><small>${E(t('rp.date'))}</small><b>${E(stamp())}</b></div>
+                    </header>
+                    ${kpiHtml ? `<div class="rp-cap">${E(t('rp.key'))}</div>${kpiHtml}` : ''}
+                    ${plans}
+                    ${inHtml}
+                    ${grHtml}
+                    ${img ? `<section class="rp-sec rp-img"><div class="rp-sec-h"><span class="no">◆</span>${E(t('rp.3d'))}</div><div class="rp-pic"><img src="${img}" alt=""></div></section>` : ''}
+                    <div class="rp-legend"><span><em class="k">●</em>${E(t('rp.legKey'))}</span><span><em class="c"></em>${E(t('rp.legCost'))}</span></div>
+                    <div class="rp-foot">${E(t('rp.made', { site: t('brand.name') }))} · ${E(t('rp.note'))}</div>
                 </div>`;
         }
         const imagesReady = (root) => Promise.all($$('img', root).map((im) => (im.decode ? im.decode().catch(() => {}) : Promise.resolve())));
@@ -8427,7 +9012,13 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                     await imagesReady(root);
                     if (document.fonts && document.fonts.ready) await document.fonts.ready;
                     avoidPageCuts(root.firstElementChild);
-                    const canvas = await window.html2canvas(root.firstElementChild, { scale: 2, backgroundColor: '#ffffff', logging: false });
+                    const el = root.firstElementChild, hCss = el.offsetHeight;
+                    const scale = Math.max(2, Math.min(4, 32000 / hCss, Math.sqrt(240e6 / (794 * hCss))));
+                    // the site's "img { display: block }" throws off html2canvas's text baseline → put text back on its line
+                    const canvas = await window.html2canvas(el, {
+                        scale, backgroundColor: '#ffffff', logging: false, useCORS: true,
+                        onclone: (doc) => { const fx = doc.createElement('style'); fx.textContent = 'img { display: inline !important; } .rp-pic img { display: block !important; }'; doc.head.appendChild(fx); },
+                    });
                     const { jsPDF } = window.jspdf;
                     const pdf = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
                     const pw = 210, ph = 297;
@@ -8441,7 +9032,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
                         ctx.fillRect(0, 0, c.width, c.height);
                         ctx.drawImage(canvas, 0, -y);
                         if (page) pdf.addPage();
-                        pdf.addImage(c.toDataURL('image/jpeg', .92), 'JPEG', 0, 0, pw, c.height * pw / canvas.width);
+                        pdf.addImage(c.toDataURL('image/png'), 'PNG', 0, 0, pw, c.height * pw / canvas.width, undefined, 'FAST');
                     }
                     return pdf.output('blob');
                 } finally {
@@ -8456,17 +9047,26 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         function avoidPageCuts(rp) {
             const pageH = rp.offsetWidth * 297 / 210;
             const top = (el) => { let y = 0; for (let n = el; n && n !== rp; n = n.offsetParent) y += n.offsetTop; return y; };
-            $$('.rp-table tr, .rp-3d, .rp h3, .rp-foot', rp).forEach((el) => {
-                const y = top(el), h = el.offsetHeight;
+            $$('.rp-kpi, .rp-in, .rp-row, .rp-img, .rp-sec-h, .rp-legend, .rp-foot', rp).forEach((el) => {
+                // a picture that almost fits: shrink it into the space left on this page instead of leaving a gap
+                if (el.classList.contains('rp-img')) {
+                    const y0 = top(el), end0 = (Math.floor(y0 / pageH) + 1) * pageH, im = $('img', el);
+                    const room = Math.floor(end0 - y0 - 40 - (el.offsetHeight - (im ? im.offsetHeight : 0)));
+                    if (im && y0 + el.offsetHeight > end0 - 24 && room >= 280) im.style.maxHeight = room + 'px';
+                }
+                if (el.classList.contains('rp-sec-h') && el.parentNode.classList.contains('rp-img')) return;   // the picture box is handled as a whole
+                const y = top(el), h = el.offsetHeight + (el.classList.contains('rp-sec-h') ? 90 : 0);
                 const page = Math.floor(y / pageH), end = (page + 1) * pageH;
                 if (h < pageH && y + h > end - 24) {
                     const gap = end - y + 32;                      // land a little below the next page's top
-                    if (el.tagName === 'TR') {
-                        const sp = document.createElement('tr');
-                        sp.innerHTML = `<td colspan="2" style="height:${gap}px;padding:0;border:0"></td>`;
-                        el.parentNode.insertBefore(sp, el);
+                    // in a grid, push the whole line of cards; elsewhere just this block
+                    // in a grid, push the whole line of cards; a box title takes its whole box along
+                    if (el.classList.contains('rp-kpi') || el.classList.contains('rp-in')) {
+                        const br = el.parentNode.insertBefore(Object.assign(document.createElement('div'), { className: 'rp-brk' }), el);
+                        br.style.height = gap + 'px';
                     } else {
-                        el.style.marginTop = (parseFloat(getComputedStyle(el).marginTop) + gap) + 'px';
+                        const box = el.classList.contains('rp-sec-h') ? el.parentNode : el;
+                        box.style.marginTop = (parseFloat(getComputedStyle(box).marginTop) + gap) + 'px';
                     }
                 }
             });
@@ -8485,7 +9085,7 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             st.id = id;
             st.pdf = {};
             st.planImgs = [];
-            if (id === 'plan') { try { st.planImgs = await PLAN.toPngAll(1600); } catch (e) { console.warn('2D export failed:', e); } }
+            if (id === 'plan') { try { st.planImgs = await PLAN.toPngAll(2600, 640); } catch (e) { console.warn('2D export failed:', e); } }
             st.img = VIZ.snapshot(id);
             chk.disabled = !st.img;
             if (!st.img) chk.checked = false;
@@ -8520,10 +9120,11 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
             setTimeout(() => URL.revokeObjectURL(url), 4000);
         }
         function summaryText() {
-            const lines = [`${t('brand.name')} — ${t('page.' + st.id)}`, ''];
-            CALC[st.id].run(lastValues[st.id]).forEach((it) => {
-                if ((it.key || it.type === 'total') && it.value) lines.push(`• ${it.label.replace(/[:ঃ]\s*$/, '')}: ${it.value} ${it.unit || ''}`.trim());
-            });
+            const lines = [`${t('brand.name')} — ${t('page.' + st.id)}${st.id === 'plan' && PLAN.title() ? ' — ' + PLAN.title() : ''}`, ''];
+            const list = CALC[st.id].run(lastValues[st.id]);
+            if (st.id === 'plan' && CALC.plan._kpis) CALC.plan._kpis.forEach((k) => { lines.push(`• ${k.label}: ${k.value} ${k.unit}`.trim()); (k.note || []).forEach((x) => x && lines.push(`   ${x}`)); });
+            else list.forEach((it) => { if (it.key && it.value) lines.push(`• ${it.label.replace(/[:ঃ]\s*$/, '')}: ${it.value} ${it.unit || ''}`.trim()); });
+            list.forEach((it) => { if (it.type === 'total' && it.value) lines.push('', `৳ ${it.label.replace(/[:ঃ]\s*$/, '')}: ${it.value} ${it.unit || ''}`.trim()); });
             return lines.join('\n');
         }
 
@@ -8646,6 +9247,9 @@ const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {
         $, $$, t, num, numPlain, digits, toEn, parseNum, esc: escapeHtml, toast, storage, I18N, S,
         applyI18n, page: () => currentPage,
         pro: () => ({ canUse: PRO.canUse(), pending: false }),
+        site: () => SITE,
+        adminSave: (partial, form) => ADMIN.save(partial, form),
+        isAdmin: () => IS_ADMIN,
     };
 
     /* ---------- Init ---------- */

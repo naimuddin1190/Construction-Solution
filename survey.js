@@ -76,7 +76,7 @@
         'sv.e.note': 'Construction Solution দিয়ে তৈরি। দলিল বা মামলার আগে লাইসেন্সধারী সার্ভেয়ার দিয়ে মাঠে যাচাই করে নিন।', 'sv.e.n': 'উ',
         'sv.m.title': 'দূরত্ব মাপ', 'sv.m.clear': 'সব দূরত্ব মুছুন',
         'sv.u.dec': 'শতাংশ (শতক)', 'sv.u.ojut': 'অযুতাংশ', 'sv.u.katha': 'কাঠা', 'sv.u.chhatak': 'ছটাক', 'sv.u.bigha': 'বিঘা', 'sv.u.acre': 'একর',
-        'sv.u.hect': 'হেক্টর', 'sv.u.sft': 'বর্গফুট', 'sv.u.sqm': 'বর্গমিটার', 'sv.u.sqhat': 'বর্গহাত', 'sv.u.kani': 'কানি (চট্টগ্রাম)', 'sv.u.ganda': 'গণ্ডা',
+        'sv.u.hect': 'হেক্টর', 'sv.u.sft': 'বর্গফুট', 'sv.u.sqm': 'বর্গমিটার', 'sv.u.sqhat': 'বর্গহাত', 'sv.u.kani': 'কানি', 'sv.u.ganda': 'গণ্ডা',
         'sv.us.dec': 'শতাংশ', 'sv.us.katha': 'কাঠা', 'sv.us.sft': 'বর্গফুট', 'sv.us.sqm': 'ব.মি.', 'sv.us.acre': 'একর', 'sv.us.bigha': 'বিঘা',
         'sv.l.ftin': 'ফুট-ইঞ্চি', 'sv.l.ft': 'ফুট', 'sv.l.in': 'ইঞ্চি', 'sv.l.m': 'মিটার', 'sv.l.cm': 'সেন্টিমিটার', 'sv.l.hat': 'হাত', 'sv.l.yd': 'গজ',
         'sv.l.link': 'লিংক', 'sv.l.chain': 'চেইন', 'sv.l.chainlink': 'চেইন-লিংক', 'sv.ls.ft': 'ফুট', 'sv.ls.m': 'মি', 'sv.ls.hat': 'হাত', 'sv.ls.ch': 'চে', 'sv.ls.li': 'লি',
@@ -243,7 +243,7 @@
         "sv.fo.multi": "ত্রিভুজগুলোর যোগফল",
         "sv.fo.area": "জমির পরিমাণ",
         "sv.fo.diag": "কর্ণ",
-        "sv.tab.kh": "খতিয়ান ও ওয়ারিশ",
+        "sv.tab.kh": "খতিয়ান",
         "sv.kh.title": "খতিয়ানের দাগ ও জমি",
         "sv.kh.no": "খতিয়ান নং",
         "sv.kh.type": "জরিপ",
@@ -314,6 +314,257 @@
         "sv.ana.k": "কড়া",
         "sv.ana.kr": "ক্রান্তি",
         "sv.ana.t": "তিল",
+        "sa.title": "ভূমি জরিপ — নিয়ন্ত্রণ",
+        "sa.enabled": "ভূমি জরিপ সেকশন চালু",
+        "sa.enabled.d": "বন্ধ করলে মেনু, হোম পেজ ও পেজ — সব জায়গা থেকে লুকিয়ে যাবে",
+        "sa.pro": "Pro লাগবে",
+        "sa.pro.d": "বন্ধ করলে সবাই বিনা মূল্যে পুরো ভূমি জরিপ ব্যবহার করতে পারবে (Pro সাবস্ক্রিপশন চালু থাকলেও)",
+        "sa.showcase": "হোম পেজে ভূমি জরিপ দেখাও",
+        "sa.showcase.d": "হোম পেজের ভূমি জরিপ PRO অংশ ও কার্ড",
+        "sa.free": "Pro ছাড়াই খোলা ট্যাব",
+        "sa.free.d": "টিক দেওয়া ট্যাবগুলো Pro ছাড়াই সবাই ব্যবহার করতে পারবে",
+        "sa.tools": "ফিচার চালু / বন্ধ",
+        "sa.tMagic": "অটো দাগ ও অটো ডিজিটাইজ",
+        "sa.tMagic.d": "নকশার লাইন দেখে দাগ খোঁজার টুল",
+        "sa.tKml": "Google Earth (KML / KMZ)",
+        "sa.tKml.d": "অবস্থান-বিন্দু ও KML/KMZ ডাউনলোড",
+        "sa.tWa": "WhatsApp-এ পাঠানো",
+        "sa.tWa.d": "নকশা, মাঠের মাপ ও উত্তরাধিকারের WhatsApp বাটন",
+        "sa.tSketch": "মাঠের মাপে আঁকা",
+        "sa.tSketch.d": "বাহু টেনে টেনে যেকোনো আকৃতি আঁকার অপশন",
+        "sa.defaults": "নতুন ব্যবহারকারীর ডিফল্ট",
+        "sa.defaults.d": "যারা এখনো কিছু বদলায়নি তাদের জন্য শুরুর মান",
+        "sa.units": "আঞ্চলিক একক",
+        "sa.units.d": "আপনার এলাকায় যে মান চলে তা দিন — একক রূপান্তর ও সব হিসাবে এটাই ধরা হবে",
+        "sa.kani": "১ কানি =",
+        "sa.ganda": "১ গণ্ডা =",
+        "sa.katha": "১ কাঠা =",
+        "sa.texts": "বার্তা ও প্রিন্টের লেখা",
+        "sa.noticeBn": "ভূমি জরিপ পেজের নোটিশ (বাংলা)",
+        "sa.noticeEn": "নোটিশ (English)",
+        "sa.footBn": "প্রিন্টের নিচে লেখা (বাংলা) — যেমন অফিসের নাম ও ফোন",
+        "sa.footEn": "প্রিন্টের নিচে লেখা (English)",
+        "sa.off": "ভূমি জরিপ এখন বন্ধ আছে",
+        "sv.tab.inh": "উত্তরাধিকার",
+        "sv.f.sketch": "আঁকুন (যেকোনো আকৃতি)",
+        "sk.draw": "বাহু টানুন",
+        "sk.select": "বাছাই",
+        "sk.text": "লেখা",
+        "sk.erase": "মুছুন",
+        "sk.ortho": "সোজা (৯০°)",
+        "sk.undo": "আগের অবস্থা",
+        "sk.fit": "পুরোটা দেখুন",
+        "sk.clear": "সব মুছুন",
+        "sk.clearQ": "আঁকা সব আকৃতি ও লেখা মুছবেন?",
+        "sk.h.draw": "প্রথম কোণে ট্যাপ করুন, তারপর আঙুল/মাউস টেনে প্রতিটি বাহু আঁকুন — অথবা নিচে দৈর্ঘ্য ও দিক লিখে \"যোগ\" চাপুন। প্রথম কোণে ফিরলে আকৃতি বন্ধ হবে।",
+        "sk.h.select": "কোণ টেনে ঠিক করুন · আকৃতি টেনে সরান · বাহুর মাপ নিচের তালিকায় লিখে নির্ভুল করুন",
+        "sk.h.text": "যেখানে লেখা বসাতে চান সেখানে ট্যাপ করুন",
+        "sk.h.erase": "যে আকৃতি বা লেখা মুছতে চান তার উপর ট্যাপ করুন",
+        "sk.len": "দৈর্ঘ্য",
+        "sk.dir": "দিক (°)",
+        "sk.add": "যোগ",
+        "sk.close": "আকৃতি বন্ধ করুন",
+        "sk.back": "শেষ কোণ মুছুন",
+        "sk.cancel": "বাতিল",
+        "sk.sides": "বাহুর মাপ (লিখে বদলান)",
+        "sk.closing": "শেষ বাহু (নিজে থেকে মেলে)",
+        "sk.shape": "আকৃতি {n}",
+        "sk.name": "নাম",
+        "sk.delShape": "এই আকৃতি মুছুন",
+        "sk.textPh": "লেখা লিখুন…",
+        "sk.size": "আকার",
+        "sk.small": "ছোট",
+        "sk.mid": "মাঝারি",
+        "sk.big": "বড়",
+        "sk.delText": "লেখা মুছুন",
+        "sk.newText": "নতুন লেখা",
+        "sk.empty": "এখনো কিছু আঁকা হয়নি — \"বাহু টানুন\" দিয়ে জমির সীমানা আঁকুন",
+        "sk.dirHelp": "দিক: ০° = উত্তর, ৯০° = পূর্ব, ১৮০° = দক্ষিণ, ২৭০° = পশ্চিম",
+        "sk.total": "মোট {n}টি আকৃতি",
+        "sk.need3": "আকৃতি বন্ধ করতে অন্তত ৩টি কোণ লাগবে",
+        "ih.title": "উত্তরাধিকার ক্যালকুলেটর (ফারায়েজ)",
+        "ih.sub": "মৃত ব্যক্তির জীবিত ওয়ারিশদের সংখ্যা দিন — কে কত অংশ ও কত জমি পাবেন, কে বঞ্চিত হবেন, সব দেখাবে।",
+        "ih.land": "বণ্টনের জমি",
+        "ih.src": "জমি কোথা থেকে",
+        "ih.srcCustom": "নিজে লিখুন",
+        "ih.srcKh": "খতিয়ান ট্যাব — মোট",
+        "ih.amount": "জমির পরিমাণ",
+        "ih.unit": "একক",
+        "ih.deceased": "মৃত ব্যক্তি",
+        "ih.name": "নাম (ঐচ্ছিক)",
+        "ih.male": "পুরুষ",
+        "ih.female": "মহিলা",
+        "ih.g.spouse": "স্বামী / স্ত্রী",
+        "ih.g.kids": "সন্তান",
+        "ih.g.parents": "পিতা-মাতা ও দাদা-দাদী",
+        "ih.g.sibs": "ভাই-বোন",
+        "ih.g.pre": "আগে মারা যাওয়া সন্তানের সন্তান",
+        "ih.pre.d": "মুসলিম পারিবারিক আইন অধ্যাদেশ ১৯৬১-এর ধারা ৪ অনুযায়ী মৃত ব্যক্তির আগে মারা যাওয়া ছেলে/মেয়ের সন্তানরা তাদের বাবা/মায়ের অংশ পায়।",
+        "ih.preAdd": "আগে মারা যাওয়া সন্তান যোগ করুন",
+        "ih.preSon": "মৃত পুত্র",
+        "ih.preDau": "মৃত কন্যা",
+        "ih.preKidsS": "তার ছেলে",
+        "ih.preKidsD": "তার মেয়ে",
+        "ih.wives": "স্ত্রী (জীবিত)",
+        "ih.hus": "স্বামী জীবিত",
+        "ih.sons": "পুত্র",
+        "ih.daus": "কন্যা",
+        "ih.fa": "পিতা",
+        "ih.mo": "মাতা",
+        "ih.gf": "দাদা (পিতার পিতা)",
+        "ih.pgm": "দাদী (পিতার মাতা)",
+        "ih.mgm": "নানী (মাতার মাতা)",
+        "ih.fb": "সহোদর ভাই",
+        "ih.fs": "সহোদর বোন",
+        "ih.hb": "বৈমাত্রেয় ভাই (একই পিতা)",
+        "ih.hs": "বৈমাত্রেয় বোন (একই পিতা)",
+        "ih.ub": "বৈপিত্রেয় ভাই (একই মাতা)",
+        "ih.us": "বৈপিত্রেয় বোন (একই মাতা)",
+        "ih.alive": "জীবিত",
+        "ih.yes": "হ্যাঁ",
+        "ih.no": "না",
+        "ih.res": "ফলাফল",
+        "ih.heir": "ওয়ারিশ",
+        "ih.count": "জন",
+        "ih.each": "প্রত্যেকের অংশ",
+        "ih.eachLand": "প্রত্যেকে পাবেন",
+        "ih.groupLand": "মোট",
+        "ih.excluded": "বঞ্চিত (মাহজুব)",
+        "ih.by": "{w} — {r}",
+        "ih.none": "অন্তত একজন জীবিত ওয়ারিশ দিন",
+        "ih.r.son": "পুত্র থাকায়",
+        "ih.r.fa": "পিতা থাকায়",
+        "ih.r.gf": "দাদা থাকায়",
+        "ih.r.mo": "মাতা থাকায়",
+        "ih.r.kids": "সন্তান থাকায়",
+        "ih.r.fb": "সহোদর ভাই থাকায়",
+        "ih.r.fsr": "সহোদর বোন কন্যার সাথে আসাবা হওয়ায়",
+        "ih.r.fs2": "দুই বা ততোধিক সহোদর বোন থাকায়",
+        "ih.x.gf": "দাদা",
+        "ih.x.pgm": "দাদী",
+        "ih.x.mgm": "নানী",
+        "ih.x.u": "বৈপিত্রেয় ভাই-বোন",
+        "ih.x.f": "সহোদর ভাই-বোন",
+        "ih.x.h": "বৈমাত্রেয় ভাই-বোন",
+        "ih.x.hs": "বৈমাত্রেয় বোন",
+        "ih.k.wife": "স্ত্রী",
+        "ih.k.hus": "স্বামী",
+        "ih.k.fa": "পিতা",
+        "ih.k.gf": "দাদা",
+        "ih.k.mo": "মাতা",
+        "ih.k.pgm": "দাদী",
+        "ih.k.mgm": "নানী",
+        "ih.k.son": "পুত্র",
+        "ih.k.dau": "কন্যা",
+        "ih.k.fb": "সহোদর ভাই",
+        "ih.k.fs": "সহোদর বোন",
+        "ih.k.hb": "বৈমাত্রেয় ভাই",
+        "ih.k.hs": "বৈমাত্রেয় বোন",
+        "ih.k.ub": "বৈপিত্রেয় ভাই",
+        "ih.k.us": "বৈপিত্রেয় বোন",
+        "ih.k.preS": "মৃত পুত্র {n}-এর ছেলে",
+        "ih.k.preD": "মৃত পুত্র {n}-এর মেয়ে",
+        "ih.k.preDS": "মৃত কন্যা {n}-এর ছেলে",
+        "ih.k.preDD": "মৃত কন্যা {n}-এর মেয়ে",
+        "ih.n.awl": "আউল: নির্ধারিত অংশগুলোর যোগফল ১-এর বেশি, তাই সবার অংশ আনুপাতিক হারে কমানো হয়েছে।",
+        "ih.n.radd": "রদ্দ: বাকি অংশ স্বামী/স্ত্রী ছাড়া অন্য অংশীদারদের মধ্যে আনুপাতিকভাবে ফেরত দেওয়া হয়েছে।",
+        "ih.n.umar": "উমারিয়াতাইন: স্বামী/স্ত্রী, পিতা ও মাতা থাকায় মাতা বাকি অংশের ১/৩ পেয়েছেন।",
+        "ih.n.sec4": "ধারা ৪ (১৯৬১): আগে মারা যাওয়া সন্তানের অংশ তার ছেলে-মেয়েরা ২:১ অনুপাতে পেয়েছে।",
+        "ih.n.spouseAll": "অন্য কোনো ওয়ারিশ না থাকায় বাকি অংশও স্বামী/স্ত্রী পেয়েছেন।",
+        "ih.note": "হানাফি মাযহাব ও বাংলাদেশের মুসলিম পারিবারিক আইন অনুযায়ী হিসাব। চাচা, চাচাতো ভাই, ভাতিজা ইত্যাদি দূরের আত্মীয় এবং হিন্দু, বৌদ্ধ বা খ্রিস্টান উত্তরাধিকার এখানে নেই — দলিল বা মামলার আগে আইনজীবী / মুফতির পরামর্শ নিন।",
+        "ih.toMap": "নকশায় এই অনুপাতে বণ্টন",
+        "ih.sheet": "উত্তরাধিকার বণ্টন",
+        "ih.of": "মরহুম/মরহুমা {n}",
+        "sk.method": "বাহু ও দিক দিয়ে আঁকা (স্থানাঙ্ক পদ্ধতি)",
+        "sv.c.reg": "এই সাইটে ধরা হয়েছে: ১ কাঠা = {kt} বর্গফুট · ১ কানি = {k} শতাংশ · ১ গণ্ডা = {g} শতাংশ",
+        "sv.tab.blk": "ব্লক বণ্টন",
+        "bk.title": "ব্লক বণ্টন হিসাব (মাঠ খাতা)",
+        "bk.sub": "জমিকে ব্লকে (A/1, A/2, B/1 …) ভাগ করে প্রতিটি ব্লকের বাহু ও কর্ণ মাপুন — প্রতিটি ব্লকের পরিমাণ, মালিক অনুযায়ী মোট ও প্রিন্টযোগ্য বণ্টন হিসাব নিজে থেকে তৈরি হবে।",
+        "bk.how": "কিভাবে মাপবেন: চার বাহুর ব্লকে চার বাহুর সাথে একটি কর্ণ (প্রথম কোণ থেকে তৃতীয় কোণ) মাপুন; পাঁচ বাহুতে দুটি, ছয় বাহুতে তিনটি কর্ণ — সব কর্ণ প্রথম কোণ থেকে। আয়তাকার হলে শুধু দৈর্ঘ্য-প্রস্থ। মাপ ফুট-ইঞ্চিতে \"৩৮-২\" (৩৮ ফুট ২ ইঞ্চি) এভাবে লিখুন।",
+        "bk.unit": "মাপের একক",
+        "bk.ftin": "ফুট-ইঞ্চি (৩৮-২)",
+        "bk.add": "ব্লক যোগ করুন",
+        "bk.sample": "নমুনা দেখুন",
+        "bk.clear": "সব মুছুন",
+        "bk.clearQ": "সব ব্লক মুছবেন?",
+        "bk.name": "ব্লক",
+        "bk.owner": "মালিক",
+        "bk.type": "আকৃতি",
+        "bk.t.rect": "আয়তাকার",
+        "bk.t.tri": "ত্রিভুজ",
+        "bk.t.quad": "৪ বাহু",
+        "bk.t.p5": "৫ বাহু",
+        "bk.t.p6": "৬ বাহু",
+        "bk.t.p7": "৭ বাহু",
+        "bk.t.p8": "৮ বাহু",
+        "bk.len": "দৈর্ঘ্য",
+        "bk.wid": "প্রস্থ",
+        "bk.side": "বাহু {a}–{b}",
+        "bk.diag": "কর্ণ {a}–{b}",
+        "bk.del": "ব্লক মুছুন",
+        "bk.copy": "কপি",
+        "bk.need": "বাহুর মাপ দিন",
+        "bk.bad": "এই মাপে আকৃতি মেলে না — বাহু / কর্ণ আবার দেখুন",
+        "bk.approx": "কর্ণ ছাড়া আনুমানিক (গড় পদ্ধতি)",
+        "bk.needDiag": "নির্ভুল হিসাবের জন্য কর্ণ দিন",
+        "bk.byOwner": "মালিক অনুযায়ী মোট",
+        "bk.blocks": "ব্লক",
+        "bk.noOwner": "মালিক দেওয়া হয়নি",
+        "bk.grand": "সব মিলিয়ে",
+        "bk.count": "{n}টি ব্লক",
+        "bk.sheet": "ব্লক বণ্টন হিসাব",
+        "bk.toSketch": "মাঠের মাপের আঁকায় পাঠান",
+        "bk.sent": "ব্লকটি মাঠের মাপের আঁকায় যোগ হয়েছে",
+        "bk.tip": "একই বাহু দুই ব্লকে থাকলে দুই জায়গায় একই মাপ লিখুন — তাহলে মোট পরিমাণ মিলবে।",
+        "bp.sub": "মাঠে যেভাবে রানিং মাপ নেন, সেভাবেই একটার পর একটা বাহু টেনে নকশা আঁকুন — বাহুগুলো ঘিরে যে ঘর তৈরি হবে সেটাই একেকটা ব্লক। প্রতিটি ব্লকের পরিমাণ, দিক অনুযায়ী বাহু, মালিক অনুযায়ী মোট আর প্রিন্টযোগ্য বণ্টন হিসাব নিজে থেকে তৈরি হবে।",
+        "bp.north": "উত্তর দিক ঘোরান (°) — কম্পাস টেনেও পারবেন",
+        "bp.rotL": "বাঁয়ে ১৫° ঘোরান",
+        "bp.rotR": "ডানে ১৫° ঘোরান",
+        "bp.how": "কিভাবে মাপবেন: সীমানা ধরে হাঁটতে হাঁটতে প্রতিটি বাহুর মাপ দিন — একই সোজা দাগে মাঝখানে অন্য দাগ মিললে সেটা একই দাগের রানিং মাপ হিসেবে থাকবে। ভাগের দাগ এক বাহু থেকে আরেক বাহুতে টানুন। প্রতিটি চার-বাহু ব্লকে একটি কর্ণ মাপলে আকৃতি নিশ্চিত হয় — তখন পরিমাণ একদম নির্ভুল (সবুজ \"নির্ভুল\" চিহ্ন)।",
+        "bp.sample": "নমুনা নকশা",
+        "bp.sampleQ": "এখনকার নকশা মুছে নমুনা দেখাবেন?",
+        "bp.draw": "বাহু টানুন",
+        "bp.diag": "কর্ণ",
+        "bp.select": "বাছাই",
+        "bp.erase": "মুছুন",
+        "bp.ortho": "সমকোণ",
+        "bp.undo": "আগের অবস্থা (Ctrl+Z)",
+        "bp.redo": "সামনে (Ctrl+Y)",
+        "bp.fit": "পুরোটা দেখুন",
+        "bp.clear": "নকশা মুছুন",
+        "bp.clearQ": "পুরো নকশা মুছবেন?",
+        "bp.h.draw": "যেকোনো জায়গায় ক্লিক করে শুরু করুন, মাউস যেদিকে নেবেন বাহু সেদিকে যাবে। কিবোর্ডে মাপ লিখুন (যেমন ৩৮-২) তারপর Enter চাপুন — বা তীর-চিহ্ন (↑ → ↓ ←) চাপলে সেই দিকে। আগের কোনো বিন্দু বা দাগে ক্লিক করলে সেখানে জুড়ে যাবে। Esc = থামুন · Ctrl+Z = আগের অবস্থা · Ctrl+Y = সামনে।",
+        "bp.h.diag": "কর্ণের এক কোণে, তারপর উল্টো কোণে ক্লিক করুন — আগে মাপ লিখে রাখলে সেটাই কর্ণের মাপ হবে।",
+        "bp.h.select": "দাগে ক্লিক করে মাপ বদলান, বিন্দু টেনে সরান, ব্লকে ক্লিক করে নাম ও মালিক দিন।",
+        "bp.h.erase": "যে দাগ মুছবেন তাতে ক্লিক করুন।",
+        "bp.len": "মাপ",
+        "bp.dir": "দিক° (ঐচ্ছিক)",
+        "bp.add": "বাহু যোগ (Enter)",
+        "bp.end": "থামুন (Esc)",
+        "bp.part": "এই অংশের মাপ",
+        "bp.dg": "কর্ণের মাপ",
+        "bp.total": "পুরো দাগের মোট মাপ (রানিং)",
+        "bp.noMeas": "মাপ দেওয়া হয়নি — আঁকা থেকে আন্দাজ ধরা হয়েছে",
+        "bp.measured": "নকশায় এখন: {d}",
+        "bp.delLine": "দাগ মুছুন",
+        "bp.ptSel": "বিন্দুটি টেনে সরাতে পারেন — মাপ দেওয়া দাগ মাপ অনুযায়ী ঠিক থাকবে।",
+        "bp.exact": "নির্ভুল",
+        "bp.approx": "আনুমানিক — কর্ণ দিন",
+        "bp.stat": "{n}টি ব্লক · {e}টি নির্ভুল",
+        "bp.misfit": "কিছু মাপ মিলছে না (সর্বোচ্চ {d}) — লাল দাগগুলো মাঠে আবার মাপুন",
+        "bp.empty": "এখনও কোনো ব্লক নেই — বাহু টেনে ঘর বন্ধ করুন।",
+        "bp.blocks": "নকশার ব্লক (দিক অনুযায়ী বাহু)",
+        "bp.sel": "নকশায় দেখুন",
+        "bp.blockN": "ব্লক {n}",
+        "bp.manual": "হাতে মাপ লিখে ব্লক (নকশা ছাড়া)",
+        "bp.firstDir": "বাহু ১–২ কোন দিকে:",
+        "bp.typeFirst": "আগে মাপ লিখুন (যেমন ৩৮-২)",
+        "bp.start": "প্রথমে নকশায় শুরুর বিন্দুতে ক্লিক করুন",
+        "bp.startHere": "এখানে ক্লিক করে প্রথম বিন্দু দিন",
+        "bp.starNote": "* চিহ্ন দেওয়া ব্লকের পরিমাণ আনুমানিক — কর্ণ মাপ দিলে নির্ভুল হবে",
+        "bk.o1": "মো: শাহজাহান",
+        "bk.o2": "মো: হায়দার",
+        "bk.o3": "রুজিনা",
         'sv.need3': 'দাগে কমপক্ষে ৩টি কোণ লাগবে', 'sv.added': 'দাগ যোগ হয়েছে: {a}', 'sv.sel': 'বাছাই করা দাগ',
     };
     const EN = {
@@ -369,7 +620,7 @@
         'sv.e.note': 'Made with Construction Solution. Have a licensed surveyor check it on site before any deed or case.', 'sv.e.n': 'N',
         'sv.m.title': 'Distances', 'sv.m.clear': 'Clear distances',
         'sv.u.dec': 'Decimal (shotok)', 'sv.u.ojut': 'Ojutangsho', 'sv.u.katha': 'Katha', 'sv.u.chhatak': 'Chhatak', 'sv.u.bigha': 'Bigha', 'sv.u.acre': 'Acre',
-        'sv.u.hect': 'Hectare', 'sv.u.sft': 'Sq ft', 'sv.u.sqm': 'Sq m', 'sv.u.sqhat': 'Sq hat', 'sv.u.kani': 'Kani (Chattogram)', 'sv.u.ganda': 'Gonda',
+        'sv.u.hect': 'Hectare', 'sv.u.sft': 'Sq ft', 'sv.u.sqm': 'Sq m', 'sv.u.sqhat': 'Sq hat', 'sv.u.kani': 'Kani', 'sv.u.ganda': 'Gonda',
         'sv.us.dec': 'dec', 'sv.us.katha': 'katha', 'sv.us.sft': 'sft', 'sv.us.sqm': 'm²', 'sv.us.acre': 'acre', 'sv.us.bigha': 'bigha',
         'sv.l.ftin': 'Feet-inches', 'sv.l.ft': 'Feet', 'sv.l.in': 'Inches', 'sv.l.m': 'Metres', 'sv.l.cm': 'Centimetres', 'sv.l.hat': 'Hat (cubit)', 'sv.l.yd': 'Yards',
         'sv.l.link': 'Links', 'sv.l.chain': 'Chains', 'sv.l.chainlink': 'Chain-links', 'sv.ls.ft': 'ft', 'sv.ls.m': 'm', 'sv.ls.hat': 'hat', 'sv.ls.ch': 'ch', 'sv.ls.li': 'li',
@@ -536,7 +787,7 @@
         "sv.fo.multi": "Sum of the triangles",
         "sv.fo.area": "Land area",
         "sv.fo.diag": "Diagonal",
-        "sv.tab.kh": "Khatian & heirs",
+        "sv.tab.kh": "Khatian",
         "sv.kh.title": "Khatian dags and land",
         "sv.kh.no": "Khatian no.",
         "sv.kh.type": "Survey",
@@ -607,6 +858,257 @@
         "sv.ana.k": "kora",
         "sv.ana.kr": "kranti",
         "sv.ana.t": "til",
+        "sa.title": "Land Survey — controls",
+        "sa.enabled": "Land Survey section on",
+        "sa.enabled.d": "When off it is hidden from the menu, home page and the page itself",
+        "sa.pro": "Needs Pro",
+        "sa.pro.d": "When off everyone can use the whole Land Survey for free (even with Pro subscriptions on)",
+        "sa.showcase": "Show Land Survey on the home page",
+        "sa.showcase.d": "The Land Survey PRO section and card on the home page",
+        "sa.free": "Tabs open without Pro",
+        "sa.free.d": "Ticked tabs can be used by everyone without Pro",
+        "sa.tools": "Features on / off",
+        "sa.tMagic": "Auto plot & auto digitize",
+        "sa.tMagic.d": "Tools that find plots from the map lines",
+        "sa.tKml": "Google Earth (KML / KMZ)",
+        "sa.tKml.d": "Location points and KML/KMZ downloads",
+        "sa.tWa": "Send on WhatsApp",
+        "sa.tWa.d": "WhatsApp buttons for map, field and inheritance",
+        "sa.tSketch": "Drawing in field measure",
+        "sa.tSketch.d": "Draw any shape by dragging sides",
+        "sa.defaults": "Defaults for new users",
+        "sa.defaults.d": "Starting values for people who have not changed them",
+        "sa.units": "Regional units",
+        "sa.units.d": "Give the values used in your area — the converter and all results use them",
+        "sa.kani": "1 kani =",
+        "sa.ganda": "1 gonda =",
+        "sa.katha": "1 katha =",
+        "sa.texts": "Notice and print text",
+        "sa.noticeBn": "Land Survey page notice (Bangla)",
+        "sa.noticeEn": "Notice (English)",
+        "sa.footBn": "Line under prints (Bangla) — e.g. office name and phone",
+        "sa.footEn": "Line under prints (English)",
+        "sa.off": "Land Survey is turned off right now",
+        "sv.tab.inh": "Inheritance",
+        "sv.f.sketch": "Draw (any shape)",
+        "sk.draw": "Draw sides",
+        "sk.select": "Select",
+        "sk.text": "Text",
+        "sk.erase": "Erase",
+        "sk.ortho": "Straight (90°)",
+        "sk.undo": "Undo",
+        "sk.fit": "Fit all",
+        "sk.clear": "Clear all",
+        "sk.clearQ": "Delete every shape and text?",
+        "sk.h.draw": "Tap the first corner, then drag your finger / mouse to draw each side — or type the length and direction below and press \"Add\". Back on the first corner closes the shape.",
+        "sk.h.select": "Drag corners to adjust · drag a shape to move it · type side lengths in the list below for exact values",
+        "sk.h.text": "Tap where you want the text",
+        "sk.h.erase": "Tap a shape or text to delete it",
+        "sk.len": "Length",
+        "sk.dir": "Direction (°)",
+        "sk.add": "Add",
+        "sk.close": "Close shape",
+        "sk.back": "Remove last corner",
+        "sk.cancel": "Cancel",
+        "sk.sides": "Side lengths (type to change)",
+        "sk.closing": "Last side (closes by itself)",
+        "sk.shape": "Shape {n}",
+        "sk.name": "Name",
+        "sk.delShape": "Delete this shape",
+        "sk.textPh": "Type text…",
+        "sk.size": "Size",
+        "sk.small": "Small",
+        "sk.mid": "Medium",
+        "sk.big": "Large",
+        "sk.delText": "Delete text",
+        "sk.newText": "New text",
+        "sk.empty": "Nothing drawn yet — use \"Draw sides\" to draw the land boundary",
+        "sk.dirHelp": "Direction: 0° = north, 90° = east, 180° = south, 270° = west",
+        "sk.total": "{n} shapes in total",
+        "sk.need3": "A shape needs at least 3 corners to close",
+        "ih.title": "Inheritance calculator (Faraiz)",
+        "ih.sub": "Enter how many living heirs the deceased has — see who gets what share and how much land, and who is excluded.",
+        "ih.land": "Land to divide",
+        "ih.src": "Land from",
+        "ih.srcCustom": "Type it",
+        "ih.srcKh": "Khatian tab — total",
+        "ih.amount": "Land",
+        "ih.unit": "Unit",
+        "ih.deceased": "Deceased",
+        "ih.name": "Name (optional)",
+        "ih.male": "Male",
+        "ih.female": "Female",
+        "ih.g.spouse": "Husband / wife",
+        "ih.g.kids": "Children",
+        "ih.g.parents": "Parents and grandparents",
+        "ih.g.sibs": "Brothers and sisters",
+        "ih.g.pre": "Children of a child who died earlier",
+        "ih.pre.d": "Under section 4 of the Muslim Family Laws Ordinance 1961, children of a son/daughter who died before the deceased get their parent's share.",
+        "ih.preAdd": "Add a child who died earlier",
+        "ih.preSon": "Late son",
+        "ih.preDau": "Late daughter",
+        "ih.preKidsS": "His/her sons",
+        "ih.preKidsD": "His/her daughters",
+        "ih.wives": "Wives (living)",
+        "ih.hus": "Husband living",
+        "ih.sons": "Sons",
+        "ih.daus": "Daughters",
+        "ih.fa": "Father",
+        "ih.mo": "Mother",
+        "ih.gf": "Grandfather (father's father)",
+        "ih.pgm": "Grandmother (father's mother)",
+        "ih.mgm": "Grandmother (mother's mother)",
+        "ih.fb": "Full brothers",
+        "ih.fs": "Full sisters",
+        "ih.hb": "Half brothers (same father)",
+        "ih.hs": "Half sisters (same father)",
+        "ih.ub": "Half brothers (same mother)",
+        "ih.us": "Half sisters (same mother)",
+        "ih.alive": "Living",
+        "ih.yes": "Yes",
+        "ih.no": "No",
+        "ih.res": "Result",
+        "ih.heir": "Heir",
+        "ih.count": "No.",
+        "ih.each": "Share each",
+        "ih.eachLand": "Each gets",
+        "ih.groupLand": "Total",
+        "ih.excluded": "Excluded (mahjub)",
+        "ih.by": "{w} — {r}",
+        "ih.none": "Add at least one living heir",
+        "ih.r.son": "because there is a son",
+        "ih.r.fa": "because the father is alive",
+        "ih.r.gf": "because the grandfather is alive",
+        "ih.r.mo": "because the mother is alive",
+        "ih.r.kids": "because there are children",
+        "ih.r.fb": "because there is a full brother",
+        "ih.r.fsr": "because a full sister takes the residue with daughters",
+        "ih.r.fs2": "because two or more full sisters take 2/3",
+        "ih.x.gf": "Grandfather",
+        "ih.x.pgm": "Paternal grandmother",
+        "ih.x.mgm": "Maternal grandmother",
+        "ih.x.u": "Maternal half siblings",
+        "ih.x.f": "Full siblings",
+        "ih.x.h": "Paternal half siblings",
+        "ih.x.hs": "Paternal half sisters",
+        "ih.k.wife": "Wife",
+        "ih.k.hus": "Husband",
+        "ih.k.fa": "Father",
+        "ih.k.gf": "Grandfather",
+        "ih.k.mo": "Mother",
+        "ih.k.pgm": "Paternal grandmother",
+        "ih.k.mgm": "Maternal grandmother",
+        "ih.k.son": "Son",
+        "ih.k.dau": "Daughter",
+        "ih.k.fb": "Full brother",
+        "ih.k.fs": "Full sister",
+        "ih.k.hb": "Paternal half brother",
+        "ih.k.hs": "Paternal half sister",
+        "ih.k.ub": "Maternal half brother",
+        "ih.k.us": "Maternal half sister",
+        "ih.k.preS": "Son of late son {n}",
+        "ih.k.preD": "Daughter of late son {n}",
+        "ih.k.preDS": "Son of late daughter {n}",
+        "ih.k.preDD": "Daughter of late daughter {n}",
+        "ih.n.awl": "Awl: the fixed shares add up to more than 1, so every share was reduced in proportion.",
+        "ih.n.radd": "Radd: the remainder was returned to the sharers other than the spouse, in proportion.",
+        "ih.n.umar": "Umariyyatain: with a spouse, father and mother, the mother gets 1/3 of what is left.",
+        "ih.n.sec4": "Section 4 (1961): the late child's share goes to his/her sons and daughters 2:1.",
+        "ih.n.spouseAll": "With no other heir, the spouse also gets the remainder.",
+        "ih.note": "Hanafi rules as applied under Bangladesh Muslim family law. Distant relatives (uncles, cousins, nephews) and Hindu, Buddhist or Christian inheritance are not covered — consult a lawyer / mufti before any deed or case.",
+        "ih.toMap": "Divide the map plot in these shares",
+        "ih.sheet": "Inheritance division",
+        "ih.of": "Late {n}",
+        "sk.method": "Drawn from sides and directions (coordinate method)",
+        "sv.c.reg": "This site uses: 1 katha = {kt} sft · 1 kani = {k} decimal · 1 gonda = {g} decimal",
+        "sv.tab.blk": "Block division",
+        "bk.title": "Block division (field book)",
+        "bk.sub": "Split the land into blocks (A/1, A/2, B/1 …) and measure each block's sides and diagonals — the area of every block, totals per owner and a printable division sheet are made for you.",
+        "bk.how": "How to measure: for a 4-sided block measure the 4 sides and one diagonal (corner 1 to corner 3); 5 sides need 2 diagonals, 6 sides 3 — all from corner 1. A rectangle needs only length and width. Feet-inches can be typed as \"38-2\" (38 ft 2 in).",
+        "bk.unit": "Measured in",
+        "bk.ftin": "Feet-inches (38-2)",
+        "bk.add": "Add block",
+        "bk.sample": "Show example",
+        "bk.clear": "Clear all",
+        "bk.clearQ": "Delete every block?",
+        "bk.name": "Block",
+        "bk.owner": "Owner",
+        "bk.type": "Shape",
+        "bk.t.rect": "Rectangle",
+        "bk.t.tri": "Triangle",
+        "bk.t.quad": "4 sides",
+        "bk.t.p5": "5 sides",
+        "bk.t.p6": "6 sides",
+        "bk.t.p7": "7 sides",
+        "bk.t.p8": "8 sides",
+        "bk.len": "Length",
+        "bk.wid": "Width",
+        "bk.side": "Side {a}–{b}",
+        "bk.diag": "Diagonal {a}–{b}",
+        "bk.del": "Delete block",
+        "bk.copy": "Copy",
+        "bk.need": "Enter the sides",
+        "bk.bad": "These measurements do not make a shape — check the sides / diagonals",
+        "bk.approx": "Without a diagonal: estimate (average method)",
+        "bk.needDiag": "Add the diagonal for an exact area",
+        "bk.byOwner": "Totals per owner",
+        "bk.blocks": "Blocks",
+        "bk.noOwner": "No owner given",
+        "bk.grand": "All together",
+        "bk.count": "{n} blocks",
+        "bk.sheet": "Block division sheet",
+        "bk.toSketch": "Send to the field drawing",
+        "bk.sent": "Block added to the field drawing",
+        "bk.tip": "When two blocks share a side, type the same length in both — then the totals add up.",
+        "bp.sub": "Draw the land side after side, the way you take running measurements on site — every closed area becomes a block. Each block's area, its sides by direction, totals per owner and a printable division sheet are made for you.",
+        "bp.north": "Turn north (°) — or drag the compass",
+        "bp.rotL": "Turn 15° left",
+        "bp.rotR": "Turn 15° right",
+        "bp.how": "How to measure: walk the boundary and enter each side's length — where another line meets a straight side, it stays on the same line as a running measurement. Draw division lines from one side to another. Measure one diagonal in each 4-sided block to fix its shape — the area is then exact (green \"Exact\" badge).",
+        "bp.sample": "Example drawing",
+        "bp.sampleQ": "Replace the current drawing with the example?",
+        "bp.draw": "Draw sides",
+        "bp.diag": "Diagonal",
+        "bp.select": "Select",
+        "bp.erase": "Erase",
+        "bp.ortho": "Right angles",
+        "bp.undo": "Undo (Ctrl+Z)",
+        "bp.redo": "Redo (Ctrl+Y)",
+        "bp.fit": "Fit",
+        "bp.clear": "Clear drawing",
+        "bp.clearQ": "Clear the whole drawing?",
+        "bp.h.draw": "Click anywhere to start; the side follows the mouse. Type the length (e.g. 38-2) and press Enter — or an arrow key (↑ → ↓ ←) for that direction. Click an existing point or line to join it. Esc = stop · Ctrl+Z = undo · Ctrl+Y = redo.",
+        "bp.h.diag": "Click one corner, then the opposite corner — a length typed first becomes the diagonal's measurement.",
+        "bp.h.select": "Click a line to change its length, drag a point to move it, click a block to name it.",
+        "bp.h.erase": "Click the line to erase.",
+        "bp.len": "Length",
+        "bp.dir": "Direction° (optional)",
+        "bp.add": "Add side (Enter)",
+        "bp.end": "Stop (Esc)",
+        "bp.part": "Length of this part",
+        "bp.dg": "Diagonal length",
+        "bp.total": "Whole line total (running)",
+        "bp.noMeas": "Not measured — taken from the drawing",
+        "bp.measured": "In the drawing now: {d}",
+        "bp.delLine": "Delete line",
+        "bp.ptSel": "Drag the point to move it — measured lines keep their lengths.",
+        "bp.exact": "Exact",
+        "bp.approx": "Estimate — add a diagonal",
+        "bp.stat": "{n} blocks · {e} exact",
+        "bp.misfit": "Some lengths disagree (up to {d}) — re-measure the red lines",
+        "bp.empty": "No blocks yet — draw sides to close an area.",
+        "bp.blocks": "Blocks in the drawing (sides by direction)",
+        "bp.sel": "Show on drawing",
+        "bp.blockN": "Block {n}",
+        "bp.manual": "Blocks typed by hand (no drawing)",
+        "bp.firstDir": "Side 1–2 faces:",
+        "bp.typeFirst": "Type the length first (e.g. 38-2)",
+        "bp.start": "First click the start point on the drawing",
+        "bp.startHere": "Click here for the first point",
+        "bp.starNote": "* blocks marked so are estimates — measure a diagonal for an exact area",
+        "bk.o1": "Md. Shahjahan",
+        "bk.o2": "Md. Haidar",
+        "bk.o3": "Rujina",
         'sv.need3': 'A plot needs at least 3 corners', 'sv.added': 'Plot added: {a}', 'sv.sel': 'Selected plot',
     };
     Object.assign(I18N.bn, BN);
@@ -619,6 +1121,27 @@
         dec: 435.6, katha: 720, bigha: 14400, acre: 43560, sft: 1, sqm: 10.7639104, ojut: 4.356,
         chhatak: 45, hect: 107639.104, sqhat: 2.25, kani: 17424, ganda: 871.2,
     };
+    /* ---------- admin settings (Admin → Land Survey) ---------- */
+    const CFG_DEF = {
+        enabled: true, pro: true, showcase: true,
+        free: { map: false, field: false, blk: false, inh: false, kh: false, conv: true },
+        tools: { magic: true, kml: true, wa: true, sketch: true },
+        defaults: { ratio: 'r16', paper: 'a4', len: 'ftin', area: 'dec' },
+        units: { kani: 40, ganda: 2, katha: 720 },
+        notice: { bn: '', en: '' }, foot: { bn: '', en: '' },
+    };
+    function CFGX() {
+        const s0 = (CS.site && CS.site() && CS.site().survey) || {}, o = {};
+        Object.keys(CFG_DEF).forEach((k) => { o[k] = CFG_DEF[k] && typeof CFG_DEF[k] === 'object' ? Object.assign({}, CFG_DEF[k], s0[k] && typeof s0[k] === 'object' ? s0[k] : {}) : (s0[k] === undefined ? CFG_DEF[k] : s0[k]); });
+        return o;
+    }
+    // regional land units from the admin
+    function applyUnits() {
+        const u = CFGX().units, ok = (v, d) => (Number(v) > 0 ? Number(v) : d);
+        AREA_U.katha = ok(u.katha, 720); AREA_U.bigha = AREA_U.katha * 20; AREA_U.chhatak = AREA_U.katha / 16;
+        AREA_U.kani = ok(u.kani, 40) * 435.6; AREA_U.ganda = ok(u.ganda, 2) * 435.6;
+    }
+    applyUnits();
     const AREA_ORDER = ['dec', 'katha', 'bigha', 'acre', 'sft', 'sqm', 'ojut', 'chhatak', 'hect', 'sqhat', 'kani', 'ganda'];
     const LEN_U = { ft: 1, in: 1 / 12, m: 3.280839895, cm: 0.03280839895, hat: 1.5, yd: 3, link: 0.66, chain: 66 };
     const LEN_ORDER = ['ft', 'in', 'm', 'cm', 'hat', 'yd', 'link', 'chain'];
@@ -643,8 +1166,9 @@
         return `${num(ft)} ${t('sv.ls.ft')}`;
     }
     function mixed(sft) {
-        const b = Math.floor(sft / 14400 + 1e-9), r = sft - b * 14400;
-        const k = Math.floor(r / 720 + 1e-9), c = (r - k * 720) / 45;
+        const BG = AREA_U.bigha, KT = AREA_U.katha, CH = AREA_U.chhatak;
+        const b = Math.floor(sft / BG + 1e-9), r = sft - b * BG;
+        const k = Math.floor(r / KT + 1e-9), c = (r - k * KT) / CH;
         const dec = sft / 435.6, a = Math.floor(dec / 100 + 1e-9);
         return [t('sv.f.mixA', { b: digits(b), k: digits(k), c: num(c, 1) }), t('sv.f.mixB', { a: digits(a), d: num(dec - a * 100) })];
     }
@@ -899,6 +1423,66 @@
     .sv-kt .bad input { border-color: var(--err); }
     .sv-kt td small { display: block; color: var(--muted); font-size: .7rem; }
     .sv-kt .sv-del { height: 2.2rem; }
+    .bp-stage { height: 30rem; }
+    .bp-stage:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+    .bp-stage[data-tool="select"], .bp-stage[data-tool="erase"] { cursor: pointer; }
+    .bp-entry { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr) auto; gap: .5rem; align-items: end; margin-top: .7rem; padding: .7rem; border-radius: .8rem; background: var(--brand-50); }
+    .bp-entry #bp-len { font-size: 1.15rem; font-weight: 700; letter-spacing: .02em; }
+    .bp-arrows { display: flex; gap: .3rem; }
+    .bp-arrows .btn { padding-inline: .55rem; }
+    .bp-erow { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .45rem; }
+    .bp-ebox { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto; gap: .5rem; align-items: end; margin-top: .7rem; padding: .7rem; border: 1px solid #f59e0b; border-radius: .8rem; }
+    .bp-h3 { margin: 1.1rem 0 .55rem; font-size: .95rem; }
+    #bp-blocks { display: grid; grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); gap: .6rem; }
+    .bp-card { border: 1px solid var(--line-2); border-radius: .85rem; padding: .6rem; min-width: 0; }
+    .bp-card.on { border-color: var(--brand); box-shadow: 0 0 0 2px rgba(var(--brand-rgb), .2); }
+    .bk-head.bp-head { grid-template-columns: 5rem minmax(0, 1fr) auto; }
+    .bp-area { margin-top: .45rem; font-size: .88rem; display: flex; flex-wrap: wrap; gap: .25rem .5rem; align-items: baseline; }
+    .bp-area small { color: var(--muted); font-size: .72rem; }
+    .bp-badge { font-size: .68rem; font-weight: 700; padding: .1rem .45rem; border-radius: 99px; }
+    .bp-badge.ok { background: #dcfce7; color: #166534; }
+    .bp-badge.warn { background: #fef3c7; color: #92400e; }
+    .bp-sides { display: flex; flex-wrap: wrap; gap: .25rem; margin-top: .4rem; }
+    .bp-sides span { font-size: .72rem; padding: .12rem .45rem; border-radius: .45rem; background: var(--brand-50); color: var(--ink-2); }
+    .bk-dir { display: flex; align-items: center; gap: .5rem; font-size: .75rem; color: var(--muted); margin-bottom: .5rem; }
+    .bk-dir select { width: auto; }
+    .bk-ins label em { font-style: normal; color: var(--brand); font-weight: 600; }
+    @media (max-width: 700px) {
+        .bp-stage { height: 60vh; min-height: 20rem; }
+        .bp-entry { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+        .bp-arrows { grid-column: 1 / -1; }
+        .bp-arrows .btn { flex: 1; }
+        .bp-ebox { grid-template-columns: minmax(0, 1fr); }
+    }
+    .bp-northrow { display: flex; align-items: center; gap: .3rem; }
+    .bp-northrow .control { width: 4.8rem; text-align: center; }
+    .bk-top { display: flex; flex-wrap: wrap; gap: .5rem; align-items: flex-end; margin-bottom: .8rem; }
+    .bk-top label { display: grid; gap: .2rem; font-size: .75rem; color: var(--muted); }
+    .bk-addrow { display: flex; flex-wrap: wrap; gap: .45rem; margin: .7rem 0; }
+    #bk-list { display: grid; gap: .75rem; }
+    .bk-card { border: 1px solid var(--line-2); border-radius: .9rem; padding: .7rem; background: var(--surface, #fff); min-width: 0; }
+    .bk-head { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr) 8rem auto auto; gap: .4rem; align-items: center; }
+    .bk-head .control { min-width: 0; }
+    .bk-name { font-weight: 700; text-align: center; }
+    .bk-body { display: grid; grid-template-columns: minmax(0, 1fr) 15rem; gap: .7rem; margin-top: .6rem; align-items: start; }
+    .bk-ins { display: grid; grid-template-columns: repeat(auto-fill, minmax(7.2rem, 1fr)); gap: .45rem; }
+    .bk-ins label { display: grid; gap: .15rem; font-size: .72rem; color: var(--muted); min-width: 0; }
+    .bk-ins label.dg span { color: var(--brand); font-weight: 600; }
+    .bk-ins .control { min-width: 0; }
+    .bk-view { display: grid; gap: .35rem; justify-items: center; text-align: center; }
+    .bk-thumb { width: 100%; max-width: 15rem; height: auto; background: var(--brand-50); border-radius: .6rem; }
+    .bk-thumb.empty { display: grid; place-items: center; aspect-ratio: 22 / 15; color: var(--muted); font-size: 1.6rem; }
+    .bk-area { display: grid; gap: .15rem; font-size: .85rem; }
+    .bk-area small { color: var(--muted); font-size: .72rem; }
+    .bk-owners { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: .8rem; }
+    .bk-owner { border: 1px solid var(--line); border-radius: .8rem; padding: .6rem .7rem; min-width: 0; }
+    .bk-owner h4 { margin: 0 0 .35rem; font-size: .92rem; color: var(--brand-ink); }
+    .bk-mixed { margin: .4rem 0 0; font-size: .74rem; color: var(--muted); }
+    @media (max-width: 700px) {
+        .bk-head { grid-template-columns: 4.5rem minmax(0, 1fr) auto auto; }
+        .bk-head select { grid-column: 1 / -1; grid-row: 2; }
+        .bk-body { grid-template-columns: 1fr; }
+    }
     .sv-fzt { width: 100%; border-collapse: collapse; font-size: .85rem; }
     .sv-fzt th { text-align: left; font-size: .72rem; color: var(--muted); padding: .35rem .3rem; border-bottom: 1px solid var(--line-2); }
     .sv-fzt td { padding: .45rem .3rem; border-bottom: 1px solid var(--line); }
@@ -914,11 +1498,56 @@
     .sv-nbtns button { min-height: 2.3rem; border: 1px solid var(--line-2); border-radius: .55rem; background: var(--field); color: var(--ink-2); font: inherit; font-size: .78rem; cursor: pointer; }
     .sv-nbtns button[aria-pressed="true"] { background: var(--brand-grad); color: var(--on-brand); border-color: transparent; }
     .sv-show .pro-window-body svg { width: 100%; height: auto; display: block; }
+    .sv-notice { display: flex; align-items: center; gap: .6rem; margin-bottom: var(--gap); padding: .75rem 1rem; border-radius: var(--radius-sm); background: linear-gradient(135deg, rgba(245, 158, 11, .14), rgba(249, 115, 22, .1)); border: 1px solid rgba(245, 158, 11, .35); font-size: .9rem; font-weight: 600; color: var(--ink); }
+    .sv-notice i { color: #d97706; }
+    .sv-notice[hidden] { display: none; }
+    .sv-achecks { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .sv-acheck { display: inline-flex; align-items: center; gap: .45rem; padding: .5rem .8rem; border: 1px solid var(--line-2); border-radius: .7rem; background: var(--field); font-size: .85rem; cursor: pointer; }
+    .sv-acheck input { width: 1.05rem; height: 1.05rem; accent-color: var(--brand); }
+    /* field sketch */
+    .sv-grid2.sk-wide { grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); }
+    .sk-bar { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem; }
+    .sk-bar .pt { min-height: 2.4rem; }
+    .sk-stage { position: relative; height: 26rem; border-radius: .9rem; overflow: hidden; border: 1px solid var(--line-2); touch-action: none; cursor: crosshair; background: var(--field); }
+    .sk-stage[data-tool="select"] { cursor: default; }
+    .sk-stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+    .sk-entry { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto; gap: .5rem; align-items: end; margin-top: .7rem; padding: .7rem; border-radius: .8rem; background: var(--brand-50); }
+    .sk-entry[hidden] { display: none; }
+    .sk-entry .control { min-height: 2.6rem; height: 2.6rem; }
+    .sk-entry .btn { min-height: 2.6rem; }
+    .sk-entry-row { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .4rem; }
+    .sk-sidebox, .sk-textbox { margin-top: .8rem; padding: .8rem; border: 1px solid var(--line); border-radius: .8rem; }
+    .sk-sidebox h4 { margin: .8rem 0 .3rem; font-size: .82rem; }
+    .sk-table { min-width: 22rem; }
+    .sk-table tr.on td { background: rgba(245, 158, 11, .12); }
+    .sk-table input { max-width: 8rem; }
+    .sk-textbox { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: .5rem; align-items: end; }
+    /* inheritance */
+    .ih-grid { align-items: start; }
+    .ih-res { position: sticky; top: 6rem; }
+    .ih-box { padding: .8rem .9rem; border: 1px solid var(--line); border-radius: .9rem; }
+    .ih-box + .ih-box { margin-top: .7rem; }
+    .ih-box h4 { margin: 0 0 .5rem; font-size: .88rem; color: var(--brand-ink); }
+    .ih-box h4 small { color: var(--muted); font-weight: 500; }
+    .ih-row { display: flex; align-items: center; justify-content: space-between; gap: .8rem; padding: .35rem 0; font-size: .88rem; cursor: pointer; }
+    .ih-row + .ih-row { border-top: 1px dashed var(--line); }
+    .ih-step { display: inline-flex; align-items: center; border: 1px solid var(--line-2); border-radius: .7rem; overflow: hidden; flex: none; }
+    .ih-step button { width: 2.4rem; height: 2.4rem; border: 0; background: var(--field); color: var(--brand-ink); font-size: 1.15rem; font-weight: 700; cursor: pointer; }
+    .ih-step button:hover { background: var(--brand-50); }
+    .ih-step input { width: 2.8rem; height: 2.4rem; border: 0; border-left: 1px solid var(--line); border-right: 1px solid var(--line); text-align: center; font: inherit; font-weight: 700; background: var(--card, #fff); color: var(--ink); }
+    .ih-pre { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1fr) 2.4rem; gap: .4rem; align-items: end; margin-bottom: .5rem; font-size: .75rem; color: var(--muted); }
+    .ih-pre label { display: grid; gap: .2rem; }
+    .ih-pre .control { min-height: 2.4rem; height: 2.4rem; }
+    .ih-pre .sv-del { height: 2.4rem; }
+    .ih-ex { margin: 0; padding: 0; list-style: none; font-size: .82rem; color: var(--ink-2); }
+    .ih-ex li { padding: .3rem 0; }
+    .ih-ex i { color: var(--err); margin-right: .3rem; }
     @media (max-width: 1100px) {
         .sv-main { grid-template-columns: minmax(0, 1fr); }
         .sv-left { border-right: 0; }
         .sv-side { max-height: none; border-top: 1px solid var(--line); }
-        .sv-grid2 { grid-template-columns: minmax(0, 1fr); }
+        .sv-grid2, .sv-grid2.sk-wide { grid-template-columns: minmax(0, 1fr); }
+        .ih-res { position: static; }
         .sv-work.full .sv-main { display: flex; flex-direction: column; }
         .sv-work.full .sv-left { flex: 1; }
         .sv-work.full .sv-side { flex: none; max-height: 34vh; }
@@ -930,6 +1559,11 @@
         .sv-fields3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .35rem; }
         .sv-fields2 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: .5rem; }
         .sv-hint { font-size: .72rem; }
+        .sk-stage { height: 58vh; min-height: 20rem; }
+        .sk-entry { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+        .sk-entry > .btn { grid-column: 1 / -1; }
+        .sk-textbox { grid-template-columns: minmax(0, 1fr); }
+        .ih-pre { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
     }
     @media print { .sv-work.full { position: static; } }
     `;
@@ -950,12 +1584,15 @@
         </div>`;
 
     ROOT.innerHTML = `
+    <div class="sv-notice" id="sv-notice" hidden><i class="fa-solid fa-bullhorn"></i><span></span></div>
     <div class="sv-steps">
         ${[1, 2, 3, 4].map((n) => `<div class="sv-step glass"><b data-dg="${n}"></b><div><strong data-i18n="sv.s${n}"></strong><small data-i18n="sv.s${n}d"></small></div></div>`).join('')}
     </div>
     <div class="sv-tabs glass" role="tablist">
         <button type="button" role="tab" data-svtab="map" aria-selected="true">${icon('fa-map-location-dot')}<span data-i18n="sv.tab.map"></span></button>
         <button type="button" role="tab" data-svtab="field" aria-selected="false">${icon('fa-ruler-combined')}<span data-i18n="sv.tab.field"></span></button>
+        <button type="button" role="tab" data-svtab="blk" aria-selected="false">${icon('fa-table-cells-large')}<span data-i18n="sv.tab.blk"></span></button>
+        <button type="button" role="tab" data-svtab="inh" aria-selected="false">${icon('fa-people-roof')}<span data-i18n="sv.tab.inh"></span></button>
         <button type="button" role="tab" data-svtab="kh" aria-selected="false">${icon('fa-file-lines')}<span data-i18n="sv.tab.kh"></span></button>
         <button type="button" role="tab" data-svtab="conv" aria-selected="false">${icon('fa-right-left')}<span data-i18n="sv.tab.conv"></span></button>
     </div>
@@ -1090,6 +1727,7 @@
                 <div class="card-body" id="sv-field">
                     <div class="field"><span class="field-label" data-i18n="sv.f.shape"></span>
                         <div class="segmented" role="radiogroup" style="flex-wrap:wrap">
+                            <label data-sk-opt><input type="radio" name="svShape" value="sketch"><span data-i18n="sv.f.sketch"></span></label>
                             <label><input type="radio" name="svShape" value="rect" checked><span data-i18n="sv.f.rect"></span></label>
                             <label><input type="radio" name="svShape" value="quad"><span data-i18n="sv.f.quad"></span></label>
                             <label><input type="radio" name="svShape" value="tri"><span data-i18n="sv.f.tri"></span></label>
@@ -1098,6 +1736,35 @@
                     </div>
                     <div class="field" style="margin-top:1rem"><label for="sv-f-unit" data-i18n="sv.f.unit"></label>
                         <select class="control" id="sv-f-unit">${lenOptions('ft')}</select></div>
+                    <div data-shape="sketch" style="margin-top:1rem" hidden>
+                        <div class="sk-bar" role="toolbar">
+                            <button type="button" class="pt" data-sktool="draw">${icon('fa-pen-ruler')}<span data-i18n="sk.draw"></span></button>
+                            <button type="button" class="pt" data-sktool="select">${icon('fa-arrow-pointer')}<span data-i18n="sk.select"></span></button>
+                            <button type="button" class="pt" data-sktool="text">${icon('fa-font')}<span data-i18n="sk.text"></span></button>
+                            <button type="button" class="pt" data-sktool="erase">${icon('fa-eraser')}<span data-i18n="sk.erase"></span></button>
+                            <span class="pt-sep"></span>
+                            <button type="button" class="pt" id="sk-ortho" aria-pressed="true">${icon('fa-border-all')}<span data-i18n="sk.ortho"></span></button>
+                            <button type="button" class="icon-btn icon-btn-sm" id="sk-undo" data-i18n-title="bp.undo" data-i18n-aria="bp.undo"><i class="fa-solid fa-rotate-left"></i></button>
+                            <button type="button" class="icon-btn icon-btn-sm" id="sk-redo" data-i18n-title="bp.redo" data-i18n-aria="bp.redo"><i class="fa-solid fa-rotate-right"></i></button>
+                            <button type="button" class="icon-btn icon-btn-sm" id="sk-fit" data-i18n-title="sk.fit" data-i18n-aria="sk.fit"><i class="fa-solid fa-expand"></i></button>
+                            <button type="button" class="icon-btn icon-btn-sm" id="sk-clear" data-i18n-title="sk.clear" data-i18n-aria="sk.clear"><i class="fa-solid fa-trash-can"></i></button>
+                        </div>
+                        <p class="sv-note" id="sk-hint" style="margin:.4rem 0"></p>
+                        <div class="sk-stage" id="sk-stage" tabindex="0"><canvas id="sk-canvas"></canvas><div class="sv-live" id="sk-live"></div></div>
+                        <div class="sk-entry" id="sk-entry" hidden>
+                            <div class="field"><label for="sk-len"><span data-i18n="sk.len"></span> (<span data-sk-unit></span>)</label><input class="control" id="sk-len" inputmode="text" autocomplete="off" enterkeyhint="done"></div>
+                            <div class="field"><label for="sk-dir" data-i18n="sk.dir"></label><input class="control" id="sk-dir" inputmode="decimal" autocomplete="off"></div>
+                            <button type="button" class="btn btn-primary btn-sm" id="sk-add"><i class="fa-solid fa-plus"></i> <span data-i18n="sk.add"></span></button>
+                            <div class="sk-entry-row">
+                                <button type="button" class="btn btn-soft btn-sm" id="sk-close"><i class="fa-solid fa-draw-polygon"></i> <span data-i18n="sk.close"></span></button>
+                                <button type="button" class="btn btn-ghost btn-sm" id="sk-back"><i class="fa-solid fa-delete-left"></i> <span data-i18n="sk.back"></span></button>
+                                <button type="button" class="btn btn-ghost btn-sm" id="sk-cancel"><i class="fa-solid fa-xmark"></i> <span data-i18n="sk.cancel"></span></button>
+                            </div>
+                            <p class="sv-note" data-i18n="sk.dirHelp" style="grid-column:1/-1;margin:0"></p>
+                        </div>
+                        <div id="sk-text-edit"></div>
+                        <div id="sk-sides"></div>
+                    </div>
                     <div data-shape="rect" style="margin-top:1rem"><div class="sv-fields2">${fld('sv-f-L', 'sv.f.len')}${fld('sv-f-W', 'sv.f.wid')}</div></div>
                     <div data-shape="quad" style="margin-top:1rem" hidden>
                         <div class="sv-fields2">${fld('sv-f-qn', 'sv.f.n')}${fld('sv-f-qe', 'sv.f.e')}${fld('sv-f-qs', 'sv.f.s')}${fld('sv-f-qw', 'sv.f.w')}</div>
@@ -1165,27 +1832,90 @@
                 </div>
             </div>
         </div>
-        <div class="card" style="margin-top:var(--gap)">
-            <div class="card-head"><h2><i class="fa-solid fa-people-roof"></i> <span data-i18n="sv.fz.title"></span></h2></div>
-            <div class="card-body sv-grid2" style="align-items:start">
-                <div id="sv-fz-form">
-                    <div class="sv-fields2">
-                        <div class="field"><label for="sv-fz-whose" data-i18n="sv.fz.whose"></label><select class="control" id="sv-fz-whose" data-fz="whose"></select></div>
-                        <div class="field" id="sv-fz-amtbox"><label for="sv-fz-amt"><span data-i18n="sv.fz.amount"></span> (<span data-fz-unit></span>)</label><input class="control" id="sv-fz-amt" data-fz="amt" inputmode="decimal" autocomplete="off"></div>
-                    </div>
-                    <div class="field" style="margin-top:.75rem"><span class="field-label" data-i18n="sv.fz.gender"></span>
-                        <div class="segmented" role="radiogroup"><label><input type="radio" name="svFzG" value="m" data-fz="g" checked><span data-i18n="sv.fz.male"></span></label><label><input type="radio" name="svFzG" value="f" data-fz="g"><span data-i18n="sv.fz.female"></span></label></div></div>
-                    <div class="sv-fields2" style="margin-top:.75rem">
-                        <div class="field" data-fz-only="m"><label for="sv-fz-wives" data-i18n="sv.fz.wives"></label><select class="control" id="sv-fz-wives" data-fz="wives"><option value="0">০</option><option value="1" selected>১</option><option value="2">২</option><option value="3">৩</option><option value="4">৪</option></select></div>
-                        <div class="field" data-fz-only="f" hidden><label for="sv-fz-hus" data-i18n="sv.fz.husband"></label><select class="control" id="sv-fz-hus" data-fz="hus"><option value="1" data-i18n="sv.fz.yes"></option><option value="0" data-i18n="sv.fz.no"></option></select></div>
-                        <div class="field"><label for="sv-fz-sons" data-i18n="sv.fz.sons"></label><input class="control" id="sv-fz-sons" data-fz="sons" inputmode="numeric" autocomplete="off" value="0"></div>
-                        <div class="field"><label for="sv-fz-daus" data-i18n="sv.fz.daus"></label><input class="control" id="sv-fz-daus" data-fz="daus" inputmode="numeric" autocomplete="off" value="0"></div>
-                        <div class="field"><label for="sv-fz-fa" data-i18n="sv.fz.father"></label><select class="control" id="sv-fz-fa" data-fz="fa"><option value="0" data-i18n="sv.fz.no"></option><option value="1" data-i18n="sv.fz.yes"></option></select></div>
-                        <div class="field"><label for="sv-fz-mo" data-i18n="sv.fz.mother"></label><select class="control" id="sv-fz-mo" data-fz="mo"><option value="0" data-i18n="sv.fz.no"></option><option value="1" data-i18n="sv.fz.yes"></option></select></div>
-                    </div>
-                    <p class="sv-note" data-i18n="sv.fz.note"></p>
+    </div>
+
+    <!-- ===== block division (field book) ===== -->
+    <div class="sv-pane" data-svpane="blk" hidden>
+        <div class="card">
+            <div class="card-head"><h2><i class="fa-solid fa-table-cells-large"></i> <span data-i18n="bk.title"></span></h2></div>
+            <div class="card-body">
+                <p class="sv-note" style="margin:0 0 .5rem" data-i18n="bp.sub"></p>
+                <div class="sv-okbox" style="margin:0 0 .9rem"><i class="fa-solid fa-ruler-combined"></i> <span data-i18n="bp.how"></span></div>
+                <div class="bk-top">
+                    <div class="field"><label for="bk-unit" data-i18n="bk.unit"></label><select class="control" id="bk-unit"><option value="ftin" data-i18n="bk.ftin"></option><option value="ft" data-i18n="sv.l.ft"></option><option value="m" data-i18n="sv.l.m"></option><option value="hat" data-i18n="sv.l.hat"></option><option value="link" data-i18n="sv.l.link"></option><option value="chain" data-i18n="sv.l.chain"></option></select></div>
+                    <div class="field bp-northf"><label for="bp-north" data-i18n="bp.north"></label>
+                        <div class="bp-northrow"><button type="button" class="icon-btn icon-btn-sm" data-bprot="-15" data-i18n-title="bp.rotL" data-i18n-aria="bp.rotL"><i class="fa-solid fa-arrow-rotate-left"></i></button><input class="control" id="bp-north" inputmode="decimal" autocomplete="off" value="0"><button type="button" class="icon-btn icon-btn-sm" data-bprot="15" data-i18n-title="bp.rotR" data-i18n-aria="bp.rotR"><i class="fa-solid fa-arrow-rotate-right"></i></button></div></div>
+                    <button type="button" class="btn btn-ghost btn-sm" data-bpact="sample"><i class="fa-solid fa-lightbulb"></i> <span data-i18n="bp.sample"></span></button>
                 </div>
-                <div id="sv-fz-out"></div>
+                <div class="sk-bar" role="toolbar">
+                    <button type="button" class="pt" data-bptool="draw" aria-pressed="true">${icon('fa-pen-ruler')}<span data-i18n="bp.draw"></span></button>
+                    <button type="button" class="pt" data-bptool="diag">${icon('fa-slash')}<span data-i18n="bp.diag"></span></button>
+                    <button type="button" class="pt" data-bptool="select">${icon('fa-arrow-pointer')}<span data-i18n="bp.select"></span></button>
+                    <button type="button" class="pt" data-bptool="erase">${icon('fa-eraser')}<span data-i18n="bp.erase"></span></button>
+                    <span class="pt-sep"></span>
+                    <button type="button" class="pt" id="bp-ortho" aria-pressed="true">${icon('fa-border-all')}<span data-i18n="bp.ortho"></span></button>
+                    <button type="button" class="icon-btn icon-btn-sm" id="bp-undo" data-i18n-title="bp.undo" data-i18n-aria="bp.undo"><i class="fa-solid fa-rotate-left"></i></button>
+                    <button type="button" class="icon-btn icon-btn-sm" id="bp-redo" data-i18n-title="bp.redo" data-i18n-aria="bp.redo"><i class="fa-solid fa-rotate-right"></i></button>
+                    <button type="button" class="icon-btn icon-btn-sm" id="bp-fit" data-i18n-title="bp.fit" data-i18n-aria="bp.fit"><i class="fa-solid fa-expand"></i></button>
+                    <button type="button" class="icon-btn icon-btn-sm" id="bp-clear" data-i18n-title="bp.clear" data-i18n-aria="bp.clear"><i class="fa-solid fa-trash-can"></i></button>
+                </div>
+                <p class="sv-note" id="bp-hint" style="margin:.4rem 0"></p>
+                <div class="sk-stage bp-stage" id="bp-stage" tabindex="0"><canvas id="bp-canvas"></canvas><div class="sv-live" id="bp-live"></div></div>
+                <div class="bp-entry" id="bp-entry">
+                    <div class="field"><label for="bp-len"><span data-i18n="bp.len"></span> (<span data-bp-unit></span>)</label><input class="control" id="bp-len" autocomplete="off" inputmode="text" enterkeyhint="done"></div>
+                    <div class="field"><label for="bp-dir" data-i18n="bp.dir"></label><input class="control" id="bp-dir" inputmode="decimal" autocomplete="off"></div>
+                    <div class="bp-arrows" role="group">
+                        <button type="button" class="btn btn-soft btn-sm" data-bpgo="0" data-i18n-title="sv.dir.N"><i class="fa-solid fa-arrow-up"></i> <span data-i18n="sv.ds.N"></span></button>
+                        <button type="button" class="btn btn-soft btn-sm" data-bpgo="90" data-i18n-title="sv.dir.E"><i class="fa-solid fa-arrow-right"></i> <span data-i18n="sv.ds.E"></span></button>
+                        <button type="button" class="btn btn-soft btn-sm" data-bpgo="180" data-i18n-title="sv.dir.S"><i class="fa-solid fa-arrow-down"></i> <span data-i18n="sv.ds.S"></span></button>
+                        <button type="button" class="btn btn-soft btn-sm" data-bpgo="270" data-i18n-title="sv.dir.W"><i class="fa-solid fa-arrow-left"></i> <span data-i18n="sv.ds.W"></span></button>
+                    </div>
+                    <div class="bp-erow">
+                        <button type="button" class="btn btn-primary btn-sm" id="bp-add"><i class="fa-solid fa-plus"></i> <span data-i18n="bp.add"></span></button>
+                        <button type="button" class="btn btn-ghost btn-sm" id="bp-end"><i class="fa-solid fa-hand"></i> <span data-i18n="bp.end"></span></button>
+                    </div>
+                </div>
+                <p class="sv-note" id="bp-stat" style="margin:.5rem 0 0"></p>
+                <div id="bp-edit"></div>
+                <h3 class="bp-h3" data-i18n="bp.blocks"></h3>
+                <div id="bp-blocks"></div>
+            </div>
+        </div>
+        <div class="card" style="margin-top:var(--gap)">
+            <div class="card-head"><h2><i class="fa-solid fa-keyboard"></i> <span data-i18n="bp.manual"></span></h2></div>
+            <div class="card-body">
+                <div class="sv-okbox" style="margin:0 0 .9rem"><i class="fa-solid fa-ruler-combined"></i> <span data-i18n="bk.how"></span></div>
+                <div class="bk-top">
+                    <button type="button" class="btn btn-ghost btn-sm" data-bkact="sample"><i class="fa-solid fa-lightbulb"></i> <span data-i18n="bk.sample"></span></button>
+                    <button type="button" class="btn btn-danger btn-sm" data-bkact="clear"><i class="fa-solid fa-trash-can"></i> <span data-i18n="bk.clear"></span></button>
+                </div>
+                <datalist id="bk-owners"></datalist>
+                <div id="bk-list"></div>
+                <div class="bk-addrow">
+                    <button type="button" class="btn btn-primary btn-sm" data-bkact="add" data-t="quad"><i class="fa-solid fa-plus"></i> <span data-i18n="bk.add"></span> (<span data-i18n="bk.t.quad"></span>)</button>
+                    <button type="button" class="btn btn-soft btn-sm" data-bkact="add" data-t="rect"><i class="fa-solid fa-plus"></i> <span data-i18n="bk.t.rect"></span></button>
+                    <button type="button" class="btn btn-soft btn-sm" data-bkact="add" data-t="tri"><i class="fa-solid fa-plus"></i> <span data-i18n="bk.t.tri"></span></button>
+                    <button type="button" class="btn btn-soft btn-sm" data-bkact="add" data-t="p5"><i class="fa-solid fa-plus"></i> <span data-i18n="bk.t.p5"></span></button>
+                </div>
+                <p class="sv-note" data-i18n="bk.tip"></p>
+            </div>
+        </div>
+        <div class="card" style="margin-top:var(--gap)">
+            <div class="card-head"><h2><i class="fa-solid fa-users"></i> <span data-i18n="bk.byOwner"></span></h2></div>
+            <div class="card-body" id="bk-sum"></div>
+        </div>
+    </div>
+
+    <!-- ===== inheritance ===== -->
+    <div class="sv-pane" data-svpane="inh" hidden>
+        <div class="sv-grid2 ih-grid">
+            <div class="card">
+                <div class="card-head"><h2><i class="fa-solid fa-people-roof"></i> <span data-i18n="ih.title"></span></h2></div>
+                <div class="card-body" id="ih-form"></div>
+            </div>
+            <div class="card ih-res">
+                <div class="card-head"><h2><i class="fa-solid fa-scale-balanced"></i> <span data-i18n="ih.res"></span></h2></div>
+                <div class="card-body" id="ih-out"></div>
             </div>
         </div>
     </div>
@@ -1212,6 +1942,7 @@
                     </div>
                     <table class="sv-conv-table" id="sv-c-lt" style="margin-top:1rem"></table>
                     <p class="sv-note" data-i18n="sv.c.note" style="margin-top:1rem"></p>
+                    <p class="sv-note" id="sv-c-reg" style="font-weight:600"></p>
                 </div>
             </div>
         </div>
@@ -1226,12 +1957,14 @@
         $$('[data-svtab]', ROOT).forEach((b) => b.setAttribute('aria-selected', String(b.dataset.svtab === id)));
         $$('[data-svpane]', ROOT).forEach((p) => { p.hidden = p.dataset.svpane !== id; });
         if (id === 'map') MAP.resize();
+        if (id === 'blk') BLOCK.show();
         syncLock();
     }
     /* ---------- Pro lock (the unit converter stays free) ---------- */
     let locked = false;
     function syncLock() {
-        const show = locked && tab !== 'conv';
+        const c = CFGX();
+        const show = locked && c.pro !== false && !c.free[tab];
         $('#sv-lock').hidden = !show;
         ROOT.classList.toggle('sv-locked', show);
     }
@@ -1258,6 +1991,7 @@
             $('#sv-c-lt').innerHTML = LEN_ORDER.map((u) => `<tr class="${u === lu.value ? 'on' : ''}"><td>${esc(t('sv.l.' + u))}</td><td>${Number.isFinite(ft) ? num(ft / LEN_U[u], 3) : '—'}</td></tr>`).join('')
                 + (Number.isFinite(ft) && ft > 0 ? `<tr><td>${esc(t('sv.l.ftin'))}</td><td>${fmtLen(ft, 'ftin')}</td></tr><tr><td>${esc(t('sv.l.chainlink'))}</td><td>${fmtLen(ft, 'link')}</td></tr>` : '');
             storage.set('cc.survey.conv', { av: av.value, au: au.value, lv: lv.value, lu: lu.value });
+            $('#sv-c-reg').textContent = t('sv.c.reg', { kt: num(AREA_U.katha, 1), k: num(AREA_U.kani / 435.6, 2), g: num(AREA_U.ganda / 435.6, 2) });
         }
         [av, au, lv, lu].forEach((el) => el.addEventListener('input', render));
         [au, lu].forEach((el) => el.addEventListener('change', render));
@@ -1267,10 +2001,455 @@
     /* =========================================================
        Field area (from sides measured on the land)
        ========================================================= */
+
+    /* =========================================================
+       Field sketch: draw any shape side by side (like walls in
+       the floor plan), give each side its exact length and
+       direction, add text anywhere. Units: feet, y = south.
+       ========================================================= */
+    const SKETCH = (() => {
+        const stage = $('#sk-stage'), cv = $('#sk-canvas'), ctx = cv.getContext('2d');
+        const KEY = 'cc.survey.sketch';
+        const clean = (d) => {
+            const o = d && typeof d === 'object' ? d : {};
+            return {
+                shapes: (Array.isArray(o.shapes) ? o.shapes : []).filter((s) => s && Array.isArray(s.pts) && s.pts.length >= 3).map((s) => ({ id: s.id, name: String(s.name || ''), pts: s.pts.map((p) => [Number(p[0]) || 0, Number(p[1]) || 0]) })),
+                texts: (Array.isArray(o.texts) ? o.texts : []).filter((x) => x && x.s).map((x) => ({ id: x.id, x: Number(x.x) || 0, y: Number(x.y) || 0, s: String(x.s).slice(0, 120), size: ['s', 'm', 'b'].includes(x.size) ? x.size : 'm' })),
+                next: Number(o.next) || 1,
+            };
+        };
+        let S = clean(storage.get(KEY, null));
+        S.next = Math.max(S.next, ...S.shapes.map((s) => s.id + 1), ...S.texts.map((x) => x.id + 1), 1);
+        let view = { z: 8, ox: 0, oy: 0 }, fitted = false, cw = 0, ch = 0;
+        let tool = 'draw', ortho = true, draft = null, hover = null, sel = null, selEdge = null, gesture = null;
+        const ptrs = new Map();
+        let hist = [JSON.stringify(S)], hi = 0;
+        let hooks = { unit: () => 'ft', change: () => {} };
+        const save = () => storage.set(KEY, S);
+        function commit(quietTable) {
+            hist = hist.slice(0, hi + 1); hist.push(JSON.stringify(S)); if (hist.length > 60) hist.shift(); hi = hist.length - 1;
+            save(); if (!quietTable) panels(); draw(); hooks.change();
+        }
+        const U = () => (LEN_U[hooks.unit()] ? hooks.unit() : 'ft');
+        const toU = (ft) => ft / LEN_U[U()], fromU = (v) => v * LEN_U[U()];
+        const vec = (b) => [Math.sin(b * Math.PI / 180), -Math.cos(b * Math.PI / 180)];
+        const bearing = (a, b) => ((Math.atan2(b[0] - a[0], -(b[1] - a[1])) * 180 / Math.PI) + 360) % 360;
+        const shapeById = (id) => S.shapes.find((s) => s.id === id);
+        const textById = (id) => S.texts.find((x) => x.id === id);
+        const DIR8 = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
+        function edgeDir(a, b, cen) {
+            let nx = -(b[1] - a[1]), ny = b[0] - a[0];
+            if (((a[0] + b[0]) / 2 - cen[0]) * nx + ((a[1] + b[1]) / 2 - cen[1]) * ny < 0) { nx = -nx; ny = -ny; }
+            return DIR8[Math.round(((Math.atan2(nx, -ny) * 180 / Math.PI + 360) % 360) / 45) % 8];
+        }
+        const fmtB = (b) => `${num(((b % 360) + 360) % 360, 1)}°`;
+
+        /* ---------- view ---------- */
+        const toS = (p, v = view) => [p[0] * v.z + v.ox, p[1] * v.z + v.oy];
+        const toW = (s) => [(s[0] - view.ox) / view.z, (s[1] - view.oy) / view.z];
+        function resize() {
+            const r = stage.getBoundingClientRect();
+            if (!r.width || !r.height) return;
+            cw = r.width; ch = r.height;
+            const d = Math.min(window.devicePixelRatio || 1, 2.5);
+            cv.width = Math.round(cw * d); cv.height = Math.round(ch * d);
+            if (!fitted) fit(); else draw();
+        }
+        new ResizeObserver(resize).observe(stage);
+        function fit() {
+            if (!cw) return;
+            let P = [];
+            S.shapes.forEach((s) => { P = P.concat(s.pts); });
+            S.texts.forEach((x) => P.push([x.x, x.y]));
+            if (draft) P = P.concat(draft);
+            const b = P.length ? bbox(P) : { x0: -30, y0: -20, x1: 30, y1: 20 };
+            const w = Math.max(b.x1 - b.x0, 20), h = Math.max(b.y1 - b.y0, 14), pad = 50;
+            view.z = Math.min((cw - pad * 2) / w, (ch - pad * 2) / h);
+            view.ox = cw / 2 - (b.x0 + b.x1) / 2 * view.z; view.oy = ch / 2 - (b.y0 + b.y1) / 2 * view.z;
+            fitted = true; draw();
+        }
+        function zoomAt(s, k) { const w = toW(s); view.z = Math.min(Math.max(view.z * k, 0.05), 400); view.ox = s[0] - w[0] * view.z; view.oy = s[1] - w[1] * view.z; draw(); }
+
+        /* ---------- drawing ---------- */
+        let raf = 0;
+        function draw() { if (!raf) raf = requestAnimationFrame(() => { raf = 0; paint(); }); }
+        const FONTS = "'Noto Sans Bengali', Poppins, system-ui, sans-serif";
+        function txt(c, s, x, y, size, o = {}) {
+            c.save(); c.font = `${o.bold ? 700 : 600} ${size}px ${FONTS}`; c.textAlign = o.align || 'center'; c.textBaseline = 'middle';
+            if (o.rot) { c.translate(x, y); c.rotate(o.rot); x = 0; y = 0; }
+            c.lineJoin = 'round'; c.lineWidth = 3.5; c.strokeStyle = o.halo || 'rgba(255,255,255,.92)'; c.strokeText(s, x, y);
+            c.fillStyle = o.color || '#1e293b'; c.fillText(s, x, y); c.restore();
+        }
+        function paint() {
+            if (!cw) return;
+            const d = Math.min(window.devicePixelRatio || 1, 2.5);
+            ctx.setTransform(d, 0, 0, d, 0, 0);
+            const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+            const ink = dark ? '#e2e8f0' : '#1e293b', halo = dark ? 'rgba(17,28,46,.9)' : 'rgba(255,255,255,.92)';
+            const brand = getComputedStyle(document.documentElement).getPropertyValue('--brand').trim() || '#0d9488';
+            ctx.fillStyle = dark ? '#111c2e' : '#fbfcfd'; ctx.fillRect(0, 0, cw, ch);
+            // grid in feet
+            const step = (() => { const t0 = 24 / view.z, p = 10 ** Math.floor(Math.log10(t0)), m = t0 / p; return (m < 1.5 ? 1 : m < 3.5 ? 2 : m < 7.5 ? 5 : 10) * p; })();
+            const w0 = toW([0, 0]), w1 = toW([cw, ch]);
+            for (let gx = Math.floor(w0[0] / step), X; (X = gx * step * view.z + view.ox) <= cw; gx++) { ctx.strokeStyle = gx % 5 ? (dark ? 'rgba(148,163,184,.08)' : 'rgba(30,41,59,.05)') : (dark ? 'rgba(148,163,184,.17)' : 'rgba(30,41,59,.11)'); ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(X, 0); ctx.lineTo(X, ch); ctx.stroke(); }
+            for (let gy = Math.floor(w0[1] / step), Y; (Y = gy * step * view.z + view.oy) <= ch; gy++) { ctx.strokeStyle = gy % 5 ? (dark ? 'rgba(148,163,184,.08)' : 'rgba(30,41,59,.05)') : (dark ? 'rgba(148,163,184,.17)' : 'rgba(30,41,59,.11)'); ctx.beginPath(); ctx.moveTo(0, Y); ctx.lineTo(cw, Y); ctx.stroke(); }
+            void w1;
+            // shapes
+            S.shapes.forEach((sh) => {
+                const on = sel && sel.k === 'shape' && sel.id === sh.id, P = sh.pts, cen = labelPt(P);
+                ctx.beginPath(); P.forEach((p, i) => { const s = toS(p); if (i) ctx.lineTo(s[0], s[1]); else ctx.moveTo(s[0], s[1]); }); ctx.closePath();
+                ctx.fillStyle = on ? 'rgba(13,148,136,.2)' : 'rgba(13,148,136,.12)'; ctx.fill();
+                ctx.lineJoin = 'round'; ctx.lineWidth = on ? 3 : 2.2; ctx.strokeStyle = brand; ctx.stroke();
+                P.forEach((a, i) => {
+                    const b = P[(i + 1) % P.length], A = toS(a), B = toS(b), L = Math.hypot(B[0] - A[0], B[1] - A[1]);
+                    if (on && selEdge === i) { ctx.save(); ctx.strokeStyle = '#f59e0b'; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(A[0], A[1]); ctx.lineTo(B[0], B[1]); ctx.stroke(); ctx.restore(); }
+                    if (L < 40) return;
+                    let ang = Math.atan2(B[1] - A[1], B[0] - A[0]); if (ang > Math.PI / 2) ang -= Math.PI; if (ang < -Math.PI / 2) ang += Math.PI;
+                    const C = toS(cen), mx = (A[0] + B[0]) / 2, my = (A[1] + B[1]) / 2; let nx = -(B[1] - A[1]) / L, ny = (B[0] - A[0]) / L;
+                    if ((mx - C[0]) * nx + (my - C[1]) * ny < 0) { nx = -nx; ny = -ny; }
+                    txt(ctx, `${t('sv.ds.' + edgeDir(a, b, cen))} · ${fmtLen(dist(a, b), 'ftin')}`, mx + nx * 12, my + ny * 12, 11, { rot: ang, color: ink, halo });
+                });
+                const C = toS(cen);
+                txt(ctx, sh.name || t('sk.shape', { n: digits(S.shapes.indexOf(sh) + 1) }), C[0], C[1] - 9, 12.5, { bold: true, color: brand, halo });
+                txt(ctx, fmtArea(pArea(P), 'dec'), C[0], C[1] + 9, 12, { bold: true, color: ink, halo });
+                if (on) P.forEach((p) => { const s = toS(p); ctx.beginPath(); ctx.arc(s[0], s[1], 5.5, 0, 7); ctx.fillStyle = '#fff'; ctx.fill(); ctx.lineWidth = 2.2; ctx.strokeStyle = brand; ctx.stroke(); });
+            });
+            // texts
+            S.texts.forEach((x) => {
+                const s = toS([x.x, x.y]), on = sel && sel.k === 'text' && sel.id === x.id, size = { s: 12, m: 16, b: 24 }[x.size];
+                txt(ctx, x.s, s[0], s[1], size, { bold: x.size !== 's', color: dark ? '#fbbf24' : '#7c2d12', halo });
+                if (on) { ctx.save(); ctx.font = `700 ${size}px ${FONTS}`; const w = ctx.measureText(x.s).width; ctx.strokeStyle = '#f59e0b'; ctx.setLineDash([4, 3]); ctx.strokeRect(s[0] - w / 2 - 5, s[1] - size * .75, w + 10, size * 1.5); ctx.restore(); }
+            });
+            // draft
+            if (draft && draft.length) {
+                const pts = hover ? draft.concat([hover]) : draft;
+                ctx.save(); ctx.strokeStyle = brand; ctx.lineWidth = 3;
+                ctx.beginPath(); pts.forEach((p, i) => { const s = toS(p); if (i) ctx.lineTo(s[0], s[1]); else ctx.moveTo(s[0], s[1]); }); ctx.stroke(); ctx.restore();
+                draft.forEach((p, i) => { const s = toS(p); ctx.beginPath(); ctx.arc(s[0], s[1], i ? 4.5 : 8, 0, 7); ctx.fillStyle = i ? '#fff' : brand; ctx.fill(); ctx.strokeStyle = brand; ctx.lineWidth = 2; ctx.stroke(); });
+                for (let i = 1; i < pts.length; i++) {
+                    const a = pts[i - 1], b = pts[i], A = toS(a), B = toS(b);
+                    if (Math.hypot(B[0] - A[0], B[1] - A[1]) < 30) continue;
+                    txt(ctx, `${fmtLen(dist(a, b), 'ftin')} · ${fmtB(bearing(a, b))}`, (A[0] + B[0]) / 2, (A[1] + B[1]) / 2 - 13, 11.5, { bold: true, color: i === pts.length - 1 && hover ? '#b45309' : ink, halo });
+                }
+            }
+            // north arrow
+            ctx.save(); ctx.translate(cw - 26, 34);
+            ctx.beginPath(); ctx.arc(0, 0, 14, 0, 7); ctx.fillStyle = halo; ctx.fill();
+            ctx.beginPath(); ctx.moveTo(0, -11); ctx.lineTo(4.5, 5); ctx.lineTo(0, 2); ctx.closePath(); ctx.fillStyle = '#e11d48'; ctx.fill();
+            ctx.beginPath(); ctx.moveTo(0, -11); ctx.lineTo(-4.5, 5); ctx.lineTo(0, 2); ctx.closePath(); ctx.fillStyle = ink; ctx.fill(); ctx.restore();
+            txt(ctx, t('sv.e.n'), cw - 26, 12, 10.5, { bold: true, color: ink, halo });
+            // live
+            let live = '';
+            if (draft && draft.length && hover) { const a = draft[draft.length - 1]; live = `${fmtLen(dist(a, hover), 'ftin')} · ${fmtB(bearing(a, hover))}`; }
+            $('#sk-live').textContent = live;
+        }
+
+        /* ---------- snapping ---------- */
+        function snapStep() { const t0 = 10 / view.z, p = 10 ** Math.floor(Math.log10(t0)), m = t0 / p; return (m < 1.5 ? 1 : m < 3.5 ? 2 : m < 7.5 ? 5 : 10) * p; }
+        function snapVertex(s, skipId) {
+            let best = null, bd = 14;
+            const test = (q) => { const Q = toS(q), d = Math.hypot(Q[0] - s[0], Q[1] - s[1]); if (d < bd) { bd = d; best = q; } };
+            S.shapes.forEach((sh) => { if (sh.id !== skipId) sh.pts.forEach(test); });
+            if (draft) draft.forEach(test);
+            return best;
+        }
+        // the next corner while drawing: snapped to a corner, or ortho / grid
+        function nextPoint(s) {
+            const v = snapVertex(s);
+            if (v) { const r = [v[0], v[1]]; r.snap = true; return r; }
+            const w = toW(s), st0 = snapStep();
+            if (!draft || !draft.length) return [Math.round(w[0] / st0) * st0, Math.round(w[1] / st0) * st0];
+            const a = draft[draft.length - 1];
+            let b = bearing(a, w), L = dist(a, w);
+            b = ortho ? Math.round(b / 90) * 90 : Math.round(b);
+            const dv0 = vec(b);
+            if (ortho) L = (w[0] - a[0]) * dv0[0] + (w[1] - a[1]) * dv0[1];
+            L = Math.max(0, Math.round(L / st0) * st0);
+            return [a[0] + dv0[0] * L, a[1] + dv0[1] * L];
+        }
+
+        /* ---------- hit testing ---------- */
+        function hit(s) {
+            for (let i = S.texts.length - 1; i >= 0; i--) {
+                const x = S.texts[i], p = toS([x.x, x.y]), size = { s: 12, m: 16, b: 24 }[x.size];
+                ctx.font = `700 ${size}px ${FONTS}`; const w = ctx.measureText(x.s).width / 2 + 6;
+                if (Math.abs(s[0] - p[0]) < w && Math.abs(s[1] - p[1]) < size) return { k: 'text', x };
+            }
+            const ss = sel && sel.k === 'shape' && shapeById(sel.id);
+            if (ss) for (let i = 0; i < ss.pts.length; i++) { const p = toS(ss.pts[i]); if (Math.hypot(p[0] - s[0], p[1] - s[1]) < 13) return { k: 'vert', sh: ss, i }; }
+            for (let j = S.shapes.length - 1; j >= 0; j--) {
+                const sh = S.shapes[j];
+                for (let i = 0; i < sh.pts.length; i++) if (segDist(s, toS(sh.pts[i]), toS(sh.pts[(i + 1) % sh.pts.length])) < 8) return { k: 'edge', sh, i };
+            }
+            const w = toW(s);
+            for (let j = S.shapes.length - 1; j >= 0; j--) if (inPoly(w, S.shapes[j].pts)) return { k: 'shape', sh: S.shapes[j] };
+            return { k: 'none' };
+        }
+
+        /* ---------- tools & entry bar ---------- */
+        const HINT = { draw: 'sk.h.draw', select: 'sk.h.select', text: 'sk.h.text', erase: 'sk.h.erase' };
+        function setTool(t0) {
+            tool = t0;
+            if (t0 !== 'draw') { draft = null; hover = null; }
+            $$('[data-sktool]', ROOT).forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.sktool === t0)));
+            stage.dataset.tool = t0;
+            $('#sk-hint').textContent = t(HINT[t0]);
+            $('#sk-entry').hidden = t0 !== 'draw';
+            syncEntry(); draw();
+        }
+        function syncEntry() {
+            $$('[data-sk-unit]', ROOT).forEach((el) => { el.textContent = t('sv.l.' + U()); });
+            $('#sk-close').disabled = !(draft && draft.length >= 3);
+            $('#sk-back').disabled = !(draft && draft.length);
+            $('#sk-cancel').disabled = !draft;
+            const last = draft && draft.length > 1 ? bearing(draft[draft.length - 2], draft[draft.length - 1]) : null;
+            $('#sk-dir').placeholder = digits(String(last === null ? 90 : Math.round((last + 90) % 360)));
+        }
+        function addPoint(p) {
+            if (!draft) draft = [];
+            if (draft.length >= 3 && Math.abs(p[0] - draft[0][0]) < 1e-9 && Math.abs(p[1] - draft[0][1]) < 1e-9) { closeDraft(); return; }
+            const last = draft[draft.length - 1];
+            if (last && dist(last, p) < 1e-6) return;
+            draft.push([p[0], p[1]]);
+            syncEntry(); draw();
+        }
+        function closeDraft() {
+            if (!draft || draft.length < 3) { toast(t('sk.need3')); return; }
+            const sh = { id: S.next++, name: '', pts: draft.map((p) => [p[0], p[1]]) };
+            S.shapes.push(sh);
+            draft = null; hover = null; sel = { k: 'shape', id: sh.id }; selEdge = null;
+            setTool('select'); commit();
+            const b = bbox(sh.pts), p0 = toS([b.x0, b.y0]), p1 = toS([b.x1, b.y1]);
+            if (p0[0] < 0 || p0[1] < 0 || p1[0] > cw || p1[1] > ch) fit();
+        }
+        function typedAdd() {
+            const Lraw = CS.toEn($('#sk-len').value).trim(), fi = Lraw.match(/^(\d+(?:\.\d+)?)\s*(?:['’′]|-|\s)\s*(\d+(?:\.\d+)?)?\s*["”″]?$/);
+            const Lv = fi ? toU(Number(fi[1]) + (fi[2] ? Number(fi[2]) / 12 : 0)) : pnum(Lraw), bTyped = pnum($('#sk-dir').value);
+            if (!draft || !draft.length) { const c = cw ? toW([cw / 2, ch / 2]) : [0, 0]; const st0 = snapStep(); draft = [[Math.round(c[0] / st0) * st0, Math.round(c[1] / st0) * st0]]; }
+            const a = draft[draft.length - 1];
+            let b = Number.isFinite(bTyped) ? bTyped : hover ? bearing(a, hover) : pnum($('#sk-dir').placeholder);
+            if (!Number.isFinite(b)) b = 90;
+            const L = Lv > 0 ? fromU(Lv) : hover ? dist(a, hover) : 0;
+            if (!(L > 0)) { $('#sk-len').focus(); return; }
+            const v0 = vec(b);
+            addPoint([a[0] + v0[0] * L, a[1] + v0[1] * L]);
+            $('#sk-len').value = ''; $('#sk-dir').value = '';
+            hover = null; syncEntry(); draw();
+            $('#sk-len').focus();
+        }
+
+        /* ---------- pointer input ---------- */
+        const pos = (e) => { const r = stage.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
+        stage.addEventListener('pointerdown', (e) => {
+            try { stage.setPointerCapture(e.pointerId); } catch (x) { /* ok */ }
+            const s = pos(e);
+            ptrs.set(e.pointerId, s);
+            if (ptrs.size === 2) { const [a, b] = [...ptrs.values()]; gesture = { k: 'pinch', d: Math.hypot(a[0] - b[0], a[1] - b[1]), m: toW([(a[0] + b[0]) / 2, (a[1] + b[1]) / 2]), z: view.z }; hover = null; return; }
+            if (ptrs.size > 2) return;
+            if (e.button === 1 || e.button === 2) { gesture = { k: 'pan', s, o: [view.ox, view.oy] }; return; }
+            if (tool === 'draw') {
+                if (!draft || !draft.length) { gesture = { k: 'start', s }; hover = null; return; }
+                gesture = { k: 'seg', s }; hover = nextPoint(s); draw(); return;
+            }
+            if (tool === 'text' || tool === 'erase') { gesture = { k: 'tap', s, o: [view.ox, view.oy] }; return; }
+            const h = hit(s);
+            if (h.k === 'vert') { gesture = { k: 'vert', sh: h.sh, i: h.i }; return; }
+            if (h.k === 'text') { sel = { k: 'text', id: h.x.id }; panels(); gesture = { k: 'mtext', x: h.x, s, o: [h.x.x, h.x.y] }; draw(); return; }
+            if (h.k === 'edge' || h.k === 'shape') {
+                sel = { k: 'shape', id: h.sh.id }; selEdge = h.k === 'edge' ? h.i : null; panels();
+                gesture = { k: 'mshape', sh: h.sh, s, o: h.sh.pts.map((p) => p.slice()) }; draw(); return;
+            }
+            gesture = { k: 'pan', s, o: [view.ox, view.oy], tap: true };
+        });
+        stage.addEventListener('pointermove', (e) => {
+            const s = pos(e);
+            if (ptrs.has(e.pointerId)) ptrs.set(e.pointerId, s);
+            const g = gesture;
+            if (g && g.k === 'pinch') {
+                if (ptrs.size < 2) return;
+                const [a, b] = [...ptrs.values()], d = Math.hypot(a[0] - b[0], a[1] - b[1]), m = [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
+                view.z = Math.min(Math.max(g.z * d / Math.max(g.d, 1), 0.05), 400); view.ox = m[0] - g.m[0] * view.z; view.oy = m[1] - g.m[1] * view.z; draw(); return;
+            }
+            if (tool === 'draw' && draft && draft.length && (!g || g.k === 'seg') && e.pointerType !== 'touch') { hover = nextPoint(s); draw(); }
+            if (!g) return;
+            if (g.k === 'start' && Math.hypot(s[0] - g.s[0], s[1] - g.s[1]) > 6) { draft = [nextPoint(g.s)]; g.k = 'seg'; }
+            if (g.k === 'seg') { hover = nextPoint(s); syncEntry(); draw(); return; }
+            if (g.k === 'pan' || (g.k === 'tap' && Math.hypot(s[0] - g.s[0], s[1] - g.s[1]) > 6)) { if (g.k === 'tap') { g.k = 'pan'; } view.ox = g.o[0] + s[0] - g.s[0]; view.oy = g.o[1] + s[1] - g.s[1]; g.moved = true; draw(); return; }
+            if (g.k === 'vert') { const v = snapVertex(s, g.sh.id); g.sh.pts[g.i] = v ? [v[0], v[1]] : (() => { const w = toW(s), st0 = snapStep(); return [Math.round(w[0] / st0) * st0, Math.round(w[1] / st0) * st0]; })(); g.moved = true; draw(); sidesLive(); return; }
+            if (g.k === 'mshape') { const w = toW(s), w0 = toW(g.s), dx = w[0] - w0[0], dy = w[1] - w0[1]; if (Math.hypot(s[0] - g.s[0], s[1] - g.s[1]) > 4) { g.sh.pts = g.o.map((p) => [p[0] + dx, p[1] + dy]); g.moved = true; draw(); } return; }
+            if (g.k === 'mtext') { const w = toW(s), w0 = toW(g.s); g.x.x = g.o[0] + w[0] - w0[0]; g.x.y = g.o[1] + w[1] - w0[1]; g.moved = true; draw(); }
+        });
+        const end = (e) => {
+            const had = ptrs.has(e.pointerId);
+            ptrs.delete(e.pointerId);
+            const g = gesture;
+            if (g && g.k === 'pinch') { if (!ptrs.size) gesture = null; return; }
+            if (!had || !g) return;
+            gesture = null;
+            if (e.type === 'pointercancel') { draw(); return; }
+            const s = pos(e);
+            if (g.k === 'start') { addPoint(nextPoint(s)); return; }
+            if (g.k === 'seg') { const p = nextPoint(s); hover = e.pointerType === 'touch' ? null : hover; addPoint(p); return; }
+            if (g.k === 'tap') {
+                if (tool === 'text') {
+                    const h = hit(s);
+                    if (h.k === 'text') sel = { k: 'text', id: h.x.id };
+                    else { const w = toW(s), x = { id: S.next++, x: w[0], y: w[1], s: t('sk.newText'), size: 'm' }; S.texts.push(x); sel = { k: 'text', id: x.id }; commit(); }
+                    panels(); draw();
+                    setTimeout(() => { const i = $('#sk-tx'); if (i) { i.focus(); i.select(); } }, 30);
+                } else if (tool === 'erase') {
+                    const h = hit(s);
+                    if (h.k === 'text') S.texts = S.texts.filter((x) => x !== h.x);
+                    else if (h.k === 'edge' || h.k === 'shape' || h.k === 'vert') S.shapes = S.shapes.filter((x) => x !== h.sh);
+                    else return;
+                    sel = null; commit(); toast(t('sv.erased'));
+                }
+                return;
+            }
+            if (g.k === 'pan' && g.tap && !g.moved) { sel = null; selEdge = null; panels(); draw(); return; }
+            if ((g.k === 'vert' || g.k === 'mshape' || g.k === 'mtext') && g.moved) commit();
+        };
+        stage.addEventListener('pointerup', end);
+        stage.addEventListener('pointercancel', end);
+        stage.addEventListener('pointerleave', () => { if (!gesture && hover && tool === 'draw') { hover = null; draw(); } });
+        stage.addEventListener('contextmenu', (e) => e.preventDefault());
+        stage.addEventListener('wheel', (e) => { e.preventDefault(); zoomAt(pos(e), Math.exp(-e.deltaY * (e.deltaMode ? 0.05 : 0.0015))); }, { passive: false });
+        stage.addEventListener('dblclick', () => { if (tool === 'draw' && draft && draft.length > 3) { draft.pop(); closeDraft(); } });
+
+        /* ---------- side table + text editor ---------- */
+        function panels() { sidesTable(); textEditor(); }
+        function sidesTable() {
+            const el = $('#sk-sides'), sh = sel && sel.k === 'shape' && shapeById(sel.id);
+            if (!sh) { el.innerHTML = S.shapes.length || draft ? '' : `<p class="sv-note">${esc(t('sk.empty'))}</p>`; return; }
+            const P = sh.pts, n = P.length, cen = labelPt(P);
+            el.innerHTML = `<div class="sk-sidebox">
+                <div class="sv-row" style="align-items:end"><div class="field"><label for="sk-name">${esc(t('sk.name'))}</label><input class="control" id="sk-name" maxlength="40" value="${esc(sh.name)}" placeholder="${esc(t('sk.shape', { n: digits(S.shapes.indexOf(sh) + 1) }))}"></div>
+                <button type="button" class="btn btn-danger btn-sm" data-skact="del-shape"><i class="fa-solid fa-trash-can"></i> ${esc(t('sk.delShape'))}</button></div>
+                <h4>${esc(t('sk.sides'))}</h4>
+                <div class="sv-tablewrap" style="margin-top:0"><table class="sv-kt sk-table"><thead><tr><th>#</th><th>${esc(t('sk.len'))} (${esc(t('sv.l.' + U()))})</th><th>${esc(t('sk.dir'))}</th><th></th></tr></thead><tbody>
+                ${P.map((a, i) => { const b = P[(i + 1) % n], closing = i === n - 1; return `<tr data-side="${i}"${selEdge === i ? ' class="on"' : ''}><td>${digits(i + 1)}</td>
+                    <td>${closing ? `<b data-closelen>${esc(num(toU(dist(a, b)), 3))}</b>` : `<input data-sl="${i}" inputmode="decimal" value="${esc(String(Math.round(toU(dist(a, b)) * 1000) / 1000))}">`}</td>
+                    <td>${closing ? `<b data-closedir>${esc(fmtB(bearing(a, b)))}</b>` : `<input data-sb="${i}" inputmode="decimal" value="${esc(String(Math.round(bearing(a, b) * 10) / 10))}">`}</td>
+                    <td><small data-sdir="${i}">${esc(t('sv.dir.' + edgeDir(a, b, cen)))}${closing ? ` · ${esc(t('sk.closing'))}` : ''}</small></td></tr>`; }).join('')}
+                </tbody></table></div>
+                <p class="sv-note">${esc(t('sk.dirHelp'))}</p></div>`;
+        }
+        // numbers in the table follow dragging without rebuilding the inputs
+        function sidesLive() {
+            const sh = sel && sel.k === 'shape' && shapeById(sel.id); if (!sh) return;
+            const P = sh.pts, n = P.length, cen = labelPt(P);
+            P.forEach((a, i) => {
+                const b = P[(i + 1) % n];
+                const l = $(`[data-sl="${i}"]`), d = $(`[data-sb="${i}"]`);
+                if (l && document.activeElement !== l) l.value = String(Math.round(toU(dist(a, b)) * 1000) / 1000);
+                if (d && document.activeElement !== d) d.value = String(Math.round(bearing(a, b) * 10) / 10);
+                const sd = $(`[data-sdir="${i}"]`); if (sd) sd.textContent = t('sv.dir.' + edgeDir(a, b, cen)) + (i === n - 1 ? ` · ${t('sk.closing')}` : '');
+            });
+            const cl = $('[data-closelen]'), cd = $('[data-closedir]');
+            if (cl) cl.textContent = num(toU(dist(P[n - 1], P[0])), 3);
+            if (cd) cd.textContent = fmtB(bearing(P[n - 1], P[0]));
+            hooks.change();
+        }
+        // a typed side: walk the corners again from the first one (the last side closes the shape)
+        function retrace(sh) {
+            const P = sh.pts, n = P.length, L = [], B = [];
+            for (let i = 0; i < n - 1; i++) {
+                const li = $(`[data-sl="${i}"]`), bi = $(`[data-sb="${i}"]`);
+                const lv = li ? pnum(li.value) : NaN, bv = bi ? pnum(bi.value) : NaN;
+                L.push(lv > 0 ? fromU(lv) : dist(P[i], P[i + 1])); B.push(Number.isFinite(bv) ? bv : bearing(P[i], P[i + 1]));
+            }
+            for (let i = 0; i < n - 1; i++) { const v0 = vec(B[i]); P[i + 1] = [P[i][0] + v0[0] * L[i], P[i][1] + v0[1] * L[i]]; }
+        }
+        function textEditor() {
+            const el = $('#sk-text-edit'), x = sel && sel.k === 'text' && textById(sel.id);
+            if (!x) { el.innerHTML = ''; return; }
+            el.innerHTML = `<div class="sk-textbox"><div class="field"><label for="sk-tx">${esc(t('sk.text'))}</label><input class="control" id="sk-tx" maxlength="120" value="${esc(x.s)}" placeholder="${esc(t('sk.textPh'))}"></div>
+                <div class="segmented seg-sm" role="radiogroup">${[['s', 'sk.small'], ['m', 'sk.mid'], ['b', 'sk.big']].map(([v, k]) => `<label><input type="radio" name="skSize" value="${v}"${x.size === v ? ' checked' : ''}><span>${esc(t(k))}</span></label>`).join('')}</div>
+                <button type="button" class="btn btn-danger btn-sm" data-skact="del-text"><i class="fa-solid fa-trash-can"></i> ${esc(t('sk.delText'))}</button></div>`;
+        }
+        const host = $('[data-shape="sketch"]', ROOT);
+        host.addEventListener('input', (e) => {
+            const el = e.target;
+            const sh = sel && sel.k === 'shape' && shapeById(sel.id), x = sel && sel.k === 'text' && textById(sel.id);
+            if ((el.dataset.sl !== undefined || el.dataset.sb !== undefined) && sh) { retrace(sh); draw(); sidesLive(); save(); return; }
+            if (el.id === 'sk-name' && sh) { sh.name = el.value; draw(); save(); hooks.change(); return; }
+            if (el.id === 'sk-tx' && x) { x.s = el.value; draw(); save(); return; }
+            if (el.name === 'skSize' && x) { x.size = el.value; draw(); save(); }
+        });
+        host.addEventListener('change', (e) => {
+            const el = e.target;
+            if (el.dataset.sl !== undefined || el.dataset.sb !== undefined || el.id === 'sk-name' || el.id === 'sk-tx' || el.name === 'skSize') {
+                if (el.id === 'sk-tx') { const x = sel && textById(sel.id); if (x && !x.s.trim()) { S.texts = S.texts.filter((y) => y !== x); sel = null; } }
+                commit(el.dataset.sl !== undefined || el.dataset.sb !== undefined || el.id === 'sk-name' || el.name === 'skSize');
+            }
+        });
+        host.addEventListener('keydown', (e) => {
+            if ((e.target.id === 'sk-len' || e.target.id === 'sk-dir') && e.key === 'Enter') { e.preventDefault(); typedAdd(); }
+        });
+        host.addEventListener('click', (e) => {
+            const b = e.target.closest('[data-skact]');
+            if (!b) return;
+            if (b.dataset.skact === 'del-shape') S.shapes = S.shapes.filter((x) => !(sel && x.id === sel.id));
+            if (b.dataset.skact === 'del-text') S.texts = S.texts.filter((x) => !(sel && x.id === sel.id));
+            sel = null; commit();
+        });
+        $$('[data-sktool]', ROOT).forEach((b) => b.addEventListener('click', () => setTool(b.dataset.sktool)));
+        $('#sk-ortho').addEventListener('click', (e) => { ortho = !ortho; e.currentTarget.setAttribute('aria-pressed', String(ortho)); draw(); });
+        function undoS() { if (draft && draft.length) { draft.pop(); if (!draft.length) draft = null; syncEntry(); draw(); return; } if (hi > 0) { hi -= 1; S = clean(JSON.parse(hist[hi])); sel = null; save(); panels(); draw(); hooks.change(); } }
+        function redoS() { if (hi < hist.length - 1) { hi += 1; S = clean(JSON.parse(hist[hi])); sel = null; draft = null; save(); panels(); draw(); hooks.change(); } }
+        $('#sk-undo').addEventListener('click', undoS);
+        $('#sk-redo').addEventListener('click', redoS);
+        // keyboard: Ctrl+Z / Ctrl+Y, arrows after a typed length, typing straight into the length box
+        document.addEventListener('keydown', (e) => {
+            if (!stage.offsetParent || host.hidden) return;
+            const tg = e.target, lenB = $('#sk-len'), inText = tg && (tg.tagName === 'INPUT' || tg.tagName === 'TEXTAREA' || tg.tagName === 'SELECT' || tg.isContentEditable);
+            const mine = !inText || tg === lenB || tg === $('#sk-dir');
+            if (!mine) return;
+            const k = e.key.toLowerCase();
+            if ((e.ctrlKey || e.metaKey) && !e.altKey && (k === 'z' || k === 'y')) {
+                if (inText && tg.value) return;
+                e.preventDefault(); if (k === 'y' || e.shiftKey) redoS(); else undoS(); return;
+            }
+            const AR = { arrowup: 0, arrowright: 90, arrowdown: 180, arrowleft: 270 };
+            if (tg === lenB && k in AR && lenB.value.trim()) { e.preventDefault(); if (tool !== 'draw') setTool('draw'); $('#sk-dir').value = String(AR[k]); typedAdd(); return; }
+            if (e.key === 'Escape' && draft) { e.preventDefault(); draft = null; hover = null; syncEntry(); draw(); return; }
+            if (!inText && tool === 'draw' && /^[0-9০-৯.\-'"]$/.test(e.key)) { e.preventDefault(); lenB.focus({ preventScroll: true }); lenB.value += e.key; }
+        });
+        $('#sk-fit').addEventListener('click', fit);
+        $('#sk-clear').addEventListener('click', () => { if (!window.confirm(t('sk.clearQ'))) return; S.shapes = []; S.texts = []; draft = null; sel = null; commit(); fit(); });
+        $('#sk-add').addEventListener('click', typedAdd);
+        $('#sk-close').addEventListener('click', closeDraft);
+        $('#sk-back').addEventListener('click', () => { if (draft) { draft.pop(); if (!draft.length) draft = null; syncEntry(); draw(); } });
+        $('#sk-cancel').addEventListener('click', () => { draft = null; hover = null; syncEntry(); draw(); });
+
+        return {
+            bind(h) { hooks = Object.assign(hooks, h); },
+            addShape(name, pts) {
+                // place it to the right of what is already drawn
+                let dx = 0;
+                if (S.shapes.length) { let P = []; S.shapes.forEach((x) => { P = P.concat(x.pts); }); const b = bbox(P), b2 = bbox(pts); dx = b.x1 - b2.x0 + 10; }
+                const sh = { id: S.next++, name: name || '', pts: pts.map((p) => [p[0] + dx, p[1]]) };
+                S.shapes.push(sh); sel = { k: 'shape', id: sh.id }; fitted = false;
+                setTool('select'); commit();
+            },
+            show() { resize(); if (!fitted) fit(); },
+            relabel() { setTool(tool); panels(); draw(); },
+            // closed shapes → result for the field tab
+            result() {
+                if (!S.shapes.length) return null;
+                const shapes = S.shapes.map((s, i) => ({ pts: s.pts, name: s.name || t('sk.shape', { n: digits(i + 1) }), sft: pArea(s.pts) }));
+                const sft = shapes.reduce((a, s) => a + s.sft, 0);
+                const one = sel && sel.k === 'shape' ? shapes[S.shapes.findIndex((x) => x.id === sel.id)] : null;
+                return { sft, shapes, pts: shapes.length === 1 ? shapes[0].pts : null, mapPts: (one || shapes[0]).pts, texts: S.texts.slice(), sketch: true };
+            },
+            _state: () => ({ S, draft, view, sel }),
+        };
+    })();
+
     const FIELD = (() => {
         const box = $('#sv-field'), res = $('#sv-fres'), tris = $('#sv-tris');
         const unitSel = $('#sv-f-unit');
-        let st = storage.get('cc.survey.field', null) || { shape: 'rect', unit: 'ft', v: {}, tris: [['', '', ''], ['', '', '']] };
+        let st = storage.get('cc.survey.field', null) || { shape: 'sketch', unit: 'ft', v: {}, tris: [['', '', ''], ['', '', '']] };
         let last = null, lastHtml = '';                            // {sft, pts (ft) | null}
         function triRows() {
             tris.innerHTML = st.tris.map((tr, i) => `
@@ -1297,6 +2476,7 @@
         // → { sft, pts (ft, y down = south), note, err, approx, parts }
         function compute() {
             const s = st.shape;
+            if (s === 'sketch') return SKETCH.result();
             if (s === 'rect') {
                 const L = val('sv-f-L'), W = val('sv-f-W');
                 if (!(L > 0 && W > 0)) return null;
@@ -1365,14 +2545,17 @@
         }
         function render() {
             read();
+            if (st.shape === 'sketch' && CFGX().tools.sketch === false) { st.shape = 'rect'; $$('input[name="svShape"]', box).forEach((r0) => { r0.checked = r0.value === 'rect'; }); }
             $$('[data-shape]', box).forEach((el) => { el.hidden = el.dataset.shape !== st.shape; });
+            box.closest('.sv-grid2').classList.toggle('sk-wide', st.shape === 'sketch');
+            if (st.shape === 'sketch') SKETCH.show();
             const r = compute();
             last = r && r.sft > 0 ? r : null;
             show3d(last);
             if (st.shape === 'multi') $$('[data-tri]', tris).forEach((row, i) => { const a = r && r.parts && r.parts[i]; $('[data-tri-area]', row).textContent = a > 0 ? fmtArea(a, 'dec') : (Number.isNaN(a) ? '✕' : ''); });
             // only touch the DOM when something changed (a blur → "change" must not replace a button mid-click)
             const put = (html) => { if (html !== lastHtml) { res.innerHTML = html; lastHtml = html; } };
-            if (!r) { put(`<div class="sv-res-empty"><i class="fa-solid fa-ruler-combined"></i>${esc(t('sv.f.empty'))}</div>`); return; }
+            if (!r) { put(`<div class="sv-res-empty"><i class="fa-solid fa-ruler-combined"></i>${esc(t(st.shape === 'sketch' ? 'sk.empty' : 'sv.f.empty'))}</div>`); return; }
             if (r.err && !(r.sft > 0)) { put(`<div class="sv-err">${esc(r.err)}</div>`); return; }
             put(`${r.pts ? svg(r).replace('<svg ', `<svg style="${v3 && view3 === '3d' ? 'display:none' : ''}" `) : ''}
                 <div class="sv-big">${esc(fmtArea(r.sft, 'dec'))}</div>
@@ -1381,11 +2564,12 @@
                 ${r.err ? `<div class="sv-err">${esc(r.err)}</div>` : ''}
                 ${r.approx ? `<div class="sv-warnbox"><i class="fa-solid fa-triangle-exclamation"></i> ${esc(t('sv.f.approx'))}</div>` : ''}
                 ${r.exact ? `<div class="sv-okbox"><i class="fa-solid fa-circle-check"></i> ${esc(t('sv.f.exactQ'))}</div>` : ''}
-                ${r.pts ? `<div class="sv-btns"><button type="button" class="btn btn-soft btn-sm" data-fto="map">${icon('fa-map-location-dot')} <span>${esc(t('sv.f.toMap'))}</span></button><button type="button" class="btn btn-primary btn-sm" data-fto="div">${icon('fa-people-arrows')} <span>${esc(t('sv.f.toDiv'))}</span></button></div>` : ''}
+                ${r.shapes && r.shapes.length > 1 ? `<div class="sv-okbox">${esc(t('sk.total', { n: digits(r.shapes.length) }))}: ${r.shapes.map((x) => `${esc(x.name)} — ${esc(fmtArea(x.sft, 'dec'))}`).join(' · ')}</div>` : ''}
+                ${r.pts || r.mapPts ? `<div class="sv-btns"><button type="button" class="btn btn-soft btn-sm" data-fto="map">${icon('fa-map-location-dot')} <span>${esc(t('sv.f.toMap'))}</span></button><button type="button" class="btn btn-primary btn-sm" data-fto="div">${icon('fa-people-arrows')} <span>${esc(t('sv.f.toDiv'))}</span></button></div>` : ''}
                 <div class="sv-outbtns">
                     <button type="button" class="btn btn-soft btn-sm" data-fout="pdf">${icon('fa-file-pdf')} <span>PDF</span></button>
                     <button type="button" class="btn btn-soft btn-sm" data-fout="print">${icon('fa-print')} <span>${esc(t('sv.x.print'))}</span></button>
-                    <button type="button" class="btn btn-wa btn-sm" data-fout="wa"><i class="fa-brands fa-whatsapp"></i> <span>WhatsApp</span></button>
+                    ${CFGX().tools.wa !== false ? `<button type="button" class="btn btn-wa btn-sm" data-fout="wa"><i class="fa-brands fa-whatsapp"></i> <span>WhatsApp</span></button>` : ''}
                 </div>`);
         }
         /* ---------- 3D view of the land ---------- */
@@ -1393,7 +2577,8 @@
         let v3 = null, view3 = '3d', lastSpec = '';
         function show3d(r) {
             const shapes = [];
-            if (r && r.pts) shapes.push({ pts: r.pts, color: '#6fbf73', edges: r.pts.map((p, i) => fmtLen(dist(p, r.pts[(i + 1) % r.pts.length]), 'ftin')), label: fmtArea(r.sft, 'dec') });
+            if (r && r.shapes && r.shapes.length > 1) r.shapes.forEach((x, i) => shapes.push({ pts: x.pts, color: ['#6fbf73', '#86c5da', '#e2c35a', '#c39bd3', '#f0a07a'][i % 5], edges: x.pts.map((p, j) => fmtLen(dist(p, x.pts[(j + 1) % x.pts.length]), 'ftin')), label: `${x.name} · ${fmtArea(x.sft, 'dec')}` }));
+            else if (r && r.pts) shapes.push({ pts: r.pts, color: '#6fbf73', edges: r.pts.map((p, i) => fmtLen(dist(p, r.pts[(i + 1) % r.pts.length]), 'ftin')), label: fmtArea(r.sft, 'dec') });
             else if (r && r.tri && r.tri.length) {
                 // triangles side by side, each with its own colour
                 let x = 0;
@@ -1438,6 +2623,17 @@
                 if (val('sv-f-qd') > 0) rows.push([t('sv.fo.diag'), L('sv-f-qd')]);
                 method = t(r.exact ? 'sv.fo.exact' : 'sv.fo.approx');
             }
+            if (r.sketch) {
+                method = t('sk.method');
+                const cols = ['#0d9488', '#2563eb', '#d97706', '#7c3aed', '#db2777'];
+                r.shapes.forEach((x, si) => {
+                    const cen = labelPt(x.pts), n = x.pts.length;
+                    const ed = x.pts.map((a, i) => { const b = x.pts[(i + 1) % n]; let nx = -(b[1] - a[1]), ny = b[0] - a[0]; if (((a[0] + b[0]) / 2 - cen[0]) * nx + ((a[1] + b[1]) / 2 - cen[1]) * ny < 0) { nx = -nx; ny = -ny; } return ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'][Math.round(((Math.atan2(nx, -ny) * 180 / Math.PI + 360) % 360) / 45) % 8]; });
+                    shapes.push({ pts: x.pts, edges: x.pts.map((a, i) => `${t('sv.ds.' + ed[i])} · ${fmtLen(dist(a, x.pts[(i + 1) % n]), 'ftin')}`), color: cols[si % cols.length], label: r.shapes.length > 1 ? `${x.name} · ${fmtArea(x.sft, 'dec')}` : '' });
+                    x.pts.forEach((a, i) => rows.push([`${r.shapes.length > 1 ? x.name + ' — ' : ''}${t('sv.side', { n: digits(i + 1) })} (${t('sv.dir.' + ed[i])})`, fmtLen(dist(a, x.pts[(i + 1) % n]), 'ftin')]));
+                });
+                return { shapes, diag: null, rows, method, sft: r.sft, approx: false, quad: true, texts: r.texts };
+            }
             if (r.pts) shapes = [{ pts: r.pts, edges: sides(r.pts), color: '#0d9488' }];
             else if (r.tri) {
                 method = t('sv.fo.multi');
@@ -1456,13 +2652,14 @@
             const fo = e.target.closest('[data-fout]');
             if (fo && last) { MAP.work(fo, () => MAP.fieldOut(fo.dataset.fout, sheetSpec(last))); return; }
             const b = e.target.closest('[data-fto]');
-            if (!b || !last || !last.pts) return;
-            MAP.addFromFeet(last.pts, b.dataset.fto === 'div');
+            if (!b || !last || !(last.mapPts || last.pts)) return;
+            MAP.addFromFeet(last.mapPts || last.pts, b.dataset.fto === 'div');
             setTab('map');
             toast(t('sv.f.added'));
         });
+        SKETCH.bind({ unit: () => st.unit, change: () => render() });
         restore();
-        return { render, relabel() { read(); triRows(); render(); } };
+        return { render, relabel() { read(); triRows(); SKETCH.relabel(); render(); }, useSketch() { $$('input[name="svShape"]', box).forEach((r0) => { r0.checked = r0.value === 'sketch'; }); read(); render(); } };
     })();
 
 
@@ -1517,42 +2714,11 @@
         const amt = (v) => `${num(v, U() === 'acre' ? 4 : 3)} ${uName(U())}`;
         const alsoDec = (v) => (U() === 'dec' ? `${num(v * AREA_U[U()] / AREA_U.katha)} ${t('sv.us.katha')}` : `${num(v * AREA_U[U()] / AREA_U.dec)} ${t('sv.us.dec')}`);
 
-        /* ---------- inheritance (common Muslim law cases), exact fractions ---------- */
+        /* ---------- exact fractions ---------- */
         const gcd = (a, b) => { a = Math.abs(a); b = Math.abs(b); while (b) [a, b] = [b, a % b]; return a || 1; };
         const R = (n, d = 1) => { const g = gcd(n, d); return { n: n / g, d: d / g }; };
         const add = (a, b) => R(a.n * b.d + b.n * a.d, a.d * b.d), sub = (a, b) => R(a.n * b.d - b.n * a.d, a.d * b.d);
         const mul = (a, b) => R(a.n * b.n, a.d * b.d), dv = (a, b) => R(a.n * b.d, a.d * b.n), val = (a) => a.n / a.d;
-        function faraiz(f) {
-            const int = (x) => Math.max(0, Math.min(40, parseInt(CS.toEn(x), 10) || 0));
-            const male = f.g !== 'f', wives = male ? int(f.wives) : 0, hus = !male && f.hus === '1';
-            const sons = int(f.sons), daus = int(f.daus), fa = f.fa === '1', mo = f.mo === '1', kids = sons + daus > 0;
-            const out = [], notes = [];
-            if (wives) out.push({ k: 'wife', n: wives, s: kids ? R(1, 8) : R(1, 4), spouse: true });
-            if (hus) out.push({ k: 'hus', n: 1, s: kids ? R(1, 4) : R(1, 2), spouse: true });
-            const mother = mo ? { k: 'mo', n: 1, s: kids ? R(1, 6) : R(1, 3) } : null;
-            if (mother) out.push(mother);
-            let father = fa && kids ? { k: 'fa', n: 1, s: R(1, 6) } : null;
-            if (father) out.push(father);
-            if (!sons && daus) out.push({ k: 'dau', n: daus, s: daus === 1 ? R(1, 2) : R(2, 3) });
-            if (!kids && fa && mother && (wives || hus)) mother.s = mul(sub(R(1), out.find((x) => x.spouse).s), R(1, 3));   // Umariyyatain
-            if (!out.length && !sons && !fa) return { list: [], notes };
-            let F = out.reduce((s, x) => add(s, x.s), R(0));
-            if (val(F) > 1 + 1e-12) { out.forEach((x) => { x.s = dv(x.s, F); }); F = R(1); notes.push('awl'); }
-            const rest = sub(R(1), F);
-            if (val(rest) > 1e-12) {
-                if (sons) { const u = 2 * sons + daus; out.push({ k: 'son', n: sons, s: mul(rest, R(2 * sons, u)) }); if (daus) out.push({ k: 'dau', n: daus, s: mul(rest, R(daus, u)) }); }
-                else if (fa) { if (father) father.s = add(father.s, rest); else { father = { k: 'fa', n: 1, s: rest }; out.push(father); } }
-                else {
-                    const non = out.filter((x) => !x.spouse), b = non.reduce((s, x) => add(s, x.s), R(0));
-                    if (non.length) { non.forEach((x) => { x.s = add(x.s, mul(rest, dv(x.s, b))); }); notes.push('radd'); }
-                    else if (out.length) out[0].s = add(out[0].s, rest);
-                }
-            }
-            return { list: out, notes };
-        }
-        const HEIR = { wife: 'sv.fz.wife', hus: 'sv.fz.hus', mo: 'sv.fz.mo', fa: 'sv.fz.fa', son: 'sv.fz.son', dau: 'sv.fz.dau' };
-        let heirs = [];                                            // individual heirs, for "divide on the map"
-
         /* ---------- building the tables (only when rows change) ---------- */
         function build() {
             const dagRow = (d, i) => `<tr data-row="${i}"><td>${digits(i + 1)}</td>
@@ -1569,7 +2735,6 @@
                 <td><button type="button" class="sv-del" data-khact="del-owner" data-i="${i}" aria-label="x"${st.owners.length < 2 ? ' disabled' : ''}><i class="fa-solid fa-xmark"></i></button></td></tr>`).join('')}</tbody>`;
             [['no', 'sv-kh-no'], ['type', 'sv-kh-type'], ['unit', 'sv-kh-unit']].forEach(([k, id]) => { $('#' + id).value = st[k]; });
             $('#sv-hc-in').value = st.hc || '';
-            $$('[data-fz]', pane).forEach((el) => { const k = el.dataset.fz; if (el.type === 'radio') el.checked = el.value === st.fz[k]; else if (k !== 'whose') el.value = st.fz[k]; });
             refresh();
         }
 
@@ -1610,29 +2775,10 @@
             const hv = parseShare(st.hc);
             $('#sv-hc-out').innerHTML = hv === null ? '' : Number.isNaN(hv) ? `<tr><td colspan="2" class="sv-err">${esc(t('sv.hc.bad'))}</td></tr>`
                 : [['sv.hc.dec', num(hv, 6)], ['sv.hc.frac', fracOf(hv)], ['sv.hc.pct', `${num(hv * 100, 4)}%`], ['sv.hc.ana', fmtAna(hv)]].map(([k, v]) => `<tr><td>${esc(t(k))}</td><td>${esc(v)}</td></tr>`).join('');
-            // inheritance
-            const sel = $('#sv-fz-whose'), cur = st.fz.whose;
-            sel.innerHTML = `<option value="all">${esc(t('sv.fz.khTotal'))} — ${esc(amt(total))}</option>${st.owners.map((o, i) => ownShare[i] > 0 ? `<option value="o${i}">${esc(o.name || t('sv.kh.ownerN', { n: digits(i + 1) }))} — ${esc(amt(total * ownShare[i]))}</option>` : '').join('')}<option value="custom">${esc(t('sv.fz.custom'))}</option>`;
-            sel.value = [...sel.options].some((o) => o.value === cur) ? cur : 'all';
-            $('#sv-fz-amtbox').hidden = sel.value !== 'custom';
-            $$('[data-fz-unit]', pane).forEach((el) => { el.textContent = uName(U()); });
-            $$('[data-fz-only]', pane).forEach((el) => { el.hidden = el.dataset.fzOnly !== (st.fz.g === 'f' ? 'f' : 'm'); });
-            const land = sel.value === 'custom' ? pnum(st.fz.amt) || 0 : sel.value === 'all' ? total : total * (ownShare[Number(sel.value.slice(1))] || 0);
-            const r = faraiz(st.fz);
-            heirs = [];
-            if (!r.list.length) { $('#sv-fz-out').innerHTML = `<p class="sv-note">${esc(t('sv.fz.none'))}</p>`; return; }
-            const rows = r.list.map((x) => {
-                const each = R(x.s.n, x.s.d * x.n), v = val(each);
-                for (let i = 0; i < x.n; i++) heirs.push({ name: x.n > 1 ? `${t(HEIR[x.k])} ${digits(i + 1)}` : t(HEIR[x.k]), val: v });
-                return `<tr><td>${esc(t(HEIR[x.k]))}${x.n > 1 ? ` × ${digits(x.n)}<small>${esc(t('sv.fz.each'))}</small>` : ''}</td>
-                    <td class="num">${esc(digits(`${each.n}/${each.d}`))}<small>${esc(fmtAna(v))}</small></td>
-                    <td class="num">${land > 0 ? `${esc(amt(land * v))}<small>${esc(alsoDec(land * v))}</small>` : '—'}</td></tr>`;
-            }).join('');
-            $('#sv-fz-out').innerHTML = `<table class="sv-fzt"><thead><tr><th>${esc(t('sv.fz.heir'))}</th><th class="num" style="text-align:right">${esc(t('sv.fz.share'))}</th><th class="num" style="text-align:right">${esc(t('sv.fz.land'))}</th></tr></thead><tbody>${rows}</tbody>
-                <tfoot><tr><td>${esc(t('sv.e.total'))}</td><td class="num">${digits(1)}</td><td class="num">${land > 0 ? esc(amt(land)) : '—'}</td></tr></tfoot></table>
-                ${r.notes.map((n) => `<div class="sv-okbox">${esc(t('sv.fz.' + n))}</div>`).join('')}
-                <button type="button" class="btn btn-primary btn-sm btn-block" style="margin-top:.8rem" data-khact="to-map"><i class="fa-solid fa-people-arrows"></i> ${esc(t('sv.fz.toMap'))}</button>`;
+            lastTotals = { total, unit: U(), owners: st.owners.map((o, i) => ({ name: o.name || t('sv.kh.ownerN', { n: digits(i + 1) }), land: total * ownShare[i] })).filter((o) => o.land > 0) };
+            if (window.SURVEY && window.SURVEY._inhRefresh) window.SURVEY._inhRefresh();
         }
+        let lastTotals = { total: 0, unit: 'dec', owners: [] };
 
         pane.addEventListener('input', (e) => {
             const el = e.target, tr = el.closest('[data-row]'), orow = el.closest('[data-orow]');
@@ -1640,7 +2786,6 @@
             else if (el.dataset.ok && orow) st.owners[Number(orow.dataset.orow)][el.dataset.ok] = el.value;
             else if (el.dataset.kh) { st[el.dataset.kh] = el.value; if (el.dataset.kh === 'unit') { save(); build(); return; } }
             else if (el.id === 'sv-hc-in') st.hc = el.value;
-            else if (el.dataset.fz) st.fz[el.dataset.fz] = el.value;
             else return;
             save(); refresh();
         });
@@ -1653,15 +2798,1269 @@
             else if (a === 'add-owner') st.owners.push({ name: '', share: '' });
             else if (a === 'del-owner') st.owners.splice(i, 1);
             else if (a === 'equal') { const n = st.owners.length; st.owners.forEach((o) => { o.share = `1/${n}`; }); }
-            else if (a === 'to-map') {
-                if (!heirs.length) return;
-                if (!MAP.applyShares(heirs)) { toast(t('sv.fz.needPlot')); return; }
-                setTab('map'); toast(t('sv.fz.sent')); return;
-            }
             save(); build();
             if (a === 'add-dag' || a === 'add-owner') { const ins = $$(a === 'add-dag' ? '[data-dk="dag"]' : '[data-ok="name"]', pane); if (ins.length) ins[ins.length - 1].focus(); }
         });
-        return { relabel: build, parseShare, fmtAna, faraiz: (f) => { const r = faraiz(f); return r.list.map((x) => ({ k: x.k, n: x.n, s: `${x.s.n}/${x.s.d}` })).concat(r.notes); } };
+        return { relabel: build, parseShare, fmtAna, totals: () => lastTotals, R, add, sub, mul, dv, val };
+    })();
+
+
+    /* =========================================================
+       Inheritance calculator (Hanafi fara'id + MFLO 1961 s.4)
+       ========================================================= */
+    const INH = (() => {
+        const { R, add, sub, mul, dv, val } = KH;
+        const base = () => ({ src: 'custom', amt: '', unit: 'dec', g: 'm', name: '', wives: '1', hus: '1', sons: '0', daus: '0', fa: '0', mo: '0', gf: '0', pgm: '0', mgm: '0', fb: '0', fs: '0', hb: '0', hs: '0', ub: '0', us: '0', pre: [] });
+        let st = Object.assign(base(), storage.get('cc.survey.inh', {}) || {});
+        if (!Array.isArray(st.pre)) st.pre = [];
+        const save = () => storage.set('cc.survey.inh', st);
+        const form = $('#ih-form'), out = $('#ih-out');
+        const int = (x) => Math.max(0, Math.min(40, parseInt(CS.toEn(String(x || '')), 10) || 0));
+        const on = (x) => x === '1' || x === true;
+        let shares = [];                                          // individual heirs for "divide on the map"
+
+        // → { rows: [{ k, label, n, each }], ex: [{ k, by }], notes: [] }
+        function inherit(f) {
+            const male = f.g !== 'f', W = male ? int(f.wives) : 0, H = !male && on(f.hus);
+            const pre = (f.pre || []).map((p, i) => ({ t: p.t === 'd' ? 'd' : 's', s: int(p.s), d: int(p.d), i })).filter((p) => p.s + p.d > 0);
+            const sons = int(f.sons), daus = int(f.daus);
+            const preS = pre.filter((p) => p.t === 's'), preD = pre.filter((p) => p.t === 'd');
+            const S = sons + preS.length, Dt = daus + preD.length, kids = S + Dt > 0;
+            const fa = on(f.fa), mo = on(f.mo), gf = !fa && on(f.gf), P = fa || gf, pk = fa ? 'fa' : 'gf';
+            const fb = int(f.fb), fs = int(f.fs), hb = int(f.hb), hs = int(f.hs), ub = int(f.ub), us = int(f.us);
+            const sibs = fb + fs + hb + hs + ub + us;
+            const G = [], ex = [], notes = [];
+            const grp = (k, n, s, o = {}) => { const g = Object.assign({ k, n, s }, o); G.push(g); return g; };
+            // spouse
+            let sp = R(0);
+            if (W) { sp = kids ? R(1, 8) : R(1, 4); grp('wife', W, sp, { spouse: true }); }
+            if (H) { sp = kids ? R(1, 4) : R(1, 2); grp('hus', 1, sp, { spouse: true }); }
+            // father / grandfather
+            let pg = null;
+            if (on(f.gf) && fa) ex.push({ k: 'gf', by: 'fa' });
+            if (P && kids) pg = grp(pk, 1, R(1, 6));
+            // mother
+            if (mo) {
+                if (kids || sibs >= 2) grp('mo', 1, R(1, 6));
+                else if ((W || H) && fa) { grp('mo', 1, mul(sub(R(1), sp), R(1, 3))); notes.push('umar'); }
+                else grp('mo', 1, R(1, 3));
+            }
+            // grandmothers share 1/6
+            const gms = [];
+            if (on(f.pgm)) { if (mo) ex.push({ k: 'pgm', by: 'mo' }); else if (fa) ex.push({ k: 'pgm', by: 'fa' }); else gms.push('pgm'); }
+            if (on(f.mgm)) { if (mo) ex.push({ k: 'mgm', by: 'mo' }); else gms.push('mgm'); }
+            gms.forEach((k) => grp(k, 1, R(1, 6 * gms.length)));
+            // daughters (no son): fixed
+            let dg = null;
+            if (Dt && !S) dg = grp('daus', Dt, Dt === 1 ? R(1, 2) : R(2, 3), { kids: true });
+            // maternal half siblings
+            if (ub + us) {
+                if (kids) ex.push({ k: 'u', by: 'kids' });
+                else if (P) ex.push({ k: 'u', by: pk });
+                else { const c = ub + us, s = c === 1 ? R(1, 6) : R(1, 3); if (ub) grp('ub', ub, mul(s, R(ub, c))); if (us) grp('us', us, mul(s, R(us, c))); }
+            }
+            // full siblings
+            const block = S ? 'son' : fa ? 'fa' : gf ? 'gf' : null;
+            let fsRes = false;
+            if (fb + fs) {
+                if (block) ex.push({ k: 'f', by: block });
+                else if (!fb && Dt) fsRes = true;
+                else if (!fb) grp('fs', fs, fs === 1 ? R(1, 2) : R(2, 3));
+            }
+            // paternal half siblings
+            let hRes = false;
+            if (hb + hs) {
+                if (block) ex.push({ k: 'h', by: block });
+                else if (fb) ex.push({ k: 'h', by: 'fb' });
+                else if (fsRes) ex.push({ k: 'h', by: 'fsr' });
+                else if (hb) hRes = true;
+                else if (fs >= 2) ex.push({ k: 'hs', by: 'fs2' });
+                else if (fs === 1) grp('hs', hs, R(1, 6));
+                else if (Dt) hRes = true;
+                else grp('hs', hs, hs === 1 ? R(1, 2) : R(2, 3));
+            }
+            // residuaries, in order
+            let res = null;
+            if (S) res = [{ k: 'kids', w: 2 * S + Dt }];
+            else if (P) res = [{ k: pk }];
+            else if (fb) res = [{ k: 'fb', n: fb, w: 2 }, { k: 'fs', n: fs, w: 1 }];
+            else if (fsRes) res = [{ k: 'fs', n: fs, w: 1 }];
+            else if (hRes) res = [{ k: 'hb', n: hb, w: 2 }, { k: 'hs', n: hs, w: 1 }];
+            if (!G.length && !res) return { rows: [], ex, notes };
+            let F = G.reduce((s, g) => add(s, g.s), R(0));
+            if (val(F) > 1 + 1e-12) { G.forEach((g) => { g.s = dv(g.s, F); }); F = R(1); notes.push('awl'); }
+            const rest = sub(R(1), F);
+            let kidsPool = null;
+            if (val(rest) > 1e-12) {
+                if (res && res[0].k === 'kids') kidsPool = rest;
+                else if (res && res[0].k === pk) { if (pg) pg.s = add(pg.s, rest); else grp(pk, 1, rest); }
+                else if (res) {
+                    const w = res.reduce((s, r) => s + r.n * r.w, 0);
+                    res.forEach((r) => { if (r.n) { const g = G.find((x) => x.k === r.k); const s = mul(rest, R(r.n * r.w, w)); if (g) g.s = add(g.s, s); else grp(r.k, r.n, s); } });
+                } else {
+                    const non = G.filter((g) => !g.spouse), b = non.reduce((s, g) => add(s, g.s), R(0));
+                    if (non.length) { non.forEach((g) => { g.s = add(g.s, mul(rest, dv(g.s, b))); }); notes.push('radd'); }
+                    else { G.forEach((g) => { g.s = add(g.s, mul(rest, dv(g.s, F))); }); notes.push('spouseAll'); }
+                }
+            }
+            // per-person rows; children (incl. late children's branches) split here
+            const rows = [];
+            const ORDER = ['hus', 'wife', 'fa', 'gf', 'mo', 'pgm', 'mgm', 'fb', 'fs', 'hb', 'hs', 'ub', 'us'];
+            const push = (k, n, each, label) => { if (n > 0) rows.push({ k, n, each, label }); };
+            let perSon = null, perDau = null;
+            if (kidsPool) { perDau = mul(kidsPool, R(1, 2 * S + Dt)); perSon = mul(perDau, R(2)); }
+            else if (dg) perDau = R(dg.s.n, dg.s.d * Dt);
+            if (perSon) push('son', sons, perSon);
+            if (perDau) push('dau', daus, perDau);
+            pre.forEach((p) => {
+                const share = p.t === 's' ? perSon : perDau;
+                if (!share) return;
+                const u = 2 * p.s + p.d, ord = digits((p.t === 's' ? preS : preD).indexOf(p) + 1);
+                push(p.t === 's' ? 'preS' : 'preDS', p.s, mul(share, R(2, u)), t(p.t === 's' ? 'ih.k.preS' : 'ih.k.preDS', { n: ord }));
+                push(p.t === 's' ? 'preD' : 'preDD', p.d, mul(share, R(1, u)), t(p.t === 's' ? 'ih.k.preD' : 'ih.k.preDD', { n: ord }));
+            });
+            if (pre.length && (perSon || perDau)) notes.push('sec4');
+            G.filter((g) => g.k !== 'daus').sort((a, b) => ORDER.indexOf(a.k) - ORDER.indexOf(b.k)).forEach((g) => push(g.k, g.n, R(g.s.n, g.s.d * g.n)));
+            rows.sort((a, b) => ['hus', 'wife', 'son', 'dau', 'preS', 'preD', 'preDS', 'preDD', 'fa', 'gf', 'mo', 'pgm', 'mgm', 'fb', 'fs', 'hb', 'hs', 'ub', 'us'].indexOf(a.k) - ['hus', 'wife', 'son', 'dau', 'preS', 'preD', 'preDS', 'preDD', 'fa', 'gf', 'mo', 'pgm', 'mgm', 'fb', 'fs', 'hb', 'hs', 'ub', 'us'].indexOf(b.k));
+            return { rows, ex, notes };
+        }
+
+        /* ---------- form ---------- */
+        const stepper = (k, lab) => `<div class="ih-row"><span>${esc(t(lab))}</span><div class="ih-step"><button type="button" data-step="-1" data-k="${k}" aria-label="−">−</button><input data-ih="${k}" inputmode="numeric" value="${esc(digits(int(st[k])))}" aria-label="${esc(t(lab))}"><button type="button" data-step="1" data-k="${k}" aria-label="+">+</button></div></div>`;
+        const yesno = (k, lab) => `<label class="ih-row"><span>${esc(t(lab))}</span><input type="checkbox" class="switch" role="switch" data-ih="${k}"${on(st[k]) ? ' checked' : ''}></label>`;
+        function build() {
+            const kh = KH.totals();
+            const unitOpts = ['dec', 'katha', 'bigha', 'acre', 'sft', 'sqm', 'ojut', 'kani', 'ganda'].map((u) => `<option value="${u}"${u === st.unit ? ' selected' : ''}>${esc(t('sv.u.' + u))}</option>`).join('');
+            form.innerHTML = `<p class="sv-note" style="margin:0 0 .8rem">${esc(t('ih.sub'))}</p>
+                <div class="ih-box"><h4>${esc(t('ih.land'))}</h4>
+                    <div class="field"><label for="ih-src">${esc(t('ih.src'))}</label><select class="control" id="ih-src" data-ih="src">
+                        <option value="custom">${esc(t('ih.srcCustom'))}</option>
+                        ${kh.total > 0 ? `<option value="kh">${esc(t('ih.srcKh'))} (${esc(num(kh.total, 3))} ${esc(t('sv.u.' + kh.unit))})</option>` : ''}
+                        ${kh.owners.map((o, i) => `<option value="o${i}">${esc(o.name)} (${esc(num(o.land, 3))} ${esc(t('sv.u.' + kh.unit))})</option>`).join('')}
+                    </select></div>
+                    <div class="sv-row" id="ih-amtrow" style="margin-top:.6rem">
+                        <div class="field"><label for="ih-amt">${esc(t('ih.amount'))}</label><input class="control" id="ih-amt" data-ih="amt" inputmode="decimal" autocomplete="off" value="${esc(st.amt)}"></div>
+                        <div class="field"><label for="ih-unit">${esc(t('ih.unit'))}</label><select class="control" id="ih-unit" data-ih="unit">${unitOpts}</select></div>
+                    </div>
+                </div>
+                <div class="ih-box"><h4>${esc(t('ih.deceased'))}</h4>
+                    <div class="segmented" role="radiogroup"><label><input type="radio" name="ihG" value="m" data-ih="g"${st.g !== 'f' ? ' checked' : ''}><span>${esc(t('ih.male'))}</span></label><label><input type="radio" name="ihG" value="f" data-ih="g"${st.g === 'f' ? ' checked' : ''}><span>${esc(t('ih.female'))}</span></label></div>
+                    <div class="field" style="margin-top:.6rem"><label for="ih-name">${esc(t('ih.name'))}</label><input class="control" id="ih-name" data-ih="name" maxlength="60" autocomplete="off" value="${esc(st.name)}"></div>
+                </div>
+                <div class="ih-box"><h4>${esc(t('ih.g.spouse'))}</h4>${st.g === 'f' ? yesno('hus', 'ih.hus') : stepper('wives', 'ih.wives')}</div>
+                <div class="ih-box"><h4>${esc(t('ih.g.kids'))}</h4>${stepper('sons', 'ih.sons')}${stepper('daus', 'ih.daus')}</div>
+                <div class="ih-box"><h4>${esc(t('ih.g.parents'))} <small>(${esc(t('ih.alive'))})</small></h4>${yesno('fa', 'ih.fa')}${yesno('mo', 'ih.mo')}${yesno('gf', 'ih.gf')}${yesno('pgm', 'ih.pgm')}${yesno('mgm', 'ih.mgm')}</div>
+                <div class="ih-box"><h4>${esc(t('ih.g.sibs'))}</h4>${stepper('fb', 'ih.fb')}${stepper('fs', 'ih.fs')}${stepper('hb', 'ih.hb')}${stepper('hs', 'ih.hs')}${stepper('ub', 'ih.ub')}${stepper('us', 'ih.us')}</div>
+                <div class="ih-box"><h4>${esc(t('ih.g.pre'))}</h4><p class="sv-note" style="margin:0 0 .5rem">${esc(t('ih.pre.d'))}</p>
+                    ${st.pre.map((p, i) => `<div class="ih-pre" data-pre="${i}">
+                        <select class="control" data-pk="t"><option value="s"${p.t !== 'd' ? ' selected' : ''}>${esc(t('ih.preSon'))} ${digits(i + 1)}</option><option value="d"${p.t === 'd' ? ' selected' : ''}>${esc(t('ih.preDau'))} ${digits(i + 1)}</option></select>
+                        <label>${esc(t('ih.preKidsS'))}<input class="control" data-pk="s" inputmode="numeric" value="${esc(digits(int(p.s)))}"></label>
+                        <label>${esc(t('ih.preKidsD'))}<input class="control" data-pk="d" inputmode="numeric" value="${esc(digits(int(p.d)))}"></label>
+                        <button type="button" class="sv-del" data-ihact="pre-del" data-i="${i}" aria-label="x"><i class="fa-solid fa-xmark"></i></button></div>`).join('')}
+                    <button type="button" class="btn btn-soft btn-sm" data-ihact="pre-add"><i class="fa-solid fa-plus"></i> ${esc(t('ih.preAdd'))}</button>
+                </div>`;
+            const srcSel = $('#ih-src');
+            srcSel.value = [...srcSel.options].some((o) => o.value === st.src) ? st.src : 'custom';
+            refresh();
+        }
+        function land() {
+            const kh = KH.totals(), src = $('#ih-src') ? $('#ih-src').value : 'custom';
+            $('#ih-amtrow').hidden = src !== 'custom';
+            if (src === 'kh') return { v: kh.total, u: kh.unit };
+            if (src[0] === 'o' && kh.owners[Number(src.slice(1))]) return { v: kh.owners[Number(src.slice(1))].land, u: kh.unit };
+            return { v: pnum(st.amt) || 0, u: AREA_U[st.unit] ? st.unit : 'dec' };
+        }
+        let lastRes = null;
+        function refresh() {
+            if (!form.innerHTML) return;
+            const L = land(), r = inherit(st), uN = (u) => (t('sv.us.' + u) !== 'sv.us.' + u ? t('sv.us.' + u) : t('sv.u.' + u));
+            const amt = (v) => `${num(v, L.u === 'acre' ? 4 : 3)} ${uN(L.u)}`;
+            const alt = (v) => (L.u === 'dec' ? `${num(v * AREA_U.dec / AREA_U.katha)} ${t('sv.us.katha')}` : `${num(v * AREA_U[L.u] / AREA_U.dec)} ${t('sv.us.dec')}`);
+            shares = [];
+            lastRes = { r, L, amt };
+            if (!r.rows.length) { out.innerHTML = `<div class="sv-res-empty"><i class="fa-solid fa-people-roof"></i>${esc(t('ih.none'))}</div>`; return; }
+            const label = (row) => row.label || t('ih.k.' + row.k);
+            r.rows.forEach((row) => { for (let i = 0; i < row.n; i++) shares.push({ name: row.n > 1 ? `${label(row)} ${digits(i + 1)}` : label(row), val: val(row.each) }); });
+            const cfg = CFGX();
+            out.innerHTML = `${st.name ? `<p style="margin:0 0 .6rem;font-weight:700">${esc(t('ih.of', { n: st.name }))}</p>` : ''}
+                <div class="sv-tablewrap" style="margin-top:0"><table class="sv-fzt"><thead><tr><th>${esc(t('ih.heir'))}</th><th class="num" style="text-align:right">${esc(t('ih.each'))}</th><th class="num" style="text-align:right">${esc(t('ih.eachLand'))}</th></tr></thead>
+                <tbody>${r.rows.map((row) => `<tr><td><b>${esc(label(row))}</b>${row.n > 1 ? ` × ${digits(row.n)}` : ''}${row.n > 1 && L.v > 0 ? `<small>${esc(t('ih.groupLand'))}: ${esc(amt(L.v * val(row.each) * row.n))}</small>` : ''}</td>
+                    <td class="num">${esc(digits(`${row.each.n}/${row.each.d}`))}<small>${esc(KH.fmtAna(val(row.each)))} · ${esc(num(val(row.each) * 100, 2))}%</small></td>
+                    <td class="num">${L.v > 0 ? `${esc(amt(L.v * val(row.each)))}<small>${esc(alt(L.v * val(row.each)))}</small>` : '—'}</td></tr>`).join('')}</tbody>
+                <tfoot><tr><td>${esc(t('sv.e.total'))}</td><td class="num">${digits(1)}</td><td class="num">${L.v > 0 ? esc(amt(L.v)) : '—'}</td></tr></tfoot></table></div>
+                ${r.ex.length ? `<h4 style="margin:1rem 0 .4rem;font-size:.85rem">${esc(t('ih.excluded'))}</h4><ul class="ih-ex">${r.ex.map((x) => `<li><i class="fa-solid fa-ban"></i> ${esc(t('ih.by', { w: t('ih.x.' + x.k), r: t('ih.r.' + x.by) }))}</li>`).join('')}</ul>` : ''}
+                ${r.notes.map((n) => `<div class="sv-okbox">${esc(t('ih.n.' + n))}</div>`).join('')}
+                <p class="sv-note">${esc(t('ih.note'))}</p>
+                <button type="button" class="btn btn-primary btn-sm btn-block" style="margin-top:.6rem" data-ihact="to-map"><i class="fa-solid fa-people-arrows"></i> ${esc(t('ih.toMap'))}</button>
+                <div class="sv-outbtns">
+                    <button type="button" class="btn btn-soft btn-sm" data-ihout="pdf">${icon('fa-file-pdf')} <span>PDF</span></button>
+                    <button type="button" class="btn btn-soft btn-sm" data-ihout="print">${icon('fa-print')} <span>${esc(t('sv.x.print'))}</span></button>
+                    ${cfg.tools.wa !== false ? `<button type="button" class="btn btn-wa btn-sm" data-ihout="wa"><i class="fa-brands fa-whatsapp"></i> <span>WhatsApp</span></button>` : ''}
+                </div>`;
+        }
+        // printable list
+        function spec() {
+            const { r, L, amt } = lastRes;
+            const label = (row) => row.label || t('ih.k.' + row.k);
+            const lines = [];
+            if (st.name) lines.push(t('ih.of', { n: st.name }));
+            lines.push(`${t('ih.deceased')}: ${t(st.g === 'f' ? 'ih.female' : 'ih.male')}${L.v > 0 ? `   ·   ${t('ih.land')}: ${amt(L.v)}` : ''}`);
+            return {
+                title: t('ih.sheet'), lines,
+                head: [[t('ih.heir'), 'left', 3], [t('ih.count'), 'right', .7], [t('ih.each'), 'right', 1.6], [t('ih.eachLand'), 'right', 1.6], [t('ih.groupLand'), 'right', 1.6]],
+                rows: r.rows.map((row) => [label(row), digits(row.n), `${digits(`${row.each.n}/${row.each.d}`)}  (${KH.fmtAna(val(row.each))})`, L.v > 0 ? amt(L.v * val(row.each)) : '—', L.v > 0 ? amt(L.v * val(row.each) * row.n) : '—']),
+                foot: [t('sv.e.total'), '', digits(1), '', L.v > 0 ? amt(L.v) : '—'],
+                notes: r.ex.map((x) => `${t('ih.excluded')}: ${t('ih.by', { w: t('ih.x.' + x.k), r: t('ih.r.' + x.by) })}`).concat(r.notes.map((n) => t('ih.n.' + n)), [t('ih.note')]),
+                total: L.v > 0 ? L.v * AREA_U[L.u] : 0,
+            };
+        }
+
+        form.addEventListener('input', (e) => {
+            const el = e.target, pre = el.closest('[data-pre]');
+            if (pre && el.dataset.pk) { st.pre[Number(pre.dataset.pre)][el.dataset.pk] = el.value; save(); refresh(); return; }
+            const k = el.dataset.ih;
+            if (!k) return;
+            st[k] = el.type === 'checkbox' ? (el.checked ? '1' : '0') : el.value;
+            save();
+            if (k === 'g' || (k === 'src')) { build(); return; }
+            refresh();
+        });
+        form.addEventListener('click', (e) => {
+            const b = e.target.closest('[data-step], [data-ihact]');
+            if (!b) return;
+            if (b.dataset.step) {
+                const k = b.dataset.k, v = Math.max(0, Math.min(k === 'wives' ? 4 : 40, int(st[k]) + Number(b.dataset.step)));
+                st[k] = String(v); $(`[data-ih="${k}"]`, form).value = digits(v); save(); refresh(); return;
+            }
+            if (b.dataset.ihact === 'pre-add') { st.pre.push({ t: 's', s: '1', d: '0' }); save(); build(); }
+            if (b.dataset.ihact === 'pre-del') { st.pre.splice(Number(b.dataset.i), 1); save(); build(); }
+        });
+        out.addEventListener('click', (e) => {
+            const b = e.target.closest('[data-ihact], [data-ihout]');
+            if (!b) return;
+            if (b.dataset.ihact === 'to-map') {
+                if (!shares.length) return;
+                if (!MAP.applyShares(shares)) { toast(t('sv.fz.needPlot')); return; }
+                setTab('map'); toast(t('sv.fz.sent'));
+            }
+            if (b.dataset.ihout) MAP.work(b, () => MAP.listOut(b.dataset.ihout, spec()));
+        });
+        return { build, refresh, inherit: (f) => { const r = inherit(Object.assign(base(), f)); return { rows: r.rows.map((x) => [x.k, x.n, `${x.each.n}/${x.each.d}`]), ex: r.ex.map((x) => x.k + ':' + x.by), notes: r.notes }; } };
+    })();
+
+
+    /* =========================================================
+       Block division (surveyor's field book)
+       1) PLAN: draw the land side by side with measured lengths
+          (running measurement), like walls in a floor plan. The
+          closed areas become blocks; a least-squares solve makes
+          the drawing agree with every measured length, and a
+          rigidity test tells whether a block's area is exact.
+       2) Blocks typed by hand (sides + diagonals).
+       Totals per owner, sides by direction, printable sheet.
+       ========================================================= */
+    const BLOCK = (() => {
+        const KEY = 'cc.survey.blocks', PKEY = 'cc.survey.bplan';
+        const NS = { rect: 2, tri: 3, quad: 4, p5: 5, p6: 6, p7: 7, p8: 8 };
+        const DIRS4 = ['N', 'E', 'S', 'W'];
+        const nSides = (b) => (b.type === 'rect' ? 4 : NS[b.type] || 4);
+        const nIn = (b) => (b.type === 'rect' ? 2 : NS[b.type]);
+        const nDiag = (b) => (b.type === 'rect' || b.type === 'tri' ? 0 : NS[b.type] - 3);
+        const sv = (x) => (x == null ? '' : String(x));
+        const clean = (d) => {
+            const o = d && typeof d === 'object' ? d : {};
+            return {
+                unit: ['ftin', 'ft', 'm', 'hat', 'link', 'chain'].includes(o.unit) ? o.unit : 'ftin',
+                blocks: (Array.isArray(o.blocks) ? o.blocks : []).map((b) => ({ id: b.id, name: sv(b.name), owner: sv(b.owner), type: NS[b.type] ? b.type : 'quad', dir: DIRS4.includes(b.dir) ? b.dir : 'N', sides: Array.isArray(b.sides) ? b.sides.map(sv) : [], diags: Array.isArray(b.diags) ? b.diags.map(sv) : [] })),
+                next: Number(o.next) || 1,
+            };
+        };
+        let st = clean(storage.get(KEY, null));
+        st.next = Math.max(st.next, ...st.blocks.map((b) => (b.id || 0) + 1), 1);
+        const save = () => storage.set(KEY, st);
+        const pane = $('[data-svpane="blk"]', ROOT), list = $('#bk-list'), sum = $('#bk-sum');
+
+        /* ---------- lengths ---------- */
+        // "38-2" = 38 ft 2 in; also 38'2", 38 2, 38.5, Bangla digits
+        function len(raw, unit) {
+            const u = unit || st.unit, s0 = CS.toEn(String(raw == null ? '' : raw)).trim();
+            if (!s0) return NaN;
+            if (u === 'ftin') {
+                const m = s0.match(/^(\d+(?:\.\d+)?)\s*(?:['’′]|ft|-|\s)\s*(\d+(?:\.\d+)?)?\s*(?:["”″]|in)?$/i);
+                if (m) return Number(m[1]) + (m[2] ? Number(m[2]) / 12 : 0);
+                const v = Number(s0); return v > 0 ? v : NaN;
+            }
+            const v = Number(s0);
+            return v > 0 ? v * LEN_U[u] : NaN;
+        }
+        const fmtIn = (ft) => (st.unit === 'ftin' ? fmtLen(ft, 'ftin') : `${num(ft / LEN_U[st.unit], 2)} ${t('sv.l.' + st.unit)}`);
+        const rawOf = (ft) => (st.unit === 'ftin' ? (() => { let f = Math.floor(ft + 1e-9), i = Math.round((ft - f) * 12 * 4) / 4; if (i >= 12) { f += 1; i = 0; } return `${f}-${i}`; })() : String(Math.round(ft / LEN_U[st.unit] * 1000) / 1000));
+        const inMode = () => (st.unit === 'ftin' ? 'text' : 'decimal');
+
+        /* ---------- directions ---------- */
+        const DIR8 = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
+        // outward normal of side a→b of polygon P (y grows downwards, north is up)
+        function sideAng(P, i) {
+            let s0 = 0; for (let k = 0; k < P.length; k++) { const p = P[k], q = P[(k + 1) % P.length]; s0 += p[0] * q[1] - q[0] * p[1]; }
+            const a = P[i], b = P[(i + 1) % P.length], dx = b[0] - a[0], dy = b[1] - a[1];
+            const nx = s0 > 0 ? dy : -dy, ny = s0 > 0 ? -dx : dx;
+            return (Math.atan2(nx, -ny) * 180 / Math.PI + 360) % 360;
+        }
+        const dir8 = (ang) => DIR8[Math.round(ang / 45) % 8];
+        const dir4 = (ang) => DIRS4[Math.round(ang / 90) % 4];
+        const vec = (b) => [Math.sin(b * Math.PI / 180), -Math.cos(b * Math.PI / 180)];
+        const bearing = (a, b) => ((Math.atan2(b[0] - a[0], -(b[1] - a[1])) * 180 / Math.PI) + 360) % 360;
+
+        /* =========================================================
+           PLAN: points + straight lines (a line may hold several
+           points = running measurement) + measured spans
+           ========================================================= */
+        const cleanP = (d) => {
+            const o = d && typeof d === 'object' ? d : {};
+            const pts = (Array.isArray(o.pts) ? o.pts : []).filter((p) => p && Number.isFinite(Number(p.x)) && Number.isFinite(Number(p.y))).map((p) => ({ id: Number(p.id), x: Number(p.x), y: Number(p.y) }));
+            const ids = new Set(pts.map((p) => p.id));
+            const lines = (Array.isArray(o.lines) ? o.lines : []).map((l) => ({ id: Number(l.id), k: l.k === 'd' ? 'd' : 's', p: (Array.isArray(l.p) ? l.p : []).map(Number).filter((x) => ids.has(x)), m: (Array.isArray(l.m) ? l.m : []).filter((m) => m && ids.has(Number(m.a)) && ids.has(Number(m.b)) && Number(m.L) > 0).map((m) => ({ a: Number(m.a), b: Number(m.b), L: Number(m.L) })) })).filter((l) => l.p.length >= 2);
+            const faces = {}; Object.entries(o.faces && typeof o.faces === 'object' ? o.faces : {}).forEach(([k, v]) => { if (v) faces[k] = { name: sv(v.name).slice(0, 12), owner: sv(v.owner).slice(0, 50) }; });
+            const nv = Number(o.north);
+            return { pts, lines, faces, north: Number.isFinite(nv) ? ((nv % 360) + 360) % 360 : 0, next: Math.max(Number(o.next) || 1, ...pts.map((p) => p.id + 1), ...lines.map((l) => l.id + 1), 1) };
+        };
+        let P = cleanP(storage.get(PKEY, null));
+        let hist = [JSON.stringify(P)], hi = 0;
+        let F = [], bad = new Map(), maxMis = 0, partDir = new Map();           // derived: faces, misfit spans
+        const savePlan = () => storage.set(PKEY, P);
+        const ptMap = () => new Map(P.pts.map((p) => [p.id, p]));
+        const XY = (id, M) => { const p = (M || ptMap()).get(id); return p ? [p.x, p.y] : null; };
+        const lineById = (id) => P.lines.find((l) => l.id === id);
+        function newPt(x, y) { const p = { id: P.next++, x, y }; P.pts.push(p); return p.id; }
+
+        // split line part i at (x, y) → new point id
+        function splitAt(l, i, x, y) {
+            const id = newPt(x, y);
+            l.p.splice(i + 1, 0, id);
+            return id;
+        }
+        // cross a new side line with the old ones: a shared point where they meet
+        function planarize() {
+            for (let guard = 0; guard < 300; guard++) {
+                const M = ptMap(); let done = true;
+                outer: for (let a = 0; a < P.lines.length; a++) {
+                    const A = P.lines[a]; if (A.k !== 's') continue;
+                    for (let b = a; b < P.lines.length; b++) {
+                        const B = P.lines[b]; if (B.k !== 's') continue;
+                        for (let i = 0; i < A.p.length - 1; i++) for (let j = 0; j < B.p.length - 1; j++) {
+                            if (a === b && Math.abs(i - j) < 2) continue;
+                            const ids = [A.p[i], A.p[i + 1], B.p[j], B.p[j + 1]];
+                            if (new Set(ids).size < 4) continue;
+                            const p = XY(ids[0], M), q = XY(ids[1], M), r = XY(ids[2], M), s0 = XY(ids[3], M);
+                            const d1 = [q[0] - p[0], q[1] - p[1]], d2 = [s0[0] - r[0], s0[1] - r[1]], den = d1[0] * d2[1] - d1[1] * d2[0];
+                            if (Math.abs(den) < 1e-9) continue;
+                            const tt = ((r[0] - p[0]) * d2[1] - (r[1] - p[1]) * d2[0]) / den, uu = ((r[0] - p[0]) * d1[1] - (r[1] - p[1]) * d1[0]) / den;
+                            const e1 = 1e-4, la = Math.hypot(d1[0], d1[1]), lb = Math.hypot(d2[0], d2[1]);
+                            if (tt * la < 0.05 || (1 - tt) * la < 0.05 || uu * lb < 0.05 || (1 - uu) * lb < 0.05 || tt < e1 || uu < e1) {
+                                // a line ending on (or very near) another one → T joint
+                                const onB = (pt, pi) => { if (pi.some((x) => x === pt)) return false; return true; };
+                                void onB; continue;
+                            }
+                            const id = splitAt(A, i, p[0] + d1[0] * tt, p[1] + d1[1] * tt);
+                            const jj = a === b && j > i ? j + 1 : j;
+                            B.p.splice(jj + 1, 0, id);
+                            done = false; break outer;
+                        }
+                    }
+                }
+                if (done) break;
+            }
+        }
+        // drop loose points and middle points nobody needs
+        function cleanup() {
+            const used = new Map();
+            P.lines.forEach((l) => l.p.forEach((id) => used.set(id, (used.get(id) || 0) + 1)));
+            P.lines.forEach((l) => {
+                if (l.p.length <= 2) return;
+                l.p = l.p.filter((id, i) => i === 0 || i === l.p.length - 1 || used.get(id) > 1 || l.m.some((m) => m.a === id || m.b === id) || id === cur);
+            });
+            const live = new Set(); P.lines.forEach((l) => l.p.forEach((id) => live.add(id)));
+            if (cur) live.add(cur);
+            P.pts = P.pts.filter((p) => live.has(p.id));
+            P.lines = P.lines.filter((l) => l.p.length >= 2);
+        }
+
+        /* ---------- constraints, solver, rigidity ---------- */
+        function constraints(idx) {
+            const C = [];
+            P.lines.forEach((l) => {
+                l.m.forEach((m, mi) => { if (idx.has(m.a) && idx.has(m.b) && m.a !== m.b) C.push({ t: 'd', a: idx.get(m.a), b: idx.get(m.b), L: m.L, line: l.id, mi }); });
+                for (let i = 1; i < l.p.length - 1; i++) C.push({ t: 'c', a: idx.get(l.p[0]), p: idx.get(l.p[i]), b: idx.get(l.p[l.p.length - 1]) });
+            });
+            return C;
+        }
+        // residual + gradient (as [index, value] pairs)
+        function rg(c, X) {
+            if (c.t === 'd') {
+                const dx = X[2 * c.a] - X[2 * c.b], dy = X[2 * c.a + 1] - X[2 * c.b + 1], l = Math.hypot(dx, dy) || 1e-9;
+                return [l - c.L, [[2 * c.a, dx / l], [2 * c.a + 1, dy / l], [2 * c.b, -dx / l], [2 * c.b + 1, -dy / l]]];
+            }
+            const xa = X[2 * c.a], ya = X[2 * c.a + 1], xb = X[2 * c.b], yb = X[2 * c.b + 1], xp = X[2 * c.p], yp = X[2 * c.p + 1];
+            const dx = xb - xa, dy = yb - ya, ex = xp - xa, ey = yp - ya, l = Math.hypot(dx, dy) || 1e-9, cr = dx * ey - dy * ex, r = cr / l;
+            const dl = { xa: -dx / l, ya: -dy / l, xb: dx / l, yb: dy / l };
+            return [r, [[2 * c.p, -dy / l], [2 * c.p + 1, dx / l], [2 * c.b, ey / l - r * dl.xb / l], [2 * c.b + 1, -ex / l - r * dl.yb / l], [2 * c.a, (dy - ey) / l - r * dl.xa / l], [2 * c.a + 1, (ex - dx) / l - r * dl.ya / l]]];
+        }
+        function lsolve(A, b, n) {
+            for (let c = 0; c < n; c++) {
+                let piv = c, mx = Math.abs(A[c * n + c]);
+                for (let r = c + 1; r < n; r++) { const v = Math.abs(A[r * n + c]); if (v > mx) { mx = v; piv = r; } }
+                if (mx < 1e-14) return null;
+                if (piv !== c) { for (let k = 0; k < n; k++) { const tmp = A[c * n + k]; A[c * n + k] = A[piv * n + k]; A[piv * n + k] = tmp; } const tb = b[c]; b[c] = b[piv]; b[piv] = tb; }
+                const d = A[c * n + c];
+                for (let r = c + 1; r < n; r++) {
+                    const f = A[r * n + c] / d; if (!f) continue;
+                    for (let k = c; k < n; k++) A[r * n + k] -= f * A[c * n + k];
+                    b[r] -= f * b[c];
+                }
+            }
+            const x = new Float64Array(n);
+            for (let r = n - 1; r >= 0; r--) { let s0 = b[r]; for (let k = r + 1; k < n; k++) s0 -= A[r * n + k] * x[k]; x[r] = s0 / A[r * n + r]; }
+            return x;
+        }
+        function solve() {
+            const n = P.pts.length; if (!n) return;
+            const idx = new Map(P.pts.map((p, i) => [p.id, i])), C = constraints(idx);
+            if (!C.length) return;
+            const N = 2 * n, X = new Float64Array(N); P.pts.forEach((p, i) => { X[2 * i] = p.x; X[2 * i + 1] = p.y; });
+            const X0 = X.slice(), eps = 1e-3;
+            const cost = (Y) => { let s0 = 0; C.forEach((c) => { const r = rg(c, Y)[0]; s0 += r * r; }); for (let i = 0; i < N; i++) s0 += eps * eps * (Y[i] - X0[i]) ** 2; return s0; };
+            let lam = 1e-3, f = cost(X);
+            for (let it = 0; it < 60 && f > 1e-16; it++) {
+                const A = new Float64Array(N * N), g = new Float64Array(N);
+                C.forEach((c) => { const [r, G] = rg(c, X); G.forEach(([i, vi]) => { g[i] += vi * r; G.forEach(([j, vj]) => { A[i * N + j] += vi * vj; }); }); });
+                for (let i = 0; i < N; i++) { g[i] += eps * eps * (X[i] - X0[i]); A[i * N + i] += eps * eps; }
+                let ok = false;
+                for (let tries = 0; tries < 8; tries++) {
+                    const A2 = A.slice(), b2 = new Float64Array(N);
+                    for (let i = 0; i < N; i++) { A2[i * N + i] += lam * (A[i * N + i] + 1e-9); b2[i] = -g[i]; }
+                    const dx = lsolve(A2, b2, N);
+                    if (!dx) { lam *= 10; continue; }
+                    const Y = X.slice(); for (let i = 0; i < N; i++) Y[i] += dx[i];
+                    const f2 = cost(Y);
+                    if (f2 <= f) { X.set(Y); const gain = f - f2; f = f2; lam = Math.max(lam / 4, 1e-9); ok = true; if (gain < 1e-14) it = 99; break; }
+                    lam *= 10;
+                }
+                if (!ok) break;
+            }
+            P.pts.forEach((p, i) => { p.x = X[2 * i]; p.y = X[2 * i + 1]; });
+        }
+        // orthonormal basis of the constraint gradients
+        function basisOf(C, X, N) {
+            const Q = [];
+            C.forEach((c) => {
+                const v = new Float64Array(N); rg(c, X)[1].forEach(([i, x]) => { v[i] += x; });
+                addRow(Q, v);
+            });
+            return Q;
+        }
+        function reduce(Q, v) { for (let pass = 0; pass < 2; pass++) Q.forEach((q) => { let d = 0; for (let i = 0; i < v.length; i++) d += v[i] * q[i]; if (d) for (let i = 0; i < v.length; i++) v[i] -= d * q[i]; }); return v; }
+        function addRow(Q, v) {
+            const n0 = Math.hypot(...v); if (n0 < 1e-12) return;
+            reduce(Q, v); const n1 = Math.hypot(...v);
+            if (n1 > 1e-7 * n0) { for (let i = 0; i < v.length; i++) v[i] /= n1; Q.push(v); }
+        }
+
+        /* ---------- faces of the drawing = blocks ---------- */
+        function faces() {
+            const M = ptMap(), adj = new Map();
+            const add = (u, v) => { if (u === v) return; if (!adj.has(u)) adj.set(u, new Set()); adj.get(u).add(v); };
+            const lineOfPart = new Map();
+            P.lines.forEach((l) => { if (l.k !== 's') return; for (let i = 0; i < l.p.length - 1; i++) { add(l.p[i], l.p[i + 1]); add(l.p[i + 1], l.p[i]); lineOfPart.set(`${l.p[i]}>${l.p[i + 1]}`, l.id); lineOfPart.set(`${l.p[i + 1]}>${l.p[i]}`, l.id); } });
+            const ang = (u, v) => { const a = M.get(u), b = M.get(v); return Math.atan2(b.y - a.y, b.x - a.x); };
+            const order = new Map();
+            adj.forEach((nb, u) => order.set(u, [...nb].sort((x, y) => ang(u, x) - ang(u, y))));
+            const seen = new Set(), out = [];
+            adj.forEach((nb, u0) => nb.forEach((v0) => {
+                if (seen.has(`${u0}>${v0}`)) return;
+                const cyc = []; let u = u0, v = v0;
+                for (let g = 0; g < 2000; g++) {
+                    seen.add(`${u}>${v}`); cyc.push(u);
+                    const o = order.get(v), k = o.indexOf(u), w = o[(k + 1) % o.length];
+                    u = v; v = w;
+                    if (u === u0 && v === v0) break;
+                }
+                // remove dangling spikes u→d→u
+                let c = cyc.slice(), ch2 = true;
+                while (ch2 && c.length > 2) { ch2 = false; for (let i = 0; i < c.length; i++) { const a = c[(i - 1 + c.length) % c.length], b2 = c[(i + 1) % c.length]; if (a === b2) { c.splice(i, 1); const j = i % c.length; c.splice(j, 1); ch2 = true; break; } } }
+                if (c.length < 3) return;
+                const pts = c.map((id) => [M.get(id).x, M.get(id).y]);
+                let s0 = 0; for (let i = 0; i < pts.length; i++) { const p = pts[i], q = pts[(i + 1) % pts.length]; s0 += p[0] * q[1] - q[0] * p[1]; }
+                out.push({ ids: c, pts, s: s0 / 2, lines: c.map((id, i) => lineOfPart.get(`${id}>${c[(i + 1) % c.length]}`)) });
+            }));
+            // bounded faces have one sign; the outline of each piece the other
+            return out.filter((f) => f.s < -1e-6).map((f) => ({ ids: f.ids.slice().reverse(), pts: f.pts.slice().reverse(), lines: f.lines.slice().reverse().map((x, i, a) => a[(i + 1) % a.length]), sft: -f.s }));
+        }
+        function derive() {
+            const n = P.pts.length, idx = new Map(P.pts.map((p, i) => [p.id, i])), C = constraints(idx), N = 2 * n;
+            const X = new Float64Array(N); P.pts.forEach((p, i) => { X[2 * i] = p.x; X[2 * i + 1] = p.y; });
+            bad = new Map(); maxMis = 0;
+            C.forEach((c) => { if (c.t !== 'd') return; const r = Math.abs(rg(c, X)[0]); if (r > Math.max(0.125, c.L * 0.003)) { bad.set(`${c.line}:${c.mi}`, r); maxMis = Math.max(maxMis, r); } });
+            const Q = basisOf(C, X, N);
+            const raw = faces();
+            const spans = new Map(); P.lines.forEach((l) => l.m.forEach((m) => { spans.set(`${m.a}-${m.b}`, m.L); spans.set(`${m.b}-${m.a}`, m.L); }));
+            F = raw.map((f) => {
+                // corners: drop points where the side runs straight on along the same line
+                const k = f.ids.length, corner = f.ids.map((id, i) => f.lines[(i - 1 + k) % k] !== f.lines[i]);
+                const cIdx = f.ids.map((id, i) => i).filter((i) => corner[i]);
+                const cs = cIdx.map((i) => f.ids[i]);
+                let rigid = cs.length >= 3;
+                for (let a = 0; a < cs.length && rigid; a++) for (let b = a + 1; b < cs.length && rigid; b++) {
+                    const ia = idx.get(cs[a]), ib = idx.get(cs[b]), v = new Float64Array(N);
+                    const dx = X[2 * ia] - X[2 * ib], dy = X[2 * ia + 1] - X[2 * ib + 1], l = Math.hypot(dx, dy) || 1;
+                    v[2 * ia] = dx / l; v[2 * ia + 1] = dy / l; v[2 * ib] = -dx / l; v[2 * ib + 1] = -dy / l;
+                    reduce(Q, v); if (Math.hypot(...v) > 1e-5) rigid = false;
+                }
+                // sides between corners (with their direction)
+                const cp = cs.map((id) => XY(id)), sides = cs.map((id, j) => {
+                    const a = cp[j], b = cp[(j + 1) % cs.length], ang0 = (sideAng(cp, j) - P.north + 360) % 360;
+                    return { len: dist(a, b), ang: ang0, d8: dir8(ang0), d4: dir4(ang0) };
+                });
+                if (sides.length) { let k0 = 0; sides.forEach((x, j) => { const d0 = Math.min(x.ang, 360 - x.ang), dk = Math.min(sides[k0].ang, 360 - sides[k0].ang); if (d0 < dk) k0 = j; }); sides.push(...sides.splice(0, k0)); }
+                const key = cs.slice().sort((x, y) => x - y).join(',');
+                const lab = P.faces[key] || {};
+                return { key, ids: f.ids, pts: f.pts, corners: cp, sft: f.sft, rigid, sides, name: lab.name || '', owner: lab.owner || '', src: 'plan' };
+            });
+            partDir = new Map(); const cnt = new Map();
+            F.forEach((f) => f.ids.forEach((id, i) => {
+                const j = (i + 1) % f.ids.length, k = Math.min(id, f.ids[j]) + '-' + Math.max(id, f.ids[j]);
+                cnt.set(k, (cnt.get(k) || 0) + 1); partDir.set(k, dir8((sideAng(f.pts, i) - P.north + 360) % 360));
+            }));
+            cnt.forEach((n0, k) => { if (n0 > 1) partDir.delete(k); });
+            // stable numbering: top to bottom, left to right
+            F.sort((a, b) => { const ca = centroid(a.pts), cb = centroid(b.pts); return Math.abs(ca[1] - cb[1]) > 3 ? ca[1] - cb[1] : ca[0] - cb[0]; });
+            F.forEach((f, i) => { f.no = i + 1; });
+            // forget labels of blocks that no longer exist
+            const keys = new Set(F.map((f) => f.key)); Object.keys(P.faces).forEach((k) => { if (!keys.has(k)) delete P.faces[k]; });
+        }
+        function commit(quiet) {
+            const had = F.length;
+            cleanup(); planarize(); solve(); derive(); savePlan();
+            if (!had && F.length) setTimeout(fit, 0);
+            const snap = JSON.stringify(P);
+            if (snap !== hist[hi]) { hist = hist.slice(0, hi + 1); hist.push(snap); if (hist.length > 120) hist.shift(); hi = hist.length - 1; }
+            draw(); syncBar(); editor(); if (!quiet) blocksUI(); refresh();
+        }
+        function restore(s0) { P = cleanP(JSON.parse(s0)); $('#bp-north').value = String(P.north); cur = null; chainLine = null; selP = null; derive(); savePlan(); draw(); syncBar(); editor(); blocksUI(); refresh(); }
+        function undo() { if (cur && !P.lines.some((l) => l.p.includes(cur))) { cur = null; draw(); syncBar(); return; } if (hi > 0) { hi -= 1; restore(hist[hi]); } }
+        function redo() { if (hi < hist.length - 1) { hi += 1; restore(hist[hi]); } }
+
+        /* ---------- editor: view ---------- */
+        const stage = $('#bp-stage'), cv = $('#bp-canvas'), ctx = cv.getContext('2d');
+        let view = { z: 4, ox: 0, oy: 0 }, fitted = false, cw = 0, ch = 0;
+        let lastMouse = null, tool = 'draw', ortho = true, cur = null, chainLine = null, hover = null, selP = null, gesture = null, dStart = null;
+        const ptrs = new Map();
+        const toS = (p) => [p[0] * view.z + view.ox, p[1] * view.z + view.oy];
+        const toW = (s) => [(s[0] - view.ox) / view.z, (s[1] - view.oy) / view.z];
+        function resize() {
+            const r = stage.getBoundingClientRect();
+            if (!r.width || !r.height) return;
+            cw = r.width; ch = r.height;
+            const d = Math.min(window.devicePixelRatio || 1, 2.5);
+            cv.width = Math.round(cw * d); cv.height = Math.round(ch * d);
+            if (!fitted) fit(); else draw();
+        }
+        new ResizeObserver(resize).observe(stage);
+        function fit() {
+            if (!cw) return;
+            const pts = P.pts.map((p) => [p.x, p.y]);
+            const b = pts.length ? bbox(pts) : { x0: -10, y0: -10, x1: 90, y1: 70 };
+            const w = Math.max(b.x1 - b.x0, 30), h = Math.max(b.y1 - b.y0, 20), pad = 56;
+            view.z = Math.min((cw - pad * 2) / w, (ch - pad * 2) / h);
+            view.ox = cw / 2 - (b.x0 + b.x1) / 2 * view.z; view.oy = ch / 2 - (b.y0 + b.y1) / 2 * view.z;
+            fitted = true; draw();
+        }
+        function zoomAt(s, k) { const w = toW(s); view.z = Math.min(Math.max(view.z * k, 0.05), 400); view.ox = s[0] - w[0] * view.z; view.oy = s[1] - w[1] * view.z; draw(); }
+        let raf = 0;
+        function draw() { if (!raf) raf = requestAnimationFrame(() => { raf = 0; paint(); }); }
+        const FONTS = "'Noto Sans Bengali', Poppins, system-ui, sans-serif";
+        function txt(s, x, y, size, o = {}) {
+            ctx.save(); ctx.font = `${o.bold ? 700 : 600} ${size}px ${FONTS}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+            if (o.rot) { ctx.translate(x, y); ctx.rotate(o.rot); x = 0; y = 0; }
+            ctx.lineJoin = 'round'; ctx.lineWidth = 3.5; ctx.strokeStyle = o.halo; ctx.strokeText(s, x, y);
+            ctx.fillStyle = o.color; ctx.fillText(s, x, y); ctx.restore();
+        }
+        const spanOf = (l, a, b) => l.m.findIndex((m) => (m.a === a && m.b === b) || (m.a === b && m.b === a));
+        function snapStep() { const t0 = 10 / view.z, p = 10 ** Math.floor(Math.log10(t0)), m = t0 / p; return (m < 1.5 ? 1 : m < 3.5 ? 2 : m < 7.5 ? 5 : 10) * p; }
+        function paint() {
+            if (!cw) return;
+            const d = Math.min(window.devicePixelRatio || 1, 2.5);
+            ctx.setTransform(d, 0, 0, d, 0, 0);
+            const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+            const ink = dark ? '#e2e8f0' : '#1e293b', mut = dark ? '#94a3b8' : '#64748b', halo = dark ? 'rgba(17,28,46,.92)' : 'rgba(255,255,255,.94)';
+            const brand = getComputedStyle(document.documentElement).getPropertyValue('--brand').trim() || '#0d9488';
+            ctx.fillStyle = dark ? '#111c2e' : '#fbfcfd'; ctx.fillRect(0, 0, cw, ch);
+            const step = (() => { const t0 = 24 / view.z, p = 10 ** Math.floor(Math.log10(t0)), m = t0 / p; return (m < 1.5 ? 1 : m < 3.5 ? 2 : m < 7.5 ? 5 : 10) * p; })();
+            const w0 = toW([0, 0]);
+            ctx.lineWidth = 1;
+            for (let gx = Math.floor(w0[0] / step), X; (X = gx * step * view.z + view.ox) <= cw; gx++) { ctx.strokeStyle = gx % 5 ? (dark ? 'rgba(148,163,184,.08)' : 'rgba(30,41,59,.05)') : (dark ? 'rgba(148,163,184,.17)' : 'rgba(30,41,59,.11)'); ctx.beginPath(); ctx.moveTo(X, 0); ctx.lineTo(X, ch); ctx.stroke(); }
+            for (let gy = Math.floor(w0[1] / step), Y; (Y = gy * step * view.z + view.oy) <= ch; gy++) { ctx.strokeStyle = gy % 5 ? (dark ? 'rgba(148,163,184,.08)' : 'rgba(30,41,59,.05)') : (dark ? 'rgba(148,163,184,.17)' : 'rgba(30,41,59,.11)'); ctx.beginPath(); ctx.moveTo(0, Y); ctx.lineTo(cw, Y); ctx.stroke(); }
+            const M = ptMap();
+            // blocks
+            F.forEach((f) => {
+                const on = selP && selP.k === 'face' && selP.key === f.key;
+                ctx.beginPath(); f.pts.forEach((p, i) => { const s = toS(p); if (i) ctx.lineTo(s[0], s[1]); else ctx.moveTo(s[0], s[1]); }); ctx.closePath();
+                ctx.fillStyle = on ? 'rgba(13,148,136,.26)' : f.rigid ? 'rgba(13,148,136,.1)' : 'rgba(245,158,11,.1)'; ctx.fill();
+            });
+            // lines
+            P.lines.forEach((l) => {
+                const S = l.p.map((id) => toS(XY(id, M)));
+                for (let i = 0; i < S.length - 1; i++) {
+                    const A = S[i], B = S[i + 1], on = selP && selP.k === 'part' && selP.line === l.id && selP.i === i;
+                    const mi = spanOf(l, l.p[i], l.p[i + 1]), isBad = mi >= 0 && bad.has(`${l.id}:${mi}`);
+                    ctx.save();
+                    if (on) { ctx.strokeStyle = '#f59e0b'; ctx.lineWidth = 7; ctx.beginPath(); ctx.moveTo(A[0], A[1]); ctx.lineTo(B[0], B[1]); ctx.stroke(); }
+                    ctx.strokeStyle = l.k === 'd' ? brand : ink; ctx.lineWidth = l.k === 'd' ? 1.6 : 2.4;
+                    if (l.k === 'd') ctx.setLineDash([7, 5]);
+                    ctx.beginPath(); ctx.moveTo(A[0], A[1]); ctx.lineTo(B[0], B[1]); ctx.stroke(); ctx.restore();
+                    const L = Math.hypot(B[0] - A[0], B[1] - A[1]); if (L < (l.k === 'd' ? 190 : 34)) continue;
+                    let rot = Math.atan2(B[1] - A[1], B[0] - A[0]); if (rot > Math.PI / 2) rot -= Math.PI; if (rot < -Math.PI / 2) rot += Math.PI;
+                    const nx = -(B[1] - A[1]) / L, ny = (B[0] - A[0]) / L, off = l.k === 'd' ? -10 : 11;
+                    const ft = dist(XY(l.p[i], M), XY(l.p[i + 1], M));
+                    const pd = l.k === 's' && partDir.get(Math.min(l.p[i], l.p[i + 1]) + '-' + Math.max(l.p[i], l.p[i + 1]));
+                    const s0 = (pd ? t('sv.ds.' + pd) + ' · ' : '') + (mi >= 0 ? fmtIn(l.m[mi].L) : `≈${fmtIn(ft)}`);
+                    const fr = l.k === 'd' ? 0.28 : 0.5;
+                    txt(s0, A[0] + (B[0] - A[0]) * fr + nx * off, A[1] + (B[1] - A[1]) * fr + ny * off, 11, { rot, bold: mi >= 0, color: isBad ? '#dc2626' : mi >= 0 ? (l.k === 'd' ? brand : ink) : mut, halo });
+                }
+                // running totals spanning several parts
+                l.m.forEach((m, mi) => {
+                    const ia = l.p.indexOf(m.a), ib = l.p.indexOf(m.b);
+                    if (ia < 0 || ib < 0 || Math.abs(ia - ib) < 2) return;
+                    const A = toS(XY(m.a, M)), B = toS(XY(m.b, M)), L = Math.hypot(B[0] - A[0], B[1] - A[1]); if (L < 60) return;
+                    let rot = Math.atan2(B[1] - A[1], B[0] - A[0]); if (rot > Math.PI / 2) rot -= Math.PI; if (rot < -Math.PI / 2) rot += Math.PI;
+                    const nx = -(B[1] - A[1]) / L, ny = (B[0] - A[0]) / L;
+                    txt(`${t('sv.e.total')} ${fmtIn(m.L)}`, (A[0] + B[0]) / 2 - nx * 13, (A[1] + B[1]) / 2 - ny * 13, 10.5, { rot, bold: true, color: bad.has(`${l.id}:${mi}`) ? '#dc2626' : brand, halo });
+                });
+            });
+            // block names
+            F.forEach((f) => {
+                const c = toS(labelPt(f.pts));
+                txt(f.name || t('bp.blockN', { n: digits(f.no) }), c[0], c[1] - 9, 13, { bold: true, color: brand, halo });
+                txt(`${f.rigid ? '' : '≈'}${fmtArea(f.sft, 'dec')}`, c[0], c[1] + 8, 11.5, { bold: true, color: f.rigid ? ink : '#b45309', halo });
+            });
+            // points
+            P.pts.forEach((p) => {
+                const s = toS([p.x, p.y]), on = (selP && selP.k === 'pt' && selP.id === p.id) || p.id === cur || p.id === dStart;
+                ctx.beginPath(); ctx.arc(s[0], s[1], on ? 6 : 3.4, 0, 7); ctx.fillStyle = on ? brand : '#fff'; ctx.fill(); ctx.lineWidth = 1.8; ctx.strokeStyle = brand; ctx.stroke();
+            });
+            // preview of the next side
+            let live = '';
+            const from = tool === 'diag' ? dStart : cur;
+            if (from && hover) {
+                const a = XY(from, M), b = [hover.x, hover.y], A = toS(a), B = toS(b);
+                ctx.save(); ctx.strokeStyle = '#f59e0b'; ctx.lineWidth = 2.6; if (tool === 'diag') ctx.setLineDash([7, 5]);
+                ctx.beginPath(); ctx.moveTo(A[0], A[1]); ctx.lineTo(B[0], B[1]); ctx.stroke(); ctx.restore();
+                const typed = len($('#bp-len').value);
+                live = `${typed > 0 ? fmtIn(typed) : fmtIn(dist(a, b))} · ${num((bearing(a, b) - P.north + 360) % 360, 1)}° ${t('sv.ds.' + dir8((bearing(a, b) - P.north + 360) % 360))}`;
+                if (Math.hypot(B[0] - A[0], B[1] - A[1]) > 30) txt(live, (A[0] + B[0]) / 2, (A[1] + B[1]) / 2 - 14, 12, { bold: true, color: '#b45309', halo });
+            }
+            if (hover && (hover.pt || hover.part)) { const s = toS([hover.x, hover.y]); ctx.beginPath(); ctx.arc(s[0], s[1], 9, 0, 7); ctx.strokeStyle = '#f59e0b'; ctx.lineWidth = 2.4; ctx.stroke(); }
+            // direction names along the edges of the drawing area
+            ['N', 'E', 'S', 'W'].forEach((d0, k) => {
+                const b = (P.north + k * 90) * Math.PI / 180, vx = Math.sin(b), vy = -Math.cos(b), m = 16;
+                const kx = vx ? (cw / 2 - m - 22) / Math.abs(vx) : Infinity, ky = vy ? (ch / 2 - m) / Math.abs(vy) : Infinity, r = Math.min(kx, ky);
+                txt(t('sv.dir.' + d0), cw / 2 + vx * r, ch / 2 + vy * r, 13, { bold: true, color: d0 === 'N' ? '#e11d48' : brand, halo });
+            });
+            // compass (drag it to turn north)
+            const CX = cw - 46, CY = 50, R = 30, nb = P.north * Math.PI / 180;
+            ctx.save(); ctx.translate(CX, CY);
+            ctx.beginPath(); ctx.arc(0, 0, R + 12, 0, 7); ctx.fillStyle = halo; ctx.fill(); ctx.strokeStyle = gesture && gesture.k === 'rot' ? '#f59e0b' : 'rgba(100,116,139,.45)'; ctx.lineWidth = 1.5; ctx.stroke();
+            ctx.rotate(nb);
+            ctx.beginPath(); ctx.moveTo(0, -R + 6); ctx.lineTo(7, 3); ctx.lineTo(0, -1); ctx.closePath(); ctx.fillStyle = '#e11d48'; ctx.fill();
+            ctx.beginPath(); ctx.moveTo(0, R - 6); ctx.lineTo(7, -3); ctx.lineTo(0, 1); ctx.closePath(); ctx.fillStyle = ink; ctx.fill();
+            ctx.beginPath(); ctx.moveTo(0, -R + 6); ctx.lineTo(-7, 3); ctx.lineTo(0, -1); ctx.closePath(); ctx.fillStyle = '#9f1239'; ctx.fill();
+            ctx.beginPath(); ctx.moveTo(0, R - 6); ctx.lineTo(-7, -3); ctx.lineTo(0, 1); ctx.closePath(); ctx.fillStyle = mut; ctx.fill();
+            ctx.restore();
+            ['N', 'E', 'S', 'W'].forEach((d0, k) => { const b = nb + k * Math.PI / 2; txt(t('sv.ds.' + d0), CX + Math.sin(b) * (R + 3), CY - Math.cos(b) * (R + 3), 10.5, { bold: true, color: d0 === 'N' ? '#e11d48' : ink, halo }); });
+            txt(`${num(P.north, 0)}°`, CX, CY + R + 22, 9.5, { color: mut, halo });
+            if (!P.lines.length && !cur) txt(t('bp.startHere'), cw / 2, ch / 2, 14, { color: mut, halo });
+            $('#bp-live').textContent = live;
+        }
+
+        /* ---------- editor: snapping ---------- */
+        function nearPt(s, skip) {
+            let best = null, bd = 13;
+            P.pts.forEach((p) => { if (p.id === skip) return; const q = toS([p.x, p.y]), d0 = Math.hypot(q[0] - s[0], q[1] - s[1]); if (d0 < bd) { bd = d0; best = p; } });
+            return best;
+        }
+        function nearPart(s, skip) {
+            const M = ptMap(); let best = null, bd = 9;
+            P.lines.forEach((l) => {
+                if (l.k !== 's') return;
+                for (let i = 0; i < l.p.length - 1; i++) {
+                    if (skip && (l.p[i] === skip || l.p[i + 1] === skip)) continue;
+                    const A = toS(XY(l.p[i], M)), B = toS(XY(l.p[i + 1], M)), d0 = segDist(s, A, B);
+                    if (d0 < bd) {
+                        const dx = B[0] - A[0], dy = B[1] - A[1], tt = Math.max(0, Math.min(1, ((s[0] - A[0]) * dx + (s[1] - A[1]) * dy) / (dx * dx + dy * dy || 1)));
+                        const a = XY(l.p[i], M), b = XY(l.p[i + 1], M);
+                        bd = d0; best = { line: l.id, i, x: a[0] + (b[0] - a[0]) * tt, y: a[1] + (b[1] - a[1]) * tt };
+                    }
+                }
+            });
+            return best;
+        }
+        // direction reference for "right angles": the previous side of the chain
+        function refBearing() {
+            const l = chainLine && lineById(chainLine);
+            if (!l || l.p[l.p.length - 1] !== cur) return P.north;
+            const a = XY(l.p[l.p.length - 2]), b = XY(cur);
+            return a && b ? bearing(a, b) : P.north;
+        }
+        const typedDir = () => { const v = pnum($('#bp-dir').value); return Number.isFinite(v) ? ((v % 360) + 360) % 360 : null; };
+        function target(s, from) {
+            const v = nearPt(s, from); if (v) return { x: v.x, y: v.y, pt: v.id };
+            const pr = nearPart(s, from); if (pr) return { x: pr.x, y: pr.y, part: pr };
+            const w = toW(s), st0 = snapStep(), a = from ? XY(from) : null;
+            if (!a) return { x: Math.round(w[0] / st0) * st0, y: Math.round(w[1] / st0) * st0 };
+            let b = bearing(a, w);
+            const td = typedDir();
+            if (td !== null) b = (td + P.north) % 360;
+            else if (ortho && tool === 'draw') { const r0 = refBearing(); b = r0 + Math.round((b - r0) / 90) * 90; }
+            else b = Math.round(b);
+            const dv = vec(b);
+            let L = (w[0] - a[0]) * dv[0] + (w[1] - a[1]) * dv[1];
+            const typed = len($('#bp-len').value);
+            L = typed > 0 ? typed : Math.max(0, Math.round(L / st0) * st0);
+            return { x: a[0] + dv[0] * L, y: a[1] + dv[1] * L, b };
+        }
+        function resolve(tg) {
+            if (tg.pt) return tg.pt;
+            if (tg.part) { const l = lineById(tg.part.line); return splitAt(l, tg.part.i, tg.part.x, tg.part.y); }
+            return newPt(tg.x, tg.y);
+        }
+
+        /* ---------- editor: adding sides ---------- */
+        function connect(a, b, L, kind) {
+            if (a === b) return false;
+            const M = ptMap();
+            // an existing part between the same two points → only update its length
+            for (const l of P.lines) for (let i = 0; i < l.p.length - 1; i++) {
+                if ((l.p[i] === a && l.p[i + 1] === b) || (l.p[i] === b && l.p[i + 1] === a)) {
+                    if (L > 0) { const mi = spanOf(l, a, b); if (mi >= 0) l.m[mi].L = L; else l.m.push({ a, b, L }); }
+                    chainLine = l.id; return true;
+                }
+            }
+            if (kind === 'd') { P.lines.push({ id: P.next++, k: 'd', p: [a, b], m: L > 0 ? [{ a, b, L }] : [] }); return true; }
+            const cl = chainLine && lineById(chainLine);
+            if (cl && cl.k === 's' && cl.p[cl.p.length - 1] === a && cl.p.length >= 2 && !cl.p.includes(b)) {
+                const p0 = XY(cl.p[cl.p.length - 2], M), p1 = XY(a, M), p2 = XY(b, M);
+                const d1 = bearing(p0, p1), d2 = bearing(p1, p2), diff = Math.abs(((d2 - d1 + 540) % 360) - 180);
+                if (diff < 0.4) { cl.p.push(b); if (L > 0) cl.m.push({ a, b, L }); return true; }
+            }
+            const nl = { id: P.next++, k: 's', p: [a, b], m: L > 0 ? [{ a, b, L }] : [] };
+            P.lines.push(nl); chainLine = nl.id;
+            return true;
+        }
+        // add the next side to target tg (typed length wins)
+        function addSide(tg) {
+            if (!cur) return;
+            const L = len($('#bp-len').value), snapped = !!(tg.pt || tg.part);
+            let t2 = tg;
+            if (!snapped && L > 0) { const a = XY(cur), b = Number.isFinite(tg.b) ? tg.b : bearing(a, [tg.x, tg.y]), dv = vec(b); t2 = { x: a[0] + dv[0] * L, y: a[1] + dv[1] * L }; }
+            if (!snapped && dist(XY(cur), [t2.x, t2.y]) < 1e-6) return;
+            const b = resolve(t2);
+            if (!connect(cur, b, L > 0 ? L : 0, 's')) return;
+            $('#bp-len').value = ''; $('#bp-dir').value = '';
+            cur = snapped ? null : b;
+            if (!cur) chainLine = null;
+            hover = null;
+            commit();
+            keepInView();
+        }
+        function addDir(b) {
+            const L = len($('#bp-len').value);
+            if (!(L > 0)) { toast(t('bp.typeFirst')); $('#bp-len').focus(); return; }
+            if (!cur) { const c = cw ? toW([cw / 2, ch / 2]) : [0, 0]; cur = P.pts.length ? null : newPt(Math.round(c[0]), Math.round(c[1])); if (!cur) { toast(t('bp.start')); return; } }
+            b = (b + P.north) % 360;                       // b is a true bearing (0 = north)
+            const a = XY(cur), dv = vec(b), x = a[0] + dv[0] * L, y = a[1] + dv[1] * L;
+            // landing on an existing point closes the loop
+            const near = P.pts.find((p) => p.id !== cur && Math.hypot(p.x - x, p.y - y) < Math.max(0.6, L * 0.02));
+            addSide(near ? { x: near.x, y: near.y, pt: near.id } : { x, y, b });
+        }
+        function keepInView() {
+            if (!cur) return; const s = toS(XY(cur));
+            if (s[0] < 30 || s[1] < 30 || s[0] > cw - 30 || s[1] > ch - 30) fit();
+        }
+        function endChain() { cur = null; chainLine = null; dStart = null; hover = null; commit(true); }
+
+        /* ---------- editor: pointer ---------- */
+        const pos = (e) => { const r = stage.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
+        stage.addEventListener('pointerdown', (e) => {
+            try { stage.setPointerCapture(e.pointerId); } catch (x) { /* ok */ }
+            const s = pos(e); ptrs.set(e.pointerId, s);
+            if (ptrs.size === 2) { const [a, b] = [...ptrs.values()]; gesture = { k: 'pinch', d: Math.hypot(a[0] - b[0], a[1] - b[1]), m: toW([(a[0] + b[0]) / 2, (a[1] + b[1]) / 2]), z: view.z }; hover = null; return; }
+            if (ptrs.size > 2) return;
+            if (e.button === 1 || e.button === 2) { gesture = { k: 'pan', s, o: [view.ox, view.oy] }; return; }
+            if (Math.hypot(s[0] - (cw - 46), s[1] - 50) < 44) { gesture = { k: 'rot' }; draw(); return; }
+            if (tool === 'select') {
+                const v = nearPt(s); if (v) { selP = { k: 'pt', id: v.id }; gesture = { k: 'mvpt', id: v.id, s }; editor(); draw(); return; }
+                gesture = { k: 'pan', s, o: [view.ox, view.oy], tap: true }; return;
+            }
+            gesture = { k: 'down', s, mouse: e.pointerType === 'mouse' };
+        });
+        stage.addEventListener('pointermove', (e) => {
+            const s = pos(e); if (ptrs.has(e.pointerId)) ptrs.set(e.pointerId, s);
+            lastMouse = s;
+            const g = gesture;
+            if (g && g.k === 'pinch') {
+                if (ptrs.size < 2) return;
+                const [a, b] = [...ptrs.values()], d0 = Math.hypot(a[0] - b[0], a[1] - b[1]), m = [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
+                view.z = Math.min(Math.max(g.z * d0 / Math.max(g.d, 1), 0.05), 400); view.ox = m[0] - g.m[0] * view.z; view.oy = m[1] - g.m[1] * view.z; draw(); return;
+            }
+            if (g && (g.k === 'pan' || (g.tap && Math.hypot(s[0] - g.s[0], s[1] - g.s[1]) > 6))) { g.k = 'pan'; g.moved = true; view.ox = g.o[0] + s[0] - g.s[0]; view.oy = g.o[1] + s[1] - g.s[1]; draw(); return; }
+            if (g && g.k === 'rot') { let b = (Math.atan2(s[0] - (cw - 46), -(s[1] - 50)) * 180 / Math.PI + 360) % 360; b = e.shiftKey ? Math.round(b) : Math.round(b / 5) * 5; P.north = b % 360; $('#bp-north').value = String(P.north); derive(); draw(); return; }
+            if (g && g.k === 'mvpt') { const p = P.pts.find((x) => x.id === g.id), w = toW(s); if (p) { p.x = w[0]; p.y = w[1]; g.moved = true; derive(); draw(); } return; }
+            if (g && g.k === 'down' && Math.hypot(s[0] - g.s[0], s[1] - g.s[1]) > 6) {
+                g.k = 'drag';
+                if (tool === 'draw' && !cur) { cur = resolve(target(g.s)); chainLine = null; }
+                if (tool === 'diag' && !dStart) { const v = nearPt(g.s); if (v) dStart = v.id; }
+            }
+            if (tool === 'draw' && cur && (!g || g.k === 'drag')) { hover = target(s, cur); draw(); return; }
+            if (tool === 'diag' && dStart) { const v = nearPt(s, dStart); hover = v ? { x: v.x, y: v.y, pt: v.id } : { x: toW(s)[0], y: toW(s)[1] }; draw(); return; }
+            if (!g && (tool === 'draw' || tool === 'diag')) { const v = nearPt(s), pr = !v && tool === 'draw' ? nearPart(s) : null; hover = v ? { x: v.x, y: v.y, pt: v.id } : pr ? { x: pr.x, y: pr.y, part: pr } : null; draw(); }
+        });
+        const end = (e) => {
+            const had = ptrs.has(e.pointerId); ptrs.delete(e.pointerId);
+            const g = gesture;
+            if (g && g.k === 'pinch') { if (!ptrs.size) gesture = null; return; }
+            if (!had || !g) return;
+            gesture = null;
+            if (e.type === 'pointercancel') { draw(); return; }
+            const s = pos(e);
+            if (g.k === 'pan') { if (g.tap && !g.moved) pick(s); return; }
+            if (g.k === 'mvpt') { if (g.moved) commit(true); return; }
+            if (g.k === 'rot') { commit(); return; }
+            if (tool === 'erase') { erase(s); return; }
+            if (tool === 'diag') {
+                const v = nearPt(s, dStart);
+                if (!dStart) { if (v) { dStart = v.id; draw(); } else toast(t('bp.h.diag')); return; }
+                if (!v) { toast(t('bp.h.diag')); return; }
+                const L = len($('#bp-len').value);
+                connect(dStart, v.id, L > 0 ? L : 0, 'd');
+                const made = P.lines[P.lines.length - 1];
+                dStart = null; hover = null; $('#bp-len').value = '';
+                commit();
+                if (!(L > 0) && made && made.k === 'd') { selP = { k: 'part', line: made.id, i: 0 }; editor(); draw(); setTimeout(() => { const i0 = $('#bp-e-len'); if (i0) i0.focus(); }, 30); }
+                return;
+            }
+            // draw tool
+            if (!cur) {
+                cur = resolve(target(g.s)); chainLine = null;
+                if (g.k === 'drag') addSide(target(s, cur)); else { draw(); syncBar(); }
+                if (g.mouse) $('#bp-len').focus({ preventScroll: true });
+                return;
+            }
+            addSide(target(s, cur));
+            if (g.mouse) $('#bp-len').focus({ preventScroll: true });
+        };
+        stage.addEventListener('pointerup', end);
+        stage.addEventListener('pointercancel', end);
+        stage.addEventListener('pointerleave', () => { lastMouse = null; if (!gesture && hover) { hover = null; draw(); } });
+        stage.addEventListener('contextmenu', (e) => { e.preventDefault(); if (cur || dStart) endChain(); });
+        stage.addEventListener('wheel', (e) => { e.preventDefault(); zoomAt(pos(e), Math.exp(-e.deltaY * (e.deltaMode ? 0.05 : 0.0015))); }, { passive: false });
+        stage.addEventListener('dblclick', () => { if (cur) endChain(); });
+
+        function pick(s) {
+            const pr = nearPart(s);
+            if (pr) { selP = { k: 'part', line: pr.line, i: pr.i }; editor(); draw(); return; }
+            // diagonals too
+            const M = ptMap();
+            for (const l of P.lines) if (l.k === 'd' && segDist(s, toS(XY(l.p[0], M)), toS(XY(l.p[1], M))) < 9) { selP = { k: 'part', line: l.id, i: 0 }; editor(); draw(); return; }
+            const w = toW(s), f = F.find((x) => inPoly(w, x.pts));
+            selP = f ? { k: 'face', key: f.key } : null;
+            editor(); draw();
+            if (f) { const c = $(`[data-face="${f.key}"]`); if (c) { c.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); const i0 = $('[data-fk="name"]', c); if (i0) i0.focus({ preventScroll: true }); } }
+        }
+        function removePart(l, i) {
+            const A = l.p.slice(0, i + 1), B = l.p.slice(i + 1);
+            const keep = (seg) => l.m.filter((m) => seg.includes(m.a) && seg.includes(m.b));
+            P.lines = P.lines.filter((x) => x !== l);
+            if (A.length >= 2) P.lines.push({ id: l.id, k: l.k, p: A, m: keep(A) });
+            if (B.length >= 2) P.lines.push({ id: P.next++, k: l.k, p: B, m: keep(B) });
+        }
+        function erase(s) {
+            const M = ptMap();
+            for (const l of P.lines) if (l.k === 'd' && segDist(s, toS(XY(l.p[0], M)), toS(XY(l.p[1], M))) < 9) { P.lines = P.lines.filter((x) => x !== l); selP = null; commit(); toast(t('sv.erased')); return; }
+            const pr = nearPart(s); if (!pr) return;
+            removePart(lineById(pr.line), pr.i); selP = null; cur = null; chainLine = null; commit(); toast(t('sv.erased'));
+        }
+
+        /* ---------- editor: keyboard (type 38-2 + Enter, arrows, Ctrl+Z / Ctrl+Y) ---------- */
+        const lenIn = $('#bp-len');
+        const visible = () => !pane.hidden && stage.offsetParent !== null;
+        document.addEventListener('keydown', (e) => {
+            if (!visible()) return;
+            const tg = e.target, inText = tg && (tg.tagName === 'INPUT' || tg.tagName === 'TEXTAREA' || tg.tagName === 'SELECT' || tg.isContentEditable);
+            const mine = tg === lenIn || tg === $('#bp-dir') || tg === stage || !inText;
+            const k = e.key.toLowerCase();
+            if ((e.ctrlKey || e.metaKey) && !e.altKey && (k === 'z' || k === 'y')) {
+                if (inText && !(tg === lenIn && !lenIn.value) && tg !== stage) return;     // let the text box undo its own typing
+                if (!mine && inText) return;
+                e.preventDefault();
+                if (k === 'y' || e.shiftKey) redo(); else undo();
+                return;
+            }
+            if (!mine) return;
+            if (e.key === 'Escape') { if (cur || dStart) { e.preventDefault(); endChain(); } return; }
+            if ((tg === lenIn || tg === $('#bp-dir')) && e.key === 'Enter') {
+                e.preventDefault();
+                if (tool !== 'draw') setTool('draw');
+                if (cur && lastMouse && Math.hypot(...toS(XY(cur)).map((v, i) => v - lastMouse[i])) > 12) addSide(target(lastMouse, cur));
+                else { const td = typedDir(); addDir(td !== null ? td : (cur ? (refBearing() + 90 - P.north + 720) % 360 : 90)); }
+                return;
+            }
+            const AR = { arrowup: 0, arrowright: 90, arrowdown: 180, arrowleft: 270 };
+            if (tg === lenIn && k in AR && lenIn.value.trim()) { e.preventDefault(); if (tool !== 'draw') setTool('draw'); addDir(AR[k]); return; }
+            // typing a length while the drawing has focus
+            if (!inText || tg === stage) {
+                if (/^[0-9০-৯.\-'"]$/.test(e.key) && tool !== 'select' && tool !== 'erase') { e.preventDefault(); lenIn.focus({ preventScroll: true }); lenIn.value += e.key; draw(); }
+            }
+        });
+        lenIn.addEventListener('input', () => { if (cur && lastMouse && gesture == null) hover = target(lastMouse, cur); draw(); });
+
+        /* ---------- toolbar & entry bar ---------- */
+        const HINT = { draw: 'bp.h.draw', diag: 'bp.h.diag', select: 'bp.h.select', erase: 'bp.h.erase' };
+        function setTool(t0) {
+            tool = t0; if (t0 !== 'draw') { cur = null; chainLine = null; } if (t0 !== 'diag') dStart = null; hover = null;
+            $$('[data-bptool]', pane).forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.bptool === t0)));
+            stage.dataset.tool = t0;
+            $('#bp-hint').textContent = t(HINT[t0]);
+            syncBar(); draw();
+        }
+        function syncBar() {
+            $$('[data-bp-unit]', pane).forEach((el) => { el.textContent = t(st.unit === 'ftin' ? 'bk.ftin' : 'sv.l.' + st.unit); });
+            lenIn.setAttribute('inputmode', inMode());
+            $('#bp-undo').disabled = !(hi > 0 || cur); $('#bp-redo').disabled = !(hi < hist.length - 1);
+            $('#bp-end').disabled = !(cur || dStart);
+            const n = F.length, un = F.filter((f) => !f.rigid).length;
+            const msgs = [];
+            if (n) msgs.push(t('bp.stat', { n: digits(n), e: digits(n - un) }));
+            if (maxMis > 0) msgs.push(`<span style="color:#dc2626">${esc(t('bp.misfit', { d: fmtIn(maxMis) }))}</span>`);
+            $('#bp-stat').innerHTML = msgs.map((m0) => (m0.startsWith('<') ? m0 : esc(m0))).join(' · ');
+        }
+        // selected line / point editor
+        function editor() {
+            const el = $('#bp-edit');
+            if (!selP || selP.k === 'face') { el.innerHTML = ''; return; }
+            if (selP.k === 'pt') { el.innerHTML = `<div class="bp-ebox"><span>${esc(t('bp.ptSel'))}</span></div>`; return; }
+            const l = lineById(selP.line); if (!l) { selP = null; el.innerHTML = ''; return; }
+            const i = Math.min(selP.i, l.p.length - 2), a = l.p[i], b = l.p[i + 1], mi = spanOf(l, a, b), M = ptMap();
+            const now = dist(XY(a, M), XY(b, M)), many = l.p.length > 2;
+            const ti = spanOf(l, l.p[0], l.p[l.p.length - 1]);
+            el.innerHTML = `<div class="bp-ebox">
+                <div class="field"><label for="bp-e-len">${esc(t(l.k === 'd' ? 'bp.dg' : 'bp.part'))} (${esc(t(st.unit === 'ftin' ? 'bk.ftin' : 'sv.l.' + st.unit))})</label>
+                    <input class="control" id="bp-e-len" inputmode="${inMode()}" autocomplete="off" value="${mi >= 0 ? esc(rawOf(l.m[mi].L)) : ''}" placeholder="≈ ${esc(rawOf(now))}"></div>
+                ${many ? `<div class="field"><label for="bp-e-tot">${esc(t('bp.total'))}</label><input class="control" id="bp-e-tot" inputmode="${inMode()}" autocomplete="off" value="${ti >= 0 ? esc(rawOf(l.m[ti].L)) : ''}" placeholder="≈ ${esc(rawOf(dist(XY(l.p[0], M), XY(l.p[l.p.length - 1], M))))}"></div>` : ''}
+                <button type="button" class="btn btn-danger btn-sm" data-bpact="delpart"><i class="fa-solid fa-trash-can"></i> ${esc(t('bp.delLine'))}</button>
+                <small class="sv-note" style="grid-column:1/-1;margin:0">${esc(mi >= 0 ? t('bp.measured', { d: fmtIn(now) }) : t('bp.noMeas'))}</small>
+            </div>`;
+        }
+        function setSpan(l, a, b, raw) {
+            const L = len(raw), mi = spanOf(l, a, b);
+            if (L > 0) { if (mi >= 0) l.m[mi].L = L; else l.m.push({ a, b, L }); } else if (mi >= 0) l.m.splice(mi, 1);
+        }
+        pane.addEventListener('change', (e) => {
+            const el = e.target;
+            if ((el.id === 'bp-e-len' || el.id === 'bp-e-tot') && selP && selP.k === 'part') {
+                const l = lineById(selP.line); if (!l) return;
+                const i = Math.min(selP.i, l.p.length - 2);
+                if (el.id === 'bp-e-len') setSpan(l, l.p[i], l.p[i + 1], el.value); else setSpan(l, l.p[0], l.p[l.p.length - 1], el.value);
+                commit(); return;
+            }
+            if (el.dataset.fk) commit(true);
+        });
+        pane.addEventListener('keydown', (e) => { if ((e.target.id === 'bp-e-len' || e.target.id === 'bp-e-tot') && e.key === 'Enter') { e.preventDefault(); e.target.blur(); } });
+        $$('[data-bptool]', pane).forEach((b) => b.addEventListener('click', () => setTool(b.dataset.bptool)));
+        const setNorth = (v) => { if (!Number.isFinite(v)) return; P.north = ((Math.round(v * 10) / 10 % 360) + 360) % 360; $('#bp-north').value = String(P.north); commit(); };
+        $('#bp-north').addEventListener('change', (e) => setNorth(pnum(e.target.value)));
+        $('#bp-north').addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); e.target.blur(); } });
+        $$('[data-bprot]', pane).forEach((b) => b.addEventListener('click', () => setNorth(P.north + Number(b.dataset.bprot))));
+        $('#bp-ortho').addEventListener('click', (e) => { ortho = !ortho; e.currentTarget.setAttribute('aria-pressed', String(ortho)); draw(); });
+        $('#bp-undo').addEventListener('click', undo);
+        $('#bp-redo').addEventListener('click', redo);
+        $('#bp-fit').addEventListener('click', fit);
+        $('#bp-end').addEventListener('click', endChain);
+        $('#bp-add').addEventListener('click', () => { const td = typedDir(); if (tool !== 'draw') setTool('draw'); addDir(td !== null ? td : (cur ? (refBearing() + 90 - P.north + 720) % 360 : 90)); });
+        $$('[data-bpgo]', pane).forEach((b) => b.addEventListener('click', () => { if (tool !== 'draw') setTool('draw'); addDir(Number(b.dataset.bpgo)); }));
+        $('#bp-clear').addEventListener('click', () => { if (!P.lines.length || !window.confirm(t('bp.clearQ'))) return; P = cleanP(null); cur = null; chainLine = null; selP = null; commit(); fit(); });
+
+        /* ---------- example drawing (like a surveyor's block sheet) ---------- */
+        function samplePlan() {
+            P = cleanP(null); cur = null; chainLine = null; selP = null;
+            const rows = [0, 31, 62, 94], cols = [0, 25, 47, 72];
+            const at = (r, c) => {                      // slightly skewed grid of straight lines
+                const yr = (x) => rows[r] + x * (r === 3 ? 0.03 : 0.012 * r), xc = (y) => cols[c] + y * (c === 3 ? 0.025 : 0.01 * c);
+                let x = cols[c], y = rows[r]; for (let k = 0; k < 6; k++) { y = yr(x); x = xc(y); }
+                return [x, y];
+            };
+            const G = rows.map((_, r) => cols.map((__, c) => newPt(...at(r, c))));
+            const M = ptMap(), D0 = (a, b) => Math.round(dist(XY(a, M), XY(b, M)) * 12) / 12;
+            const mk = (ids) => { const l = { id: P.next++, k: 's', p: ids, m: [] }; for (let i = 0; i < ids.length - 1; i++) l.m.push({ a: ids[i], b: ids[i + 1], L: D0(ids[i], ids[i + 1]) }); P.lines.push(l); };
+            rows.forEach((_, r) => mk(G[r]));
+            cols.forEach((_, c) => mk(G.map((row) => row[c])));
+            for (let r = 0; r < 3; r++) for (let c = 0; c < 3; c++) P.lines.push({ id: P.next++, k: 'd', p: [G[r][c], G[r + 1][c + 1]], m: [{ a: G[r][c], b: G[r + 1][c + 1], L: D0(G[r][c], G[r + 1][c + 1]) }] });
+            solve(); derive();
+            const O = [t('bk.o1'), t('bk.o2'), t('bk.o3')], R = ['A', 'B', 'C'];
+            F.forEach((f) => {
+                const c = centroid(f.pts), r = Math.min(2, Math.floor(c[1] / 31.5)), k = Math.min(2, Math.floor(c[0] / 24.5));
+                P.faces[f.key] = { name: `${R[r]}/${k + 1}`, owner: O[r] };
+            });
+            commit(); fit();
+        }
+
+        /* ---------- drawn blocks as cards ---------- */
+        let sig = '';
+        const sideTxt = (sides) => sides.map((s0) => `${t('sv.ds.' + s0.d8)} ${fmtIn(s0.len)}`).join(' · ');
+        function blocksUI() {
+            const box = $('#bp-blocks'), s2 = F.map((f) => f.key).join('|');
+            if (!F.length) { box.innerHTML = `<p class="sv-note" style="margin:0">${esc(t('bp.empty'))}</p>`; sig = ''; return; }
+            if (s2 !== sig) {
+                sig = s2;
+                box.innerHTML = F.map((f) => `<div class="bp-card" data-face="${esc(f.key)}">
+                    <div class="bk-head bp-head">
+                        <input class="control bk-name" data-fk="name" value="${esc(f.name)}" placeholder="${esc(t('bp.blockN', { n: digits(f.no) }))}" aria-label="${esc(t('bk.name'))}" maxlength="12">
+                        <input class="control" data-fk="owner" list="bk-owners" value="${esc(f.owner)}" placeholder="${esc(t('bk.owner'))}" aria-label="${esc(t('bk.owner'))}" maxlength="50">
+                        <button type="button" class="sv-del" data-bpact="show" title="${esc(t('bp.sel'))}" aria-label="${esc(t('bp.sel'))}"><i class="fa-solid fa-location-crosshairs"></i></button>
+                    </div>
+                    <div class="bp-info" data-finfo></div>
+                </div>`).join('');
+            }
+            F.forEach((f) => {
+                const c = $(`[data-face="${CSS.escape(f.key)}"]`, box); if (!c) return;
+                $('[data-finfo]', c).innerHTML = `<div class="bp-area"><b>${f.rigid ? '' : '≈ '}${esc(num(f.sft, 2))} ${esc(t('sv.us.sft'))}</b> <small>${esc(fmtArea(f.sft, 'dec'))} · ${esc(fmtArea(f.sft, 'katha'))}</small>
+                    <span class="bp-badge ${f.rigid ? 'ok' : 'warn'}">${esc(t(f.rigid ? 'bp.exact' : 'bp.approx'))}</span></div>
+                    <div class="bp-sides">${f.sides.map((s0) => `<span><b>${esc(t('sv.dir.' + s0.d8))}</b> ${esc(fmtIn(s0.len))}</span>`).join('')}</div>`;
+                c.classList.toggle('on', !!(selP && selP.k === 'face' && selP.key === f.key));
+            });
+        }
+        $('#bp-blocks').addEventListener('input', (e) => {
+            const el = e.target, c = el.closest('[data-face]'); if (!c || !el.dataset.fk) return;
+            const k = c.dataset.face; P.faces[k] = Object.assign({ name: '', owner: '' }, P.faces[k], { [el.dataset.fk]: el.value });
+            const f = F.find((x) => x.key === k); if (f) f[el.dataset.fk] = el.value;
+            savePlan(); draw(); refresh();
+        });
+        $('#bp-blocks').addEventListener('click', (e) => {
+            const b = e.target.closest('[data-bpact="show"]'); if (!b) return;
+            const k = b.closest('[data-face]').dataset.face; selP = { k: 'face', key: k }; draw(); blocksUI();
+            stage.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        });
+        pane.addEventListener('click', (e) => {
+            const b = e.target.closest('[data-bpact]'); if (!b) return;
+            if (b.dataset.bpact === 'delpart' && selP && selP.k === 'part') { const l = lineById(selP.line); if (l) { if (l.k === 'd') P.lines = P.lines.filter((x) => x !== l); else removePart(l, Math.min(selP.i, l.p.length - 2)); } selP = null; commit(); }
+            if (b.dataset.bpact === 'sample') { if (P.lines.length && !window.confirm(t('bp.sampleQ'))) return; samplePlan(); }
+        });
+
+        /* =========================================================
+           Blocks typed by hand
+           ========================================================= */
+        // block → { sft, pts, err, approx } — pts turned so that side 1–2 faces b.dir
+        function geom(b) {
+            const g = geom0(b);
+            if (g.pts) { const k = DIRS4.indexOf(b.dir || 'N'); for (let r = 0; r < k; r++) g.pts = g.pts.map((p) => [-p[1], p[0]]); }
+            return g;
+        }
+        function geom0(b) {
+            const n = nSides(b), S = b.sides.slice(0, nIn(b)).map((x) => len(x)), Dg = b.diags.slice(0, nDiag(b)).map((x) => len(x));
+            if (S.length < nIn(b) || S.some((x) => !(x > 0))) return { err: 'need' };
+            if (b.type === 'rect') { const [L, W] = S; return { sft: L * W, pts: [[0, 0], [L, 0], [L, W], [0, W]] }; }
+            if (b.type === 'tri') { const A = heron(S[0], S[1], S[2]); if (!(A > 0)) return { err: 'bad' }; return { sft: A, pts: [[0, 0], [S[0], 0], apex([0, 0], [S[0], 0], S[2], S[1], 1)] }; }
+            if (Dg.length < nDiag(b) || Dg.some((x) => !(x > 0))) {
+                if (n !== 4) return { err: 'diag' };
+                const [a, b2, c, d] = S, A = (a + c) / 2 * (b2 + d) / 2;          // average method, flagged as estimate
+                const dg = Math.min(Math.max(Math.hypot((a + c) / 2, (b2 + d) / 2), Math.abs(a - b2) + 0.01, Math.abs(c - d) + 0.01), a + b2 - 0.01, c + d - 0.01);
+                const P2 = apex([0, 0], [a, 0], dg, b2, 1), P3 = P2 && apex([0, 0], P2, d, c, 1);
+                return { sft: A, pts: P2 && P3 ? [[0, 0], [a, 0], P2, P3] : null, approx: true };
+            }
+            const Q = [[0, 0], [S[0], 0]];
+            let A = 0;
+            for (let k = 2; k < n; k++) {
+                const d0k = k <= n - 2 ? Dg[k - 2] : S[n - 1];
+                const d0prev = k === 2 ? S[0] : Dg[k - 3];
+                const tA = heron(d0prev, S[k - 1], d0k);
+                if (!(tA > 0)) return { err: 'bad' };
+                A += tA;
+                const C = apex(Q[0], Q[k - 1], d0k, S[k - 1], 1);
+                if (!C) return { err: 'bad' };
+                Q.push(C);
+            }
+            return { sft: A, pts: Q };
+        }
+        // direction of every side of a typed block
+        function manualSides(b, g) {
+            const n = nSides(b), S = b.type === 'rect' ? (() => { const v = b.sides.slice(0, 2).map((x) => len(x)); return [v[0], v[1], v[0], v[1]]; })() : b.sides.slice(0, n).map((x) => len(x));
+            const k0 = DIRS4.indexOf(b.dir || 'N');
+            return S.map((L, i) => {
+                let ang;
+                if (g.pts && g.pts.length === n) ang = sideAng(g.pts, i);
+                else ang = ((k0 + i) % 4) * 90;
+                return { len: L, ang, d8: dir8(ang), d4: dir4(ang) };
+            });
+        }
+        function thumb(b, g) {
+            if (!g.pts) return `<div class="bk-thumb empty"><i class="fa-solid fa-draw-polygon"></i></div>`;
+            const Pp = g.pts, bb = bbox(Pp), W = 220, H = 150, pad = 30;
+            const k = Math.min((W - pad * 2) / Math.max(bb.x1 - bb.x0, 1e-6), (H - pad * 2) / Math.max(bb.y1 - bb.y0, 1e-6));
+            const X = (p) => pad + (p[0] - bb.x0) * k + (W - pad * 2 - (bb.x1 - bb.x0) * k) / 2, Y = (p) => pad + (p[1] - bb.y0) * k + (H - pad * 2 - (bb.y1 - bb.y0) * k) / 2;
+            const c = centroid(Pp), n = Pp.length, sides = manualSides(b, g);
+            const diags = b.type === 'rect' || b.type === 'tri' || g.approx ? [] : Pp.slice(2, n - 1).map((q) => `<line x1="${X(Pp[0])}" y1="${Y(Pp[0])}" x2="${X(q)}" y2="${Y(q)}" stroke="var(--brand)" stroke-dasharray="4 3" stroke-width="1.3"/>`);
+            const labs = Pp.map((p, i) => { const q = Pp[(i + 1) % n], mx = (X(p) + X(q)) / 2, my = (Y(p) + Y(q)) / 2, dx = mx - X(c), dy = my - Y(c), L = Math.hypot(dx, dy) || 1; return `<text x="${mx + dx / L * 12}" y="${my + dy / L * 12 + 3}" text-anchor="middle" font-size="9" font-weight="600" fill="var(--ink-2)">${esc(t('sv.ds.' + (sides[i] ? sides[i].d8 : 'N')))} ${esc(fmtLen(dist(p, q), 'ftin'))}</text>`; }).join('');
+            const nums = Pp.map((p, i) => `<text x="${X(p)}" y="${Y(p) - 4}" text-anchor="middle" font-size="8" fill="var(--muted)">${digits(i + 1)}</text>`).join('');
+            return `<svg class="bk-thumb" viewBox="0 0 ${W} ${H}"><polygon points="${Pp.map((p) => `${X(p)},${Y(p)}`).join(' ')}" fill="rgba(var(--brand-rgb), .14)" stroke="var(--brand)" stroke-width="2"${g.approx ? ' stroke-dasharray="6 4"' : ''}/>${diags.join('')}${labs}${nums}<text x="${X(c)}" y="${Y(c) + 4}" text-anchor="middle" font-size="12" font-weight="700" fill="var(--brand-ink)">${esc(b.name || '')}</text><g transform="translate(${W - 12},14)"><path d="M0,-9 L4,5 L0,2 L-4,5Z" fill="#e11d48"/><text y="-11" text-anchor="middle" font-size="8" font-weight="700" fill="var(--ink-2)">${esc(t('sv.e.n'))}</text></g></svg>`;
+        }
+        function card(b, i) {
+            const n = nSides(b), inputs = [];
+            if (b.type === 'rect') inputs.push(['s0', t('bk.len')], ['s1', t('bk.wid')]);
+            else for (let k = 0; k < n; k++) inputs.push([`s${k}`, t('bk.side', { a: digits(k + 1), b: digits(((k + 1) % n) + 1) })]);
+            for (let k = 0; k < nDiag(b); k++) inputs.push([`d${k}`, t('bk.diag', { a: digits(1), b: digits(k + 3) }), true]);
+            const types = ['rect', 'tri', 'quad', 'p5', 'p6', 'p7', 'p8'].map((ty) => `<option value="${ty}"${ty === b.type ? ' selected' : ''}>${esc(t('bk.t.' + ty))}</option>`).join('');
+            const dirs = DIRS4.map((d0) => `<option value="${d0}"${d0 === b.dir ? ' selected' : ''}>${esc(t('sv.dir.' + d0))}</option>`).join('');
+            return `<div class="bk-card" data-b="${i}">
+                <div class="bk-head">
+                    <input class="control bk-name" data-bk="name" value="${esc(b.name)}" placeholder="${esc(t('bk.name'))}" aria-label="${esc(t('bk.name'))}" maxlength="12">
+                    <input class="control" data-bk="owner" list="bk-owners" value="${esc(b.owner)}" placeholder="${esc(t('bk.owner'))}" aria-label="${esc(t('bk.owner'))}" maxlength="50">
+                    <select class="control" data-bk="type" aria-label="${esc(t('bk.type'))}">${types}</select>
+                    <button type="button" class="sv-del" data-bkact="copy" data-i="${i}" title="${esc(t('bk.copy'))}" aria-label="${esc(t('bk.copy'))}"><i class="fa-solid fa-copy"></i></button>
+                    <button type="button" class="sv-del" data-bkact="del" data-i="${i}" title="${esc(t('bk.del'))}" aria-label="${esc(t('bk.del'))}"><i class="fa-solid fa-trash-can"></i></button>
+                </div>
+                <div class="bk-body">
+                    <div>
+                        <label class="bk-dir"><span>${esc(t('bp.firstDir'))}</span><select class="control" data-bk="dir">${dirs}</select></label>
+                        <div class="bk-ins">${inputs.map(([k, lab, dg]) => `<label class="${dg ? 'dg' : ''}"><span>${esc(lab)}${dg ? '' : ` <em data-sd="${k}"></em>`}</span><input class="control" data-bk="${k}" inputmode="${inMode()}" autocomplete="off" value="${esc((k[0] === 's' ? b.sides : b.diags)[Number(k.slice(1))] || '')}" placeholder="${st.unit === 'ftin' ? digits('0-0') : digits(0)}"></label>`).join('')}</div>
+                    </div>
+                    <div class="bk-view" data-bview="${i}"></div>
+                </div>
+            </div>`;
+        }
+        function build() {
+            $('#bk-unit').value = st.unit;
+            list.innerHTML = st.blocks.map(card).join('');
+            $$('[data-bptool]', pane).forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.bptool === tool)));
+            $('#bp-hint').textContent = t(HINT[tool]);
+            $('#bp-north').value = String(P.north);
+            sig = ''; blocksUI(); syncBar(); editor(); draw();
+            refresh();
+        }
+        // every block: from the drawing first, then the typed ones
+        function items() {
+            const out = F.map((f) => ({ name: f.name || t('bp.blockN', { n: digits(f.no) }), owner: f.owner, sft: f.sft, approx: !f.rigid, sides: f.sides, pts: f.pts, src: 'plan' }));
+            st.blocks.forEach((b) => { const g = geom(b); out.push({ name: b.name || '—', owner: b.owner, sft: g.sft > 0 ? g.sft : 0, approx: !!g.approx, sides: g.sft > 0 ? manualSides(b, g) : [], pts: g.pts, b, g, src: 'hand' }); });
+            return out;
+        }
+        function refresh() {
+            st.blocks.forEach((b, i) => {
+                const g = geom(b), v = $(`[data-bview="${i}"]`, list);
+                if (v) v.innerHTML = `${thumb(b, g)}<div class="bk-area">${g.sft > 0 ? `<b>${esc(num(g.sft, 2))} ${esc(t('sv.us.sft'))}</b><small>${esc(fmtArea(g.sft, 'dec'))} · ${esc(fmtArea(g.sft, 'katha'))}</small>` : `<small class="sv-err">${esc(t(g.err === 'bad' ? 'bk.bad' : g.err === 'diag' ? 'bk.needDiag' : 'bk.need'))}</small>`}${g.approx ? `<small style="color:#b45309">${esc(t('bk.approx'))}</small>` : ''}${g.pts ? `<button type="button" class="btn btn-ghost btn-sm" data-bkact="sketch" data-i="${i}"><i class="fa-solid fa-pen-ruler"></i> ${esc(t('bk.toSketch'))}</button>` : ''}</div>`;
+                const sides = manualSides(b, g), c = $(`[data-b="${i}"]`, list);
+                if (c) sides.forEach((s0, k) => { const em = $(`[data-sd="s${k}"]`, c); if (em) em.textContent = `· ${t('sv.dir.' + s0.d8)}`; });
+            });
+            const all = items(), owners = new Map();
+            let grand = 0;
+            all.forEach((it) => { const key = it.owner.trim() || t('bk.noOwner'); if (!owners.has(key)) owners.set(key, []); owners.get(key).push(it); grand += it.sft; });
+            $('#bk-owners').innerHTML = [...new Set(all.map((x) => x.owner.trim()).filter(Boolean))].map((o) => `<option value="${esc(o)}">`).join('');
+            if (!all.length) { sum.innerHTML = `<div class="sv-res-empty"><i class="fa-solid fa-table-cells-large"></i>${esc(t('bp.empty'))}</div>`; return; }
+            const cfg = CFGX();
+            sum.innerHTML = `<div class="bk-owners">${[...owners].map(([o, arr]) => {
+                const tot = arr.reduce((s0, x) => s0 + x.sft, 0);
+                return `<div class="bk-owner"><h4>${esc(o)}</h4><table class="sv-fzt"><thead><tr><th>${esc(t('bk.name'))}</th><th class="num" style="text-align:right">${esc(t('sv.us.sft'))}</th><th class="num" style="text-align:right">${esc(t('sv.us.dec'))}</th></tr></thead>
+                    <tbody>${arr.map((x) => `<tr><td>${esc(x.name)}${x.approx ? ' *' : ''}<small>${esc(sideTxt(x.sides))}</small></td><td class="num">${x.sft > 0 ? esc(num(x.sft, 2)) : '—'}</td><td class="num">${x.sft > 0 ? esc(num(x.sft / AREA_U.dec, 3)) : '—'}</td></tr>`).join('')}</tbody>
+                    <tfoot><tr><td>${esc(t('sv.e.total'))}</td><td class="num">${esc(num(tot, 2))}</td><td class="num">${esc(num(tot / AREA_U.dec, 3))}</td></tr></tfoot></table>
+                    <p class="bk-mixed">${esc(fmtArea(tot, 'katha'))} · ${esc(fmtArea(tot, 'ganda'))}<br>${esc(mixed(tot)[0])}</p></div>`;
+            }).join('')}</div>
+                ${all.some((x) => x.approx) ? `<p class="sv-note" style="margin:.6rem 0 0">* ${esc(t('bp.starNote'))}</p>` : ''}
+                <div class="sv-total" style="margin-top:.9rem"><span>${esc(t('bk.grand'))} (${esc(t('bk.count', { n: digits(all.length) }))})</span><span>${esc(num(grand, 2))} ${esc(t('sv.us.sft'))} · ${esc(fmtArea(grand, 'dec'))} · ${esc(fmtArea(grand, 'katha'))}</span></div>
+                <div class="sv-outbtns">
+                    <button type="button" class="btn btn-soft btn-sm" data-bkout="pdf">${icon('fa-file-pdf')} <span>PDF</span></button>
+                    <button type="button" class="btn btn-soft btn-sm" data-bkout="print">${icon('fa-print')} <span>${esc(t('sv.x.print'))}</span></button>
+                    ${cfg.tools.wa !== false ? `<button type="button" class="btn btn-wa btn-sm" data-bkout="wa"><i class="fa-brands fa-whatsapp"></i> <span>WhatsApp</span></button>` : ''}
+                </div>`;
+        }
+        // printable: drawing + typed-block drawings + table with sides by direction
+        function spec() {
+            const all = items(), rows = [], owners = new Map();
+            all.forEach((it) => { const k = it.owner.trim() || t('bk.noOwner'); if (!owners.has(k)) owners.set(k, []); owners.get(k).push(it); });
+            const byDir = (sides, d0) => sides.filter((s0) => s0.d4 === d0).map((s0) => fmtIn(s0.len)).join(' + ') || '—';
+            let grand = 0; const notes = [];
+            owners.forEach((arr, o) => {
+                let tot = 0;
+                arr.forEach((it) => { rows.push([it.name + (it.approx ? ' *' : ''), o, ...DIRS4.map((d0) => byDir(it.sides, d0)), num(it.sft, 2), num(it.sft / AREA_U.dec, 3)]); tot += it.sft; });
+                if (arr.length > 1 || owners.size > 1) rows.push({ cells: [t('sv.e.total'), o, '', '', '', '', num(tot, 2), num(tot / AREA_U.dec, 3)], bold: true, shade: '#ccfbf1' });
+                notes.push(`${o}: ${fmtArea(tot, 'dec')} = ${fmtArea(tot, 'katha')} = ${mixed(tot)[0]}`);
+                grand += tot;
+            });
+            notes.push(`${t('bk.grand')}: ${mixed(grand)[0]}   ·   ${mixed(grand)[1]}`);
+            if (all.some((x) => x.approx)) notes.push('* ' + t('bp.starNote'));
+            const thumbs = st.blocks.map((b) => { const g = geom(b); return g.pts ? { name: b.name, pts: g.pts, approx: g.approx, diag: !(b.type === 'rect' || b.type === 'tri' || g.approx), sides: manualSides(b, g) } : null; }).filter(Boolean);
+            const M = ptMap();
+            const plan = P.lines.length ? {
+                lines: P.lines.map((l) => ({ k: l.k, pts: l.p.map((id) => XY(id, M)), labels: l.p.slice(0, -1).map((id, i) => { const mi = spanOf(l, id, l.p[i + 1]); const pd = l.k === 's' && partDir.get(Math.min(id, l.p[i + 1]) + '-' + Math.max(id, l.p[i + 1])); return (pd ? t('sv.ds.' + pd) + ' ' : '') + (mi >= 0 ? fmtIn(l.m[mi].L) : `≈${fmtIn(dist(XY(id, M), XY(l.p[i + 1], M)))}`); }) })),
+                faces: F.map((f) => ({ pts: f.pts, name: f.name || t('bp.blockN', { n: digits(f.no) }), sub: `${f.rigid ? '' : '≈'}${fmtArea(f.sft, 'dec')}` })), north: P.north,
+            } : null;
+            const tt = $('#sv-i-title');
+            return {
+                title: (tt && tt.value.trim()) || t('bk.sheet'), lines: [],
+                head: [[t('bk.name'), 'left', 0.9], [t('bk.owner'), 'left', 1.7], ...DIRS4.map((d0) => [t('sv.dir.' + d0), 'left', 1.25]), [t('sv.us.sft'), 'right', 1.15], [t('sv.us.dec'), 'right', 0.95]],
+                rows, foot: [t('bk.grand'), '', '', '', '', '', num(grand, 2), num(grand / AREA_U.dec, 3)],
+                notes, thumbs, plan, total: grand,
+            };
+        }
+
+        pane.addEventListener('input', (e) => {
+            const el = e.target, c = el.closest('[data-b]');
+            if (el.id === 'bk-unit') { st.unit = el.value; save(); build(); return; }
+            if (!c || !el.dataset.bk) return;
+            const b = st.blocks[Number(c.dataset.b)], k = el.dataset.bk;
+            if (k === 'type') { b.type = el.value; save(); build(); return; }
+            if (k === 'dir') { b.dir = el.value; save(); refresh(); return; }
+            if (k === 'name' || k === 'owner') b[k] = el.value;
+            else (k[0] === 's' ? b.sides : b.diags)[Number(k.slice(1))] = el.value;
+            save(); refresh();
+        });
+        pane.addEventListener('click', (e) => {
+            const b0 = e.target.closest('[data-bkact], [data-bkout]');
+            if (!b0) return;
+            if (b0.dataset.bkout) { MAP.work(b0, () => MAP.listOut(b0.dataset.bkout, spec())); return; }
+            const a = b0.dataset.bkact, i = Number(b0.dataset.i);
+            if (a === 'add') {
+                const last = st.blocks[st.blocks.length - 1];
+                st.blocks.push({ id: st.next++, name: '', owner: last ? last.owner : '', type: b0.dataset.t || 'quad', dir: 'N', sides: [], diags: [] });
+                save(); build();
+                const ins = $$('.bk-name', list); if (ins.length) ins[ins.length - 1].focus();
+                return;
+            }
+            if (a === 'del') st.blocks.splice(i, 1);
+            if (a === 'copy') { const b = st.blocks[i]; st.blocks.splice(i + 1, 0, { id: st.next++, name: '', owner: b.owner, type: b.type, dir: b.dir, sides: b.sides.slice(), diags: b.diags.slice() }); }
+            if (a === 'clear') { if (!window.confirm(t('bk.clearQ'))) return; st.blocks = []; }
+            if (a === 'sample') {
+                st.unit = 'ftin';
+                const O = [t('bk.o1'), t('bk.o2'), t('bk.o3')];
+                st.blocks = [
+                    { name: 'A/1', owner: O[0], type: 'quad', sides: ['25-0', '47-0', '25-0', '47-0'], diags: ['53-3'] },
+                    { name: 'A/2', owner: O[0], type: 'tri', sides: ['13-2', '22-0', '17-0'], diags: [] },
+                    { name: 'B/1', owner: O[1], type: 'rect', sides: ['25-0', '41-0'], diags: [] },
+                    { name: 'C/1', owner: O[2], type: 'rect', sides: ['25-0', '37-0'], diags: [] },
+                ].map((b) => Object.assign({ id: st.next++, dir: 'N' }, b));
+            }
+            if (a === 'sketch') {
+                const g = geom(st.blocks[i]);
+                if (g.pts) { SKETCH.addShape(st.blocks[i].name, g.pts); FIELD.useSketch(); setTab('field'); toast(t('bk.sent')); }
+                return;
+            }
+            save(); build();
+        });
+
+        derive();
+        return {
+            build,
+            show() { resize(); if (!fitted) fit(); },
+            geom: (b) => { const g = geom(Object.assign({ type: 'quad', dir: 'N', sides: [], diags: [] }, b)); return g.sft; },
+            _plan: () => ({ P, F, bad, maxMis, cur, hist: hist.length, hi }),
+            _scr: (id) => { const r = stage.getBoundingClientRect(), q = toS(XY(id)); return [r.left + q[0], r.top + q[1]]; },
+            _len: len,
+        };
     })();
 
     /* =========================================================
@@ -2479,9 +4878,9 @@
                 <button type="button" class="btn btn-ghost btn-sm" data-act="pre-apply"><i class="fa-solid fa-check"></i> ${esc(t('sv.sc.apply'))}</button></div>
                 <p class="sv-note">${esc(t('sv.sc.help'))}</p>
 
-                <h4><i class="fa-solid fa-wand-magic-sparkles"></i> ${esc(t('sv.mg.title'))}</h4>
+                ${CFGX().tools.magic !== false ? `<h4><i class="fa-solid fa-wand-magic-sparkles"></i> ${esc(t('sv.mg.title'))}</h4>
                 <p class="sv-note" style="margin:0 0 .5rem">${esc(t('sv.mg.help'))}</p>
-                <button type="button" class="btn btn-soft btn-sm btn-block" data-act="auto-all"><i class="fa-solid fa-wand-magic-sparkles"></i> ${esc(t('sv.mg.all'))}</button>`;
+                <button type="button" class="btn btn-soft btn-sm btn-block" data-act="auto-all"><i class="fa-solid fa-wand-magic-sparkles"></i> ${esc(t('sv.mg.all'))}</button>` : ''}`;
         }
         function secDir() {
             const el = $('#sv-sec-dir'), n = D.north || 0;
@@ -2496,6 +4895,8 @@
         }
         function secGeo() {
             const el = $('#sv-sec-geo');
+            el.hidden = CFGX().tools.kml === false;
+            if (el.hidden) { el.innerHTML = ''; return; }
             const fit = geoTransform();
             const sc = fit && fit.n >= 2 ? (fit.scale - 1) * 100 : 0;
             el.innerHTML = `<h3><i class="fa-solid fa-earth-asia"></i><span>${esc(t('sv.p.geo'))}</span></h3>
@@ -2976,11 +5377,7 @@
                 });
             }
             // footer
-            const fy = H - M / 2 - 150;
-            const d = new Date(), date = digits(`${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}/${d.getFullYear()}`);
-            txt(`${t('sv.e.date')}: ${date}`, bx, fy, 12.5, { align: 'left' });
-            if (I.by) txt(`${t('sv.e.by')}: ${I.by}`, bx + bw, fy, 12.5, { align: 'right' });
-            txt(t('sv.e.note'), W / 2, fy + 75, 10, { color: '#64748b' });
+            footer(g, txt, W, H, M, bx, bw);
             if (!fit) toast(t('sv.x.nofit'));
             return { c, title, paper, land: L.land, fpi, total: tot };
         }
@@ -3021,6 +5418,117 @@
         }
         const work = async (btn, fn) => { if (btn.classList.contains('loading')) return; btn.classList.add('loading'); try { await fn(); } catch (e) { console.warn(e); } btn.classList.remove('loading'); };
         [['#sv-pdf', 'pdf'], ['#sv-png', 'png'], ['#sv-print', 'print'], ['#sv-wa', 'wa']].forEach(([q, kind]) => $(q).addEventListener('click', (e) => work(e.currentTarget, () => deliver(kind, sheet))));
+
+        /* ---------- printable table (inheritance) ---------- */
+        // spec: { title, lines: [text], head: [[label, align, weight]], rows: [[…]], foot: [...], notes: [text] }
+        async function listSheet(spec) {
+            try { await document.fonts.ready; } catch (e) { /* ok */ }
+            const pal = palette(true), k = 2.6, paper = PAPERS[D.print.paper] ? D.print.paper : 'a4', pp = PAPERS[paper];
+            const W = Math.round(pp.w * DPI), H = Math.round(pp.h * DPI), M = 110, bx = M + 40, bw = W - 2 * bx;
+            const c = document.createElement('canvas'); c.width = W; c.height = H;
+            const g = c.getContext('2d'), o0 = { pal, k, v: { z: 1, ox: 0, oy: 0 } };
+            const txt = (s0, x, y, size, opt) => label(g, s0, x, y, o0, size, opt);
+            g.fillStyle = '#fff'; g.fillRect(0, 0, W, H);
+            g.strokeStyle = '#0f172a'; g.lineWidth = 7; g.strokeRect(M / 2, M / 2, W - M, H - M);
+            g.lineWidth = 2; g.strokeRect(M / 2 + 16, M / 2 + 16, W - M - 32, H - M - 32);
+            txt(spec.title, W / 2, 210, 30, { bold: true });
+            let y = 300;
+            spec.lines.forEach((l) => { txt(l, W / 2, y, 14, { color: '#334155' }); y += 62; });
+            const I = D.info, det = [['sv.i.mouza', I.mouza], ['sv.i.khatian', I.khatian], ['sv.i.dag', I.dag], ['sv.i.upazila', I.upazila], ['sv.i.district', I.district]].filter(([, v0]) => v0).map(([kk, v0]) => `${t(kk)}: ${v0}`);
+            if (det.length) { txt(det.join('   •   '), W / 2, y, 12, { color: '#64748b' }); y += 60; }
+            y += 40;
+            // drawings (block division sheet): the whole plan, then typed blocks
+            const nNotes = (spec.notes || []).length, tableNeed = (spec.rows.length + 2) * 54 + nNotes * 62 + 330;
+            let room = H - y - tableNeed;
+            const arrow = (x, yy, r, rot) => {
+                g.save(); g.translate(x, yy); g.rotate((rot || 0) * Math.PI / 180); g.translate(-x, -yy);
+                g.beginPath(); g.moveTo(x, yy - r); g.lineTo(x + r * 0.42, yy + r * 0.45); g.lineTo(x, yy + r * 0.18); g.closePath(); g.fillStyle = '#e11d48'; g.fill();
+                g.beginPath(); g.moveTo(x, yy - r); g.lineTo(x - r * 0.42, yy + r * 0.45); g.lineTo(x, yy + r * 0.18); g.closePath(); g.fillStyle = '#0f172a'; g.fill();
+                g.restore();
+                const b0 = (rot || 0) * Math.PI / 180;
+                txt(t('sv.e.n'), x + Math.sin(b0) * (r + 34), yy - Math.cos(b0) * (r + 34), 11, { bold: true });
+            };
+            const rotOf = (A, B) => { let r0 = Math.atan2(B[1] - A[1], B[0] - A[0]); if (r0 > Math.PI / 2) r0 -= Math.PI; if (r0 < -Math.PI / 2) r0 += Math.PI; return r0; };
+            if (spec.plan && room > 300) {
+                const hasT = spec.thumbs && spec.thumbs.length;
+                const ph = Math.min(1500, hasT ? room * 0.66 : room), pad = 120;
+                let all = []; spec.plan.lines.forEach((l) => { all = all.concat(l.pts); });
+                const b = bbox(all), kk = Math.min((bw - pad * 2) / Math.max(b.x1 - b.x0, 1e-6), (ph - pad * 2) / Math.max(b.y1 - b.y0, 1e-6));
+                const ox = bx + (bw - (b.x1 - b.x0) * kk) / 2, oy = y + (ph - (b.y1 - b.y0) * kk) / 2;
+                const X = (p0) => [ox + (p0[0] - b.x0) * kk, oy + (p0[1] - b.y0) * kk];
+                spec.plan.faces.forEach((f) => { g.beginPath(); f.pts.map(X).forEach((q, j) => (j ? g.lineTo(q[0], q[1]) : g.moveTo(q[0], q[1]))); g.closePath(); g.fillStyle = 'rgba(15,118,110,.07)'; g.fill(); });
+                spec.plan.lines.forEach((l) => {
+                    const S = l.pts.map(X);
+                    g.save(); g.strokeStyle = l.k === 'd' ? '#0f766e' : '#0f172a'; g.lineWidth = l.k === 'd' ? 2.5 : 5; g.lineJoin = 'round';
+                    if (l.k === 'd') g.setLineDash([16, 12]);
+                    g.beginPath(); S.forEach((q, j) => (j ? g.lineTo(q[0], q[1]) : g.moveTo(q[0], q[1]))); g.stroke(); g.restore();
+                    for (let j = 0; j < S.length - 1; j++) {
+                        const A = S[j], B = S[j + 1], L = Math.hypot(B[0] - A[0], B[1] - A[1]); if (L < 70 || !l.labels[j]) continue;
+                        const nx = -(B[1] - A[1]) / L, ny = (B[0] - A[0]) / L, off = l.k === 'd' ? -26 : 28;
+                        const fr = l.k === 'd' ? 0.28 : 0.5;
+                        txt(l.labels[j], A[0] + (B[0] - A[0]) * fr + nx * off, A[1] + (B[1] - A[1]) * fr + ny * off, 8.5, { rot: rotOf(A, B), bold: !l.labels[j].includes('≈'), color: l.k === 'd' ? '#0f766e' : '#334155' });
+                    }
+                });
+                spec.plan.faces.forEach((f) => { const c0 = X(labelPt(f.pts)); txt(f.name, c0[0], c0[1] - 22, 12, { bold: true, color: '#0f766e' }); txt(f.sub, c0[0], c0[1] + 24, 9, { bold: true, color: '#334155' }); });
+                arrow(bx + bw - 70, y + 110, 46, spec.plan.north);
+                y += ph + 30; room -= ph + 30;
+            }
+            if (spec.thumbs && spec.thumbs.length && room > 220) {
+                const n = spec.thumbs.length, cols = Math.min(n, n > 8 ? 5 : 4), rowsN = Math.ceil(n / cols);
+                const cwid = bw / cols, chgt = Math.min(cwid * 0.8, room / rowsN);
+                spec.thumbs.forEach((th, i) => {
+                    const x0 = bx + (i % cols) * cwid, y0 = y + Math.floor(i / cols) * chgt, pad = 80;
+                    const b = bbox(th.pts), kk = Math.min((cwid - pad * 2) / Math.max(b.x1 - b.x0, 1e-6), (chgt - pad * 2) / Math.max(b.y1 - b.y0, 1e-6));
+                    const ox = x0 + (cwid - (b.x1 - b.x0) * kk) / 2, oy = y0 + (chgt - (b.y1 - b.y0) * kk) / 2;
+                    const X = (p0) => [ox + (p0[0] - b.x0) * kk, oy + (p0[1] - b.y0) * kk], Pq = th.pts.map(X), m = Pq.length;
+                    g.beginPath(); Pq.forEach((q, j) => (j ? g.lineTo(q[0], q[1]) : g.moveTo(q[0], q[1]))); g.closePath();
+                    g.fillStyle = 'rgba(15,118,110,.08)'; g.fill();
+                    g.setLineDash(th.approx ? [18, 12] : []); g.strokeStyle = '#0f172a'; g.lineWidth = 4; g.stroke(); g.setLineDash([]);
+                    if (th.diag) { g.setLineDash([14, 10]); g.strokeStyle = '#0f766e'; g.lineWidth = 2.5; Pq.slice(2, m - 1).forEach((q) => { g.beginPath(); g.moveTo(Pq[0][0], Pq[0][1]); g.lineTo(q[0], q[1]); g.stroke(); }); g.setLineDash([]); }
+                    const cc = centroid(Pq);
+                    Pq.forEach((q, j) => { const r = Pq[(j + 1) % m], mx = (q[0] + r[0]) / 2, my = (q[1] + r[1]) / 2, dx = mx - cc[0], dy = my - cc[1], L = Math.hypot(dx, dy) || 1; const sd = th.sides && th.sides[j]; txt(`${sd ? t('sv.ds.' + sd.d8) + ' ' : ''}${fmtLen(dist(th.pts[j], th.pts[(j + 1) % m]), 'ftin')}`, mx + dx / L * 38, my + dy / L * 38, 8, { color: '#334155', bold: true }); });
+                    txt(th.name || '', cc[0], cc[1], 12, { bold: true, color: '#0f766e' });
+                });
+                if (!spec.plan) arrow(bx + bw - 40, y + 70, 36);
+                y += rowsN * chgt + 30;
+            }
+            const tw = spec.head.reduce((s0, h) => s0 + h[2], 0), colX = [];
+            let cx = bx; spec.head.forEach((h) => { const w = bw * h[2] / tw; colX.push([cx, cx + w]); cx += w; });
+            const cell = (i, s0, yy, opt = {}) => { const [a, b] = colX[i], al = spec.head[i][1]; g.font = `${opt.bold ? 700 : 600} ${12 * k}px ${FONT}`; const max = b - a - 40, wd = g.measureText(s0).width; txt(s0, al === 'right' ? b - 20 : a + 20, yy, wd > max ? 12 * max / wd : 12, { align: al, bold: opt.bold, color: opt.color }); };
+            const rowH = Math.max(44, Math.min(80, (H - y - nNotes * 62 - 330) / (spec.rows.length + 2))), ty0 = y;
+            g.fillStyle = '#0f766e'; g.fillRect(bx, y, bw, 84);
+            spec.head.forEach((h, i) => cell(i, h[0], y + 42, { bold: true, color: '#fff' }));
+            y += 84;
+            spec.rows.forEach((r0, ri) => {
+                const r = Array.isArray(r0) ? r0 : r0.cells;
+                if (!Array.isArray(r0) && r0.shade) { g.fillStyle = r0.shade; g.fillRect(bx, y, bw, rowH); } else if (ri % 2) { g.fillStyle = '#f1f5f9'; g.fillRect(bx, y, bw, rowH); }
+                r.forEach((v0, i) => cell(i, String(v0), y + rowH / 2, { bold: i === 0 || (!Array.isArray(r0) && r0.bold) }));
+                y += rowH;
+            });
+            g.strokeStyle = '#0f172a'; g.lineWidth = 3; g.beginPath(); g.moveTo(bx, y); g.lineTo(bx + bw, y); g.stroke();
+            if (spec.foot) { spec.foot.forEach((v0, i) => { if (v0) cell(i, String(v0), y + rowH / 2, { bold: true }); }); y += rowH; }
+            g.strokeStyle = '#cbd5e1'; g.lineWidth = 2; g.strokeRect(bx, ty0, bw, y - ty0);
+            y += 70;
+            (spec.notes || []).forEach((n0) => {
+                // wrap long notes
+                g.font = `600 ${11 * k}px ${FONT}`;
+                const words = String(n0).split(' '); let line = '';
+                words.forEach((w) => { const tst = line ? line + ' ' + w : w; if (g.measureText(tst).width > bw - 40 && line) { txt(line, bx + 20, y, 11, { align: 'left', color: '#334155' }); y += 52; line = w; } else line = tst; });
+                if (line) { txt(line, bx + 20, y, 11, { align: 'left', color: '#334155' }); y += 64; }
+            });
+            footer(g, txt, W, H, M, bx, bw);
+            return { c, title: spec.title, paper, land: false, total: spec.total || 0 };
+        }
+        // date, preparer and the admin's print line
+        function footer(g, txt, W, H, M, bx, bw) {
+            const fy = H - M / 2 - 150, I = D.info;
+            const d = new Date(), date = digits(`${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}/${d.getFullYear()}`);
+            txt(`${t('sv.e.date')}: ${date}`, bx, fy, 12.5, { align: 'left' });
+            if (I.by) txt(`${t('sv.e.by')}: ${I.by}`, bx + bw, fy, 12.5, { align: 'right' });
+            const extra = CFGX().foot[CS.S.lang] || CFGX().foot.bn || '';
+            if (extra) txt(extra, W / 2, fy + 10, 11.5, { color: '#0f766e', bold: true });
+            txt(t('sv.e.note'), W / 2, fy + 75, 10, { color: '#64748b' });
+        }
 
         /* ---------- printable sheet for the field-measure tab ---------- */
         // spec: { shapes: [{ pts (ft, y = south), edges: [text], color, label }], diag, rows: [[label, value]], method, sft, approx, quad }
@@ -3066,6 +5574,7 @@
                 });
                 if (sh.label) { const Lp = S(labelPt(sh.pts)); txt(sh.label, Lp[0], Lp[1], 14, { bold: true, color: '#065f46' }); }
             });
+            (spec.texts || []).forEach((x) => { const q = S([x.x, x.y]); txt(x.s, q[0], q[1], { s: 11, m: 14, b: 20 }[x.size] || 14, { bold: x.size !== 's', color: '#7c2d12' }); });
             if (spec.diag) { const A = S(spec.diag[0]), B = S(spec.diag[1]); g.strokeStyle = '#0f766e'; g.lineWidth = 3; g.setLineDash([18, 12]); g.beginPath(); g.moveTo(A[0], A[1]); g.lineTo(B[0], B[1]); g.stroke(); g.setLineDash([]); }
             g.restore();
             if (spec.quad) { const nWas = D.north; D.north = 0; northArrow(g, bx + bw - 90, by + 120, 48, { pal, k, v: o0.v }); D.north = nWas; }
@@ -3105,19 +5614,18 @@
             let ry = y + 42;
             txt(t('sv.fo.sides'), rx2, ry, 12.5, { align: 'left', bold: true, color: '#0f766e' });
             ry += 30;
+            const rh = Math.max(40, Math.min(64, (H - M - 420 - ry) / Math.max(spec.rows.length, 1)));
             spec.rows.forEach(([a, b], i) => {
-                ry += 64;
-                if (i % 2 === 0) { g.fillStyle = '#f8fafc'; g.fillRect(rx2, ry - 32, colW, 64); }
-                txt(a, rx2 + 24, ry, 11.5, { align: 'left', color: '#334155' });
-                txt(b, rx2 + colW - 24, ry, 12, { align: 'right', bold: true });
+                ry += rh;
+                if (i % 2 === 0) { g.fillStyle = '#f8fafc'; g.fillRect(rx2, ry - rh / 2, colW, rh); }
+                g.font = `600 ${11.5 * k}px ${FONT}`;
+                const fs0 = Math.min(11.5 * rh / 64, 11.5 * (colW * 0.62) / Math.max(g.measureText(a).width, 1));
+                txt(a, rx2 + 24, ry, Math.min(11.5, Math.max(fs0, 7)), { align: 'left', color: '#334155' });
+                txt(b, rx2 + colW - 24, ry, Math.min(12, 12 * rh / 64 + 2), { align: 'right', bold: true });
             });
             ry += 90;
             txt(`${t('sv.fo.method')}: ${spec.method}`, rx2, ry, 11, { align: 'left', color: spec.approx ? '#b45309' : '#0f766e', bold: true });
-            const fy = H - M / 2 - 150;
-            const d = new Date(), date = digits(`${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}/${d.getFullYear()}`);
-            txt(`${t('sv.e.date')}: ${date}`, bx, fy, 12.5, { align: 'left' });
-            if (I.by) txt(`${t('sv.e.by')}: ${I.by}`, bx + bw, fy, 12.5, { align: 'right' });
-            txt(t('sv.e.note'), W / 2, fy + 75, 10, { color: '#64748b' });
+            footer(g, txt, W, H, M, bx, bw);
             if (!fits(fpi)) toast(t('sv.x.nofit'));
             return { c, title, paper, land, fpi, total: spec.sft };
         }
@@ -3180,7 +5688,18 @@
         }
 
         /* ---------- start ---------- */
+        const fresh = !storage.get(STORE, null);
         D = sanitize(storage.get(STORE, null));
+        function useDefaults() {
+            // admin defaults for people who have not set anything yet
+            if (!fresh || D.plots.length || D.img) return;
+            const d = CFGX().defaults;
+            if (RATIOS[d.ratio]) { D.scale.ratio = d.ratio; D.scale.N = RATIOS[d.ratio]; }
+            if (PAPERS[d.paper]) D.print.paper = d.paper;
+            if (['ftin', 'ft', 'm', 'hat', 'link'].includes(d.len)) D.opt.len = d.len;
+            if (['dec', 'katha', 'sft', 'sqm', 'acre'].includes(d.area)) D.opt.area = d.area;
+        }
+        useDefaults();
         hist = [snapshot()]; hi = 0;
         syncHist(); syncOpts();
         setTool('select');
@@ -3196,6 +5715,7 @@
             resize,
             addFromFeet,
             fieldOut(kind, spec) { return deliver(kind, () => fieldSheet(spec)); },
+            listOut(kind, spec) { return deliver(kind, () => listSheet(spec)); },
             work,
             applyShares(list) {
                 const p = sel && plotById(sel);
@@ -3208,6 +5728,14 @@
             },
             show() { resize(); draw(); },
             relabel() { if (!D) return; $('#sv-hint').textContent = t('sv.h.' + tool); syncOpts(); renderSide(); draw(); },
+            config() {
+                useDefaults(); syncOpts();
+                const c = CFGX();
+                $('[data-svtool="magic"]', ROOT).hidden = c.tools.magic === false;
+                if (c.tools.magic === false && tool === 'magic') setTool('select');
+                $('#sv-wa').hidden = c.tools.wa === false;
+                renderSide(); draw();
+            },
             _state: () => ({ D, sel, view, tool, hasImg: !!IMG }),
         };
     })();
@@ -3243,13 +5771,61 @@
     /* =========================================================
        Hook into the site
        ========================================================= */
+    /* ---------- admin settings → the page ---------- */
+    let lockArgs = [false, false, false];
+    function applyConfig() {
+        const c = CFGX();
+        applyUnits();
+        const off = c.enabled === false;
+        $$('[data-link="survey"]').forEach((a) => { const g = a.closest('.side-group'); (g && g.querySelectorAll('.side-link').length === 1 ? g : a).hidden = off; });
+        $$('[data-feature="survey"]').forEach((el) => { el.hidden = off || (el.id === 'survey-showcase' && c.showcase === false); });
+        $$('[data-sk-opt]', ROOT).forEach((el) => { el.hidden = c.tools.sketch === false; });
+        const note = (c.notice[CS.S.lang] || c.notice.bn || c.notice.en || '').trim();
+        $('#sv-notice').hidden = !note; $('span', $('#sv-notice')).textContent = note;
+        if (off && CS.page() === 'survey' && !(CS.isAdmin && CS.isAdmin())) { toast(t('sa.off')); location.hash = 'home'; }
+        MAP.config(); FIELD.render(); CONV.render(); INH.build(); KH.relabel();
+        syncLock();
+    }
+    // the admin form (Admin → Land Survey)
+    const AF = document.getElementById('af-survey');
+    function adminFill(force) {
+        if (!AF || (AF.dataset.dirty === '1' && !force)) return;
+        const c = CFGX(), el = (n) => AF.elements[n];
+        el('svEnabled').checked = c.enabled !== false; el('svPro').checked = c.pro !== false; el('svShowcase').checked = c.showcase !== false;
+        ['map', 'field', 'blk', 'inh', 'kh', 'conv'].forEach((k) => { if (el('free_' + k)) el('free_' + k).checked = !!c.free[k]; });
+        el('tMagic').checked = c.tools.magic !== false; el('tKml').checked = c.tools.kml !== false; el('tWa').checked = c.tools.wa !== false; el('tSketch').checked = c.tools.sketch !== false;
+        el('ratio').value = c.defaults.ratio; el('paper').value = c.defaults.paper; el('len').value = c.defaults.len; el('area').value = c.defaults.area;
+        el('kani').value = c.units.kani; el('ganda').value = c.units.ganda; el('katha').value = c.units.katha;
+        el('noticeBn').value = c.notice.bn || ''; el('noticeEn').value = c.notice.en || ''; el('footBn').value = c.foot.bn || ''; el('footEn').value = c.foot.en || '';
+    }
+    if (AF) {
+        const mark = () => { AF.dataset.dirty = '1'; };
+        AF.addEventListener('input', mark); AF.addEventListener('change', mark);
+        AF.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const el = (n) => AF.elements[n], numOf = (n) => { const v = CS.parseNum(el(n).value); return Number.isFinite(v) && v > 0 ? v : null; };
+            const units = {};
+            for (const k of ['kani', 'ganda', 'katha']) { const v = numOf(k); if (v === null) { toast(t('admin.badNumber')); el(k).focus(); return; } units[k] = v; }
+            const free = {}; ['map', 'field', 'blk', 'inh', 'kh', 'conv'].forEach((k) => { if (el('free_' + k)) free[k] = el('free_' + k).checked; });
+            CS.adminSave({ survey: {
+                enabled: el('svEnabled').checked, pro: el('svPro').checked, showcase: el('svShowcase').checked, free,
+                tools: { magic: el('tMagic').checked, kml: el('tKml').checked, wa: el('tWa').checked, sketch: el('tSketch').checked },
+                defaults: { ratio: el('ratio').value, paper: el('paper').value, len: el('len').value, area: el('area').value },
+                units, notice: { bn: el('noticeBn').value.trim(), en: el('noticeEn').value.trim() }, foot: { bn: el('footBn').value.trim(), en: el('footEn').value.trim() },
+            } }, AF);
+        });
+    }
+
     window.SURVEY = {
         show() { if (tab === 'map') MAP.show(); },
-        relabel() { FIELD.relabel(); CONV.render(); KH.relabel(); MAP.relabel(); renderHome(); },
+        relabel() { FIELD.relabel(); CONV.render(); KH.relabel(); INH.build(); BLOCK.build(); MAP.relabel(); renderHome(); applyConfig(); },
         lock,
-        _map: MAP, _kh: KH,
+        config() { applyConfig(); adminFill(); },
+        adminFill: () => adminFill(),
+        _inhRefresh: () => { if (typeof INH !== 'undefined') INH.build(); },
+        _map: MAP, _kh: KH, _inh: INH, _sk: SKETCH, _blk: BLOCK,
     };
-    setTab(['map', 'field', 'kh', 'conv'].includes(tab) ? tab : 'map');
+    setTab(['map', 'field', 'blk', 'inh', 'kh', 'conv'].includes(tab) ? tab : 'map');
     CS.applyI18n();
     try { const pr = CS.pro ? CS.pro() : { canUse: true }; lock(!pr.canUse, false, false); } catch (e) { /* ok */ }
     if (CS.page() === 'survey') window.SURVEY.show();
